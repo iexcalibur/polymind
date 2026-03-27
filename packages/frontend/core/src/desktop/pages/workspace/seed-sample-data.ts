@@ -4,11 +4,9 @@ import { SpaceService } from '@affine/core/modules/space';
 import { useServices } from '@toeverything/infra';
 import { useEffect, useRef } from 'react';
 
-const SEED_FLAG = 'ploy-note:seeded';
-
 /**
- * Seeds the workspace with sample data on first load.
- * Only runs once per workspace (guarded by localStorage flag + empty check).
+ * Seeds the workspace with sample data if no spaces exist.
+ * Safe to run repeatedly — only seeds when the workspace is empty.
  */
 export function useSeedSampleData() {
   const { spaceService, docsService, workspaceDBService } = useServices({
@@ -20,22 +18,20 @@ export function useSeedSampleData() {
 
   useEffect(() => {
     if (seeded.current) return;
-    if (localStorage.getItem(SEED_FLAG)) return;
-
     seeded.current = true;
 
-    // Wait a tick for DB to be ready, then check if spaces exist
+    // Wait for DB to be ready, then seed if no spaces exist
     const timer = setTimeout(() => {
-      const existingSpaces = spaceService.spaces$.value;
-      if (existingSpaces.length > 0) {
-        // Already has spaces, mark as seeded and skip
-        localStorage.setItem(SEED_FLAG, 'true');
+      try {
+        const existingSpaces = workspaceDBService.db.spaces.find({});
+        if (existingSpaces.length > 0) return;
+      } catch {
+        // DB not ready yet — skip
         return;
       }
 
-      localStorage.setItem(SEED_FLAG, 'true');
       seedData();
-    }, 1500);
+    }, 2000);
 
     return () => clearTimeout(timer);
 
