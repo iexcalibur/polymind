@@ -95,6 +95,22 @@ export const AFFiNE_WORKSPACE_DB_SCHEMA = {
     content: f.string(),
     createdAt: f.number().optional(),
   },
+  /**
+   * Dump Zone — quick-capture inbox items.
+   * Captures text snippets, screenshot OCR results, and URLs
+   * before they are assigned to a Space and converted to docs.
+   */
+  dumpItems: {
+    id: f.string().primaryKey().optional().default(nanoid),
+    type: f.string(), // 'text' | 'image' | 'url'
+    content: f.string(), // extracted/raw text (OCR result for images)
+    sourceUrl: f.string().optional(), // for URL captures
+    suggestedSpaceId: f.string().optional(), // AI-suggested Space
+    isProcessed: f.boolean().optional(), // AI has finished processing
+    movedToSpaceId: f.string().optional(), // set once moved to a Space
+    movedToDocId: f.string().optional(), // the resulting doc id
+    createdAt: f.number().optional(),
+  },
 } as const satisfies DBSchemaBuilder;
 export type AFFiNEWorkspaceDbSchema = typeof AFFiNE_WORKSPACE_DB_SCHEMA;
 

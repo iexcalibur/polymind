@@ -26,6 +26,7 @@ import { configureDocInfoModule } from './doc-info';
 import { configureDocLinksModule } from './doc-link';
 import { configureDocSummaryModule } from './doc-summary';
 import { configureDocsSearchModule } from './docs-search';
+import { configureDumpModule } from './dump';
 import { configureEditorModule } from './editor';
 import { configureEditorSettingModule } from './editor-setting';
 import { configureExplorerIconModule } from './explorer-icon';
@@ -98,6 +99,7 @@ export function configureCommonModules(framework: Framework) {
   configureDocLinksModule(framework);
   configureOrganizeModule(framework);
   configureSpaceModule(framework);
+  configureDumpModule(framework);
   configureFavoriteModule(framework);
   configureNavigationPanelModule(framework);
   configureThemeEditorModule(framework);

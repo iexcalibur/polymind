@@ -222,6 +222,10 @@ export class Workbench extends Entity {
     this.open('/spaces', options);
   }
 
+  openDump(options?: WorkbenchOpenOptions) {
+    this.open('/dump', options);
+  }
+
   openAll(options?: WorkbenchOpenOptions) {
     this.open('/all', options);
   }

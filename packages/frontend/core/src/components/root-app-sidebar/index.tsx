@@ -1,4 +1,3 @@
-// Import is already correct, no changes needed
 import {
   AddPageButton,
   AppDownloadButton,
@@ -12,6 +11,7 @@ import {
 import { ExternalMenuLinkItem } from '@affine/core/modules/app-sidebar/views/menu-item/external-menu-link-item';
 import { AuthService, ServerService } from '@affine/core/modules/cloud';
 import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
+import { DumpService } from '@affine/core/modules/dump';
 import { FeatureFlagService } from '@affine/core/modules/feature-flag';
 import { CMDKQuickSearchService } from '@affine/core/modules/quicksearch/services/cmdk';
 import type { Workspace } from '@affine/core/modules/workspace';
@@ -38,6 +38,7 @@ import {
   NavigationPanelSpaces,
   NavigationPanelTags,
 } from '../../desktop/components/navigation-panel';
+import { sidebarBadge } from '../../desktop/pages/workspace/dump/index.css';
 import { WorkbenchService } from '../../modules/workbench';
 import { WorkspaceNavigator } from '../workspace-selector';
 import {
@@ -55,6 +56,25 @@ import { TemplateDocEntrance } from './template-doc-entrance';
 import { TrashButton } from './trash-button';
 import { UpdaterButton } from './updater-button';
 import UserInfo from './user-info';
+
+const InboxButton = () => {
+  const { workbenchService, dumpService } = useServices({
+    WorkbenchService,
+    DumpService,
+  });
+  const workbench = workbenchService.workbench;
+  const isActive = useLiveData(
+    workbench.location$.selector(loc => loc.pathname === '/dump')
+  );
+  const count = useLiveData(dumpService.pendingCount$());
+
+  return (
+    <MenuLinkItem icon={<ImportIcon />} active={isActive} to={'/dump'}>
+      <span>Inbox</span>
+      {count > 0 && <span className={sidebarBadge}>{count}</span>}
+    </MenuLinkItem>
+  );
+};
 
 export type RootAppSidebarProps = {
   isPublicWorkspace: boolean;
@@ -213,6 +233,7 @@ export const RootAppSidebar = memo((): ReactElement => {
           <AddPageButton />
         </div>
         <AllDocsButton />
+        <InboxButton />
         <AppSidebarJournalButton />
         {sessionStatus === 'authenticated' && <NotificationButton />}
         <AIChatButton />
