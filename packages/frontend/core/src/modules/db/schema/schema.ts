@@ -31,6 +31,11 @@ export const AFFiNE_WORKSPACE_DB_SCHEMA = {
     integrationType: integrationType.optional(),
     createdBy: f.string().optional(),
     updatedBy: f.string().optional(),
+    /**
+     * The Space this document belongs to.
+     * '__system__' is a reserved value for system-generated docs (e.g. canvas docs).
+     */
+    spaceId: f.string().optional(),
   }),
   docCustomPropertyInfo: {
     id: f.string().primaryKey().optional().default(nanoid),
@@ -53,6 +58,22 @@ export const AFFiNE_WORKSPACE_DB_SCHEMA = {
      */
     id: f.string().primaryKey(),
     icon: f.json<IconData>(),
+  },
+  /**
+   * Spaces — first-class knowledge containers (the "second brain" concept).
+   * Each Space has its own list view and canvas view.
+   */
+  spaces: {
+    id: f.string().primaryKey().optional().default(nanoid),
+    name: f.string(),
+    index: f.string().optional(),
+  },
+  /**
+   * Maps a Space to its hidden canvas document (edgeless mode doc).
+   */
+  spaceCanvasDoc: {
+    spaceId: f.string().primaryKey(),
+    canvasDocId: f.string(),
   },
 } as const satisfies DBSchemaBuilder;
 export type AFFiNEWorkspaceDbSchema = typeof AFFiNE_WORKSPACE_DB_SCHEMA;

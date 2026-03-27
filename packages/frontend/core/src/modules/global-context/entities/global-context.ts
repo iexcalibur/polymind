@@ -39,6 +39,12 @@ export class GlobalContext extends Entity {
    */
   isAllDocs = this.define<boolean>('isAllDocs');
 
+  /**
+   * is in space page
+   */
+  isSpace = this.define<boolean>('isSpace');
+  spaceId = this.define<string>('spaceId');
+
   define<T>(key: string, defaultValue: T | null = null) {
     this.memento.set(key, defaultValue);
     const livedata$ = LiveData.from(this.memento.watch<T>(key), defaultValue);

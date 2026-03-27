@@ -21,6 +21,7 @@ import { NumberPropertyFilterProvider } from './impls/filters/number';
 import { PageWidthFilterProvider } from './impls/filters/page-width';
 import { PropertyFilterProvider } from './impls/filters/property';
 import { SharedFilterProvider } from './impls/filters/shared';
+import { SpaceIdFilterProvider } from './impls/filters/space-id';
 import { SystemFilterProvider } from './impls/filters/system';
 import { TagsFilterProvider } from './impls/filters/tags';
 import { TemplateFilterProvider } from './impls/filters/template';
@@ -159,6 +160,12 @@ export function configureCollectionRulesModule(framework: Framework) {
       IntegrationTypeFilterProvider,
       [DocsService]
     )
+    .impl(FilterProvider('system:spaceId'), SpaceIdFilterProvider, [
+      DocsService,
+    ])
+    .impl(FilterProvider('property:spaceId'), SpaceIdFilterProvider, [
+      DocsService,
+    ])
     .impl(
       FilterProvider('property:edgelessTheme'),
       EdgelessThemeFilterProvider,

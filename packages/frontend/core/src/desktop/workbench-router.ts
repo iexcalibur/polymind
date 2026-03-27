@@ -30,6 +30,14 @@ export const workbenchRoutes = [
     lazy: () => import('./pages/workspace/trash-page'),
   },
   {
+    path: '/spaces',
+    lazy: () => import('./pages/workspace/spaces/index'),
+  },
+  {
+    path: '/space/:spaceId',
+    lazy: () => import('./pages/workspace/space/index'),
+  },
+  {
     path: '/:pageId',
     lazy: () => import('./pages/workspace/detail-page/detail-page'),
   },

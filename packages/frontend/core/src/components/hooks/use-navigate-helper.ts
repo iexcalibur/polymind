@@ -123,6 +123,28 @@ export function useNavigateHelper() {
     [navigate]
   );
 
+  const jumpToSpace = useCallback(
+    (
+      workspaceId: string,
+      spaceId: string,
+      logic: RouteLogic = RouteLogic.PUSH
+    ) => {
+      return navigate(`/workspace/${workspaceId}/space/${spaceId}`, {
+        replace: logic === RouteLogic.REPLACE,
+      });
+    },
+    [navigate]
+  );
+
+  const jumpToSpaces = useCallback(
+    (workspaceId: string, logic: RouteLogic = RouteLogic.PUSH) => {
+      return navigate(`/workspace/${workspaceId}/spaces`, {
+        replace: logic === RouteLogic.REPLACE,
+      });
+    },
+    [navigate]
+  );
+
   const openPage = useCallback(
     (workspaceId: string, pageId: string, logic?: RouteLogic) => {
       return jumpToPage(workspaceId, pageId, logic);
@@ -246,6 +268,8 @@ export function useNavigateHelper() {
       jumpToOpenInApp,
       jumpToImportTemplate,
       jumpToWorkspaceSettings,
+      jumpToSpace,
+      jumpToSpaces,
     }),
     [
       jumpToPage,
@@ -263,6 +287,8 @@ export function useNavigateHelper() {
       jumpToOpenInApp,
       jumpToImportTemplate,
       jumpToWorkspaceSettings,
+      jumpToSpace,
+      jumpToSpaces,
     ]
   );
 }
