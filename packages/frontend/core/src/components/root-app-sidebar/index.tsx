@@ -23,6 +23,7 @@ import {
   AllDocsIcon,
   ImportIcon,
   JournalIcon,
+  SearchIcon,
   SettingsIcon,
 } from '@blocksuite/icons/rc';
 import { useLiveData, useService, useServices } from '@toeverything/infra';
@@ -105,6 +106,20 @@ const AllDocsButton = () => {
       <span data-testid="all-pages">
         {t['com.affine.workspaceSubPath.all']()}
       </span>
+    </MenuLinkItem>
+  );
+};
+
+const AISearchButton = () => {
+  const { workbenchService } = useServices({ WorkbenchService });
+  const workbench = workbenchService.workbench;
+  const isActive = useLiveData(
+    workbench.location$.selector(loc => loc.pathname === '/ai-search')
+  );
+
+  return (
+    <MenuLinkItem icon={<SearchIcon />} active={isActive} to={'/ai-search'}>
+      <span>AI Search</span>
     </MenuLinkItem>
   );
 };
@@ -234,6 +249,7 @@ export const RootAppSidebar = memo((): ReactElement => {
         </div>
         <AllDocsButton />
         <InboxButton />
+        <AISearchButton />
         <AppSidebarJournalButton />
         {sessionStatus === 'authenticated' && <NotificationButton />}
         <AIChatButton />

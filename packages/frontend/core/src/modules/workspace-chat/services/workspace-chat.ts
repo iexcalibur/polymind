@@ -1,36 +1,28 @@
 import { LiveData, Service } from '@toeverything/infra';
 import { firstValueFrom, take } from 'rxjs';
 
-import type { DocsService } from '../../doc';
-import type { DocPropertiesStore } from '../../doc/stores/doc-properties';
+import type { SpaceService } from '../../space/services/space';
+import type { SpaceMemoryStore } from '../../space/stores/space-memory';
 import type {
-  SpaceChatMessageRecord,
-  SpaceChatStore,
-} from '../stores/space-chat';
-import type { SpaceMemoryStore } from '../stores/space-memory';
+  WorkspaceChatMessageRecord,
+  WorkspaceChatStore,
+} from '../stores/workspace-chat';
 
 const CLAUDE_API_KEY_KEY = 'ploy-note:claude-api-key';
 const CLAUDE_API_URL = 'https://api.anthropic.com/v1/messages';
 const CLAUDE_MODEL = 'claude-3-5-haiku-20241022';
-/** Maximum number of past messages sent as conversation history */
 const MAX_HISTORY = 10;
 
-interface DocCreationResult {
-  title: string;
-  content: string;
-}
-
-export class SpaceChatService extends Service {
+export class WorkspaceChatService extends Service {
   constructor(
-    private readonly chatStore: SpaceChatStore,
-    private readonly memoryStore: SpaceMemoryStore,
-    private readonly docsService: DocsService,
-    private readonly docPropertiesStore: DocPropertiesStore
+    private readonly chatStore: WorkspaceChatStore,
+    private readonly spaceService: SpaceService,
+    private readonly memoryStore: SpaceMemoryStore
   ) {
     super();
   }
 
-  // ─── API Key management (localStorage, never synced) ─────────────────
+  // ─── API Key (shared with Space Chat) ──────────────────────────────
 
   getApiKey(): string {
     return localStorage.getItem(CLAUDE_API_KEY_KEY) ?? '';
@@ -50,9 +42,9 @@ export class SpaceChatService extends Service {
 
   // ─── Reactive messages ────────────────────────────────────────────────
 
-  messages$(spaceId: string): LiveData<SpaceChatMessageRecord[]> {
-    return LiveData.from<SpaceChatMessageRecord[]>(
-      this.chatStore.watchMessages$(spaceId),
+  messages$(): LiveData<WorkspaceChatMessageRecord[]> {
+    return LiveData.from<WorkspaceChatMessageRecord[]>(
+      this.chatStore.watchMessages$(),
       []
     );
   }
@@ -60,12 +52,9 @@ export class SpaceChatService extends Service {
   // ─── Send a message and stream the response ───────────────────────────
 
   async sendMessage(
-    spaceId: string,
-    spaceName: string,
-    docCount: number,
     userMessage: string,
     onChunk: (chunk: string) => void
-  ): Promise<{ createdDocIds: string[] }> {
+  ): Promise<void> {
     const apiKey = this.getApiKey();
     if (!apiKey) {
       throw new Error(
@@ -74,13 +63,12 @@ export class SpaceChatService extends Service {
     }
 
     // Persist the user message immediately
-    this.chatStore.addMessage(spaceId, 'user', userMessage);
+    this.chatStore.addMessage('user', userMessage);
 
-    // Fetch memories and history in parallel
-    const [memories, allMessages] = await Promise.all([
-      firstValueFrom(this.memoryStore.watchMemories$(spaceId).pipe(take(1))),
-      firstValueFrom(this.chatStore.watchMessages$(spaceId).pipe(take(1))),
-    ]);
+    // Fetch all messages for history
+    const allMessages = await firstValueFrom(
+      this.chatStore.watchMessages$().pipe(take(1))
+    );
 
     // Build conversation history (exclude the message we just added)
     const history = allMessages
@@ -91,11 +79,7 @@ export class SpaceChatService extends Service {
         content: m.content,
       }));
 
-    const systemPrompt = this.buildSystemPrompt(
-      spaceName,
-      docCount,
-      memories.map(m => m.content)
-    );
+    const systemPrompt = await this.buildSystemPrompt();
 
     let fullResponse = '';
     try {
@@ -107,92 +91,67 @@ export class SpaceChatService extends Service {
         onChunk
       );
     } catch (err) {
-      // Remove the user message we optimistically added if the call fails
+      // Remove the user message if the call fails
       const latest = allMessages.at(-1);
       if (latest) this.chatStore.deleteMessage(latest.id);
       throw err;
     }
 
     // Persist the assistant response
-    this.chatStore.addMessage(spaceId, 'assistant', fullResponse);
-
-    // Check for doc creation markers in response
-    const createdDocIds = this.handleDocCreations(fullResponse, spaceId);
-
-    return { createdDocIds };
+    this.chatStore.addMessage('assistant', fullResponse);
   }
 
   // ─── Clear chat history ───────────────────────────────────────────────
 
-  clearHistory(spaceId: string) {
+  clearHistory() {
     this.chatStore
-      .watchMessages$(spaceId)
+      .watchMessages$()
       .pipe(take(1))
       .subscribe(messages => {
         messages.forEach(m => this.chatStore.deleteMessage(m.id));
       });
   }
 
-  // ─── Doc creation from chat ─────────────────────────────────────────
-
-  private parseDocCreations(response: string): DocCreationResult[] {
-    const results: DocCreationResult[] = [];
-    const regex = /<CREATE_DOC title="(.+?)">([\s\S]+?)<\/CREATE_DOC>/g;
-    let match;
-    while ((match = regex.exec(response)) !== null) {
-      results.push({ title: match[1], content: match[2].trim() });
-    }
-    return results;
-  }
-
-  private handleDocCreations(response: string, spaceId: string): string[] {
-    const docs = this.parseDocCreations(response);
-    const createdIds: string[] = [];
-
-    for (const { title, content: _content } of docs) {
-      const doc = this.docsService.createDoc({ title });
-      this.docPropertiesStore.updateDocProperties(doc.id, { spaceId });
-      createdIds.push(doc.id);
-    }
-
-    return createdIds;
-  }
-
   // ─── Internal helpers ─────────────────────────────────────────────────
 
-  private buildSystemPrompt(
-    spaceName: string,
-    docCount: number,
-    memories: string[]
-  ): string {
+  private async buildSystemPrompt(): Promise<string> {
+    const spaces = this.spaceService.spaces$.value;
+
     const lines: string[] = [
-      `You are an intelligent assistant for the "${spaceName}" Space in Ploy-Note, a personal knowledge management app.`,
-      `Your role is to help the user think, plan, and make sense of their knowledge in this Space.`,
+      'You are the global AI assistant for Ploy-Note, a personal knowledge management workspace.',
+      'You have access to information across ALL Spaces in this workspace.',
+      'Your role is to help the user find connections, answer cross-Space questions, and route queries to the right context.',
     ];
 
-    lines.push(
-      docCount > 0
-        ? `\nThis Space contains ${docCount} document${docCount === 1 ? '' : 's'}.`
-        : '\nThis Space has no documents yet.'
-    );
+    if (spaces.length === 0) {
+      lines.push('\nThis workspace has no Spaces yet.');
+    } else {
+      lines.push(`\nThis workspace contains ${spaces.length} Space(s):\n`);
 
-    if (memories.length > 0) {
-      lines.push(
-        `\nPinned context for this Space:\n${memories.map(m => `• ${m}`).join('\n')}`
-      );
+      for (const space of spaces) {
+        const spaceName = space.name$.value;
+        const docIds = this.spaceService.getSpaceDocIds$(space.id).value;
+        const docCount = docIds.length;
+
+        // Fetch memories for this space
+        const memories = await firstValueFrom(
+          this.memoryStore.watchMemories$(space.id).pipe(take(1))
+        );
+
+        const memoryStr =
+          memories.length > 0
+            ? ` | Memories: ${memories.map(m => m.content).join('; ')}`
+            : '';
+
+        lines.push(
+          `- "${spaceName}" (${docCount} doc${docCount === 1 ? '' : 's'})${memoryStr}`
+        );
+      }
     }
 
     lines.push(
-      '\nBe concise, helpful, and stay focused on topics relevant to this Space.'
-    );
-
-    lines.push(
-      `\nWhen the user asks you to create a document (e.g. "create a budget plan", "make a meeting notes template"), generate the document content in markdown format and wrap it in a special marker like this:
-<CREATE_DOC title="Document Title">
-Your markdown content here...
-</CREATE_DOC>
-
-The system will automatically create the document in this Space. You can include headings, lists, tables, and other markdown formatting.`
+      '\nWhen answering, identify which Space(s) are relevant to the question. Synthesize knowledge across Spaces when appropriate.',
+      'Be concise and helpful.'
     );
 
     return lines.join('\n');
@@ -211,7 +170,6 @@ The system will automatically create the document in this Space. You can include
         'Content-Type': 'application/json',
         'x-api-key': apiKey,
         'anthropic-version': '2023-06-01',
-        // Required for direct browser-to-API calls
         'anthropic-dangerous-direct-browser-access': 'true',
       },
       body: JSON.stringify({

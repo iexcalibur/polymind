@@ -1,6 +1,6 @@
 export { Space } from './entities/space';
 export { SpaceService } from './services/space';
-export { SPACE_SYSTEM_ID,SpaceCanvasService } from './services/space-canvas';
+export { SPACE_SYSTEM_ID, SpaceCanvasService } from './services/space-canvas';
 export { SpaceChatService } from './services/space-chat';
 export { SpaceMemoryService } from './services/space-memory';
 export type { SpaceRecord } from './stores/space';
@@ -38,5 +38,10 @@ export function configureSpaceModule(framework: Framework) {
       DocPropertiesStore,
     ])
     .service(SpaceMemoryService, [SpaceMemoryStore])
-    .service(SpaceChatService, [SpaceChatStore, SpaceMemoryStore]);
+    .service(SpaceChatService, [
+      SpaceChatStore,
+      SpaceMemoryStore,
+      DocsService,
+      DocPropertiesStore,
+    ]);
 }

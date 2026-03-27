@@ -250,6 +250,42 @@ const DumpItemCard = ({
   );
 };
 
+// ─── Sub-Space suggestion banner ─────────────────────────────────────────────
+
+interface SubSpaceSuggestion {
+  parentSpaceId: string;
+  suggestedName: string;
+  itemIds: string[];
+}
+
+const SuggestionBanner = ({
+  suggestion,
+  parentSpaceName,
+  onAccept,
+  onDismiss,
+}: {
+  suggestion: SubSpaceSuggestion;
+  parentSpaceName: string;
+  onAccept: () => void;
+  onDismiss: () => void;
+}) => (
+  <div className={styles.suggestionBanner}>
+    <span className={styles.suggestionText}>
+      You have {suggestion.itemIds.length} related items in &quot;
+      {parentSpaceName}&quot;. Create a &quot;{suggestion.suggestedName}&quot;
+      sub-space?
+    </span>
+    <div className={styles.suggestionActions}>
+      <button className={styles.suggestionAccept} onClick={onAccept}>
+        Create
+      </button>
+      <button className={styles.suggestionDismiss} onClick={onDismiss}>
+        Dismiss
+      </button>
+    </div>
+  </div>
+);
+
 // ─── Main page component ──────────────────────────────────────────────────────
 
 export const Component = function DumpZonePage() {
@@ -270,6 +306,49 @@ export const Component = function DumpZonePage() {
     },
     [spaces]
   );
+
+  // ── Sub-Space suggestions ─────────────────────────────────────────────
+  const [suggestions, setSuggestions] = useState<SubSpaceSuggestion[]>([]);
+  const checkRef = useRef(false);
+
+  useEffect(() => {
+    if (checkRef.current) return;
+    const pending = items.filter(i => !i.movedToSpaceId && i.isProcessed);
+    if (pending.length < 3) return;
+    checkRef.current = true;
+
+    dumpService
+      .checkSubSpaceSuggestions()
+      .then(sug => setSuggestions(sug))
+      .catch(() => {})
+      .finally(() => {
+        // Allow re-check after 60 seconds
+        setTimeout(() => {
+          checkRef.current = false;
+        }, 60000);
+      });
+  }, [items, dumpService]);
+
+  const handleAcceptSuggestion = useCallback(
+    (suggestion: SubSpaceSuggestion) => {
+      const subSpaceId = spaceService.createSpace(
+        suggestion.suggestedName,
+        suggestion.parentSpaceId
+      );
+      // Move all suggested items to the new sub-space
+      for (const itemId of suggestion.itemIds) {
+        dumpService.moveToSpace(itemId, subSpaceId);
+      }
+      setSuggestions(prev =>
+        prev.filter(s => s.suggestedName !== suggestion.suggestedName)
+      );
+    },
+    [spaceService, dumpService]
+  );
+
+  const handleDismissSuggestion = useCallback((key: string) => {
+    setSuggestions(prev => prev.filter(s => s.suggestedName !== key));
+  }, []);
 
   // ── Paste handler ────────────────────────────────────────────────────
 
@@ -334,6 +413,17 @@ export const Component = function DumpZonePage() {
             onCaptureText={text => dumpService.captureText(text)}
             onCaptureUrl={url => dumpService.captureUrl(url)}
           />
+
+          {/* Sub-Space suggestions */}
+          {suggestions.map(sug => (
+            <SuggestionBanner
+              key={sug.suggestedName}
+              suggestion={sug}
+              parentSpaceName={spaceMap(sug.parentSpaceId) ?? 'Unknown'}
+              onAccept={() => handleAcceptSuggestion(sug)}
+              onDismiss={() => handleDismissSuggestion(sug.suggestedName)}
+            />
+          ))}
 
           {/* Items list */}
           <div className={styles.itemsList}>

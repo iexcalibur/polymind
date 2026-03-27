@@ -16,6 +16,7 @@ export class Space extends Entity<{ id: string }> {
 
   name$ = this.record$.map(r => r?.name ?? '');
   index$ = this.record$.map(r => r?.index ?? '');
+  parentSpaceId$ = this.record$.map(r => r?.parentSpaceId);
 
   rename(name: string) {
     this.store.updateSpace(this.id, { name });

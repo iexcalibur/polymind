@@ -100,6 +100,100 @@ export class DumpService extends Service {
     return sessionStorage.getItem(`${IMG_SESSION_PREFIX}${id}`);
   }
 
+  // ─── Sub-Space suggestions ───────────────────────────────────────────
+
+  /**
+   * Check if pending items cluster around a sub-theme within a Space,
+   * and suggest creating a Sub-Space for them.
+   */
+  async checkSubSpaceSuggestions(): Promise<
+    Array<{ parentSpaceId: string; suggestedName: string; itemIds: string[] }>
+  > {
+    const apiKey = localStorage.getItem(CLAUDE_API_KEY_KEY);
+    if (!apiKey) return [];
+
+    const pending = this.pendingItems$().value;
+    if (pending.length < 3) return [];
+
+    // Group by suggested space
+    const groups = new Map<string, typeof pending>();
+    for (const item of pending) {
+      if (!item.suggestedSpaceId) continue;
+      const existing = groups.get(item.suggestedSpaceId) ?? [];
+      existing.push(item);
+      groups.set(item.suggestedSpaceId, existing);
+    }
+
+    const suggestions: Array<{
+      parentSpaceId: string;
+      suggestedName: string;
+      itemIds: string[];
+    }> = [];
+
+    for (const [spaceId, items] of groups.entries()) {
+      if (items.length < 3) continue;
+
+      const space = this.spaceService.spaces$.value.find(s => s.id === spaceId);
+      if (!space) continue;
+
+      const spaceName = space.name$.value;
+      const itemSummaries = items
+        .slice(0, 10)
+        .map(it => it.content.slice(0, 100))
+        .join('\n');
+
+      try {
+        const res = await fetch(API_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': apiKey,
+            'anthropic-version': '2023-06-01',
+            'anthropic-dangerous-direct-browser-access': 'true',
+          },
+          body: JSON.stringify({
+            model: FAST_MODEL,
+            max_tokens: 120,
+            messages: [
+              {
+                role: 'user',
+                content: `These ${items.length} items are all categorized into the "${spaceName}" Space:
+
+${itemSummaries}
+
+Do they share a specific sub-theme that warrants creating a sub-space? If yes, suggest a short sub-space name.
+
+Reply with ONLY valid JSON:
+{"shouldCreate":true/false,"subSpaceName":"name or null"}`,
+              },
+            ],
+          }),
+        });
+
+        if (!res.ok) continue;
+        const data = (await res.json()) as {
+          content: Array<{ type: string; text: string }>;
+        };
+        const parsed = JSON.parse(data.content[0]?.text ?? '{}') as {
+          shouldCreate?: boolean;
+          subSpaceName?: string | null;
+        };
+
+        if (parsed.shouldCreate && parsed.subSpaceName) {
+          suggestions.push({
+            parentSpaceId: spaceId,
+            suggestedName: parsed.subSpaceName,
+            itemIds: items.map(it => it.id),
+          });
+        }
+      } catch {
+        // ignore AI errors
+      }
+    }
+
+    return suggestions;
+  }
+
   // ─── AI processing ────────────────────────────────────────────────────
 
   private scheduleProcessing(id: string, type: string, content: string) {

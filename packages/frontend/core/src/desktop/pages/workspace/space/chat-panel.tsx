@@ -1,5 +1,6 @@
 import type { Space } from '@affine/core/modules/space';
 import { SpaceChatService } from '@affine/core/modules/space';
+import { WorkbenchService } from '@affine/core/modules/workbench';
 import { useLiveData, useServices } from '@toeverything/infra';
 import {
   type KeyboardEvent,
@@ -17,7 +18,10 @@ interface SpaceChatPanelProps {
 }
 
 export const SpaceChatPanel = ({ space, docCount }: SpaceChatPanelProps) => {
-  const { spaceChatService } = useServices({ SpaceChatService });
+  const { spaceChatService, workbenchService } = useServices({
+    SpaceChatService,
+    WorkbenchService,
+  });
   const spaceName = useLiveData(space.name$);
   const messages = useLiveData(spaceChatService.messages$(space.id));
 
@@ -26,6 +30,8 @@ export const SpaceChatPanel = ({ space, docCount }: SpaceChatPanelProps) => {
   const [streamingContent, setStreamingContent] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  /** Doc IDs created by the last assistant response */
+  const [createdDocIds, setCreatedDocIds] = useState<string[]>([]);
 
   // API-key setup state
   const [hasKey, setHasKey] = useState(() => spaceChatService.hasApiKey());
@@ -50,11 +56,17 @@ export const SpaceChatPanel = ({ space, docCount }: SpaceChatPanelProps) => {
     setError(null);
     setIsLoading(true);
     setStreamingContent('');
+    setCreatedDocIds([]);
 
     spaceChatService
       .sendMessage(space.id, spaceName, docCount, msg, chunk =>
         setStreamingContent(prev => (prev ?? '') + chunk)
       )
+      .then(result => {
+        if (result.createdDocIds.length > 0) {
+          setCreatedDocIds(result.createdDocIds);
+        }
+      })
       .catch(err => {
         setError(err instanceof Error ? err.message : 'Something went wrong.');
       })
@@ -72,6 +84,13 @@ export const SpaceChatPanel = ({ space, docCount }: SpaceChatPanelProps) => {
       }
     },
     [handleSend]
+  );
+
+  const handleOpenDoc = useCallback(
+    (docId: string) => {
+      workbenchService.workbench.openDoc(docId);
+    },
+    [workbenchService]
   );
 
   // ── API key setup ─────────────────────────────────────────────────────
@@ -164,7 +183,9 @@ export const SpaceChatPanel = ({ space, docCount }: SpaceChatPanelProps) => {
             </div>
             <p className={styles.chatEmptyDesc}>
               Ask me about your documents, get summaries, brainstorm ideas, or
-              plan your work. Add memories below to give me persistent context.
+              plan your work. Say something like &quot;create a budget
+              plan&quot; to generate docs. Add memories below to give me
+              persistent context.
             </p>
           </div>
         )}
@@ -191,6 +212,22 @@ export const SpaceChatPanel = ({ space, docCount }: SpaceChatPanelProps) => {
                 </span>
               )}
             </div>
+          </div>
+        )}
+
+        {/* Created doc links */}
+        {createdDocIds.length > 0 && (
+          <div className={styles.createdDocsBar}>
+            <span className={styles.createdDocsLabel}>Created:</span>
+            {createdDocIds.map(docId => (
+              <button
+                key={docId}
+                className={styles.createdDocLink}
+                onClick={() => handleOpenDoc(docId)}
+              >
+                Open new doc →
+              </button>
+            ))}
           </div>
         )}
 

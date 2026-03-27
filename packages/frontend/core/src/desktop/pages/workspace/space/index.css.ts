@@ -396,6 +396,42 @@ export const apiKeyLink = style({
   },
 });
 
+// ─── Created docs bar (doc generation from chat) ────────────────────────────
+
+export const createdDocsBar = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: 8,
+  padding: '8px 14px',
+  borderRadius: 8,
+  background: `color-mix(in srgb, ${cssVarV2.button.primary} 10%, transparent)`,
+  border: `1px solid color-mix(in srgb, ${cssVarV2.button.primary} 25%, transparent)`,
+});
+
+export const createdDocsLabel = style({
+  fontSize: 12,
+  fontWeight: 600,
+  color: cssVarV2.text.secondary,
+});
+
+export const createdDocLink = style({
+  fontSize: 13,
+  fontWeight: 500,
+  color: cssVarV2.text.emphasis,
+  background: 'none',
+  border: 'none',
+  cursor: 'pointer',
+  padding: '2px 8px',
+  borderRadius: 4,
+  transition: 'background 0.15s ease',
+  selectors: {
+    '&:hover': {
+      background: cssVarV2.layer.background.hoverOverlay,
+      textDecoration: 'underline',
+    },
+  },
+});
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Memory Panel
 // ─────────────────────────────────────────────────────────────────────────────

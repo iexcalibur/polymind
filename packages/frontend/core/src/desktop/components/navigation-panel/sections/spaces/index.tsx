@@ -36,7 +36,7 @@ export const NavigationPanelSpaces = () => {
       NavigationPanelService,
     });
 
-  const spaces = useLiveData(spaceService.spaces$);
+  const spaces = useLiveData(spaceService.rootSpaces$);
   const { openPromptModal } = usePromptModal();
   const path = useMemo(() => ['spaces'], []);
 

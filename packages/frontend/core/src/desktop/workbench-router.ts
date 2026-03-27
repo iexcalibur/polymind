@@ -34,6 +34,10 @@ export const workbenchRoutes = [
     lazy: () => import('./pages/workspace/dump/index'),
   },
   {
+    path: '/ai-search',
+    lazy: () => import('./pages/workspace/ai-search/index'),
+  },
+  {
     path: '/spaces',
     lazy: () => import('./pages/workspace/spaces/index'),
   },

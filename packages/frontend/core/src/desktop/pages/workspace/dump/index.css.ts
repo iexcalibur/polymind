@@ -334,6 +334,67 @@ export const spacePickerItem = style({
   },
 });
 
+// ─── Sub-Space suggestion banner ──────────────────────────────────────────────
+
+export const suggestionBanner = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  gap: 12,
+  padding: '12px 16px',
+  borderRadius: 10,
+  background: `color-mix(in srgb, ${cssVarV2.button.primary} 8%, transparent)`,
+  border: `1px solid color-mix(in srgb, ${cssVarV2.button.primary} 25%, transparent)`,
+  marginBottom: 12,
+});
+
+export const suggestionText = style({
+  fontSize: 13,
+  color: cssVarV2.text.primary,
+  lineHeight: '1.5',
+  flexGrow: 1,
+});
+
+export const suggestionActions = style({
+  display: 'flex',
+  gap: 8,
+  flexShrink: 0,
+});
+
+export const suggestionAccept = style({
+  fontSize: 12,
+  fontWeight: 600,
+  padding: '6px 14px',
+  borderRadius: 6,
+  border: 'none',
+  background: cssVarV2.button.primary,
+  color: cssVarV2.button.pureWhiteText,
+  cursor: 'pointer',
+  transition: 'filter 0.15s ease',
+  selectors: {
+    '&:hover': {
+      filter: 'brightness(1.1)',
+    },
+  },
+});
+
+export const suggestionDismiss = style({
+  fontSize: 12,
+  padding: '6px 14px',
+  borderRadius: 6,
+  border: `1px solid ${cssVarV2.layer.insideBorder.border}`,
+  background: 'transparent',
+  color: cssVarV2.text.secondary,
+  cursor: 'pointer',
+  transition: 'all 0.15s ease',
+  selectors: {
+    '&:hover': {
+      background: cssVarV2.layer.background.hoverOverlay,
+      color: cssVarV2.text.primary,
+    },
+  },
+});
+
 // ─── Sidebar badge ────────────────────────────────────────────────────────────
 
 export const sidebarBadge = style({

@@ -7,6 +7,7 @@ export interface SpaceRecord {
   id: string;
   name: string;
   index?: string;
+  parentSpaceId?: string;
 }
 
 export class SpaceStore extends Store {
@@ -26,6 +27,18 @@ export class SpaceStore extends Store {
       );
   }
 
+  watchRootSpaces$() {
+    return this.watchAllSpaces$().pipe(
+      map(spaces => spaces.filter(s => !s.parentSpaceId))
+    );
+  }
+
+  watchChildSpaces$(parentId: string) {
+    return this.watchAllSpaces$().pipe(
+      map(spaces => spaces.filter(s => s.parentSpaceId === parentId))
+    );
+  }
+
   watchSpaceIds$() {
     return this.watchAllSpaces$().pipe(map(spaces => spaces.map(s => s.id)));
   }
@@ -38,8 +51,11 @@ export class SpaceStore extends Store {
     return this.dbService.db.spaces.get(id);
   }
 
-  createSpace(name: string): string {
-    const record = this.dbService.db.spaces.create({ name });
+  createSpace(name: string, parentSpaceId?: string): string {
+    const record = this.dbService.db.spaces.create({
+      name,
+      ...(parentSpaceId ? { parentSpaceId } : {}),
+    });
     return record.id;
   }
 

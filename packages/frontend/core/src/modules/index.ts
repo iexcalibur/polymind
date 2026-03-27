@@ -9,6 +9,7 @@ import {
   configureAIReasoningModule,
   configureAIToolsConfigModule,
 } from './ai-button';
+import { configureAISearchModule } from './ai-search';
 import { configureAppSidebarModule } from './app-sidebar';
 import { configAtMenuConfigModule } from './at-menu-config';
 import { configureBlobManagementModule } from './blob-management';
@@ -17,6 +18,7 @@ import { configureCodeBlockPreviewRendererModule } from './code-block-preview-re
 import { configureCollectionModule } from './collection';
 import { configureCollectionRulesModule } from './collection-rules';
 import { configureCommentModule } from './comment';
+import { configureCrossSpaceModule } from './cross-space';
 import { configureWorkspaceDBModule } from './db';
 import { configureDialogModule } from './dialogs';
 import { configureDndModule } from './dnd';
@@ -68,6 +70,7 @@ import { configureThemeEditorModule } from './theme-editor';
 import { configureUrlModule } from './url';
 import { configureUserspaceModule } from './userspace';
 import { configureWorkspaceModule } from './workspace';
+import { configureWorkspaceChatModule } from './workspace-chat';
 import { configureIndexerEmbeddingModule } from './workspace-indexer-embedding';
 import { configureWorkspacePropertyModule } from './workspace-property';
 
@@ -100,6 +103,9 @@ export function configureCommonModules(framework: Framework) {
   configureOrganizeModule(framework);
   configureSpaceModule(framework);
   configureDumpModule(framework);
+  configureWorkspaceChatModule(framework);
+  configureAISearchModule(framework);
+  configureCrossSpaceModule(framework);
   configureFavoriteModule(framework);
   configureNavigationPanelModule(framework);
   configureThemeEditorModule(framework);

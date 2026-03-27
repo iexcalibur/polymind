@@ -67,6 +67,7 @@ export const AFFiNE_WORKSPACE_DB_SCHEMA = {
     id: f.string().primaryKey().optional().default(nanoid),
     name: f.string(),
     index: f.string().optional(),
+    parentSpaceId: f.string().optional(),
   },
   /**
    * Maps a Space to its hidden canvas document (edgeless mode doc).
@@ -109,6 +110,26 @@ export const AFFiNE_WORKSPACE_DB_SCHEMA = {
     isProcessed: f.boolean().optional(), // AI has finished processing
     movedToSpaceId: f.string().optional(), // set once moved to a Space
     movedToDocId: f.string().optional(), // the resulting doc id
+    createdAt: f.number().optional(),
+  },
+  /**
+   * Workspace Chat — global AI chat messages (not scoped to a Space).
+   */
+  workspaceChatMessage: {
+    id: f.string().primaryKey().optional().default(nanoid),
+    role: f.string(), // 'user' | 'assistant'
+    content: f.string(),
+    createdAt: f.number().optional(),
+  },
+  /**
+   * Cross-Space Connections — AI-discovered links between Spaces.
+   */
+  crossSpaceConnections: {
+    id: f.string().primaryKey().optional().default(nanoid),
+    sourceSpaceId: f.string(),
+    targetSpaceId: f.string(),
+    label: f.string().optional(),
+    strength: f.number().optional(),
     createdAt: f.number().optional(),
   },
 } as const satisfies DBSchemaBuilder;

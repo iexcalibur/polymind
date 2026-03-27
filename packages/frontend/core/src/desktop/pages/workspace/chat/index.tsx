@@ -1,487 +1,251 @@
-import { observeResize, useConfirmModal } from '@affine/component';
-import { CopilotClient } from '@affine/core/blocksuite/ai';
-import {
-  AIChatContent,
-  type ChatContextValue,
-} from '@affine/core/blocksuite/ai/components/ai-chat-content';
-import type { ChatStatus } from '@affine/core/blocksuite/ai/components/ai-chat-messages';
-import type { AIChatToolbar } from '@affine/core/blocksuite/ai/components/ai-chat-toolbar';
-import {
-  configureAIChatToolbar,
-  getOrCreateAIChatToolbar,
-} from '@affine/core/blocksuite/ai/components/ai-chat-toolbar';
-import type { PromptKey } from '@affine/core/blocksuite/ai/provider/prompt';
-import { getViewManager } from '@affine/core/blocksuite/manager/view';
-import { NotificationServiceImpl } from '@affine/core/blocksuite/view-extensions/editor-view/notification-service';
-import { useAIChatConfig } from '@affine/core/components/hooks/affine/use-ai-chat-config';
-import { useAISpecs } from '@affine/core/components/hooks/affine/use-ai-specs';
-import { useAISubscribe } from '@affine/core/components/hooks/affine/use-ai-subscribe';
-import {
-  AIDraftService,
-  AIToolsConfigService,
-} from '@affine/core/modules/ai-button';
-import { AIModelService } from '@affine/core/modules/ai-button/services/models';
-import {
-  EventSourceService,
-  GraphQLService,
-  ServerService,
-  SubscriptionService,
-} from '@affine/core/modules/cloud';
-import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import { FeatureFlagService } from '@affine/core/modules/feature-flag';
-import { PeekViewService } from '@affine/core/modules/peek-view';
-import { AppThemeService } from '@affine/core/modules/theme';
+import { Header } from '@affine/core/components/pure/header';
 import {
   ViewBody,
   ViewHeader,
   ViewIcon,
-  ViewService,
   ViewTitle,
-  WorkbenchService,
 } from '@affine/core/modules/workbench';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { useI18n } from '@affine/i18n';
-import { RefNodeSlotsProvider } from '@blocksuite/affine/inlines/reference';
-import { BlockStdScope } from '@blocksuite/affine/std';
-import type { Workspace } from '@blocksuite/affine/store';
-import { type Signal, signal } from '@preact/signals-core';
-import { useFramework, useService } from '@toeverything/infra';
-import { nanoid } from 'nanoid';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { WorkspaceChatService } from '@affine/core/modules/workspace-chat';
+import { useLiveData, useService } from '@toeverything/infra';
+import {
+  type KeyboardEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
-import { createSessionDeleteHandler } from '../chat-panel-utils';
 import * as styles from './index.css';
 
-type CopilotSession = Awaited<ReturnType<CopilotClient['getSession']>>;
-
-function useCopilotClient() {
-  const graphqlService = useService(GraphQLService);
-  const eventSourceService = useService(EventSourceService);
-
-  return useMemo(
-    () => new CopilotClient(graphqlService.gql, eventSourceService.eventSource),
-    [graphqlService, eventSourceService]
-  );
-}
-
-function createMockStd(workspace: Workspace) {
-  workspace.meta.initialize();
-  // just pick a random doc for now
-  const store = workspace.docs.values().next().value?.getStore();
-  if (!store) return null;
-  const std = new BlockStdScope({
-    store,
-    extensions: [...getViewManager().config.init().value.get('page')],
-  });
-  std.render();
-  return std;
-}
-
-function useMockStd() {
-  const workspace = useService(WorkspaceService).workspace;
-  const std = useMemo(() => {
-    if (!workspace) return null;
-    return createMockStd(workspace.docCollection);
-  }, [workspace]);
-  return std;
-}
-
 export const Component = () => {
-  const t = useI18n();
-  const framework = useFramework();
-  const [isBodyProvided, setIsBodyProvided] = useState(false);
-  const [isHeaderProvided, setIsHeaderProvided] = useState(false);
-  const [chatContent, setChatContent] = useState<AIChatContent | null>(null);
-  const [chatTool, setChatTool] = useState<AIChatToolbar | null>(null);
-  const [currentSession, setCurrentSession] = useState<CopilotSession | null>(
-    null
-  );
-  const [status, setStatus] = useState<ChatStatus>('idle');
-  const [isTogglingPin, setIsTogglingPin] = useState(false);
-  const [isOpeningSession, setIsOpeningSession] = useState(false);
-  const hasRestoredPinnedSessionRef = useRef(false);
-  const chatContainerRef = useRef<HTMLDivElement>(null);
-  const chatToolContainerRef = useRef<HTMLDivElement>(null);
-  const widthSignalRef = useRef<Signal<number>>(signal(0));
-  const client = useCopilotClient();
-  const workbench = useService(WorkbenchService).workbench;
+  const chatService = useService(WorkspaceChatService);
+  const messages = useLiveData(chatService.messages$());
 
-  const workspaceId = useService(WorkspaceService).workspace.id;
+  const [input, setInput] = useState('');
+  const [streamingContent, setStreamingContent] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
+  // API-key setup state
+  const [hasKey, setHasKey] = useState(() => chatService.hasApiKey());
+  const [apiKeyInput, setApiKeyInput] = useState('');
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll to bottom
   useEffect(() => {
-    hasRestoredPinnedSessionRef.current = false;
-  }, [workspaceId]);
+    const el = scrollRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, [messages, streamingContent]);
 
-  const { docDisplayConfig, searchMenuConfig, reasoningConfig } =
-    useAIChatConfig();
+  const handleSend = useCallback(() => {
+    const msg = input.trim();
+    if (!msg || isLoading) return;
 
-  const createSession = useCallback(
-    async (options: Partial<BlockSuitePresets.AICreateSessionOptions> = {}) => {
-      if (currentSession) {
-        return currentSession;
-      }
-      const session = await client.createSessionWithHistory({
-        workspaceId,
-        promptName: 'Chat With AFFiNE AI' satisfies PromptKey,
-        reuseLatestChat: false,
-        ...options,
+    setInput('');
+    setError(null);
+    setIsLoading(true);
+    setStreamingContent('');
+
+    chatService
+      .sendMessage(msg, chunk =>
+        setStreamingContent(prev => (prev ?? '') + chunk)
+      )
+      .catch(err => {
+        setError(err instanceof Error ? err.message : 'Something went wrong.');
+      })
+      .finally(() => {
+        setIsLoading(false);
+        setStreamingContent(null);
       });
-      setCurrentSession(session);
-      return session;
-    },
-    [client, currentSession, workspaceId]
-  );
+  }, [input, isLoading, chatService]);
 
-  const togglePin = useCallback(async () => {
-    if (isTogglingPin) return;
-    setIsTogglingPin(true);
-    try {
-      const pinned = !currentSession?.pinned;
-      if (!currentSession) {
-        await createSession({ pinned });
-      } else {
-        await client.updateSession({
-          sessionId: currentSession.sessionId,
-          pinned,
-        });
-        // retrieve the latest session and update the state
-        const session = await client.getSession(
-          workspaceId,
-          currentSession.sessionId
-        );
-        setCurrentSession(session);
-      }
-    } finally {
-      setIsTogglingPin(false);
-    }
-  }, [client, createSession, currentSession, isTogglingPin, workspaceId]);
-
-  // remove the old content to trigger re-mount
-  // to avoid infinitely load and mount, should not make `chatContent` as dependency
-  const reMountChatContent = useCallback(() => {
-    setChatContent(prev => {
-      prev?.remove();
-      return null;
-    });
-  }, []);
-
-  const createFreshSession = useCallback(async () => {
-    if (isOpeningSession) {
-      return;
-    }
-    setIsOpeningSession(true);
-    try {
-      setCurrentSession(null);
-      reMountChatContent();
-      const session = await client.createSessionWithHistory({
-        workspaceId,
-        promptName: 'Chat With AFFiNE AI' satisfies PromptKey,
-        reuseLatestChat: false,
-      });
-      setCurrentSession(session);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsOpeningSession(false);
-    }
-  }, [client, isOpeningSession, reMountChatContent, workspaceId]);
-
-  const onOpenSession = useCallback(
-    async (sessionId: string) => {
-      if (isOpeningSession || currentSession?.sessionId === sessionId) return;
-      setIsOpeningSession(true);
-      try {
-        const session = await client.getSession(workspaceId, sessionId);
-        setCurrentSession(session);
-        reMountChatContent();
-        chatTool?.closeHistoryMenu();
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setIsOpeningSession(false);
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent<HTMLTextAreaElement>) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        handleSend();
       }
     },
-    [
-      chatTool,
-      client,
-      currentSession?.sessionId,
-      isOpeningSession,
-      reMountChatContent,
-      workspaceId,
-    ]
+    [handleSend]
   );
 
-  const onContextChange = useCallback((context: Partial<ChatContextValue>) => {
-    setStatus(context.status ?? 'idle');
-  }, []);
+  const handleSaveKey = useCallback(() => {
+    const key = apiKeyInput.trim();
+    if (!key) return;
+    chatService.setApiKey(key);
+    setHasKey(true);
+    setApiKeyInput('');
+  }, [apiKeyInput, chatService]);
 
-  const onOpenDoc = useCallback(
-    (docId: string) => {
-      workbench.openDoc(docId, { at: 'active' });
-    },
-    [workbench]
-  );
-  const onOpenSessionDoc = useCallback(
-    (docId: string, sessionId: string) => {
-      const { workbench } = framework.get(WorkbenchService);
-      const viewService = framework.get(ViewService);
-      workbench.open(`/${docId}?sessionId=${sessionId}`, { at: 'active' });
-      workbench.openSidebar();
-      viewService.view.activeSidebarTab('chat');
-    },
-    [framework]
-  );
+  const handleResetKey = useCallback(() => {
+    chatService.removeApiKey();
+    setHasKey(false);
+  }, [chatService]);
 
-  const confirmModal = useConfirmModal();
-  const notificationService = useMemo(
-    () =>
-      new NotificationServiceImpl(
-        confirmModal.closeConfirmModal,
-        confirmModal.openConfirmModal
-      ),
-    [confirmModal.closeConfirmModal, confirmModal.openConfirmModal]
-  );
-  const specs = useAISpecs();
-  const mockStd = useMockStd();
-  const handleAISubscribe = useAISubscribe();
+  // ── API key setup screen ──────────────────────────────────────────────
 
-  const deleteSession = useMemo(
-    () =>
-      createSessionDeleteHandler({
-        t,
-        notificationService,
-        cleanupSession: async sessionToDelete => {
-          await client.cleanupSessions({
-            workspaceId: sessionToDelete.workspaceId,
-            docId: sessionToDelete.docId || undefined,
-            sessionIds: [sessionToDelete.sessionId],
-          });
-        },
-        isActiveSession: sessionToDelete =>
-          sessionToDelete.sessionId === currentSession?.sessionId,
-        onActiveSessionDeleted: () => {
-          setCurrentSession(null);
-          reMountChatContent();
-        },
-      }),
-    [
-      client,
-      currentSession?.sessionId,
-      notificationService,
-      reMountChatContent,
-      t,
-    ]
-  );
-
-  // init or update ai-chat-content
-  useEffect(() => {
-    if (!isBodyProvided) {
-      return;
-    }
-
-    let content = chatContent;
-
-    if (!content) {
-      content = new AIChatContent();
-    }
-
-    content.session = currentSession;
-    content.workspaceId = workspaceId;
-    content.extensions = specs;
-    content.host = mockStd?.host;
-    content.docDisplayConfig = docDisplayConfig;
-    content.searchMenuConfig = searchMenuConfig;
-    content.reasoningConfig = reasoningConfig;
-    content.onContextChange = onContextChange;
-    content.affineFeatureFlagService = framework.get(FeatureFlagService);
-    content.affineWorkspaceDialogService = framework.get(
-      WorkspaceDialogService
+  if (!hasKey) {
+    return (
+      <>
+        <ViewTitle title="Workspace Chat" />
+        <ViewIcon icon="ai" />
+        <ViewHeader>
+          <Header
+            left={
+              <span style={{ fontWeight: 700, fontSize: 15 }}>
+                Workspace Chat
+              </span>
+            }
+          />
+        </ViewHeader>
+        <ViewBody>
+          <div className={styles.chatRoot}>
+            <div className={styles.apiKeySetup}>
+              <div className={styles.apiKeyTitle}>Connect Claude</div>
+              <p className={styles.apiKeyDesc}>
+                Enter your Anthropic API key to enable the Workspace AI Chat.
+                Your key is stored locally and never synced.
+              </p>
+              <input
+                className={styles.apiKeyInput}
+                type="password"
+                placeholder="sk-ant-api03-..."
+                value={apiKeyInput}
+                onChange={e => setApiKeyInput(e.target.value)}
+                onKeyDown={e => e.key === 'Enter' && handleSaveKey()}
+                autoFocus
+              />
+              <button
+                className={styles.apiKeySaveButton}
+                onClick={handleSaveKey}
+                disabled={!apiKeyInput.trim()}
+              >
+                Save Key
+              </button>
+              <a
+                className={styles.apiKeyLink}
+                href="https://console.anthropic.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Get an API key →
+              </a>
+            </div>
+          </div>
+        </ViewBody>
+      </>
     );
-    content.peekViewService = framework.get(PeekViewService);
-    content.affineThemeService = framework.get(AppThemeService);
-    content.notificationService = notificationService;
-    content.aiDraftService = framework.get(AIDraftService);
-    content.aiToolsConfigService = framework.get(AIToolsConfigService);
-    content.serverService = framework.get(ServerService);
-    content.subscriptionService = framework.get(SubscriptionService);
-    content.aiModelService = framework.get(AIModelService);
-    content.onAISubscribe = handleAISubscribe;
+  }
 
-    content.createSession = createSession;
-    content.onOpenDoc = onOpenDoc;
-
-    if (!chatContent) {
-      // initial values that won't change
-      content.independentMode = true;
-      content.onboardingOffsetY = -100;
-      chatContainerRef.current?.append(content);
-      setChatContent(content);
-    }
-  }, [
-    chatContent,
-    createSession,
-    currentSession,
-    docDisplayConfig,
-    framework,
-    isBodyProvided,
-    mockStd,
-    reasoningConfig,
-    searchMenuConfig,
-    workspaceId,
-    onContextChange,
-    notificationService,
-    specs,
-    onOpenDoc,
-    handleAISubscribe,
-  ]);
-
-  // init or update header ai-chat-toolbar
-  useEffect(() => {
-    if (!isHeaderProvided || !chatToolContainerRef.current) {
-      return;
-    }
-    const tool = getOrCreateAIChatToolbar(chatTool);
-    configureAIChatToolbar(tool, {
-      session: currentSession,
-      workspaceId,
-      status,
-      docDisplayConfig,
-      notificationService,
-      onOpenSession: sessionId => {
-        onOpenSession(sessionId).catch(console.error);
-      },
-      onNewSession: () => {
-        createFreshSession().catch(console.error);
-      },
-      onTogglePin: togglePin,
-      onOpenDoc: (docId: string, sessionId: string) => {
-        onOpenSessionDoc(docId, sessionId);
-      },
-      onSessionDelete: (sessionToDelete: BlockSuitePresets.AIRecentSession) => {
-        deleteSession(sessionToDelete).catch(console.error);
-      },
-    });
-
-    // initial props
-    if (!chatTool) {
-      // mount
-      chatToolContainerRef.current.append(tool);
-      setChatTool(tool);
-    }
-  }, [
-    chatTool,
-    currentSession,
-    docDisplayConfig,
-    isHeaderProvided,
-    onOpenSession,
-    togglePin,
-    workspaceId,
-    onOpenSessionDoc,
-    deleteSession,
-    status,
-    notificationService,
-    createFreshSession,
-  ]);
-
-  useEffect(() => {
-    const refNodeSlots = mockStd?.getOptional(RefNodeSlotsProvider);
-    if (!refNodeSlots) return;
-    const sub = refNodeSlots.docLinkClicked.subscribe(event => {
-      const { workbench } = framework.get(WorkbenchService);
-      workbench.openDoc({
-        docId: event.pageId,
-        mode: event.params?.mode,
-        blockIds: event.params?.blockIds,
-        elementIds: event.params?.elementIds,
-        refreshKey: nanoid(),
-      });
-    });
-    return () => sub.unsubscribe();
-  }, [framework, mockStd]);
-
-  // restore pinned session
-  useEffect(() => {
-    if (hasRestoredPinnedSessionRef.current || currentSession) return;
-    hasRestoredPinnedSessionRef.current = true;
-
-    const controller = new AbortController();
-    const loadPinnedSession = async () => {
-      try {
-        const sessions = await client.getSessions(
-          workspaceId,
-          {},
-          undefined,
-          { pinned: true, limit: 1 },
-          controller.signal
-        );
-        if (controller.signal.aborted || !Array.isArray(sessions)) {
-          return;
-        }
-        const pinnedSession = sessions[0];
-        if (!pinnedSession) {
-          return;
-        }
-
-        let shouldRemount = false;
-        setCurrentSession(prev => {
-          if (prev) return prev;
-          shouldRemount = true;
-          return pinnedSession;
-        });
-        if (shouldRemount) reMountChatContent();
-      } catch (error) {
-        if (controller.signal.aborted) {
-          return;
-        }
-        console.error(error);
-      }
-    };
-    loadPinnedSession().catch(error => {
-      if (controller.signal.aborted) return;
-      console.error(error);
-    });
-
-    // abort the request
-    return () => {
-      controller.abort();
-    };
-  }, [client, currentSession, reMountChatContent, workspaceId]);
-
-  const onChatContainerRef = useCallback((node: HTMLDivElement) => {
-    if (node) {
-      setIsBodyProvided(true);
-      chatContainerRef.current = node;
-      widthSignalRef.current.value = node.clientWidth;
-    }
-  }, []);
-
-  const onChatToolContainerRef = useCallback((node: HTMLDivElement) => {
-    if (node) {
-      setIsHeaderProvided(true);
-      chatToolContainerRef.current = node;
-    }
-  }, []);
-
-  // observe chat container width and provide to ai-chat-content
-  useEffect(() => {
-    if (!isBodyProvided || !chatContainerRef.current) return;
-    return observeResize(chatContainerRef.current, entry => {
-      widthSignalRef.current.value = entry.contentRect.width;
-    });
-  }, [isBodyProvided]);
+  // ── Main chat UI ──────────────────────────────────────────────────────
 
   return (
     <>
-      <ViewTitle title={t['com.affine.workspaceSubPath.chat']()} />
+      <ViewTitle title="Workspace Chat" />
       <ViewIcon icon="ai" />
       <ViewHeader>
-        <div className={styles.chatHeader}>
-          <div />
-          <div ref={onChatToolContainerRef} />
-        </div>
+        <Header
+          left={
+            <span style={{ fontWeight: 700, fontSize: 15 }}>
+              Workspace Chat
+            </span>
+          }
+        />
       </ViewHeader>
       <ViewBody>
-        <div className={styles.chatRoot} ref={onChatContainerRef} />
+        <div className={styles.chatRoot}>
+          {/* Header */}
+          <div className={styles.chatHeader}>
+            <span className={styles.chatHeaderTitle}>
+              Chat across all Spaces
+            </span>
+            <div className={styles.chatHeaderActions}>
+              <button
+                className={styles.chatActionButton}
+                onClick={() => chatService.clearHistory()}
+                title="Clear chat history"
+                disabled={isLoading}
+              >
+                Clear
+              </button>
+              <button
+                className={styles.chatActionButton}
+                onClick={handleResetKey}
+                title="Change API key"
+              >
+                Key
+              </button>
+            </div>
+          </div>
+
+          {/* Messages */}
+          <div className={styles.chatMessages} ref={scrollRef}>
+            {messages.length === 0 && streamingContent === null && (
+              <div className={styles.chatEmpty}>
+                <div className={styles.chatEmptyTitle}>
+                  Workspace AI Assistant
+                </div>
+                <p className={styles.chatEmptyDesc}>
+                  I know about all your Spaces, their documents, and memories.
+                  Ask me anything across your entire workspace — I&apos;ll
+                  identify the relevant Spaces and synthesize answers.
+                </p>
+              </div>
+            )}
+
+            {messages.map(msg => (
+              <div
+                key={msg.id}
+                className={styles.chatMessage}
+                data-role={msg.role}
+              >
+                <div className={styles.chatMessageRole}>
+                  {msg.role === 'user' ? 'You' : 'Claude'}
+                </div>
+                <div className={styles.chatMessageContent}>{msg.content}</div>
+              </div>
+            ))}
+
+            {/* Streaming response */}
+            {streamingContent !== null && (
+              <div className={styles.chatMessage} data-role="assistant">
+                <div className={styles.chatMessageRole}>Claude</div>
+                <div className={styles.chatMessageContent}>
+                  {streamingContent || (
+                    <span className={styles.typingDots}>
+                      <span />
+                      <span />
+                      <span />
+                    </span>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {error && <div className={styles.chatError}>{error}</div>}
+          </div>
+
+          {/* Input */}
+          <div className={styles.chatInputArea}>
+            <textarea
+              className={styles.chatTextarea}
+              placeholder="Ask about anything across your workspace… (Enter to send)"
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              disabled={isLoading}
+              rows={3}
+            />
+            <button
+              className={styles.chatSendButton}
+              onClick={handleSend}
+              disabled={isLoading || !input.trim()}
+            >
+              {isLoading ? '…' : 'Send'}
+            </button>
+          </div>
+        </div>
       </ViewBody>
     </>
   );

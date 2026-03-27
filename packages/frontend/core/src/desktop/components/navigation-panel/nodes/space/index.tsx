@@ -1,9 +1,14 @@
-import { MenuItem, MenuSeparator, toast } from '@affine/component';
+import {
+  MenuItem,
+  MenuSeparator,
+  toast,
+  usePromptModal,
+} from '@affine/component';
 import { GlobalContextService } from '@affine/core/modules/global-context';
 import { NavigationPanelService } from '@affine/core/modules/navigation-panel';
 import { SpaceService } from '@affine/core/modules/space';
 import { WorkbenchService } from '@affine/core/modules/workbench';
-import { DeleteIcon, FolderIcon } from '@blocksuite/icons/rc';
+import { DeleteIcon, FolderIcon, PlusIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService, useServices } from '@toeverything/infra';
 import { useCallback, useMemo } from 'react';
 
@@ -31,6 +36,9 @@ export const NavigationPanelSpaceNode = ({
 
   const space = useLiveData(spaceService.space$(spaceId));
   const name = useLiveData(space?.name$);
+  const childSpaces = useLiveData(spaceService.childSpaces$(spaceId));
+
+  const { openPromptModal } = usePromptModal();
 
   const active =
     useLiveData(globalContextService.globalContext.spaceId.$) === spaceId;
@@ -68,8 +76,37 @@ export const NavigationPanelSpaceNode = ({
     toast(`Space "${spaceName}" deleted`);
   }, [space]);
 
+  const handleCreateSubSpace = useCallback(() => {
+    openPromptModal({
+      title: 'Create Sub-Space',
+      label: 'Sub-Space name',
+      inputOptions: {
+        placeholder: 'e.g. Standups, Client Meetings...',
+      },
+      confirmText: 'Create',
+      cancelText: 'Cancel',
+      confirmButtonOptions: {
+        variant: 'primary',
+      },
+      onConfirm(subName) {
+        if (!subName.trim()) return;
+        const id = spaceService.createSpace(subName.trim(), spaceId);
+        workbenchService.workbench.openSpace(id);
+        setCollapsed(false);
+      },
+    });
+  }, [spaceService, workbenchService, spaceId, openPromptModal, setCollapsed]);
+
   const operations = useMemo(
     () => [
+      {
+        index: 50,
+        view: (
+          <MenuItem prefixIcon={<PlusIcon />} onClick={handleCreateSubSpace}>
+            Create Sub-Space
+          </MenuItem>
+        ),
+      },
       {
         index: 9999,
         view: <MenuSeparator key="menu-separator" />,
@@ -87,7 +124,7 @@ export const NavigationPanelSpaceNode = ({
         ),
       },
     ],
-    [handleDelete]
+    [handleDelete, handleCreateSubSpace]
   );
 
   if (!space) return null;
@@ -105,6 +142,15 @@ export const NavigationPanelSpaceNode = ({
       collapsed={collapsed}
       setCollapsed={setCollapsed}
       data-testid={`navigation-panel-space-${spaceId}`}
-    />
+    >
+      {childSpaces.map(child => (
+        <NavigationPanelSpaceNode
+          key={child.id}
+          spaceId={child.id}
+          reorderable={false}
+          parentPath={path}
+        />
+      ))}
+    </NavigationPanelTreeNode>
   );
 };

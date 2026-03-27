@@ -1,4 +1,5 @@
 import { Header } from '@affine/core/components/pure/header';
+import { CrossSpaceService } from '@affine/core/modules/cross-space';
 import { SpaceService } from '@affine/core/modules/space';
 import {
   ViewBody,
@@ -19,6 +20,10 @@ function defaultPosition(index: number) {
   return { x: 80 + col * 280, y: 80 + row * 200 };
 }
 
+/** Center of a card for drawing connection lines */
+const CARD_WIDTH = 200;
+const CARD_HEIGHT = 120;
+
 interface SpacePosition {
   spaceId: string;
   x: number;
@@ -28,12 +33,15 @@ interface SpacePosition {
 const SETTINGS_KEY = 'universeCanvasPositions';
 
 export const Component = function SpacesPage() {
-  const { spaceService, workbenchService } = useServices({
+  const { spaceService, workbenchService, crossSpaceService } = useServices({
     SpaceService,
     WorkbenchService,
+    CrossSpaceService,
   });
 
-  const spaces = useLiveData(spaceService.spaces$);
+  const spaces = useLiveData(spaceService.rootSpaces$);
+  const connections = useLiveData(crossSpaceService.connections$);
+  const [isFinding, setIsFinding] = useState(false);
 
   // Load persisted positions or compute defaults
   const [positions, setPositions] = useState<SpacePosition[]>(() => {
@@ -146,6 +154,15 @@ export const Component = function SpacesPage() {
     setZoom(prev => Math.min(2, Math.max(0.3, prev - e.deltaY * 0.001)));
   }, []);
 
+  const handleFindConnections = useCallback(() => {
+    if (isFinding) return;
+    setIsFinding(true);
+    crossSpaceService
+      .findConnections()
+      .catch(err => console.error('Failed to find connections:', err))
+      .finally(() => setIsFinding(false));
+  }, [isFinding, crossSpaceService]);
+
   const docCounts = useLiveData(
     spaceService.spaces$.map(sps =>
       Object.fromEntries(
@@ -153,6 +170,9 @@ export const Component = function SpacesPage() {
       )
     )
   );
+
+  // Build position map for line drawing
+  const posMap = new Map(positions.map(p => [p.spaceId, p]));
 
   return (
     <>
@@ -162,7 +182,7 @@ export const Component = function SpacesPage() {
         <Header
           left={
             <span style={{ fontWeight: 700, fontSize: 15 }}>
-              🌌 Universe Canvas
+              Universe Canvas
             </span>
           }
         />
@@ -185,9 +205,47 @@ export const Component = function SpacesPage() {
                 transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
               }}
             >
-              {/* SVG connection lines (placeholder for future AI connections) */}
+              {/* SVG connection lines between spaces */}
               <svg className={styles.svgConnections}>
-                {/* Future: draw lines between connected spaces */}
+                {connections.map(conn => {
+                  const source = posMap.get(conn.sourceSpaceId);
+                  const target = posMap.get(conn.targetSpaceId);
+                  if (!source || !target) return null;
+
+                  const x1 = source.x + CARD_WIDTH / 2;
+                  const y1 = source.y + CARD_HEIGHT / 2;
+                  const x2 = target.x + CARD_WIDTH / 2;
+                  const y2 = target.y + CARD_HEIGHT / 2;
+                  const opacity = Math.max(0.2, conn.strength ?? 0.5);
+                  const strokeWidth = 1 + (conn.strength ?? 0.5) * 2;
+
+                  return (
+                    <g key={conn.id}>
+                      <line
+                        x1={x1}
+                        y1={y1}
+                        x2={x2}
+                        y2={y2}
+                        stroke="var(--affine-primary-color, #1e96eb)"
+                        strokeWidth={strokeWidth}
+                        strokeOpacity={opacity}
+                        strokeDasharray="6 3"
+                      />
+                      {/* Label at midpoint */}
+                      {conn.label && (
+                        <text
+                          x={(x1 + x2) / 2}
+                          y={(y1 + y2) / 2 - 8}
+                          textAnchor="middle"
+                          fontSize="11"
+                          fill="var(--affine-text-secondary-color, #8e8e93)"
+                        >
+                          {conn.label}
+                        </text>
+                      )}
+                    </g>
+                  );
+                })}
               </svg>
 
               {/* Space cards */}
@@ -217,8 +275,17 @@ export const Component = function SpacesPage() {
             </div>
           )}
 
-          {/* Zoom controls */}
+          {/* Zoom controls + Find Connections */}
           <div className={styles.zoomControls}>
+            <button
+              className={styles.zoomButton}
+              onClick={handleFindConnections}
+              title={isFinding ? 'Finding…' : 'Find cross-space connections'}
+              disabled={isFinding || spaces.length < 2}
+              style={{ fontSize: 11, padding: '4px 8px', width: 'auto' }}
+            >
+              {isFinding ? '…' : 'Find Links'}
+            </button>
             <button
               className={styles.zoomButton}
               onClick={() => setZoom(z => Math.min(2, z + 0.1))}
