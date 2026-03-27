@@ -1,5 +1,5 @@
 import { cssVarV2 } from '@toeverything/theme/v2';
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 
 export const dumpPage = style({
   display: 'flex',
@@ -70,12 +70,11 @@ export const dropZoneText = style({
   color: cssVarV2.text.secondary,
   textAlign: 'center',
   lineHeight: '1.6',
-  selectors: {
-    '& small': {
-      fontSize: 12,
-      opacity: 0.75,
-    },
-  },
+});
+
+globalStyle(`${dropZoneText} small`, {
+  fontSize: 12,
+  opacity: 0.75,
 });
 
 // ─── Capture bar ──────────────────────────────────────────────────────────────
