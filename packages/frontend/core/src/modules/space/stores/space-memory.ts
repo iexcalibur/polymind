@@ -17,7 +17,7 @@ export class SpaceMemoryStore extends Store {
 
   watchMemories$(spaceId: string) {
     return this.dbService.db.spaceMemory
-      .find$({})
+      .find$()
       .pipe(
         map(records =>
           [...records]

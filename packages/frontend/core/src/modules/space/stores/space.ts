@@ -17,7 +17,7 @@ export class SpaceStore extends Store {
 
   watchAllSpaces$() {
     return this.dbService.db.spaces
-      .find$({})
+      .find$()
       .pipe(
         map(spaces =>
           [...spaces].sort((a, b) =>

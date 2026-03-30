@@ -18,7 +18,7 @@ export class SpaceChatStore extends Store {
 
   watchMessages$(spaceId: string) {
     return this.dbService.db.spaceChatMessage
-      .find$({})
+      .find$()
       .pipe(
         map(records =>
           [...records]

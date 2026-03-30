@@ -37,7 +37,7 @@ export function useSeedSampleData() {
 
       let existingSpaces: unknown[];
       try {
-        existingSpaces = workspaceDBService.db.spaces.find({});
+        existingSpaces = workspaceDBService.db.spaces.find();
       } catch {
         console.log('[Ploy-Note] DB not ready yet, attempt', attempt);
         return; // retry next interval

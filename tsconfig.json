@@ -150,7 +150,6 @@
     { "path": "./tests/affine-desktop" },
     { "path": "./tests/affine-desktop-cloud" },
     { "path": "./tests/affine-local" },
-    { "path": "./tests/affine-mobile" },
     { "path": "./tests/blocksuite" },
     { "path": "./tests/kit" },
     { "path": "./tools/cli" },
