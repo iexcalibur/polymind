@@ -8,11 +8,7 @@ export const R2_BUCKET =
   process.env.R2_BUCKET ??
   (process.env.BUILD_TYPE === 'canary' ? 'assets-dev' : 'assets-prod');
 
-const S3_UPLOAD_PACKAGE_NAMES = new Set([
-  '@affine/web',
-  '@affine/mobile',
-  '@affine/admin',
-]);
+const S3_UPLOAD_PACKAGE_NAMES = new Set(['@affine/web', '@affine/admin']);
 const MAX_UPLOAD_RETRIES = 3;
 const UPLOAD_RETRY_BASE_DELAY_MS = 500;
 
