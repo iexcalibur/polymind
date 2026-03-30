@@ -13,7 +13,7 @@ import { Upload } from '@affine/core/components/pure/file-upload';
 import { GlobalDialogService } from '@affine/core/modules/dialogs';
 import { SubscriptionPlan } from '@affine/graphql';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import { ArrowRightSmallIcon, CameraIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService, useServices } from '@toeverything/infra';
 import { useCallback, useEffect, useState } from 'react';
@@ -34,7 +34,6 @@ export const UserAvatar = () => {
   const handleUpdateUserAvatar = useAsyncCallback(
     async (file: File) => {
       try {
-        track.$.settingsPanel.accountSettings.uploadAvatar();
         await session.uploadAvatar(file);
         notify.success({ title: 'Update user avatar success' });
       } catch (e) {
@@ -49,7 +48,6 @@ export const UserAvatar = () => {
   );
 
   const handleRemoveUserAvatar = useCatchEventCallback(async () => {
-    track.$.settingsPanel.accountSettings.removeAvatar();
     await session.removeAvatar();
   }, [session]);
 
@@ -92,7 +90,6 @@ export const AvatarAndName = () => {
     }
 
     try {
-      track.$.settingsPanel.accountSettings.updateUserName();
       await session.updateLabel(input);
     } catch (e) {
       notify.error({

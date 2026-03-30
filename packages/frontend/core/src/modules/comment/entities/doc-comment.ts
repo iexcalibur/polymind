@@ -1,5 +1,5 @@
 import { type CommentChangeAction, DocMode } from '@affine/graphql';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import { InlineCommentManager } from '@blocksuite/affine/inlines/comment';
 import type {
   BaseSelection,
@@ -307,7 +307,6 @@ export class DocCommentEntity extends Entity<{
     await this.store.deleteComment(id);
     const currentComments = this.comments$.value;
     this.comments$.setValue(currentComments.filter(c => c.id !== id));
-    track.$.commentPanel.$.deleteComment({ type: 'root' });
     this.commentDeleted$.next(id);
     this.revalidate();
   }
@@ -322,7 +321,6 @@ export class DocCommentEntity extends Entity<{
       };
     });
     this.comments$.setValue(updatedComments);
-    track.$.commentPanel.$.deleteComment({ type: 'node' });
     this.revalidate();
   }
 

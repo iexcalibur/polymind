@@ -3,7 +3,6 @@ import {
   registerAffineCommand,
 } from '@affine/core/commands';
 import { FindInPageService } from '@affine/core/modules/find-in-page/services/find-in-page';
-import { track } from '@affine/track';
 import { useServiceOptional } from '@toeverything/infra';
 import { useCallback, useEffect } from 'react';
 
@@ -32,7 +31,6 @@ export function useRegisterFindInPageCommands() {
         icon: null,
         label: '',
         run() {
-          track.$.cmdk.general.findInPage();
           showFindInPage();
         },
       })

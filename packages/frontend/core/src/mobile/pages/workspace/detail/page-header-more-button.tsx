@@ -15,7 +15,7 @@ import { EditorService } from '@affine/core/modules/editor';
 import { ViewService } from '@affine/core/modules/workbench/services/view';
 import { preventDefault } from '@affine/core/utils';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import {
   DeleteIcon,
   EdgelessIcon,
@@ -76,7 +76,7 @@ export const PageHeaderMenuButton = () => {
 
   const handleMenuOpenChange = useCallback((open: boolean) => {
     if (open) {
-      track.$.header.docOptions.open();
+      // no-op
     }
     setOpen(open);
   }, []);
@@ -87,7 +87,6 @@ export const PageHeaderMenuButton = () => {
   }, [handleMenuOpenChange, location.pathname]);
 
   const handleToggleFavorite = useCallback(() => {
-    track.$.header.docOptions.toggleFavorite();
     toggleFavorite();
   }, [toggleFavorite]);
 

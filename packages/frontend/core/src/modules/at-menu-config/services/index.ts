@@ -186,7 +186,6 @@ export class AtMenuConfigService extends Service {
       name: I18n.t('com.affine.editor.at-menu.import'),
       action: () => {
         close();
-        track.doc.editor.atMenu.import();
         this.dialogService.open('import', undefined, payload => {
           if (!payload) {
             return;
@@ -310,7 +309,6 @@ export class AtMenuConfigService extends Service {
   ): LinkedMenuGroup {
     const action = (meta: DocMeta) => {
       close();
-      track.doc.editor.atMenu.linkDoc();
       this.insertDoc(inlineEditor, meta.id);
     };
     const result = this.searchMenuService.getDocMenuGroup(
@@ -469,8 +467,6 @@ export class AtMenuConfigService extends Service {
               const err = UserFriendlyError.fromAny(error);
 
               if (err.is(ErrorNames.MENTION_USER_DOC_ACCESS_DENIED)) {
-                track.doc.editor.atMenu.noAccessPrompted();
-
                 const canUserManage = this.guardService.can$(
                   'Doc_Users_Manage',
                   docId

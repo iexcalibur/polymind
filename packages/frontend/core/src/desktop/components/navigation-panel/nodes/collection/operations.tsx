@@ -11,7 +11,7 @@ import { CompatibleFavoriteItemsAdapter } from '@affine/core/modules/favorite';
 import { WorkbenchService } from '@affine/core/modules/workbench';
 import { WorkspaceService } from '@affine/core/modules/workspace';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import {
   DeleteIcon,
   FilterIcon,
@@ -58,7 +58,6 @@ export const useNavigationPanelCollectionNodeOperations = (
   const createAndAddDocument = useCallback(() => {
     const newDoc = createPage();
     collectionService.addDocToCollection(collectionId, newDoc.id);
-    track.$.navigationPanel.collections.createDoc();
     track.$.navigationPanel.collections.addDocToCollection({
       control: 'button',
     });
@@ -94,7 +93,6 @@ export const useNavigationPanelCollectionNodeOperations = (
 
   const handleOpenInNewTab = useCallback(() => {
     workbenchService.workbench.openCollection(collectionId, { at: 'new-tab' });
-    track.$.navigationPanel.organize.openInNewTab({ type: 'collection' });
   }, [collectionId, workbenchService.workbench]);
 
   const handleDeleteCollection = useCallback(() => {
@@ -106,7 +104,6 @@ export const useNavigationPanelCollectionNodeOperations = (
 
   const handleShowEdit = useCallback(() => {
     onOpenEdit();
-    track.$.navigationPanel.collections.editCollection();
   }, [onOpenEdit]);
 
   return useMemo(

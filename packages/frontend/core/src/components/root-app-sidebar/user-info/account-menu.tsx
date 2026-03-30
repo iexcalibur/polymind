@@ -1,7 +1,6 @@
 import { MenuItem } from '@affine/component';
 import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
 import { AccountIcon, SignOutIcon } from '@blocksuite/icons/rc';
 import { useService } from '@toeverything/infra';
 import { useCallback } from 'react';
@@ -13,7 +12,6 @@ export const AccountMenu = () => {
   const openSignOutModal = useSignOut();
 
   const onOpenAccountSetting = useCallback(() => {
-    track.$.navigationPanel.profileAndBadge.openSettings({ to: 'account' });
     workspaceDialogService.open('setting', {
       activeTab: 'account',
     });

@@ -6,7 +6,6 @@ import {
   type WorkspaceMetadata,
   WorkspacesService,
 } from '@affine/core/modules/workspace';
-import { track } from '@affine/track';
 import {
   useLiveData,
   useServiceOptional,
@@ -72,7 +71,6 @@ export const WorkspaceSelector = ({
     }
   }, [outerOnOpenChange]);
   const openUserWorkspaceList = useCallback(() => {
-    track.$.navigationPanel.workspaceList.open();
     if (outerOnOpenChange) {
       outerOnOpenChange(true);
     } else {

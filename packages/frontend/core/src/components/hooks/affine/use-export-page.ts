@@ -7,7 +7,7 @@ import type { AffineEditorContainer } from '@affine/core/blocksuite/block-suite-
 import { EditorService } from '@affine/core/modules/editor';
 import { getAFFiNEWorkspaceSchema } from '@affine/core/modules/workspace/global-schema';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import { ExportManager } from '@blocksuite/affine/blocks/surface';
 import {
   docLinkBaseURLMiddleware,

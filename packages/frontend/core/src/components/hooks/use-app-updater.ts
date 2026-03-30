@@ -2,7 +2,7 @@
 import { UrlService } from '@affine/core/modules/url';
 import type { UpdateMeta } from '@affine/electron-api';
 import { apis, events } from '@affine/electron-api';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import { appSettingAtom, useService } from '@toeverything/infra';
 import { atom, useAtom, useAtomValue } from 'jotai';
 import { atomWithObservable, atomWithStorage } from 'jotai/utils';
@@ -117,7 +117,6 @@ export const useAppUpdater = () => {
   );
 
   const quitAndInstall = useCallback(() => {
-    track.$.navigationPanel.bottomButtons.quitAndInstall();
     if (updateReady) {
       setAppQuitting(true);
       apis?.updater.quitAndInstall().catch(err => {
@@ -128,7 +127,6 @@ export const useAppUpdater = () => {
   }, [updateReady]);
 
   const checkForUpdates = useCallback(async () => {
-    track.$.settingsPanel.about.checkUpdates();
     if (checkingForUpdates) {
       return;
     }
@@ -145,7 +143,6 @@ export const useAppUpdater = () => {
   }, [checkingForUpdates, setCheckingForUpdates]);
 
   const downloadUpdate = useCallback(() => {
-    track.$.settingsPanel.about.downloadUpdate();
     apis?.updater.downloadUpdate().catch(err => {
       console.error('Error downloading update:', err);
     });
@@ -178,13 +175,11 @@ export const useAppUpdater = () => {
   );
 
   const openChangelog = useAsyncCallback(async () => {
-    track.$.navigationPanel.bottomButtons.openChangelog();
     urlService.openPopupWindow(BUILD_CONFIG.changelogUrl);
     await setChangelogUnread(true);
   }, [setChangelogUnread, urlService]);
 
   const dismissChangelog = useAsyncCallback(async () => {
-    track.$.navigationPanel.bottomButtons.dismissChangelog();
     await setChangelogUnread(true);
   }, [setChangelogUnread]);
 

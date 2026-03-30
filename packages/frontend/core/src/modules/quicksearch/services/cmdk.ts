@@ -1,4 +1,3 @@
-import { track } from '@affine/track';
 import { Service } from '@toeverything/infra';
 
 import type { DocsService } from '../../doc';
@@ -67,10 +66,6 @@ export class CMDKQuickSearchService extends Service {
             if (!doc.docId) {
               return;
             }
-
-            result.source === 'recent-doc' && track.$.cmdk.recent.recentDocs();
-            result.source === 'docs' &&
-              track.$.cmdk.results.searchResultsDocs();
 
             const options: { docId: string; blockIds?: string[] } = {
               docId: doc.docId,

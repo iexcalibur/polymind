@@ -19,7 +19,7 @@ import { GuardService } from '@affine/core/modules/permissions';
 import { WorkspaceService } from '@affine/core/modules/workspace';
 import type { AffineDNDData } from '@affine/core/types/dnd';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import {
   LiveData,
   MANUALLY_STOP,
@@ -167,7 +167,6 @@ export const NavigationPanelDocNode = ({
   const handleRename = useAsyncCallback(
     async (newName: string) => {
       await docsService.changeDocTitle(docId, newName);
-      track.$.navigationPanel.organize.renameOrganizeItem({ type: 'doc' });
     },
     [docId, docsService]
   );
@@ -281,9 +280,7 @@ export const NavigationPanelDocNode = ({
       collapsible={!!appSettings.showLinkedDocInSidebar}
       canDrop={handleCanDrop}
       to={`/${docId}`}
-      onClick={() => {
-        track.$.navigationPanel.docs.openDoc();
-      }}
+      onClick={() => {}}
       active={active}
       postfix={
         referencesLoading &&

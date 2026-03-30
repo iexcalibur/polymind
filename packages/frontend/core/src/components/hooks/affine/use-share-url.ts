@@ -3,7 +3,6 @@ import { ServerService } from '@affine/core/modules/cloud';
 import { toDocSearchParams } from '@affine/core/modules/navigation';
 import { copyTextToClipboard } from '@affine/core/utils/clipboard';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
 import type { SerializedXYWH } from '@blocksuite/affine/global/gfx';
 import { type DocMode } from '@blocksuite/affine/model';
 import {
@@ -150,7 +149,7 @@ export const useSharingUrl = ({ workspaceId, pageId }: UseSharingUrl) => {
         elementIds,
         mode, // if view is not provided, use the current view
       });
-      const type = getShareLinkType({
+      const _type = getShareLinkType({
         mode,
         blockIds,
         elementIds,
@@ -165,7 +164,6 @@ export const useSharingUrl = ({ workspaceId, pageId }: UseSharingUrl) => {
           .catch(err => {
             console.error(err);
           });
-        track.$.sharePanel.$.copyShareLink({ type });
       } else {
         notify.error({ title: 'Network not available' });
       }

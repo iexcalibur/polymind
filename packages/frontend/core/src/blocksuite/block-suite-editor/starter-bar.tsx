@@ -75,7 +75,6 @@ const StarterBarNotEmpty = ({ doc }: { doc: Store }) => {
   const handleSelectTemplate = useAsyncCallback(
     async (templateId: string) => {
       await docsService.duplicateFromTemplate(templateId, doc.id);
-      track.doc.editor.starterBar.quickStart({ with: 'template' });
     },
     [doc.id, docsService]
   );

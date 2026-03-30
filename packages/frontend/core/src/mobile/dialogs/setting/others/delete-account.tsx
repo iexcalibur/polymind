@@ -4,7 +4,6 @@ import { AuthService } from '@affine/core/modules/cloud';
 import { WorkspacesService } from '@affine/core/modules/workspace';
 import { UserFriendlyError } from '@affine/error';
 import { Trans, useI18n } from '@affine/i18n';
-import track from '@affine/track';
 import { ArrowRightSmallIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import { useCallback, useState } from 'react';
@@ -103,7 +102,6 @@ const DeleteAccountModal = ({
     try {
       setIsLoading(true);
       await authService.deleteAccount();
-      track.$.$.auth.deleteAccount();
       openConfirmModal({
         title: t['com.affine.setting.account.delete.success-title'](),
         description: (

@@ -17,7 +17,7 @@ import {
   SubscriptionVariant,
 } from '@affine/graphql';
 import { Trans, useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import { DoneIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import clsx from 'clsx';

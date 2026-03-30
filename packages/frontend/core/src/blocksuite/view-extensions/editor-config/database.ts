@@ -7,7 +7,6 @@ import { ServerService } from '@affine/core/modules/cloud';
 import { EditorService } from '@affine/core/modules/editor';
 import { copyLinkToBlockStdScopeClipboard } from '@affine/core/utils/clipboard';
 import { I18n } from '@affine/i18n';
-import { track } from '@affine/track';
 import {
   menu,
   type MenuOptions,
@@ -62,7 +61,7 @@ function createCopyLinkToBlockMenuItem(
       });
       if (!str) return;
 
-      const type = model.flavour;
+      const _type = model.flavour;
       const page = editor.editorContainer$.value;
 
       copyLinkToBlockStdScopeClipboard(str, page?.host?.std.clipboard)
@@ -72,8 +71,6 @@ function createCopyLinkToBlockMenuItem(
           notify.success({ title: I18n['Copied link to clipboard']() });
         })
         .catch(console.error);
-
-      track.doc.editor.toolbar.copyBlockToLink({ type });
     },
   });
 }

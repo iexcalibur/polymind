@@ -154,7 +154,6 @@ export const PinnedCollections = ({
             size="16"
             className={styles.editIconButton}
             onClick={() => {
-              track.allDocs.header.collection.editCollection();
               workspaceDialogService.open('collection-editor', {
                 collectionId: activeCollectionId,
               });
@@ -238,7 +237,6 @@ export const AddPinnedCollectionMenuContent = ({
           prefixIcon={<CollectionsIcon />}
           suffixIcon={<PlusIcon />}
           onClick={() => {
-            track.allDocs.header.collection.addPinnedCollection();
             onPinCollection(meta.id);
           }}
         >

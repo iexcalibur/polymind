@@ -3,7 +3,6 @@ import { RenameModal } from '@affine/component/rename-modal';
 import { NavigationPanelService } from '@affine/core/modules/navigation-panel';
 import { TagService } from '@affine/core/modules/tag';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
 import { AddTagIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useServices } from '@toeverything/infra';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -29,7 +28,6 @@ export const NavigationPanelTags = () => {
   const handleCreateNewTag = useCallback(
     (name: string) => {
       tagService.tagList.createTag(name, tagService.randomTagColor());
-      track.$.navigationPanel.organize.createOrganizeItem({ type: 'tag' });
       navigationPanelService.setCollapsed(path, false);
     },
     [navigationPanelService, path, tagService]

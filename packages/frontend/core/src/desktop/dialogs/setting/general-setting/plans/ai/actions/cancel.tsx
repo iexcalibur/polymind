@@ -5,7 +5,7 @@ import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hoo
 import { AuthService, SubscriptionService } from '@affine/core/modules/cloud';
 import { SubscriptionPlan } from '@affine/graphql';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import { useService } from '@toeverything/infra';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';

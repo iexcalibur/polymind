@@ -6,7 +6,7 @@ import {
   SubscriptionRecurring,
   SubscriptionVariant,
 } from '@affine/graphql';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import { effect, fromPromise, useServices } from '@toeverything/infra';
 import { nanoid } from 'nanoid';
 import { useEffect, useMemo, useState } from 'react';

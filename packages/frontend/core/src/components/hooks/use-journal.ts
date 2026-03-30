@@ -7,7 +7,7 @@ import {
 } from '@affine/core/modules/journal';
 import type { WorkbenchOpenOptions } from '@affine/core/modules/workbench/entities/workbench';
 import { i18nTime } from '@affine/i18n';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import { useService, useServices } from '@toeverything/infra';
 import dayjs from 'dayjs';
 import { useCallback, useMemo } from 'react';

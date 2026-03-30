@@ -11,7 +11,6 @@ import {
 } from '@affine/core/modules/organize';
 import type { AffineDNDData } from '@affine/core/types/dnd';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
 import { AddOrganizeIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useServices } from '@toeverything/infra';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -43,7 +42,6 @@ export const NavigationPanelOrganize = () => {
       'New Folder',
       rootFolder.indexAt('before')
     );
-    track.$.navigationPanel.organize.createOrganizeItem({ type: 'folder' });
     setNewFolderId(newFolderId);
     navigationPanelService.setCollapsed(path, false);
     return newFolderId;
@@ -65,7 +63,6 @@ export const NavigationPanelOrganize = () => {
             data.source.data.entity.id,
             rootFolder.indexAt(at, node.id)
           );
-          track.$.navigationPanel.organize.moveOrganizeItem({ type: 'folder' });
         } else {
           toast(t['com.affine.rootAppSidebar.organize.root-folder-only']());
         }

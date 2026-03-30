@@ -16,7 +16,7 @@ import { TagService } from '@affine/core/modules/tag';
 import { WorkbenchService } from '@affine/core/modules/workbench';
 import { WorkspaceService } from '@affine/core/modules/workspace';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import {
   DeleteIcon,
   FolderIcon,
@@ -68,14 +68,12 @@ export const useNavigationPanelTagNodeOperations = (
     if (tagRecord) {
       const newDoc = createPage();
       tagRecord?.tag(newDoc.id);
-      track.$.navigationPanel.tags.createDoc();
       openNodeCollapsed();
     }
   }, [createPage, openNodeCollapsed, tagRecord]);
 
   const handleMoveToTrash = useCallback(() => {
     tagService.tagList.deleteTag(tagId);
-    track.$.navigationPanel.organize.deleteOrganizeItem({ type: 'tag' });
     toast(t['com.affine.tags.delete-tags.toast']());
   }, [t, tagId, tagService.tagList]);
 
@@ -83,7 +81,6 @@ export const useNavigationPanelTagNodeOperations = (
     workbenchService.workbench.openTag(tagId, {
       at: 'beside',
     });
-    track.$.navigationPanel.organize.openInSplitView({ type: 'tag' });
   }, [tagId, workbenchService]);
 
   const handleToggleFavoriteTag = useCallback(() => {
@@ -97,7 +94,6 @@ export const useNavigationPanelTagNodeOperations = (
     workbenchService.workbench.openTag(tagId, {
       at: 'new-tab',
     });
-    track.$.navigationPanel.organize.openInNewTab({ type: 'tag' });
   }, [tagId, workbenchService]);
 
   const handleRename = useCallback(

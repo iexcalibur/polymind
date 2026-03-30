@@ -17,7 +17,7 @@ import { GuardService } from '@affine/core/modules/permissions';
 import { WorkbenchService } from '@affine/core/modules/workbench';
 import { WorkspaceService } from '@affine/core/modules/workspace';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import {
   DeleteIcon,
   DuplicateIcon,
@@ -72,10 +72,8 @@ export const useNavigationPanelDocNodeOperations = (
   const { duplicate } = useBlockSuiteMetaHelper();
   const handleDuplicate = useCallback(() => {
     duplicate(docId, true);
-    track.$.navigationPanel.docs.createDoc();
   }, [docId, duplicate]);
   const handleOpenInfoModal = useCallback(() => {
-    track.$.docInfoPanel.$.open();
     options.openInfoModal();
   }, [options]);
 
@@ -107,7 +105,6 @@ export const useNavigationPanelDocNodeOperations = (
     workbenchService.workbench.openDoc(docId, {
       at: 'new-tab',
     });
-    track.$.navigationPanel.docs.openDoc();
     track.$.navigationPanel.organize.openInNewTab({
       type: 'doc',
     });
@@ -117,7 +114,6 @@ export const useNavigationPanelDocNodeOperations = (
     workbenchService.workbench.openDoc(docId, {
       at: 'beside',
     });
-    track.$.navigationPanel.docs.openDoc();
     track.$.navigationPanel.organize.openInSplitView({
       type: 'doc',
     });
@@ -134,8 +130,6 @@ export const useNavigationPanelDocNodeOperations = (
       const newDoc = createPage();
       // TODO: handle timeout & error
       await docsService.addLinkedDoc(docId, newDoc.id);
-      track.$.navigationPanel.docs.createDoc({ control: 'linkDoc' });
-      track.$.navigationPanel.docs.linkDoc({ control: 'createDoc' });
       options.openNodeCollapsed();
     } finally {
       setAddLinkedPageLoading(false);

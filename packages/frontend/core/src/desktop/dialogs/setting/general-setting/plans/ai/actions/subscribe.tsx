@@ -3,7 +3,7 @@ import { generateSubscriptionCallbackLink } from '@affine/core/components/hooks/
 import { AuthService, SubscriptionService } from '@affine/core/modules/cloud';
 import { SubscriptionPlan, SubscriptionRecurring } from '@affine/graphql';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import { useLiveData, useService } from '@toeverything/infra';
 import { useCallback, useMemo } from 'react';
 

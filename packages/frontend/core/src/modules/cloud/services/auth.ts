@@ -1,6 +1,6 @@
 import { UserFriendlyError } from '@affine/error';
 import type { OAuthProviderType } from '@affine/graphql';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import { OnEvent, Service } from '@toeverything/infra';
 import { nanoid } from 'nanoid';
 import { distinctUntilChanged, map, skip } from 'rxjs';
@@ -62,7 +62,6 @@ export class AuthService extends Service {
     challenge?: string,
     redirectUrl?: string // url to redirect to after signed-in
   ) {
-    track.$.$.auth.signIn({ method: 'magic-link' });
     // Only native clients use `client_nonce` for magic-link/otp sign-in.
     // Web needs to keep cross-device magic-link compatibility.
     const magicLinkClientNonce = BUILD_CONFIG.isNative
@@ -106,7 +105,6 @@ export class AuthService extends Service {
       await this.store.signInMagicLink(email, token);
 
       this.session.revalidate();
-      track.$.$.auth.signedIn({ method });
     } catch (e) {
       track.$.$.auth.signInFail({
         method,
@@ -157,8 +155,6 @@ export class AuthService extends Service {
       );
 
       this.session.revalidate();
-
-      track.$.$.auth.signedIn({ method: 'oauth', provider });
       return { redirectUri };
     } catch (e) {
       track.$.$.auth.signInFail({
@@ -202,11 +198,9 @@ export class AuthService extends Service {
     verifyToken?: string;
     challenge?: string;
   }) {
-    track.$.$.auth.signIn({ method: 'password' });
     try {
       await this.store.signInPassword(credential);
       this.session.revalidate();
-      track.$.$.auth.signedIn({ method: 'password' });
     } catch (e) {
       track.$.$.auth.signInFail({
         method: 'password',

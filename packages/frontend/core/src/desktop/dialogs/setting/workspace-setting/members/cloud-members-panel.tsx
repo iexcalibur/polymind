@@ -24,7 +24,7 @@ import { UserFriendlyError } from '@affine/error';
 import type { WorkspaceInviteLinkExpireTime } from '@affine/graphql';
 import { ServerDeploymentType, SubscriptionPlan } from '@affine/graphql';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import { ExportIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import { nanoid } from 'nanoid';

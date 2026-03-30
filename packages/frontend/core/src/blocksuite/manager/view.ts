@@ -24,7 +24,6 @@ import { AffineThemeViewExtension } from '@affine/core/blocksuite/view-extension
 import { TurboRendererViewExtension } from '@affine/core/blocksuite/view-extensions/turbo-renderer';
 import { PeekViewService } from '@affine/core/modules/peek-view';
 import { DebugLogger } from '@affine/debug';
-import { tracker } from '@affine/track';
 import { DatabaseViewExtension } from '@blocksuite/affine/blocks/database/view';
 import { ParagraphViewExtension } from '@blocksuite/affine/blocks/paragraph/view';
 import type {
@@ -161,9 +160,7 @@ class ViewProvider {
 
     this._manager.configure(FoundationViewExtension, {
       telemetry: {
-        track: (eventName, props) => {
-          tracker.track(eventName, props);
-        },
+        track: (_eventName, _props) => {},
       },
       fontConfig: AffineCanvasTextFonts.map(font => ({
         ...font,

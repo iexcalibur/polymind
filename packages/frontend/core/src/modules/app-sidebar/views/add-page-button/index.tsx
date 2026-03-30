@@ -9,7 +9,6 @@ import { WorkbenchService } from '@affine/core/modules/workbench';
 import { WorkspaceService } from '@affine/core/modules/workspace';
 import { inferOpenMode } from '@affine/core/utils';
 import { useI18n } from '@affine/i18n';
-import track from '@affine/track';
 import type { DocMode } from '@blocksuite/affine/model';
 import {
   ArrowDownSmallIcon,
@@ -88,16 +87,12 @@ function AddPageWithAsk({ className, style }: AddPageButtonProps) {
   const createPage = useCallback(
     (e?: MouseEvent) => {
       createDoc(e, 'page');
-      track.$.navigationPanel.$.createDoc();
-      track.$.sidebar.newDoc.quickStart({ with: 'page' });
     },
     [createDoc]
   );
   const createEdgeless = useCallback(
     (e?: MouseEvent) => {
       createDoc(e, 'edgeless');
-      track.$.navigationPanel.$.createDoc();
-      track.$.sidebar.newDoc.quickStart({ with: 'edgeless' });
     },
     [createDoc]
   );
@@ -106,7 +101,6 @@ function AddPageWithAsk({ className, style }: AddPageButtonProps) {
     async (templateId: string) => {
       const docId = await docsService.duplicateFromTemplate(templateId);
       workbench.openDoc(docId);
-      track.$.sidebar.newDoc.quickStart({ with: 'template' });
     },
     [docsService, workbench]
   );
@@ -170,7 +164,6 @@ function AddPageWithoutAsk({ className, style }: AddPageButtonProps) {
   const onClickNewPage = useCallback(
     (e?: MouseEvent) => {
       createDoc(e);
-      track.$.navigationPanel.$.createDoc();
     },
     [createDoc]
   );

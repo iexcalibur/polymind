@@ -3,7 +3,6 @@ import { registerAffineCommand } from '@affine/core/commands';
 import { EditorService } from '@affine/core/modules/editor';
 import { ViewService, WorkbenchService } from '@affine/core/modules/workbench';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
 import type { DocMode } from '@blocksuite/affine/model';
 import { EdgelessIcon, PageIcon } from '@blocksuite/icons/rc';
 import {
@@ -50,14 +49,12 @@ export const EditorModeSwitch = () => {
     if (currentMode === 'page' || isSharedMode || trash) return;
     editor.setMode('page');
     editor.setSelector(undefined);
-    track.$.header.actions.switchPageMode({ mode: 'page' });
   }, [currentMode, editor, isSharedMode, trash]);
 
   const toggleEdgeless = useCallback(() => {
     if (currentMode === 'edgeless' || isSharedMode || trash) return;
     editor.setMode('edgeless');
     editor.setSelector(undefined);
-    track.$.header.actions.switchPageMode({ mode: 'edgeless' });
   }, [currentMode, editor, isSharedMode, trash]);
 
   const onModeChange = useCallback(

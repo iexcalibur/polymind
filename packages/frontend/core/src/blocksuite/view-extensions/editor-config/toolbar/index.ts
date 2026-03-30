@@ -8,7 +8,6 @@ import { EditorService } from '@affine/core/modules/editor';
 import type { EditorSettingExt } from '@affine/core/modules/editor-setting/entities/editor-setting';
 import { copyLinkToBlockStdScopeClipboard } from '@affine/core/utils/clipboard';
 import { I18n, i18nTime } from '@affine/i18n';
-import { track } from '@affine/track';
 import { BookmarkBlockComponent } from '@blocksuite/affine/blocks/bookmark';
 import {
   EmbedFigmaBlockComponent,
@@ -165,22 +164,22 @@ function createCopyLinkToBlockMenuItem(
       const pageId = editor.doc.id;
       const workspaceId = editor.doc.workspace.id;
       const options: UseSharingUrl = { workspaceId, pageId, mode };
-      let type = '';
+      let _type = '';
 
       if (mode === 'page') {
         // maybe multiple blocks
         const blockIds = ctx.selectedBlockModels.map(model => model.id);
         options.blockIds = blockIds;
-        type = ctx.selectedBlockModels[0].flavour;
+        _type = ctx.selectedBlockModels[0].flavour;
       } else if (mode === 'edgeless' && ctx.firstElement) {
         // single block/element
         const id = ctx.firstElement.id;
         if (ctx.isElement()) {
           options.elementIds = [id];
-          type = (ctx.firstElement as GfxPrimitiveElementModel).type;
+          _type = (ctx.firstElement as GfxPrimitiveElementModel).type;
         } else {
           options.blockIds = [id];
-          type = (ctx.firstElement as GfxBlockElementModel).flavour;
+          _type = (ctx.firstElement as GfxBlockElementModel).flavour;
         }
       }
 
@@ -201,9 +200,6 @@ function createCopyLinkToBlockMenuItem(
       if (success) {
         notify.success({ title: I18n['Copied link to clipboard']() });
       }
-
-      track.doc.editor.toolbar.copyBlockToLink({ type });
-
       ctx.close();
     },
   };
@@ -266,7 +262,7 @@ function createToolbarMoreMenuConfigV2(baseUrl?: string) {
               const mode = editorMode;
               const workspaceId = workspace.id;
               const options: UseSharingUrl = { workspaceId, pageId, mode };
-              let type = '';
+              let _type = '';
 
               if (isPageMode) {
                 const [ok, { selectedModels = [] }] = std.command.exec(
@@ -307,8 +303,6 @@ function createToolbarMoreMenuConfigV2(baseUrl?: string) {
                   notify.success({ title: I18n['Copied link to clipboard']() });
                 })
                 .catch(console.error);
-
-              track.doc.editor.toolbar.copyBlockToLink({ type });
             },
           },
         ],
@@ -673,13 +667,13 @@ function createSurfaceRefToolbarConfig(baseUrl?: string): ToolbarModuleConfig {
                 mode: 'edgeless',
               };
 
-              let type = '';
+              let _type = '';
               if (refModel instanceof GfxPrimitiveElementModel) {
                 options.elementIds = [refModel.id];
-                type = refModel.type;
+                _type = refModel.type;
               } else if (refModel instanceof GfxBlockElementModel) {
                 options.blockIds = [refModel.id];
-                type = refModel.flavour;
+                _type = refModel.flavour;
               }
 
               const str = generateUrl({
@@ -695,8 +689,6 @@ function createSurfaceRefToolbarConfig(baseUrl?: string): ToolbarModuleConfig {
                   notify.success({ title: I18n['Copied link to clipboard']() });
                 })
                 .catch(console.error);
-
-              track.doc.editor.toolbar.copyBlockToLink({ type });
             },
           },
         ],

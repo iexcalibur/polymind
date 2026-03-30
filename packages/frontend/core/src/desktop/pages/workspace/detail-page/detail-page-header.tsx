@@ -25,7 +25,6 @@ import { ViewIcon, ViewTitle } from '@affine/core/modules/workbench';
 import type { Workspace } from '@affine/core/modules/workspace';
 import type { AffineDNDData } from '@affine/core/types/dnd';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
 import type { Store } from '@blocksuite/affine/store';
 import { useLiveData, useService } from '@toeverything/infra';
 import clsx from 'clsx';
@@ -224,9 +223,7 @@ export function DetailPageHeader(
             document.activeElement?.tagName === 'INPUT';
           return !editingElement;
         },
-        onDragStart: () => {
-          track.$.header.$.dragStart();
-        },
+        onDragStart: () => {},
         dragPreviewPosition: 'pointer-outside',
       };
     }, [page.id]);

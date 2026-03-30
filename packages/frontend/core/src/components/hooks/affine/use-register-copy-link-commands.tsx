@@ -5,7 +5,6 @@ import {
 import { useSharingUrl } from '@affine/core/components/hooks/affine/use-share-url';
 import { useIsActiveView } from '@affine/core/modules/workbench';
 import type { WorkspaceMetadata } from '@affine/core/modules/workspace';
-import { track } from '@affine/track';
 import { useEffect } from 'react';
 
 export function useRegisterCopyLinkCommands({
@@ -41,7 +40,6 @@ export function useRegisterCopyLinkCommands({
         label: '',
         icon: null,
         run() {
-          track.$.cmdk.general.copyShareLink();
           isActiveView && isCloud && onClickCopyLink();
         },
       })

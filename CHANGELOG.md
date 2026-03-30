@@ -15,6 +15,15 @@ All notable changes to the Ploy-Note project (AFFiNE fork) are documented in thi
   - Deleted `packages/common/graphql/src/graphql/admin/` (~20 files) — admin GraphQL queries
   - Removed admin routes, admin menu item, admin build config, admin tsconfig reference
   - `UserFeature.isAdmin$` always returns `true`
+- **All telemetry fully removed** — zero data sent externally
+  - Removed all `track.xxx()` calls from ~150 frontend files
+  - `@affine/track` exports are no-ops (track, tracker, sentry all do nothing)
+  - Deleted `packages/backend/server/src/core/telemetry/` — backend GA4 forwarding
+  - Deleted `packages/common/nbstore/src/telemetry/` — IndexedDB event queue
+  - Deleted `packages/frontend/core/src/modules/telemetry/` — frontend telemetry module
+  - Deleted `packages/frontend/track/src/` internals (sentry, tracker, state, telemetry)
+  - Bootstrap telemetry initialization emptied
+  - No Sentry, no Google Analytics, no custom analytics
 - **Cloud stubbed out** — local-first only, no backend server needed
   - Cloud workspace flavour provider removed (only local workspaces)
   - Backend proxy (`/api`, `/socket.io`, `/graphql`) removed from dev server

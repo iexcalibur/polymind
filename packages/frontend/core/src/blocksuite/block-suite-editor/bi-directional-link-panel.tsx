@@ -253,9 +253,7 @@ export const BacklinkGroups = () => {
             title={
               <AffinePageReference
                 pageId={linkGroup.docId}
-                onClick={() => {
-                  track.doc.biDirectionalLinksPanel.backlinkTitle.navigate();
-                }}
+                onClick={() => {}}
               />
             }
             length={linkGroup.links.length}
@@ -380,9 +378,7 @@ export const LinkPreview = ({
             to={to}
             key={link.blockId}
             className={styles.linkPreview}
-            onClick={() => {
-              track.doc.biDirectionalLinksPanel.backlinkPreview.navigate();
-            }}
+            onClick={() => {}}
           >
             {edgelessLink ? (
               <>

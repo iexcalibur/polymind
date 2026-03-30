@@ -17,7 +17,7 @@ import { WorkbenchService } from '@affine/core/modules/workbench';
 import { WorkspaceService } from '@affine/core/modules/workspace';
 import { preventDefault } from '@affine/core/utils';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import {
   DeleteIcon,
   DuplicateIcon,
@@ -67,7 +67,6 @@ export const useNavigationPanelDocNodeOperations = (
   const { duplicate } = useBlockSuiteMetaHelper();
   const handleDuplicate = useCallback(() => {
     duplicate(docId, true);
-    track.$.navigationPanel.docs.createDoc();
   }, [docId, duplicate]);
 
   const handleMoveToTrash = useCallback(() => {
@@ -116,8 +115,6 @@ export const useNavigationPanelDocNodeOperations = (
     const newDoc = createPage();
     // TODO: handle timeout & error
     await docsService.addLinkedDoc(docId, newDoc.id);
-    track.$.navigationPanel.docs.createDoc({ control: 'linkDoc' });
-    track.$.navigationPanel.docs.linkDoc({ control: 'createDoc' });
     options.openNodeCollapsed();
   }, [createPage, docId, docsService, options]);
 
@@ -131,7 +128,6 @@ export const useNavigationPanelDocNodeOperations = (
   const handleRename = useAsyncCallback(
     async (newName: string) => {
       await docsService.changeDocTitle(docId, newName);
-      track.$.navigationPanel.organize.renameOrganizeItem({ type: 'doc' });
     },
     [docId, docsService]
   );

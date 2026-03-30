@@ -13,7 +13,7 @@ import { GuardService } from '@affine/core/modules/permissions';
 import { WorkspaceService } from '@affine/core/modules/workspace';
 import { UserFriendlyError } from '@affine/error';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import {
   EdgelessIcon,
   HistoryIcon,
@@ -140,8 +140,6 @@ export function useRegisterBlocksuiteEditorCommands(
         icon: mode === 'page' ? <PageIcon /> : <EdgelessIcon />,
         label: t['com.affine.page-properties.page-info.view'](),
         run() {
-          track.$.cmdk.docInfo.open();
-
           openInfoModal();
         },
       })
@@ -158,8 +156,6 @@ export function useRegisterBlocksuiteEditorCommands(
           : t['com.affine.favoritePageOperation.add'](),
         run() {
           favAdapter.toggle(docId, 'doc');
-          track.$.cmdk.editor.toggleFavorite();
-
           toast(
             favorite
               ? t['com.affine.cmdk.affine.editor.remove-from-favourites']()
@@ -313,8 +309,6 @@ export function useRegisterBlocksuiteEditorCommands(
         icon: mode === 'page' ? <PageIcon /> : <EdgelessIcon />,
         label: t['com.affine.moveToTrash.title'](),
         run() {
-          track.$.cmdk.editor.deleteDoc();
-
           onClickDelete();
         },
       })
@@ -334,8 +328,6 @@ export function useRegisterBlocksuiteEditorCommands(
             toast(t['com.affine.no-permission']());
             return;
           }
-          track.$.cmdk.editor.restoreDoc();
-
           doc.restoreFromTrash();
         },
       })
@@ -349,8 +341,6 @@ export function useRegisterBlocksuiteEditorCommands(
           icon: <HistoryIcon />,
           label: t['com.affine.cmdk.affine.editor.reveal-page-history-modal'](),
           run() {
-            track.$.cmdk.docHistory.open();
-
             openHistoryModal();
           },
         })

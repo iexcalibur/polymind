@@ -191,7 +191,6 @@ const NavigationPanelFolderNodeFolder = ({
   const handleNewDoc = useCallback(() => {
     const newDoc = createPage();
     node.createLink('doc', newDoc.id, node.indexAt('before'));
-    track.$.navigationPanel.folders.createDoc();
     track.$.navigationPanel.organize.createOrganizeItem({
       type: 'link',
       target: 'doc',
@@ -202,7 +201,6 @@ const NavigationPanelFolderNodeFolder = ({
   const handleCreateSubfolder = useCallback(
     (name: string) => {
       node.createFolder(name, node.indexAt('before'));
-      track.$.navigationPanel.organize.createOrganizeItem({ type: 'folder' });
       setCollapsed(false);
     },
     [node, setCollapsed]

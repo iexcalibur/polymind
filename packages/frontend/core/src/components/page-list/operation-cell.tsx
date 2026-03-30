@@ -17,7 +17,7 @@ import {
 import { WorkbenchService } from '@affine/core/modules/workbench';
 import { WorkspaceService } from '@affine/core/modules/workspace';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import type { DocMeta } from '@blocksuite/affine/store';
 import {
   DeleteIcon,
@@ -86,7 +86,6 @@ const PageOperationCellMenuItem = ({
   const workspaceDialogService = useService(WorkspaceDialogService);
   const onOpenInfoModal = useCallback(() => {
     if (blocksuiteDoc?.id) {
-      track.$.docInfoPanel.$.open();
       workspaceDialogService.open('doc-info', { docId: blocksuiteDoc.id });
     }
   }, [blocksuiteDoc, workspaceDialogService]);
@@ -104,8 +103,6 @@ const PageOperationCellMenuItem = ({
     if (!docRecord) {
       return;
     }
-    track.allDocs.list.docMenu.deleteDoc();
-
     openConfirmModal({
       title: t['com.affine.moveToTrash.confirmModal.title'](),
       description: t['com.affine.moveToTrash.confirmModal.description']({
@@ -123,8 +120,6 @@ const PageOperationCellMenuItem = ({
   }, [docRecord, openConfirmModal, t]);
 
   const onOpenInSplitView = useCallback(() => {
-    track.allDocs.list.docMenu.openInSplitView();
-
     workbench.openDoc(page.id, { at: 'tail' });
   }, [page.id, workbench]);
 
@@ -143,8 +138,6 @@ const PageOperationCellMenuItem = ({
   }, [page.id, favAdapter, t]);
 
   const onToggleFavoritePageOption = useCallback(() => {
-    track.allDocs.list.docMenu.toggleFavorite();
-
     onToggleFavoritePage();
   }, [onToggleFavoritePage]);
 
@@ -158,7 +151,6 @@ const PageOperationCellMenuItem = ({
   const handleRemoveFromAllowList = useCallback(() => {
     if (onRemoveFromAllowList) {
       onRemoveFromAllowList();
-      track.collection.docList.docMenu.removeOrganizeItem({ type: 'doc' });
     }
   }, [onRemoveFromAllowList]);
 

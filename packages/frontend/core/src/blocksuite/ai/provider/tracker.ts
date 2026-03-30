@@ -1,4 +1,3 @@
-import { track, tracker } from '@affine/track';
 import type { EditorHost } from '@blocksuite/affine/std';
 import type { GfxPrimitiveElementModel } from '@blocksuite/affine/std/gfx';
 import type { BlockModel } from '@blocksuite/affine/store';
@@ -67,14 +66,12 @@ type SubjectValue<T> = T extends Subject<infer U> ? U : never;
 type BlocksuiteActionEvent = SubjectValue<typeof AIProvider.slots.actions>;
 
 const trackAction = ({
-  eventName,
-  properties,
+  eventName: _eventName,
+  properties: _properties,
 }: {
   eventName: AIActionEventName;
   properties: AIActionEventProperties;
-}) => {
-  tracker.track(eventName, properties);
-};
+}) => {};
 
 const inferPageMode = (host: EditorHost) => {
   return host.querySelector('affine-page-root') ? 'doc' : 'edgeless';
@@ -258,13 +255,9 @@ const toTrackedOptions = (
 };
 
 export function setupTracker() {
-  AIProvider.slots.requestUpgradePlan.subscribe(() => {
-    track.$.paywall.aiAction.viewPlans();
-  });
+  AIProvider.slots.requestUpgradePlan.subscribe(() => {});
 
-  AIProvider.slots.requestLogin.subscribe(() => {
-    track.doc.editor.aiActions.requestSignIn();
-  });
+  AIProvider.slots.requestLogin.subscribe(() => {});
 
   AIProvider.slots.actions.subscribe(event => {
     const properties = toTrackedOptions(event);

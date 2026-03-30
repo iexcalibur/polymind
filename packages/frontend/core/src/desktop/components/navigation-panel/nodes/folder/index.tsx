@@ -22,7 +22,7 @@ import { WorkspaceService } from '@affine/core/modules/workspace';
 import type { AffineDNDData } from '@affine/core/types/dnd';
 import { Unreachable } from '@affine/env/constant';
 import { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
+import track from '@affine/track';
 import {
   DeleteIcon,
   FolderIcon,
@@ -273,7 +273,6 @@ const NavigationPanelFolderNodeFolder = ({
             return;
           }
           node.moveHere(data.source.data.entity.id, node.indexAt('before'));
-          track.$.navigationPanel.organize.moveOrganizeItem({ type: 'folder' });
         } else if (
           data.source.data.entity?.type === 'collection' ||
           data.source.data.entity?.type === 'doc' ||
@@ -352,7 +351,6 @@ const NavigationPanelFolderNodeFolder = ({
           return;
         }
         node.moveHere(data.source.data.entity.id, node.indexAt('before'));
-        track.$.navigationPanel.organize.moveOrganizeItem({ type: 'folder' });
       } else if (
         data.source.data.entity?.type === 'collection' ||
         data.source.data.entity?.type === 'doc' ||
@@ -408,7 +406,6 @@ const NavigationPanelFolderNodeFolder = ({
             data.source.data.entity.id,
             node.indexAt(at, dropAtNode.id)
           );
-          track.$.navigationPanel.organize.moveOrganizeItem({ type: 'folder' });
         } else if (
           data.source.data.entity?.type === 'collection' ||
           data.source.data.entity?.type === 'doc' ||
@@ -587,7 +584,6 @@ const NavigationPanelFolderNodeFolder = ({
   const handleNewDoc = useCallback(() => {
     const newDoc = createPage();
     node.createLink('doc', newDoc.id, node.indexAt('before'));
-    track.$.navigationPanel.folders.createDoc();
     track.$.navigationPanel.organize.createOrganizeItem({
       type: 'link',
       target: 'doc',
@@ -600,7 +596,6 @@ const NavigationPanelFolderNodeFolder = ({
       t['com.affine.rootAppSidebar.organize.new-folders'](),
       node.indexAt('before')
     );
-    track.$.navigationPanel.organize.createOrganizeItem({ type: 'folder' });
     setCollapsed(false);
     setNewFolderId(newFolderId);
   }, [node, setCollapsed, t]);

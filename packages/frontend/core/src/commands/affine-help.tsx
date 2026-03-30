@@ -1,5 +1,4 @@
 import type { useI18n } from '@affine/i18n';
-import { track } from '@affine/track';
 import { ContactWithUsIcon, NewIcon } from '@blocksuite/icons/rc';
 
 import type { WorkspaceDialogService } from '../modules/dialogs';
@@ -23,7 +22,6 @@ export function registerAffineHelpCommands({
       icon: <NewIcon />,
       label: t['com.affine.cmdk.affine.whats-new'](),
       run() {
-        track.$.cmdk.help.openChangelog();
         urlService.openPopupWindow(BUILD_CONFIG.changelogUrl);
       },
     })
@@ -35,7 +33,6 @@ export function registerAffineHelpCommands({
       icon: <ContactWithUsIcon />,
       label: t['com.affine.cmdk.affine.contact-us'](),
       run() {
-        track.$.cmdk.help.contactUs();
         workspaceDialogService.open('setting', {
           activeTab: 'about',
         });
