@@ -3,7 +3,6 @@ export { NavigationPanelCollections } from './sections/collections';
 export { NavigationPanelFavorites } from './sections/favorites';
 export { NavigationPanelMigrationFavorites } from './sections/migration-favorites';
 export { NavigationPanelOrganize } from './sections/organize';
-export { NavigationPanelSpaces } from './sections/spaces';
 export { NavigationPanelTags } from './sections/tags';
 export { NavigationPanelTreeRoot } from './tree';
 export { NavigationPanelTreeContext } from './tree/context';

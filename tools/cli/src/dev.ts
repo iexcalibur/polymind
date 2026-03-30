@@ -10,6 +10,9 @@ export class DevCommand extends PackageSelectorCommand {
     '@affine/server',
     '@affine/electron',
     '@affine/electron-renderer',
+    '@affine/mobile',
+    '@affine/ios',
+    '@affine/android',
     '@affine/admin',
   ];
 

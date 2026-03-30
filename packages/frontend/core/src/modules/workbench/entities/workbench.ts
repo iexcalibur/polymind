@@ -214,18 +214,6 @@ export class Workbench extends Entity {
     this.open(`/collection/${collectionId}`, options);
   }
 
-  openSpace(spaceId: string, options?: WorkbenchOpenOptions) {
-    this.open(`/space/${spaceId}`, options);
-  }
-
-  openSpaces(options?: WorkbenchOpenOptions) {
-    this.open('/spaces', options);
-  }
-
-  openDump(options?: WorkbenchOpenOptions) {
-    this.open('/dump', options);
-  }
-
   openAll(options?: WorkbenchOpenOptions) {
     this.open('/all', options);
   }

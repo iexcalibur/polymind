@@ -31,11 +31,6 @@ export const AFFiNE_WORKSPACE_DB_SCHEMA = {
     integrationType: integrationType.optional(),
     createdBy: f.string().optional(),
     updatedBy: f.string().optional(),
-    /**
-     * The Space this document belongs to.
-     * '__system__' is a reserved value for system-generated docs (e.g. canvas docs).
-     */
-    spaceId: f.string().optional(),
   }),
   docCustomPropertyInfo: {
     id: f.string().primaryKey().optional().default(nanoid),
@@ -58,79 +53,6 @@ export const AFFiNE_WORKSPACE_DB_SCHEMA = {
      */
     id: f.string().primaryKey(),
     icon: f.json<IconData>(),
-  },
-  /**
-   * Spaces — first-class knowledge containers (the "second brain" concept).
-   * Each Space has its own list view and canvas view.
-   */
-  spaces: {
-    id: f.string().primaryKey().optional().default(nanoid),
-    name: f.string(),
-    index: f.string().optional(),
-    parentSpaceId: f.string().optional(),
-  },
-  /**
-   * Maps a Space to its hidden canvas document (edgeless mode doc).
-   */
-  spaceCanvasDoc: {
-    spaceId: f.string().primaryKey(),
-    canvasDocId: f.string(),
-  },
-  /**
-   * Space Memory — pinned facts/context per Space.
-   * These are injected as system context when chatting in a Space.
-   */
-  spaceMemory: {
-    id: f.string().primaryKey().optional().default(nanoid),
-    spaceId: f.string(),
-    content: f.string(),
-    createdAt: f.number().optional(),
-  },
-  /**
-   * Space Chat History — persisted messages per Space.
-   */
-  spaceChatMessage: {
-    id: f.string().primaryKey().optional().default(nanoid),
-    spaceId: f.string(),
-    role: f.string(), // 'user' | 'assistant'
-    content: f.string(),
-    createdAt: f.number().optional(),
-  },
-  /**
-   * Dump Zone — quick-capture inbox items.
-   * Captures text snippets, screenshot OCR results, and URLs
-   * before they are assigned to a Space and converted to docs.
-   */
-  dumpItems: {
-    id: f.string().primaryKey().optional().default(nanoid),
-    type: f.string(), // 'text' | 'image' | 'url'
-    content: f.string(), // extracted/raw text (OCR result for images)
-    sourceUrl: f.string().optional(), // for URL captures
-    suggestedSpaceId: f.string().optional(), // AI-suggested Space
-    isProcessed: f.boolean().optional(), // AI has finished processing
-    movedToSpaceId: f.string().optional(), // set once moved to a Space
-    movedToDocId: f.string().optional(), // the resulting doc id
-    createdAt: f.number().optional(),
-  },
-  /**
-   * Workspace Chat — global AI chat messages (not scoped to a Space).
-   */
-  workspaceChatMessage: {
-    id: f.string().primaryKey().optional().default(nanoid),
-    role: f.string(), // 'user' | 'assistant'
-    content: f.string(),
-    createdAt: f.number().optional(),
-  },
-  /**
-   * Cross-Space Connections — AI-discovered links between Spaces.
-   */
-  crossSpaceConnections: {
-    id: f.string().primaryKey().optional().default(nanoid),
-    sourceSpaceId: f.string(),
-    targetSpaceId: f.string(),
-    label: f.string().optional(),
-    strength: f.number().optional(),
-    createdAt: f.number().optional(),
   },
 } as const satisfies DBSchemaBuilder;
 export type AFFiNEWorkspaceDbSchema = typeof AFFiNE_WORKSPACE_DB_SCHEMA;

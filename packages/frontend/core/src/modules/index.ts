@@ -9,7 +9,6 @@ import {
   configureAIReasoningModule,
   configureAIToolsConfigModule,
 } from './ai-button';
-import { configureAISearchModule } from './ai-search';
 import { configureAppSidebarModule } from './app-sidebar';
 import { configAtMenuConfigModule } from './at-menu-config';
 import { configureBlobManagementModule } from './blob-management';
@@ -18,7 +17,6 @@ import { configureCodeBlockPreviewRendererModule } from './code-block-preview-re
 import { configureCollectionModule } from './collection';
 import { configureCollectionRulesModule } from './collection-rules';
 import { configureCommentModule } from './comment';
-import { configureCrossSpaceModule } from './cross-space';
 import { configureWorkspaceDBModule } from './db';
 import { configureDialogModule } from './dialogs';
 import { configureDndModule } from './dnd';
@@ -28,7 +26,6 @@ import { configureDocInfoModule } from './doc-info';
 import { configureDocLinksModule } from './doc-link';
 import { configureDocSummaryModule } from './doc-summary';
 import { configureDocsSearchModule } from './docs-search';
-import { configureDumpModule } from './dump';
 import { configureEditorModule } from './editor';
 import { configureEditorSettingModule } from './editor-setting';
 import { configureExplorerIconModule } from './explorer-icon';
@@ -56,7 +53,6 @@ import { configureQuickSearchModule } from './quicksearch';
 import { configSearchMenuModule } from './search-menu';
 import { configureShareDocsModule } from './share-doc';
 import { configureShareSettingModule } from './share-setting';
-import { configureSpaceModule } from './space';
 import {
   configureCommonGlobalStorageImpls,
   configureStorageModule,
@@ -70,7 +66,6 @@ import { configureThemeEditorModule } from './theme-editor';
 import { configureUrlModule } from './url';
 import { configureUserspaceModule } from './userspace';
 import { configureWorkspaceModule } from './workspace';
-import { configureWorkspaceChatModule } from './workspace-chat';
 import { configureIndexerEmbeddingModule } from './workspace-indexer-embedding';
 import { configureWorkspacePropertyModule } from './workspace-property';
 
@@ -101,11 +96,6 @@ export function configureCommonModules(framework: Framework) {
   configureDocsSearchModule(framework);
   configureDocLinksModule(framework);
   configureOrganizeModule(framework);
-  configureSpaceModule(framework);
-  configureDumpModule(framework);
-  configureWorkspaceChatModule(framework);
-  configureAISearchModule(framework);
-  configureCrossSpaceModule(framework);
   configureFavoriteModule(framework);
   configureNavigationPanelModule(framework);
   configureThemeEditorModule(framework);

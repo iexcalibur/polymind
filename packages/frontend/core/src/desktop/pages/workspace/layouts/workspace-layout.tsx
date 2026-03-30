@@ -14,8 +14,6 @@ import { WorkspaceService } from '@affine/core/modules/workspace';
 import { LiveData, useLiveData, useService } from '@toeverything/infra';
 import type { PropsWithChildren } from 'react';
 
-import { useSeedSampleData } from '../seed-sample-data';
-
 export const WorkspaceLayout = function WorkspaceLayout({
   children,
 }: PropsWithChildren) {
@@ -59,6 +57,5 @@ const WorkspaceLayoutUIContainer = ({ children }: PropsWithChildren) => {
   );
 };
 const WorkspaceLayoutInner = ({ children }: PropsWithChildren) => {
-  useSeedSampleData();
   return <WorkspaceLayoutUIContainer>{children}</WorkspaceLayoutUIContainer>;
 };

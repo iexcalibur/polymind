@@ -3,6 +3,9 @@ import type { Configuration as RspackDevServerConfiguration } from '@rspack/dev-
 export const RSPACK_SUPPORTED_PACKAGES = [
   '@affine/admin',
   '@affine/web',
+  '@affine/mobile',
+  '@affine/ios',
+  '@affine/android',
   '@affine/electron-renderer',
   '@affine/server',
   '@affine/reader',
