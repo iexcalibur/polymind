@@ -52,7 +52,8 @@ export const SubPageTarget = () => {
   ));
 };
 
-const ease = eases.cubicBezier(0.25, 0.36, 0.24, 0.97);
+// cubic-bezier(0.25, 0.36, 0.24, 0.97) approximated with outQuart
+const ease = eases.outQuart;
 
 export const SubPageProvider = ({
   island,

@@ -1,3 +1,18 @@
+import type { Container } from '@blocksuite/global/di';
+import { createIdentifier } from '@blocksuite/global/di';
+import { type BlockModel, Extension } from '@blocksuite/store';
+import { type BlockStdScope, StdIdentifier } from '@blocksuite/std';
+
+import { DocModeProvider } from '../doc-mode-service';
+
+type CitationEventType =
+  | 'AICitationHoverSource'
+  | 'AICitationExpandSource'
+  | 'AICitationDelete'
+  | 'AICitationEdit';
+
+type CitationEvents = Record<CitationEventType, Record<string, unknown>>;
+
 const CitationEventTypeMap = {
   Hover: 'AICitationHoverSource',
   Expand: 'AICitationExpandSource',

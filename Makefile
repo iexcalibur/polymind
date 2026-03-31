@@ -19,7 +19,7 @@ frontend:
 ## Start backend only (http://localhost:3010)
 backend:
 	@echo "⚙️  Starting backend..."
-	cd $(ROOT_DIR)/packages/backend/server && NODE_OPTIONS="--experimental-strip-types --disable-warning=ExperimentalWarning" yarn dev
+	cd $(ROOT_DIR)/packages/backend/server && NODE_OPTIONS="--import=$(ROOT_DIR)/tools/cli/register.js --disable-warning=ExperimentalWarning" yarn dev
 
 # ─── Setup Commands ─────────────────────────────────────────────
 

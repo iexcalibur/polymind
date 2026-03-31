@@ -710,6 +710,7 @@ __metadata:
   resolution: "@affine/monorepo@workspace:."
   dependencies:
     "@affine-tools/cli": "workspace:*"
+    "@as-integrations/express5": "npm:^1.1.2"
     "@capacitor/cli": "npm:^7.0.0"
     "@eslint/js": "npm:^9.39.2"
     "@faker-js/faker": "npm:^10.1.0"
@@ -1249,6 +1250,16 @@ __metadata:
   peerDependencies:
     graphql: "*"
   checksum: 10/3f990307ba8a788491d4b422561e0ed0fd9f0aac7bddde3511ea512424dd721f5b5725d4104e847eee63ca3718ab4395e7866437863471cb8eadd500422ae65d
+  languageName: node
+  linkType: hard
+
+"@as-integrations/express5@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "@as-integrations/express5@npm:1.1.2"
+  peerDependencies:
+    "@apollo/server": ^4.0.0 || ^5.0.0
+    express: ^5.0.0
+  checksum: 10/6a414d523306d6f614f20b106cf8dec8d8f282c7bc6e47a2661186554a4275983ce5fea9a29e50eda4600fe3a22564534bffcdee134c3057adbe8096bf5a78eb
   languageName: node
   linkType: hard
 
