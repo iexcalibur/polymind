@@ -26,8 +26,7 @@ import {
   type UpdateChatSession,
   UpdateChatSessionOptions,
 } from '../../models';
-import { SubscriptionService } from '../payment/service';
-import { SubscriptionPlan, SubscriptionStatus } from '../payment/types';
+// Payment removed — local-only mode, all models available
 import { ChatMessageCache } from './message';
 import { ChatPrompt } from './prompt/chat-prompt';
 import { PromptService } from './prompt/service';
@@ -135,36 +134,7 @@ export class ChatSession implements AsyncDisposable {
     };
     const isPro = (m?: string) => inModelList(this.proModels, m);
 
-    // try resolve payment subscription service lazily
-    let paymentEnabled = hasPayment;
-    let isUserAIPro = false;
-    try {
-      if (paymentEnabled) {
-        const sub = this.moduleRef.get(SubscriptionService, {
-          strict: false,
-        });
-        const subscription = await sub
-          .select(SubscriptionPlan.AI)
-          .getSubscription({
-            userId: this.config.userId,
-            plan: SubscriptionPlan.AI,
-          } as any);
-        isUserAIPro = subscription?.status === SubscriptionStatus.Active;
-      }
-    } catch {
-      // payment not available -> skip checks
-      paymentEnabled = false;
-    }
-
-    if (paymentEnabled && !isUserAIPro && isPro(requestedModelId)) {
-      if (!defaultModel) {
-        throw new CopilotSessionInvalidInput(
-          'Model is required for AI subscription fallback'
-        );
-      }
-      return defaultModel;
-    }
-
+    // No payment checks — local-only mode, all models available
     const resolvedModel = normalize(requestedModelId);
     if (!resolvedModel) {
       throw new CopilotSessionInvalidInput('Model is required');

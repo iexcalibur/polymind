@@ -2,13 +2,6 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type AccessToken {
-  createdAt: DateTime!
-  expiresAt: DateTime
-  id: String!
-  name: String!
-}
-
 input AddContextBlobInput {
   blobId: String!
   contextId: String!
@@ -191,63 +184,9 @@ type BlobUploadedPart {
   partNumber: Int!
 }
 
-type CalendarAccountObjectType {
-  calendars: [CalendarSubscriptionObjectType!]!
-  calendarsCount: Int!
-  createdAt: DateTime!
-  displayName: String
-  email: String
-  id: String!
-  lastError: String
-  provider: CalendarProviderType!
-  providerAccountId: String!
-  refreshIntervalMinutes: Int!
-  status: String!
-  updatedAt: DateTime!
-}
-
-type CalendarCalDAVProviderPresetObjectType {
-  docsUrl: String
-  id: String!
-  label: String!
-  requiresAppPassword: Boolean
-}
-
-type CalendarEventObjectType {
-  allDay: Boolean!
-  description: String
-  endAtUtc: DateTime!
-  externalEventId: String!
-  id: String!
-  location: String
-  originalTimezone: String
-  recurrenceId: String
-  startAtUtc: DateTime!
-  status: String
-  subscriptionId: String!
-  title: String
-}
-
 type CalendarProviderRequestErrorDataType {
   message: String!
   status: Int!
-}
-
-enum CalendarProviderType {
-  CalDAV
-  Google
-}
-
-type CalendarSubscriptionObjectType {
-  accountId: String!
-  color: String
-  displayName: String
-  enabled: Boolean!
-  externalCalendarId: String!
-  id: String!
-  lastSyncAt: DateTime
-  provider: CalendarProviderType!
-  timezone: String
 }
 
 enum ChatHistoryOrder {
@@ -618,16 +557,6 @@ input CreateChatSessionInput {
   workspaceId: String!
 }
 
-input CreateCheckoutSessionInput {
-  args: JSONObject
-  coupon: String
-  idempotencyKey: String @deprecated(reason: "not required anymore")
-  plan: SubscriptionPlan = Pro
-  recurring: SubscriptionRecurring = Yearly
-  successCallbackLink: String!
-  variant: SubscriptionVariant
-}
-
 input CreateUserInput {
   email: String!
   name: String
@@ -945,11 +874,6 @@ input ForkChatSessionInput {
   workspaceId: String!
 }
 
-input GenerateAccessTokenInput {
-  expiresAt: DateTime
-  name: String!
-}
-
 input GrantDocUserRolesInput {
   docId: String!
   role: DocRole!
@@ -1190,28 +1114,6 @@ type InviteUserType {
   status: WorkspaceMemberStatus!
 }
 
-enum InvoiceStatus {
-  Draft
-  Open
-  Paid
-  Uncollectible
-  Void
-}
-
-type InvoiceType {
-  amount: Int!
-  createdAt: DateTime!
-  currency: String!
-  id: String @deprecated(reason: "removed")
-  lastPaymentError: String
-  link: String
-  plan: SubscriptionPlan @deprecated(reason: "removed")
-  reason: String!
-  recurring: SubscriptionRecurring @deprecated(reason: "removed")
-  status: InvoiceStatus!
-  updatedAt: DateTime!
-}
-
 """
 The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 """
@@ -1222,33 +1124,12 @@ The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](
 """
 scalar JSONObject @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
 
-type License {
-  expiredAt: DateTime
-  installedAt: DateTime!
-  quantity: Int!
-  recurring: SubscriptionRecurring!
-  validatedAt: DateTime!
-  variant: SubscriptionVariant
-}
-
 type LimitedUserType {
   """User email"""
   email: String!
 
   """User password has been set"""
   hasPassword: Boolean
-}
-
-input LinkCalDAVAccountInput {
-  displayName: String
-  password: String!
-  providerPresetId: String!
-  username: String!
-}
-
-input LinkCalendarAccountInput {
-  provider: CalendarProviderType!
-  redirectUri: String
 }
 
 input ListUserInput {
@@ -1338,7 +1219,6 @@ type MissingOauthQueryParameterDataType {
 type Mutation {
   abortBlobUpload(key: String!, uploadId: String!, workspaceId: String!): Boolean!
   acceptInviteById(inviteId: String!, sendAcceptMail: Boolean @deprecated(reason: "never used"), workspaceId: String @deprecated(reason: "never used")): Boolean!
-  activateLicense(license: String!, workspaceId: String!): License!
 
   """add a blob to context"""
   addContextBlob(options: AddContextBlobInput!): CopilotContextBlob!
@@ -1365,7 +1245,6 @@ type Mutation {
 
   """Ban an user"""
   banUser(id: String!): UserType!
-  cancelSubscription(idempotencyKey: String @deprecated(reason: "use header `Idempotency-Key`"), plan: SubscriptionPlan = Pro, workspaceId: String): SubscriptionType!
   changeEmail(email: String!, token: String!): UserType!
   changePassword(newPassword: String!, token: String!, userId: String): Boolean!
   claimAudioTranscription(jobId: String!): TranscriptionResultType
@@ -1377,9 +1256,6 @@ type Mutation {
 
   """Create change password url"""
   createChangePasswordUrl(callbackUrl: String!, userId: String!): String!
-
-  """Create a subscription checkout link of stripe"""
-  createCheckoutSession(input: CreateCheckoutSessionInput!): String!
   createComment(input: CommentCreateInput!): CommentObjectType!
 
   """Create a context session"""
@@ -1393,19 +1269,14 @@ type Mutation {
 
   """Create a chat session and return full session payload"""
   createCopilotSessionWithHistory(options: CreateChatSessionInput!): CopilotHistories!
-
-  """Create a stripe customer portal to manage payment methods"""
-  createCustomerPortal: String!
   createInviteLink(expireTime: WorkspaceInviteLinkExpireTime!, workspaceId: String!): InviteLink!
   createReply(input: ReplyCreateInput!): ReplyObjectType!
-  createSelfhostWorkspaceCustomerPortal(workspaceId: String!): String!
 
   """Create a new user"""
   createUser(input: CreateUserInput!): UserType!
 
   """Create a new workspace"""
   createWorkspace(init: Upload): WorkspaceType!
-  deactivateLicense(workspaceId: String!): Boolean!
   deleteAccount: DeleteAccount!
   deleteBlob(hash: String @deprecated(reason: "use parameter [key]"), key: String, permanently: Boolean! = false, workspaceId: String!): Boolean!
 
@@ -1424,18 +1295,13 @@ type Mutation {
 
   """Create a chat session"""
   forkCopilotSession(options: ForkChatSessionInput!): String!
-  generateLicenseKey(sessionId: String!): String!
-  generateUserAccessToken(input: GenerateAccessTokenInput!): RevealedAccessToken!
   grantDocUserRoles(input: GrantDocUserRolesInput!): Boolean!
   grantMember(permission: Permission!, userId: String!, workspaceId: String!): Boolean!
 
   """import users"""
   importUsers(input: ImportUsersInput!): [UserImportResultType!]!
-  installLicense(license: Upload!, workspaceId: String!): License!
   inviteMembers(emails: [String!]!, workspaceId: String!): [InviteResult!]!
   leaveWorkspace(sendLeaveMail: Boolean @deprecated(reason: "no used anymore"), workspaceId: String!, workspaceName: String @deprecated(reason: "no longer used")): Boolean!
-  linkCalDAVAccount(input: LinkCalDAVAccountInput!): CalendarAccountObjectType!
-  linkCalendarAccount(input: LinkCalendarAccountInput!): String!
 
   """mention user in a doc"""
   mentionUser(input: MentionInput!): ID!
@@ -1450,9 +1316,6 @@ type Mutation {
   """mark notification as read"""
   readNotification(id: String!): Boolean!
   recoverDoc(guid: String!, timestamp: DateTime!, workspaceId: String!): DateTime!
-
-  """Refresh current user subscriptions and return latest."""
-  refreshUserSubscriptions: [SubscriptionType!]!
   releaseDeletedBlobs(workspaceId: String!): Boolean!
 
   """Remove user avatar"""
@@ -1474,18 +1337,13 @@ type Mutation {
   removeWorkspaceEmbeddingFiles(fileId: String!, workspaceId: String!): Boolean!
   removeWorkspaceFeature(feature: FeatureType!, workspaceId: String!): Boolean!
 
-  """Request to apply the subscription in advance"""
-  requestApplySubscription(transactionId: String!): [SubscriptionType!]!
-
   """Resolve a comment or not"""
   resolveComment(input: CommentResolveInput!): Boolean!
-  resumeSubscription(idempotencyKey: String @deprecated(reason: "use header `Idempotency-Key`"), plan: SubscriptionPlan = Pro, workspaceId: String): SubscriptionType!
   retryAudioTranscription(jobId: String!, workspaceId: String!): TranscriptionResultType
   revokeDocUserRoles(input: RevokeDocUserRoleInput!): Boolean!
   revokeInviteLink(workspaceId: String!): Boolean!
   revokeMember(userId: String!, workspaceId: String!): Boolean!
   revokePublicDoc(docId: String!, workspaceId: String!): DocType!
-  revokeUserAccessToken(id: String!): Boolean!
   sendChangeEmail(callbackUrl: String!, email: String): Boolean!
   sendChangePasswordEmail(callbackUrl: String!, email: String @deprecated(reason: "fetched from signed in user")): Boolean!
   sendSetPasswordEmail(callbackUrl: String!, email: String @deprecated(reason: "fetched from signed in user")): Boolean!
@@ -1500,11 +1358,9 @@ type Mutation {
 
   """Trigger generate missing titles cron job"""
   triggerGenerateTitleCron: Boolean!
-  unlinkCalendarAccount(accountId: String!): Boolean!
 
   """update app configuration"""
   updateAppConfig(updates: [UpdateAppConfigInput!]!): JSONObject!
-  updateCalendarAccount(accountId: String!, refreshIntervalMinutes: Int!): CalendarAccountObjectType
 
   """Update a comment content"""
   updateComment(input: CommentUpdateInput!): Boolean!
@@ -1520,7 +1376,6 @@ type Mutation {
 
   """Update user settings"""
   updateSettings(input: UpdateUserSettingsInput!): Boolean!
-  updateSubscriptionRecurring(idempotencyKey: String @deprecated(reason: "use header `Idempotency-Key`"), plan: SubscriptionPlan = Pro, recurring: SubscriptionRecurring!, workspaceId: String): SubscriptionType!
 
   """Update an user"""
   updateUser(id: String!, input: ManageUserInput!): UserType!
@@ -1530,7 +1385,6 @@ type Mutation {
 
   """Update workspace"""
   updateWorkspace(input: UpdateWorkspaceInput!): WorkspaceType!
-  updateWorkspaceCalendars(input: UpdateWorkspaceCalendarsInput!): WorkspaceCalendarObjectType!
 
   """Update ignored docs"""
   updateWorkspaceEmbeddingIgnoredDocs(add: [String!], remove: [String!], workspaceId: String!): Int!
@@ -1616,13 +1470,6 @@ type NotificationWorkspaceType {
 
   """Workspace name"""
   name: String!
-}
-
-enum OAuthProviderType {
-  Apple
-  GitHub
-  Google
-  OIDC
 }
 
 type PageInfo {
@@ -1738,14 +1585,12 @@ type Query {
 
   """get workspace invitation info"""
   getInviteInfo(inviteId: String!): InvitationType!
-  prices: [SubscriptionPrice!]!
 
   """Get public user by id"""
   publicUserById(id: String!): PublicUserType
 
   """query workspace embedding status"""
   queryWorkspaceEmbeddingStatus(workspaceId: String!): ContextWorkspaceEmbeddingStatus!
-  revealedAccessTokens: [RevealedAccessToken!]! @deprecated(reason: "use currentUser.revealedAccessTokens")
 
   """server config"""
   serverConfig: ServerConfigType!
@@ -1874,14 +1719,6 @@ type ResponseTooLargeErrorDataType {
   receivedBytes: Int!
 }
 
-type RevealedAccessToken {
-  createdAt: DateTime!
-  expiresAt: DateTime
-  id: String!
-  name: String!
-  token: String!
-}
-
 input RevokeDocUserRoleInput {
   docId: String!
   userId: String!
@@ -2006,8 +1843,6 @@ type ServerConfigType {
 
   """server base url"""
   baseUrl: String!
-  calendarCalDAVProviders: [CalendarCalDAVProviderPresetObjectType!]!
-  calendarProviders: [CalendarProviderType!]!
 
   """credentials requirement"""
   credentialsRequirement: CredentialsRequirementType!
@@ -2020,7 +1855,6 @@ type ServerConfigType {
 
   """server identical name could be shown as badge on user interface"""
   name: String!
-  oauthProviders: [OAuthProviderType!]!
 
   """server type"""
   type: ServerDeploymentType!
@@ -2082,81 +1916,9 @@ type SubscriptionNotExistsDataType {
   plan: String!
 }
 
-enum SubscriptionPlan {
-  AI
-  Enterprise
-  Free
-  Pro
-  SelfHosted
-  SelfHostedTeam
-  Team
-}
-
 type SubscriptionPlanNotFoundDataType {
   plan: String!
   recurring: String!
-}
-
-type SubscriptionPrice {
-  amount: Int
-  currency: String!
-  lifetimeAmount: Int
-  plan: SubscriptionPlan!
-  type: String!
-  yearlyAmount: Int
-}
-
-enum SubscriptionRecurring {
-  Lifetime
-  Monthly
-  Yearly
-}
-
-enum SubscriptionStatus {
-  Active
-  Canceled
-  Incomplete
-  IncompleteExpired
-  PastDue
-  Paused
-  Trialing
-  Unpaid
-}
-
-type SubscriptionType {
-  canceledAt: DateTime
-  createdAt: DateTime!
-  end: DateTime
-
-  """
-  If provider is revenuecat, indicates underlying store. Read-only. One of: app_store | play_store
-  """
-  iapStore: String
-  id: String @deprecated(reason: "removed")
-  nextBillAt: DateTime
-
-  """
-  The 'Free' plan just exists to be a placeholder and for the type convenience of frontend.
-  There won't actually be a subscription with plan 'Free'
-  """
-  plan: SubscriptionPlan!
-
-  """
-  Payment provider of this subscription. Read-only. One of: stripe | revenuecat
-  """
-  provider: String
-  recurring: SubscriptionRecurring!
-  start: DateTime!
-  status: SubscriptionStatus!
-  trialEnd: DateTime
-  trialStart: DateTime
-  updatedAt: DateTime!
-  variant: SubscriptionVariant
-}
-
-enum SubscriptionVariant {
-  EA
-  Onetime
 }
 
 type TranscriptionItemType {
@@ -2237,11 +1999,6 @@ input UpdateUserSettingsInput {
   receiveMentionEmail: Boolean
 }
 
-input UpdateWorkspaceCalendarsInput {
-  items: [WorkspaceCalendarItemInput!]!
-  workspaceId: String!
-}
-
 input UpdateWorkspaceInput {
   """Enable AI"""
   enableAi: Boolean
@@ -2309,11 +2066,8 @@ type UserSettingsType {
 }
 
 type UserType {
-  accessTokens: [AccessToken!]!
-
   """User avatar url"""
   avatarUrl: String
-  calendarAccounts: [CalendarAccountObjectType!]!
   copilot(workspaceId: String): Copilot!
 
   """User email verified"""
@@ -2335,10 +2089,6 @@ type UserType {
   hasPassword: Boolean
   id: ID!
 
-  """Get user invoice count"""
-  invoiceCount: Int!
-  invoices(skip: Int, take: Int = 8): [InvoiceType!]!
-
   """User name"""
   name: String!
 
@@ -2349,11 +2099,9 @@ type UserType {
   notifications(pagination: PaginationInput!): PaginatedNotificationObjectType!
   quota: UserQuotaType!
   quotaUsage: UserQuotaUsageType!
-  revealedAccessTokens: [RevealedAccessToken!]!
 
   """Get user settings"""
   settings: UserSettingsType!
-  subscriptions: [SubscriptionType!]!
   token: tokenType! @deprecated(reason: "use [/api/auth/sign-in?native=true] instead")
 }
 
@@ -2364,31 +2112,6 @@ type ValidationErrorDataType {
 type VersionRejectedDataType {
   serverVersion: String!
   version: String!
-}
-
-input WorkspaceCalendarItemInput {
-  colorOverride: String
-  sortOrder: Int
-  subscriptionId: String!
-}
-
-type WorkspaceCalendarItemObjectType {
-  colorOverride: String
-  enabled: Boolean!
-  id: String!
-  sortOrder: Int
-  subscriptionId: String!
-}
-
-type WorkspaceCalendarObjectType {
-  colorOverride: String
-  createdByUserId: String!
-  displayNameOverride: String
-  enabled: Boolean!
-  events(from: DateTime!, to: DateTime!): [CalendarEventObjectType!]!
-  id: String!
-  items: [WorkspaceCalendarItemObjectType!]!
-  workspaceId: String!
 }
 
 type WorkspaceDocMeta {
@@ -2484,7 +2207,6 @@ type WorkspaceType {
 
   """Blobs size of workspace"""
   blobsSize: Int!
-  calendars: [WorkspaceCalendarObjectType!]!
 
   """Get comment changes of a doc"""
   commentChanges(docId: String!, pagination: PaginationInput!): PaginatedCommentChangeObjectType!
@@ -2519,13 +2241,6 @@ type WorkspaceType {
 
   """invite link for workspace"""
   inviteLink: InviteLink
-
-  """Get user invoice count"""
-  invoiceCount: Int!
-  invoices(skip: Int, take: Int = 8): [InvoiceType!]!
-
-  """The selfhost license of the workspace"""
-  license: License
 
   """member count of workspace"""
   memberCount: Int!
@@ -2562,9 +2277,6 @@ type WorkspaceType {
 
   """Search docs by keyword"""
   searchDocs(input: SearchDocsInput!): [SearchDocObjectType!]!
-
-  """The team subscription of the workspace, if exists."""
-  subscription: SubscriptionType
 
   """if workspace is team workspace"""
   team: Boolean!
