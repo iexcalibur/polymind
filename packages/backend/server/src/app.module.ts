@@ -28,7 +28,6 @@ import { RedisModule } from './base/redis';
 import { StorageProviderModule } from './base/storage';
 import { RateLimiterModule } from './base/throttler';
 import { WebSocketModule } from './base/websocket';
-import { AccessTokenModule } from './core/access-token';
 import { AuthModule } from './core/auth';
 import { CommentModule } from './core/comment';
 import { ServerConfigModule, ServerConfigResolverModule } from './core/config';
@@ -36,11 +35,11 @@ import { DocStorageModule } from './core/doc';
 import { DocRendererModule } from './core/doc-renderer';
 import { DocServiceModule } from './core/doc-service';
 import { FeatureModule } from './core/features';
+import { LocalAuthModule } from './core/local-auth';
 import { MailModule } from './core/mail';
 import { MonitorModule } from './core/monitor';
 import { NotificationModule } from './core/notification';
 import { PermissionModule } from './core/permission';
-import { QueueDashboardModule } from './core/queue-dashboard';
 import { QuotaModule } from './core/quota';
 import { SelfhostModule } from './core/selfhost';
 import { StaticFileModule } from './core/static-files';
@@ -51,26 +50,17 @@ import { VersionModule } from './core/version';
 import { WorkspaceModule } from './core/workspaces';
 import { Env } from './env';
 import { ModelsModule } from './models';
-import { CalendarModule } from './plugins/calendar';
-import { CaptchaModule } from './plugins/captcha';
 import { CopilotModule } from './plugins/copilot';
-import { CustomerIoModule } from './plugins/customerio';
-import { GCloudModule } from './plugins/gcloud';
 import { IndexerModule } from './plugins/indexer';
-import { LicenseModule } from './plugins/license';
-import { OAuthModule } from './plugins/oauth';
-import { PaymentModule } from './plugins/payment';
 import { WorkerModule } from './plugins/worker';
 
 export const FunctionalityModules = [
   ClsModule.forRoot({
     global: true,
-    // for http / graphql request
     middleware: {
       mount: true,
       generateId: true,
       idGenerator(req: Request) {
-        // make every request has a unique id to tracing
         return getRequestIdFromRequest(req, 'http');
       },
       setup(cls, req: Request, res: Response) {
@@ -78,13 +68,10 @@ export const FunctionalityModules = [
         cls.set(CLS_REQUEST_HOST, req.hostname);
       },
     },
-    // for websocket connection
-    // https://papooch.github.io/nestjs-cls/considerations/compatibility#websockets
     interceptor: {
       mount: true,
       generateId: true,
       idGenerator(context: ExecutionContext) {
-        // make every request has a unique id to tracing
         return getRequestIdFromHost(context);
       },
       setup(cls, context: ExecutionContext) {
@@ -93,7 +80,6 @@ export const FunctionalityModules = [
       },
     },
     plugins: [
-      // https://papooch.github.io/nestjs-cls/plugins/available-plugins/transactional/prisma-adapter
       new ClsPluginTransactional({
         adapter: new TransactionalAdapterPrisma({
           prismaInjectionToken: PrismaClient,
@@ -155,19 +141,17 @@ export function buildAppModule(env: Env) {
   const factor = new AppModuleBuilder();
 
   factor
-    // basic
     .use(...FunctionalityModules)
 
-    // enable indexer module on graphql, doc and front service
     .useIf(
       () => env.flavors.graphql || env.flavors.doc || env.flavors.front,
       IndexerModule
     )
 
-    // auth
-    .use(UserModule, AuthModule, PermissionModule)
+    // auth + permissions (needed by copilot)
+    .use(UserModule, AuthModule, PermissionModule, LocalAuthModule)
 
-    // business modules
+    // core persistence + config
     .use(
       ServerConfigModule,
       FeatureModule,
@@ -176,11 +160,10 @@ export function buildAppModule(env: Env) {
       NotificationModule,
       MailModule
     )
-    // renderer server and front server
     .useIf(() => env.flavors.renderer || env.flavors.front, DocRendererModule)
-    // sync server and front server
     .useIf(() => env.flavors.sync || env.flavors.front, SyncModule)
-    // graphql server only
+
+    // graphql API + copilot
     .useIf(
       () => env.flavors.graphql,
       GqlModule,
@@ -188,26 +171,12 @@ export function buildAppModule(env: Env) {
       StorageModule,
       ServerConfigResolverModule,
       WorkspaceModule,
-      LicenseModule,
-      PaymentModule,
       CopilotModule,
-      CaptchaModule,
-      OAuthModule,
-      CalendarModule,
-      CustomerIoModule,
-      CommentModule,
-      AccessTokenModule,
-      QueueDashboardModule
+      CommentModule
     )
-    // doc service and front service
     .useIf(() => env.flavors.doc || env.flavors.front, DocServiceModule)
-    // worker for and self-hosted API only for self-host and local development only
     .useIf(() => env.dev || env.selfhosted, WorkerModule, SelfhostModule)
-    // static frontend routes for front flavor
-    .useIf(() => env.flavors.front, StaticFileModule)
-
-    // gcloud
-    .useIf(() => env.gcp, GCloudModule);
+    .useIf(() => env.flavors.front, StaticFileModule);
 
   return factor.compile();
 }

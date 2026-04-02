@@ -1,7 +1,7 @@
 import { Tabs, Tooltip, useConfirmModal } from '@affine/component';
 import { Button } from '@affine/component/ui/button';
 import { Menu } from '@affine/component/ui/menu';
-import { ServerService } from '@affine/core/modules/cloud';
+// ServerService removed — local-only mode
 import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
 import { WorkspacePermissionService } from '@affine/core/modules/permissions';
 import { WorkspaceQuotaService } from '@affine/core/modules/quota';
@@ -50,12 +50,8 @@ export const ShareMenuContent = (props: ShareMenuProps) => {
   const t = useI18n();
   const [currentTab, setCurrentTab] = useState(ShareMenuTab.Share);
 
-  const serverService = useService(ServerService);
-  const isSelfhosted = useLiveData(
-    serverService.server.config$.selector(
-      c => c.type === ServerDeploymentType.Selfhosted
-    )
-  );
+  // Local-only mode — treat as selfhosted
+  const isSelfhosted = true;
   const workspaceQuotaService = useService(WorkspaceQuotaService);
   const quota = useLiveData(workspaceQuotaService.quota.quota$);
   const hittingPaywall = useMemo(() => {

@@ -13,7 +13,6 @@ import {
   CATCH_ALL_ROUTE_PATH,
   getWorkspaceDocPath,
   NOT_FOUND_ROUTE_PATH,
-  SHARE_ROUTE_PATH,
   WORKSPACE_ROUTE_PATH,
 } from './route-paths';
 
@@ -21,7 +20,6 @@ export function RootRouter() {
   const navigate = useNavigate();
   const [ready, setReady] = useState(false);
   useEffect(() => {
-    // a hack to make sure router is ready
     setReady(true);
   }, []);
 
@@ -46,66 +44,6 @@ export const topLevelRoutes = [
       {
         path: WORKSPACE_ROUTE_PATH,
         lazy: () => import('./pages/workspace/index'),
-      },
-      {
-        path: SHARE_ROUTE_PATH,
-        loader: ({ params }) => {
-          return redirect(
-            getWorkspaceDocPath(params.workspaceId ?? '', params.pageId ?? '')
-          );
-        },
-      },
-      {
-        path: NOT_FOUND_ROUTE_PATH,
-        lazy: () => import('./pages/404'),
-      },
-      {
-        path: '/expired',
-        lazy: () => import('./pages/expired'),
-      },
-      {
-        path: '/invite/:inviteId',
-        lazy: () => import('./pages/invite'),
-      },
-      {
-        path: '/upgrade-success',
-        lazy: () => import('./pages/upgrade-success'),
-      },
-      {
-        path: '/upgrade-success/team',
-        lazy: () => import('./pages/upgrade-success/team'),
-      },
-      {
-        path: '/upgrade-success/self-hosted-team',
-        lazy: () => import('./pages/upgrade-success/self-host-team'),
-      },
-      {
-        path: '/ai-upgrade-success',
-        lazy: () => import('./pages/ai-upgrade-success'),
-      },
-      {
-        path: '/onboarding',
-        lazy: () => import('./pages/onboarding'),
-      },
-      {
-        path: '/redirect-proxy',
-        lazy: () => import('./pages/redirect'),
-      },
-      {
-        path: '/subscribe',
-        lazy: () => import('./pages/subscribe'),
-      },
-      {
-        path: '/upgrade-to-team',
-        lazy: () => import('./pages/upgrade-to-team'),
-      },
-      {
-        path: '/try-cloud',
-        loader: () => {
-          return redirect(
-            `/sign-in?redirect_uri=${encodeURIComponent('/?initCloud=true')}`
-          );
-        },
       },
       {
         path: '/theme-editor',
@@ -140,47 +78,8 @@ export const topLevelRoutes = [
         },
       },
       {
-        path: '/auth/:authType',
-        lazy: () => import(/* webpackChunkName: "auth" */ './pages/auth/auth'),
-      },
-      {
-        path: '/sign-In',
-        lazy: () =>
-          import(/* webpackChunkName: "auth" */ './pages/auth/sign-in'),
-      },
-      {
-        path: '/magic-link',
-        lazy: () =>
-          import(/* webpackChunkName: "auth" */ './pages/auth/magic-link'),
-      },
-      {
-        path: '/oauth/login',
-        lazy: () =>
-          import(/* webpackChunkName: "auth" */ './pages/auth/oauth-login'),
-      },
-      {
-        path: '/oauth/callback',
-        lazy: () =>
-          import(/* webpackChunkName: "auth" */ './pages/auth/oauth-callback'),
-      },
-      // deprecated, keep for old client compatibility
-      // TODO(@forehalo): remove
-      {
-        path: '/desktop-signin',
-        lazy: () =>
-          import(/* webpackChunkName: "auth" */ './pages/auth/oauth-login'),
-      },
-      // deprecated, keep for old client compatibility
-      // use '/sign-in'
-      // TODO(@forehalo): remove
-      {
-        path: '/signIn',
-        lazy: () =>
-          import(/* webpackChunkName: "auth" */ './pages/auth/sign-in'),
-      },
-      {
-        path: '/open-app/:action',
-        lazy: () => import('./pages/open-app'),
+        path: NOT_FOUND_ROUTE_PATH,
+        lazy: () => import('./pages/404'),
       },
       {
         path: CATCH_ALL_ROUTE_PATH,

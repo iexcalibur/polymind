@@ -3,7 +3,7 @@ import type {
   EdgelessEditor,
   PageEditor,
 } from '@affine/core/blocksuite/editors';
-import { ServerService } from '@affine/core/modules/cloud';
+// ServerService removed — local-only mode
 import {
   EditorSettingService,
   fontStyleOptions,
@@ -74,8 +74,6 @@ const BlockSuiteEditorImpl = ({
   const featureFlags = useService(FeatureFlagService).flags;
   const enableEditorRTL = useLiveData(featureFlags.enable_editor_rtl.$);
   const editorSetting = useService(EditorSettingService).editorSetting;
-  const server = useService(ServerService).server;
-
   const { enableMiddleClickPaste } = useLiveData(
     editorSetting.settings$.selector(s => ({
       enableMiddleClickPaste: s.enableMiddleClickPaste,
@@ -216,7 +214,7 @@ const BlockSuiteEditorImpl = ({
     // provide image proxy endpoint to blocksuite
     const imageProxyUrl = new URL(
       BUILD_CONFIG.imageProxyUrl,
-      server.baseUrl
+      location.origin
     ).toString();
 
     editor.std.clipboard.use(customImageProxyMiddleware(imageProxyUrl));

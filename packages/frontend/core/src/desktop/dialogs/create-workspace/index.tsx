@@ -1,23 +1,16 @@
 import { Button, ConfirmModal, notify, RowInput } from '@affine/component';
 import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
 import {
-  AuthService,
-  type Server,
-  ServersService,
-} from '@affine/core/modules/cloud';
-import {
   type DialogComponentProps,
   type GLOBAL_DIALOG_SCHEMA,
-  GlobalDialogService,
 } from '@affine/core/modules/dialogs';
 import { WorkspacesService } from '@affine/core/modules/workspace';
 import { buildShowcaseWorkspace } from '@affine/core/utils/first-app-data';
 import { useI18n } from '@affine/i18n';
-import { FrameworkScope, useLiveData, useService } from '@toeverything/infra';
+import { useService } from '@toeverything/infra';
 import { useCallback, useState } from 'react';
 
 import * as styles from './index.css';
-import { ServerSelector } from './server-selector';
 
 const FormSection = ({
   label,
@@ -35,21 +28,12 @@ const FormSection = ({
 };
 
 export const CreateWorkspaceDialog = ({
-  serverId,
   close,
   ...props
 }: DialogComponentProps<GLOBAL_DIALOG_SCHEMA['create-workspace']>) => {
   const t = useI18n();
 
   const [workspaceName, setWorkspaceName] = useState('');
-  const [inputServerId, setInputServerId] = useState(
-    serverId ?? 'affine-cloud'
-  );
-
-  const serversService = useService(ServersService);
-  const server = useLiveData(
-    inputServerId ? serversService.server$(inputServerId) : null
-  );
 
   const onOpenChange = useCallback(
     (open: boolean) => {
@@ -72,15 +56,12 @@ export const CreateWorkspaceDialog = ({
       childrenContentClassName={styles.content}
       customConfirmButton={() => {
         return (
-          <FrameworkScope scope={server?.scope}>
-            <CustomConfirmButton
-              workspaceName={workspaceName}
-              server={server}
-              onCreated={res =>
-                close({ metadata: res.meta, defaultDocId: res.defaultDocId })
-              }
-            />
-          </FrameworkScope>
+          <LocalConfirmButton
+            workspaceName={workspaceName}
+            onCreated={res =>
+              close({ metadata: res.meta, defaultDocId: res.defaultDocId })
+            }
+          />
         );
       }}
       {...props}
@@ -99,51 +80,30 @@ export const CreateWorkspaceDialog = ({
           />
         }
       />
-
-      <FormSection
-        label={t['com.affine.nameWorkspace.subtitle.workspace-type']()}
-        input={
-          <ServerSelector
-            className={styles.select}
-            selectedId={inputServerId}
-            onChange={setInputServerId}
-          />
-        }
-      />
     </ConfirmModal>
   );
 };
 
-const CustomConfirmButton = ({
+const LocalConfirmButton = ({
   workspaceName,
-  server,
   onCreated,
 }: {
   workspaceName: string;
-  server?: Server | null;
   onCreated: (res: Awaited<ReturnType<typeof buildShowcaseWorkspace>>) => void;
 }) => {
   const t = useI18n();
   const [loading, setLoading] = useState(false);
 
-  const session = useService(AuthService).session;
-  const loginStatus = useLiveData(session.status$);
-  const globalDialogService = useService(GlobalDialogService);
   const workspacesService = useService(WorkspacesService);
-
-  const openSignInModal = useCallback(() => {
-    globalDialogService.open('sign-in', { server: server?.baseUrl });
-  }, [globalDialogService, server?.baseUrl]);
 
   const handleConfirm = useAsyncCallback(async () => {
     if (loading) return;
     setLoading(true);
-    // this will be the last step for web for now
-    // fix me later
     try {
+      // Always create local workspace — no cloud
       const res = await buildShowcaseWorkspace(
         workspacesService,
-        server?.id ?? 'local',
+        'local',
         workspaceName
       );
       onCreated(res);
@@ -156,21 +116,14 @@ const CustomConfirmButton = ({
     } finally {
       setLoading(false);
     }
-  }, [loading, onCreated, server, workspaceName, workspacesService]);
-
-  const handleCheckSessionAndConfirm = useCallback(() => {
-    if (server && loginStatus !== 'authenticated') {
-      return openSignInModal();
-    }
-    handleConfirm();
-  }, [handleConfirm, loginStatus, openSignInModal, server]);
+  }, [loading, onCreated, workspaceName, workspacesService]);
 
   return (
     <Button
       disabled={!workspaceName}
       data-testid="create-workspace-create-button"
       variant="primary"
-      onClick={handleCheckSessionAndConfirm}
+      onClick={handleConfirm}
       loading={loading}
     >
       {t['com.affine.nameWorkspace.button.create']()}

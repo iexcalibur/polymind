@@ -1,4 +1,3 @@
-import { configureQuotaModule } from '@affine/core/modules/quota';
 import { type Framework } from '@toeverything/infra';
 
 import {
@@ -12,11 +11,9 @@ import {
 import { configureAppSidebarModule } from './app-sidebar';
 import { configAtMenuConfigModule } from './at-menu-config';
 import { configureBlobManagementModule } from './blob-management';
-import { configureCloudModule } from './cloud';
 import { configureCodeBlockPreviewRendererModule } from './code-block-preview-renderer';
 import { configureCollectionModule } from './collection';
 import { configureCollectionRulesModule } from './collection-rules';
-import { configureCommentModule } from './comment';
 import { configureWorkspaceDBModule } from './db';
 import { configureDialogModule } from './dialogs';
 import { configureDndModule } from './dnd';
@@ -42,17 +39,13 @@ import { configureLifecycleModule } from './lifecycle';
 import { configureMediaModule } from './media';
 import { configureNavigationModule } from './navigation';
 import { configureNavigationPanelModule } from './navigation-panel';
-import { configureNotificationModule } from './notification';
 import { configureOpenInApp } from './open-in-app';
 import { configureOrganizeModule } from './organize';
-import { configurePaywallModule } from './paywall';
 import { configurePDFModule } from './pdf';
 import { configurePeekViewModule } from './peek-view';
 import { configurePermissionsModule } from './permissions';
 import { configureQuickSearchModule } from './quicksearch';
 import { configSearchMenuModule } from './search-menu';
-import { configureShareDocsModule } from './share-doc';
-import { configureShareSettingModule } from './share-setting';
 import {
   configureCommonGlobalStorageImpls,
   configureStorageModule,
@@ -81,11 +74,7 @@ export function configureCommonModules(framework: Framework) {
   configureCollectionModule(framework);
   configureNavigationModule(framework);
   configureTagModule(framework);
-  configureCloudModule(framework);
-  configureQuotaModule(framework);
   configurePermissionsModule(framework);
-  configureShareDocsModule(framework);
-  configureShareSettingModule(framework);
   configurePDFModule(framework);
   configurePeekViewModule(framework);
   configureExplorerIconModule(framework);
@@ -123,13 +112,10 @@ export function configureCommonModules(framework: Framework) {
   configureBlobManagementModule(framework);
   configureMediaModule(framework);
   configureImportClipperModule(framework);
-  configureNotificationModule(framework);
   configureIntegrationModule(framework);
   configureWorkspacePropertyModule(framework);
   configureCollectionRulesModule(framework);
   configureIndexerEmbeddingModule(framework);
-  configureCommentModule(framework);
   configureDocSummaryModule(framework);
-  configurePaywallModule(framework);
   configureIconPickerModule(framework);
 }

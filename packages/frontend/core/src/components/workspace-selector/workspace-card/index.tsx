@@ -272,7 +272,7 @@ export const WorkspaceCard = forwardRef<
       showSyncStatus,
       showArrowDownIcon,
       onClickOpenSettings,
-      onClickEnableCloud,
+      onClickEnableCloud: _onClickEnableCloud,
       className,
       infoClassName,
       disable,
@@ -292,9 +292,8 @@ export const WorkspaceCard = forwardRef<
 
     const name = information?.name ?? UNTITLED_WORKSPACE_NAME;
 
-    const onEnableCloud = useCatchEventCallback(() => {
-      onClickEnableCloud?.(workspaceMetadata);
-    }, [onClickEnableCloud, workspaceMetadata]);
+    // Enable Cloud removed — local-only mode
+    void _onClickEnableCloud;
 
     const onRemoveWorkspace = useAsyncCallback(async () => {
       await workspacesService
@@ -358,14 +357,7 @@ export const WorkspaceCard = forwardRef<
             <Button onClick={onRemoveWorkspace}>Remove</Button>
           ) : null}
           <div className={styles.showOnCardHover}>
-            {onClickEnableCloud && workspaceMetadata.flavour === 'local' ? (
-              <Button
-                className={styles.enableCloudButton}
-                onClick={onEnableCloud}
-              >
-                Enable Cloud
-              </Button>
-            ) : null}
+            {/* Enable Cloud button removed — local-only mode */}
 
             {onClickOpenSettings && (
               <div className={styles.settingButton} onClick={onOpenSettings}>

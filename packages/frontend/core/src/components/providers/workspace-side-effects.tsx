@@ -12,11 +12,6 @@ import { useRegisterFindInPageCommands } from '@affine/core/components/hooks/aff
 import { useRegisterWorkspaceCommands } from '@affine/core/components/hooks/use-register-workspace-commands';
 import { OverCapacityNotification } from '@affine/core/components/over-capacity';
 import {
-  AuthService,
-  EventSourceService,
-  GraphQLService,
-} from '@affine/core/modules/cloud';
-import {
   GlobalDialogService,
   WorkspaceDialogService,
 } from '@affine/core/modules/dialogs';
@@ -29,6 +24,7 @@ import {
   getAFFiNEWorkspaceSchema,
   WorkspaceService,
 } from '@affine/core/modules/workspace';
+import { gqlFetcherFactory } from '@affine/graphql';
 import { useI18n } from '@affine/i18n';
 import type { DocMode } from '@blocksuite/affine/model';
 import { ZipTransformer } from '@blocksuite/affine/widgets/linked-doc';
@@ -41,8 +37,33 @@ import {
   useServices,
 } from '@toeverything/infra';
 import { useSetAtom } from 'jotai';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
+import { BehaviorSubject } from 'rxjs';
 import { catchError, EMPTY, finalize, switchMap, tap, timeout } from 'rxjs';
+
+// Minimal gql function — direct POST to /graphql, no cloud module needed
+const localGql = gqlFetcherFactory('/graphql', (input, init) =>
+  globalThis.fetch(input, { ...init, credentials: 'include' })
+);
+
+// Minimal eventSource factory — just creates EventSource with full URL
+function localEventSource(
+  url: string,
+  eventSourceInitDict?: EventSourceInit
+): EventSource {
+  const fullUrl = url.startsWith('http')
+    ? url
+    : `${location.origin}${url.startsWith('/') ? '' : '/'}${url}`;
+  return new EventSource(fullUrl, eventSourceInitDict);
+}
+
+// Fake auth service — no login, no accounts, just stubs
+const LOCAL_AUTH_STUB = {
+  session: {
+    account$: new BehaviorSubject(null),
+    revalidate: () => {},
+  },
+} as any;
 
 /**
  * @deprecated just for legacy code, will be removed in the future
@@ -135,26 +156,30 @@ export const WorkspaceSideEffects = () => {
     };
   }, [workspaceDialogService]);
 
-  const graphqlService = useService(GraphQLService);
-  const eventSourceService = useService(EventSourceService);
-  const authService = useService(AuthService);
+  // Create CopilotClient with direct fetch — no cloud services needed
+  const copilotClient = useMemo(
+    () => new CopilotClient(localGql, localEventSource),
+    []
+  );
 
+  // Auto-login as local user on startup (silent, no UI)
+  useEffect(() => {
+    fetch('/api/local/auth', { method: 'GET', credentials: 'include' }).catch(
+      err => console.warn('[local-auth] Could not establish session', err)
+    );
+  }, []);
+
+  // Wire up all AI actions using local client + stub auth
   useEffect(() => {
     const dispose = setupAIProvider(
-      new CopilotClient(graphqlService.gql, eventSourceService.eventSource),
+      copilotClient,
       globalDialogService,
-      authService
+      LOCAL_AUTH_STUB
     );
     return () => {
       dispose();
     };
-  }, [
-    eventSourceService,
-    workspaceDialogService,
-    graphqlService,
-    globalDialogService,
-    authService,
-  ]);
+  }, [copilotClient, globalDialogService]);
 
   useRegisterWorkspaceCommands();
   useRegisterNavigationCommands();

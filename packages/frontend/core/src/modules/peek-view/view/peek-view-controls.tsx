@@ -22,7 +22,7 @@ import {
   useMemo,
 } from 'react';
 
-import { ServerService } from '../../cloud';
+// ServerService removed — local-only mode
 import { WorkspaceDialogService } from '../../dialogs';
 import { DocsService } from '../../doc/services/docs';
 import { toDocSearchParams } from '../../navigation';
@@ -113,7 +113,7 @@ export const DocPeekViewControls = ({
   const workbench = useService(WorkbenchService).workbench;
   const t = useI18n();
   const workspaceDialogService = useService(WorkspaceDialogService);
-  const serverService = useService(ServerService);
+  const serverService = { server: { baseUrl: location.origin } };
   const docsService = useService(DocsService);
   const controls = useMemo(() => {
     return [

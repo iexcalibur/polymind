@@ -1,5 +1,4 @@
 import { IconButton } from '@affine/component';
-import { NotificationCountService } from '@affine/core/modules/notification';
 import { SidebarIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import clsx from 'clsx';
@@ -15,10 +14,8 @@ export const SidebarSwitch = ({
   show: boolean;
   className?: string;
 }) => {
-  const notificationCountService = useService(NotificationCountService);
-  const hasNotification = useLiveData(
-    notificationCountService.count$.selector(count => count > 0)
-  );
+  // Notification dot removed — local-only mode, no cloud notifications
+  const hasNotification = false;
 
   const appSidebarService = useService(AppSidebarService).sidebar;
   const open = useLiveData(appSidebarService.open$);

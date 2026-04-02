@@ -14,7 +14,7 @@ import { useLiveData, useService } from '@toeverything/infra';
 import type React from 'react';
 import { useCallback, useEffect } from 'react';
 
-import { ServerService } from '../../cloud/services/server';
+// ServerService removed — local-only mode
 import { WorkspaceService } from '../../workspace/services/workspace';
 import { COUNT_PER_PAGE } from '../constants';
 import { EmbeddingService } from '../services/embedding';
@@ -265,12 +265,9 @@ const EmbeddingCloud: React.FC<{ disabled: boolean }> = ({ disabled }) => {
 
 export const EmbeddingSettings: React.FC<EmbeddingSettingsProps> = () => {
   const workspaceService = useService(WorkspaceService);
-  const serverService = useService(ServerService);
   const isLocal = workspaceService.workspace.flavour === 'local';
-  const serverConfig = useLiveData(serverService.server.config$);
-  const isEmbeddingEnabled = serverConfig?.features.includes(
-    ServerFeature.CopilotEmbedding
-  );
+  // Local-only mode — embedding not available
+  const isEmbeddingEnabled = false;
 
   const t = useI18n();
 

@@ -1,4 +1,4 @@
-import { ServerService } from '@affine/core/modules/cloud';
+// ServerService removed — local-only mode
 import { AdapterPanel } from '@blocksuite/affine/fragments/adapter-panel';
 import {
   customImageProxyMiddleware,
@@ -46,7 +46,7 @@ const getTransformerMiddlewares = (
 
 // A wrapper for AdapterPanel
 export const EditorAdapterPanel = ({ host }: { host: EditorHost | null }) => {
-  const server = useService(ServerService).server;
+  const server = { baseUrl: location.origin };
   const adapterPanelRef = useRef<AdapterPanel | null>(null);
 
   const onRefChange = useCallback(

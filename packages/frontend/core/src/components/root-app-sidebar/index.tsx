@@ -1,4 +1,3 @@
-// Import is already correct, no changes needed
 import {
   AddPageButton,
   AppDownloadButton,
@@ -9,19 +8,12 @@ import {
   SidebarContainer,
   SidebarScrollableContainer,
 } from '@affine/core/modules/app-sidebar/views';
-import { AuthService, ServerService } from '@affine/core/modules/cloud';
 import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import { FeatureFlagService } from '@affine/core/modules/feature-flag';
 import { CMDKQuickSearchService } from '@affine/core/modules/quicksearch/services/cmdk';
 import type { Workspace } from '@affine/core/modules/workspace';
 import { useI18n } from '@affine/i18n';
 import type { Store } from '@blocksuite/affine/store';
-import {
-  AiOutlineIcon,
-  AllDocsIcon,
-  ImportIcon,
-  SettingsIcon,
-} from '@blocksuite/icons/rc';
+import { AllDocsIcon, ImportIcon, SettingsIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService, useServices } from '@toeverything/infra';
 import type { ReactElement } from 'react';
 import { memo, useCallback } from 'react';
@@ -43,7 +35,6 @@ import {
 } from './index.css';
 import { InviteMembersButton } from './invite-members-button';
 import { AppSidebarJournalButton } from './journal-button';
-import { NotificationButton } from './notification-button';
 import { SidebarAudioPlayer } from './sidebar-audio-player';
 import { TemplateDocEntrance } from './template-doc-entrance';
 import { TrashButton } from './trash-button';
@@ -83,33 +74,7 @@ const AllDocsButton = () => {
   );
 };
 
-const AIChatButton = () => {
-  const t = useI18n();
-  const featureFlagService = useService(FeatureFlagService);
-  const serverService = useService(ServerService);
-  const serverFeatures = useLiveData(serverService.server.features$);
-  const enableAI = useLiveData(featureFlagService.flags.enable_ai.$);
-
-  const { workbenchService } = useServices({
-    WorkbenchService,
-  });
-  const workbench = workbenchService.workbench;
-  const aiChatActive = useLiveData(
-    workbench.location$.selector(location => location.pathname === '/chat')
-  );
-
-  if (!enableAI || !serverFeatures?.copilot) {
-    return null;
-  }
-
-  return (
-    <MenuLinkItem icon={<AiOutlineIcon />} active={aiChatActive} to={'/chat'}>
-      <span data-testid="ai-chat">
-        {t['com.affine.workspaceSubPath.chat']()}
-      </span>
-    </MenuLinkItem>
-  );
-};
+// AIChatButton removed — local-only mode, no cloud AI
 
 /**
  * This is for the whole affine app sidebar.
@@ -117,15 +82,11 @@ const AIChatButton = () => {
  *
  */
 export const RootAppSidebar = memo((): ReactElement => {
-  const { workbenchService, cMDKQuickSearchService, authService } = useServices(
-    {
-      WorkbenchService,
-      CMDKQuickSearchService,
-      AuthService,
-    }
-  );
+  const { workbenchService, cMDKQuickSearchService } = useServices({
+    WorkbenchService,
+    CMDKQuickSearchService,
+  });
 
-  const sessionStatus = useLiveData(authService.session.status$);
   const t = useI18n();
   const workspaceDialogService = useService(WorkspaceDialogService);
   const workbench = workbenchService.workbench;
@@ -206,8 +167,6 @@ export const RootAppSidebar = memo((): ReactElement => {
         </div>
         <AllDocsButton />
         <AppSidebarJournalButton />
-        {sessionStatus === 'authenticated' && <NotificationButton />}
-        <AIChatButton />
         <MenuItem
           data-testid="slider-bar-workspace-setting-button"
           icon={<SettingsIcon />}

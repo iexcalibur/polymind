@@ -199,11 +199,17 @@ class Resolver extends FrameworkProvider {
       }
     };
 
-    if (noCache) {
-      return runFactory();
+    try {
+      if (noCache) {
+        return runFactory();
+      }
+      return this.provider.cache.getOrInsert(identifier, runFactory);
+    } catch (err) {
+      if (optional) {
+        return undefined;
+      }
+      throw err;
     }
-
-    return this.provider.cache.getOrInsert(identifier, runFactory);
   }
 
   getAllRaw(

@@ -1,7 +1,7 @@
 import { Divider, Skeleton } from '@affine/component';
 import { Button } from '@affine/component/ui/button';
 import { useGuard } from '@affine/core/components/guard';
-import { ServerService } from '@affine/core/modules/cloud';
+// ServerService removed — local-only mode
 import { DocService } from '@affine/core/modules/doc';
 import { ShareInfoService } from '@affine/core/modules/share-doc';
 import { useI18n } from '@affine/i18n';
@@ -62,7 +62,7 @@ export const AFFiNESharePage = (
     workspaceMetadata: { id: workspaceId },
   } = props;
   const shareInfoService = useService(ShareInfoService);
-  const serverService = useService(ServerService);
+  const serverService = { server: { baseUrl: location.origin } };
   const docService = useService(DocService);
 
   const canManageUsers = useGuard('Doc_Users_Manage', docService.doc.id);

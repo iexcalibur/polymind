@@ -82,7 +82,7 @@ export const WorkspaceLayout = ({
           },
         })
       );
-      localStorage.setItem('last_workspace_id', workspace.id);
+      // Don't store last workspace id — always start fresh
       globalContextService.globalContext.workspaceId.set(workspace.id);
       if (workspaceServer) {
         globalContextService.globalContext.serverId.set(workspaceServer.id);

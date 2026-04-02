@@ -17,7 +17,7 @@ import { PageDetailEditor } from '@affine/core/components/page-detail-editor';
 import { WorkspacePropertySidebar } from '@affine/core/components/properties/sidebar';
 import { TrashPageFooter } from '@affine/core/components/pure/trash-page-footer';
 import { TopTip } from '@affine/core/components/top-tip';
-import { ServerService } from '@affine/core/modules/cloud';
+// ServerService removed — local-only mode
 import { DocService } from '@affine/core/modules/doc';
 import { EditorService } from '@affine/core/modules/editor';
 import { FeatureFlagService } from '@affine/core/modules/feature-flag';
@@ -35,7 +35,7 @@ import {
 } from '@affine/core/modules/workbench';
 import { WorkspaceService } from '@affine/core/modules/workspace';
 import { isNewTabTrigger } from '@affine/core/utils';
-import { ServerFeature } from '@affine/graphql';
+// ServerFeature removed — local-only mode
 import { DisposableGroup } from '@blocksuite/affine/global/disposable';
 import { RefNodeSlotsProvider } from '@blocksuite/affine/inlines/reference';
 import { focusBlockEnd } from '@blocksuite/affine/shared/commands';
@@ -116,13 +116,8 @@ const DetailPageImpl = memo(function DetailPageImpl() {
     featureFlagService.flags.enable_adapter_panel.$
   );
 
-  const serverService = useService(ServerService);
-  const serverConfig = useLiveData(serverService.server.config$);
-
-  // comment may not be supported by the server
-  const enableComment =
-    workspace.flavour !== 'local' &&
-    serverConfig.features.includes(ServerFeature.Comment);
+  // Comments disabled — local-only mode
+  const enableComment = false;
 
   useEffect(() => {
     if (isActiveView) {
