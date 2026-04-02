@@ -237,7 +237,7 @@ const BlockSuiteEditorImpl = ({
       canceled = true;
       disposableGroup.dispose();
     };
-  }, [affineEditorContainerProxy, onEditorReady, page, server]);
+  }, [affineEditorContainerProxy, onEditorReady, page]);
 
   return (
     <div
