@@ -18,7 +18,6 @@ import {
   SettingWrapper,
 } from '@affine/component/setting-components';
 import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
-import { ServerService } from '@affine/core/modules/cloud';
 import { DesktopApiService } from '@affine/core/modules/desktop-api';
 import {
   type EditorSettingSchema,
@@ -431,11 +430,9 @@ const NewDocDefaultModeSettings = () => {
 const AISettings = () => {
   const t = useI18n();
   const { openConfirmModal } = useConfirmModal();
-  const { featureFlagService, serverService } = useServices({
+  const { featureFlagService } = useServices({
     FeatureFlagService,
-    ServerService,
   });
-  const serverFeatures = useLiveData(serverService.server.features$);
   const enableAI = useLiveData(featureFlagService.flags.enable_ai.$);
 
   const onAIChange = useCallback(
@@ -471,10 +468,6 @@ const AISettings = () => {
     },
     [openConfirmModal, t, onAIChange]
   );
-
-  if (!serverFeatures?.copilot) {
-    return null;
-  }
 
   return (
     <SettingRow

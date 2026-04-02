@@ -11,19 +11,16 @@ import {
 } from '@affine/graphql';
 import { Store } from '@toeverything/infra';
 
-import type { WorkspaceServerService } from '../../cloud';
 import type { WorkspaceService } from '../../workspace';
 
 export class CalendarStore extends Store {
-  constructor(
-    private readonly workspaceService: WorkspaceService,
-    private readonly workspaceServerService: WorkspaceServerService
-  ) {
+  constructor(private readonly workspaceService: WorkspaceService) {
     super();
   }
 
-  private get gql() {
-    return this.workspaceServerService.server?.gql;
+  private get gql(): any {
+    // Cloud module removed - no GraphQL available
+    return null;
   }
 
   private get workspaceId() {

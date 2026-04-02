@@ -1,6 +1,5 @@
 import { type Framework } from '@toeverything/infra';
 
-import { ServersService } from '../cloud';
 import { DesktopApiService } from '../desktop-api';
 import { DocCreateMiddleware } from '../doc';
 import { I18n } from '../i18n';
@@ -23,7 +22,6 @@ export function configureEditorSettingModule(framework: Framework) {
     .service(EditorSettingService)
     .entity(EditorSetting, [EditorSettingProvider])
     .impl(EditorSettingProvider, CurrentUserDBEditorSettingProvider, [
-      ServersService,
       GlobalState,
     ])
     .scope(WorkspaceScope)

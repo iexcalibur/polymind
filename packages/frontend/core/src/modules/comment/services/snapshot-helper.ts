@@ -16,7 +16,6 @@ import {
 import { Service } from '@toeverything/infra';
 import { Doc as YDoc } from 'yjs';
 
-import type { DefaultServerService, WorkspaceServerService } from '../../cloud';
 import {
   getAFFiNEWorkspaceSchema,
   type WorkspaceService,
@@ -24,18 +23,8 @@ import {
 import { WorkspaceImpl } from '../../workspace/impls/workspace';
 
 export class SnapshotHelper extends Service {
-  constructor(
-    private readonly workspaceService: WorkspaceService,
-    private readonly workspaceServerService: WorkspaceServerService,
-    private readonly defaultServerService: DefaultServerService
-  ) {
+  constructor(private readonly workspaceService: WorkspaceService) {
     super();
-  }
-
-  private get serverService() {
-    return (
-      this.workspaceServerService.server || this.defaultServerService.server
-    );
   }
 
   getTempWorkspace() {
@@ -72,7 +61,7 @@ export class SnapshotHelper extends Service {
     const schema = getAFFiNEWorkspaceSchema();
     const imageProxyUrl = new URL(
       BUILD_CONFIG.imageProxyUrl,
-      this.serverService.baseUrl
+      location.origin
     ).toString();
 
     const middlewares = [customImageProxyMiddleware(imageProxyUrl)];

@@ -4,7 +4,6 @@ import {
   SettingWrapper,
 } from '@affine/component/setting-components';
 import { useWorkspaceInfo } from '@affine/core/components/hooks/use-workspace-info';
-import { WorkspaceServerService } from '@affine/core/modules/cloud';
 import { WorkspaceService } from '@affine/core/modules/workspace';
 import { UNTITLED_WORKSPACE_NAME } from '@affine/env/constant';
 import { useI18n } from '@affine/i18n';
@@ -26,7 +25,7 @@ export const WorkspaceSettingDetail = ({
   const t = useI18n();
 
   const workspace = useService(WorkspaceService).workspace;
-  const server = workspace?.scope.get(WorkspaceServerService).server;
+  const server = undefined as any;
 
   const workspaceInfo = useWorkspaceInfo(workspace);
 

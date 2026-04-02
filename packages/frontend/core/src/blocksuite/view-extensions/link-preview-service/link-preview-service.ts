@@ -9,8 +9,6 @@ import { type ExtensionType } from '@blocksuite/affine/store';
 import type { Container } from '@blocksuite/global/di';
 import type { FrameworkProvider } from '@toeverything/infra';
 
-import { ServerService } from '../../../modules/cloud/services/server';
-
 class AffineLinkPreviewService extends LinkPreviewService {
   constructor(endpoint: string, cache: LinkPreviewCacheProvider) {
     super(cache);
@@ -20,19 +18,18 @@ class AffineLinkPreviewService extends LinkPreviewService {
 
 /**
  * Patch the link preview service, set the endpoint and cache
- * @param framework
+ * @param _framework
  * @returns
  */
 export function patchLinkPreviewService(
-  framework: FrameworkProvider
+  _framework: FrameworkProvider
 ): ExtensionType {
-  // get link preview service endpoint from server and BUILD_CONFIG
+  // get link preview service endpoint from location.origin and BUILD_CONFIG
   let linkPreviewUrl: string;
   try {
-    const server = framework.get(ServerService).server;
     linkPreviewUrl = new URL(
       BUILD_CONFIG.linkPreviewUrl || '/',
-      server.baseUrl
+      location.origin
     ).toString();
   } catch (err) {
     console.error(

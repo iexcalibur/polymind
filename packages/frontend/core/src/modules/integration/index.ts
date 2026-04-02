@@ -1,6 +1,5 @@
 import type { Framework } from '@toeverything/infra';
 
-import { WorkspaceServerService } from '../cloud';
 import { WorkspaceDBService } from '../db';
 import { DocScope, DocService, DocsService } from '../doc';
 import { GlobalState } from '../storage';
@@ -26,11 +25,7 @@ export function configureIntegrationModule(framework: Framework) {
   framework
     .scope(WorkspaceScope)
     .store(IntegrationRefStore, [WorkspaceDBService, DocsService])
-    .store(ReadwiseStore, [
-      GlobalState,
-      WorkspaceService,
-      WorkspaceServerService,
-    ])
+    .store(ReadwiseStore, [GlobalState, WorkspaceService])
     .service(IntegrationService)
     .entity(ReadwiseCrawler, [ReadwiseStore])
     .entity(IntegrationWriter, [WorkspaceService, TagService])
@@ -39,7 +34,7 @@ export function configureIntegrationModule(framework: Framework) {
       ReadwiseStore,
       DocsService,
     ])
-    .store(CalendarStore, [WorkspaceService, WorkspaceServerService])
+    .store(CalendarStore, [WorkspaceService])
     .entity(CalendarIntegration, [CalendarStore])
     .scope(DocScope)
     .service(IntegrationPropertyService, [DocService]);

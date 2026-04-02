@@ -5,8 +5,6 @@ import { UserFriendlyError } from '@affine/error';
 import { AiJobStatus } from '@affine/graphql';
 import { Entity, LiveData } from '@toeverything/infra';
 
-import type { DefaultServerService, WorkspaceServerService } from '../../cloud';
-import { AuthService } from '../../cloud/services/auth';
 import { AudioTranscriptionJobStore } from './audio-transcription-job-store';
 import type { TranscriptionResult } from './types';
 
@@ -48,10 +46,7 @@ export class AudioTranscriptionJob extends Entity<{
   readonly blobId: string;
   readonly getAudioFiles: () => Promise<File[]>;
 }> {
-  constructor(
-    private readonly workspaceServerService: WorkspaceServerService,
-    private readonly defaultServerService: DefaultServerService
-  ) {
+  constructor() {
     super();
     this.disposables.push(() => {
       this.disposed = true;
@@ -271,17 +266,8 @@ export class AudioTranscriptionJob extends Entity<{
     );
   }
 
-  private get serverService() {
-    return (
-      this.workspaceServerService.server || this.defaultServerService.server
-    );
-  }
-
   get currentUserId() {
-    const authService = this.serverService?.scope.getOptional(AuthService);
-    if (!authService) {
-      return;
-    }
-    return authService.session.account$.value?.id;
+    // Cloud module removed - no auth available
+    return undefined;
   }
 }

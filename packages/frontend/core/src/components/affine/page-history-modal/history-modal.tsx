@@ -6,7 +6,6 @@ import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
 import { DocDisplayMetaService } from '@affine/core/modules/doc-display-meta';
 import { EditorService } from '@affine/core/modules/editor';
 import { WorkspacePermissionService } from '@affine/core/modules/permissions';
-import { WorkspaceQuotaService } from '@affine/core/modules/quota';
 import { WorkspaceService } from '@affine/core/modules/workspace';
 import { i18nTime, Trans, useI18n } from '@affine/i18n';
 import type { DocMode } from '@blocksuite/affine/model';
@@ -169,98 +168,8 @@ const HistoryEditorPreview = ({
 const planPromptClosedAtom = atom(false);
 
 const PlanPrompt = () => {
-  const workspaceQuotaService = useService(WorkspaceQuotaService);
-  useEffect(() => {
-    workspaceQuotaService.quota.revalidate();
-  }, [workspaceQuotaService]);
-  const workspaceQuota = useLiveData(workspaceQuotaService.quota.quota$);
-  const isProWorkspace = useMemo(() => {
-    return workspaceQuota
-      ? workspaceQuota.humanReadable.name.toLowerCase() !== 'free'
-      : null;
-  }, [workspaceQuota]);
-  const permissionService = useService(WorkspacePermissionService);
-  const isOwner = useLiveData(permissionService.permission.isOwner$);
-  useEffect(() => {
-    // revalidate permission
-    permissionService.permission.revalidate();
-  }, [permissionService]);
-
-  const [planPromptClosed, setPlanPromptClosed] = useAtom(planPromptClosedAtom);
-  const workspaceDialogService = useService(WorkspaceDialogService);
-  const closeFreePlanPrompt = useCallback(() => {
-    setPlanPromptClosed(true);
-  }, [setPlanPromptClosed]);
-
-  const onClickUpgrade = useCallback(() => {
-    workspaceDialogService.open('setting', {
-      activeTab: 'plans',
-      scrollAnchor: 'cloudPricingPlan',
-    });
-  }, [workspaceDialogService]);
-
-  const t = useI18n();
-
-  const planTitle = useMemo(() => {
-    return (
-      <div className={styles.planPromptTitle}>
-        {
-          isProWorkspace !== null
-            ? !isProWorkspace
-              ? t[
-                  'com.affine.history.confirm-restore-modal.plan-prompt.limited-title'
-                ]()
-              : t[
-                  'com.affine.history.confirm-restore-modal.plan-prompt.title'
-                ]()
-            : '' /* TODO(@catsjuice): loading UI */
-        }
-
-        <IconButton onClick={closeFreePlanPrompt}>
-          <CloseIcon />
-        </IconButton>
-      </div>
-    );
-  }, [closeFreePlanPrompt, isProWorkspace, t]);
-
-  const planDescription = useMemo(() => {
-    if (!isProWorkspace) {
-      return (
-        <>
-          <Trans i18nKey="com.affine.history.confirm-restore-modal.free-plan-prompt.description">
-            With the workspace creator&apos;s Free account, every member can
-            access up to <b>7 days</b> of version history.
-          </Trans>
-          {isOwner ? (
-            <span
-              className={styles.planPromptUpdateButton}
-              onClick={onClickUpgrade}
-            >
-              {t[
-                'com.affine.history.confirm-restore-modal.pro-plan-prompt.upgrade'
-              ]()}
-            </span>
-          ) : null}
-        </>
-      );
-    } else {
-      return (
-        <Trans i18nKey="com.affine.history.confirm-restore-modal.pro-plan-prompt.description">
-          With the workspace creator&apos;s Pro account, every member enjoys the
-          privilege of accessing up to <b>30 days</b> of version history.
-        </Trans>
-      );
-    }
-  }, [isOwner, isProWorkspace, onClickUpgrade, t]);
-
-  return !planPromptClosed ? (
-    <div className={styles.planPromptWrapper}>
-      <div className={styles.planPrompt}>
-        {planTitle}
-        {planDescription}
-      </div>
-    </div>
-  ) : null;
+  // Quota service has been removed; render nothing.
+  return null;
 };
 
 type HistoryList = ReturnType<typeof useDocSnapshotList>[0];

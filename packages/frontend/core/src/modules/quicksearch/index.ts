@@ -1,6 +1,5 @@
 import { type Framework } from '@toeverything/infra';
 
-import { WorkspaceServerService } from '../cloud';
 import { CollectionService } from '../collection';
 import { WorkspaceDialogService } from '../dialogs';
 import { DocsService } from '../doc';
@@ -58,7 +57,6 @@ export function configureQuickSearchModule(framework: Framework) {
     .entity(CommandsQuickSearchSession, [GlobalContextService])
     .entity(DocsQuickSearchSession, [
       WorkspaceService,
-      WorkspaceServerService,
       DocsSearchService,
       DocsService,
       DocDisplayMetaService,

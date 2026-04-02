@@ -1,194 +1,78 @@
-import type { WorkspaceServerService } from '@affine/core/modules/cloud';
-import {
-  addWorkspaceEmbeddingFilesMutation,
-  addWorkspaceEmbeddingIgnoredDocsMutation,
-  getAllWorkspaceEmbeddingIgnoredDocsQuery,
-  getWorkspaceConfigQuery,
-  getWorkspaceEmbeddingFilesQuery,
-  getWorkspaceEmbeddingStatusQuery,
-  type PaginationInput,
-  removeWorkspaceEmbeddingFilesMutation,
-  removeWorkspaceEmbeddingIgnoredDocsMutation,
-  setEnableDocEmbeddingMutation,
-} from '@affine/graphql';
+import type { PaginationInput } from '@affine/graphql';
 import { Store } from '@toeverything/infra';
 
 export class EmbeddingStore extends Store {
-  constructor(private readonly workspaceServerService: WorkspaceServerService) {
+  constructor() {
     super();
   }
 
-  async getEnabled(workspaceId: string, signal?: AbortSignal) {
-    if (!this.workspaceServerService.server) {
-      throw new Error('No Server');
-    }
-    const data = await this.workspaceServerService.server.gql({
-      query: getWorkspaceConfigQuery,
-      variables: {
-        id: workspaceId,
-      },
-      context: {
-        signal,
-      },
-    });
-    return data.workspace.enableDocEmbedding;
+  async getEnabled(_workspaceId: string, _signal?: AbortSignal) {
+    // Cloud module removed
+    return false;
   }
 
   async updateEnabled(
-    workspaceId: string,
-    enabled: boolean,
-    signal?: AbortSignal
+    _workspaceId: string,
+    _enabled: boolean,
+    _signal?: AbortSignal
   ) {
-    if (!this.workspaceServerService.server) {
-      throw new Error('No Server');
-    }
-    await this.workspaceServerService.server.gql({
-      query: setEnableDocEmbeddingMutation,
-      variables: {
-        id: workspaceId,
-        enableDocEmbedding: enabled,
-      },
-      context: {
-        signal,
-      },
-    });
+    throw new Error('No Server (cloud module removed)');
   }
 
-  async getIgnoredDocs(workspaceId: string, signal?: AbortSignal) {
-    if (!this.workspaceServerService.server) {
-      throw new Error('No Server');
-    }
-
-    const data = await this.workspaceServerService.server.gql({
-      query: getAllWorkspaceEmbeddingIgnoredDocsQuery,
-      variables: {
-        workspaceId,
-      },
-      context: { signal },
-    });
-    return data.workspace.embedding.allIgnoredDocs;
+  async getIgnoredDocs(_workspaceId: string, _signal?: AbortSignal) {
+    return [];
   }
 
   async updateIgnoredDocs(
-    workspaceId: string,
-    add: string[],
-    remove: string[],
-    signal?: AbortSignal
+    _workspaceId: string,
+    _add: string[],
+    _remove: string[],
+    _signal?: AbortSignal
   ) {
-    if (!this.workspaceServerService.server) {
-      throw new Error('No Server');
-    }
-
-    await Promise.all([
-      this.workspaceServerService.server.gql({
-        query: addWorkspaceEmbeddingIgnoredDocsMutation,
-        variables: {
-          workspaceId,
-          add,
-        },
-        context: { signal },
-      }),
-      this.workspaceServerService.server.gql({
-        query: removeWorkspaceEmbeddingIgnoredDocsMutation,
-        variables: {
-          workspaceId,
-          remove,
-        },
-        context: { signal },
-      }),
-    ]);
+    throw new Error('No Server (cloud module removed)');
   }
 
   async addEmbeddingFile(
-    workspaceId: string,
-    blob: File,
-    signal?: AbortSignal
+    _workspaceId: string,
+    _blob: File,
+    _signal?: AbortSignal
   ) {
-    if (!this.workspaceServerService.server) {
-      throw new Error('No Server');
-    }
-
-    await this.workspaceServerService.server.gql({
-      query: addWorkspaceEmbeddingFilesMutation,
-      variables: {
-        workspaceId,
-        blob,
-      },
-      context: { signal },
-    });
+    throw new Error('No Server (cloud module removed)');
   }
 
   async addEmbeddingFiles(
-    workspaceId: string,
-    files: File[],
-    signal?: AbortSignal
+    _workspaceId: string,
+    _files: File[],
+    _signal?: AbortSignal
   ) {
-    for (const file of files) {
-      await this.addEmbeddingFile(workspaceId, file, signal);
-    }
+    throw new Error('No Server (cloud module removed)');
   }
 
   async removeEmbeddingFile(
-    workspaceId: string,
-    fileId: string,
-    signal?: AbortSignal
+    _workspaceId: string,
+    _fileId: string,
+    _signal?: AbortSignal
   ) {
-    if (!this.workspaceServerService.server) {
-      throw new Error('No Server');
-    }
-
-    await this.workspaceServerService.server.gql({
-      query: removeWorkspaceEmbeddingFilesMutation,
-      variables: {
-        workspaceId,
-        fileId,
-      },
-      context: { signal },
-    });
+    throw new Error('No Server (cloud module removed)');
   }
 
   async removeEmbeddingFiles(
-    workspaceId: string,
-    fileIds: string[],
-    signal?: AbortSignal
+    _workspaceId: string,
+    _fileIds: string[],
+    _signal?: AbortSignal
   ) {
-    for (const fileId of fileIds) {
-      await this.removeEmbeddingFile(workspaceId, fileId, signal);
-    }
+    throw new Error('No Server (cloud module removed)');
   }
 
   async getEmbeddingFiles(
-    workspaceId: string,
-    pagination: PaginationInput,
-    signal?: AbortSignal
+    _workspaceId: string,
+    _pagination: PaginationInput,
+    _signal?: AbortSignal
   ) {
-    if (!this.workspaceServerService.server) {
-      throw new Error('No Server');
-    }
-
-    const data = await this.workspaceServerService.server.gql({
-      query: getWorkspaceEmbeddingFilesQuery,
-      variables: {
-        workspaceId,
-        pagination,
-      },
-      context: { signal },
-    });
-    return data.workspace.embedding.files;
+    throw new Error('No Server (cloud module removed)');
   }
 
-  async getEmbeddingProgress(workspaceId: string, signal?: AbortSignal) {
-    if (!this.workspaceServerService.server) {
-      throw new Error('No Server');
-    }
-
-    const data = await this.workspaceServerService.server.gql({
-      query: getWorkspaceEmbeddingStatusQuery,
-      variables: {
-        workspaceId,
-      },
-      context: { signal },
-    });
-    return data.queryWorkspaceEmbeddingStatus;
+  async getEmbeddingProgress(_workspaceId: string, _signal?: AbortSignal) {
+    throw new Error('No Server (cloud module removed)');
   }
 }

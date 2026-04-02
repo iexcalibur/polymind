@@ -1,5 +1,4 @@
 import { Button, notify } from '@affine/component';
-import { WorkspaceServerService } from '@affine/core/modules/cloud';
 import { IntegrationService } from '@affine/core/modules/integration';
 import { useI18n } from '@affine/i18n';
 import { TodayIcon } from '@blocksuite/icons/rc';
@@ -21,8 +20,6 @@ const isSameSelection = (left: Set<string>, right: Set<string>) => {
 export const CalendarSettingPanel = () => {
   const t = useI18n();
   const calendar = useService(IntegrationService).calendar;
-  const workspaceServerService = useService(WorkspaceServerService);
-  const server = useLiveData(workspaceServerService.server$);
   const accounts = useLiveData(calendar.accounts$);
   const accountCalendars = useLiveData(calendar.accountCalendars$);
   const workspaceCalendars = useLiveData(calendar.workspaceCalendars$);
@@ -32,7 +29,7 @@ export const CalendarSettingPanel = () => {
   useEffect(() => {
     calendar.revalidateWorkspaceCalendars().catch(() => undefined);
     calendar.loadAccountCalendars().catch(() => undefined);
-  }, [calendar, server]);
+  }, [calendar]);
 
   useEffect(() => {
     const selected = new Set(

@@ -4,7 +4,6 @@ import {
 } from '@affine/graphql';
 import { Store } from '@toeverything/infra';
 
-import type { WorkspaceServerService } from '../../cloud';
 import type { WorkspaceService } from '../../workspace';
 
 export type WorkspacePermissionActions = keyof Omit<
@@ -21,10 +20,7 @@ export type DocPermissionActions = keyof Omit<
  * Single-user local-first: no permission fetching needed.
  */
 export class GuardStore extends Store {
-  constructor(
-    private readonly workspaceService: WorkspaceService,
-    private readonly workspaceServerService: WorkspaceServerService
-  ) {
+  constructor(private readonly workspaceService: WorkspaceService) {
     super();
   }
 

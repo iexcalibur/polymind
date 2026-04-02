@@ -1,141 +1,52 @@
-import {
-  approveWorkspaceTeamMemberMutation,
-  createInviteLinkMutation,
-  getMembersByWorkspaceIdQuery,
-  grantWorkspaceTeamMemberMutation,
-  inviteByEmailsMutation,
-  type Permission,
-  revokeInviteLinkMutation,
-  revokeMemberPermissionMutation,
-  type WorkspaceInviteLinkExpireTime,
-} from '@affine/graphql';
+import type { Permission, WorkspaceInviteLinkExpireTime } from '@affine/graphql';
 import { Store } from '@toeverything/infra';
 
-import type { WorkspaceServerService } from '../../cloud';
-
 export class WorkspaceMembersStore extends Store {
-  constructor(private readonly workspaceServerService: WorkspaceServerService) {
+  constructor() {
     super();
   }
 
   async fetchMembers(
-    workspaceId: string,
-    skip: number,
-    take: number,
-    signal?: AbortSignal
+    _workspaceId: string,
+    _skip: number,
+    _take: number,
+    _signal?: AbortSignal
   ) {
-    if (!this.workspaceServerService.server) {
-      throw new Error('No Server');
-    }
-    const data = await this.workspaceServerService.server.gql({
-      query: getMembersByWorkspaceIdQuery,
-      variables: {
-        workspaceId,
-        skip,
-        take,
-      },
-      context: {
-        signal,
-      },
-    });
-
-    return data.workspace;
+    throw new Error('No Server (cloud module removed)');
   }
 
-  async inviteBatch(workspaceId: string, emails: string[]) {
-    if (!this.workspaceServerService.server) {
-      throw new Error('No Server');
-    }
-    const inviteBatch = await this.workspaceServerService.server.gql({
-      query: inviteByEmailsMutation,
-      variables: {
-        workspaceId,
-        emails,
-      },
-    });
-    return inviteBatch.inviteMembers;
+  async inviteBatch(_workspaceId: string, _emails: string[]) {
+    throw new Error('No Server (cloud module removed)');
   }
 
   async generateInviteLink(
-    workspaceId: string,
-    expireTime: WorkspaceInviteLinkExpireTime
+    _workspaceId: string,
+    _expireTime: WorkspaceInviteLinkExpireTime
   ) {
-    if (!this.workspaceServerService.server) {
-      throw new Error('No Server');
-    }
-    const inviteLink = await this.workspaceServerService.server.gql({
-      query: createInviteLinkMutation,
-      variables: {
-        workspaceId,
-        expireTime,
-      },
-    });
-    return inviteLink.createInviteLink;
+    throw new Error('No Server (cloud module removed)');
   }
 
-  async revokeInviteLink(workspaceId: string, signal?: AbortSignal) {
-    if (!this.workspaceServerService.server) {
-      throw new Error('No Server');
-    }
-    const revoke = await this.workspaceServerService.server.gql({
-      query: revokeInviteLinkMutation,
-      variables: {
-        workspaceId,
-      },
-      context: { signal },
-    });
-    return revoke.revokeInviteLink;
+  async revokeInviteLink(_workspaceId: string, _signal?: AbortSignal) {
+    throw new Error('No Server (cloud module removed)');
   }
 
   async revokeMemberPermission(
-    workspaceId: string,
-    userId: string,
-    signal?: AbortSignal
+    _workspaceId: string,
+    _userId: string,
+    _signal?: AbortSignal
   ) {
-    if (!this.workspaceServerService.server) {
-      throw new Error('No Server');
-    }
-    const revoke = await this.workspaceServerService.server.gql({
-      query: revokeMemberPermissionMutation,
-      variables: {
-        workspaceId,
-        userId,
-      },
-      context: { signal },
-    });
-    return revoke.revokeMember;
+    throw new Error('No Server (cloud module removed)');
   }
 
-  async approveMember(workspaceId: string, userId: string) {
-    if (!this.workspaceServerService.server) {
-      throw new Error('No Server');
-    }
-    const member = await this.workspaceServerService.server.gql({
-      query: approveWorkspaceTeamMemberMutation,
-      variables: {
-        workspaceId,
-        userId,
-      },
-    });
-    return member.approveMember;
+  async approveMember(_workspaceId: string, _userId: string) {
+    throw new Error('No Server (cloud module removed)');
   }
 
   async adjustMemberPermission(
-    workspaceId: string,
-    userId: string,
-    permission: Permission
+    _workspaceId: string,
+    _userId: string,
+    _permission: Permission
   ) {
-    if (!this.workspaceServerService.server) {
-      throw new Error('No Server');
-    }
-    const member = await this.workspaceServerService.server.gql({
-      query: grantWorkspaceTeamMemberMutation,
-      variables: {
-        workspaceId,
-        userId,
-        permission,
-      },
-    });
-    return member.grantMember;
+    throw new Error('No Server (cloud module removed)');
   }
 }

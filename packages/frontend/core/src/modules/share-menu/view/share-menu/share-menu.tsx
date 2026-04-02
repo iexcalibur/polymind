@@ -4,10 +4,7 @@ import { Menu } from '@affine/component/ui/menu';
 // ServerService removed — local-only mode
 import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
 import { WorkspacePermissionService } from '@affine/core/modules/permissions';
-import { WorkspaceQuotaService } from '@affine/core/modules/quota';
-import { ShareInfoService } from '@affine/core/modules/share-doc';
 import type { WorkspaceMetadata } from '@affine/core/modules/workspace';
-import { ServerDeploymentType, SubscriptionPlan } from '@affine/graphql';
 import { useI18n } from '@affine/i18n';
 import type { Store } from '@blocksuite/affine/store';
 import { LockIcon, PublishIcon } from '@blocksuite/icons/rc';
@@ -17,8 +14,6 @@ import {
   type PropsWithChildren,
   type Ref,
   useCallback,
-  useEffect,
-  useMemo,
   useState,
 } from 'react';
 
@@ -50,20 +45,8 @@ export const ShareMenuContent = (props: ShareMenuProps) => {
   const t = useI18n();
   const [currentTab, setCurrentTab] = useState(ShareMenuTab.Share);
 
-  // Local-only mode — treat as selfhosted
-  const isSelfhosted = true;
-  const workspaceQuotaService = useService(WorkspaceQuotaService);
-  const quota = useLiveData(workspaceQuotaService.quota.quota$);
-  const hittingPaywall = useMemo(() => {
-    if (isSelfhosted) {
-      return false;
-    }
-    if (quota) {
-      const { name } = quota;
-      return name.toLowerCase() === SubscriptionPlan.Free.toLowerCase();
-    }
-    return true;
-  }, [isSelfhosted, quota]);
+  // Cloud/quota modules removed - never hit paywall
+  const hittingPaywall = false;
 
   const permissionService = useService(WorkspacePermissionService);
   const isOwner = useLiveData(permissionService.permission.isOwner$);
@@ -73,10 +56,6 @@ export const ShareMenuContent = (props: ShareMenuProps) => {
   const onValueChange = useCallback((value: string) => {
     setCurrentTab(value as ShareMenuTab);
   }, []);
-
-  useEffect(() => {
-    workspaceQuotaService.quota.revalidate();
-  }, [workspaceQuotaService]);
 
   const { openConfirmModal } = useConfirmModal();
 
@@ -205,15 +184,8 @@ const DefaultShareButton = forwardRef(function DefaultShareButton(
   ref: Ref<HTMLButtonElement>
 ) {
   const t = useI18n();
-  const shareInfoService = useService(ShareInfoService);
-  const shared = useLiveData(shareInfoService.shareInfo.isShared$);
-
-  useEffect(() => {
-    if (props.disabled) {
-      return;
-    }
-    shareInfoService.shareInfo.revalidate();
-  }, [props.disabled, shareInfoService]);
+  // ShareInfoService removed (share-doc module deleted)
+  const shared = false;
 
   const tooltip =
     props.tooltip ??

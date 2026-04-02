@@ -3,7 +3,6 @@ import type { Framework } from '@toeverything/infra';
 import { DocsService } from '../doc';
 import { DocsSearchService } from '../docs-search';
 import { FavoriteService } from '../favorite';
-import { ShareDocsListService } from '../share-doc';
 import { TagService } from '../tag';
 import { WorkspaceScope } from '../workspace';
 import { WorkspacePropertyService } from '../workspace-property';
@@ -20,7 +19,7 @@ import { JournalFilterProvider } from './impls/filters/journal';
 import { NumberPropertyFilterProvider } from './impls/filters/number';
 import { PageWidthFilterProvider } from './impls/filters/page-width';
 import { PropertyFilterProvider } from './impls/filters/property';
-import { SharedFilterProvider } from './impls/filters/shared';
+
 import { SystemFilterProvider } from './impls/filters/system';
 import { TagsFilterProvider } from './impls/filters/tags';
 import { TemplateFilterProvider } from './impls/filters/template';
@@ -145,10 +144,6 @@ export function configureCollectionRulesModule(framework: Framework) {
     ])
     .impl(FilterProvider('system:favorite'), FavoriteFilterProvider, [
       FavoriteService,
-      DocsService,
-    ])
-    .impl(FilterProvider('system:shared'), SharedFilterProvider, [
-      ShareDocsListService,
       DocsService,
     ])
     .impl(FilterProvider('system:title'), TitleFilterProvider, [

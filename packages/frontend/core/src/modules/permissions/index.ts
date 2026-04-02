@@ -14,7 +14,6 @@ export {
 
 import { type Framework } from '@toeverything/infra';
 
-import { WorkspaceServerService } from '../cloud/services/workspace-server';
 import { DocScope, DocService } from '../doc';
 import {
   WorkspaceLocalState,
@@ -43,22 +42,19 @@ export function configurePermissionsModule(framework: Framework) {
       WorkspacesService,
       WorkspacePermissionStore,
     ])
-    .store(WorkspacePermissionStore, [
-      WorkspaceServerService,
-      WorkspaceLocalState,
-    ])
+    .store(WorkspacePermissionStore, [WorkspaceLocalState])
     .entity(WorkspacePermission, [WorkspaceService, WorkspacePermissionStore])
     .service(WorkspaceMembersService, [WorkspaceMembersStore, WorkspaceService])
-    .store(WorkspaceMembersStore, [WorkspaceServerService])
+    .store(WorkspaceMembersStore)
     .entity(WorkspaceMembers, [WorkspaceMembersStore, WorkspaceService])
     .service(MemberSearchService, [MemberSearchStore, WorkspaceService])
-    .store(MemberSearchStore, [WorkspaceServerService])
+    .store(MemberSearchStore)
     .service(GuardService, [
       GuardStore,
       WorkspaceService,
       WorkspacePermissionService,
     ])
-    .store(GuardStore, [WorkspaceService, WorkspaceServerService]);
+    .store(GuardStore, [WorkspaceService]);
 
   framework
     .scope(WorkspaceScope)
@@ -68,5 +64,5 @@ export function configurePermissionsModule(framework: Framework) {
       WorkspaceService,
       DocService,
     ])
-    .store(DocGrantedUsersStore, [WorkspaceServerService]);
+    .store(DocGrantedUsersStore);
 }

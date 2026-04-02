@@ -3,7 +3,7 @@ import { AuthHeader } from '@affine/component/auth-components';
 import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
 import { useWorkspaceName } from '@affine/core/components/hooks/use-workspace-info';
 import { WorkspaceSelector } from '@affine/core/components/workspace-selector';
-import { AuthService, ServerService } from '@affine/core/modules/cloud';
+// AuthService and ServerService have been removed
 import {
   type ClipperInput,
   ImportClipperService,
@@ -39,8 +39,7 @@ window.addEventListener('message', event => {
 export const Component = () => {
   const importClipperService = useService(ImportClipperService);
   const t = useI18n();
-  const session = useService(AuthService).session;
-  const notLogin = useLiveData(session.status$) === 'unauthenticated';
+  const notLogin = false;
 
   const [importing, setImporting] = useState(false);
   const [importingError, setImportingError] = useState<any>(null);
@@ -49,9 +48,7 @@ export const Component = () => {
     useState<ClipperInput | null>(null);
   const isMissingInput = !clipperInputSnapshot;
   const workspaceStrategy = clipperInputSnapshot?.workspace ?? 'select-by-user';
-  const serverService = useService(ServerService);
   const workspacesService = useService(WorkspacesService);
-  const serverConfig = useLiveData(serverService.server.config$);
   const workspaces = useLiveData(workspacesService.list.workspaces$);
   const [rawSelectedWorkspace, setSelectedWorkspace] =
     useState<WorkspaceMetadata | null>(null);
@@ -70,10 +67,6 @@ export const Component = () => {
   useEffect(() => {
     workspacesService.list.revalidate();
   }, [workspacesService]);
-
-  useEffect(() => {
-    session.revalidate();
-  }, [session]);
 
   useEffect(() => {
     if (!clipperInputSnapshot) {
@@ -200,7 +193,7 @@ export const Component = () => {
         <AuthHeader
           className={styles.authHeader}
           title={t['com.affine.auth.sign.in']()}
-          subTitle={serverConfig.serverName}
+          subTitle="AFFiNE"
         />
         <Button
           className={styles.mainButton}

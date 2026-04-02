@@ -8,8 +8,7 @@ import {
   useConfirmModal,
 } from '@affine/component';
 import { useGuard } from '@affine/core/components/guard';
-import { ServerService } from '@affine/core/modules/cloud';
-import { AuthService } from '@affine/core/modules/cloud/services/auth';
+// AuthService has been removed; account will be null
 import { type DocCommentEntity } from '@affine/core/modules/comment/entities/doc-comment';
 import { CommentPanelService } from '@affine/core/modules/comment/services/comment-panel-service';
 import { DocCommentManagerService } from '@affine/core/modules/comment/services/doc-comment-manager';
@@ -251,13 +250,11 @@ const CommentItem = ({
   entity: DocCommentEntity;
 }) => {
   const workbench = useService(WorkbenchService);
-  const serverService = useService(ServerService);
   const highlighting = useLiveData(entity.commentHighlighted$) === comment.id;
   const t = useI18n();
   const { openConfirmModal } = useConfirmModal();
 
-  const session = useService(AuthService).session;
-  const account = useLiveData(session.account$);
+  const account = null as { id: string; avatar?: string | null } | null;
 
   const docId = entity.props.docId;
   const canCreateComment = useGuard('Doc_Comments_Create', docId);
@@ -344,7 +341,7 @@ const CommentItem = ({
 
       const url = new URL(
         workbench.workbench.basename$.value + '/' + entity.props.docId,
-        serverService.server.baseUrl
+        location.origin
       );
 
       if (search?.size) url.search = search.toString();
@@ -355,7 +352,6 @@ const CommentItem = ({
       comment.content,
       comment.id,
       entity.props.docId,
-      serverService.server.baseUrl,
       t,
       workbench.workbench.basename$.value,
     ]
@@ -588,8 +584,7 @@ const CommentItem = ({
 
 const CommentList = ({ entity }: { entity: DocCommentEntity }) => {
   const comments = useLiveData(entity.comments$);
-  const session = useService(AuthService).session;
-  const account = useLiveData(session.account$);
+  const account = null as { id: string; avatar?: string | null } | null;
   const t = useI18n();
 
   const docMode = useLiveData(entity.docMode$);
@@ -728,8 +723,7 @@ const CommentInput = ({ entity }: { entity: DocCommentEntity }) => {
     entity.dismissDraftComment();
   }, [entity, newPendingComment]);
 
-  const session = useService(AuthService).session;
-  const account = useLiveData(session.account$);
+  const account = null as { id: string; avatar?: string | null } | null;
 
   if (!newPendingComment || !account || !canCreateComment) {
     return null;
@@ -774,8 +768,7 @@ const ReplyItem = ({
   replyEditor,
 }: ReplyItemProps) => {
   const t = useI18n();
-  const session = useService(AuthService).session;
-  const account = useLiveData(session.account$);
+  const account = null as { id: string; avatar?: string | null } | null;
   const { openConfirmModal } = useConfirmModal();
 
   const [isMutating, setIsMutating] = useState(false);

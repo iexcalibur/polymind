@@ -1,10 +1,8 @@
-import { GraphQLService } from '@affine/core/modules/cloud';
 import type {
   GraphQLQuery,
   QueryOptions,
   QueryResponse,
 } from '@affine/graphql';
-import { useService } from '@toeverything/infra';
 import type { GraphQLError } from 'graphql';
 import { useCallback, useMemo } from 'react';
 import type { SWRConfiguration, SWRResponse } from 'swr';
@@ -23,21 +21,7 @@ export type UseQueryConfig<Query extends GraphQLQuery = GraphQLQuery> = Omit<
 
 /**
  * A `useSWR` wrapper for sending graphql queries
- *
- * @example
- *
- * ```ts
- * import { someQuery, someQueryWithNoVars } from '@affine/graphql'
- *
- * const swrResponse1 = useQuery({
- *   query: workspaceByIdQuery,
- *   variables: { id: '1' }
- * })
- *
- * const swrResponse2 = useQuery({
- *   query: someQueryWithNoVars
- * })
- * ```
+ * (no-op stub: GraphQLService has been removed)
  */
 type useQueryFn = <Query extends GraphQLQuery>(
   options?: QueryOptions<Query>,
@@ -60,12 +44,15 @@ const createUseQuery =
       }),
       [config]
     );
-    const graphqlService = useService(GraphQLService);
 
     const useSWRFn = immutable ? useSWRImmutable : useSWR;
     return useSWRFn(
       options ? () => ['cloud', options.query.id, options.variables] : null,
-      options ? () => graphqlService.gql(options) : null,
+      options
+        ? () => {
+            throw new Error('GraphQL service is not available');
+          }
+        : null,
       configWithSuspense
     );
   };
@@ -96,7 +83,6 @@ export function useQueryInfinite<Query extends GraphQLQuery>(
     }),
     [config]
   );
-  const graphqlService = useService(GraphQLService);
 
   const { data, setSize, size, error } = useSWRInfinite<
     QueryResponse<Query>,
@@ -107,16 +93,14 @@ export function useQueryInfinite<Query extends GraphQLQuery>(
       options.query.id,
       options.getVariables(pageIndex, previousPageData),
     ],
-    async ([_, __, variables]) => {
-      const params = { ...options, variables } as QueryOptions<Query>;
-      return graphqlService.gql(params);
+    async () => {
+      throw new Error('GraphQL service is not available');
     },
     configWithSuspense
   );
 
   const loadingMore = size > 0 && data && !data[size - 1];
 
-  // TODO(@Peng): find a generic way to know whether or not there are more items to load
   const loadMore = useCallback(() => {
     if (loadingMore) {
       return;

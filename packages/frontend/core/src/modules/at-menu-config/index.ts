@@ -1,6 +1,5 @@
 import { type Framework } from '@toeverything/infra';
 
-import { WorkspaceServerService } from '../cloud';
 import { WorkspaceDialogService } from '../dialogs';
 import { DocScope, DocsService } from '../doc';
 import { DocDisplayMetaService } from '../doc-display-meta';
@@ -21,7 +20,6 @@ export function configAtMenuConfigModule(framework: Framework) {
       WorkspaceDialogService,
       DocsService,
       SearchMenuService,
-      WorkspaceServerService,
       MemberSearchService,
       GuardService,
       DocGrantedUsersService,

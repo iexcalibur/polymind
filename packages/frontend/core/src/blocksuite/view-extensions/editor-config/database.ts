@@ -3,7 +3,6 @@ import {
   generateUrl,
   type UseSharingUrl,
 } from '@affine/core/components/hooks/affine/use-share-url';
-import { ServerService } from '@affine/core/modules/cloud';
 import { EditorService } from '@affine/core/modules/editor';
 import { copyLinkToBlockStdScopeClipboard } from '@affine/core/utils/clipboard';
 import { I18n } from '@affine/i18n';
@@ -40,7 +39,6 @@ function createCopyLinkToBlockMenuItem(
       return mode === 'edgeless';
     },
     select: () => {
-      const serverService = framework.get(ServerService);
       const pageId = model.store.id;
       const { editor } = framework.get(EditorService);
       const mode = editor.mode$.value;
@@ -57,7 +55,7 @@ function createCopyLinkToBlockMenuItem(
 
       const str = generateUrl({
         ...options,
-        baseUrl: serverService.server.baseUrl,
+        baseUrl: location.origin,
       });
       if (!str) return;
 

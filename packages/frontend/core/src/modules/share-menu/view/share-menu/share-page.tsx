@@ -1,12 +1,10 @@
-import { Divider, Skeleton } from '@affine/component';
+import { Divider } from '@affine/component';
 import { Button } from '@affine/component/ui/button';
 import { useGuard } from '@affine/core/components/guard';
-// ServerService removed — local-only mode
 import { DocService } from '@affine/core/modules/doc';
-import { ShareInfoService } from '@affine/core/modules/share-doc';
 import { useI18n } from '@affine/i18n';
-import { useLiveData, useService } from '@toeverything/infra';
-import { Suspense, useEffect } from 'react';
+import { useService } from '@toeverything/infra';
+import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import { CloudSvg } from '../cloud-svg';
@@ -61,33 +59,12 @@ export const AFFiNESharePage = (
   const {
     workspaceMetadata: { id: workspaceId },
   } = props;
-  const shareInfoService = useService(ShareInfoService);
-  const serverService = { server: { baseUrl: location.origin } };
+  // ShareInfoService removed (share-doc module deleted)
   const docService = useService(DocService);
 
   const canManageUsers = useGuard('Doc_Users_Manage', docService.doc.id);
 
   const canPublish = useGuard('Doc_Publish', docService.doc.id);
-
-  useEffect(() => {
-    shareInfoService.shareInfo.revalidate();
-  }, [shareInfoService]);
-
-  const isSharedPage = useLiveData(shareInfoService.shareInfo.isShared$);
-  const sharedMode = useLiveData(shareInfoService.shareInfo.sharedMode$);
-  const baseUrl = serverService.server.baseUrl;
-  const isLoading =
-    isSharedPage === null || sharedMode === null || baseUrl === null;
-
-  if (isLoading) {
-    // TODO(@eyhn): loading and error UI
-    return (
-      <>
-        <Skeleton height={100} />
-        <Skeleton height={40} />
-      </>
-    );
-  }
 
   return (
     <div className={styles.content}>

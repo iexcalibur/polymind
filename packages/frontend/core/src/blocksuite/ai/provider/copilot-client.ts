@@ -1,4 +1,3 @@
-import { showAILoginRequiredAtom } from '@affine/core/components/affine/auth/ai-login-required';
 import type { AIToolsConfig } from '@affine/core/modules/ai-button';
 import { UserFriendlyError } from '@affine/error';
 import {
@@ -33,8 +32,6 @@ import {
   type RequestOptions,
   updateCopilotSessionMutation,
 } from '@affine/graphql';
-import { getCurrentStore } from '@toeverything/infra';
-
 import {
   GeneralNetworkError,
   PaymentRequiredError,
@@ -84,11 +81,7 @@ export function resolveError(err: any) {
 }
 
 export function handleError(src: any) {
-  const err = resolveError(src);
-  if (err instanceof UnauthorizedError) {
-    getCurrentStore().set(showAILoginRequiredAtom, true);
-  }
-  return err;
+  return resolveError(src);
 }
 
 export class CopilotClient {

@@ -1,4 +1,3 @@
-import { ServerFeature } from '@affine/graphql';
 import { SearchIcon } from '@blocksuite/icons/rc';
 import {
   effect,
@@ -10,7 +9,6 @@ import {
 import { truncate } from 'lodash-es';
 import { catchError, EMPTY, map, of, switchMap, tap, throttleTime } from 'rxjs';
 
-import type { WorkspaceServerService } from '../../cloud';
 import type { DocRecord, DocsService } from '../../doc';
 import type { DocDisplayMetaService } from '../../doc-display-meta';
 import type { DocsSearchService } from '../../docs-search';
@@ -32,7 +30,6 @@ export class DocsQuickSearchSession
 {
   constructor(
     private readonly workspaceService: WorkspaceService,
-    private readonly workspaceServerService: WorkspaceServerService,
     private readonly docsSearchService: DocsSearchService,
     private readonly docsService: DocsService,
     private readonly docDisplayMetaService: DocDisplayMetaService,
@@ -42,9 +39,8 @@ export class DocsQuickSearchSession
   }
 
   private readonly isSupportServerIndexer = () =>
-    this.workspaceServerService.server?.config$.value.features.includes(
-      ServerFeature.Indexer
-    ) ?? false;
+    // Cloud module removed - no server indexer support
+    false;
 
   private readonly isEnableBatterySaveMode = () =>
     this.featureFlagService.flags.enable_battery_save_mode.value;

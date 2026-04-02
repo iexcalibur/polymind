@@ -1,9 +1,6 @@
 import { MenuItem } from '@affine/component/ui/menu';
-import { DefaultServerService } from '@affine/core/modules/cloud';
-import { ServerFeature } from '@affine/graphql';
 import { useI18n } from '@affine/i18n';
 import { ImportIcon, PlusIcon } from '@blocksuite/icons/rc';
-import { useLiveData, useService } from '@toeverything/infra';
 
 import * as styles from './index.css';
 
@@ -15,14 +12,6 @@ export const AddWorkspace = ({
   onNewWorkspace?: () => void;
 }) => {
   const t = useI18n();
-  const defaultServerService = useService(DefaultServerService);
-  const enableLocalWorkspace = useLiveData(
-    defaultServerService.server.config$.selector(
-      c =>
-        c.features.includes(ServerFeature.LocalWorkspace) ||
-        BUILD_CONFIG.isNative
-    )
-  );
 
   return (
     <>
@@ -49,9 +38,7 @@ export const AddWorkspace = ({
         className={styles.ItemContainer}
       >
         <div className={styles.ItemText}>
-          {enableLocalWorkspace
-            ? t['com.affine.workspaceList.addWorkspace.create']()
-            : t['com.affine.workspaceList.addWorkspace.create-cloud']()}
+          {t['com.affine.workspaceList.addWorkspace.create']()}
         </div>
       </MenuItem>
     </>

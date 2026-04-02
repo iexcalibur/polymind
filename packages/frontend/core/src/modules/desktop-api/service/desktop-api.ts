@@ -1,10 +1,7 @@
-import { notify } from '@affine/component';
-import { I18n } from '@affine/i18n';
 import { OnEvent, Service } from '@toeverything/infra';
 import type { To } from 'history';
 import { debounce } from 'lodash-es';
 
-import { AuthService, DefaultServerService, ServersService } from '../../cloud';
 import { ApplicationStarted } from '../../lifecycle';
 import type { DesktopApi } from '../entities/electron-api';
 
@@ -54,7 +51,6 @@ export class DesktopApiService extends Service {
 
   private setupStartListener() {
     this.setupCommonUIEvents();
-    this.setupAuthRequestEvent();
   }
 
   private setupCommonUIEvents() {
@@ -113,54 +109,4 @@ export class DesktopApiService extends Service {
     }
   }
 
-  private setupAuthRequestEvent() {
-    this.events.ui.onAuthenticationRequest(({ method, payload, server }) => {
-      (async () => {
-        if (!(await this.api.handler.ui.isActiveTab())) {
-          return;
-        }
-
-        // Dynamically get these services to avoid circular dependencies
-        const serversService = this.framework.get(ServersService);
-        const defaultServerService = this.framework.get(DefaultServerService);
-
-        let targetServer;
-        if (server) {
-          targetServer = await serversService.addOrGetServerByBaseUrl(server);
-        } else {
-          targetServer = defaultServerService.server;
-        }
-        if (!targetServer) {
-          throw new Error('Affine Cloud server not found');
-        }
-        const authService = targetServer.scope.get(AuthService);
-
-        switch (method) {
-          case 'magic-link': {
-            const { email, token } = payload;
-            await authService.signInMagicLink(email, token);
-            break;
-          }
-          case 'oauth': {
-            const { code, state, provider } = payload;
-            await authService.signInOauth(code, state, provider);
-            break;
-          }
-          case 'open-app-signin': {
-            const code = (payload as { code?: unknown }).code;
-            if (typeof code !== 'string' || !code) {
-              throw new Error('Invalid open-app sign-in payload');
-            }
-            await authService.signInOpenAppSignInCode(code);
-            break;
-          }
-        }
-      })().catch(e => {
-        notify.error({
-          title: I18n['com.affine.auth.toast.title.failed'](),
-          message: (e as any).message,
-        });
-      });
-    });
-  }
 }

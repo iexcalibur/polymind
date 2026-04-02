@@ -1,14 +1,9 @@
-import { AuthService, PublicUserService } from '@affine/core/modules/cloud';
-import { MemberSearchService } from '@affine/core/modules/permissions';
 import {
   type ViewExtensionContext,
   ViewExtensionProvider,
 } from '@blocksuite/affine/ext-loader';
 import { FrameworkProvider } from '@toeverything/infra';
 import { z } from 'zod';
-
-import { patchUserExtensions } from './user';
-import { patchUserListExtensions } from './user-list';
 
 const optionsSchema = z.object({
   framework: z.instanceof(FrameworkProvider).optional(),
@@ -22,20 +17,9 @@ export class CloudViewExtension extends ViewExtensionProvider<CloudViewOptions> 
 
   override schema = optionsSchema;
 
-  override setup(context: ViewExtensionContext, options?: CloudViewOptions) {
-    super.setup(context, options);
-    const enableCloud = options?.enableCloud;
-    const framework = options?.framework;
-    if (!enableCloud || !framework) {
-      return;
-    }
-    const memberSearchService = framework.get(MemberSearchService);
-    const publicUserService = framework.get(PublicUserService);
-    const authService = framework.get(AuthService);
-
-    context.register([
-      patchUserListExtensions(memberSearchService),
-      patchUserExtensions(publicUserService, authService),
-    ]);
+  override setup(context: ViewExtensionContext, _options?: CloudViewOptions) {
+    super.setup(context, _options);
+    // Cloud services (AuthService, PublicUserService) have been removed.
+    // This extension is now a no-op.
   }
 }

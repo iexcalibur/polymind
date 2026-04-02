@@ -1,7 +1,6 @@
 import { Button, ErrorMessage, notify, Skeleton } from '@affine/component';
 import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
-import { AccessTokenService, ServerService } from '@affine/core/modules/cloud';
-import type { AccessToken } from '@affine/core/modules/cloud/stores/access-token';
+// AccessTokenService and ServerService have been removed
 import { WorkspaceService } from '@affine/core/modules/workspace';
 import { UserFriendlyError } from '@affine/error';
 import { useI18n } from '@affine/i18n';
@@ -31,22 +30,16 @@ const McpServerSettingHeader = ({ action }: { action?: ReactNode }) => {
 
 const McpServerSetting = () => {
   const workspaceService = useService(WorkspaceService);
-  const serverService = useService(ServerService);
   const workspaceName = useLiveData(workspaceService.workspace.name$);
-  const accessTokenService = useService(AccessTokenService);
-  const accessTokens = useLiveData(accessTokenService.accessTokens$);
-  const isRevalidating = useLiveData(accessTokenService.isRevalidating$);
-  const error = useLiveData(accessTokenService.error$);
   const [mutating, setMutating] = useState(false);
-  const [revealedAccessToken, setRevealedAccessToken] =
-    useState<AccessToken | null>(null);
   const t = useI18n();
 
-  const mcpAccessToken = useMemo(() => {
-    return accessTokens?.find(token => token.name === 'mcp');
-  }, [accessTokens]);
-
-  const displayedToken = revealedAccessToken ?? mcpAccessToken;
+  // AccessTokenService and ServerService have been removed
+  const accessTokens = null as any[] | null;
+  const isRevalidating = false;
+  const error = null;
+  const mcpAccessToken = null as any;
+  const displayedToken = mcpAccessToken;
   const hasMcpToken = Boolean(revealedAccessToken || mcpAccessToken);
   const hasCopyableToken = Boolean(revealedAccessToken);
   const isRedactedDisplay = hasMcpToken && !hasCopyableToken;
@@ -58,7 +51,7 @@ const McpServerSetting = () => {
             mcpServers: {
               [`affine_workspace_${workspaceService.workspace.id}`]: {
                 type: 'streamable-http',
-                url: `${serverService.server.baseUrl}/api/workspaces/${workspaceService.workspace.id}/mcp`,
+                url: `${location.origin}/api/workspaces/${workspaceService.workspace.id}/mcp`,
                 note: `Read docs from AFFiNE workspace "${workspaceName}"`,
                 headers: {
                   Authorization: `Bearer ${displayedToken.token}`,
@@ -70,7 +63,7 @@ const McpServerSetting = () => {
           2
         )
       : null;
-  }, [displayedToken, workspaceName, workspaceService, serverService]);
+  }, [displayedToken, workspaceName, workspaceService]);
 
   const copyJsonDisabled = !code || mutating || isRedactedDisplay;
   const copyJsonTooltip = isRedactedDisplay
@@ -80,43 +73,13 @@ const McpServerSetting = () => {
   const showLoading = accessTokens === null && isRevalidating;
   const showError = accessTokens === null && error !== null;
 
-  useEffect(() => {
-    accessTokenService.revalidate();
-  }, [accessTokenService]);
-
   const handleGenerateAccessToken = useAsyncCallback(async () => {
-    setMutating(true);
-    try {
-      if (mcpAccessToken) {
-        await accessTokenService.revokeUserAccessToken(mcpAccessToken.id);
-      }
-      const createdToken =
-        await accessTokenService.generateUserAccessToken('mcp');
-      setRevealedAccessToken(createdToken);
-    } catch (err) {
-      notify.error({
-        error: UserFriendlyError.fromAny(err),
-      });
-    } finally {
-      setMutating(false);
-    }
-  }, [accessTokenService, mcpAccessToken]);
+    // AccessTokenService has been removed -- no-op
+  }, []);
 
   const handleRevokeAccessToken = useAsyncCallback(async () => {
-    setMutating(true);
-    try {
-      if (mcpAccessToken) {
-        await accessTokenService.revokeUserAccessToken(mcpAccessToken.id);
-      }
-      setRevealedAccessToken(null);
-    } catch (err) {
-      notify.error({
-        error: UserFriendlyError.fromAny(err),
-      });
-    } finally {
-      setMutating(false);
-    }
-  }, [accessTokenService, mcpAccessToken]);
+    // AccessTokenService has been removed -- no-op
+  }, []);
 
   if (showLoading) {
     return (

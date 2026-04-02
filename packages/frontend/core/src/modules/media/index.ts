@@ -1,6 +1,5 @@
 import type { Framework } from '@toeverything/infra';
 
-import { DefaultServerService, WorkspaceServerService } from '../cloud';
 import { GlobalState, GlobalStateService } from '../storage';
 import { WorkbenchService } from '../workbench';
 import { WorkspaceScope, WorkspaceService } from '../workspace';
@@ -27,15 +26,8 @@ export function configureMediaModule(framework: Framework) {
       WorkspaceService,
       MeetingSettingsService,
     ])
-    .entity(AudioTranscriptionJob, [
-      WorkspaceServerService,
-      DefaultServerService,
-    ])
-    .entity(AudioTranscriptionJobStore, [
-      WorkspaceService,
-      WorkspaceServerService,
-      DefaultServerService,
-    ])
+    .entity(AudioTranscriptionJob)
+    .entity(AudioTranscriptionJobStore, [WorkspaceService])
     .service(AudioAttachmentService)
     .service(AudioMediaManagerService, [
       GlobalMediaStateProvider,

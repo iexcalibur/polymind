@@ -3,7 +3,6 @@ import {
   CollectionRulesService,
   type FilterParams,
 } from '@affine/core/modules/collection-rules';
-import { ShareDocsListService } from '@affine/core/modules/share-doc';
 import { Trans, useI18n } from '@affine/i18n';
 import { FilterIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useServices } from '@toeverything/infra';
@@ -39,8 +38,7 @@ export const SelectPage = memo(function SelectPage({
   const t = useI18n();
   const [searchText, setSearchText] = useState('');
 
-  const { shareDocsListService, collectionRulesService } = useServices({
-    ShareDocsListService,
+  const { collectionRulesService } = useServices({
     CollectionRulesService,
   });
   const [docExplorerContextValue] = useState(() => {
@@ -85,10 +83,6 @@ export const SelectPage = memo(function SelectPage({
       ob.unsubscribe();
     };
   }, [propsOnChange, docExplorerContextValue.selectedDocIds$]);
-
-  useEffect(() => {
-    shareDocsListService.shareDocs?.revalidate();
-  }, [shareDocsListService.shareDocs]);
 
   const [filters, setFilters] = useState<FilterParams[]>([]);
 

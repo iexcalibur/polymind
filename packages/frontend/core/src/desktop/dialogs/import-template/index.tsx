@@ -3,7 +3,6 @@ import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hoo
 import { useNavigateHelper } from '@affine/core/components/hooks/use-navigate-helper';
 import { useWorkspaceName } from '@affine/core/components/hooks/use-workspace-info';
 import { WorkspaceSelector } from '@affine/core/components/workspace-selector';
-import { AuthService } from '@affine/core/modules/cloud';
 import {
   type DialogComponentProps,
   type GLOBAL_DIALOG_SCHEMA,
@@ -37,9 +36,8 @@ const Dialog = ({
   onClose?: () => void;
 }) => {
   const t = useI18n();
-  const session = useService(AuthService).session;
-  const notLogin = useLiveData(session.status$) === 'unauthenticated';
-  const isSessionRevalidating = useLiveData(session.isRevalidating$);
+  const notLogin = false;
+  const isSessionRevalidating = false;
 
   const [importing, setImporting] = useState(false);
   const [importingError, setImportingError] = useState<any>(null);
@@ -64,10 +62,6 @@ const Dialog = ({
   useEffect(() => {
     workspacesService.list.revalidate();
   }, [workspacesService]);
-
-  useEffect(() => {
-    session.revalidate();
-  }, [session]);
 
   useEffect(() => {
     if (!isSessionRevalidating && notLogin) {

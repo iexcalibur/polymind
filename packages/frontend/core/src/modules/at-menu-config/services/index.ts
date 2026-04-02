@@ -1,17 +1,7 @@
-import { notify } from '@affine/component';
-import { UserFriendlyError } from '@affine/error';
-import {
-  type DocMode as GraphqlDocMode,
-  DocRole,
-  ErrorNames,
-} from '@affine/graphql';
 import { I18n, i18nTime } from '@affine/i18n';
 import type { DocMode } from '@blocksuite/affine/model';
-import { DocModeProvider } from '@blocksuite/affine/shared/services';
 import type { AffineInlineEditor } from '@blocksuite/affine/shared/types';
 import {
-  BLOCK_ID_ATTR,
-  type BlockComponent,
   type EditorHost,
 } from '@blocksuite/affine/std';
 import type { DocMeta } from '@blocksuite/affine/store';
@@ -35,17 +25,11 @@ import Fuse from 'fuse.js';
 import { html } from 'lit';
 import { styleMap } from 'lit/directives/style-map.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
-import {
-  createAbsolutePositionFromRelativePosition,
-  createRelativePositionFromTypeIndex,
-} from 'yjs';
 
-import { AuthService, type WorkspaceServerService } from '../../cloud';
 import type { WorkspaceDialogService } from '../../dialogs';
 import type { DocsService } from '../../doc';
 import type { DocDisplayMetaService } from '../../doc-display-meta';
 import { type JournalService, suggestJournalDate } from '../../journal';
-import { NotificationService } from '../../notification';
 import type { GuardService, MemberSearchService } from '../../permissions';
 import type { DocGrantedUsersService } from '../../permissions/services/doc-granted-users';
 import { highlighter } from '../../quicksearch/utils/highlighter';
@@ -68,7 +52,6 @@ export class AtMenuConfigService extends Service {
     private readonly dialogService: WorkspaceDialogService,
     private readonly docsService: DocsService,
     private readonly searchMenuService: SearchMenuService,
-    private readonly workspaceServerService: WorkspaceServerService,
     private readonly memberSearchService: MemberSearchService,
     private readonly guardService: GuardService,
     private readonly docGrantedUsersService: DocGrantedUsersService
@@ -369,19 +352,6 @@ export class AtMenuConfigService extends Service {
         name: html`${unsafeHTML(displayName)}`,
         icon,
         action: () => {
-          const root = inlineEditor.rootElement;
-          const block = root?.closest<BlockComponent>(`[${BLOCK_ID_ATTR}]`);
-          if (!block) return;
-
-          const notificationService =
-            this.workspaceServerService.server?.scope.get(NotificationService);
-          if (!notificationService) return;
-
-          const doc = block.store;
-          const workspaceId = doc.workspace.id;
-          const docId = doc.id;
-          const mode = block.std.get(DocModeProvider).getEditorMode() ?? 'page';
-
           close();
 
           const inlineRange = inlineEditor.getInlineRange();
@@ -397,128 +367,7 @@ export class AtMenuConfigService extends Service {
             length: 0,
           });
 
-          if (!sendNotification) return;
-
-          const relativePosition = createRelativePositionFromTypeIndex(
-            inlineEditor.yText,
-            inlineRange.index + 1
-          );
-          notificationService
-            .mentionUser(id, workspaceId, {
-              id: docId,
-              title: this.docDisplayMetaService.title$(docId).value,
-              blockId: block.blockId,
-              mode: mode as GraphqlDocMode,
-            })
-            .then(notificationId => {
-              const doc = inlineEditor.yText.doc;
-              if (!doc) return;
-              const absolutePosition =
-                createAbsolutePositionFromRelativePosition(
-                  relativePosition,
-                  doc
-                );
-              if (!absolutePosition) return;
-              const index = absolutePosition.index;
-
-              const delta = inlineEditor.getDeltaByRangeIndex(index);
-              if (
-                !delta ||
-                delta.insert !== ' ' ||
-                !delta.attributes?.mention ||
-                delta.attributes.mention.notification ||
-                delta.attributes.mention.member !== id
-              )
-                return;
-
-              inlineEditor.formatText(
-                {
-                  index: index - 1,
-                  length: 1,
-                },
-                {
-                  mention: {
-                    member: id,
-                    notification: notificationId,
-                  },
-                }
-              );
-            })
-            .catch(error => {
-              const err = UserFriendlyError.fromAny(error);
-
-              if (err.is(ErrorNames.MENTION_USER_DOC_ACCESS_DENIED)) {
-                const canUserManage = this.guardService.can$(
-                  'Doc_Users_Manage',
-                  docId
-                ).signal.value;
-                if (canUserManage) {
-                  const username = name ?? 'Unknown';
-                  notify.error({
-                    title: I18n.t('com.affine.editor.at-menu.access-needed'),
-                    message: I18n[
-                      'com.affine.editor.at-menu.access-needed-message'
-                    ]({
-                      username,
-                    }),
-                    actions: [
-                      {
-                        key: 'invite',
-                        label: 'Invite',
-                        onClick: async () => {
-                          try {
-                            await this.docGrantedUsersService.updateUserRole(
-                              id,
-                              DocRole.Reader
-                            );
-
-                            await notificationService.mentionUser(
-                              id,
-                              workspaceId,
-                              {
-                                id: docId,
-                                title:
-                                  this.docDisplayMetaService.title$(docId)
-                                    .value,
-                                blockId: block.blockId,
-                                mode: mode as GraphqlDocMode,
-                              }
-                            );
-
-                            notify.success({
-                              title: I18n.t(
-                                'com.affine.editor.at-menu.invited-and-notified'
-                              ),
-                            });
-                          } catch (error) {
-                            const err = UserFriendlyError.fromAny(error);
-                            notify.error({
-                              title: I18n[`error.${err.name}`](err.data),
-                            });
-                          }
-                        },
-                      },
-                    ],
-                  });
-                } else {
-                  notify.error({
-                    title: I18n.t(
-                      'com.affine.editor.at-menu.member-not-notified'
-                    ),
-                    message:
-                      I18n[
-                        'com.affine.editor.at-menu.member-not-notified-message'
-                      ](),
-                  });
-                }
-
-                return;
-              }
-
-              notify.error({
-                title: I18n[`error.${err.name}`](err.data),
-              });
-            });
+          // Notification service removed (cloud module deleted)
         },
       };
     };
@@ -538,9 +387,7 @@ export class AtMenuConfigService extends Service {
 
     const items = computed<LinkedMenuItem[]>(() => {
       const members = this.memberSearchService.result$.signal.value;
-      const currentUser =
-        this.workspaceServerService.server?.scope.get(AuthService).session
-          .account$.signal.value;
+      const currentUser = null; // cloud module removed
       const canUserManage = this.guardService.can$('Workspace_Users_Manage')
         .signal.value;
 

@@ -1,9 +1,7 @@
 import { Avatar, Skeleton } from '@affine/component';
-import { PublicUserService } from '@affine/core/modules/cloud';
 import { useI18n } from '@affine/i18n';
 import { CloseIcon } from '@blocksuite/icons/rc';
-import { useLiveData, useService } from '@toeverything/infra';
-import { type MouseEventHandler, useCallback, useEffect } from 'react';
+import { type MouseEventHandler, useCallback } from 'react';
 
 import * as styles from './styles.css';
 
@@ -33,53 +31,14 @@ export const MemberItem = ({
     [onRemove]
   );
 
-  const publicUserService = useService(PublicUserService);
-  const member = useLiveData(publicUserService.publicUser$(userId));
-  const isLoading = useLiveData(publicUserService.isLoading$(userId));
-  useEffect(() => {
-    if (userId) {
-      publicUserService.revalidate(userId);
-    }
-  }, [userId, publicUserService]);
-
-  if (!member || ('removed' in member && member.removed)) {
-    return (
-      <div className={styles.memberItem} data-idx={idx} style={style}>
-        <div
-          style={{ maxWidth: maxWidth }}
-          data-focused={focused}
-          className={styles.memberItemInlineMode}
-        >
-          <div className={styles.memberItemLabel}>
-            {!isLoading ? (
-              <span>
-                <Skeleton width="12px" height="12px" variant="circular" />
-                <Skeleton width="3em" />
-              </span>
-            ) : (
-              t['Unknown User']()
-            )}
-          </div>
-          {onRemove ? (
-            <div
-              data-testid="remove-tag-button"
-              className={styles.memberItemRemove}
-              onClick={handleRemove}
-            >
-              <CloseIcon />
-            </div>
-          ) : null}
-        </div>
-      </div>
-    );
-  }
-  const { name, avatarUrl } = member;
+  // PublicUserService has been removed; display userId as fallback
+  const name = userId;
 
   return (
     <div
       className={styles.memberItem}
       data-idx={idx}
-      title={name ?? undefined}
+      title={name}
       style={style}
     >
       <div
@@ -88,8 +47,8 @@ export const MemberItem = ({
         className={styles.memberItemInlineMode}
       >
         <Avatar
-          url={avatarUrl}
-          name={name ?? ''}
+          url={null}
+          name={name}
           size={16}
           className={styles.memberItemAvatar}
         />

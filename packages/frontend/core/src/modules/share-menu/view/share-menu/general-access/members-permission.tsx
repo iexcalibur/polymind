@@ -7,7 +7,6 @@ import {
 } from '@affine/component';
 import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
 import { DocGrantedUsersService } from '@affine/core/modules/permissions';
-import { ShareInfoService } from '@affine/core/modules/share-doc';
 import { UserFriendlyError } from '@affine/error';
 import { DocRole } from '@affine/graphql';
 import { useI18n } from '@affine/i18n';
@@ -44,11 +43,9 @@ export const MembersPermission = ({
   disabled?: boolean;
 }) => {
   const t = useI18n();
-  const shareInfoService = useService(ShareInfoService);
   const docGrantedUsersService = useService(DocGrantedUsersService);
-  const docDefaultRole = useLiveData(
-    shareInfoService.shareInfo.info$
-  )?.defaultRole;
+  // ShareInfoService removed (share-doc module deleted)
+  const docDefaultRole = undefined;
   const currentRoleName = useMemo(
     () => getRoleName(t, docDefaultRole),
     [docDefaultRole, t]
@@ -61,7 +58,6 @@ export const MembersPermission = ({
     async (docRole: DocRole) => {
       try {
         await docGrantedUsersService.updateDocDefaultRole(docRole);
-        shareInfoService.shareInfo.revalidate();
       } catch (error) {
         const err = UserFriendlyError.fromAny(error);
         notify.error({
@@ -70,7 +66,7 @@ export const MembersPermission = ({
         });
       }
     },
-    [docGrantedUsersService, shareInfoService.shareInfo]
+    [docGrantedUsersService]
   );
 
   const selectManage = useCallback(() => {

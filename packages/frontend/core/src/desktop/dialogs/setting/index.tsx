@@ -2,23 +2,12 @@ import { Loading, Scrollable } from '@affine/component';
 import { WorkspaceDetailSkeleton } from '@affine/component/setting-components';
 import type { ModalProps } from '@affine/component/ui/modal';
 import { Modal } from '@affine/component/ui/modal';
-import {
-  AuthService,
-  DefaultServerService,
-  ServersService,
-} from '@affine/core/modules/cloud';
 import type { DialogComponentProps } from '@affine/core/modules/dialogs';
 import type {
   SettingTab,
   WORKSPACE_DIALOG_SCHEMA,
 } from '@affine/core/modules/dialogs/constant';
-import { GlobalContextService } from '@affine/core/modules/global-context';
 import { createIsland, type Island } from '@affine/core/utils/island';
-import { ServerDeploymentType } from '@affine/graphql';
-import { Trans } from '@affine/i18n';
-import { ContactWithUsIcon } from '@blocksuite/icons/rc';
-import { FrameworkScope, useLiveData, useService } from '@toeverything/infra';
-import { debounce } from 'lodash-es';
 import {
   Suspense,
   useCallback,
@@ -30,11 +19,8 @@ import {
 } from 'react';
 import { flushSync } from 'react-dom';
 
-import { AccountSetting } from './account-setting';
 import { GeneralSetting } from './general-setting';
-import { IssueFeedbackModal } from './issue-feedback-modal';
 import { SettingSidebar } from './setting-sidebar';
-import { StarAFFiNEModal } from './star-affine-modal';
 import * as style from './style.css';
 import {
   SubPageContext,
@@ -71,32 +57,13 @@ const SettingModalInner = ({
     activeTab: initialActiveTab,
     scrollAnchor: initialScrollAnchor,
   });
-  const globalContextService = useService(GlobalContextService);
-
-  const currentServerId = useLiveData(
-    globalContextService.globalContext.serverId.$
-  );
-  const serversService = useService(ServersService);
-  const defaultServerService = useService(DefaultServerService);
-  const currentServer =
-    useLiveData(
-      currentServerId ? serversService.server$(currentServerId) : null
-    ) ?? defaultServerService.server;
-  const loginStatus = useLiveData(
-    currentServer.scope.get(AuthService).session.status$
-  );
-  const isSelfhosted = useLiveData(
-    currentServer.config$.selector(
-      c => c.type === ServerDeploymentType.Selfhosted
-    )
-  );
 
   const modalContentRef = useRef<HTMLDivElement>(null);
   const modalContentWrapperRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     let animationFrameId: number;
-    const onResize = debounce(() => {
+    const onResize = () => {
       cancelAnimationFrame(animationFrameId);
       animationFrameId = requestAnimationFrame(() => {
         if (!modalContentRef.current || !modalContentWrapperRef.current) return;
@@ -124,7 +91,7 @@ const SettingModalInner = ({
           `${(wrapperWidth - contentWidth) / 2}px`
         );
       });
-    }, 200);
+    };
     window.addEventListener('resize', onResize);
     onResize();
 
@@ -140,16 +107,6 @@ const SettingModalInner = ({
     },
     [setSettingState]
   );
-  const [openIssueFeedbackModal, setOpenIssueFeedbackModal] = useState(false);
-  const [openStarAFFiNEModal, setOpenStarAFFiNEModal] = useState(false);
-
-  const handleOpenIssueFeedbackModal = useCallback(() => {
-    setOpenIssueFeedbackModal(true);
-  }, [setOpenIssueFeedbackModal]);
-
-  const handleOpenStarAFFiNEModal = useCallback(() => {
-    setOpenStarAFFiNEModal(true);
-  }, [setOpenStarAFFiNEModal]);
 
   const addSubPageIsland = useCallback(() => {
     const island = createIsland();
@@ -170,16 +127,6 @@ const SettingModalInner = ({
   );
 
   useEffect(() => {
-    if (
-      isSelfhosted &&
-      (settingState.activeTab === 'plans' ||
-        settingState.activeTab === 'workspace:billing')
-    ) {
-      setSettingState({ activeTab: 'workspace:license' });
-    }
-  }, [isSelfhosted, settingState.activeTab]);
-
-  useEffect(() => {
     if (settingState.scrollAnchor) {
       flushSync(() => {
         const target = modalContentRef.current?.querySelector(
@@ -193,7 +140,7 @@ const SettingModalInner = ({
     modalContentWrapperRef.current?.scrollTo({ top: 0 });
   }, [settingState]);
   return (
-    <FrameworkScope scope={currentServer.scope}>
+    <>
       <SettingSidebar
         activeTab={settingState.activeTab}
         onTabChange={onTabChange}
@@ -210,10 +157,7 @@ const SettingModalInner = ({
             <div className={style.centerContainer}>
               <div ref={modalContentRef} className={style.content}>
                 <Suspense fallback={<WorkspaceDetailSkeleton />}>
-                  {settingState.activeTab === 'account' &&
-                  loginStatus === 'authenticated' ? (
-                    <AccountSetting onChangeSettingState={setSettingState} />
-                  ) : isWorkspaceSetting(settingState.activeTab) ? (
+                  {isWorkspaceSetting(settingState.activeTab) ? (
                     <WorkspaceSetting
                       activeTab={settingState.activeTab}
                       onCloseSetting={onCloseSetting}
@@ -227,41 +171,13 @@ const SettingModalInner = ({
                   ) : null}
                 </Suspense>
               </div>
-              <div className={style.footer}>
-                <ContactWithUsIcon fontSize={16} />
-                <Trans
-                  i18nKey={'com.affine.settings.suggestion-2'}
-                  components={{
-                    1: (
-                      <span
-                        className={style.link}
-                        onClick={handleOpenStarAFFiNEModal}
-                      />
-                    ),
-                    2: (
-                      <span
-                        className={style.link}
-                        onClick={handleOpenIssueFeedbackModal}
-                      />
-                    ),
-                  }}
-                />
-              </div>
-              <StarAFFiNEModal
-                open={openStarAFFiNEModal}
-                setOpen={setOpenStarAFFiNEModal}
-              />
-              <IssueFeedbackModal
-                open={openIssueFeedbackModal}
-                setOpen={setOpenIssueFeedbackModal}
-              />
             </div>
             <Scrollable.Scrollbar />
           </Scrollable.Viewport>
           <SubPageTarget />
         </Scrollable.Root>
       </SubPageContext.Provider>
-    </FrameworkScope>
+    </>
   );
 };
 

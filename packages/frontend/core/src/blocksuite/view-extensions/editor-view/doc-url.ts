@@ -1,5 +1,4 @@
 import { generateUrl } from '@affine/core/components/hooks/affine/use-share-url';
-import { WorkspaceServerService } from '@affine/core/modules/cloud';
 import { resolveLinkToDoc } from '@affine/core/modules/navigation/utils';
 import { WorkspaceService } from '@affine/core/modules/workspace';
 import { type ReferenceParams } from '@blocksuite/affine/model';
@@ -11,8 +10,7 @@ import type { FrameworkProvider } from '@toeverything/infra';
 
 function patchParseDocUrlExtension(framework: FrameworkProvider) {
   const workspaceService = framework.get(WorkspaceService);
-  const workspaceServerService = framework.get(WorkspaceServerService);
-  const baseUrl = workspaceServerService.server?.baseUrl ?? location.origin;
+  const baseUrl = location.origin;
   const ParseDocUrl = ParseDocUrlExtension({
     parseDocUrl(url) {
       const info = resolveLinkToDoc(url, baseUrl);
@@ -29,8 +27,7 @@ function patchParseDocUrlExtension(framework: FrameworkProvider) {
 
 function patchGenerateDocUrlExtension(framework: FrameworkProvider) {
   const workspaceService = framework.get(WorkspaceService);
-  const workspaceServerService = framework.get(WorkspaceServerService);
-  const baseUrl = workspaceServerService.server?.baseUrl ?? location.origin;
+  const baseUrl = location.origin;
   const GenerateDocUrl = GenerateDocUrlExtension({
     generateDocUrl(pageId: string, params?: ReferenceParams) {
       return generateUrl({

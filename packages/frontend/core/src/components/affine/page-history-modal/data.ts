@@ -1,6 +1,5 @@
 import { useDocMetaHelper } from '@affine/core/components/hooks/use-block-suite-page-meta';
 import { useDocCollectionPage } from '@affine/core/components/hooks/use-block-suite-workspace-page';
-import { FetchService, GraphQLService } from '@affine/core/modules/cloud';
 import {
   type WorkspaceFlavourProvider,
   WorkspaceService,
@@ -73,8 +72,8 @@ export const useDocSnapshotList = (workspaceId: string, pageDocId: string) => {
 };
 
 const snapshotFetcher = async (
-  [fetchService, workspaceId, pageDocId, ts]: [
-    FetchService,
+  [_placeholder, workspaceId, pageDocId, ts]: [
+    unknown,
     workspaceId: string,
     pageDocId: string,
     ts: string,
@@ -83,7 +82,7 @@ const snapshotFetcher = async (
   if (!ts) {
     return null;
   }
-  const res = await fetchService.fetch(
+  const res = await fetch(
     `/api/workspaces/${workspaceId}/docs/${pageDocId}/histories/${ts}`
   );
 
@@ -143,10 +142,9 @@ export const usePageHistory = (
   pageDocId: string,
   ts?: string
 ) => {
-  const fetchService = useService(FetchService);
   // snapshot should be immutable. so we use swr immutable to disable revalidation
   const { data } = useSWRImmutable<ArrayBuffer | null>(
-    [fetchService, workspaceId, pageDocId, ts],
+    [null, workspaceId, pageDocId, ts],
     {
       fetcher: snapshotFetcher,
       suspense: false,
@@ -163,8 +161,6 @@ export const useSnapshotPage = (
 ) => {
   const affineWorkspace = useService(WorkspaceService).workspace;
   const workspacesService = useService(WorkspacesService);
-  const fetchService = useService(FetchService);
-  const graphQLService = useService(GraphQLService);
   const snapshot = usePageHistory(docCollection.id, pageDocId, ts);
   const page = useMemo(() => {
     if (!ts) {
@@ -206,8 +202,6 @@ export const useSnapshotPage = (
   }, [
     affineWorkspace.meta,
     docCollection,
-    fetchService,
-    graphQLService,
     workspacesService,
   ]);
 

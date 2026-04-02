@@ -21,12 +21,7 @@ import {
   AIToolsConfigService,
 } from '@affine/core/modules/ai-button';
 import { AIModelService } from '@affine/core/modules/ai-button/services/models';
-import {
-  EventSourceService,
-  GraphQLService,
-  ServerService,
-  SubscriptionService,
-} from '@affine/core/modules/cloud';
+// Cloud services (EventSourceService, GraphQLService, ServerService, SubscriptionService) have been removed
 import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
 import { FeatureFlagService } from '@affine/core/modules/feature-flag';
 import { PeekViewService } from '@affine/core/modules/peek-view';
@@ -55,12 +50,9 @@ import * as styles from './index.css';
 type CopilotSession = Awaited<ReturnType<CopilotClient['getSession']>>;
 
 function useCopilotClient() {
-  const graphqlService = useService(GraphQLService);
-  const eventSourceService = useService(EventSourceService);
-
   return useMemo(
-    () => new CopilotClient(graphqlService.gql, eventSourceService.eventSource),
-    [graphqlService, eventSourceService]
+    () => new CopilotClient(null as any, null as any),
+    []
   );
 }
 
@@ -302,8 +294,8 @@ export const Component = () => {
     content.notificationService = notificationService;
     content.aiDraftService = framework.get(AIDraftService);
     content.aiToolsConfigService = framework.get(AIToolsConfigService);
-    content.serverService = framework.get(ServerService);
-    content.subscriptionService = framework.get(SubscriptionService);
+    content.serverService = null as any;
+    content.subscriptionService = null as any;
     content.aiModelService = framework.get(AIModelService);
     content.onAISubscribe = handleAISubscribe;
 

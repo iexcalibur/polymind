@@ -1,6 +1,5 @@
 import type { Framework } from '@toeverything/infra';
 
-import { WorkspaceServerService } from '../cloud';
 import { FeatureFlagService } from '../feature-flag';
 import { CacheStorage } from '../storage';
 import { WorkspaceScope, WorkspaceService } from '../workspace';
@@ -17,9 +16,5 @@ export function configureDocSummaryModule(framework: Framework) {
       DocSummaryStore,
       FeatureFlagService,
     ])
-    .store(DocSummaryStore, [
-      WorkspaceService,
-      WorkspaceServerService,
-      CacheStorage,
-    ]);
+    .store(DocSummaryStore, [WorkspaceService, CacheStorage]);
 }

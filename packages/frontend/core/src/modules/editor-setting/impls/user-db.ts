@@ -1,71 +1,31 @@
 import { Service } from '@toeverything/infra';
-import { map, type Observable, switchMap } from 'rxjs';
+import { map, type Observable } from 'rxjs';
 
-import type { ServersService } from '../../cloud';
 import type { GlobalState } from '../../storage';
-import { UserDBService } from '../../userspace';
 import type { EditorSettingProvider } from '../provider/editor-setting-provider';
 
 export class CurrentUserDBEditorSettingProvider
   extends Service
   implements EditorSettingProvider
 {
-  private readonly currentUserDB$;
-  fallback = new GlobalStateEditorSettingProvider(this.globalState);
+  private readonly fallback: GlobalStateEditorSettingProvider;
 
-  constructor(
-    public readonly serversService: ServersService,
-    public readonly globalState: GlobalState
-  ) {
+  constructor(public readonly globalState: GlobalState) {
     super();
-
-    const affineCloudServer = this.serversService.server$('affine-cloud').value; // TODO: support multiple servers
-    if (!affineCloudServer) {
-      throw new Error('affine-cloud server not found');
-    }
-    const userDBService = affineCloudServer.scope.get(UserDBService);
-    this.currentUserDB$ = userDBService.currentUserDB.db$;
+    // Cloud module removed - always use GlobalState fallback
+    this.fallback = new GlobalStateEditorSettingProvider(this.globalState);
   }
 
   set(key: string, value: string): void {
-    if (this.currentUserDB$.value) {
-      this.currentUserDB$.value?.editorSetting.create({
-        key,
-        value,
-      });
-    } else {
-      this.fallback.set(key, value);
-    }
+    this.fallback.set(key, value);
   }
 
   get(key: string): string | undefined {
-    if (this.currentUserDB$.value) {
-      return this.currentUserDB$.value?.editorSetting.get(key)?.value;
-    } else {
-      return this.fallback.get(key);
-    }
+    return this.fallback.get(key);
   }
 
   watchAll(): Observable<Record<string, string>> {
-    return this.currentUserDB$.pipe(
-      switchMap(db => {
-        if (db) {
-          return db.editorSetting.find$().pipe(
-            map(settings => {
-              return settings.reduce(
-                (acc, setting) => {
-                  acc[setting.key] = setting.value;
-                  return acc;
-                },
-                {} as Record<string, string>
-              );
-            })
-          );
-        } else {
-          return this.fallback.watchAll();
-        }
-      })
-    );
+    return this.fallback.watchAll();
   }
 }
 

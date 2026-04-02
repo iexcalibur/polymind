@@ -1,4 +1,3 @@
-import { WorkspaceServerService } from '@affine/core/modules/cloud';
 import {
   WorkspaceScope,
   WorkspaceService,
@@ -16,7 +15,7 @@ export function configureIndexerEmbeddingModule(framework: Framework) {
   framework
     .scope(WorkspaceScope)
     .service(EmbeddingService)
-    .store(EmbeddingStore, [WorkspaceServerService])
+    .store(EmbeddingStore)
     .entity(EmbeddingEnabled, [WorkspaceService, EmbeddingStore])
     .entity(AdditionalAttachments, [WorkspaceService, EmbeddingStore])
     .entity(IgnoredDocs, [WorkspaceService, EmbeddingStore])

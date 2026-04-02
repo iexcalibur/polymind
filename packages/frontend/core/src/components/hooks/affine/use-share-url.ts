@@ -1,5 +1,4 @@
 import { notify } from '@affine/component';
-import { ServerService } from '@affine/core/modules/cloud';
 import { toDocSearchParams } from '@affine/core/modules/navigation';
 import { copyTextToClipboard } from '@affine/core/utils/clipboard';
 import { useI18n } from '@affine/i18n';
@@ -16,7 +15,6 @@ import {
   GfxBlockElementModel,
   GfxControllerIdentifier,
 } from '@blocksuite/affine/std/gfx';
-import { useService } from '@toeverything/infra';
 import { useCallback } from 'react';
 
 export type UseSharingUrl = {
@@ -137,12 +135,11 @@ export const getSelectedNodes = (
 
 export const useSharingUrl = ({ workspaceId, pageId }: UseSharingUrl) => {
   const t = useI18n();
-  const serverService = useService(ServerService);
 
   const onClickCopyLink = useCallback(
     (mode?: DocMode, blockIds?: string[], elementIds?: string[]) => {
       const sharingUrl = generateUrl({
-        baseUrl: serverService.server.baseUrl,
+        baseUrl: location.origin,
         workspaceId,
         pageId,
         blockIds,
@@ -168,7 +165,7 @@ export const useSharingUrl = ({ workspaceId, pageId }: UseSharingUrl) => {
         notify.error({ title: 'Network not available' });
       }
     },
-    [pageId, serverService, t, workspaceId]
+    [pageId, t, workspaceId]
   );
 
   return {

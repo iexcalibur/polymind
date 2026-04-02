@@ -1,88 +1,24 @@
-import { Menu, MenuItem, MenuTrigger, notify } from '@affine/component';
-import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
-import { ShareInfoService } from '@affine/core/modules/share-doc';
-import { UserFriendlyError } from '@affine/error';
-import { PublicDocMode } from '@affine/graphql';
+import { Menu, MenuItem, MenuTrigger } from '@affine/component';
 import { useI18n } from '@affine/i18n';
-import {
-  LockIcon,
-  SingleSelectCheckSolidIcon,
-  ViewIcon,
-} from '@blocksuite/icons/rc';
-import { useLiveData, useService } from '@toeverything/infra';
-import { cssVar } from '@toeverything/theme';
+import { LockIcon, ViewIcon } from '@blocksuite/icons/rc';
 import clsx from 'clsx';
-import { useEffect } from 'react';
+import { useCallback } from 'react';
 
 import * as styles from './styles.css';
 
 export const PublicDoc = ({ disabled }: { disabled?: boolean }) => {
   const t = useI18n();
-  const shareInfoService = useService(ShareInfoService);
-  const isSharedPage = useLiveData(shareInfoService.shareInfo.isShared$);
-  const isRevalidating = useLiveData(
-    shareInfoService.shareInfo.isRevalidating$
-  );
+  // ShareInfoService removed (share-doc module deleted)
+  const isSharedPage = false;
+  const isRevalidating = false;
 
-  useEffect(() => {
-    shareInfoService.shareInfo.revalidate();
-  }, [shareInfoService]);
+  const onDisablePublic = useCallback(() => {
+    // no-op: share-doc module removed
+  }, []);
 
-  const onDisablePublic = useAsyncCallback(async () => {
-    try {
-      await shareInfoService.shareInfo.disableShare();
-      notify.error({
-        title:
-          t[
-            'com.affine.share-menu.disable-publish-link.notification.success.title'
-          ](),
-        message:
-          t[
-            'com.affine.share-menu.disable-publish-link.notification.success.message'
-          ](),
-      });
-    } catch (err) {
-      notify.error({
-        title:
-          t[
-            'com.affine.share-menu.disable-publish-link.notification.fail.title'
-          ](),
-        message:
-          t[
-            'com.affine.share-menu.disable-publish-link.notification.fail.message'
-          ](),
-      });
-      console.log(err);
-    }
-  }, [shareInfoService, t]);
-
-  const onClickAnyoneReadOnlyShare = useAsyncCallback(async () => {
-    if (isSharedPage) {
-      return;
-    }
-    try {
-      // TODO(@JimmFly): remove mode when we have a better way to handle it
-      await shareInfoService.shareInfo.enableShare(PublicDocMode.Page);
-      notify.success({
-        title:
-          t[
-            'com.affine.share-menu.create-public-link.notification.success.title'
-          ](),
-        message:
-          t[
-            'com.affine.share-menu.create-public-link.notification.success.message'
-          ](),
-        style: 'normal',
-        icon: <SingleSelectCheckSolidIcon color={cssVar('primaryColor')} />,
-      });
-    } catch (error) {
-      const err = UserFriendlyError.fromAny(error);
-      notify.error({
-        title: err.name,
-        message: err.message,
-      });
-    }
-  }, [isSharedPage, shareInfoService.shareInfo, t]);
+  const onClickAnyoneReadOnlyShare = useCallback(() => {
+    // no-op: share-doc module removed
+  }, []);
 
   return (
     <div className={styles.rowContainerStyle}>

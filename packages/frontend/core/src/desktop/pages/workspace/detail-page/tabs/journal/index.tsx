@@ -10,7 +10,6 @@ import {
 } from '@affine/component';
 import { Guard } from '@affine/core/components/guard';
 import { MoveToTrash } from '@affine/core/components/page-list';
-import { WorkspaceServerService } from '@affine/core/modules/cloud';
 import {
   type DocRecord,
   DocService,
@@ -116,8 +115,7 @@ export const EditorJournalPanel = () => {
   const viewService = useService(ViewService);
   const journalService = useService(JournalService);
   const calendar = useService(IntegrationService).calendar;
-  const workspaceServerService = useService(WorkspaceServerService);
-  const server = useLiveData(workspaceServerService.server$);
+  // WorkspaceServerService has been removed
   const location = useLiveData(viewService.view.location$);
   const journalDateStr = useLiveData(
     doc ? journalService.journalDate$(doc.id) : null
@@ -205,7 +203,7 @@ export const EditorJournalPanel = () => {
   useEffect(() => {
     calendar.revalidateWorkspaceCalendars().catch(() => undefined);
     calendar.loadAccountCalendars().catch(() => undefined);
-  }, [calendar, server]);
+  }, [calendar]);
 
   useEffect(() => {
     const update = () => {

@@ -14,8 +14,6 @@ import {
 } from '@affine/graphql';
 import { Entity } from '@toeverything/infra';
 
-import type { DefaultServerService, WorkspaceServerService } from '../../cloud';
-import { GraphQLService } from '../../cloud/services/graphql';
 import type { WorkspaceService } from '../../workspace';
 import type {
   DocComment,
@@ -72,22 +70,13 @@ export class DocCommentStore extends Entity<{
   getDocMode: () => DocMode;
   getDocTitle: () => string;
 }> {
-  constructor(
-    private readonly workspaceService: WorkspaceService,
-    private readonly workspaceServerService: WorkspaceServerService,
-    private readonly defaultServerService: DefaultServerService
-  ) {
+  constructor(private readonly workspaceService: WorkspaceService) {
     super();
   }
 
-  private get serverService() {
-    return (
-      this.workspaceServerService.server || this.defaultServerService.server
-    );
-  }
-
-  private get graphqlService() {
-    return this.serverService?.scope.get(GraphQLService);
+  private get graphqlService(): any {
+    // Cloud module removed - graphql not available
+    return null;
   }
 
   private get currentWorkspaceId() {

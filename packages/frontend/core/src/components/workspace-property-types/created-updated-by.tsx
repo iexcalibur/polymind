@@ -1,5 +1,4 @@
-import { type MenuRef, PropertyValue } from '@affine/component';
-import { PublicUserLabel } from '@affine/core/modules/cloud/views/public-user';
+import { Avatar, type MenuRef, PropertyValue } from '@affine/component';
 import type { FilterParams } from '@affine/core/modules/collection-rules';
 import { type DocRecord, DocService } from '@affine/core/modules/doc';
 import { WorkspaceService } from '@affine/core/modules/workspace';
@@ -42,15 +41,8 @@ const CreatedByUpdatedByAvatar = (props: {
   if (userId) {
     return (
       <div className={styles.userWrapper}>
-        <PublicUserLabel
-          id={userId}
-          size={props.size}
-          showName={props.showName}
-          align="center"
-          tooltip={
-            props.type === 'CreatedBy' ? CreatedUsernameTip : UpdatedUsernameTip
-          }
-        />
+        <Avatar url={null} name={userId} size={props.size ?? 20} />
+        {props.showName !== false && <span>{userId}</span>}
       </div>
     );
   }
@@ -199,12 +191,7 @@ export const ModifiedByGroupHeader = ({
   return (
     <PlainTextDocGroupHeader groupId={groupId} docCount={docCount}>
       <div className={styles.userLabelContainer}>
-        <PublicUserLabel
-          id={userId}
-          size={20}
-          showName={false}
-          align="center"
-        />
+        <Avatar url={null} name={userId} size={20} />
       </div>
     </PlainTextDocGroupHeader>
   );

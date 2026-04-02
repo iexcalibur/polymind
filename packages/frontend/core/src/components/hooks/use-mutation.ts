@@ -1,12 +1,9 @@
-import { GraphQLService } from '@affine/core/modules/cloud';
 import type {
   GraphQLQuery,
-  MutationOptions,
   QueryResponse,
   QueryVariables,
   RecursiveMaybeFields,
 } from '@affine/graphql';
-import { useService } from '@toeverything/infra';
 import type { GraphQLError } from 'graphql';
 import { useMemo } from 'react';
 import type { Key } from 'swr';
@@ -19,21 +16,11 @@ import useSWRMutation from 'swr/mutation';
 
 /**
  * A useSWRMutation wrapper for sending graphql mutations
- *
- * @example
- *
- * ```ts
- * import { someMutation } from '@affine/graphql'
- *
- * const { trigger } = useMutation({
- *  mutation: someMutation,
- * })
- *
- * trigger({ name: 'John Doe' })
+ * (no-op stub: GraphQLService has been removed)
  */
 export function useMutation<Mutation extends GraphQLQuery, K extends Key = Key>(
-  options: Omit<MutationOptions<Mutation>, 'variables'>,
-  config?: Omit<
+  _options: { mutation: Mutation },
+  _config?: Omit<
     SWRMutationConfiguration<
       QueryResponse<Mutation>,
       GraphQLError,
@@ -48,19 +35,12 @@ export function useMutation<Mutation extends GraphQLQuery, K extends Key = Key>(
   K,
   QueryVariables<Mutation>
 >;
-export function useMutation(
-  options: Omit<MutationOptions<GraphQLQuery>, 'variables'>,
-  config?: any
-) {
-  const graphqlService = useService(GraphQLService);
+export function useMutation(options: { mutation: GraphQLQuery }, config?: any) {
   return useSWRMutation(
     () => ['cloud', options.mutation.id],
-    (_: unknown[], { arg }: { arg: any }) =>
-      graphqlService.gql({
-        ...options,
-        query: options.mutation,
-        variables: arg,
-      }),
+    () => {
+      throw new Error('GraphQL service is not available');
+    },
     config
   );
 }

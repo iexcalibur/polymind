@@ -1,4 +1,3 @@
-import { ServerDeploymentType } from '@affine/graphql';
 import {
   IndexedDBDocStorage,
   IndexedDBDocSyncStorage,
@@ -7,7 +6,6 @@ import { SqliteDocStorage, SqliteDocSyncStorage } from '@affine/nbstore/sqlite';
 import type { StoreClient } from '@affine/nbstore/worker/client';
 import { Entity } from '@toeverything/infra';
 
-import type { ServerService } from '../../cloud';
 import type { NbstoreService } from '../../storage';
 
 export class UserDBEngine extends Entity<{
@@ -30,21 +28,19 @@ export class UserDBEngine extends Entity<{
     return true;
   }
 
-  constructor(
-    private readonly nbstoreService: NbstoreService,
-    serverService: ServerService
-  ) {
+  constructor(private readonly nbstoreService: NbstoreService) {
     super();
 
+    // Cloud module removed - use local-only store
     const { store, dispose } = this.nbstoreService.openStore(
-      `userspace:${serverService.server.id},${this.userId}`,
+      `userspace:local,${this.userId}`,
       {
         local: {
           doc: {
             name: this.DocStorageType.identifier,
             opts: {
               type: 'userspace',
-              flavour: serverService.server.id,
+              flavour: 'local',
               id: this.userId,
             },
           },
@@ -52,23 +48,8 @@ export class UserDBEngine extends Entity<{
             name: this.DocSyncStorageType.identifier,
             opts: {
               type: 'userspace',
-              flavour: serverService.server.id,
+              flavour: 'local',
               id: this.userId,
-            },
-          },
-        },
-        remotes: {
-          cloud: {
-            doc: {
-              name: 'CloudDocStorage',
-              opts: {
-                id: this.userId,
-                serverBaseUrl: serverService.server.baseUrl,
-                type: 'userspace',
-                isSelfHosted:
-                  serverService.server.config$.value.type ===
-                  ServerDeploymentType.Selfhosted,
-              },
             },
           },
         },

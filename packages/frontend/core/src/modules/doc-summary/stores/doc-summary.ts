@@ -1,8 +1,6 @@
-import { getDocSummaryQuery } from '@affine/graphql';
 import { Store } from '@toeverything/infra';
 import { map, Observable } from 'rxjs';
 
-import type { WorkspaceServerService } from '../../cloud';
 import type { CacheStorage } from '../../storage';
 import type { WorkspaceService } from '../../workspace';
 
@@ -11,24 +9,16 @@ export class DocSummaryStore extends Store {
     return this.workspaceService.workspace.engine.indexer;
   }
 
-  private readonly gql = this.workspaceServerService.server?.gql;
-
   constructor(
     private readonly workspaceService: WorkspaceService,
-    private readonly workspaceServerService: WorkspaceServerService,
     private readonly cacheStorage: CacheStorage
   ) {
     super();
   }
 
-  async getDocSummaryFromCloud(docId: string) {
-    return this.gql?.({
-      query: getDocSummaryQuery,
-      variables: {
-        workspaceId: this.workspaceService.workspace.id,
-        docId,
-      },
-    }).then(res => res.workspace.doc.summary ?? '');
+  async getDocSummaryFromCloud(_docId: string) {
+    // Cloud module removed - no GraphQL available
+    return undefined;
   }
 
   watchDocSummaryFromIndexer(docId: string) {

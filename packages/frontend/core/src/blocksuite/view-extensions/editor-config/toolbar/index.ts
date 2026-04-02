@@ -3,7 +3,6 @@ import {
   generateUrl,
   type UseSharingUrl,
 } from '@affine/core/components/hooks/affine/use-share-url';
-import { WorkspaceServerService } from '@affine/core/modules/cloud';
 import { EditorService } from '@affine/core/modules/editor';
 import type { EditorSettingExt } from '@affine/core/modules/editor-setting/entities/editor-setting';
 import { copyLinkToBlockStdScopeClipboard } from '@affine/core/utils/clipboard';
@@ -157,8 +156,6 @@ function createCopyLinkToBlockMenuItem(
   return {
     ...item,
     action: async (ctx: MenuContext) => {
-      const workspaceServerService = framework.get(WorkspaceServerService);
-
       const { editor } = framework.get(EditorService);
       const mode = editor.mode$.value;
       const pageId = editor.doc.id;
@@ -185,7 +182,7 @@ function createCopyLinkToBlockMenuItem(
 
       const str = generateUrl({
         ...options,
-        baseUrl: workspaceServerService.server?.baseUrl ?? location.origin,
+        baseUrl: location.origin,
       });
       if (!str) {
         ctx.close();

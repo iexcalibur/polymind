@@ -9,7 +9,6 @@ import { useEnableAI } from '@affine/core/components/hooks/affine/use-enable-ai'
 import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
 import { useSeekTime } from '@affine/core/components/hooks/use-seek-time';
 import { CurrentServerScopeProvider } from '@affine/core/components/providers/current-server-scope';
-import { PublicUserLabel } from '@affine/core/modules/cloud/views/public-user';
 import { GlobalDialogService } from '@affine/core/modules/dialogs';
 import type { AudioAttachmentBlock } from '@affine/core/modules/media/entities/audio-attachment-block';
 import { AudioAttachmentService } from '@affine/core/modules/media/services/audio-attachment';
@@ -112,7 +111,7 @@ const AttachmentAudioPlayer = ({ block }: { block: AudioAttachmentBlock }) => {
         title: t['com.affine.audio.transcribe.non-owner.confirm.title'](),
         description: (
           <Trans i18nKey="com.affine.audio.transcribe.non-owner.confirm.message">
-            Please contact <PublicUserLabel id={result.userId} /> to upgrade AI
+            Please contact <span>{result.userId}</span> to upgrade AI
             rights or resend the attachment.
           </Trans>
         ),

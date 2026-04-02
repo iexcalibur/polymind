@@ -1,14 +1,9 @@
-import type { WorkspaceServerService } from '@affine/core/modules/cloud';
-import { leaveWorkspaceMutation } from '@affine/graphql';
 import { Store } from '@toeverything/infra';
 
 import type { WorkspaceLocalState } from '../../workspace';
 
 export class WorkspacePermissionStore extends Store {
-  constructor(
-    private readonly workspaceServerService: WorkspaceServerService,
-    private readonly workspaceLocalState: WorkspaceLocalState
-  ) {
+  constructor(private readonly workspaceLocalState: WorkspaceLocalState) {
     super();
   }
 
@@ -22,16 +17,8 @@ export class WorkspacePermissionStore extends Store {
     } as any;
   }
 
-  async leaveWorkspace(workspaceId: string) {
-    if (!this.workspaceServerService.server) {
-      throw new Error('No Server');
-    }
-    await this.workspaceServerService.server.gql({
-      query: leaveWorkspaceMutation,
-      variables: {
-        workspaceId,
-      },
-    });
+  async leaveWorkspace(_workspaceId: string) {
+    // Cloud module removed - no-op
   }
 
   watchWorkspacePermissionCache() {
