@@ -1,11 +1,11 @@
-import { Divider, IconButton, Tooltip } from '@affine/component';
-import type { DocCustomPropertyInfo } from '@affine/core/modules/db';
+import { Divider, IconButton, Tooltip } from '@polymind/component';
+import type { DocCustomPropertyInfo } from '@polymind/core/modules/db';
 import {
   WorkspacePropertyService,
   type WorkspacePropertyType,
-} from '@affine/core/modules/workspace-property';
-import { generateUniqueNameInSequence } from '@affine/core/utils/unique-name';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/workspace-property';
+import { generateUniqueNameInSequence } from '@polymind/core/utils/unique-name';
+import { useI18n } from '@polymind/i18n';
 import { PlusIcon } from '@blocksuite/icons/rc';
 import {
   Content as CollapsibleContent,

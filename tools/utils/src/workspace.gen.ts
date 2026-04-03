@@ -1154,17 +1154,17 @@ export const PackageList = [
   },
   {
     location: 'docs/reference',
-    name: '@affine/docs',
+    name: '@polymind/docs',
     workspaceDependencies: [],
   },
   {
     location: 'packages/backend/native',
-    name: '@affine/server-native',
+    name: '@polymind/server-native',
     workspaceDependencies: [],
   },
   {
     location: 'packages/backend/server',
-    name: '@affine/server',
+    name: '@polymind/server',
     workspaceDependencies: [
       'packages/common/s3-compat',
       'packages/backend/native',
@@ -1175,22 +1175,22 @@ export const PackageList = [
   },
   {
     location: 'packages/common/debug',
-    name: '@affine/debug',
+    name: '@polymind/debug',
     workspaceDependencies: [],
   },
   {
     location: 'packages/common/env',
-    name: '@affine/env',
+    name: '@polymind/env',
     workspaceDependencies: [],
   },
   {
     location: 'packages/common/error',
-    name: '@affine/error',
+    name: '@polymind/error',
     workspaceDependencies: [],
   },
   {
     location: 'packages/common/graphql',
-    name: '@affine/graphql',
+    name: '@polymind/graphql',
     workspaceDependencies: [
       'packages/common/debug',
       'packages/common/env',
@@ -1209,7 +1209,7 @@ export const PackageList = [
   },
   {
     location: 'packages/common/nbstore',
-    name: '@affine/nbstore',
+    name: '@polymind/nbstore',
     workspaceDependencies: [
       'packages/common/reader',
       'packages/common/infra',
@@ -1220,17 +1220,17 @@ export const PackageList = [
   },
   {
     location: 'packages/common/reader',
-    name: '@affine/reader',
+    name: '@polymind/reader',
     workspaceDependencies: ['blocksuite/affine/all'],
   },
   {
     location: 'packages/common/s3-compat',
-    name: '@affine/s3-compat',
+    name: '@polymind/s3-compat',
     workspaceDependencies: [],
   },
   {
     location: 'packages/frontend/apps/android',
-    name: '@affine/android',
+    name: '@polymind/android',
     workspaceDependencies: [
       'packages/frontend/component',
       'packages/frontend/core',
@@ -1244,7 +1244,7 @@ export const PackageList = [
   },
   {
     location: 'packages/frontend/apps/electron',
-    name: '@affine/electron',
+    name: '@polymind/electron',
     workspaceDependencies: [
       'tools/utils',
       'packages/frontend/i18n',
@@ -1255,7 +1255,7 @@ export const PackageList = [
   },
   {
     location: 'packages/frontend/apps/electron-renderer',
-    name: '@affine/electron-renderer',
+    name: '@polymind/electron-renderer',
     workspaceDependencies: [
       'packages/frontend/component',
       'packages/frontend/core',
@@ -1270,7 +1270,7 @@ export const PackageList = [
   },
   {
     location: 'packages/frontend/apps/ios',
-    name: '@affine/ios',
+    name: '@polymind/ios',
     workspaceDependencies: [
       'packages/frontend/component',
       'packages/frontend/core',
@@ -1288,7 +1288,7 @@ export const PackageList = [
   },
   {
     location: 'packages/frontend/apps/mobile',
-    name: '@affine/mobile',
+    name: '@polymind/mobile',
     workspaceDependencies: [
       'packages/frontend/component',
       'packages/frontend/core',
@@ -1301,12 +1301,12 @@ export const PackageList = [
   },
   {
     location: 'packages/frontend/apps/mobile-shared',
-    name: '@affine/mobile-shared',
+    name: '@polymind/mobile-shared',
     workspaceDependencies: ['packages/frontend/core'],
   },
   {
     location: 'packages/frontend/apps/web',
-    name: '@affine/web',
+    name: '@polymind/web',
     workspaceDependencies: [
       'packages/frontend/component',
       'packages/frontend/core',
@@ -1318,7 +1318,7 @@ export const PackageList = [
   },
   {
     location: 'packages/frontend/component',
-    name: '@affine/component',
+    name: '@polymind/component',
     workspaceDependencies: [
       'packages/common/debug',
       'packages/frontend/electron-api',
@@ -1331,7 +1331,7 @@ export const PackageList = [
   },
   {
     location: 'packages/frontend/core',
-    name: '@affine/core',
+    name: '@polymind/core',
     workspaceDependencies: [
       'packages/frontend/component',
       'packages/common/debug',
@@ -1355,12 +1355,12 @@ export const PackageList = [
   },
   {
     location: 'packages/frontend/electron-api',
-    name: '@affine/electron-api',
+    name: '@polymind/electron-api',
     workspaceDependencies: ['packages/frontend/apps/electron'],
   },
   {
     location: 'packages/frontend/i18n',
-    name: '@affine/i18n',
+    name: '@polymind/i18n',
     workspaceDependencies: [
       'packages/common/debug',
       'tools/cli',
@@ -1369,22 +1369,22 @@ export const PackageList = [
   },
   {
     location: 'packages/frontend/media-capture-playground',
-    name: '@affine/media-capture-playground',
+    name: '@polymind/media-capture-playground',
     workspaceDependencies: ['packages/frontend/native'],
   },
   {
     location: 'packages/frontend/native',
-    name: '@affine/native',
+    name: '@polymind/native',
     workspaceDependencies: [],
   },
   {
     location: 'packages/frontend/routes',
-    name: '@affine/routes',
+    name: '@polymind/routes',
     workspaceDependencies: ['tools/cli', 'tools/utils'],
   },
   {
     location: 'packages/frontend/templates',
-    name: '@affine/templates',
+    name: '@polymind/templates',
     workspaceDependencies: [],
   },
   {
@@ -1447,7 +1447,7 @@ export const PackageList = [
   },
   {
     location: 'tools/changelog',
-    name: '@affine/changelog',
+    name: '@polymind/changelog',
     workspaceDependencies: [],
   },
   {
@@ -1457,27 +1457,27 @@ export const PackageList = [
   },
   {
     location: 'tools/commitlint',
-    name: '@affine/commitlint-config',
+    name: '@polymind/commitlint-config',
     workspaceDependencies: [],
   },
   {
     location: 'tools/copilot-result',
-    name: '@affine/copilot-result',
+    name: '@polymind/copilot-result',
     workspaceDependencies: [],
   },
   {
     location: 'tools/doc-diff',
-    name: '@affine/doc-diff',
+    name: '@polymind/doc-diff',
     workspaceDependencies: ['tools/cli'],
   },
   {
     location: 'tools/playstore-auto-bump',
-    name: '@affine/playstore-auto-bump',
+    name: '@polymind/playstore-auto-bump',
     workspaceDependencies: ['tools/cli', 'tools/utils'],
   },
   {
     location: 'tools/revert-update',
-    name: '@affine/revert-update',
+    name: '@polymind/revert-update',
     workspaceDependencies: ['tools/cli'],
   },
   {
@@ -1561,32 +1561,32 @@ export type PackageName =
   | '@blocksuite/sync'
   | '@blocksuite/integration-test'
   | '@blocksuite/playground'
-  | '@affine/docs'
-  | '@affine/server-native'
-  | '@affine/server'
-  | '@affine/debug'
-  | '@affine/env'
-  | '@affine/error'
-  | '@affine/graphql'
+  | '@polymind/docs'
+  | '@polymind/server-native'
+  | '@polymind/server'
+  | '@polymind/debug'
+  | '@polymind/env'
+  | '@polymind/error'
+  | '@polymind/graphql'
   | '@toeverything/infra'
-  | '@affine/nbstore'
-  | '@affine/reader'
-  | '@affine/s3-compat'
-  | '@affine/android'
-  | '@affine/electron'
-  | '@affine/electron-renderer'
-  | '@affine/ios'
-  | '@affine/mobile'
-  | '@affine/mobile-shared'
-  | '@affine/web'
-  | '@affine/component'
-  | '@affine/core'
-  | '@affine/electron-api'
-  | '@affine/i18n'
-  | '@affine/media-capture-playground'
-  | '@affine/native'
-  | '@affine/routes'
-  | '@affine/templates'
+  | '@polymind/nbstore'
+  | '@polymind/reader'
+  | '@polymind/s3-compat'
+  | '@polymind/android'
+  | '@polymind/electron'
+  | '@polymind/electron-renderer'
+  | '@polymind/ios'
+  | '@polymind/mobile'
+  | '@polymind/mobile-shared'
+  | '@polymind/web'
+  | '@polymind/component'
+  | '@polymind/core'
+  | '@polymind/electron-api'
+  | '@polymind/i18n'
+  | '@polymind/media-capture-playground'
+  | '@polymind/native'
+  | '@polymind/routes'
+  | '@polymind/templates'
   | '@affine-test/affine-cloud'
   | '@affine-test/affine-cloud-copilot'
   | '@affine-test/affine-desktop'
@@ -1597,11 +1597,11 @@ export type PackageName =
   | '@affine-test/kit'
   | '@types/build-config'
   | '@types/affine__env'
-  | '@affine/changelog'
+  | '@polymind/changelog'
   | '@affine-tools/cli'
-  | '@affine/commitlint-config'
-  | '@affine/copilot-result'
-  | '@affine/doc-diff'
-  | '@affine/playstore-auto-bump'
-  | '@affine/revert-update'
+  | '@polymind/commitlint-config'
+  | '@polymind/copilot-result'
+  | '@polymind/doc-diff'
+  | '@polymind/playstore-auto-bump'
+  | '@polymind/revert-update'
   | '@affine-tools/utils';

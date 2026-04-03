@@ -1,8 +1,8 @@
 import {
   NoPermissionOrNotFound,
   NotFoundPage,
-} from '@affine/component/not-found-page';
-import { DesktopApiService } from '@affine/core/modules/desktop-api';
+} from '@polymind/component/not-found-page';
+import { DesktopApiService } from '@polymind/core/modules/desktop-api';
 import { useServiceOptional } from '@toeverything/infra';
 import type { ReactElement } from 'react';
 import { useCallback, useEffect } from 'react';

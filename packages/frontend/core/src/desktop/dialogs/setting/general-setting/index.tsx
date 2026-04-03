@@ -1,7 +1,7 @@
-import type { SettingTab } from '@affine/core/modules/dialogs/constant';
-import { FeatureFlagService } from '@affine/core/modules/feature-flag';
-import { MeetingSettingsService } from '@affine/core/modules/media/services/meeting-settings';
-import { useI18n } from '@affine/i18n';
+import type { SettingTab } from '@polymind/core/modules/dialogs/constant';
+import { FeatureFlagService } from '@polymind/core/modules/feature-flag';
+import { MeetingSettingsService } from '@polymind/core/modules/media/services/meeting-settings';
+import { useI18n } from '@polymind/i18n';
 import {
   AiIcon,
   AppearanceIcon,
@@ -43,13 +43,13 @@ export const useGeneralSettingList = (): GeneralSettingList => {
     const settings: GeneralSettingList = [
       {
         key: 'appearance',
-        title: t['com.affine.settings.appearance'](),
+        title: t['com.polymind.settings.appearance'](),
         icon: <AppearanceIcon />,
         testId: 'appearance-panel-trigger',
       },
       {
         key: 'shortcuts',
-        title: t['com.affine.keyboardShortcuts.title'](),
+        title: t['com.polymind.keyboardShortcuts.title'](),
         icon: <KeyboardIcon />,
         testId: 'shortcuts-panel-trigger',
       },
@@ -65,7 +65,7 @@ export const useGeneralSettingList = (): GeneralSettingList => {
       // add editor settings to second position
       settings.splice(1, 0, {
         key: 'editor',
-        title: t['com.affine.settings.editorSettings'](),
+        title: t['com.polymind.settings.editorSettings'](),
         icon: <PenIcon />,
         testId: 'editor-panel-trigger',
       });
@@ -77,7 +77,7 @@ export const useGeneralSettingList = (): GeneralSettingList => {
     ) {
       settings.push({
         key: 'meetings',
-        title: t['com.affine.settings.meetings'](),
+        title: t['com.polymind.settings.meetings'](),
         icon: <MeetingIcon />,
         testId: 'meetings-panel-trigger',
         beta: !meetingSettings?.enabled,
@@ -87,7 +87,7 @@ export const useGeneralSettingList = (): GeneralSettingList => {
     if (BUILD_CONFIG.isElectron) {
       settings.push({
         key: 'backup',
-        title: t['com.affine.settings.workspace.backup'](),
+        title: t['com.polymind.settings.workspace.backup'](),
         icon: <FolderIcon />,
         testId: 'backup-panel-trigger',
       });
@@ -96,7 +96,7 @@ export const useGeneralSettingList = (): GeneralSettingList => {
     settings.push(
       {
         key: 'experimental-features',
-        title: t['com.affine.settings.workspace.experimental-features'](),
+        title: t['com.polymind.settings.workspace.experimental-features'](),
         icon: <ExperimentIcon />,
         testId: 'experimental-features-trigger',
       },

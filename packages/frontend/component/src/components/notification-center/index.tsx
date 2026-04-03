@@ -2,7 +2,7 @@
 // License on the MIT
 // https://github.com/emilkowalski/sonner/blob/5cb703edc108a23fd74979235c2f3c4005edd2a7/src/index.tsx
 
-import { useI18n } from '@affine/i18n';
+import { useI18n } from '@polymind/i18n';
 import { CloseIcon, InformationFillDuotoneIcon } from '@blocksuite/icons/rc';
 import * as Toast from '@radix-ui/react-toast';
 import clsx from 'clsx';
@@ -310,7 +310,7 @@ function NotificationCard(props: NotificationCardProps): ReactNode {
               onClick={onClickAction}
             >
               {notification.actionLabel ??
-                t['com.affine.keyboardShortcuts.undo']()}
+                t['com.polymind.keyboardShortcuts.undo']()}
             </div>
           )}
           {notification.multimedia ? null : (
@@ -376,7 +376,7 @@ function NotificationCard(props: NotificationCardProps): ReactNode {
 }
 
 /**
- * @deprecated use `import { NotificationCenter } from '@affine/component'` instead
+ * @deprecated use `import { NotificationCenter } from '@polymind/component'` instead
  */
 export function NotificationCenter(): ReactNode {
   const notifications = useAtomValue(notificationsAtom);

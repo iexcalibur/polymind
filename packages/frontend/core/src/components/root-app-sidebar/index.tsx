@@ -7,11 +7,11 @@ import {
   QuickSearchInput,
   SidebarContainer,
   SidebarScrollableContainer,
-} from '@affine/core/modules/app-sidebar/views';
-import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import { CMDKQuickSearchService } from '@affine/core/modules/quicksearch/services/cmdk';
-import type { Workspace } from '@affine/core/modules/workspace';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/app-sidebar/views';
+import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import { CMDKQuickSearchService } from '@polymind/core/modules/quicksearch/services/cmdk';
+import type { Workspace } from '@polymind/core/modules/workspace';
+import { useI18n } from '@polymind/i18n';
 import type { Store } from '@blocksuite/affine/store';
 import { AllDocsIcon, ImportIcon, SettingsIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService, useServices } from '@toeverything/infra';
@@ -68,7 +68,7 @@ const AllDocsButton = () => {
   return (
     <MenuLinkItem icon={<AllDocsIcon />} active={allPageActive} to={'/all'}>
       <span data-testid="all-pages">
-        {t['com.affine.workspaceSubPath.all']()}
+        {t['com.polymind.workspaceSubPath.all']()}
       </span>
     </MenuLinkItem>
   );
@@ -76,7 +76,7 @@ const AllDocsButton = () => {
 
 /**
  * This is for the whole affine app sidebar.
- * This component wraps the app sidebar in `@affine/component` with logic and data.
+ * This component wraps the app sidebar in `@polymind/component` with logic and data.
  *
  */
 export const RootAppSidebar = memo((): ReactElement => {
@@ -171,7 +171,7 @@ export const RootAppSidebar = memo((): ReactElement => {
           onClick={onOpenSettingModal}
         >
           <span data-testid="settings-modal-trigger">
-            {t['com.affine.settingSidebar.title']()}
+            {t['com.polymind.settingSidebar.title']()}
           </span>
         </MenuItem>
       </SidebarContainer>
@@ -181,7 +181,7 @@ export const RootAppSidebar = memo((): ReactElement => {
         <NavigationPanelCollections />
         <CollapsibleSection
           path={['others']}
-          title={t['com.affine.rootAppSidebar.others']()}
+          title={t['com.polymind.rootAppSidebar.others']()}
           contentStyle={{ padding: '6px 8px 0 8px' }}
         >
           <TrashButton />

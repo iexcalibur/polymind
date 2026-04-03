@@ -4,10 +4,10 @@ import {
   Menu,
   MenuItem,
   MenuSeparator,
-} from '@affine/component';
-import type { FilterParams } from '@affine/core/modules/collection-rules';
-import { WorkspacePropertyService } from '@affine/core/modules/workspace-property';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component';
+import type { FilterParams } from '@polymind/core/modules/collection-rules';
+import { WorkspacePropertyService } from '@polymind/core/modules/workspace-property';
+import { useI18n } from '@polymind/i18n';
 import {
   ArrowLeftBigIcon,
   CloudWorkspaceIcon,
@@ -48,7 +48,7 @@ export const AddFilterMenu = ({
           </IconButton>
         )}
         <div className={styles.variableSelectTitleStyle}>
-          {t['com.affine.filter']()}
+          {t['com.polymind.filter']()}
         </div>
       </div>
 
@@ -82,7 +82,7 @@ export const AddFilterMenu = ({
         }}
       >
         <span className={styles.filterTypeItemName}>
-          {t['com.affine.filter.is-public']()}
+          {t['com.polymind.filter.is-public']()}
         </span>
       </MenuItem>
       {explorerPropertyList.map(({ systemProperty, workspaceProperty }) => {
@@ -167,7 +167,7 @@ export const AddFilter = ({
         </IconButton>
       ) : (
         <Button prefix={<PlusIcon />} className={styles.addFilterButton}>
-          {t['com.affine.filter.add-filter']()}
+          {t['com.polymind.filter.add-filter']()}
         </Button>
       )}
     </Menu>

@@ -1,4 +1,4 @@
-import { SafeArea, useThemeColorV2 } from '@affine/component';
+import { SafeArea, useThemeColorV2 } from '@polymind/component';
 
 import { AppTabs } from '../../components';
 import {

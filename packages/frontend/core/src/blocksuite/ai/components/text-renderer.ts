@@ -1,5 +1,5 @@
-import { createReactComponentFromLit } from '@affine/component';
-import type { FeatureFlagService } from '@affine/core/modules/feature-flag';
+import { createReactComponentFromLit } from '@polymind/component';
+import type { FeatureFlagService } from '@polymind/core/modules/feature-flag';
 import { PeekViewProvider } from '@blocksuite/affine/components/peek';
 import { SignalWatcher, WithDisposable } from '@blocksuite/affine/global/lit';
 import { RefNodeSlotsProvider } from '@blocksuite/affine/inlines/reference';

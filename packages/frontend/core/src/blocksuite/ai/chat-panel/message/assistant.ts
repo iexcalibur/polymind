@@ -1,7 +1,7 @@
-import type { FeatureFlagService } from '@affine/core/modules/feature-flag';
-import type { PeekViewService } from '@affine/core/modules/peek-view';
-import type { AppThemeService } from '@affine/core/modules/theme';
-import type { CopilotChatHistoryFragment } from '@affine/graphql';
+import type { FeatureFlagService } from '@polymind/core/modules/feature-flag';
+import type { PeekViewService } from '@polymind/core/modules/peek-view';
+import type { AppThemeService } from '@polymind/core/modules/theme';
+import type { CopilotChatHistoryFragment } from '@polymind/graphql';
 import { WithDisposable } from '@blocksuite/affine/global/lit';
 import { isInsidePageEditor } from '@blocksuite/affine/shared/utils';
 import {

@@ -1,5 +1,5 @@
-import { Checkbox, MenuItem, MenuSub } from '@affine/component';
-import { useI18n } from '@affine/i18n';
+import { Checkbox, MenuItem, MenuSub } from '@polymind/component';
+import { useI18n } from '@polymind/i18n';
 import { useCallback } from 'react';
 
 import { type QuickAction, quickActions } from '../quick-actions.constants';
@@ -36,7 +36,7 @@ export const QuickActionsConfig = ({
         );
       })}
     >
-      {t['com.affine.all-docs.quick-actions']()}
+      {t['com.polymind.all-docs.quick-actions']()}
     </MenuSub>
   );
 };

@@ -1,5 +1,5 @@
-import type { ReactToLit } from '@affine/component';
-import { AttachmentEmbedPreview } from '@affine/core/blocksuite/attachment-viewer/attachment-embed-preview';
+import type { ReactToLit } from '@polymind/component';
+import { AttachmentEmbedPreview } from '@polymind/core/blocksuite/attachment-viewer/attachment-embed-preview';
 import { AttachmentEmbedConfigIdentifier } from '@blocksuite/affine/blocks/attachment';
 import { Bound } from '@blocksuite/affine/global/gfx';
 import {

@@ -1,8 +1,8 @@
-import { IconButton, MobileMenu } from '@affine/component';
-import { useEnableCloud } from '@affine/core/components/hooks/affine/use-enable-cloud';
-import { DocService } from '@affine/core/modules/doc';
-import { ShareMenuContent } from '@affine/core/modules/share-menu';
-import { WorkspaceService } from '@affine/core/modules/workspace';
+import { IconButton, MobileMenu } from '@polymind/component';
+import { useEnableCloud } from '@polymind/core/components/hooks/affine/use-enable-cloud';
+import { DocService } from '@polymind/core/modules/doc';
+import { ShareMenuContent } from '@polymind/core/modules/share-menu';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { ShareiOsIcon } from '@blocksuite/icons/rc';
 import { useServices } from '@toeverything/infra';
 

@@ -1,8 +1,8 @@
-import { RadioGroup, type RadioItem } from '@affine/component';
-import type { AllPageFilterOption } from '@affine/core/components/atoms';
-import { allPageFilterSelectAtom } from '@affine/core/components/atoms';
-import { WorkbenchService } from '@affine/core/modules/workbench';
-import { useI18n } from '@affine/i18n';
+import { RadioGroup, type RadioItem } from '@polymind/component';
+import type { AllPageFilterOption } from '@polymind/core/components/atoms';
+import { allPageFilterSelectAtom } from '@polymind/core/components/atoms';
+import { WorkbenchService } from '@polymind/core/modules/workbench';
+import { useI18n } from '@polymind/i18n';
 import { useService } from '@toeverything/infra';
 import { useAtom } from 'jotai';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -51,13 +51,13 @@ export const WorkspaceModeFilterTab = ({
         () => [
           {
             value: 'docs',
-            label: t['com.affine.docs.header'](),
+            label: t['com.polymind.docs.header'](),
             testId: 'workspace-docs-button',
             className: styles.filterTab,
           },
           {
             value: 'collections',
-            label: t['com.affine.collections.header'](),
+            label: t['com.polymind.collections.header'](),
             testId: 'workspace-collections-button',
             className: styles.filterTab,
           },

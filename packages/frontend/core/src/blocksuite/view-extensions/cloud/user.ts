@@ -1,4 +1,4 @@
-import { UserFriendlyError } from '@affine/error';
+import { UserFriendlyError } from '@polymind/error';
 import {
   type AffineUserInfo,
   UserServiceExtension,

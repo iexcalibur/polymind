@@ -1,9 +1,9 @@
-import type { AIToolsConfigService } from '@affine/core/modules/ai-button';
-import type { AIModelService } from '@affine/core/modules/ai-button/services/models';
-import type { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import type { FeatureFlagService } from '@affine/core/modules/feature-flag';
-import type { AppThemeService } from '@affine/core/modules/theme';
-import type { CopilotChatHistoryFragment } from '@affine/graphql';
+import type { AIToolsConfigService } from '@polymind/core/modules/ai-button';
+import type { AIModelService } from '@polymind/core/modules/ai-button/services/models';
+import type { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import type { FeatureFlagService } from '@polymind/core/modules/feature-flag';
+import type { AppThemeService } from '@polymind/core/modules/theme';
+import type { CopilotChatHistoryFragment } from '@polymind/graphql';
 import { SignalWatcher, WithDisposable } from '@blocksuite/affine/global/lit';
 import type { EditorHost } from '@blocksuite/affine/std';
 import { ShadowlessElement } from '@blocksuite/affine/std';

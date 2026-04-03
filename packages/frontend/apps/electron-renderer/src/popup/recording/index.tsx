@@ -1,8 +1,8 @@
-import { Button } from '@affine/component';
-import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
-import { appIconMap } from '@affine/core/utils';
-import { apis, events } from '@affine/electron-api';
-import { useI18n } from '@affine/i18n';
+import { Button } from '@polymind/component';
+import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
+import { appIconMap } from '@polymind/core/utils';
+import { apis, events } from '@polymind/electron-api';
+import { useI18n } from '@polymind/i18n';
 import { useEffect, useMemo, useState } from 'react';
 
 import * as styles from './styles.css';
@@ -61,32 +61,32 @@ export function Recording() {
       return null;
     }
     if (status.status === 'new') {
-      return t['com.affine.recording.new']();
+      return t['com.polymind.recording.new']();
     } else if (status.status === 'imported') {
-      return t['com.affine.recording.success.prompt']();
+      return t['com.polymind.recording.success.prompt']();
     } else if (
       status.status === 'import_failed' ||
       status.status === 'start_failed' ||
       status.status === 'finalize_failed'
     ) {
-      return t['com.affine.recording.failed.prompt']();
+      return t['com.polymind.recording.failed.prompt']();
     } else if (
       status.status === 'starting' ||
       status.status === 'recording' ||
       status.status === 'finalizing'
     ) {
       if (status.appName) {
-        return t['com.affine.recording.recording']({
+        return t['com.polymind.recording.recording']({
           appName: status.appName,
         });
       } else {
-        return t['com.affine.recording.recording.unnamed']();
+        return t['com.polymind.recording.recording.unnamed']();
       }
     } else if (
       status.status === 'pending_import' ||
       status.status === 'importing'
     ) {
-      return t['com.affine.recording.importing.prompt']();
+      return t['com.polymind.recording.importing.prompt']();
     }
     return null;
   }, [status, t]);
@@ -127,21 +127,21 @@ export function Recording() {
       return (
         <>
           <Button variant="plain" onClick={handleDismiss}>
-            {t['com.affine.recording.dismiss']()}
+            {t['com.polymind.recording.dismiss']()}
           </Button>
           <Button
             onClick={handleStartRecording}
             variant="primary"
             prefix={<div className={styles.recordingIcon} />}
           >
-            {t['com.affine.recording.start']()}
+            {t['com.polymind.recording.start']()}
           </Button>
         </>
       );
     } else if (status.status === 'recording') {
       return (
         <Button variant="error" onClick={handleStopRecording}>
-          {t['com.affine.recording.stop']()}
+          {t['com.polymind.recording.stop']()}
         </Button>
       );
     } else if (
@@ -161,13 +161,13 @@ export function Recording() {
     } else if (status.status === 'imported') {
       return (
         <Button variant="primary" onClick={handleDismiss}>
-          {t['com.affine.recording.success.button']()}
+          {t['com.polymind.recording.success.button']()}
         </Button>
       );
     } else if (status.status === 'start_failed') {
       return (
         <Button variant="plain" onClick={handleDismiss}>
-          {t['com.affine.recording.dismiss']()}
+          {t['com.polymind.recording.dismiss']()}
         </Button>
       );
     } else if (
@@ -177,10 +177,10 @@ export function Recording() {
       return (
         <>
           <Button variant="plain" onClick={handleDismiss}>
-            {t['com.affine.recording.dismiss']()}
+            {t['com.polymind.recording.dismiss']()}
           </Button>
           <Button variant="error" onClick={handleOpenFile}>
-            {t['com.affine.recording.failed.button']()}
+            {t['com.polymind.recording.failed.button']()}
           </Button>
         </>
       );

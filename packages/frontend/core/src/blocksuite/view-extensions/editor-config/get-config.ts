@@ -1,8 +1,8 @@
 import {
   createCustomToolbarExtension,
   createToolbarMoreMenuConfig,
-} from '@affine/core/blocksuite/view-extensions/editor-config/toolbar';
-import { EditorSettingService } from '@affine/core/modules/editor-setting';
+} from '@polymind/core/blocksuite/view-extensions/editor-config/toolbar';
+import { EditorSettingService } from '@polymind/core/modules/editor-setting';
 import { ToolbarMoreMenuConfigExtension } from '@blocksuite/affine/components/toolbar';
 import { EditorSettingExtension } from '@blocksuite/affine/shared/services';
 import type { ExtensionType } from '@blocksuite/store';

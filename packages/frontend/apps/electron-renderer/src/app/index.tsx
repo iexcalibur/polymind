@@ -1,6 +1,6 @@
 import './setup';
 
-import { appConfigProxy } from '@affine/core/components/hooks/use-app-config-storage';
+import { appConfigProxy } from '@polymind/core/components/hooks/use-app-config-storage';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 

@@ -1,4 +1,4 @@
-import type { useI18n } from '@affine/i18n';
+import type { useI18n } from '@polymind/i18n';
 import { ContactWithUsIcon, NewIcon } from '@blocksuite/icons/rc';
 
 import type { WorkspaceDialogService } from '../modules/dialogs';
@@ -20,7 +20,7 @@ export function registerAffineHelpCommands({
       id: 'affine:help-whats-new',
       category: 'affine:help',
       icon: <NewIcon />,
-      label: t['com.affine.cmdk.affine.whats-new'](),
+      label: t['com.polymind.cmdk.affine.whats-new'](),
       run() {
         urlService.openPopupWindow(BUILD_CONFIG.changelogUrl);
       },
@@ -31,7 +31,7 @@ export function registerAffineHelpCommands({
       id: 'affine:help-contact-us',
       category: 'affine:help',
       icon: <ContactWithUsIcon />,
-      label: t['com.affine.cmdk.affine.contact-us'](),
+      label: t['com.polymind.cmdk.affine.contact-us'](),
       run() {
         workspaceDialogService.open('setting', {
           activeTab: 'about',

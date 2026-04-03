@@ -1,10 +1,10 @@
-import { type DropTargetGetFeedback, Skeleton } from '@affine/component';
-import { ResizePanel } from '@affine/component/resize-panel';
-import { useAppSettingHelper } from '@affine/core/components/hooks/affine/use-app-setting-helper';
-import { NavigateContext } from '@affine/core/components/hooks/use-navigate-helper';
-import { WorkspaceNavigator } from '@affine/core/components/workspace-selector';
-import type { AffineDNDData } from '@affine/core/types/dnd';
-import { useI18n } from '@affine/i18n';
+import { type DropTargetGetFeedback, Skeleton } from '@polymind/component';
+import { ResizePanel } from '@polymind/component/resize-panel';
+import { useAppSettingHelper } from '@polymind/core/components/hooks/affine/use-app-setting-helper';
+import { NavigateContext } from '@polymind/core/components/hooks/use-navigate-helper';
+import { WorkspaceNavigator } from '@polymind/core/components/workspace-selector';
+import type { AffineDNDData } from '@polymind/core/types/dnd';
+import { useI18n } from '@polymind/i18n';
 import {
   useLiveData,
   useService,
@@ -199,8 +199,8 @@ const ResizeHandleTooltipContent = () => {
   const t = useI18n();
   return (
     <div>
-      <div>{t['com.affine.rootAppSidebar.resize-handle.tooltip.drag']()}</div>
-      <div>{t['com.affine.rootAppSidebar.resize-handle.tooltip.click']()}</div>
+      <div>{t['com.polymind.rootAppSidebar.resize-handle.tooltip.drag']()}</div>
+      <div>{t['com.polymind.rootAppSidebar.resize-handle.tooltip.click']()}</div>
     </div>
   );
 };

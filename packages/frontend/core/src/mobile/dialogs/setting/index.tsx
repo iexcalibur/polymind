@@ -1,8 +1,8 @@
 import type {
   DialogComponentProps,
   WORKSPACE_DIALOG_SCHEMA,
-} from '@affine/core/modules/dialogs';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/dialogs';
+import { useI18n } from '@polymind/i18n';
 
 import { AppearanceGroup } from './appearance';
 import { ExperimentalFeatureSetting } from './experimental';
@@ -27,7 +27,7 @@ export const SettingDialog = ({
 
   return (
     <SwipeDialog
-      title={t['com.affine.mobile.setting.header-title']()}
+      title={t['com.polymind.mobile.setting.header-title']()}
       open
       onOpenChange={() => close()}
     >

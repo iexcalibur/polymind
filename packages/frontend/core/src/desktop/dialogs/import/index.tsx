@@ -4,25 +4,25 @@ import {
   type IconData,
   IconType,
   Modal,
-} from '@affine/component';
-import { getStoreManager } from '@affine/core/blocksuite/manager/store';
-import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
-import { useNavigateHelper } from '@affine/core/components/hooks/use-navigate-helper';
+} from '@polymind/component';
+import { getStoreManager } from '@polymind/core/blocksuite/manager/store';
+import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
+import { useNavigateHelper } from '@polymind/core/components/hooks/use-navigate-helper';
 import {
   type DialogComponentProps,
   GlobalDialogService,
   type WORKSPACE_DIALOG_SCHEMA,
-} from '@affine/core/modules/dialogs';
-import { ExplorerIconService } from '@affine/core/modules/explorer-icon/services/explorer-icon';
-import { OrganizeService } from '@affine/core/modules/organize';
-import { UrlService } from '@affine/core/modules/url';
+} from '@polymind/core/modules/dialogs';
+import { ExplorerIconService } from '@polymind/core/modules/explorer-icon/services/explorer-icon';
+import { OrganizeService } from '@polymind/core/modules/organize';
+import { UrlService } from '@polymind/core/modules/url';
 import {
   getAFFiNEWorkspaceSchema,
   type WorkspaceMetadata,
   WorkspaceService,
-} from '@affine/core/modules/workspace';
-import { DebugLogger } from '@affine/debug';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/workspace';
+import { DebugLogger } from '@polymind/debug';
+import { useI18n } from '@polymind/i18n';
 import { openDirectory, openFilesWith } from '@blocksuite/affine/shared/utils';
 import type { Workspace } from '@blocksuite/affine/store';
 import {
@@ -224,7 +224,7 @@ type ImportConfig = {
 const importOptions = [
   {
     key: 'markdown',
-    label: 'com.affine.import.markdown-files',
+    label: 'com.polymind.import.markdown-files',
     prefixIcon: (
       <ExportToMarkdownIcon
         color={cssVarV2('icon/primary')}
@@ -237,20 +237,20 @@ const importOptions = [
   },
   {
     key: 'markdownZip',
-    label: 'com.affine.import.markdown-with-media-files',
+    label: 'com.polymind.import.markdown-with-media-files',
     prefixIcon: (
       <ZipIcon color={cssVarV2('icon/primary')} width={20} height={20} />
     ),
     suffixIcon: (
       <HelpIcon color={cssVarV2('icon/primary')} width={20} height={20} />
     ),
-    suffixTooltip: 'com.affine.import.markdown-with-media-files.tooltip',
+    suffixTooltip: 'com.polymind.import.markdown-with-media-files.tooltip',
     testId: 'editor-option-menu-import-markdown-with-media',
     type: 'markdownZip' as ImportType,
   },
   {
     key: 'html',
-    label: 'com.affine.import.html-files',
+    label: 'com.polymind.import.html-files',
     prefixIcon: (
       <ExportToHtmlIcon
         color={cssVarV2('icon/primary')}
@@ -261,69 +261,69 @@ const importOptions = [
     suffixIcon: (
       <HelpIcon color={cssVarV2('icon/primary')} width={20} height={20} />
     ),
-    suffixTooltip: 'com.affine.import.html-files.tooltip',
+    suffixTooltip: 'com.polymind.import.html-files.tooltip',
     testId: 'editor-option-menu-import-html',
     type: 'html' as ImportType,
   },
   {
     key: 'notion',
-    label: 'com.affine.import.notion',
+    label: 'com.polymind.import.notion',
     prefixIcon: <NotionIcon color={cssVar('black')} width={20} height={20} />,
     suffixIcon: (
       <HelpIcon color={cssVarV2('icon/primary')} width={20} height={20} />
     ),
-    suffixTooltip: 'com.affine.import.notion.tooltip',
+    suffixTooltip: 'com.polymind.import.notion.tooltip',
     testId: 'editor-option-menu-import-notion',
     type: 'notion' as ImportType,
   },
   {
     key: 'obsidian',
-    label: 'com.affine.import.obsidian',
+    label: 'com.polymind.import.obsidian',
     prefixIcon: (
       <ExportToMarkdownIcon color={cssVar('black')} width={20} height={20} />
     ),
     suffixIcon: (
       <HelpIcon color={cssVarV2('icon/primary')} width={20} height={20} />
     ),
-    suffixTooltip: 'com.affine.import.obsidian.tooltip',
+    suffixTooltip: 'com.polymind.import.obsidian.tooltip',
     testId: 'editor-option-menu-import-obsidian',
     type: 'obsidian' as ImportType,
   },
   {
     key: 'docx',
-    label: 'com.affine.import.docx',
+    label: 'com.polymind.import.docx',
     prefixIcon: <FileIcon color={cssVar('black')} width={20} height={20} />,
     suffixIcon: (
       <HelpIcon color={cssVarV2('icon/primary')} width={20} height={20} />
     ),
-    suffixTooltip: 'com.affine.import.docx.tooltip',
+    suffixTooltip: 'com.polymind.import.docx.tooltip',
     testId: 'editor-option-menu-import-docx',
     type: 'docx' as ImportType,
   },
   {
     key: 'snapshot',
-    label: 'com.affine.import.snapshot',
+    label: 'com.polymind.import.snapshot',
     prefixIcon: (
       <PageIcon color={cssVarV2('icon/primary')} width={20} height={20} />
     ),
     suffixIcon: (
       <HelpIcon color={cssVarV2('icon/primary')} width={20} height={20} />
     ),
-    suffixTooltip: 'com.affine.import.snapshot.tooltip',
+    suffixTooltip: 'com.polymind.import.snapshot.tooltip',
     testId: 'editor-option-menu-import-snapshot',
     type: 'snapshot' as ImportType,
   },
   BUILD_CONFIG.isElectron
     ? {
         key: 'dotaffinefile',
-        label: 'com.affine.import.dotaffinefile',
+        label: 'com.polymind.import.dotaffinefile',
         prefixIcon: (
           <SaveIcon color={cssVarV2('icon/primary')} width={20} height={20} />
         ),
         suffixIcon: (
           <HelpIcon color={cssVarV2('icon/primary')} width={20} height={20} />
         ),
-        suffixTooltip: 'com.affine.import.dotaffinefile.tooltip',
+        suffixTooltip: 'com.polymind.import.dotaffinefile.tooltip',
         testId: 'editor-option-menu-import-dotaffinefile',
         type: 'dotaffinefile' as ImportType,
       }
@@ -632,7 +632,7 @@ const ImportOptions = ({
         )}
       </div>
       <div className={style.importModalTip}>
-        {t['com.affine.import.modal.tip']()}{' '}
+        {t['com.polymind.import.modal.tip']()}{' '}
         <a
           className={style.link}
           href={BUILD_CONFIG.discordUrl}
@@ -652,10 +652,10 @@ const ImportingStatus = () => {
   return (
     <>
       <div className={style.importModalTitle}>
-        {t['com.affine.import.status.importing.title']()}
+        {t['com.polymind.import.status.importing.title']()}
       </div>
       <p className={style.importStatusContent}>
-        {t['com.affine.import.status.importing.message']()}
+        {t['com.polymind.import.status.importing.message']()}
       </p>
     </>
   );
@@ -666,10 +666,10 @@ const SuccessStatus = ({ onComplete }: { onComplete: () => void }) => {
   return (
     <>
       <div className={style.importModalTitle}>
-        {t['com.affine.import.status.success.title']()}
+        {t['com.polymind.import.status.success.title']()}
       </div>
       <p className={style.importStatusContent}>
-        {t['com.affine.import.status.success.message']()}{' '}
+        {t['com.polymind.import.status.success.message']()}{' '}
         <a
           className={style.link}
           href={BUILD_CONFIG.discordUrl}
@@ -701,7 +701,7 @@ const ErrorStatus = ({
   return (
     <>
       <div className={style.importModalTitle}>
-        {t['com.affine.import.status.failed.title']()}
+        {t['com.polymind.import.status.failed.title']()}
       </div>
       <p className={style.importStatusContent}>
         {error || 'Unknown error occurred'}
@@ -796,7 +796,7 @@ export const ImportDialog = ({
 
         if (!files || (files.length === 0 && acceptType !== 'Skip')) {
           throw new Error(
-            t['com.affine.import.status.failed.message.no-file-selected']()
+            t['com.polymind.import.status.failed.message.no-file-selected']()
           );
         }
 

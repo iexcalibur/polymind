@@ -1,5 +1,5 @@
-import type { ReactToLit } from '@affine/component';
-import { JournalService } from '@affine/core/modules/journal';
+import type { ReactToLit } from '@polymind/component';
+import { JournalService } from '@polymind/core/modules/journal';
 import { EmbedSyncedDocConfigExtension } from '@blocksuite/affine/blocks/embed-doc';
 import { NoteConfigExtension } from '@blocksuite/affine/blocks/note';
 import { EDGELESS_BLOCK_CHILD_PADDING } from '@blocksuite/affine/blocks/root';

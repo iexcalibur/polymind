@@ -1,15 +1,15 @@
-import { Button, useConfirmModal } from '@affine/component';
-import { usePageHelper } from '@affine/core/blocksuite/block-suite-page-list/utils';
-import { PageListNewPageButton } from '@affine/core/components/page-list';
+import { Button, useConfirmModal } from '@polymind/component';
+import { usePageHelper } from '@polymind/core/blocksuite/block-suite-page-list/utils';
+import { PageListNewPageButton } from '@polymind/core/components/page-list';
 import {
   type Collection,
   CollectionService,
-} from '@affine/core/modules/collection';
-import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import type { DocRecord } from '@affine/core/modules/doc';
-import { WorkbenchLink } from '@affine/core/modules/workbench';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/collection';
+import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import type { DocRecord } from '@polymind/core/modules/doc';
+import { WorkbenchLink } from '@polymind/core/modules/workbench';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { useI18n } from '@polymind/i18n';
 import type { DocMode } from '@blocksuite/affine/model';
 import { ViewLayersIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useServices } from '@toeverything/infra';
@@ -52,8 +52,8 @@ export const CollectionListHeader = ({
   const onConfirmAddDocument = useCallback(
     (createDocumentFn: () => DocRecord) => {
       openConfirmModal({
-        title: t['com.affine.collection.add-doc.confirm.title'](),
-        description: t['com.affine.collection.add-doc.confirm.description'](),
+        title: t['com.polymind.collection.add-doc.confirm.title'](),
+        description: t['com.polymind.collection.add-doc.confirm.description'](),
         cancelText: t['Cancel'](),
         confirmText: t['Confirm'](),
         confirmButtonOptions: {
@@ -86,7 +86,7 @@ export const CollectionListHeader = ({
       <div className={styles.breadcrumb}>
         <div className={styles.breadcrumbItem}>
           <WorkbenchLink to="/collection" className={styles.breadcrumbLink}>
-            {t['com.affine.collections.header']()}
+            {t['com.polymind.collections.header']()}
           </WorkbenchLink>
         </div>
         <div className={styles.breadcrumbSeparator}>/</div>

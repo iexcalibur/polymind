@@ -1,29 +1,29 @@
-import { Scrollable } from '@affine/component';
-import { PageDetailLoading } from '@affine/component/page-detail-skeleton';
-import type { AIChatParams } from '@affine/core/blocksuite/ai';
-import { AIProvider } from '@affine/core/blocksuite/ai';
-import type { AffineEditorContainer } from '@affine/core/blocksuite/block-suite-editor';
-import { EditorOutlineViewer } from '@affine/core/blocksuite/outline-viewer';
-import { AffineErrorBoundary } from '@affine/core/components/affine/affine-error-boundary';
-// import { PageAIOnboarding } from '@affine/core/components/affine/ai-onboarding';
-import { GlobalPageHistoryModal } from '@affine/core/components/affine/page-history-modal';
-import { CommentSidebar } from '@affine/core/components/comment/sidebar';
-import { useGuard } from '@affine/core/components/guard';
-import { useAppSettingHelper } from '@affine/core/components/hooks/affine/use-app-setting-helper';
-import { useEnableAI } from '@affine/core/components/hooks/affine/use-enable-ai';
-import { useRegisterBlocksuiteEditorCommands } from '@affine/core/components/hooks/affine/use-register-blocksuite-editor-commands';
-import { useActiveBlocksuiteEditor } from '@affine/core/components/hooks/use-block-suite-editor';
-import { PageDetailEditor } from '@affine/core/components/page-detail-editor';
-import { WorkspacePropertySidebar } from '@affine/core/components/properties/sidebar';
-import { TrashPageFooter } from '@affine/core/components/pure/trash-page-footer';
-import { TopTip } from '@affine/core/components/top-tip';
-import { DocService } from '@affine/core/modules/doc';
-import { EditorService } from '@affine/core/modules/editor';
-import { FeatureFlagService } from '@affine/core/modules/feature-flag';
-import { GlobalContextService } from '@affine/core/modules/global-context';
-import { JournalService } from '@affine/core/modules/journal';
-import { PeekViewService } from '@affine/core/modules/peek-view';
-import { RecentDocsService } from '@affine/core/modules/quicksearch';
+import { Scrollable } from '@polymind/component';
+import { PageDetailLoading } from '@polymind/component/page-detail-skeleton';
+import type { AIChatParams } from '@polymind/core/blocksuite/ai';
+import { AIProvider } from '@polymind/core/blocksuite/ai';
+import type { AffineEditorContainer } from '@polymind/core/blocksuite/block-suite-editor';
+import { EditorOutlineViewer } from '@polymind/core/blocksuite/outline-viewer';
+import { AffineErrorBoundary } from '@polymind/core/components/affine/affine-error-boundary';
+// import { PageAIOnboarding } from '@polymind/core/components/affine/ai-onboarding';
+import { GlobalPageHistoryModal } from '@polymind/core/components/affine/page-history-modal';
+import { CommentSidebar } from '@polymind/core/components/comment/sidebar';
+import { useGuard } from '@polymind/core/components/guard';
+import { useAppSettingHelper } from '@polymind/core/components/hooks/affine/use-app-setting-helper';
+import { useEnableAI } from '@polymind/core/components/hooks/affine/use-enable-ai';
+import { useRegisterBlocksuiteEditorCommands } from '@polymind/core/components/hooks/affine/use-register-blocksuite-editor-commands';
+import { useActiveBlocksuiteEditor } from '@polymind/core/components/hooks/use-block-suite-editor';
+import { PageDetailEditor } from '@polymind/core/components/page-detail-editor';
+import { WorkspacePropertySidebar } from '@polymind/core/components/properties/sidebar';
+import { TrashPageFooter } from '@polymind/core/components/pure/trash-page-footer';
+import { TopTip } from '@polymind/core/components/top-tip';
+import { DocService } from '@polymind/core/modules/doc';
+import { EditorService } from '@polymind/core/modules/editor';
+import { FeatureFlagService } from '@polymind/core/modules/feature-flag';
+import { GlobalContextService } from '@polymind/core/modules/global-context';
+import { JournalService } from '@polymind/core/modules/journal';
+import { PeekViewService } from '@polymind/core/modules/peek-view';
+import { RecentDocsService } from '@polymind/core/modules/quicksearch';
 import {
   useIsActiveView,
   ViewBody,
@@ -31,9 +31,9 @@ import {
   ViewService,
   ViewSidebarTab,
   WorkbenchService,
-} from '@affine/core/modules/workbench';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { isNewTabTrigger } from '@affine/core/utils';
+} from '@polymind/core/modules/workbench';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { isNewTabTrigger } from '@polymind/core/utils';
 import { DisposableGroup } from '@blocksuite/affine/global/disposable';
 import { RefNodeSlotsProvider } from '@blocksuite/affine/inlines/reference';
 import { focusBlockEnd } from '@blocksuite/affine/shared/commands';

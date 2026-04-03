@@ -1,4 +1,4 @@
-import { useI18n } from '@affine/i18n';
+import { useI18n } from '@polymind/i18n';
 import { getCurrentStore } from '@toeverything/infra';
 import clsx from 'clsx';
 import { Provider } from 'jotai/react';
@@ -61,9 +61,9 @@ export const AffineErrorComponent = () => {
 
   return (
     <ErrorDetail
-      title={t['com.affine.error.unexpected-error.title']()}
+      title={t['com.polymind.error.unexpected-error.title']()}
       resetError={reloadPage}
-      buttonText={t['com.affine.error.reload']()}
+      buttonText={t['com.polymind.error.reload']()}
       description={
         'message' in (error as Error) ? (error as Error).message : `${error}`
       }

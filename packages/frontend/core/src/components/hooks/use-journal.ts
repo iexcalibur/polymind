@@ -1,12 +1,12 @@
-import { DocsService } from '@affine/core/modules/doc';
-import { EditorSettingService } from '@affine/core/modules/editor-setting';
+import { DocsService } from '@polymind/core/modules/doc';
+import { EditorSettingService } from '@polymind/core/modules/editor-setting';
 import {
   JOURNAL_DATE_FORMAT,
   JournalService,
   type MaybeDate,
-} from '@affine/core/modules/journal';
-import type { WorkbenchOpenOptions } from '@affine/core/modules/workbench/entities/workbench';
-import { i18nTime } from '@affine/i18n';
+} from '@polymind/core/modules/journal';
+import type { WorkbenchOpenOptions } from '@polymind/core/modules/workbench/entities/workbench';
+import { i18nTime } from '@polymind/i18n';
 import { useService, useServices } from '@toeverything/infra';
 import dayjs from 'dayjs';
 import { useCallback, useMemo } from 'react';

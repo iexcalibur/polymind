@@ -5,18 +5,18 @@ import {
   toast,
   useConfirmModal,
   usePromptModal,
-} from '@affine/component';
-import { useBlockSuiteMetaHelper } from '@affine/core/components/hooks/affine/use-block-suite-meta-helper';
-import { useCatchEventCallback } from '@affine/core/components/hooks/use-catch-event-hook';
-import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import { DocsService } from '@affine/core/modules/doc';
+} from '@polymind/component';
+import { useBlockSuiteMetaHelper } from '@polymind/core/components/hooks/affine/use-block-suite-meta-helper';
+import { useCatchEventCallback } from '@polymind/core/components/hooks/use-catch-event-hook';
+import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import { DocsService } from '@polymind/core/modules/doc';
 import {
   CompatibleFavoriteItemsAdapter,
   FavoriteService,
-} from '@affine/core/modules/favorite';
-import { WorkbenchService } from '@affine/core/modules/workbench';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/favorite';
+import { WorkbenchService } from '@polymind/core/modules/workbench';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { useI18n } from '@polymind/i18n';
 import type { DocMeta } from '@blocksuite/affine/store';
 import {
   DeleteIcon,
@@ -103,11 +103,11 @@ const PageOperationCellMenuItem = ({
       return;
     }
     openConfirmModal({
-      title: t['com.affine.moveToTrash.confirmModal.title'](),
-      description: t['com.affine.moveToTrash.confirmModal.description']({
+      title: t['com.polymind.moveToTrash.confirmModal.title'](),
+      description: t['com.polymind.moveToTrash.confirmModal.description']({
         title: docRecord.title$.value || t['Untitled'](),
       }),
-      cancelText: t['com.affine.confirmModal.button.cancel'](),
+      cancelText: t['com.polymind.confirmModal.button.cancel'](),
       confirmText: t.Delete(),
       confirmButtonOptions: {
         variant: 'error',
@@ -131,8 +131,8 @@ const PageOperationCellMenuItem = ({
     favAdapter.toggle(page.id, 'doc');
     toast(
       status
-        ? t['com.affine.toastMessage.removedFavorites']()
-        : t['com.affine.toastMessage.addedFavorites']()
+        ? t['com.polymind.toastMessage.removedFavorites']()
+        : t['com.polymind.toastMessage.addedFavorites']()
     );
   }, [page.id, favAdapter, t]);
 
@@ -171,23 +171,23 @@ const PageOperationCellMenuItem = ({
         prefixIcon={<IsFavoriteIcon favorite={favourite} />}
       >
         {favourite
-          ? t['com.affine.favoritePageOperation.remove']()
-          : t['com.affine.favoritePageOperation.add']()}
+          ? t['com.polymind.favoritePageOperation.remove']()
+          : t['com.polymind.favoritePageOperation.add']()}
       </MenuItem>
       <MenuItem onClick={onOpenInfoModal} prefixIcon={<InformationIcon />}>
-        {t['com.affine.page-properties.page-info.view']()}
+        {t['com.polymind.page-properties.page-info.view']()}
       </MenuItem>
       <MenuItem onClick={onOpenInNewTab} prefixIcon={<OpenInNewIcon />}>
-        {t['com.affine.workbench.tab.page-menu-open']()}
+        {t['com.polymind.workbench.tab.page-menu-open']()}
       </MenuItem>
       {BUILD_CONFIG.isElectron ? (
         <MenuItem onClick={onOpenInSplitView} prefixIcon={<SplitViewIcon />}>
-          {t['com.affine.workbench.split-view.page-menu-open']()}
+          {t['com.polymind.workbench.split-view.page-menu-open']()}
         </MenuItem>
       ) : null}
 
       <MenuItem prefixIcon={<DuplicateIcon />} onSelect={onDuplicate}>
-        {t['com.affine.header.option.duplicate']()}
+        {t['com.polymind.header.option.duplicate']()}
       </MenuItem>
 
       <MoveToTrash
@@ -216,8 +216,8 @@ export const PageOperationCell = ({
     favAdapter.toggle(page.id, 'doc');
     toast(
       status
-        ? t['com.affine.toastMessage.removedFavorites']()
-        : t['com.affine.toastMessage.addedFavorites']()
+        ? t['com.polymind.toastMessage.removedFavorites']()
+        : t['com.polymind.toastMessage.addedFavorites']()
     );
   }, [page.id, favAdapter, t]);
   return (
@@ -268,10 +268,10 @@ export const TrashOperationCell = ({
     e => {
       e.preventDefault();
       openConfirmModal({
-        title: `${t['com.affine.trashOperation.deletePermanently']()}?`,
-        description: t['com.affine.trashOperation.deleteDescription'](),
+        title: `${t['com.polymind.trashOperation.deletePermanently']()}?`,
+        description: t['com.polymind.trashOperation.deleteDescription'](),
         cancelText: t['Cancel'](),
-        confirmText: t['com.affine.trashOperation.delete'](),
+        confirmText: t['com.polymind.trashOperation.delete'](),
         confirmButtonOptions: {
           variant: 'error',
         },
@@ -292,7 +292,7 @@ export const TrashOperationCell = ({
   return (
     <ColWrapper flex={1}>
       <IconButton
-        tooltip={t['com.affine.trashOperation.restoreIt']()}
+        tooltip={t['com.polymind.trashOperation.restoreIt']()}
         tooltipOptions={tooltipSideTop}
         data-testid="restore-page-button"
         style={{ marginRight: '12px' }}
@@ -302,7 +302,7 @@ export const TrashOperationCell = ({
         <ResetIcon />
       </IconButton>
       <IconButton
-        tooltip={t['com.affine.trashOperation.deletePermanently']()}
+        tooltip={t['com.polymind.trashOperation.deletePermanently']()}
         tooltipOptions={tooltipSideTopAlignEnd}
         data-testid="delete-page-button"
         onClick={onConfirmPermanentlyDelete}
@@ -352,13 +352,13 @@ export const CollectionOperationCell = ({
     (event: MouseEvent) => {
       handlePropagation(event);
       openPromptModal({
-        title: t['com.affine.editCollection.renameCollection'](),
-        label: t['com.affine.editCollectionName.name'](),
+        title: t['com.polymind.editCollection.renameCollection'](),
+        label: t['com.polymind.editCollectionName.name'](),
         inputOptions: {
-          placeholder: t['com.affine.editCollectionName.name.placeholder'](),
+          placeholder: t['com.polymind.editCollectionName.name.placeholder'](),
         },
-        confirmText: t['com.affine.editCollection.save'](),
-        cancelText: t['com.affine.editCollection.button.cancel'](),
+        confirmText: t['com.polymind.editCollection.save'](),
+        cancelText: t['com.polymind.editCollection.button.cancel'](),
         confirmButtonOptions: {
           variant: 'primary',
         },
@@ -391,8 +391,8 @@ export const CollectionOperationCell = ({
     favAdapter.toggle(collectionId, 'collection');
     toast(
       status
-        ? t['com.affine.toastMessage.removedFavorites']()
-        : t['com.affine.toastMessage.addedFavorites']()
+        ? t['com.polymind.toastMessage.removedFavorites']()
+        : t['com.polymind.toastMessage.addedFavorites']()
     );
   }, [favAdapter, collectionId, t]);
 
@@ -403,8 +403,8 @@ export const CollectionOperationCell = ({
 
   const onConfirmAddDocToCollection = useCallback(() => {
     openConfirmModal({
-      title: t['com.affine.collection.add-doc.confirm.title'](),
-      description: t['com.affine.collection.add-doc.confirm.description'](),
+      title: t['com.polymind.collection.add-doc.confirm.title'](),
+      description: t['com.polymind.collection.add-doc.confirm.description'](),
       cancelText: t['Cancel'](),
       confirmText: t['Confirm'](),
       confirmButtonOptions: {
@@ -426,14 +426,14 @@ export const CollectionOperationCell = ({
       </ColWrapper>
       <IconButton
         onClick={handleEditName}
-        tooltip={t['com.affine.collection.menu.rename']()}
+        tooltip={t['com.polymind.collection.menu.rename']()}
         tooltipOptions={tooltipSideTop}
       >
         <EditIcon />
       </IconButton>
       <IconButton
         onClick={handleEdit}
-        tooltip={t['com.affine.collection.menu.edit']()}
+        tooltip={t['com.polymind.collection.menu.edit']()}
         tooltipOptions={tooltipSideTop}
       >
         <FilterIcon />
@@ -447,8 +447,8 @@ export const CollectionOperationCell = ({
                 prefixIcon={<IsFavoriteIcon favorite={favourite} />}
               >
                 {favourite
-                  ? t['com.affine.favoritePageOperation.remove']()
-                  : t['com.affine.favoritePageOperation.add']()}
+                  ? t['com.polymind.favoritePageOperation.remove']()
+                  : t['com.polymind.favoritePageOperation.add']()}
               </MenuItem>
               <MenuItem
                 onClick={onConfirmAddDocToCollection}

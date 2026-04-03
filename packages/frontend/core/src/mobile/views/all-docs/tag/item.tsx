@@ -1,8 +1,8 @@
-import { IconButton } from '@affine/component';
-import { IsFavoriteIcon } from '@affine/core/components/pure/icons';
-import { CompatibleFavoriteItemsAdapter } from '@affine/core/modules/favorite';
-import type { Tag } from '@affine/core/modules/tag';
-import { WorkbenchLink } from '@affine/core/modules/workbench';
+import { IconButton } from '@polymind/component';
+import { IsFavoriteIcon } from '@polymind/core/components/pure/icons';
+import { CompatibleFavoriteItemsAdapter } from '@polymind/core/modules/favorite';
+import type { Tag } from '@polymind/core/modules/tag';
+import { WorkbenchLink } from '@polymind/core/modules/workbench';
 import { useLiveData, useService } from '@toeverything/infra';
 import { type MouseEvent, useCallback } from 'react';
 

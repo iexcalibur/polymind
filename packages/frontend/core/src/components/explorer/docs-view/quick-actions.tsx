@@ -4,13 +4,13 @@ import {
   type IconButtonProps,
   toast,
   useConfirmModal,
-} from '@affine/component';
-import type { DocRecord } from '@affine/core/modules/doc';
-import { CompatibleFavoriteItemsAdapter } from '@affine/core/modules/favorite';
-import { GuardService } from '@affine/core/modules/permissions';
-import { WorkbenchService } from '@affine/core/modules/workbench';
-import { UserFriendlyError } from '@affine/error';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component';
+import type { DocRecord } from '@polymind/core/modules/doc';
+import { CompatibleFavoriteItemsAdapter } from '@polymind/core/modules/favorite';
+import { GuardService } from '@polymind/core/modules/permissions';
+import { WorkbenchService } from '@polymind/core/modules/workbench';
+import { UserFriendlyError } from '@polymind/error';
+import { useI18n } from '@polymind/i18n';
 import {
   DeleteIcon,
   OpenInNewIcon,
@@ -146,11 +146,11 @@ export const QuickDelete = memo(function QuickDelete({
         return;
       }
       openConfirmModal({
-        title: t['com.affine.moveToTrash.confirmModal.title'](),
-        description: t['com.affine.moveToTrash.confirmModal.description']({
+        title: t['com.polymind.moveToTrash.confirmModal.title'](),
+        description: t['com.polymind.moveToTrash.confirmModal.description']({
           title: doc.title$.value || t['Untitled'](),
         }),
-        cancelText: t['com.affine.confirmModal.button.cancel'](),
+        cancelText: t['com.polymind.confirmModal.button.cancel'](),
         confirmText: t.Delete(),
         confirmButtonOptions: {
           variant: 'error',
@@ -159,7 +159,7 @@ export const QuickDelete = memo(function QuickDelete({
           try {
             const canTrash = await guardService.can('Doc_Trash', doc.id);
             if (!canTrash) {
-              toast(t['com.affine.no-permission']());
+              toast(t['com.polymind.no-permission']());
               return;
             }
             doc.moveToTrash();
@@ -249,9 +249,9 @@ export const QuickDeletePermanently = memo(function QuickDeletePermanently({
       .then(can => {
         if (can) {
           permanentlyDeletePage(doc.id);
-          toast(t['com.affine.toastMessage.permanentlyDeleted']());
+          toast(t['com.polymind.toastMessage.permanentlyDeleted']());
         } else {
-          toast(t['com.affine.no-permission']());
+          toast(t['com.polymind.no-permission']());
         }
       })
       .catch(e => {
@@ -265,10 +265,10 @@ export const QuickDeletePermanently = memo(function QuickDeletePermanently({
       e.stopPropagation();
       e.preventDefault();
       openConfirmModal({
-        title: `${t['com.affine.trashOperation.deletePermanently']()}?`,
-        description: t['com.affine.trashOperation.deleteDescription'](),
+        title: `${t['com.polymind.trashOperation.deletePermanently']()}?`,
+        description: t['com.polymind.trashOperation.deleteDescription'](),
         cancelText: t['Cancel'](),
-        confirmText: t['com.affine.trashOperation.delete'](),
+        confirmText: t['com.polymind.trashOperation.delete'](),
         confirmButtonOptions: {
           variant: 'error',
         },
@@ -315,12 +315,12 @@ export const QuickRestore = memo(function QuickRestore({
           if (can) {
             restoreFromTrash(doc.id);
             toast(
-              t['com.affine.toastMessage.restored']({
+              t['com.polymind.toastMessage.restored']({
                 title: doc.title$.value || 'Untitled',
               })
             );
           } else {
-            toast(t['com.affine.no-permission']());
+            toast(t['com.polymind.no-permission']());
           }
         })
         .catch(e => {

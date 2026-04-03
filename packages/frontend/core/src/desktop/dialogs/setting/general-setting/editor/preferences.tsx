@@ -1,32 +1,32 @@
-import { Button } from '@affine/component';
+import { Button } from '@polymind/component';
 import {
   SettingRow,
   SettingWrapper,
-} from '@affine/component/setting-components';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component/setting-components';
+import { useI18n } from '@polymind/i18n';
 
 export const Preferences = () => {
   const t = useI18n();
   return (
     <SettingWrapper
-      title={t['com.affine.settings.editorSettings.preferences']()}
+      title={t['com.polymind.settings.editorSettings.preferences']()}
     >
       <SettingRow
         name={t[
-          'com.affine.settings.editorSettings.preferences.export.title'
+          'com.polymind.settings.editorSettings.preferences.export.title'
         ]()}
         desc={t[
-          'com.affine.settings.editorSettings.preferences.export.description'
+          'com.polymind.settings.editorSettings.preferences.export.description'
         ]()}
       >
         <Button>Export</Button>
       </SettingRow>
       <SettingRow
         name={t[
-          'com.affine.settings.editorSettings.preferences.import.title'
+          'com.polymind.settings.editorSettings.preferences.import.title'
         ]()}
         desc={t[
-          'com.affine.settings.editorSettings.preferences.import.description'
+          'com.polymind.settings.editorSettings.preferences.import.description'
         ]()}
       >
         <Button>Import</Button>

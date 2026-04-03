@@ -1,9 +1,9 @@
-import type { MenuItemProps } from '@affine/component';
-import { Menu, MenuItem, usePromptModal } from '@affine/component';
-import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import { CompatibleFavoriteItemsAdapter } from '@affine/core/modules/favorite';
-import { WorkbenchService } from '@affine/core/modules/workbench';
-import { useI18n } from '@affine/i18n';
+import type { MenuItemProps } from '@polymind/component';
+import { Menu, MenuItem, usePromptModal } from '@polymind/component';
+import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import { CompatibleFavoriteItemsAdapter } from '@polymind/core/modules/favorite';
+import { WorkbenchService } from '@polymind/core/modules/workbench';
+import { useI18n } from '@polymind/i18n';
 import {
   DeleteIcon,
   EditIcon,
@@ -52,13 +52,13 @@ export const CollectionOperations = ({
       return openRenameModal();
     }
     openPromptModal({
-      title: t['com.affine.editCollection.renameCollection'](),
-      label: t['com.affine.editCollectionName.name'](),
+      title: t['com.polymind.editCollection.renameCollection'](),
+      label: t['com.polymind.editCollectionName.name'](),
       inputOptions: {
-        placeholder: t['com.affine.editCollectionName.name.placeholder'](),
+        placeholder: t['com.polymind.editCollectionName.name.placeholder'](),
       },
-      confirmText: t['com.affine.editCollection.save'](),
-      cancelText: t['com.affine.editCollection.button.cancel'](),
+      confirmText: t['com.polymind.editCollection.save'](),
+      cancelText: t['com.polymind.editCollection.button.cancel'](),
       confirmButtonOptions: {
         variant: 'primary',
       },
@@ -114,12 +114,12 @@ export const CollectionOperations = ({
     () => [
       {
         icon: <EditIcon />,
-        name: t['com.affine.collection.menu.rename'](),
+        name: t['com.polymind.collection.menu.rename'](),
         click: showEditName,
       },
       {
         icon: <FilterIcon />,
-        name: t['com.affine.collection.menu.edit'](),
+        name: t['com.polymind.collection.menu.edit'](),
         click: showEdit,
       },
       ...(onAddDocToCollection
@@ -134,20 +134,20 @@ export const CollectionOperations = ({
       {
         icon: <IsFavoriteIcon favorite={favorite} />,
         name: favorite
-          ? t['com.affine.favoritePageOperation.remove']()
-          : t['com.affine.favoritePageOperation.add'](),
+          ? t['com.polymind.favoritePageOperation.remove']()
+          : t['com.polymind.favoritePageOperation.add'](),
         click: onToggleFavoritePage,
       },
       {
         icon: <OpenInNewIcon />,
-        name: t['com.affine.workbench.tab.page-menu-open'](),
+        name: t['com.polymind.workbench.tab.page-menu-open'](),
         click: openCollectionNewTab,
       },
       ...(BUILD_CONFIG.isElectron
         ? [
             {
               icon: <SplitViewIcon />,
-              name: t['com.affine.workbench.split-view.page-menu-open'](),
+              name: t['com.polymind.workbench.split-view.page-menu-open'](),
               click: openCollectionSplitView,
             },
           ]

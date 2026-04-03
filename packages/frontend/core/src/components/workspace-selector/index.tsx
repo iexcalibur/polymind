@@ -1,11 +1,11 @@
-import { Menu, type MenuProps } from '@affine/component';
-import { useNavigateHelper } from '@affine/core/components/hooks/use-navigate-helper';
-import { GlobalContextService } from '@affine/core/modules/global-context';
-import { WorkbenchService } from '@affine/core/modules/workbench';
+import { Menu, type MenuProps } from '@polymind/component';
+import { useNavigateHelper } from '@polymind/core/components/hooks/use-navigate-helper';
+import { GlobalContextService } from '@polymind/core/modules/global-context';
+import { WorkbenchService } from '@polymind/core/modules/workbench';
 import {
   type WorkspaceMetadata,
   WorkspacesService,
-} from '@affine/core/modules/workspace';
+} from '@polymind/core/modules/workspace';
 import {
   useLiveData,
   useServiceOptional,

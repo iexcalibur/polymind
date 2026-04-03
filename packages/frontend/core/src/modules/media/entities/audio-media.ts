@@ -1,5 +1,5 @@
-import { toArrayBuffer } from '@affine/core/utils/array-buffer';
-import { DebugLogger } from '@affine/debug';
+import { toArrayBuffer } from '@polymind/core/utils/array-buffer';
+import { DebugLogger } from '@polymind/debug';
 import {
   catchErrorInto,
   effect,

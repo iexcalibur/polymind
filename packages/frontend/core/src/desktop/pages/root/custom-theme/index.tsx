@@ -1,6 +1,6 @@
-import { EditorSettingService } from '@affine/core/modules/editor-setting';
-import { FeatureFlagService } from '@affine/core/modules/feature-flag';
-import { ThemeEditorService } from '@affine/core/modules/theme-editor';
+import { EditorSettingService } from '@polymind/core/modules/editor-setting';
+import { FeatureFlagService } from '@polymind/core/modules/feature-flag';
+import { ThemeEditorService } from '@polymind/core/modules/theme-editor';
 import { useLiveData, useServices } from '@toeverything/infra';
 import { useTheme } from 'next-themes';
 import { useEffect } from 'react';

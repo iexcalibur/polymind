@@ -1,5 +1,5 @@
-import { getPreviewThemeExtension } from '@affine/core/blocksuite/view-extensions/theme/preview-theme';
-import { getThemeExtension } from '@affine/core/blocksuite/view-extensions/theme/theme';
+import { getPreviewThemeExtension } from '@polymind/core/blocksuite/view-extensions/theme/preview-theme';
+import { getThemeExtension } from '@polymind/core/blocksuite/view-extensions/theme/theme';
 import {
   type ViewExtensionContext,
   ViewExtensionProvider,

@@ -2,9 +2,9 @@ import {
   type DropTargetDropEvent,
   Skeleton,
   useDropTarget,
-} from '@affine/component';
-import type { AffineDNDData } from '@affine/core/types/dnd';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component';
+import type { AffineDNDData } from '@polymind/core/types/dnd';
+import { useI18n } from '@polymind/i18n';
 import { FavoriteIcon } from '@blocksuite/icons/rc';
 
 import { NavigationPanelEmptySection } from '../../layouts/empty-section';
@@ -39,7 +39,7 @@ const RootEmptyReady = ({ onDrop }: Omit<RootEmptyProps, 'isLoading'>) => {
     <NavigationPanelEmptySection
       ref={dropTargetRef}
       icon={FavoriteIcon}
-      message={t['com.affine.rootAppSidebar.favorites.empty']()}
+      message={t['com.polymind.rootAppSidebar.favorites.empty']()}
       messageTestId="slider-bar-favorites-empty-message"
     >
       {draggedOverDraggable && (

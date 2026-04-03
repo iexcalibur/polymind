@@ -3,9 +3,9 @@ import {
   type DropTargetDropEvent,
   Skeleton,
   useDropTarget,
-} from '@affine/component';
-import type { AffineDNDData } from '@affine/core/types/dnd';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component';
+import type { AffineDNDData } from '@polymind/core/types/dnd';
+import { useI18n } from '@polymind/i18n';
 
 import { NavigationPanelEmptySection } from '../../layouts/empty-section';
 import { DropEffect } from '../../tree';
@@ -41,10 +41,10 @@ export const RootEmptyReady = ({
     <NavigationPanelEmptySection
       ref={dropTargetRef}
       icon={<AnimatedFolderIcon open={!!draggedOverDraggable} />}
-      message={t['com.affine.rootAppSidebar.organize.empty']()}
+      message={t['com.polymind.rootAppSidebar.organize.empty']()}
       messageTestId="slider-bar-organize-empty-message"
       actionText={t[
-        'com.affine.rootAppSidebar.organize.empty.new-folders-button'
+        'com.polymind.rootAppSidebar.organize.empty.new-folders-button'
       ]()}
       onActionClick={onClickCreate}
     >

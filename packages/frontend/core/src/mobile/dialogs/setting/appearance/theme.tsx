@@ -1,5 +1,5 @@
-import { getThemeOptions } from '@affine/core/desktop/dialogs/setting/general-setting/appearance';
-import { useI18n } from '@affine/i18n';
+import { getThemeOptions } from '@polymind/core/desktop/dialogs/setting/general-setting/appearance';
+import { useI18n } from '@polymind/i18n';
 import { useTheme } from 'next-themes';
 import { useMemo } from 'react';
 
@@ -13,7 +13,7 @@ export const ThemeSetting = () => {
   const { setTheme, theme } = useTheme();
 
   return (
-    <RowLayout label={t['com.affine.mobile.setting.appearance.theme']()}>
+    <RowLayout label={t['com.polymind.mobile.setting.appearance.theme']()}>
       <SettingDropdownSelect
         options={options}
         value={theme}

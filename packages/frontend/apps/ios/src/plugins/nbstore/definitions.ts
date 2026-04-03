@@ -1,4 +1,4 @@
-import type { CrawlResult, DocIndexedClock } from '@affine/nbstore';
+import type { CrawlResult, DocIndexedClock } from '@polymind/nbstore';
 
 export interface Blob {
   key: string;

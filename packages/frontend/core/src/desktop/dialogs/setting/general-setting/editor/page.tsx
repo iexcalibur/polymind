@@ -1,10 +1,10 @@
-import { RadioGroup, type RadioItem, Switch } from '@affine/component';
+import { RadioGroup, type RadioItem, Switch } from '@polymind/component';
 import {
   SettingRow,
   SettingWrapper,
-} from '@affine/component/setting-components';
-import { EditorSettingService } from '@affine/core/modules/editor-setting';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component/setting-components';
+import { EditorSettingService } from '@polymind/core/modules/editor-setting';
+import { useI18n } from '@polymind/i18n';
 import { useLiveData, useService } from '@toeverything/infra';
 import { useCallback, useMemo } from 'react';
 
@@ -21,7 +21,7 @@ export const Page = () => {
         value: 'standard',
         label:
           t[
-            'com.affine.settings.editorSettings.page.default-page-width.standard'
+            'com.polymind.settings.editorSettings.page.default-page-width.standard'
           ](),
         testId: 'standard-width-trigger',
       },
@@ -29,7 +29,7 @@ export const Page = () => {
         value: 'fullWidth',
         label:
           t[
-            'com.affine.settings.editorSettings.page.default-page-width.full-width'
+            'com.polymind.settings.editorSettings.page.default-page-width.full-width'
           ](),
         testId: 'full-width-trigger',
       },
@@ -58,13 +58,13 @@ export const Page = () => {
   );
 
   return (
-    <SettingWrapper title={t['com.affine.settings.editorSettings.page']()}>
+    <SettingWrapper title={t['com.polymind.settings.editorSettings.page']()}>
       <SettingRow
         name={t[
-          'com.affine.settings.editorSettings.page.default-page-width.title'
+          'com.polymind.settings.editorSettings.page.default-page-width.title'
         ]()}
         desc={t[
-          'com.affine.settings.editorSettings.page.default-page-width.description'
+          'com.polymind.settings.editorSettings.page.default-page-width.description'
         ]()}
       >
         <RadioGroup
@@ -77,10 +77,10 @@ export const Page = () => {
       </SettingRow>
       <SettingRow
         name={t[
-          'com.affine.settings.editorSettings.page.display-doc-info.title'
+          'com.polymind.settings.editorSettings.page.display-doc-info.title'
         ]()}
         desc={t[
-          'com.affine.settings.editorSettings.page.display-doc-info.description'
+          'com.polymind.settings.editorSettings.page.display-doc-info.description'
         ]()}
       >
         <Switch
@@ -91,10 +91,10 @@ export const Page = () => {
       </SettingRow>
       <SettingRow
         name={t[
-          'com.affine.settings.editorSettings.page.display-bi-link.title'
+          'com.polymind.settings.editorSettings.page.display-bi-link.title'
         ]()}
         desc={t[
-          'com.affine.settings.editorSettings.page.display-bi-link.description'
+          'com.polymind.settings.editorSettings.page.display-bi-link.description'
         ]()}
       >
         <Switch

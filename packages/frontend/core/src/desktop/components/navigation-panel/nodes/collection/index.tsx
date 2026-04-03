@@ -4,16 +4,16 @@ import {
   type DropTargetOptions,
   MenuItem,
   toast,
-} from '@affine/component';
+} from '@polymind/component';
 import {
   type Collection,
   CollectionService,
-} from '@affine/core/modules/collection';
-import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import { GlobalContextService } from '@affine/core/modules/global-context';
-import { NavigationPanelService } from '@affine/core/modules/navigation-panel';
-import type { AffineDNDData } from '@affine/core/types/dnd';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/collection';
+import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import { GlobalContextService } from '@polymind/core/modules/global-context';
+import { NavigationPanelService } from '@polymind/core/modules/navigation-panel';
+import type { AffineDNDData } from '@polymind/core/types/dnd';
+import { useI18n } from '@polymind/i18n';
 import { FilterMinusIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService, useServices } from '@toeverything/infra';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -97,7 +97,7 @@ export const NavigationPanelCollectionNode = ({
         collectionService.updateCollection(collectionId, {
           name,
         });
-        toast(t['com.affine.toastMessage.rename']());
+        toast(t['com.polymind.toastMessage.rename']());
       }
     },
     [collection, collectionId, collectionService, t]
@@ -109,7 +109,7 @@ export const NavigationPanelCollectionNode = ({
         return;
       }
       if (collection.allowList$.value.includes(docId)) {
-        toast(t['com.affine.collection.addPage.alreadyExists']());
+        toast(t['com.polymind.collection.addPage.alreadyExists']());
       } else {
         collectionService.addDocToCollection(collection.id, docId);
       }
@@ -244,7 +244,7 @@ const NavigationPanelCollectionNodeChildren = ({
   const handleRemoveFromAllowList = useCallback(
     (id: string) => {
       collectionService.removeDocFromCollection(collection.id, id);
-      toast(t['com.affine.collection.removePage.success']());
+      toast(t['com.polymind.collection.removePage.success']());
     },
     [collection.id, collectionService, t]
   );

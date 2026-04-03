@@ -1,4 +1,4 @@
-import type { MemberSearchService } from '@affine/core/modules/permissions';
+import type { MemberSearchService } from '@polymind/core/modules/permissions';
 import { UserListServiceExtension } from '@blocksuite/affine/shared/services';
 
 export function patchUserListExtensions(memberSearch: MemberSearchService) {

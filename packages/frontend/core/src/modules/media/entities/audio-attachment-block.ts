@@ -1,12 +1,12 @@
 import {
   TranscriptionBlockFlavour,
   type TranscriptionBlockModel,
-} from '@affine/core/blocksuite/ai/blocks/transcription-block/model';
-import { insertFromMarkdown } from '@affine/core/blocksuite/utils';
-import { toArrayBuffer } from '@affine/core/utils/array-buffer';
-import { encodeAudioBlobToOpusSlices } from '@affine/core/utils/opus-encoding';
-import { DebugLogger } from '@affine/debug';
-import { AiJobStatus } from '@affine/graphql';
+} from '@polymind/core/blocksuite/ai/blocks/transcription-block/model';
+import { insertFromMarkdown } from '@polymind/core/blocksuite/utils';
+import { toArrayBuffer } from '@polymind/core/utils/array-buffer';
+import { encodeAudioBlobToOpusSlices } from '@polymind/core/utils/opus-encoding';
+import { DebugLogger } from '@polymind/debug';
+import { AiJobStatus } from '@polymind/graphql';
 import type { AttachmentBlockModel } from '@blocksuite/affine/model';
 import type { AffineTextAttributes } from '@blocksuite/affine/shared/types';
 import { type DeltaInsert, Text } from '@blocksuite/affine/store';

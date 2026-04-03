@@ -1,6 +1,6 @@
-import { Button, Divider } from '@affine/component';
-import { WorkspacePropertyService } from '@affine/core/modules/workspace-property';
-import { useI18n } from '@affine/i18n';
+import { Button, Divider } from '@polymind/component';
+import { WorkspacePropertyService } from '@polymind/core/modules/workspace-property';
+import { useI18n } from '@polymind/i18n';
 import { useLiveData, useService } from '@toeverything/infra';
 import { useCallback, useMemo } from 'react';
 
@@ -65,7 +65,7 @@ export const DisplayProperties = ({
   return (
     <div className={styles.root}>
       <section className={styles.sectionLabel}>
-        {t['com.affine.all-docs.display.properties']()}
+        {t['com.polymind.all-docs.display.properties']()}
       </section>
       <div className={styles.properties}>
         {explorerPropertyList
@@ -105,7 +105,7 @@ export const DisplayProperties = ({
         <>
           <Divider space={4} size="thinner" />
           <section className={styles.sectionLabel}>
-            {t['com.affine.all-docs.display.list-view']()}
+            {t['com.polymind.all-docs.display.list-view']()}
           </section>
           <div className={styles.properties}>
             <Button
@@ -113,14 +113,14 @@ export const DisplayProperties = ({
               data-show={showIcon}
               onClick={toggleIcon}
             >
-              {t['com.affine.all-docs.display.list-view.icon']()}
+              {t['com.polymind.all-docs.display.list-view.icon']()}
             </Button>
             <Button
               className={styles.property}
               data-show={showBody}
               onClick={toggleBody}
             >
-              {t['com.affine.all-docs.display.list-view.body']()}
+              {t['com.polymind.all-docs.display.list-view.body']()}
             </Button>
           </div>
         </>

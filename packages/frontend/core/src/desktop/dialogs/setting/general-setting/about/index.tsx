@@ -2,7 +2,7 @@ import {
   SettingHeader,
   SettingRow,
   SettingWrapper,
-} from '@affine/component/setting-components';
+} from '@polymind/component/setting-components';
 
 import * as styles from './style.css';
 

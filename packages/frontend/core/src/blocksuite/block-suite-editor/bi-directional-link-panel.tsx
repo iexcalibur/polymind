@@ -4,25 +4,25 @@ import {
   observeIntersection,
   Skeleton,
   useLitPortalFactory,
-} from '@affine/component';
-import { getViewManager } from '@affine/core/blocksuite/manager/view';
+} from '@polymind/component';
+import { getViewManager } from '@polymind/core/blocksuite/manager/view';
 import {
   patchReferenceRenderer,
   type ReferenceReactRenderer,
-} from '@affine/core/blocksuite/view-extensions/editor-view/reference-renderer';
-import { useGuard } from '@affine/core/components/guard';
-import { useEnableAI } from '@affine/core/components/hooks/affine/use-enable-ai';
-import { DocService } from '@affine/core/modules/doc';
+} from '@polymind/core/blocksuite/view-extensions/editor-view/reference-renderer';
+import { useGuard } from '@polymind/core/components/guard';
+import { useEnableAI } from '@polymind/core/components/hooks/affine/use-enable-ai';
+import { DocService } from '@polymind/core/modules/doc';
 import {
   type Backlink,
   DocLinksService,
   type Link,
-} from '@affine/core/modules/doc-link';
-import { toDocSearchParams } from '@affine/core/modules/navigation/utils';
-import { GlobalSessionStateService } from '@affine/core/modules/storage';
-import { WorkbenchLink } from '@affine/core/modules/workbench';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/doc-link';
+import { toDocSearchParams } from '@polymind/core/modules/navigation/utils';
+import { GlobalSessionStateService } from '@polymind/core/modules/storage';
+import { WorkbenchLink } from '@polymind/core/modules/workbench';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { useI18n } from '@polymind/i18n';
 import type {
   ExtensionType,
   TransformerMiddleware,
@@ -311,7 +311,7 @@ const BacklinkLinks = () => {
   return (
     <div className={styles.linksContainer} ref={containerRef}>
       <div className={styles.linksTitles}>
-        {t['com.affine.page-properties.backlinks']()}{' '}
+        {t['com.polymind.page-properties.backlinks']()}{' '}
         {backlinkCount !== undefined ? `· ${backlinkCount}` : ''}
       </div>
       <BacklinkGroups />
@@ -332,7 +332,7 @@ export const LinkPreview = ({
   if (!canAccess) {
     return (
       <span className={styles.notFound}>
-        {t['com.affine.share-menu.option.permission.no-access']()}
+        {t['com.polymind.share-menu.option.permission.no-access']()}
       </span>
     );
   }
@@ -427,8 +427,8 @@ export const BiDirectionalLinkPanel = () => {
         <div className={styles.title}>Bi-Directional Links</div>
         <Button className={styles.showButton} onClick={handleClickShow}>
           {show
-            ? t['com.affine.editor.bi-directional-link-panel.hide']()
-            : t['com.affine.editor.bi-directional-link-panel.show']()}
+            ? t['com.polymind.editor.bi-directional-link-panel.hide']()
+            : t['com.polymind.editor.bi-directional-link-panel.show']()}
         </Button>
       </div>
 
@@ -439,7 +439,7 @@ export const BiDirectionalLinkPanel = () => {
           <BacklinkLinks />
           <div className={styles.linksContainer}>
             <div className={styles.linksTitles}>
-              {t['com.affine.page-properties.outgoing-links']()} ·{' '}
+              {t['com.polymind.page-properties.outgoing-links']()} ·{' '}
               {links.length}
             </div>
             {links.map((link, i) => (

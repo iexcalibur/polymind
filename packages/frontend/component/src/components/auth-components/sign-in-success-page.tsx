@@ -1,4 +1,4 @@
-import { useI18n } from '@affine/i18n';
+import { useI18n } from '@polymind/i18n';
 import type { FC } from 'react';
 
 import { Button } from '../../ui/button';
@@ -10,11 +10,11 @@ export const SignInSuccessPage: FC<{
   const t = useI18n();
   return (
     <AuthPageContainer
-      title={t['com.affine.auth.signed.success.title']()}
-      subtitle={t['com.affine.auth.signed.success.subtitle']()}
+      title={t['com.polymind.auth.signed.success.title']()}
+      subtitle={t['com.polymind.auth.signed.success.subtitle']()}
     >
       <Button variant="primary" size="large" onClick={onOpenAffine}>
-        {t['com.affine.auth.open.affine']()}
+        {t['com.polymind.auth.open.affine']()}
       </Button>
     </AuthPageContainer>
   );

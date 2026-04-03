@@ -1,6 +1,6 @@
-import { FeatureFlagService } from '@affine/core/modules/feature-flag';
-import { GlobalContextService } from '@affine/core/modules/global-context';
-import { WorkspacesService } from '@affine/core/modules/workspace';
+import { FeatureFlagService } from '@polymind/core/modules/feature-flag';
+import { GlobalContextService } from '@polymind/core/modules/global-context';
+import { WorkspacesService } from '@polymind/core/modules/workspace';
 import type { FrameworkProvider } from '@toeverything/infra';
 
 export function getCurrentWorkspace(frameworkProvider: FrameworkProvider) {

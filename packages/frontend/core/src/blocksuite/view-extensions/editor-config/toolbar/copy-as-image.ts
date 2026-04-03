@@ -1,8 +1,8 @@
-import { notify } from '@affine/component';
-import { isMindmapChild, isMindMapRoot } from '@affine/core/blocksuite/ai';
-import { EditorService } from '@affine/core/modules/editor';
-import { apis } from '@affine/electron-api';
-import { I18n } from '@affine/i18n';
+import { notify } from '@polymind/component';
+import { isMindmapChild, isMindMapRoot } from '@polymind/core/blocksuite/ai';
+import { EditorService } from '@polymind/core/modules/editor';
+import { apis } from '@polymind/electron-api';
+import { I18n } from '@polymind/i18n';
 import type { MenuContext } from '@blocksuite/affine/components/toolbar';
 import { Bound, getCommonBound } from '@blocksuite/affine/global/gfx';
 import type { BlockStdScope } from '@blocksuite/affine/std';
@@ -107,12 +107,12 @@ const MARGIN = 20;
 export function copyAsImage(std: BlockStdScope) {
   if (!apis) {
     notify.error({
-      title: I18n.t('com.affine.copy.asImage.notAvailable.title'),
-      message: I18n.t('com.affine.copy.asImage.notAvailable.message'),
+      title: I18n.t('com.polymind.copy.asImage.notAvailable.title'),
+      message: I18n.t('com.polymind.copy.asImage.notAvailable.message'),
       actions: [
         {
           key: 'download',
-          label: I18n.t('com.affine.copy.asImage.notAvailable.action'),
+          label: I18n.t('com.polymind.copy.asImage.notAvailable.action'),
           onClick: () => {
             window.open('https://affine.pro/download');
           },
@@ -192,12 +192,12 @@ export function copyAsImage(std: BlockStdScope) {
         })
         .then(() => {
           notify.success({
-            title: I18n.t('com.affine.copy.asImage.success'),
+            title: I18n.t('com.polymind.copy.asImage.success'),
           });
         })
         .catch(e => {
           notify.error({
-            title: I18n.t('com.affine.copy.asImage.failed'),
+            title: I18n.t('com.polymind.copy.asImage.failed'),
             message: String(e),
           });
         })
@@ -209,7 +209,7 @@ export function copyAsImage(std: BlockStdScope) {
       styleEle.remove();
       showEdgelessElements(overlapElements, std);
       notify.error({
-        title: I18n.t('com.affine.copy.asImage.failed'),
+        title: I18n.t('com.polymind.copy.asImage.failed'),
         message: String(e),
       });
     }

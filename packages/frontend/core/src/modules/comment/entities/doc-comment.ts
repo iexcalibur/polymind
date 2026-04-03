@@ -1,4 +1,4 @@
-import { type CommentChangeAction, DocMode } from '@affine/graphql';
+import { type CommentChangeAction, DocMode } from '@polymind/graphql';
 import { InlineCommentManager } from '@blocksuite/affine/inlines/comment';
 import type {
   BaseSelection,

@@ -1,5 +1,5 @@
 {
-  "name": "@affine/android",
+  "name": "@polymind/android",
   "version": "0.26.3",
   "description": "AFFiNE Desktop Web application",
   "private": true,
@@ -11,12 +11,12 @@
     "studio": "cap open android"
   },
   "dependencies": {
-    "@affine/component": "workspace:*",
-    "@affine/core": "workspace:*",
-    "@affine/env": "workspace:*",
-    "@affine/i18n": "workspace:*",
-    "@affine/mobile-shared": "workspace:*",
-    "@affine/nbstore": "workspace:*",
+    "@polymind/component": "workspace:*",
+    "@polymind/core": "workspace:*",
+    "@polymind/env": "workspace:*",
+    "@polymind/i18n": "workspace:*",
+    "@polymind/mobile-shared": "workspace:*",
+    "@polymind/nbstore": "workspace:*",
     "@blocksuite/affine": "workspace:*",
     "@blocksuite/icons": "^2.2.17",
     "@capacitor/android": "^7.0.0",

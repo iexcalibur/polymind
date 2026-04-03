@@ -1,4 +1,4 @@
-import { SubscriptionPlan, SubscriptionRecurring } from '@affine/graphql';
+import { SubscriptionPlan, SubscriptionRecurring } from '@polymind/graphql';
 import { nanoid } from 'nanoid';
 
 interface AuthAccountInfo {

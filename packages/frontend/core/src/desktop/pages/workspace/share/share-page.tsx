@@ -1,4 +1,4 @@
-import { AppContainer } from '@affine/core/desktop/components/app-container';
+import { AppContainer } from '@polymind/core/desktop/components/app-container';
 
 import { PageNotFound } from '../../404';
 

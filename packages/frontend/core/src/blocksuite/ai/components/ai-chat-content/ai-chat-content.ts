@@ -1,17 +1,17 @@
 import type {
   AIDraftService,
   AIToolsConfigService,
-} from '@affine/core/modules/ai-button';
-import type { AIDraftState } from '@affine/core/modules/ai-button/services/ai-draft';
-import type { AIModelService } from '@affine/core/modules/ai-button/services/models';
-import type { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import type { FeatureFlagService } from '@affine/core/modules/feature-flag';
-import type { PeekViewService } from '@affine/core/modules/peek-view';
-import type { AppThemeService } from '@affine/core/modules/theme';
+} from '@polymind/core/modules/ai-button';
+import type { AIDraftState } from '@polymind/core/modules/ai-button/services/ai-draft';
+import type { AIModelService } from '@polymind/core/modules/ai-button/services/models';
+import type { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import type { FeatureFlagService } from '@polymind/core/modules/feature-flag';
+import type { PeekViewService } from '@polymind/core/modules/peek-view';
+import type { AppThemeService } from '@polymind/core/modules/theme';
 import type {
   ContextEmbedStatus,
   CopilotChatHistoryFragment,
-} from '@affine/graphql';
+} from '@polymind/graphql';
 import { SignalWatcher, WithDisposable } from '@blocksuite/affine/global/lit';
 import { type EditorHost, ShadowlessElement } from '@blocksuite/affine/std';
 import type { ExtensionType } from '@blocksuite/affine/store';

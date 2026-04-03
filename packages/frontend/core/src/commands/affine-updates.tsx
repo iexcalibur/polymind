@@ -1,6 +1,6 @@
-import { notify } from '@affine/component';
-import { updateReadyAtom } from '@affine/core/components/hooks/use-app-updater';
-import type { useI18n } from '@affine/i18n';
+import { notify } from '@polymind/component';
+import { updateReadyAtom } from '@polymind/core/components/hooks/use-app-updater';
+import type { useI18n } from '@polymind/i18n';
 import { ResetIcon } from '@blocksuite/icons/rc';
 import type { createStore } from 'jotai';
 
@@ -22,7 +22,7 @@ export function registerAffineUpdatesCommands({
       id: 'affine:restart-to-upgrade',
       category: 'affine:updates',
       icon: <ResetIcon />,
-      label: t['com.affine.cmdk.affine.restart-to-upgrade'](),
+      label: t['com.polymind.cmdk.affine.restart-to-upgrade'](),
       preconditionStrategy: () => !!store.get(updateReadyAtom),
       run() {
         quitAndInstall().catch(err => {

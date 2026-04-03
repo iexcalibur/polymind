@@ -1,4 +1,4 @@
-import type { PaginationInput } from '@affine/graphql';
+import type { PaginationInput } from '@polymind/graphql';
 import { Store } from '@toeverything/infra';
 
 export class EmbeddingStore extends Store {

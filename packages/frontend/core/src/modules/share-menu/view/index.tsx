@@ -1,5 +1,5 @@
-import { useEnableCloud } from '@affine/core/components/hooks/affine/use-enable-cloud';
-import type { Workspace } from '@affine/core/modules/workspace';
+import { useEnableCloud } from '@polymind/core/components/hooks/affine/use-enable-cloud';
+import type { Workspace } from '@polymind/core/modules/workspace';
 import type { Store } from '@blocksuite/affine/store';
 import { useCallback } from 'react';
 

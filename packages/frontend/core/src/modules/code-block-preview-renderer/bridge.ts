@@ -1,15 +1,15 @@
 import {
   renderMermaidSvgBackend,
   renderTypstSvgBackend,
-} from '@affine/core/modules/code-block-preview-renderer/platform-backend';
+} from '@polymind/core/modules/code-block-preview-renderer/platform-backend';
 import type {
   MermaidRenderRequest,
   MermaidRenderResult,
-} from '@affine/core/modules/mermaid/renderer';
+} from '@polymind/core/modules/mermaid/renderer';
 import type {
   TypstRenderRequest,
   TypstRenderResult,
-} from '@affine/core/modules/typst/renderer';
+} from '@polymind/core/modules/typst/renderer';
 import DOMPurify from 'dompurify';
 
 function removeForeignObject(root: ParentNode) {

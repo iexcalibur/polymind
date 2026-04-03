@@ -1,20 +1,20 @@
-import { FlexWrapper } from '@affine/component';
-import { EmptyCollectionDetail } from '@affine/core/components/affine/empty/collection-detail';
+import { FlexWrapper } from '@polymind/component';
+import { EmptyCollectionDetail } from '@polymind/core/components/affine/empty/collection-detail';
 import {
   createDocExplorerContext,
   DocExplorerContext,
-} from '@affine/core/components/explorer/context';
-import { DocsExplorer } from '@affine/core/components/explorer/docs-view/docs-list';
-import type { ExplorerDisplayPreference } from '@affine/core/components/explorer/types';
+} from '@polymind/core/components/explorer/context';
+import { DocsExplorer } from '@polymind/core/components/explorer/docs-view/docs-list';
+import type { ExplorerDisplayPreference } from '@polymind/core/components/explorer/types';
 import {
   type Collection,
   CollectionService,
-} from '@affine/core/modules/collection';
-import { CollectionRulesService } from '@affine/core/modules/collection-rules';
-import { GlobalContextService } from '@affine/core/modules/global-context';
-import { WorkspacePermissionService } from '@affine/core/modules/permissions';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/collection';
+import { CollectionRulesService } from '@polymind/core/modules/collection-rules';
+import { GlobalContextService } from '@polymind/core/modules/global-context';
+import { WorkspacePermissionService } from '@polymind/core/modules/permissions';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { useI18n } from '@polymind/i18n';
 import { ViewLayersIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService, useServices } from '@toeverything/infra';
 import { useCallback, useEffect, useState } from 'react';
@@ -210,7 +210,7 @@ const Placeholder = ({ collection }: { collection: Collection }) => {
               style={{ color: 'var(--affine-icon-color)' }}
               fontSize={14}
             />
-            {t['com.affine.collection.allCollections']()}
+            {t['com.polymind.collection.allCollections']()}
             <div>/</div>
           </div>
           <div

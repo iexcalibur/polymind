@@ -5,11 +5,11 @@ import {
   templateToString,
   useConfirmModal,
   useDisposable,
-} from '@affine/component';
-import { Pagination } from '@affine/component/setting-components';
-import { BlobManagementService } from '@affine/core/modules/blob-management/services';
-import { useI18n } from '@affine/i18n';
-import type { ListedBlobRecord } from '@affine/nbstore';
+} from '@polymind/component';
+import { Pagination } from '@polymind/component/setting-components';
+import { BlobManagementService } from '@polymind/core/modules/blob-management/services';
+import { useI18n } from '@polymind/i18n';
+import type { ListedBlobRecord } from '@polymind/nbstore';
 import { getAttachmentFileIcon } from '@blocksuite/affine/components/icons';
 import { DeleteIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
@@ -22,7 +22,7 @@ const Empty = () => {
   const t = useI18n();
   return (
     <div className={styles.empty}>
-      {t['com.affine.settings.workspace.storage.unused-blobs.empty']()}
+      {t['com.polymind.settings.workspace.storage.unused-blobs.empty']()}
     </div>
   );
 };
@@ -216,11 +216,11 @@ export const BlobManagementPanel = () => {
       openConfirmModal({
         title:
           t[
-            'com.affine.settings.workspace.storage.unused-blobs.delete.title'
+            'com.polymind.settings.workspace.storage.unused-blobs.delete.title'
           ](),
         children:
           t[
-            'com.affine.settings.workspace.storage.unused-blobs.delete.warning'
+            'com.polymind.settings.workspace.storage.unused-blobs.delete.warning'
           ](),
         onConfirm: async () => {
           setDeleting(true);
@@ -266,12 +266,12 @@ export const BlobManagementPanel = () => {
       {selectedBlobs.length > 0 ? (
         <div className={styles.blobManagementControls}>
           <div className={styles.blobManagementName}>
-            {`${selectedBlobs.length} ${t['com.affine.settings.workspace.storage.unused-blobs.selected']()}`}
+            {`${selectedBlobs.length} ${t['com.polymind.settings.workspace.storage.unused-blobs.selected']()}`}
           </div>
           <div className={styles.spacer} />
           {showSelectAll && (
             <Button onClick={handleSelectAll} variant="primary">
-              {t['com.affine.keyboardShortcuts.selectAll']()}
+              {t['com.polymind.keyboardShortcuts.selectAll']()}
             </Button>
           )}
           <Button
@@ -285,7 +285,7 @@ export const BlobManagementPanel = () => {
         </div>
       ) : (
         <div className={styles.blobManagementNameInactive}>
-          {`${t['com.affine.settings.workspace.storage.unused-blobs']()} (${unusedBlobs.length})`}
+          {`${t['com.polymind.settings.workspace.storage.unused-blobs']()} (${unusedBlobs.length})`}
         </div>
       )}
       {isEmpty ? (

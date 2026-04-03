@@ -3,14 +3,14 @@ import {
   type DropTargetOptions,
   IconButton,
   toast,
-} from '@affine/component';
-import { NavigationPanelService } from '@affine/core/modules/navigation-panel';
+} from '@polymind/component';
+import { NavigationPanelService } from '@polymind/core/modules/navigation-panel';
 import {
   type FolderNode,
   OrganizeService,
-} from '@affine/core/modules/organize';
-import type { AffineDNDData } from '@affine/core/types/dnd';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/organize';
+import type { AffineDNDData } from '@polymind/core/types/dnd';
+import { useI18n } from '@polymind/i18n';
 import { AddOrganizeIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useServices } from '@toeverything/infra';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -64,7 +64,7 @@ export const NavigationPanelOrganize = () => {
             rootFolder.indexAt(at, node.id)
           );
         } else {
-          toast(t['com.affine.rootAppSidebar.organize.root-folder-only']());
+          toast(t['com.polymind.rootAppSidebar.organize.root-folder-only']());
         }
       } else {
         return; // not supported
@@ -102,14 +102,14 @@ export const NavigationPanelOrganize = () => {
   return (
     <CollapsibleSection
       path={path}
-      title={t['com.affine.rootAppSidebar.organize']()}
+      title={t['com.polymind.rootAppSidebar.organize']()}
       actions={
         <IconButton
           data-testid="navigation-panel-bar-add-organize-button"
           onClick={handleCreateFolder}
           size="16"
           tooltip={t[
-            'com.affine.rootAppSidebar.explorer.organize-section-add-tooltip'
+            'com.polymind.rootAppSidebar.explorer.organize-section-add-tooltip'
           ]()}
         >
           <AddOrganizeIcon />

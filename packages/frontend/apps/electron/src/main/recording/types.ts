@@ -1,4 +1,4 @@
-import type { ApplicationInfo } from '@affine/native';
+import type { ApplicationInfo } from '@polymind/native';
 
 export interface TappableAppInfo {
   info: ApplicationInfo;

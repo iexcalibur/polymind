@@ -50,7 +50,7 @@ export default {
         }),
       ],
       define: Object.entries(
-        getBuildConfig(new Package('@affine/web'), {
+        getBuildConfig(new Package('@polymind/web'), {
           mode: 'development',
           channel: 'canary',
         })

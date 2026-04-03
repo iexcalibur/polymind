@@ -1,6 +1,6 @@
-import { MenuItem, MenuSeparator, MenuSub } from '@affine/component';
-import { FeatureFlagService } from '@affine/core/modules/feature-flag';
-import { useI18n } from '@affine/i18n';
+import { MenuItem, MenuSeparator, MenuSub } from '@polymind/component';
+import { FeatureFlagService } from '@polymind/core/modules/feature-flag';
+import { useI18n } from '@polymind/i18n';
 import {
   ExportIcon,
   ExportToHtmlIcon,
@@ -62,7 +62,7 @@ export const PrintMenuItems = ({
       className={className}
       type="pdf"
       icon={<PrinterIcon />}
-      label={t['com.affine.export.print']()}
+      label={t['com.polymind.export.print']()}
     />
   );
 };

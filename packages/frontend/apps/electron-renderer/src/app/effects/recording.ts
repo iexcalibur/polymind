@@ -1,10 +1,10 @@
-import type { DocProps } from '@affine/core/blocksuite/initialization';
-import { DocsService } from '@affine/core/modules/doc';
-import { AudioAttachmentService } from '@affine/core/modules/media/services/audio-attachment';
-import { WorkbenchService } from '@affine/core/modules/workbench';
-import { DebugLogger } from '@affine/debug';
-import { apis, events } from '@affine/electron-api';
-import { i18nTime } from '@affine/i18n';
+import type { DocProps } from '@polymind/core/blocksuite/initialization';
+import { DocsService } from '@polymind/core/modules/doc';
+import { AudioAttachmentService } from '@polymind/core/modules/media/services/audio-attachment';
+import { WorkbenchService } from '@polymind/core/modules/workbench';
+import { DebugLogger } from '@polymind/debug';
+import { apis, events } from '@polymind/electron-api';
+import { i18nTime } from '@polymind/i18n';
 import type { AttachmentBlockModel } from '@blocksuite/affine/model';
 import type { Store } from '@blocksuite/affine/store';
 import type { BlobEngine } from '@blocksuite/affine/sync';

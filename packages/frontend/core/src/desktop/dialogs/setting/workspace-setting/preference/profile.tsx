@@ -1,13 +1,13 @@
-import { FlexWrapper, Input, notify, Wrapper } from '@affine/component';
-import { Button } from '@affine/component/ui/button';
-import { useCatchEventCallback } from '@affine/core/components/hooks/use-catch-event-hook';
-import { Upload } from '@affine/core/components/pure/file-upload';
-import { WorkspaceAvatar } from '@affine/core/components/workspace-avatar';
-import { WorkspacePermissionService } from '@affine/core/modules/permissions';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { validateAndReduceImage } from '@affine/core/utils/reduce-image';
-import { UNTITLED_WORKSPACE_NAME } from '@affine/env/constant';
-import { useI18n } from '@affine/i18n';
+import { FlexWrapper, Input, notify, Wrapper } from '@polymind/component';
+import { Button } from '@polymind/component/ui/button';
+import { useCatchEventCallback } from '@polymind/core/components/hooks/use-catch-event-hook';
+import { Upload } from '@polymind/core/components/pure/file-upload';
+import { WorkspaceAvatar } from '@polymind/core/components/workspace-avatar';
+import { WorkspacePermissionService } from '@polymind/core/modules/permissions';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { validateAndReduceImage } from '@polymind/core/utils/reduce-image';
+import { UNTITLED_WORKSPACE_NAME } from '@polymind/env/constant';
+import { useI18n } from '@polymind/i18n';
 import { CameraIcon } from '@blocksuite/icons/rc';
 import { LiveData, useLiveData, useService } from '@toeverything/infra';
 import type { KeyboardEvent } from 'react';
@@ -181,7 +181,7 @@ export const ProfilePanel = () => {
                 marginLeft: '12px',
               }}
             >
-              {t['com.affine.editCollection.save']()}
+              {t['com.polymind.editCollection.save']()}
             </Button>
           )}
         </FlexWrapper>

@@ -111,7 +111,7 @@ export class CMDKQuickSearchService extends Service {
         },
         {
           placeholder: {
-            i18nKey: 'com.affine.cmdk.docs.placeholder',
+            i18nKey: 'com.polymind.cmdk.docs.placeholder',
           },
         }
       );

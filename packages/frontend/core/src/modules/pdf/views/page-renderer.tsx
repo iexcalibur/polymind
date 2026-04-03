@@ -1,5 +1,5 @@
-import { observeIntersection } from '@affine/component';
-import { useI18n } from '@affine/i18n';
+import { observeIntersection } from '@polymind/component';
+import { useI18n } from '@polymind/i18n';
 import { useLiveData } from '@toeverything/infra';
 import { debounce } from 'lodash-es';
 import { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
@@ -182,7 +182,7 @@ export const PDFPageRenderer = ({
       <PageRendererInner
         img={displayImg}
         ref={canvasRef}
-        err={error ? t['com.affine.pdf.page.render.error']() : null}
+        err={error ? t['com.polymind.pdf.page.render.error']() : null}
         scale={scale}
       />
     </div>

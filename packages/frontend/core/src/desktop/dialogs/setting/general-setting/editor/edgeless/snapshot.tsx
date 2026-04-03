@@ -1,7 +1,7 @@
-import { Skeleton } from '@affine/component';
-import { getViewManager } from '@affine/core/blocksuite/manager/view';
-import type { EditorSettingSchema } from '@affine/core/modules/editor-setting';
-import { EditorSettingService } from '@affine/core/modules/editor-setting';
+import { Skeleton } from '@polymind/component';
+import { getViewManager } from '@polymind/core/blocksuite/manager/view';
+import type { EditorSettingSchema } from '@polymind/core/modules/editor-setting';
+import { EditorSettingService } from '@polymind/core/modules/editor-setting';
 import { EdgelessCRUDIdentifier } from '@blocksuite/affine/blocks/surface';
 import { Bound } from '@blocksuite/affine/global/gfx';
 import { ViewportElementExtension } from '@blocksuite/affine/shared/services';

@@ -1,6 +1,6 @@
-import { ModalConfigContext } from '@affine/component';
-import { NavigationGestureService } from '@affine/core/mobile/modules/navigation-gesture';
-import { globalVars } from '@affine/core/mobile/styles/variables.css';
+import { ModalConfigContext } from '@polymind/component';
+import { NavigationGestureService } from '@polymind/core/mobile/modules/navigation-gesture';
+import { globalVars } from '@polymind/core/mobile/styles/variables.css';
 import { useService } from '@toeverything/infra';
 import { useCallback, useMemo } from 'react';
 

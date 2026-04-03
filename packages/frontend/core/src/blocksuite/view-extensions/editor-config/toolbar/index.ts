@@ -1,12 +1,12 @@
-import { notify } from '@affine/component';
+import { notify } from '@polymind/component';
 import {
   generateUrl,
   type UseSharingUrl,
-} from '@affine/core/components/hooks/affine/use-share-url';
-import { EditorService } from '@affine/core/modules/editor';
-import type { EditorSettingExt } from '@affine/core/modules/editor-setting/entities/editor-setting';
-import { copyLinkToBlockStdScopeClipboard } from '@affine/core/utils/clipboard';
-import { I18n, i18nTime } from '@affine/i18n';
+} from '@polymind/core/components/hooks/affine/use-share-url';
+import { EditorService } from '@polymind/core/modules/editor';
+import type { EditorSettingExt } from '@polymind/core/modules/editor-setting/entities/editor-setting';
+import { copyLinkToBlockStdScopeClipboard } from '@polymind/core/utils/clipboard';
+import { I18n, i18nTime } from '@polymind/i18n';
 import { BookmarkBlockComponent } from '@blocksuite/affine/blocks/bookmark';
 import {
   EmbedFigmaBlockComponent,
@@ -365,7 +365,7 @@ function createToolbarMoreMenuConfigV2(baseUrl?: string) {
                 return value.name;
               });
               const user = computed(() => {
-                return I18n.t('com.affine.page.toolbar.created_by', {
+                return I18n.t('com.polymind.page.toolbar.created_by', {
                   name: name.value,
                 });
               });
@@ -592,7 +592,7 @@ function createSurfaceRefToolbarConfig(baseUrl?: string): ToolbarModuleConfig {
             .map(action => {
               if (action.id.endsWith('open-in-active-view')) {
                 action.label =
-                  I18n['com.affine.peek-view-controls.open-doc-in-edgeless']();
+                  I18n['com.polymind.peek-view-controls.open-doc-in-edgeless']();
               }
               return action;
             });

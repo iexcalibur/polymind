@@ -1,9 +1,9 @@
-import { usePromptModal } from '@affine/component';
-import { NavigationPanelTreeRoot } from '@affine/core/desktop/components/navigation-panel';
-import { CollectionService } from '@affine/core/modules/collection';
-import { NavigationPanelService } from '@affine/core/modules/navigation-panel';
-import { WorkbenchService } from '@affine/core/modules/workbench';
-import { useI18n } from '@affine/i18n';
+import { usePromptModal } from '@polymind/component';
+import { NavigationPanelTreeRoot } from '@polymind/core/desktop/components/navigation-panel';
+import { CollectionService } from '@polymind/core/modules/collection';
+import { NavigationPanelService } from '@polymind/core/modules/navigation-panel';
+import { WorkbenchService } from '@polymind/core/modules/workbench';
+import { useI18n } from '@polymind/i18n';
 import { AddCollectionIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useServices } from '@toeverything/infra';
 import { useCallback, useMemo } from 'react';
@@ -27,18 +27,18 @@ export const NavigationPanelCollections = () => {
 
   const handleCreateCollection = useCallback(() => {
     openPromptModal({
-      title: t['com.affine.editCollection.saveCollection'](),
-      label: t['com.affine.editCollectionName.name'](),
+      title: t['com.polymind.editCollection.saveCollection'](),
+      label: t['com.polymind.editCollectionName.name'](),
       inputOptions: {
-        placeholder: t['com.affine.editCollectionName.name.placeholder'](),
+        placeholder: t['com.polymind.editCollectionName.name.placeholder'](),
       },
       children: (
         <div className={styles.createTips}>
-          {t['com.affine.editCollectionName.createTips']()}
+          {t['com.polymind.editCollectionName.createTips']()}
         </div>
       ),
-      confirmText: t['com.affine.editCollection.save'](),
-      cancelText: t['com.affine.editCollection.button.cancel'](),
+      confirmText: t['com.polymind.editCollection.save'](),
+      cancelText: t['com.polymind.editCollection.button.cancel'](),
       confirmButtonOptions: {
         variant: 'primary',
       },
@@ -61,7 +61,7 @@ export const NavigationPanelCollections = () => {
     <CollapsibleSection
       path={path}
       testId="navigation-panel-collections"
-      title={t['com.affine.rootAppSidebar.collections']()}
+      title={t['com.polymind.rootAppSidebar.collections']()}
     >
       <NavigationPanelTreeRoot>
         {collectionMetas.map(collection => (
@@ -74,7 +74,7 @@ export const NavigationPanelCollections = () => {
         <AddItemPlaceholder
           icon={<AddCollectionIcon />}
           data-testid="navigation-panel-bar-add-collection-button"
-          label={t['com.affine.rootAppSidebar.collection.new']()}
+          label={t['com.polymind.rootAppSidebar.collection.new']()}
           onClick={() => handleCreateCollection()}
         />
       </NavigationPanelTreeRoot>

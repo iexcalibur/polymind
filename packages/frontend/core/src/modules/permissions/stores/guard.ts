@@ -1,7 +1,7 @@
 import {
   type GetDocRolePermissionsQuery,
   type GetWorkspaceInfoQuery,
-} from '@affine/graphql';
+} from '@polymind/graphql';
 import { Store } from '@toeverything/infra';
 
 import type { WorkspaceService } from '../../workspace';

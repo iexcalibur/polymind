@@ -3,7 +3,7 @@ import type {
   QueryResponse,
   QueryVariables,
   RecursiveMaybeFields,
-} from '@affine/graphql';
+} from '@polymind/graphql';
 import type { GraphQLError } from 'graphql';
 import { useMemo } from 'react';
 import type { Key } from 'swr';

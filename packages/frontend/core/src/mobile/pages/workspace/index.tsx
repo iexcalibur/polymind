@@ -1,8 +1,8 @@
-import { AffineErrorBoundary } from '@affine/core/components/affine/affine-error-boundary';
-import { AffineErrorComponent } from '@affine/core/components/affine/affine-error-boundary/affine-error-fallback';
-import { PageNotFound } from '@affine/core/desktop/pages/404';
-import { workbenchRoutes } from '@affine/core/mobile/workbench-router';
-import { WorkspacesService } from '@affine/core/modules/workspace';
+import { AffineErrorBoundary } from '@polymind/core/components/affine/affine-error-boundary';
+import { AffineErrorComponent } from '@polymind/core/components/affine/affine-error-boundary/affine-error-fallback';
+import { PageNotFound } from '@polymind/core/desktop/pages/404';
+import { workbenchRoutes } from '@polymind/core/mobile/workbench-router';
+import { WorkspacesService } from '@polymind/core/modules/workspace';
 import { useLiveData, useService } from '@toeverything/infra';
 import {
   lazy as reactLazy,

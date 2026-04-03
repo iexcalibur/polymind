@@ -1,4 +1,4 @@
-import { Avatar, uniReactRoot } from '@affine/component';
+import { Avatar, uniReactRoot } from '@polymind/component';
 import {
   createGroupByConfig,
   type GroupRenderProps,

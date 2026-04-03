@@ -1,4 +1,4 @@
-import { SafeArea } from '@affine/component';
+import { SafeArea } from '@polymind/component';
 import clsx from 'clsx';
 import type {
   HtmlHTMLAttributes,

@@ -3,10 +3,10 @@ import {
   MenuTrigger,
   RadioGroup,
   type RadioItem,
-} from '@affine/component';
-import { SettingRow } from '@affine/component/setting-components';
-import { EditorSettingService } from '@affine/core/modules/editor-setting';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component';
+import { SettingRow } from '@polymind/component/setting-components';
+import { EditorSettingService } from '@polymind/core/modules/editor-setting';
+import { useI18n } from '@polymind/i18n';
 import {
   DefaultTheme,
   FontFamily,
@@ -42,21 +42,21 @@ export const TextSettings = () => {
         value: TextAlign.Left,
         label:
           t[
-            'com.affine.settings.editorSettings.edgeless.text.alignment.left'
+            'com.polymind.settings.editorSettings.edgeless.text.alignment.left'
           ](),
       },
       {
         value: TextAlign.Center,
         label:
           t[
-            'com.affine.settings.editorSettings.edgeless.text.alignment.center'
+            'com.polymind.settings.editorSettings.edgeless.text.alignment.center'
           ](),
       },
       {
         value: TextAlign.Right,
         label:
           t[
-            'com.affine.settings.editorSettings.edgeless.text.alignment.right'
+            'com.polymind.settings.editorSettings.edgeless.text.alignment.right'
           ](),
       },
     ],
@@ -150,13 +150,13 @@ export const TextSettings = () => {
   return (
     <>
       <EdgelessSnapshot
-        title={t['com.affine.settings.editorSettings.edgeless.text']()}
+        title={t['com.polymind.settings.editorSettings.edgeless.text']()}
         docName="text"
         keyName="affine:edgeless-text"
         getElements={getElements}
       />
       <SettingRow
-        name={t['com.affine.settings.editorSettings.edgeless.text.color']()}
+        name={t['com.polymind.settings.editorSettings.edgeless.text.color']()}
         desc={''}
       >
         {currentColor ? (
@@ -175,7 +175,7 @@ export const TextSettings = () => {
       </SettingRow>
       <SettingRow
         name={t[
-          'com.affine.settings.editorSettings.edgeless.text.font-family'
+          'com.polymind.settings.editorSettings.edgeless.text.font-family'
         ]()}
         desc={''}
       >
@@ -190,7 +190,7 @@ export const TextSettings = () => {
       </SettingRow>
       <SettingRow
         name={t[
-          'com.affine.settings.editorSettings.edgeless.text.font-style'
+          'com.polymind.settings.editorSettings.edgeless.text.font-style'
         ]()}
         desc={''}
       >
@@ -205,7 +205,7 @@ export const TextSettings = () => {
       </SettingRow>
       <SettingRow
         name={t[
-          'com.affine.settings.editorSettings.edgeless.text.font-weight'
+          'com.polymind.settings.editorSettings.edgeless.text.font-weight'
         ]()}
         desc={''}
       >
@@ -219,7 +219,7 @@ export const TextSettings = () => {
         />
       </SettingRow>
       <SettingRow
-        name={t['com.affine.settings.editorSettings.edgeless.text.alignment']()}
+        name={t['com.polymind.settings.editorSettings.edgeless.text.alignment']()}
         desc={''}
       >
         <RadioGroup

@@ -1,13 +1,13 @@
-import { Wrapper } from '@affine/component';
-import { EmptyDocs } from '@affine/core/components/affine/empty';
+import { Wrapper } from '@polymind/component';
+import { EmptyDocs } from '@polymind/core/components/affine/empty';
 import {
   createDocExplorerContext,
   DocExplorerContext,
-} from '@affine/core/components/explorer/context';
-import { DocsExplorer } from '@affine/core/components/explorer/docs-view/docs-list';
-import { Page } from '@affine/core/mobile/components/page';
-import { CollectionRulesService } from '@affine/core/modules/collection-rules';
-import type { Tag } from '@affine/core/modules/tag';
+} from '@polymind/core/components/explorer/context';
+import { DocsExplorer } from '@polymind/core/components/explorer/docs-view/docs-list';
+import { Page } from '@polymind/core/mobile/components/page';
+import { CollectionRulesService } from '@polymind/core/modules/collection-rules';
+import type { Tag } from '@polymind/core/modules/tag';
 import { useLiveData, useService } from '@toeverything/infra';
 import { useEffect, useState } from 'react';
 

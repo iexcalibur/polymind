@@ -1,5 +1,5 @@
-import type { PasswordLimitsFragment } from '@affine/graphql';
-import { useI18n } from '@affine/i18n';
+import type { PasswordLimitsFragment } from '@polymind/graphql';
+import { useI18n } from '@polymind/i18n';
 import type { FC } from 'react';
 import { useCallback, useState } from 'react';
 
@@ -30,7 +30,7 @@ export const SignUpPage: FC<{
         .then(() => setHasSetUp(true))
         .catch(e =>
           notify.error({
-            title: t['com.affine.auth.password.set-failed'](),
+            title: t['com.polymind.auth.password.set-failed'](),
             message: String(e),
           })
         );
@@ -45,15 +45,15 @@ export const SignUpPage: FC<{
     <AuthPageContainer
       title={
         hasSetUp
-          ? t['com.affine.auth.sign.up.success.title']()
-          : t['com.affine.auth.page.sent.email.title']()
+          ? t['com.polymind.auth.sign.up.success.title']()
+          : t['com.polymind.auth.page.sent.email.title']()
       }
       subtitle={
         hasSetUp ? (
-          t['com.affine.auth.sign.up.success.subtitle']()
+          t['com.polymind.auth.sign.up.success.subtitle']()
         ) : (
           <>
-            {t['com.affine.auth.page.sent.email.subtitle']({
+            {t['com.polymind.auth.page.sent.email.subtitle']({
               min: String(passwordLimits.minLength),
               max: String(passwordLimits.maxLength),
             })}
@@ -64,7 +64,7 @@ export const SignUpPage: FC<{
     >
       {hasSetUp ? (
         <Button variant="primary" size="large" onClick={onOpenAffine}>
-          {openButtonText ?? t['com.affine.auth.open.affine']()}
+          {openButtonText ?? t['com.polymind.auth.open.affine']()}
         </Button>
       ) : (
         <SetPassword

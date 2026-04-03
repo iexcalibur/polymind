@@ -1,6 +1,6 @@
 // eslint-disable no-var-requires
 
-// Should not load @affine/native for unsupported platforms
+// Should not load @polymind/native for unsupported platforms
 
 import { shell } from 'electron';
 

@@ -1,5 +1,5 @@
-import { Avatar, Skeleton } from '@affine/component';
-import { useI18n } from '@affine/i18n';
+import { Avatar, Skeleton } from '@polymind/component';
+import { useI18n } from '@polymind/i18n';
 import { CloseIcon } from '@blocksuite/icons/rc';
 import { type MouseEventHandler, useCallback } from 'react';
 

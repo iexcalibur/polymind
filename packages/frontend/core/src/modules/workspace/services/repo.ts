@@ -1,5 +1,5 @@
-import { DebugLogger } from '@affine/debug';
-import type { WorkerInitOptions } from '@affine/nbstore/worker/client';
+import { DebugLogger } from '@polymind/debug';
+import type { WorkerInitOptions } from '@polymind/nbstore/worker/client';
 import { ObjectPool, Service } from '@toeverything/infra';
 
 import type { Workspace } from '../entities/workspace';

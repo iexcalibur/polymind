@@ -1,10 +1,10 @@
-import { Menu, MenuSeparator } from '@affine/component';
-import { MenuItem as SidebarMenuItem } from '@affine/core/modules/app-sidebar/views';
+import { Menu, MenuSeparator } from '@polymind/component';
+import { MenuItem as SidebarMenuItem } from '@polymind/core/modules/app-sidebar/views';
 import {
   TemplateListMenuAdd,
   TemplateListMenuContentScrollable,
-} from '@affine/core/modules/template-doc/view/template-list-menu';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/template-doc/view/template-list-menu';
+import { useI18n } from '@polymind/i18n';
 import { TemplateIcon } from '@blocksuite/icons/rc';
 import { useCallback, useState } from 'react';
 

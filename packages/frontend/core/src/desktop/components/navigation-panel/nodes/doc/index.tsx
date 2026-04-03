@@ -4,21 +4,21 @@ import {
   Loading,
   toast,
   Tooltip,
-} from '@affine/component';
-import { Guard } from '@affine/core/components/guard';
-import { useAppSettingHelper } from '@affine/core/components/hooks/affine/use-app-setting-helper';
-import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
-import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import { DocsService } from '@affine/core/modules/doc';
-import { DocDisplayMetaService } from '@affine/core/modules/doc-display-meta';
-import { DocsSearchService } from '@affine/core/modules/docs-search';
-import { FeatureFlagService } from '@affine/core/modules/feature-flag';
-import { GlobalContextService } from '@affine/core/modules/global-context';
-import { NavigationPanelService } from '@affine/core/modules/navigation-panel';
-import { GuardService } from '@affine/core/modules/permissions';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import type { AffineDNDData } from '@affine/core/types/dnd';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component';
+import { Guard } from '@polymind/core/components/guard';
+import { useAppSettingHelper } from '@polymind/core/components/hooks/affine/use-app-setting-helper';
+import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
+import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import { DocsService } from '@polymind/core/modules/doc';
+import { DocDisplayMetaService } from '@polymind/core/modules/doc-display-meta';
+import { DocsSearchService } from '@polymind/core/modules/docs-search';
+import { FeatureFlagService } from '@polymind/core/modules/feature-flag';
+import { GlobalContextService } from '@polymind/core/modules/global-context';
+import { NavigationPanelService } from '@polymind/core/modules/navigation-panel';
+import { GuardService } from '@polymind/core/modules/permissions';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import type { AffineDNDData } from '@polymind/core/types/dnd';
+import { useI18n } from '@polymind/i18n';
 import {
   LiveData,
   MANUALLY_STOP,
@@ -176,12 +176,12 @@ export const NavigationPanelDocNode = ({
         if (data.source.data.entity?.type === 'doc') {
           const canEdit = await guardService.can('Doc_Update', docId);
           if (!canEdit) {
-            toast(t['com.affine.no-permission']());
+            toast(t['com.polymind.no-permission']());
             return;
           }
           await docsService.addLinkedDoc(docId, data.source.data.entity.id);
         } else {
-          toast(t['com.affine.rootAppSidebar.doc.link-doc-only']());
+          toast(t['com.polymind.rootAppSidebar.doc.link-doc-only']());
         }
       } else {
         onDrop?.(data);
@@ -209,13 +209,13 @@ export const NavigationPanelDocNode = ({
       if (data.source.data.entity?.type === 'doc') {
         const canEdit = await guardService.can('Doc_Update', docId);
         if (!canEdit) {
-          toast(t['com.affine.no-permission']());
+          toast(t['com.polymind.no-permission']());
           return;
         }
         // TODO(eyhn): timeout&error handling
         await docsService.addLinkedDoc(docId, data.source.data.entity.id);
       } else {
-        toast(t['com.affine.rootAppSidebar.doc.link-doc-only']());
+        toast(t['com.polymind.rootAppSidebar.doc.link-doc-only']());
       }
     },
     [docId, docsService, guardService, t]
@@ -273,7 +273,7 @@ export const NavigationPanelDocNode = ({
         referencesLoading &&
         !isCollapsed && (
           <Tooltip
-            content={t['com.affine.rootAppSidebar.docs.references-loading']()}
+            content={t['com.polymind.rootAppSidebar.docs.references-loading']()}
           >
             <div className={styles.loadingIcon}>
               <Loading />

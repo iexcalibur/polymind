@@ -1,4 +1,4 @@
-import type { ElementOrFactory } from '@affine/component';
+import type { ElementOrFactory } from '@polymind/component';
 import {
   type ViewExtensionContext,
   ViewExtensionProvider,

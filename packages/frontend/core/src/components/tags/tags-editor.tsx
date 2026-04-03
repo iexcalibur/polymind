@@ -6,9 +6,9 @@ import {
   type MenuRef,
   RowInput,
   Scrollable,
-} from '@affine/component';
-import { TagService, useDeleteTagConfirmModal } from '@affine/core/modules/tag';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component';
+import { TagService, useDeleteTagConfirmModal } from '@polymind/core/modules/tag';
+import { useI18n } from '@polymind/i18n';
 import { DoneIcon, MoreHorizontalIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import clsx from 'clsx';
@@ -294,7 +294,7 @@ export const TagsEditor = ({
       )}
       <div className={styles.tagsEditorTagsSelector}>
         <div className={styles.tagsEditorTagsSelectorHeader}>
-          {t['com.affine.page-properties.tags.selector-header-title']()}
+          {t['com.polymind.page-properties.tags.selector-header-title']()}
         </div>
         <Scrollable.Root>
           <Scrollable.Viewport

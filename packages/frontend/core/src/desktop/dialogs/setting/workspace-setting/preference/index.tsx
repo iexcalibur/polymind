@@ -2,11 +2,11 @@ import {
   SettingHeader,
   SettingRow,
   SettingWrapper,
-} from '@affine/component/setting-components';
-import { useWorkspaceInfo } from '@affine/core/components/hooks/use-workspace-info';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { UNTITLED_WORKSPACE_NAME } from '@affine/env/constant';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component/setting-components';
+import { useWorkspaceInfo } from '@polymind/core/components/hooks/use-workspace-info';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { UNTITLED_WORKSPACE_NAME } from '@polymind/env/constant';
+import { useI18n } from '@polymind/i18n';
 import { ArrowRightSmallIcon } from '@blocksuite/icons/rc';
 import { FrameworkScope, useService } from '@toeverything/infra';
 import { useCallback } from 'react';
@@ -46,12 +46,12 @@ export const WorkspaceSettingDetail = ({
         title={t[`Workspace Settings with name`]({
           name: workspaceInfo?.name ?? UNTITLED_WORKSPACE_NAME,
         })}
-        subtitle={t['com.affine.settings.workspace.description']()}
+        subtitle={t['com.polymind.settings.workspace.description']()}
       />
       <SettingWrapper title={t['Info']()}>
         <SettingRow
           name={t['Workspace Profile']()}
-          desc={t['com.affine.settings.workspace.not-owner']()}
+          desc={t['com.polymind.settings.workspace.not-owner']()}
           spreadCol={false}
         >
           <ProfilePanel />
@@ -68,10 +68,10 @@ export const WorkspaceSettingDetail = ({
         <SettingRow
           name={
             <span style={{ color: 'var(--affine-text-secondary-color)' }}>
-              {t['com.affine.resetSyncStatus.button']()}
+              {t['com.polymind.resetSyncStatus.button']()}
             </span>
           }
-          desc={t['com.affine.resetSyncStatus.description']()}
+          desc={t['com.polymind.resetSyncStatus.description']()}
           style={{ cursor: 'pointer' }}
           onClick={handleResetSyncStatus}
           data-testid="reset-sync-status"

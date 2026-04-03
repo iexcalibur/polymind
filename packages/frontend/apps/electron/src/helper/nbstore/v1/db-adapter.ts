@@ -1,5 +1,5 @@
-import type { InsertRow } from '@affine/native';
-import { SqliteConnection } from '@affine/native';
+import type { InsertRow } from '@polymind/native';
+import { SqliteConnection } from '@polymind/native';
 import type { ByteKVBehavior } from '@toeverything/infra/storage';
 
 import { logger } from '../../logger';

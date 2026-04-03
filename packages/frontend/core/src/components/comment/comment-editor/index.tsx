@@ -1,10 +1,10 @@
-import { IconButton, notify, toast } from '@affine/component';
-import { LitDocEditor, type PageEditor } from '@affine/core/blocksuite/editors';
-import { SnapshotHelper } from '@affine/core/modules/comment/services/snapshot-helper';
-import type { CommentAttachment } from '@affine/core/modules/comment/types';
-import { PeekViewService } from '@affine/core/modules/peek-view';
-import { downloadResourceWithUrl } from '@affine/core/utils/resource';
-import { DebugLogger } from '@affine/debug';
+import { IconButton, notify, toast } from '@polymind/component';
+import { LitDocEditor, type PageEditor } from '@polymind/core/blocksuite/editors';
+import { SnapshotHelper } from '@polymind/core/modules/comment/services/snapshot-helper';
+import type { CommentAttachment } from '@polymind/core/modules/comment/types';
+import { PeekViewService } from '@polymind/core/modules/peek-view';
+import { downloadResourceWithUrl } from '@polymind/core/utils/resource';
+import { DebugLogger } from '@polymind/debug';
 import { getAttachmentFileIconRC } from '@blocksuite/affine/components/icons';
 import { type RichText, selectTextModel } from '@blocksuite/affine/rich-text';
 import { ViewportElementExtension } from '@blocksuite/affine/shared/services';

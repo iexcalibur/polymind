@@ -1,8 +1,8 @@
-import { usePromptModal } from '@affine/component';
-import { useNavigateHelper } from '@affine/core/components/hooks/use-navigate-helper';
-import { CollectionService } from '@affine/core/modules/collection';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { useI18n } from '@affine/i18n';
+import { usePromptModal } from '@polymind/component';
+import { useNavigateHelper } from '@polymind/core/components/hooks/use-navigate-helper';
+import { CollectionService } from '@polymind/core/modules/collection';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { useI18n } from '@polymind/i18n';
 import { ViewLayersIcon } from '@blocksuite/icons/rc';
 import { useService } from '@toeverything/infra';
 import { useCallback } from 'react';
@@ -25,14 +25,14 @@ export const EmptyCollections = (props: UniversalEmptyProps) => {
 
   const handleCreateCollection = useCallback(() => {
     openPromptModal({
-      title: t['com.affine.editCollection.saveCollection'](),
-      label: t['com.affine.editCollectionName.name'](),
+      title: t['com.polymind.editCollection.saveCollection'](),
+      label: t['com.polymind.editCollectionName.name'](),
       inputOptions: {
-        placeholder: t['com.affine.editCollectionName.name.placeholder'](),
+        placeholder: t['com.polymind.editCollectionName.name.placeholder'](),
       },
-      children: t['com.affine.editCollectionName.createTips'](),
-      confirmText: t['com.affine.editCollection.save'](),
-      cancelText: t['com.affine.editCollection.button.cancel'](),
+      children: t['com.polymind.editCollectionName.createTips'](),
+      confirmText: t['com.polymind.editCollection.save'](),
+      cancelText: t['com.polymind.editCollection.button.cancel'](),
       confirmButtonOptions: {
         variant: 'primary',
       },
@@ -53,15 +53,15 @@ export const EmptyCollections = (props: UniversalEmptyProps) => {
     <EmptyLayout
       illustrationLight={collectionListLight}
       illustrationDark={collectionListDark}
-      title={t['com.affine.empty.collections.title']()}
-      description={t['com.affine.empty.collections.description']()}
+      title={t['com.polymind.empty.collections.title']()}
+      description={t['com.polymind.empty.collections.description']()}
       action={
         showAction ? (
           <ActionButton
             prefix={<ViewLayersIcon />}
             onClick={handleCreateCollection}
           >
-            {t['com.affine.empty.collections.action.new-collection']()}
+            {t['com.polymind.empty.collections.action.new-collection']()}
           </ActionButton>
         ) : null
       }

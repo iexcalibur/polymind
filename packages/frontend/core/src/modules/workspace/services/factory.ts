@@ -1,4 +1,4 @@
-import type { BlobStorage, DocStorage } from '@affine/nbstore';
+import type { BlobStorage, DocStorage } from '@polymind/nbstore';
 import type { Workspace } from '@blocksuite/affine/store';
 import { Service } from '@toeverything/infra';
 

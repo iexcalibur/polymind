@@ -1,4 +1,4 @@
-import { IconButton } from '@affine/component/ui/button';
+import { IconButton } from '@polymind/component/ui/button';
 import { CloseIcon } from '@blocksuite/icons/rc';
 
 import * as styles from './index.css';

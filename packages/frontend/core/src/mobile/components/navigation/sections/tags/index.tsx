@@ -1,7 +1,7 @@
-import { NavigationPanelTreeRoot } from '@affine/core/desktop/components/navigation-panel';
-import { NavigationPanelService } from '@affine/core/modules/navigation-panel';
-import { TagService } from '@affine/core/modules/tag';
-import { useI18n } from '@affine/i18n';
+import { NavigationPanelTreeRoot } from '@polymind/core/desktop/components/navigation-panel';
+import { NavigationPanelService } from '@polymind/core/modules/navigation-panel';
+import { TagService } from '@polymind/core/modules/tag';
+import { useI18n } from '@polymind/i18n';
 import { AddTagIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useServices } from '@toeverything/infra';
 import { useCallback, useMemo, useState } from 'react';
@@ -15,8 +15,8 @@ export const TagDesc = ({ input }: { input: string }) => {
   const t = useI18n();
 
   return input
-    ? t['com.affine.m.explorer.tag.new-tip-not-empty']({ value: input })
-    : t['com.affine.m.explorer.tag.new-tip-empty']();
+    ? t['com.polymind.m.explorer.tag.new-tip-not-empty']({ value: input })
+    : t['com.polymind.m.explorer.tag.new-tip-empty']();
 };
 
 export const NavigationPanelTags = () => {
@@ -42,7 +42,7 @@ export const NavigationPanelTags = () => {
   return (
     <CollapsibleSection
       path={path}
-      title={t['com.affine.rootAppSidebar.tags']()}
+      title={t['com.polymind.rootAppSidebar.tags']()}
     >
       <NavigationPanelTreeRoot>
         {tags.map(tag => (
@@ -57,7 +57,7 @@ export const NavigationPanelTags = () => {
           data-testid="navigation-panel-add-tag-button"
           onClick={() => setShowNewTagDialog(true)}
           label={t[
-            'com.affine.rootAppSidebar.explorer.tag-section-add-tooltip'
+            'com.polymind.rootAppSidebar.explorer.tag-section-add-tooltip'
           ]()}
         />
         <TagRenameDialog

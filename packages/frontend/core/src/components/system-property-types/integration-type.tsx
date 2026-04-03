@@ -1,5 +1,5 @@
-import type { FilterParams } from '@affine/core/modules/collection-rules';
-import type { DocRecord } from '@affine/core/modules/doc';
+import type { FilterParams } from '@polymind/core/modules/collection-rules';
+import type { DocRecord } from '@polymind/core/modules/doc';
 
 import type { GroupHeaderProps } from '../explorer/types';
 

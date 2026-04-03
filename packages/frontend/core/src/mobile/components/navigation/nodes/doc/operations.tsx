@@ -4,19 +4,19 @@ import {
   MenuSub,
   toast,
   useConfirmModal,
-} from '@affine/component';
-import { usePageHelper } from '@affine/core/blocksuite/block-suite-page-list/utils';
-import { Guard } from '@affine/core/components/guard';
-import { useBlockSuiteMetaHelper } from '@affine/core/components/hooks/affine/use-block-suite-meta-helper';
-import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
-import { IsFavoriteIcon } from '@affine/core/components/pure/icons';
-import type { NodeOperation } from '@affine/core/desktop/components/navigation-panel';
-import { DocsService } from '@affine/core/modules/doc';
-import { CompatibleFavoriteItemsAdapter } from '@affine/core/modules/favorite';
-import { WorkbenchService } from '@affine/core/modules/workbench';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { preventDefault } from '@affine/core/utils';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component';
+import { usePageHelper } from '@polymind/core/blocksuite/block-suite-page-list/utils';
+import { Guard } from '@polymind/core/components/guard';
+import { useBlockSuiteMetaHelper } from '@polymind/core/components/hooks/affine/use-block-suite-meta-helper';
+import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
+import { IsFavoriteIcon } from '@polymind/core/components/pure/icons';
+import type { NodeOperation } from '@polymind/core/desktop/components/navigation-panel';
+import { DocsService } from '@polymind/core/modules/doc';
+import { CompatibleFavoriteItemsAdapter } from '@polymind/core/modules/favorite';
+import { WorkbenchService } from '@polymind/core/modules/workbench';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { preventDefault } from '@polymind/core/utils';
+import { useI18n } from '@polymind/i18n';
 import {
   DeleteIcon,
   DuplicateIcon,
@@ -73,18 +73,18 @@ export const useNavigationPanelDocNodeOperations = (
       return;
     }
     openConfirmModal({
-      title: t['com.affine.moveToTrash.title'](),
-      description: t['com.affine.moveToTrash.confirmModal.description']({
+      title: t['com.polymind.moveToTrash.title'](),
+      description: t['com.polymind.moveToTrash.confirmModal.description']({
         title: docRecord.title$.value,
       }),
-      confirmText: t['com.affine.moveToTrash.confirmModal.confirm'](),
-      cancelText: t['com.affine.moveToTrash.confirmModal.cancel'](),
+      confirmText: t['com.polymind.moveToTrash.confirmModal.confirm'](),
+      cancelText: t['com.polymind.moveToTrash.confirmModal.cancel'](),
       confirmButtonOptions: {
         variant: 'error',
       },
       onConfirm() {
         docRecord.moveToTrash();
-        toast(t['com.affine.toastMessage.movedTrash']());
+        toast(t['com.polymind.toastMessage.movedTrash']());
       },
     });
   }, [docRecord, openConfirmModal, t]);
@@ -200,7 +200,7 @@ export const useNavigationPanelDocNodeOperationsMenu = (
               </DocFrameScope>
             }
           >
-            <span>{t['com.affine.page-properties.page-info.view']()}</span>
+            <span>{t['com.polymind.page-properties.page-info.view']()}</span>
           </MenuSub>
         ),
       },
@@ -214,7 +214,7 @@ export const useNavigationPanelDocNodeOperationsMenu = (
                 onClick={handleAddLinkedPage}
                 disabled={!canEdit}
               >
-                {t['com.affine.page-operation.add-linked-page']()}
+                {t['com.polymind.page-operation.add-linked-page']()}
               </MenuItem>
             )}
           </Guard>
@@ -224,7 +224,7 @@ export const useNavigationPanelDocNodeOperationsMenu = (
         index: 98,
         view: (
           <MenuItem prefixIcon={<DuplicateIcon />} onClick={handleDuplicate}>
-            {t['com.affine.header.option.duplicate']()}
+            {t['com.polymind.header.option.duplicate']()}
           </MenuItem>
         ),
       },
@@ -232,7 +232,7 @@ export const useNavigationPanelDocNodeOperationsMenu = (
         index: 99,
         view: (
           <MenuItem prefixIcon={<OpenInNewIcon />} onClick={handleOpenInNewTab}>
-            {t['com.affine.workbench.tab.page-menu-open']()}
+            {t['com.polymind.workbench.tab.page-menu-open']()}
           </MenuItem>
         ),
       },
@@ -244,8 +244,8 @@ export const useNavigationPanelDocNodeOperationsMenu = (
             onClick={handleToggleFavoriteDoc}
           >
             {favorite
-              ? t['com.affine.favoritePageOperation.remove']()
-              : t['com.affine.favoritePageOperation.add']()}
+              ? t['com.polymind.favoritePageOperation.remove']()
+              : t['com.polymind.favoritePageOperation.add']()}
           </MenuItem>
         ),
       },
@@ -264,7 +264,7 @@ export const useNavigationPanelDocNodeOperationsMenu = (
                 onClick={handleMoveToTrash}
                 disabled={!canMoveToTrash}
               >
-                {t['com.affine.moveToTrash.title']()}
+                {t['com.polymind.moveToTrash.title']()}
               </MenuItem>
             )}
           </Guard>

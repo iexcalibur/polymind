@@ -6,17 +6,17 @@ import {
   notify,
   Skeleton,
   useConfirmModal,
-} from '@affine/component';
+} from '@polymind/component';
 import {
   Pagination,
   SettingHeader,
-} from '@affine/component/setting-components';
-import { Avatar } from '@affine/component/ui/avatar';
-import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
-import { useNavigateHelper } from '@affine/core/components/hooks/use-navigate-helper';
-import { BackupService } from '@affine/core/modules/backup/services';
-import { toArrayBuffer } from '@affine/core/utils/array-buffer';
-import { i18nTime, useI18n } from '@affine/i18n';
+} from '@polymind/component/setting-components';
+import { Avatar } from '@polymind/component/ui/avatar';
+import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
+import { useNavigateHelper } from '@polymind/core/components/hooks/use-navigate-helper';
+import { BackupService } from '@polymind/core/modules/backup/services';
+import { toArrayBuffer } from '@polymind/core/utils/array-buffer';
+import { i18nTime, useI18n } from '@polymind/i18n';
 import {
   DeleteIcon,
   LocalWorkspaceIcon,
@@ -32,7 +32,7 @@ const Empty = () => {
   const t = useI18n();
   return (
     <div className={styles.empty}>
-      {t['com.affine.settings.workspace.backup.empty']()}
+      {t['com.polymind.settings.workspace.backup.empty']()}
     </div>
   );
 };
@@ -85,12 +85,12 @@ const BackupWorkspaceItem = ({ item }: { item: BackupWorkspaceItem }) => {
       return;
     }
     notify.success({
-      title: t['com.affine.settings.workspace.backup.import.success'](),
+      title: t['com.polymind.settings.workspace.backup.import.success'](),
       actions: [
         {
           key: 'open',
           label:
-            t['com.affine.settings.workspace.backup.import.success.action'](),
+            t['com.polymind.settings.workspace.backup.import.success.action'](),
           onClick: () => {
             jumpToPage(workspaceId, 'all');
           },
@@ -105,12 +105,12 @@ const BackupWorkspaceItem = ({ item }: { item: BackupWorkspaceItem }) => {
   const handleDelete = useCallback(
     (backupWorkspaceId: string) => {
       openConfirmModal({
-        title: t['com.affine.workspaceDelete.title'](),
-        children: t['com.affine.settings.workspace.backup.delete.warning'](),
+        title: t['com.polymind.workspaceDelete.title'](),
+        children: t['com.polymind.settings.workspace.backup.delete.warning'](),
         onConfirm: async () => {
           await backupService.deleteBackupWorkspace(backupWorkspaceId);
           notify.success({
-            title: t['com.affine.settings.workspace.backup.delete.success'](),
+            title: t['com.polymind.settings.workspace.backup.delete.success'](),
           });
         },
         confirmText: t['Confirm'](),
@@ -138,7 +138,7 @@ const BackupWorkspaceItem = ({ item }: { item: BackupWorkspaceItem }) => {
         </div>
       </div>
       <div className={styles.listItemRightLabel}>
-        {t['com.affine.settings.workspace.backup.delete-at']({
+        {t['com.polymind.settings.workspace.backup.delete-at']({
           date: i18nTime(item.updatedAt, {
             absolute: {
               accuracy: 'day',
@@ -164,7 +164,7 @@ const BackupWorkspaceItem = ({ item }: { item: BackupWorkspaceItem }) => {
                 prefixIcon={<LocalWorkspaceIcon />}
                 onClick={handleImport}
               >
-                {t['com.affine.settings.workspace.backup.import']()}
+                {t['com.polymind.settings.workspace.backup.import']()}
               </MenuItem>
               <MenuItem
                 prefixIcon={<DeleteIcon />}
@@ -245,8 +245,8 @@ export const BackupSettingPanel = () => {
   return (
     <>
       <SettingHeader
-        title={t['com.affine.settings.workspace.backup']()}
-        subtitle={t['com.affine.settings.workspace.backup.subtitle']()}
+        title={t['com.polymind.settings.workspace.backup']()}
+        subtitle={t['com.polymind.settings.workspace.backup.subtitle']()}
         data-testid="backup-title"
       />
       {isEmpty ? (

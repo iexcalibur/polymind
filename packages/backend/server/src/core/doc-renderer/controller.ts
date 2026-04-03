@@ -183,7 +183,7 @@ export class DocRendererController {
 
   // @TODO(@forehalo): pre-compile html template to accelerate serializing
   _render(opts: RenderOptions | null, assets: HtmlAssets): string {
-    // TODO(@forehalo): how can we enable the type reference to @affine/env
+    // TODO(@forehalo): how can we enable the type reference to @polymind/env
     const envMeta: Record<string, any> = {
       publicPath: assets.publicPath,
       subPath: this.config.server.path,

@@ -1,4 +1,4 @@
-import type { Workspace } from '@affine/core/modules/workspace';
+import type { Workspace } from '@polymind/core/modules/workspace';
 import { useCallback } from 'react';
 
 interface ConfirmEnableCloudOptions {

@@ -1,8 +1,8 @@
-import { shallowEqual } from '@affine/component';
-import type { TranscriptionBlockProps } from '@affine/core/blocksuite/ai/blocks/transcription-block/model';
-import { DebugLogger } from '@affine/debug';
-import { UserFriendlyError } from '@affine/error';
-import { AiJobStatus } from '@affine/graphql';
+import { shallowEqual } from '@polymind/component';
+import type { TranscriptionBlockProps } from '@polymind/core/blocksuite/ai/blocks/transcription-block/model';
+import { DebugLogger } from '@polymind/debug';
+import { UserFriendlyError } from '@polymind/error';
+import { AiJobStatus } from '@polymind/graphql';
 import { Entity, LiveData } from '@toeverything/infra';
 
 import { AudioTranscriptionJobStore } from './audio-transcription-job-store';

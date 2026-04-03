@@ -1,9 +1,9 @@
-import { Button, IconButton, Input, notify } from '@affine/component';
+import { Button, IconButton, Input, notify } from '@polymind/component';
 import {
   SettingHeader,
   SettingRow,
   SettingWrapper,
-} from '@affine/component/setting-components';
+} from '@polymind/component/setting-components';
 import { PasteIcon } from '@blocksuite/icons/rc';
 import { useCallback, useState } from 'react';
 

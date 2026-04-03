@@ -4,20 +4,20 @@ import {
   Menu,
   PropertyCollapsibleContent,
   PropertyCollapsibleSection,
-} from '@affine/component';
-import { BacklinkGroups } from '@affine/core/blocksuite/block-suite-editor/bi-directional-link-panel';
-import { CreatePropertyMenuItems } from '@affine/core/components/properties/menu/create-doc-property';
-import { WorkspacePropertyRow } from '@affine/core/components/properties/table';
-import type { DocCustomPropertyInfo } from '@affine/core/modules/db';
-import { DocDatabaseBacklinkInfo } from '@affine/core/modules/doc-info';
+} from '@polymind/component';
+import { BacklinkGroups } from '@polymind/core/blocksuite/block-suite-editor/bi-directional-link-panel';
+import { CreatePropertyMenuItems } from '@polymind/core/components/properties/menu/create-doc-property';
+import { WorkspacePropertyRow } from '@polymind/core/components/properties/table';
+import type { DocCustomPropertyInfo } from '@polymind/core/modules/db';
+import { DocDatabaseBacklinkInfo } from '@polymind/core/modules/doc-info';
 import type {
   DatabaseRow,
   DatabaseValueCell,
-} from '@affine/core/modules/doc-info/types';
-import { DocLinksService } from '@affine/core/modules/doc-link';
-import { GuardService } from '@affine/core/modules/permissions';
-import { WorkspacePropertyService } from '@affine/core/modules/workspace-property';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/doc-info/types';
+import { DocLinksService } from '@polymind/core/modules/doc-link';
+import { GuardService } from '@polymind/core/modules/permissions';
+import { WorkspacePropertyService } from '@polymind/core/modules/workspace-property';
+import { useI18n } from '@polymind/i18n';
 import { PlusIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useServices } from '@toeverything/infra';
 import { useCallback, useEffect, useState } from 'react';
@@ -79,24 +79,24 @@ export const InfoTable = ({
   return (
     <>
       <PropertyCollapsibleSection
-        title={t.t('com.affine.workspace.properties')}
+        title={t.t('com.polymind.workspace.properties')}
       >
         <PropertyCollapsibleContent
           className={styles.tableBodyRoot}
           collapseButtonText={({ hide, isCollapsed }) =>
             isCollapsed
               ? hide === 1
-                ? t['com.affine.page-properties.more-property.one']({
+                ? t['com.polymind.page-properties.more-property.one']({
                     count: hide.toString(),
                   })
-                : t['com.affine.page-properties.more-property.more']({
+                : t['com.polymind.page-properties.more-property.more']({
                     count: hide.toString(),
                   })
               : hide === 1
-                ? t['com.affine.page-properties.hide-property.one']({
+                ? t['com.polymind.page-properties.hide-property.one']({
                     count: hide.toString(),
                   })
-                : t['com.affine.page-properties.hide-property.more']({
+                : t['com.polymind.page-properties.hide-property.more']({
                     count: hide.toString(),
                   })
           }
@@ -121,7 +121,7 @@ export const InfoTable = ({
               prefix={<PlusIcon />}
               className={styles.addPropertyButton}
             >
-              {t['com.affine.page-properties.add-property']()}
+              {t['com.polymind.page-properties.add-property']()}
             </Button>
           ) : (
             <Menu
@@ -137,7 +137,7 @@ export const InfoTable = ({
                 prefix={<PlusIcon />}
                 className={styles.addPropertyButton}
               >
-                {t['com.affine.page-properties.add-property']()}
+                {t['com.polymind.page-properties.add-property']()}
               </Button>
             </Menu>
           )}
@@ -151,7 +151,7 @@ export const InfoTable = ({
             count={backlinks.length}
             references={<BacklinkGroups />}
             onClick={onClose}
-            label={t['com.affine.page-properties.backlinks']()}
+            label={t['com.polymind.page-properties.backlinks']()}
           />
           <Divider size="thinner" />
         </>
@@ -162,7 +162,7 @@ export const InfoTable = ({
             count={links.length}
             references={links}
             onClick={onClose}
-            label={t['com.affine.page-properties.outgoing-links']()}
+            label={t['com.polymind.page-properties.outgoing-links']()}
           />
           <Divider size="thinner" />
         </>

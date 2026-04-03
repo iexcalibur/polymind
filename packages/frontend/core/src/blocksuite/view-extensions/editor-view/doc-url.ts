@@ -1,6 +1,6 @@
-import { generateUrl } from '@affine/core/components/hooks/affine/use-share-url';
-import { resolveLinkToDoc } from '@affine/core/modules/navigation/utils';
-import { WorkspaceService } from '@affine/core/modules/workspace';
+import { generateUrl } from '@polymind/core/components/hooks/affine/use-share-url';
+import { resolveLinkToDoc } from '@polymind/core/modules/navigation/utils';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { type ReferenceParams } from '@blocksuite/affine/model';
 import {
   GenerateDocUrlExtension,

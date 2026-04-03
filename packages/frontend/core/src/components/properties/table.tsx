@@ -7,18 +7,18 @@ import {
   PropertyRoot,
   useDraggable,
   useDropTarget,
-} from '@affine/component';
-import type { DocCustomPropertyInfo } from '@affine/core/modules/db';
-import { DocService } from '@affine/core/modules/doc';
-import { DocDatabaseBacklinkInfo } from '@affine/core/modules/doc-info';
+} from '@polymind/component';
+import type { DocCustomPropertyInfo } from '@polymind/core/modules/db';
+import { DocService } from '@polymind/core/modules/doc';
+import { DocDatabaseBacklinkInfo } from '@polymind/core/modules/doc-info';
 import type {
   DatabaseRow,
   DatabaseValueCell,
-} from '@affine/core/modules/doc-info/types';
-import { ViewService, WorkbenchService } from '@affine/core/modules/workbench';
-import { WorkspacePropertyService } from '@affine/core/modules/workspace-property';
-import type { AffineDNDData } from '@affine/core/types/dnd';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/doc-info/types';
+import { ViewService, WorkbenchService } from '@polymind/core/modules/workbench';
+import { WorkspacePropertyService } from '@polymind/core/modules/workspace-property';
+import type { AffineDNDData } from '@polymind/core/types/dnd';
+import { useI18n } from '@polymind/i18n';
 import { PlusIcon, PropertyIcon, ToggleDownIcon } from '@blocksuite/icons/rc';
 import * as Collapsible from '@radix-ui/react-collapsible';
 import {
@@ -92,7 +92,7 @@ export const WorkspacePropertiesTableHeader = ({
     <Collapsible.Trigger style={style} role="button" onClick={handleCollapse}>
       <div className={clsx(styles.tableHeader, className)}>
         <div className={clsx(!open ? styles.pageInfoDimmed : null)}>
-          {t['com.affine.page-properties.page-info']()}
+          {t['com.polymind.page-properties.page-info']()}
         </div>
         <div
           className={styles.tableHeaderCollapseButtonWrapper}
@@ -313,7 +313,7 @@ const WorkspaceWorkspacePropertiesTableBody = forwardRef<
         ref={ref}
         className={clsx(styles.tableBodyRoot, className)}
         style={style}
-        title={t.t('com.affine.workspace.properties')}
+        title={t.t('com.polymind.workspace.properties')}
         defaultCollapsed={!defaultOpen}
         onCollapseChange={handleCollapseChange}
         {...props}
@@ -326,17 +326,17 @@ const WorkspaceWorkspacePropertiesTableBody = forwardRef<
           collapseButtonText={({ hide, isCollapsed }) =>
             isCollapsed
               ? hide === 1
-                ? t['com.affine.page-properties.more-property.one']({
+                ? t['com.polymind.page-properties.more-property.one']({
                     count: hide.toString(),
                   })
-                : t['com.affine.page-properties.more-property.more']({
+                : t['com.polymind.page-properties.more-property.more']({
                     count: hide.toString(),
                   })
               : hide === 1
-                ? t['com.affine.page-properties.hide-property.one']({
+                ? t['com.polymind.page-properties.hide-property.one']({
                     count: hide.toString(),
                   })
-                : t['com.affine.page-properties.hide-property.more']({
+                : t['com.polymind.page-properties.hide-property.more']({
                     count: hide.toString(),
                   })
           }
@@ -363,7 +363,7 @@ const WorkspaceWorkspacePropertiesTableBody = forwardRef<
                 data-testid="add-property-button"
                 disabled={!canEditPropertyInfo}
               >
-                {t['com.affine.page-properties.add-property']()}
+                {t['com.polymind.page-properties.add-property']()}
               </Button>
             ) : (
               <Menu
@@ -385,7 +385,7 @@ const WorkspaceWorkspacePropertiesTableBody = forwardRef<
                   className={styles.propertyActionButton}
                   data-testid="add-property-button"
                 >
-                  {t['com.affine.page-properties.add-property']()}
+                  {t['com.polymind.page-properties.add-property']()}
                 </Button>
               </Menu>
             )}
@@ -402,7 +402,7 @@ const WorkspaceWorkspacePropertiesTableBody = forwardRef<
                   workbenchService.workbench.openSidebar();
                 }}
               >
-                {t['com.affine.page-properties.config-properties']()}
+                {t['com.polymind.page-properties.config-properties']()}
               </Button>
             ) : null}
           </div>

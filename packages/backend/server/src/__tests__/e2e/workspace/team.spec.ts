@@ -5,7 +5,7 @@ import {
   revokeMemberPermissionMutation,
   revokePublicPageMutation,
   WorkspaceMemberStatus,
-} from '@affine/graphql';
+} from '@polymind/graphql';
 
 import { QuotaService } from '../../../core/quota/service';
 import { WorkspaceRole } from '../../../models';

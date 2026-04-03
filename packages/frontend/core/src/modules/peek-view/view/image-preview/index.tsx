@@ -1,6 +1,6 @@
-import { Divider, Loading, toast } from '@affine/component';
-import { Button, IconButton } from '@affine/component/ui/button';
-import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
+import { Divider, Loading, toast } from '@polymind/component';
+import { Button, IconButton } from '@polymind/component/ui/button';
+import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
 import type { ImageBlockModel } from '@blocksuite/affine/model';
 import type { BlockModel, Workspace } from '@blocksuite/affine/store';
 import {

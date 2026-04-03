@@ -1,5 +1,5 @@
-import { MenuItem } from '@affine/component/ui/menu';
-import { useI18n } from '@affine/i18n';
+import { MenuItem } from '@polymind/component/ui/menu';
+import { useI18n } from '@polymind/i18n';
 import { ImportIcon, PlusIcon } from '@blocksuite/icons/rc';
 
 import * as styles from './index.css';
@@ -25,7 +25,7 @@ export const AddWorkspace = ({
           className={styles.ItemContainer}
         >
           <div className={styles.ItemText}>
-            {t['com.affine.workspace.local.import']()}
+            {t['com.polymind.workspace.local.import']()}
           </div>
         </MenuItem>
       )}
@@ -38,7 +38,7 @@ export const AddWorkspace = ({
         className={styles.ItemContainer}
       >
         <div className={styles.ItemText}>
-          {t['com.affine.workspaceList.addWorkspace.create']()}
+          {t['com.polymind.workspaceList.addWorkspace.create']()}
         </div>
       </MenuItem>
     </>

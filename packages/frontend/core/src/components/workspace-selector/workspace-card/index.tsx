@@ -1,15 +1,15 @@
-import { Button, notify, Skeleton, Tooltip } from '@affine/component';
-import { Loading } from '@affine/component/ui/loading';
-import { useSystemOnline } from '@affine/core/components/hooks/use-system-online';
-import { useWorkspace } from '@affine/core/components/hooks/use-workspace';
-import { useWorkspaceInfo } from '@affine/core/components/hooks/use-workspace-info';
+import { Button, notify, Skeleton, Tooltip } from '@polymind/component';
+import { Loading } from '@polymind/component/ui/loading';
+import { useSystemOnline } from '@polymind/core/components/hooks/use-system-online';
+import { useWorkspace } from '@polymind/core/components/hooks/use-workspace';
+import { useWorkspaceInfo } from '@polymind/core/components/hooks/use-workspace-info';
 import {
   type WorkspaceMetadata,
   type WorkspaceProfileInfo,
   WorkspacesService,
-} from '@affine/core/modules/workspace';
-import { UNTITLED_WORKSPACE_NAME } from '@affine/env/constant';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/workspace';
+import { UNTITLED_WORKSPACE_NAME } from '@polymind/env/constant';
+import { useI18n } from '@polymind/i18n';
 import {
   ArrowDownSmallIcon,
   CloudWorkspaceIcon,
@@ -367,13 +367,13 @@ export const WorkspaceCard = forwardRef<
         <div className={styles.suffixIcons}>
           {hideCollaborationIcon || information?.isOwner ? null : (
             <Tooltip
-              content={t['com.affine.settings.workspace.state.joined']()}
+              content={t['com.polymind.settings.workspace.state.joined']()}
             >
               <CollaborationIcon className={styles.collaborationIcon} />
             </Tooltip>
           )}
           {hideTeamWorkspaceIcon || !information?.isTeam ? null : (
-            <Tooltip content={t['com.affine.settings.workspace.state.team']()}>
+            <Tooltip content={t['com.polymind.settings.workspace.state.team']()}>
               <TeamWorkspaceIcon className={styles.collaborationIcon} />
             </Tooltip>
           )}

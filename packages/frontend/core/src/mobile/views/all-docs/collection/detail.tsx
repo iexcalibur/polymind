@@ -1,16 +1,16 @@
-import { Wrapper } from '@affine/component';
+import { Wrapper } from '@polymind/component';
 import {
   EmptyCollectionDetail,
   EmptyDocs,
-} from '@affine/core/components/affine/empty';
+} from '@polymind/core/components/affine/empty';
 import {
   createDocExplorerContext,
   DocExplorerContext,
-} from '@affine/core/components/explorer/context';
-import { DocsExplorer } from '@affine/core/components/explorer/docs-view/docs-list';
-import { PageHeader } from '@affine/core/mobile/components';
-import { Page } from '@affine/core/mobile/components/page';
-import type { Collection } from '@affine/core/modules/collection';
+} from '@polymind/core/components/explorer/context';
+import { DocsExplorer } from '@polymind/core/components/explorer/docs-view/docs-list';
+import { PageHeader } from '@polymind/core/mobile/components';
+import { Page } from '@polymind/core/mobile/components/page';
+import type { Collection } from '@polymind/core/modules/collection';
 import { ViewLayersIcon } from '@blocksuite/icons/rc';
 import { useLiveData } from '@toeverything/infra';
 import { useEffect, useState } from 'react';

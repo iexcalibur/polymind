@@ -1,5 +1,5 @@
-import { builtInTemplates as builtInEdgelessTemplates } from '@affine/templates/edgeless';
-import { builtInTemplates as builtInStickersTemplates } from '@affine/templates/stickers';
+import { builtInTemplates as builtInEdgelessTemplates } from '@polymind/templates/edgeless';
+import { builtInTemplates as builtInStickersTemplates } from '@polymind/templates/stickers';
 import {
   EdgelessTemplatePanel,
   type TemplateManager,

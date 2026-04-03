@@ -130,7 +130,7 @@ export function createHTMLTargetConfig(
           '@preact',
           'signals-core'
         ).value,
-        '@affine/core/modules/code-block-preview-renderer/platform-backend':
+        '@polymind/core/modules/code-block-preview-renderer/platform-backend':
           codeBlockPreviewBackendAlias,
       },
     },
@@ -293,7 +293,7 @@ export function createHTMLTargetConfig(
           patterns: [
             {
               // copy the shared public assets into dist
-              from: new Package('@affine/core').join('public').value,
+              from: new Package('@polymind/core').join('public').value,
             },
           ],
         }),

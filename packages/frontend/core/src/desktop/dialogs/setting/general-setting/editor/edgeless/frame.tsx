@@ -1,7 +1,7 @@
-import { MenuItem, MenuTrigger } from '@affine/component';
-import { SettingRow } from '@affine/component/setting-components';
-import { EditorSettingService } from '@affine/core/modules/editor-setting';
-import { useI18n } from '@affine/i18n';
+import { MenuItem, MenuTrigger } from '@polymind/component';
+import { SettingRow } from '@polymind/component/setting-components';
+import { EditorSettingService } from '@polymind/core/modules/editor-setting';
+import { useI18n } from '@polymind/i18n';
 import { DefaultTheme } from '@blocksuite/affine/model';
 import type { Store } from '@blocksuite/affine/store';
 import { useFramework, useLiveData } from '@toeverything/infra';
@@ -58,14 +58,14 @@ export const FrameSettings = () => {
   return (
     <>
       <EdgelessSnapshot
-        title={t['com.affine.settings.editorSettings.edgeless.frame']()}
+        title={t['com.polymind.settings.editorSettings.edgeless.frame']()}
         docName="frame"
         keyName="affine:frame"
         getElements={getElements}
       />
       <SettingRow
         name={t[
-          'com.affine.settings.editorSettings.edgeless.frame.background'
+          'com.polymind.settings.editorSettings.edgeless.frame.background'
         ]()}
         desc={''}
       >

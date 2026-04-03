@@ -6,21 +6,21 @@ import {
   MenuItem,
   notify,
   useConfirmModal,
-} from '@affine/component';
-import { useGuard } from '@affine/core/components/guard';
-import { type DocCommentEntity } from '@affine/core/modules/comment/entities/doc-comment';
-import { CommentPanelService } from '@affine/core/modules/comment/services/comment-panel-service';
-import { DocCommentManagerService } from '@affine/core/modules/comment/services/doc-comment-manager';
+} from '@polymind/component';
+import { useGuard } from '@polymind/core/components/guard';
+import { type DocCommentEntity } from '@polymind/core/modules/comment/entities/doc-comment';
+import { CommentPanelService } from '@polymind/core/modules/comment/services/comment-panel-service';
+import { DocCommentManagerService } from '@polymind/core/modules/comment/services/doc-comment-manager';
 import type {
   CommentAttachment,
   DocComment,
   DocCommentReply,
-} from '@affine/core/modules/comment/types';
-import { DocService } from '@affine/core/modules/doc';
-import { toDocSearchParams } from '@affine/core/modules/navigation';
-import { WorkbenchService } from '@affine/core/modules/workbench';
-import { copyTextToClipboard } from '@affine/core/utils/clipboard';
-import { i18nTime, useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/comment/types';
+import { DocService } from '@polymind/core/modules/doc';
+import { toDocSearchParams } from '@polymind/core/modules/navigation';
+import { WorkbenchService } from '@polymind/core/modules/workbench';
+import { copyTextToClipboard } from '@polymind/core/utils/clipboard';
+import { i18nTime, useI18n } from '@polymind/i18n';
 import type { DocSnapshot, Store } from '@blocksuite/affine/store';
 import { DoneIcon, FilterIcon, MoreHorizontalIcon } from '@blocksuite/icons/rc';
 import {
@@ -64,7 +64,7 @@ const SortFilterButton = ({
               )
             }
           >
-            {t['com.affine.comment.filter.show-resolved']()}
+            {t['com.polymind.comment.filter.show-resolved']()}
           </MenuItem>
           <MenuItem
             checked={filterState.onlyMyReplies}
@@ -72,7 +72,7 @@ const SortFilterButton = ({
               onFilterChange('onlyMyReplies', !filterState.onlyMyReplies)
             }
           >
-            {t['com.affine.comment.filter.only-my-replies']()}
+            {t['com.polymind.comment.filter.only-my-replies']()}
           </MenuItem>
           <MenuItem
             checked={filterState.onlyCurrentMode}
@@ -80,7 +80,7 @@ const SortFilterButton = ({
               onFilterChange('onlyCurrentMode', !filterState.onlyCurrentMode)
             }
           >
-            {t['com.affine.comment.filter.only-current-mode']()}
+            {t['com.polymind.comment.filter.only-current-mode']()}
           </MenuItem>
         </>
       }
@@ -133,12 +133,12 @@ const ActionMenu = ({
         <>
           {canReply ? (
             <MenuItem onClick={onReply} disabled={!!disabled || !!resolved}>
-              {t['com.affine.comment.reply']()}
+              {t['com.polymind.comment.reply']()}
             </MenuItem>
           ) : null}
           {canCopyLink ? (
             <MenuItem onClick={onCopyLink} disabled={disabled}>
-              {t['com.affine.comment.copy-link']()}
+              {t['com.polymind.comment.copy-link']()}
             </MenuItem>
           ) : null}
           {canEdit ? (
@@ -280,8 +280,8 @@ const CommentItem = ({
     async (e: React.MouseEvent) => {
       e.stopPropagation();
       openConfirmModal({
-        title: t['com.affine.comment.delete.confirm.title'](),
-        description: t['com.affine.comment.delete.confirm.description'](),
+        title: t['com.polymind.comment.delete.confirm.title'](),
+        description: t['com.polymind.comment.delete.confirm.description'](),
         confirmText: t['Delete'](),
         cancelText: t['Cancel'](),
         confirmButtonOptions: {
@@ -664,7 +664,7 @@ const CommentList = ({ entity }: { entity: DocCommentEntity }) => {
     <>
       <div className={styles.header}>
         <div className={styles.headerTitle}>
-          {t['com.affine.comment.comments']()}
+          {t['com.polymind.comment.comments']()}
         </div>
         {comments.length > 0 && (
           <SortFilterButton
@@ -678,7 +678,7 @@ const CommentList = ({ entity }: { entity: DocCommentEntity }) => {
         !newPendingComment &&
         !loading && (
           <div className={styles.empty}>
-            {t['com.affine.comment.no-comments']()}
+            {t['com.polymind.comment.no-comments']()}
           </div>
         )}
       {loading &&
@@ -806,8 +806,8 @@ const ReplyItem = ({
 
   const handleDelete = useAsyncCallback(async () => {
     openConfirmModal({
-      title: t['com.affine.comment.reply.delete.confirm.title'](),
-      description: t['com.affine.comment.reply.delete.confirm.description'](),
+      title: t['com.polymind.comment.reply.delete.confirm.title'](),
+      description: t['com.polymind.comment.reply.delete.confirm.description'](),
       confirmText: t['Delete'](),
       cancelText: t['Cancel'](),
       confirmButtonOptions: {
@@ -966,7 +966,7 @@ const ReplyList = ({
           }}
         >
           <div className={styles.collapsedRepliesTitle}>
-            {t['com.affine.comment.reply.show-more']({
+            {t['com.polymind.comment.reply.show-more']({
               count: (sortedReplies.length - 4).toString(),
             })}
           </div>

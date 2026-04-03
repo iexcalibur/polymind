@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@affine-tools/utils": "workspace:*",
-    "@affine/s3-compat": "workspace:*",
+    "@polymind/s3-compat": "workspace:*",
     "@napi-rs/simple-git": "^0.1.22",
     "@rspack/core": "^1.7.6",
     "@rspack/dev-server": "^1.1.3",

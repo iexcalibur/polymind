@@ -1,7 +1,7 @@
-import { Popover, uniReactRoot } from '@affine/component';
-import { Button } from '@affine/component/ui/button';
-import { Menu, MenuItem } from '@affine/component/ui/menu';
-import { PeekViewService } from '@affine/core/modules/peek-view/services/peek-view';
+import { Popover, uniReactRoot } from '@polymind/component';
+import { Button } from '@polymind/component/ui/button';
+import { Menu, MenuItem } from '@polymind/component/ui/menu';
+import { PeekViewService } from '@polymind/core/modules/peek-view/services/peek-view';
 import {
   type Cell,
   type CellRenderProps,

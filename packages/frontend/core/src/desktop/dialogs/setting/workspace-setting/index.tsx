@@ -1,8 +1,8 @@
-import { useWorkspaceInfo } from '@affine/core/components/hooks/use-workspace-info';
-import type { SettingTab } from '@affine/core/modules/dialogs/constant';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { EmbeddingSettings } from '@affine/core/modules/workspace-indexer-embedding';
-import { useI18n } from '@affine/i18n';
+import { useWorkspaceInfo } from '@polymind/core/components/hooks/use-workspace-info';
+import type { SettingTab } from '@polymind/core/modules/dialogs/constant';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { EmbeddingSettings } from '@polymind/core/modules/workspace-indexer-embedding';
+import { useI18n } from '@polymind/i18n';
 import {
   AiEmbeddingIcon,
   PropertyIcon,
@@ -48,13 +48,13 @@ export const useWorkspaceSettingList = (): SettingSidebarItem[] => {
     return [
       {
         key: 'workspace:preference',
-        title: t['com.affine.settings.workspace.preferences'](),
+        title: t['com.polymind.settings.workspace.preferences'](),
         icon: <SettingsIcon />,
         testId: 'workspace-setting:preference',
       },
       {
         key: 'workspace:properties',
-        title: t['com.affine.settings.workspace.properties'](),
+        title: t['com.polymind.settings.workspace.properties'](),
         icon: <PropertyIcon />,
         testId: 'workspace-setting:properties',
       },
@@ -68,7 +68,7 @@ export const useWorkspaceSettingList = (): SettingSidebarItem[] => {
         key: 'workspace:embedding',
         title:
           t[
-            'com.affine.settings.workspace.indexer-embedding.embedding.title'
+            'com.polymind.settings.workspace.indexer-embedding.embedding.title'
           ](),
         icon: <AiEmbeddingIcon />,
         testId: 'workspace-setting:embedding',

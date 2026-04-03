@@ -1,4 +1,4 @@
-import { RadioGroup, type RadioItem } from '@affine/component';
+import { RadioGroup, type RadioItem } from '@polymind/component';
 import { useCallback } from 'react';
 
 import {

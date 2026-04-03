@@ -1,8 +1,8 @@
-import { DocsService } from '@affine/core/modules/doc';
-import { DocDisplayMetaService } from '@affine/core/modules/doc-display-meta';
-import { PeekViewService } from '@affine/core/modules/peek-view/services/peek-view';
-import { useInsidePeekView } from '@affine/core/modules/peek-view/view/modal-container';
-import { WorkbenchLink } from '@affine/core/modules/workbench';
+import { DocsService } from '@polymind/core/modules/doc';
+import { DocDisplayMetaService } from '@polymind/core/modules/doc-display-meta';
+import { PeekViewService } from '@polymind/core/modules/peek-view/services/peek-view';
+import { useInsidePeekView } from '@polymind/core/modules/peek-view/view/modal-container';
+import { WorkbenchLink } from '@polymind/core/modules/workbench';
 import type { DocMode } from '@blocksuite/affine/model';
 import type { Workspace } from '@blocksuite/affine/store';
 import { LiveData, useLiveData, useService } from '@toeverything/infra';

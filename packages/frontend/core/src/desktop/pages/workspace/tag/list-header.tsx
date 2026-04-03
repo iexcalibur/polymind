@@ -5,10 +5,10 @@ import {
   type MenuProps,
   RowInput,
   Scrollable,
-} from '@affine/component';
-import { type Tag, TagService } from '@affine/core/modules/tag';
-import { WorkbenchLink } from '@affine/core/modules/workbench';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component';
+import { type Tag, TagService } from '@polymind/core/modules/tag';
+import { WorkbenchLink } from '@polymind/core/modules/workbench';
+import { useI18n } from '@polymind/i18n';
 import { ArrowDownSmallIcon, DoneIcon, SearchIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import clsx from 'clsx';

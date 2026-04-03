@@ -1,11 +1,11 @@
-import { notify } from '@affine/component';
+import { notify } from '@polymind/component';
 import {
   generateUrl,
   type UseSharingUrl,
-} from '@affine/core/components/hooks/affine/use-share-url';
-import { EditorService } from '@affine/core/modules/editor';
-import { copyLinkToBlockStdScopeClipboard } from '@affine/core/utils/clipboard';
-import { I18n } from '@affine/i18n';
+} from '@polymind/core/components/hooks/affine/use-share-url';
+import { EditorService } from '@polymind/core/modules/editor';
+import { copyLinkToBlockStdScopeClipboard } from '@polymind/core/utils/clipboard';
+import { I18n } from '@polymind/i18n';
 import {
   menu,
   type MenuOptions,

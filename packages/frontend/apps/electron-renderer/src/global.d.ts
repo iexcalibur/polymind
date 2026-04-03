@@ -1,4 +1,4 @@
-import type { apis, events } from '@affine/electron-api';
+import type { apis, events } from '@polymind/electron-api';
 
 /**
  * Extends the global Window interface to include AFFiNE's 

@@ -1,12 +1,12 @@
-import { SettingRow } from '@affine/component/setting-components';
-import { useI18n } from '@affine/i18n';
+import { SettingRow } from '@polymind/component/setting-components';
+import { useI18n } from '@polymind/i18n';
 
 export const WorkspaceQuotaPanel = () => {
   const t = useI18n();
 
   return (
     <SettingRow
-      name={t['com.affine.workspace.storage']()}
+      name={t['com.polymind.workspace.storage']()}
       desc=""
       spreadCol={false}
     >

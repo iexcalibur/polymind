@@ -4,10 +4,10 @@ import {
   RadioGroup,
   type RadioItem,
   Slider,
-} from '@affine/component';
-import { SettingRow } from '@affine/component/setting-components';
-import { EditorSettingService } from '@affine/core/modules/editor-setting';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component';
+import { SettingRow } from '@polymind/component/setting-components';
+import { EditorSettingService } from '@polymind/core/modules/editor-setting';
+import { useI18n } from '@polymind/i18n';
 import {
   createEnumMap,
   DefaultTheme,
@@ -59,17 +59,17 @@ export const NoteSettings = () => {
       {
         value: StrokeStyle.Solid,
         label:
-          t['com.affine.settings.editorSettings.edgeless.note.border.solid'](),
+          t['com.polymind.settings.editorSettings.edgeless.note.border.solid'](),
       },
       {
         value: StrokeStyle.Dash,
         label:
-          t['com.affine.settings.editorSettings.edgeless.note.border.dash'](),
+          t['com.polymind.settings.editorSettings.edgeless.note.border.dash'](),
       },
       {
         value: StrokeStyle.None,
         label:
-          t['com.affine.settings.editorSettings.edgeless.note.border.none'](),
+          t['com.polymind.settings.editorSettings.edgeless.note.border.none'](),
       },
     ],
     [t]
@@ -177,7 +177,7 @@ export const NoteSettings = () => {
   return (
     <>
       <EdgelessSnapshot
-        title={t['com.affine.settings.editorSettings.edgeless.note']()}
+        title={t['com.polymind.settings.editorSettings.edgeless.note']()}
         docName="note"
         keyName="affine:note"
         getElements={getElements}
@@ -185,7 +185,7 @@ export const NoteSettings = () => {
       />
       <SettingRow
         name={t[
-          'com.affine.settings.editorSettings.edgeless.note.background'
+          'com.polymind.settings.editorSettings.edgeless.note.background'
         ]()}
         desc={''}
       >
@@ -204,7 +204,7 @@ export const NoteSettings = () => {
         ) : null}
       </SettingRow>
       <SettingRow
-        name={t['com.affine.settings.editorSettings.edgeless.note.corners']()}
+        name={t['com.polymind.settings.editorSettings.edgeless.note.corners']()}
         desc={''}
       >
         <DropdownMenu
@@ -222,7 +222,7 @@ export const NoteSettings = () => {
         />
       </SettingRow>
       <SettingRow
-        name={t['com.affine.settings.editorSettings.edgeless.note.shadow']()}
+        name={t['com.polymind.settings.editorSettings.edgeless.note.shadow']()}
         desc={''}
       >
         <DropdownMenu
@@ -235,7 +235,7 @@ export const NoteSettings = () => {
         />
       </SettingRow>
       <SettingRow
-        name={t['com.affine.settings.editorSettings.edgeless.note.border']()}
+        name={t['com.polymind.settings.editorSettings.edgeless.note.border']()}
         desc={''}
       >
         <RadioGroup
@@ -248,7 +248,7 @@ export const NoteSettings = () => {
       </SettingRow>
       <SettingRow
         name={t[
-          'com.affine.settings.editorSettings.edgeless.note.border-thickness'
+          'com.polymind.settings.editorSettings.edgeless.note.border-thickness'
         ]()}
         desc={''}
       >

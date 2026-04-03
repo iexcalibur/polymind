@@ -1,4 +1,4 @@
-import type { GetMembersByWorkspaceIdQuery } from '@affine/graphql';
+import type { GetMembersByWorkspaceIdQuery } from '@polymind/graphql';
 import {
   catchErrorInto,
   effect,

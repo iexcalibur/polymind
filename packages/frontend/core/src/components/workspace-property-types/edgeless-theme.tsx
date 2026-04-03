@@ -1,7 +1,7 @@
-import { MenuItem, PropertyValue, type RadioItem } from '@affine/component';
-import type { FilterParams } from '@affine/core/modules/collection-rules';
-import { type DocRecord, DocService } from '@affine/core/modules/doc';
-import { useI18n } from '@affine/i18n';
+import { MenuItem, PropertyValue, type RadioItem } from '@polymind/component';
+import type { FilterParams } from '@polymind/core/modules/collection-rules';
+import { type DocRecord, DocService } from '@polymind/core/modules/doc';
+import { useI18n } from '@polymind/i18n';
 import { EdgelessIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import { useCallback, useMemo } from 'react';
@@ -18,15 +18,15 @@ const getThemeOptions = (t: ReturnType<typeof useI18n>) =>
   [
     {
       value: 'system',
-      label: t['com.affine.themeSettings.auto'](),
+      label: t['com.polymind.themeSettings.auto'](),
     },
     {
       value: 'light',
-      label: t['com.affine.themeSettings.light'](),
+      label: t['com.polymind.themeSettings.light'](),
     },
     {
       value: 'dark',
-      label: t['com.affine.themeSettings.dark'](),
+      label: t['com.polymind.themeSettings.dark'](),
     },
   ] satisfies RadioItem[];
 
@@ -72,10 +72,10 @@ export const EdgelessThemeDocListProperty = ({ doc }: { doc: DocRecord }) => {
   return (
     <StackProperty icon={<EdgelessIcon />}>
       {edgelessTheme === 'system' || !edgelessTheme
-        ? t['com.affine.themeSettings.auto']()
+        ? t['com.polymind.themeSettings.auto']()
         : edgelessTheme === 'light'
-          ? t['com.affine.themeSettings.light']()
-          : t['com.affine.themeSettings.dark']()}
+          ? t['com.polymind.themeSettings.light']()
+          : t['com.polymind.themeSettings.dark']()}
     </StackProperty>
   );
 };
@@ -108,7 +108,7 @@ export const EdgelessThemeFilterValue = ({
             }}
             selected={filter.value === 'system'}
           >
-            {t['com.affine.themeSettings.auto']()}
+            {t['com.polymind.themeSettings.auto']()}
           </MenuItem>
           <MenuItem
             onClick={() => {
@@ -119,7 +119,7 @@ export const EdgelessThemeFilterValue = ({
             }}
             selected={filter.value === 'light'}
           >
-            {t['com.affine.themeSettings.light']()}
+            {t['com.polymind.themeSettings.light']()}
           </MenuItem>
           <MenuItem
             onClick={() => {
@@ -130,17 +130,17 @@ export const EdgelessThemeFilterValue = ({
             }}
             selected={filter.value === 'dark'}
           >
-            {t['com.affine.themeSettings.dark']()}
+            {t['com.polymind.themeSettings.dark']()}
           </MenuItem>
         </>
       }
     >
       <span>
         {filter.value === 'system'
-          ? t['com.affine.themeSettings.auto']()
+          ? t['com.polymind.themeSettings.auto']()
           : filter.value === 'light'
-            ? t['com.affine.themeSettings.light']()
-            : t['com.affine.themeSettings.dark']()}
+            ? t['com.polymind.themeSettings.light']()
+            : t['com.polymind.themeSettings.dark']()}
       </span>
     </FilterValueMenu>
   );
@@ -153,11 +153,11 @@ export const EdgelessThemeGroupHeader = ({
   const t = useI18n();
   const text =
     groupId === 'light'
-      ? t['com.affine.themeSettings.light']()
+      ? t['com.polymind.themeSettings.light']()
       : groupId === 'dark'
-        ? t['com.affine.themeSettings.dark']()
+        ? t['com.polymind.themeSettings.dark']()
         : groupId === 'system'
-          ? t['com.affine.themeSettings.auto']()
+          ? t['com.polymind.themeSettings.auto']()
           : 'Default';
 
   return (

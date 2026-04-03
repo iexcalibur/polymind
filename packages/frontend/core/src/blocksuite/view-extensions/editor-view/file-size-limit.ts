@@ -1,4 +1,4 @@
-import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
+import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
 import type { Container } from '@blocksuite/affine/global/di';
 import {
   FileSizeLimitProvider,

@@ -1,6 +1,6 @@
-import type { ConfirmModalProps } from '@affine/component/ui/modal';
-import { ConfirmModal } from '@affine/component/ui/modal';
-import { useI18n } from '@affine/i18n';
+import type { ConfirmModalProps } from '@polymind/component/ui/modal';
+import { ConfirmModal } from '@polymind/component/ui/modal';
+import { useI18n } from '@polymind/i18n';
 import { useMemo } from 'react';
 
 type SignOutConfirmModalI18NKeys =
@@ -18,7 +18,7 @@ export const SignOutModal = ({ ...props }: ConfirmModalProps) => {
 
   const defaultTexts = useMemo(() => {
     const getDefaultText = (key: SignOutConfirmModalI18NKeys) => {
-      return t[`com.affine.auth.sign-out.confirm-modal.${key}`]();
+      return t[`com.polymind.auth.sign-out.confirm-modal.${key}`]();
     };
     return {
       title: getDefaultText('title'),

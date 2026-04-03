@@ -1,5 +1,5 @@
-import { getAFFiNEWorkspaceSchema } from '@affine/core/modules/workspace';
-import { WorkspaceImpl } from '@affine/core/modules/workspace/impls/workspace';
+import { getAFFiNEWorkspaceSchema } from '@polymind/core/modules/workspace';
+import { WorkspaceImpl } from '@polymind/core/modules/workspace/impls/workspace';
 import type { DocSnapshot, Store } from '@blocksuite/affine/store';
 import { Transformer } from '@blocksuite/affine/store';
 import { Doc as YDoc } from 'yjs';

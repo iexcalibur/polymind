@@ -1,22 +1,22 @@
-import { configureElectronStateStorageImpls } from '@affine/core/desktop/storage';
-import { configureCommonModules } from '@affine/core/modules';
-import { configureAppTabsHeaderModule } from '@affine/core/modules/app-tabs-header';
-import { configureDesktopBackupModule } from '@affine/core/modules/backup';
+import { configureElectronStateStorageImpls } from '@polymind/core/desktop/storage';
+import { configureCommonModules } from '@polymind/core/modules';
+import { configureAppTabsHeaderModule } from '@polymind/core/modules/app-tabs-header';
+import { configureDesktopBackupModule } from '@polymind/core/modules/backup';
 import {
   configureDesktopApiModule,
   DesktopApiService,
-} from '@affine/core/modules/desktop-api';
+} from '@polymind/core/modules/desktop-api';
 import {
   configureSpellCheckSettingModule,
   configureTraySettingModule,
-} from '@affine/core/modules/editor-setting';
-import { configureFindInPageModule } from '@affine/core/modules/find-in-page';
+} from '@polymind/core/modules/editor-setting';
+import { configureFindInPageModule } from '@polymind/core/modules/find-in-page';
 import {
   ClientSchemeProvider,
   PopupWindowProvider,
-} from '@affine/core/modules/url';
-import { configureDesktopWorkbenchModule } from '@affine/core/modules/workbench';
-import { configureBrowserWorkspaceFlavours } from '@affine/core/modules/workspace-engine';
+} from '@polymind/core/modules/url';
+import { configureDesktopWorkbenchModule } from '@polymind/core/modules/workbench';
+import { configureBrowserWorkspaceFlavours } from '@polymind/core/modules/workspace-engine';
 import { Framework } from '@toeverything/infra';
 
 export function setupModules() {

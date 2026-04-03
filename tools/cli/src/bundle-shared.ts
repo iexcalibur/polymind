@@ -1,13 +1,13 @@
 import type { Configuration as RspackDevServerConfiguration } from '@rspack/dev-server';
 
 export const RSPACK_SUPPORTED_PACKAGES = [
-  '@affine/web',
-  '@affine/mobile',
-  '@affine/ios',
-  '@affine/android',
-  '@affine/electron-renderer',
-  '@affine/server',
-  '@affine/reader',
+  '@polymind/web',
+  '@polymind/mobile',
+  '@polymind/ios',
+  '@polymind/android',
+  '@polymind/electron-renderer',
+  '@polymind/server',
+  '@polymind/reader',
 ] as const;
 
 const rspackSupportedPackageSet = new Set<string>(RSPACK_SUPPORTED_PACKAGES);

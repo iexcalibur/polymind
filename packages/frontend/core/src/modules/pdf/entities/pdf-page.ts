@@ -1,4 +1,4 @@
-import { DebugLogger } from '@affine/debug';
+import { DebugLogger } from '@polymind/debug';
 import {
   catchErrorInto,
   effect,

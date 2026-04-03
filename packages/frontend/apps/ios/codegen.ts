@@ -3,7 +3,7 @@ import { execSync } from 'node:child_process';
 import { ProjectRoot } from '@affine-tools/utils/path';
 import { Package } from '@affine-tools/utils/workspace';
 
-const iosPackage = new Package('@affine/ios');
+const iosPackage = new Package('@polymind/ios');
 
 const PackageRoot = iosPackage.path;
 

@@ -1,7 +1,7 @@
-import { notify } from '@affine/component';
-import { toDocSearchParams } from '@affine/core/modules/navigation';
-import { copyTextToClipboard } from '@affine/core/utils/clipboard';
-import { useI18n } from '@affine/i18n';
+import { notify } from '@polymind/component';
+import { toDocSearchParams } from '@polymind/core/modules/navigation';
+import { copyTextToClipboard } from '@polymind/core/utils/clipboard';
+import { useI18n } from '@polymind/i18n';
 import type { SerializedXYWH } from '@blocksuite/affine/global/gfx';
 import { type DocMode } from '@blocksuite/affine/model';
 import {

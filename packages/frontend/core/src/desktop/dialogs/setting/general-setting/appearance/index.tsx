@@ -1,14 +1,14 @@
-import type { RadioItem } from '@affine/component';
-import { RadioGroup, Switch } from '@affine/component';
+import type { RadioItem } from '@polymind/component';
+import { RadioGroup, Switch } from '@polymind/component';
 import {
   SettingHeader,
   SettingRow,
   SettingWrapper,
-} from '@affine/component/setting-components';
-import { LanguageMenu } from '@affine/core/components/affine/language-menu';
-import { TraySettingService } from '@affine/core/modules/editor-setting/services/tray-settings';
-import { FeatureFlagService } from '@affine/core/modules/feature-flag';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component/setting-components';
+import { LanguageMenu } from '@polymind/core/components/affine/language-menu';
+import { TraySettingService } from '@polymind/core/modules/editor-setting/services/tray-settings';
+import { FeatureFlagService } from '@polymind/core/modules/feature-flag';
+import { useI18n } from '@polymind/i18n';
 import { useLiveData, useService } from '@toeverything/infra';
 import { useTheme } from 'next-themes';
 import { useCallback, useMemo } from 'react';
@@ -22,17 +22,17 @@ export const getThemeOptions = (t: ReturnType<typeof useI18n>) =>
   [
     {
       value: 'system',
-      label: t['com.affine.themeSettings.system'](),
+      label: t['com.polymind.themeSettings.system'](),
       testId: 'system-theme-trigger',
     },
     {
       value: 'light',
-      label: t['com.affine.themeSettings.light'](),
+      label: t['com.polymind.themeSettings.light'](),
       testId: 'light-theme-trigger',
     },
     {
       value: 'dark',
-      label: t['com.affine.themeSettings.dark'](),
+      label: t['com.polymind.themeSettings.dark'](),
       testId: 'dark-theme-trigger',
     },
   ] satisfies RadioItem[];
@@ -68,11 +68,11 @@ const MenubarSetting = () => {
     <>
       <SettingWrapper
         id="menubar"
-        title={t['com.affine.appearanceSettings.menubar.title']()}
+        title={t['com.polymind.appearanceSettings.menubar.title']()}
       >
         <SettingRow
-          name={t['com.affine.appearanceSettings.menubar.toggle']()}
-          desc={t['com.affine.appearanceSettings.menubar.description']()}
+          name={t['com.polymind.appearanceSettings.menubar.toggle']()}
+          desc={t['com.polymind.appearanceSettings.menubar.description']()}
         >
           <Switch
             checked={traySetting.enabled}
@@ -84,15 +84,15 @@ const MenubarSetting = () => {
         <SettingWrapper
           id="windowBehavior"
           title={t[
-            'com.affine.appearanceSettings.menubar.windowBehavior.title'
+            'com.polymind.appearanceSettings.menubar.windowBehavior.title'
           ]()}
         >
           <SettingRow
             name={t[
-              'com.affine.appearanceSettings.menubar.windowBehavior.openOnLeftClick.toggle'
+              'com.polymind.appearanceSettings.menubar.windowBehavior.openOnLeftClick.toggle'
             ]()}
             desc={t[
-              'com.affine.appearanceSettings.menubar.windowBehavior.openOnLeftClick.description'
+              'com.polymind.appearanceSettings.menubar.windowBehavior.openOnLeftClick.description'
             ]()}
           >
             <Switch
@@ -104,10 +104,10 @@ const MenubarSetting = () => {
           </SettingRow>
           <SettingRow
             name={t[
-              'com.affine.appearanceSettings.menubar.windowBehavior.minimizeToTray.toggle'
+              'com.polymind.appearanceSettings.menubar.windowBehavior.minimizeToTray.toggle'
             ]()}
             desc={t[
-              'com.affine.appearanceSettings.menubar.windowBehavior.minimizeToTray.description'
+              'com.polymind.appearanceSettings.menubar.windowBehavior.minimizeToTray.description'
             ]()}
           >
             <Switch
@@ -119,10 +119,10 @@ const MenubarSetting = () => {
           </SettingRow>
           <SettingRow
             name={t[
-              'com.affine.appearanceSettings.menubar.windowBehavior.closeToTray.toggle'
+              'com.polymind.appearanceSettings.menubar.windowBehavior.closeToTray.toggle'
             ]()}
             desc={t[
-              'com.affine.appearanceSettings.menubar.windowBehavior.closeToTray.description'
+              'com.polymind.appearanceSettings.menubar.windowBehavior.closeToTray.description'
             ]()}
           >
             <Switch
@@ -132,10 +132,10 @@ const MenubarSetting = () => {
           </SettingRow>
           <SettingRow
             name={t[
-              'com.affine.appearanceSettings.menubar.windowBehavior.startMinimized.toggle'
+              'com.polymind.appearanceSettings.menubar.windowBehavior.startMinimized.toggle'
             ]()}
             desc={t[
-              'com.affine.appearanceSettings.menubar.windowBehavior.startMinimized.description'
+              'com.polymind.appearanceSettings.menubar.windowBehavior.startMinimized.description'
             ]()}
           >
             <Switch
@@ -163,20 +163,20 @@ export const AppearanceSettings = () => {
   return (
     <>
       <SettingHeader
-        title={t['com.affine.appearanceSettings.title']()}
-        subtitle={t['com.affine.appearanceSettings.subtitle']()}
+        title={t['com.polymind.appearanceSettings.title']()}
+        subtitle={t['com.polymind.appearanceSettings.subtitle']()}
       />
 
-      <SettingWrapper title={t['com.affine.appearanceSettings.theme.title']()}>
+      <SettingWrapper title={t['com.polymind.appearanceSettings.theme.title']()}>
         <SettingRow
-          name={t['com.affine.appearanceSettings.color.title']()}
-          desc={t['com.affine.appearanceSettings.color.description']()}
+          name={t['com.polymind.appearanceSettings.color.title']()}
+          desc={t['com.polymind.appearanceSettings.color.description']()}
         >
           <ThemeSettings />
         </SettingRow>
         <SettingRow
-          name={t['com.affine.appearanceSettings.language.title']()}
-          desc={t['com.affine.appearanceSettings.language.description']()}
+          name={t['com.polymind.appearanceSettings.language.title']()}
+          desc={t['com.polymind.appearanceSettings.language.description']()}
         >
           <div className={settingWrapper}>
             <LanguageMenu />
@@ -184,8 +184,8 @@ export const AppearanceSettings = () => {
         </SettingRow>
         {BUILD_CONFIG.isElectron ? (
           <SettingRow
-            name={t['com.affine.appearanceSettings.clientBorder.title']()}
-            desc={t['com.affine.appearanceSettings.clientBorder.description']()}
+            name={t['com.polymind.appearanceSettings.clientBorder.title']()}
+            desc={t['com.polymind.appearanceSettings.clientBorder.description']()}
             data-testid="client-border-style-trigger"
           >
             <Switch
@@ -197,11 +197,11 @@ export const AppearanceSettings = () => {
         {enableThemeEditor ? <ThemeEditorSetting /> : null}
       </SettingWrapper>
 
-      <SettingWrapper title={t['com.affine.appearanceSettings.images.title']()}>
+      <SettingWrapper title={t['com.polymind.appearanceSettings.images.title']()}>
         <SettingRow
-          name={t['com.affine.appearanceSettings.images.antialiasing.title']()}
+          name={t['com.polymind.appearanceSettings.images.antialiasing.title']()}
           desc={t[
-            'com.affine.appearanceSettings.images.antialiasing.description'
+            'com.polymind.appearanceSettings.images.antialiasing.description'
           ]()}
           data-testid="image-antialiasing-trigger"
         >
@@ -215,10 +215,10 @@ export const AppearanceSettings = () => {
       </SettingWrapper>
 
       {BUILD_CONFIG.isWeb && !environment.isMobile ? (
-        <SettingWrapper title={t['com.affine.setting.appearance.links']()}>
+        <SettingWrapper title={t['com.polymind.setting.appearance.links']()}>
           <SettingRow
-            name={t['com.affine.setting.appearance.open-in-app']()}
-            desc={t['com.affine.setting.appearance.open-in-app.hint']()}
+            name={t['com.polymind.setting.appearance.open-in-app']()}
+            desc={t['com.polymind.setting.appearance.open-in-app.hint']()}
             data-testid="open-in-app-links-trigger"
           >
             <OpenInAppLinksMenu />
@@ -227,13 +227,13 @@ export const AppearanceSettings = () => {
       ) : null}
 
       <SettingWrapper
-        title={t['com.affine.appearanceSettings.sidebar.title']()}
+        title={t['com.polymind.appearanceSettings.sidebar.title']()}
       >
         {BUILD_CONFIG.isElectron ? (
           <SettingRow
-            name={t['com.affine.appearanceSettings.noisyBackground.title']()}
+            name={t['com.polymind.appearanceSettings.noisyBackground.title']()}
             desc={t[
-              'com.affine.appearanceSettings.noisyBackground.description'
+              'com.polymind.appearanceSettings.noisyBackground.description'
             ]()}
           >
             <Switch
@@ -246,9 +246,9 @@ export const AppearanceSettings = () => {
         ) : null}
         {BUILD_CONFIG.isElectron && environment.isMacOs && (
           <SettingRow
-            name={t['com.affine.appearanceSettings.translucentUI.title']()}
+            name={t['com.polymind.appearanceSettings.translucentUI.title']()}
             desc={t[
-              'com.affine.appearanceSettings.translucentUI.description'
+              'com.polymind.appearanceSettings.translucentUI.description'
             ]()}
           >
             <Switch
@@ -261,10 +261,10 @@ export const AppearanceSettings = () => {
         )}
         <SettingRow
           name={t[
-            'com.affine.appearanceSettings.showLinkedDocInSidebar.title'
+            'com.polymind.appearanceSettings.showLinkedDocInSidebar.title'
           ]()}
           desc={t[
-            'com.affine.appearanceSettings.showLinkedDocInSidebar.description'
+            'com.polymind.appearanceSettings.showLinkedDocInSidebar.description'
           ]()}
         >
           <Switch

@@ -1,4 +1,4 @@
-import type { useI18n } from '@affine/i18n';
+import type { useI18n } from '@polymind/i18n';
 import { SettingsIcon } from '@blocksuite/icons/rc';
 import { appSettingAtom } from '@toeverything/infra';
 import type { createStore } from 'jotai';
@@ -28,8 +28,8 @@ export function registerAffineSettingsCommands({
   unsubs.push(
     registerAffineCommand({
       id: 'affine:change-color-mode-to-auto',
-      label: `${t['com.affine.cmdk.affine.color-mode.to']()} ${t[
-        'com.affine.themeSettings.system'
+      label: `${t['com.polymind.cmdk.affine.color-mode.to']()} ${t[
+        'com.polymind.themeSettings.system'
       ]()}`,
       category: 'affine:settings',
       icon: <SettingsIcon />,
@@ -42,8 +42,8 @@ export function registerAffineSettingsCommands({
   unsubs.push(
     registerAffineCommand({
       id: 'affine:change-color-mode-to-dark',
-      label: `${t['com.affine.cmdk.affine.color-mode.to']()} ${t[
-        'com.affine.themeSettings.dark'
+      label: `${t['com.polymind.cmdk.affine.color-mode.to']()} ${t[
+        'com.polymind.themeSettings.dark'
       ]()}`,
       category: 'affine:settings',
       icon: <SettingsIcon />,
@@ -57,8 +57,8 @@ export function registerAffineSettingsCommands({
   unsubs.push(
     registerAffineCommand({
       id: 'affine:change-color-mode-to-light',
-      label: `${t['com.affine.cmdk.affine.color-mode.to']()} ${t[
-        'com.affine.themeSettings.light'
+      label: `${t['com.polymind.cmdk.affine.color-mode.to']()} ${t[
+        'com.polymind.themeSettings.light'
       ]()}`,
       category: 'affine:settings',
       icon: <SettingsIcon />,
@@ -73,8 +73,8 @@ export function registerAffineSettingsCommands({
   unsubs.push(
     registerAffineCommand({
       id: 'affine:change-font-style-to-sans',
-      label: `${t['com.affine.cmdk.affine.font-style.to']()} ${t[
-        'com.affine.appearanceSettings.fontStyle.sans'
+      label: `${t['com.polymind.cmdk.affine.font-style.to']()} ${t[
+        'com.polymind.appearanceSettings.fontStyle.sans'
       ]()}`,
       category: 'affine:settings',
       icon: <SettingsIcon />,
@@ -88,8 +88,8 @@ export function registerAffineSettingsCommands({
   unsubs.push(
     registerAffineCommand({
       id: 'affine:change-font-style-to-serif',
-      label: `${t['com.affine.cmdk.affine.font-style.to']()} ${t[
-        'com.affine.appearanceSettings.fontStyle.serif'
+      label: `${t['com.polymind.cmdk.affine.font-style.to']()} ${t[
+        'com.polymind.appearanceSettings.fontStyle.serif'
       ]()}`,
       category: 'affine:settings',
       icon: <SettingsIcon />,
@@ -103,8 +103,8 @@ export function registerAffineSettingsCommands({
   unsubs.push(
     registerAffineCommand({
       id: 'affine:change-font-style-to-mono',
-      label: `${t['com.affine.cmdk.affine.font-style.to']()} ${t[
-        'com.affine.appearanceSettings.fontStyle.mono'
+      label: `${t['com.polymind.cmdk.affine.font-style.to']()} ${t[
+        'com.polymind.appearanceSettings.fontStyle.mono'
       ]()}`,
       category: 'affine:settings',
       icon: <SettingsIcon />,
@@ -119,10 +119,10 @@ export function registerAffineSettingsCommands({
   unsubs.push(
     registerAffineCommand({
       id: `affine:change-client-border-style`,
-      label: () => `${t['com.affine.cmdk.affine.client-border-style.to']()} ${t[
+      label: () => `${t['com.polymind.cmdk.affine.client-border-style.to']()} ${t[
         store.get(appSettingAtom).clientBorder
-          ? 'com.affine.cmdk.affine.switch-state.off'
-          : 'com.affine.cmdk.affine.switch-state.on'
+          ? 'com.polymind.cmdk.affine.switch-state.off'
+          : 'com.polymind.cmdk.affine.switch-state.on'
       ]()}
         `,
       category: 'affine:settings',
@@ -143,8 +143,8 @@ export function registerAffineSettingsCommands({
       label: () =>
         `${t[
           settings$.value.fullWidthLayout
-            ? 'com.affine.cmdk.affine.default-page-width-layout.standard'
-            : 'com.affine.cmdk.affine.default-page-width-layout.full-width'
+            ? 'com.polymind.cmdk.affine.default-page-width-layout.standard'
+            : 'com.polymind.cmdk.affine.default-page-width-layout.full-width'
         ]()}`,
       category: 'affine:settings',
       icon: <SettingsIcon />,
@@ -159,11 +159,11 @@ export function registerAffineSettingsCommands({
       id: `affine:change-noise-background-on-the-sidebar`,
       label: () =>
         `${t[
-          'com.affine.cmdk.affine.noise-background-on-the-sidebar.to'
+          'com.polymind.cmdk.affine.noise-background-on-the-sidebar.to'
         ]()} ${t[
           store.get(appSettingAtom).enableNoisyBackground
-            ? 'com.affine.cmdk.affine.switch-state.off'
-            : 'com.affine.cmdk.affine.switch-state.on'
+            ? 'com.polymind.cmdk.affine.switch-state.off'
+            : 'com.polymind.cmdk.affine.switch-state.on'
         ]()}`,
       category: 'affine:settings',
       icon: <SettingsIcon />,
@@ -181,10 +181,10 @@ export function registerAffineSettingsCommands({
     registerAffineCommand({
       id: `affine:change-translucent-ui-on-the-sidebar`,
       label: () =>
-        `${t['com.affine.cmdk.affine.translucent-ui-on-the-sidebar.to']()} ${t[
+        `${t['com.polymind.cmdk.affine.translucent-ui-on-the-sidebar.to']()} ${t[
           store.get(appSettingAtom).enableBlurBackground
-            ? 'com.affine.cmdk.affine.switch-state.off'
-            : 'com.affine.cmdk.affine.switch-state.on'
+            ? 'com.polymind.cmdk.affine.switch-state.off'
+            : 'com.polymind.cmdk.affine.switch-state.on'
         ]()}`,
       category: 'affine:settings',
       icon: <SettingsIcon />,

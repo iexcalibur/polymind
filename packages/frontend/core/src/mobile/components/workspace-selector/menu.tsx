@@ -1,12 +1,12 @@
-import { IconButton } from '@affine/component';
-import { useNavigateHelper } from '@affine/core/components/hooks/use-navigate-helper';
-import { useWorkspaceInfo } from '@affine/core/components/hooks/use-workspace-info';
-import { WorkspaceAvatar } from '@affine/core/components/workspace-avatar';
+import { IconButton } from '@polymind/component';
+import { useNavigateHelper } from '@polymind/core/components/hooks/use-navigate-helper';
+import { useWorkspaceInfo } from '@polymind/core/components/hooks/use-workspace-info';
+import { WorkspaceAvatar } from '@polymind/core/components/workspace-avatar';
 import {
   type WorkspaceMetadata,
   WorkspacesService,
-} from '@affine/core/modules/workspace';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/workspace';
+import { useI18n } from '@polymind/i18n';
 import { CloseIcon, CollaborationIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import clsx from 'clsx';
@@ -89,7 +89,7 @@ export const SelectorMenu = ({ onClose }: { onClose?: () => void }) => {
       <main className={styles.body}>
         <div className={styles.serverInfo}>
           <div className={styles.serverName}>
-            {t['com.affine.workspaceList.workspaceListType.local']()}
+            {t['com.polymind.workspaceList.workspaceListType.local']()}
           </div>
         </div>
         <WorkspaceList

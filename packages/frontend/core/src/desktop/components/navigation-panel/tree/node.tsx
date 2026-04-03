@@ -12,15 +12,15 @@ import {
   MenuItem,
   useDraggable,
   useDropTarget,
-} from '@affine/component';
-import { Guard } from '@affine/core/components/guard';
-import { AppSidebarService } from '@affine/core/modules/app-sidebar';
-import { ExplorerIconService } from '@affine/core/modules/explorer-icon/services/explorer-icon';
-import type { ExplorerType } from '@affine/core/modules/explorer-icon/store/explorer-icon';
-import type { DocPermissionActions } from '@affine/core/modules/permissions';
-import { WorkbenchLink } from '@affine/core/modules/workbench';
-import type { AffineDNDData } from '@affine/core/types/dnd';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component';
+import { Guard } from '@polymind/core/components/guard';
+import { AppSidebarService } from '@polymind/core/modules/app-sidebar';
+import { ExplorerIconService } from '@polymind/core/modules/explorer-icon/services/explorer-icon';
+import type { ExplorerType } from '@polymind/core/modules/explorer-icon/store/explorer-icon';
+import type { DocPermissionActions } from '@polymind/core/modules/permissions';
+import { WorkbenchLink } from '@polymind/core/modules/workbench';
+import type { AffineDNDData } from '@polymind/core/types/dnd';
+import { useI18n } from '@polymind/i18n';
 import {
   ArrowDownSmallIcon,
   EditIcon,
@@ -357,7 +357,7 @@ export const NavigationPanelTreeNode = ({
                         onClick={() => setRenaming(true)}
                         disabled={!can}
                       >
-                        {t['com.affine.menu.rename']()}
+                        {t['com.polymind.menu.rename']()}
                       </MenuItem>
                     )}
                   </Guard>
@@ -368,7 +368,7 @@ export const NavigationPanelTreeNode = ({
                     prefixIcon={<EditIcon />}
                     onClick={() => setRenaming(true)}
                   >
-                    {t['com.affine.menu.rename']()}
+                    {t['com.polymind.menu.rename']()}
                   </MenuItem>
                 ),
               }

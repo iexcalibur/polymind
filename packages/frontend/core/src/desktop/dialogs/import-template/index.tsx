@@ -1,21 +1,21 @@
-import { Button, Modal } from '@affine/component';
-import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
-import { useNavigateHelper } from '@affine/core/components/hooks/use-navigate-helper';
-import { useWorkspaceName } from '@affine/core/components/hooks/use-workspace-info';
-import { WorkspaceSelector } from '@affine/core/components/workspace-selector';
+import { Button, Modal } from '@polymind/component';
+import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
+import { useNavigateHelper } from '@polymind/core/components/hooks/use-navigate-helper';
+import { useWorkspaceName } from '@polymind/core/components/hooks/use-workspace-info';
+import { WorkspaceSelector } from '@polymind/core/components/workspace-selector';
 import {
   type DialogComponentProps,
   type GLOBAL_DIALOG_SCHEMA,
-} from '@affine/core/modules/dialogs';
+} from '@polymind/core/modules/dialogs';
 import {
   ImportTemplateService,
   TemplateDownloaderService,
-} from '@affine/core/modules/import-template';
+} from '@polymind/core/modules/import-template';
 import {
   type WorkspaceMetadata,
   WorkspacesService,
-} from '@affine/core/modules/workspace';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/workspace';
+import { useI18n } from '@polymind/i18n';
 import type { DocMode } from '@blocksuite/affine/model';
 import { AllDocsIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
@@ -164,7 +164,7 @@ const Dialog = ({
       <div className={styles.dialogContainer}>
         <AllDocsIcon className={styles.mainIcon} />
         <h6 className={styles.mainTitle}>
-          {t['com.affine.import-template.dialog.createDocWithTemplate']({
+          {t['com.polymind.import-template.dialog.createDocWithTemplate']({
             templateName,
           })}
         </h6>
@@ -194,12 +194,12 @@ const Dialog = ({
       </div>
       {importingError && (
         <span style={{ color: cssVar('warningColor') }}>
-          {t['com.affine.import-template.dialog.errorImport']()}
+          {t['com.polymind.import-template.dialog.errorImport']()}
         </span>
       )}
       {downloadError ? (
         <span style={{ color: cssVar('warningColor') }}>
-          {t['com.affine.import-template.dialog.errorLoad']()}
+          {t['com.polymind.import-template.dialog.errorLoad']()}
         </span>
       ) : selectedWorkspace ? (
         <Button
@@ -211,7 +211,7 @@ const Dialog = ({
           data-testid="import-template-to-workspace-btn"
         >
           {selectedWorkspaceName &&
-            t['com.affine.import-template.dialog.createDocToWorkspace']({
+            t['com.polymind.import-template.dialog.createDocToWorkspace']({
               workspace: selectedWorkspaceName,
             })}
         </Button>
@@ -223,7 +223,7 @@ const Dialog = ({
           disabled={disabled}
           onClick={handleImportToNewWorkspace}
         >
-          {t['com.affine.import-template.dialog.createDocToNewWorkspace']()}
+          {t['com.polymind.import-template.dialog.createDocToNewWorkspace']()}
         </Button>
       )}
     </>

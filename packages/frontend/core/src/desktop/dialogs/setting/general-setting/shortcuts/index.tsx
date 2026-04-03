@@ -1,8 +1,8 @@
 import {
   SettingHeader,
   SettingWrapper,
-} from '@affine/component/setting-components';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component/setting-components';
+import { useI18n } from '@polymind/i18n';
 
 import type { ShortcutsInfo } from '../../../../../components/hooks/affine/use-shortcuts';
 import {
@@ -51,8 +51,8 @@ export const Shortcuts = () => {
   return (
     <>
       <SettingHeader
-        title={t['com.affine.keyboardShortcuts.title']()}
-        subtitle={t['com.affine.keyboardShortcuts.subtitle']()}
+        title={t['com.polymind.keyboardShortcuts.title']()}
+        subtitle={t['com.polymind.keyboardShortcuts.subtitle']()}
         data-testid="keyboard-shortcuts-title"
       />
       <ShortcutsPanel shortcutsInfo={generalShortcutsInfo} />

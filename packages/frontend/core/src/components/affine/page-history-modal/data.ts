@@ -1,15 +1,15 @@
-import { useDocMetaHelper } from '@affine/core/components/hooks/use-block-suite-page-meta';
-import { useDocCollectionPage } from '@affine/core/components/hooks/use-block-suite-workspace-page';
+import { useDocMetaHelper } from '@polymind/core/components/hooks/use-block-suite-page-meta';
+import { useDocCollectionPage } from '@polymind/core/components/hooks/use-block-suite-workspace-page';
 import {
   type WorkspaceFlavourProvider,
   WorkspaceService,
   WorkspacesService,
-} from '@affine/core/modules/workspace';
-import { WorkspaceImpl } from '@affine/core/modules/workspace/impls/workspace';
-import { DebugLogger } from '@affine/debug';
-import type { ListHistoryQuery } from '@affine/graphql';
-import { listHistoryQuery, recoverDocMutation } from '@affine/graphql';
-import { i18nTime } from '@affine/i18n';
+} from '@polymind/core/modules/workspace';
+import { WorkspaceImpl } from '@polymind/core/modules/workspace/impls/workspace';
+import { DebugLogger } from '@polymind/debug';
+import type { ListHistoryQuery } from '@polymind/graphql';
+import { listHistoryQuery, recoverDocMutation } from '@polymind/graphql';
+import { i18nTime } from '@polymind/i18n';
 import type { Workspace } from '@blocksuite/affine/store';
 import { useService } from '@toeverything/infra';
 import { useEffect, useMemo } from 'react';

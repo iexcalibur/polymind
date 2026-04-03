@@ -1,12 +1,12 @@
-import type { ConfirmModalProps, ElementOrFactory } from '@affine/component';
+import type { ConfirmModalProps, ElementOrFactory } from '@polymind/component';
 import {
   AffinePageReference,
   AffineSharedPageReference,
-} from '@affine/core/components/affine/reference-link';
-import { DocService, DocsService } from '@affine/core/modules/doc';
-import { EditorService } from '@affine/core/modules/editor';
-import { toDocSearchParams } from '@affine/core/modules/navigation';
-import { WorkspaceService } from '@affine/core/modules/workspace';
+} from '@polymind/core/components/affine/reference-link';
+import { DocService, DocsService } from '@polymind/core/modules/doc';
+import { EditorService } from '@polymind/core/modules/editor';
+import { toDocSearchParams } from '@polymind/core/modules/navigation';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
 import {
   type ViewExtensionContext,
   ViewExtensionProvider,

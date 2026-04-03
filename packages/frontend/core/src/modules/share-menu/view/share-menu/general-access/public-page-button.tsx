@@ -1,5 +1,5 @@
-import { Menu, MenuItem, MenuTrigger } from '@affine/component';
-import { useI18n } from '@affine/i18n';
+import { Menu, MenuItem, MenuTrigger } from '@polymind/component';
+import { useI18n } from '@polymind/i18n';
 import { LockIcon, ViewIcon } from '@blocksuite/icons/rc';
 import clsx from 'clsx';
 import { useCallback } from 'react';
@@ -20,14 +20,14 @@ export const PublicDoc = ({ disabled }: { disabled?: boolean }) => {
   return (
     <div className={styles.rowContainerStyle}>
       <div className={styles.labelStyle}>
-        {t['com.affine.share-menu.option.link.label']()}
+        {t['com.polymind.share-menu.option.link.label']()}
       </div>
       {disabled ? (
         <div className={clsx(styles.menuTriggerStyle, 'disable')}>
           <div className={styles.menuTriggerText}>
             {isSharedPage
-              ? t['com.affine.share-menu.option.link.readonly']()
-              : t['com.affine.share-menu.option.link.no-access']()}
+              ? t['com.polymind.share-menu.option.link.readonly']()
+              : t['com.polymind.share-menu.option.link.no-access']()}
           </div>
         </div>
       ) : (
@@ -44,7 +44,7 @@ export const PublicDoc = ({ disabled }: { disabled?: boolean }) => {
               >
                 <div className={styles.publicItemRowStyle}>
                   <div>
-                    {t['com.affine.share-menu.option.link.no-access']()}
+                    {t['com.polymind.share-menu.option.link.no-access']()}
                   </div>
                 </div>
               </MenuItem>
@@ -55,7 +55,7 @@ export const PublicDoc = ({ disabled }: { disabled?: boolean }) => {
                 selected={!!isSharedPage}
               >
                 <div className={styles.publicItemRowStyle}>
-                  <div>{t['com.affine.share-menu.option.link.readonly']()}</div>
+                  <div>{t['com.polymind.share-menu.option.link.readonly']()}</div>
                 </div>
               </MenuItem>
             </>
@@ -73,8 +73,8 @@ export const PublicDoc = ({ disabled }: { disabled?: boolean }) => {
             disabled={isRevalidating}
           >
             {isSharedPage
-              ? t['com.affine.share-menu.option.link.readonly']()
-              : t['com.affine.share-menu.option.link.no-access']()}
+              ? t['com.polymind.share-menu.option.link.readonly']()
+              : t['com.polymind.share-menu.option.link.no-access']()}
           </MenuTrigger>
         </Menu>
       )}

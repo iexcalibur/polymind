@@ -1,6 +1,6 @@
-import { Scrollable, ThemedImg } from '@affine/component';
-import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
-import { Trans, useI18n } from '@affine/i18n';
+import { Scrollable, ThemedImg } from '@polymind/component';
+import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
+import { Trans, useI18n } from '@polymind/i18n';
 import { ArrowDownSmallIcon } from '@blocksuite/icons/rc';
 import type { FC, PropsWithChildren, ReactNode } from 'react';
 import { useCallback, useState } from 'react';
@@ -112,7 +112,7 @@ export const ErrorDetail: FC<ErrorDetailProps> = props => {
               className={styles.actionButton}
             >
               <div className={styles.actionContent}>
-                <span>{t['com.affine.error.hide-error']()}</span>
+                <span>{t['com.polymind.error.hide-error']()}</span>
                 <ArrowDownSmallIcon
                   data-show-stack={showStack}
                   className={styles.arrowIcon}
@@ -126,7 +126,7 @@ export const ErrorDetail: FC<ErrorDetailProps> = props => {
             loading={isBtnLoading}
             variant="primary"
           >
-            {props.buttonText ?? t['com.affine.error.reload']()}
+            {props.buttonText ?? t['com.polymind.error.reload']()}
           </ActionButton>
         </div>
       </div>
@@ -137,7 +137,7 @@ export const ErrorDetail: FC<ErrorDetailProps> = props => {
 export function ContactUS() {
   return (
     <Trans
-      i18nKey="com.affine.error.contact-us"
+      i18nKey="com.polymind.error.contact-us"
       components={{
         1: (
           <a

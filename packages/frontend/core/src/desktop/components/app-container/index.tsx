@@ -1,14 +1,14 @@
-import { useAppSettingHelper } from '@affine/core/components/hooks/affine/use-app-setting-helper';
-import { RootAppSidebar } from '@affine/core/components/root-app-sidebar';
-import { AppSidebarService } from '@affine/core/modules/app-sidebar';
+import { useAppSettingHelper } from '@polymind/core/components/hooks/affine/use-app-setting-helper';
+import { RootAppSidebar } from '@polymind/core/components/root-app-sidebar';
+import { AppSidebarService } from '@polymind/core/modules/app-sidebar';
 import {
   AppSidebarFallback,
   OpenInAppCard,
   SidebarSwitch,
-} from '@affine/core/modules/app-sidebar/views';
-import { AppTabsHeader } from '@affine/core/modules/app-tabs-header';
-import { NavigationButtons } from '@affine/core/modules/navigation';
-import { WorkspaceService } from '@affine/core/modules/workspace';
+} from '@polymind/core/modules/app-sidebar/views';
+import { AppTabsHeader } from '@polymind/core/modules/app-tabs-header';
+import { NavigationButtons } from '@polymind/core/modules/navigation';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
 import {
   useLiveData,
   useService,

@@ -1,19 +1,19 @@
-import { AffineContext } from '@affine/core/components/context';
-import { AppContainer } from '@affine/core/desktop/components/app-container';
-import { router } from '@affine/core/desktop/router';
-import { configureCommonModules } from '@affine/core/modules';
-import { I18nProvider } from '@affine/core/modules/i18n';
-import { LifecycleService } from '@affine/core/modules/lifecycle';
+import { AffineContext } from '@polymind/core/components/context';
+import { AppContainer } from '@polymind/core/desktop/components/app-container';
+import { router } from '@polymind/core/desktop/router';
+import { configureCommonModules } from '@polymind/core/modules';
+import { I18nProvider } from '@polymind/core/modules/i18n';
+import { LifecycleService } from '@polymind/core/modules/lifecycle';
 import {
   configureLocalStorageStateStorageImpls,
   NbstoreProvider,
-} from '@affine/core/modules/storage';
-import { PopupWindowProvider } from '@affine/core/modules/url';
-import { configureBrowserWorkbenchModule } from '@affine/core/modules/workbench';
-import { configureBrowserWorkspaceFlavours } from '@affine/core/modules/workspace-engine';
-import createEmotionCache from '@affine/core/utils/create-emotion-cache';
-import { getWorkerUrl } from '@affine/env/worker';
-import { StoreManagerClient } from '@affine/nbstore/worker/client';
+} from '@polymind/core/modules/storage';
+import { PopupWindowProvider } from '@polymind/core/modules/url';
+import { configureBrowserWorkbenchModule } from '@polymind/core/modules/workbench';
+import { configureBrowserWorkspaceFlavours } from '@polymind/core/modules/workspace-engine';
+import createEmotionCache from '@polymind/core/utils/create-emotion-cache';
+import { getWorkerUrl } from '@polymind/env/worker';
+import { StoreManagerClient } from '@polymind/nbstore/worker/client';
 import { CacheProvider } from '@emotion/react';
 import { Framework, FrameworkRoot, getCurrentStore } from '@toeverything/infra';
 import { OpClient } from '@toeverything/infra/op';

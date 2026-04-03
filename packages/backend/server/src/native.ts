@@ -1,4 +1,4 @@
-import serverNativeModule, { type Tokenizer } from '@affine/server-native';
+import serverNativeModule, { type Tokenizer } from '@polymind/server-native';
 
 export const mergeUpdatesInApplyWay = serverNativeModule.mergeUpdatesInApplyWay;
 

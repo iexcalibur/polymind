@@ -1,5 +1,5 @@
 {
-  "name": "@affine/commitlint-config",
+  "name": "@polymind/commitlint-config",
   "version": "0.26.3",
   "private": true,
   "devDependencies": {

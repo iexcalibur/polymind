@@ -1,4 +1,4 @@
-import type { useI18n } from '@affine/i18n';
+import type { useI18n } from '@polymind/i18n';
 import type { Workspace } from '@blocksuite/affine/store';
 import { ArrowRightBigIcon } from '@blocksuite/icons/rc';
 
@@ -26,7 +26,7 @@ export function registerAffineNavigationCommands({
       id: 'affine:goto-all-pages',
       category: 'affine:navigation',
       icon: <ArrowRightBigIcon />,
-      label: t['com.affine.cmdk.affine.navigation.goto-all-pages'](),
+      label: t['com.polymind.cmdk.affine.navigation.goto-all-pages'](),
       run() {
         navigationHelper.jumpToPage(docCollection.id, 'all');
       },
@@ -62,7 +62,7 @@ export function registerAffineNavigationCommands({
       id: 'affine:goto-workspace',
       category: 'affine:navigation',
       icon: <ArrowRightBigIcon />,
-      label: t['com.affine.cmdk.affine.navigation.goto-workspace'](),
+      label: t['com.polymind.cmdk.affine.navigation.goto-workspace'](),
       run() {
         workbenchService?.workbench.openWorkspaceSelector();
       },
@@ -74,7 +74,7 @@ export function registerAffineNavigationCommands({
       id: 'affine:open-settings',
       category: 'affine:navigation',
       icon: <ArrowRightBigIcon />,
-      label: t['com.affine.cmdk.affine.navigation.open-settings'](),
+      label: t['com.polymind.cmdk.affine.navigation.open-settings'](),
       keyBinding: '$mod+,',
       run() {
         workspaceDialogService.open('setting', {
@@ -89,7 +89,7 @@ export function registerAffineNavigationCommands({
       id: 'affine:open-account',
       category: 'affine:navigation',
       icon: <ArrowRightBigIcon />,
-      label: t['com.affine.cmdk.affine.navigation.open-account-settings'](),
+      label: t['com.polymind.cmdk.affine.navigation.open-account-settings'](),
       run() {
         workspaceDialogService.open('setting', {
           activeTab: 'account',
@@ -103,7 +103,7 @@ export function registerAffineNavigationCommands({
       id: 'affine:goto-trash',
       category: 'affine:navigation',
       icon: <ArrowRightBigIcon />,
-      label: t['com.affine.cmdk.affine.navigation.goto-trash'](),
+      label: t['com.polymind.cmdk.affine.navigation.goto-trash'](),
       run() {
         navigationHelper.jumpToPage(docCollection.id, 'trash');
       },

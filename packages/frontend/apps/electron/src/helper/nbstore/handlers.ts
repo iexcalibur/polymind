@@ -1,8 +1,8 @@
 import path from 'node:path';
 
-import { DocStoragePool } from '@affine/native';
-import { parseUniversalId } from '@affine/nbstore';
-import type { NativeDBApis } from '@affine/nbstore/sqlite';
+import { DocStoragePool } from '@polymind/native';
+import { parseUniversalId } from '@polymind/nbstore';
+import type { NativeDBApis } from '@polymind/nbstore/sqlite';
 import fs from 'fs-extra';
 
 import { getSpaceDBPath } from '../workspace/meta';

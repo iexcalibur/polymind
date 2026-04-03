@@ -1,11 +1,11 @@
-import { Modal } from '@affine/component';
+import { Modal } from '@polymind/component';
 import {
   type CollectionInfo,
   CollectionService,
-} from '@affine/core/modules/collection';
-import type { DialogComponentProps } from '@affine/core/modules/dialogs';
-import type { WORKSPACE_DIALOG_SCHEMA } from '@affine/core/modules/dialogs/constant';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/collection';
+import type { DialogComponentProps } from '@polymind/core/modules/dialogs';
+import type { WORKSPACE_DIALOG_SCHEMA } from '@polymind/core/modules/dialogs/constant';
+import { useI18n } from '@polymind/i18n';
 import { useLiveData, useService } from '@toeverything/infra';
 import { useCallback } from 'react';
 
@@ -52,7 +52,7 @@ export const CollectionEditorDialog = ({
       persistent
     >
       <EditCollection
-        onConfirmText={t['com.affine.editCollection.save']()}
+        onConfirmText={t['com.polymind.editCollection.save']()}
         init={info}
         mode={mode}
         onCancel={onCancel}

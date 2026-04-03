@@ -1,5 +1,5 @@
-import { NoPageRootError } from '@affine/core/blocksuite/block-suite-editor/no-page-error';
-import { useI18n } from '@affine/i18n';
+import { NoPageRootError } from '@polymind/core/blocksuite/block-suite-editor/no-page-error';
+import { useI18n } from '@polymind/i18n';
 
 import { ContactUS, ErrorDetail } from '../error-basic/error-detail';
 import { createErrorFallback } from '../error-basic/fallback-creator';
@@ -12,7 +12,7 @@ export const NoPageRootFallback = createErrorFallback(
 
     return (
       <ErrorDetail
-        title={t['com.affine.error.no-page-root.title']()}
+        title={t['com.polymind.error.no-page-root.title']()}
         description={<ContactUS />}
         resetError={resetError}
       />

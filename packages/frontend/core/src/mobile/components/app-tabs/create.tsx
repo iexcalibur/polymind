@@ -1,9 +1,9 @@
-import { usePageHelper } from '@affine/core/blocksuite/block-suite-page-list/utils';
-import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
-import { DocsService } from '@affine/core/modules/doc';
-import { TemplateDocService } from '@affine/core/modules/template-doc';
-import { WorkbenchService } from '@affine/core/modules/workbench';
-import { WorkspaceService } from '@affine/core/modules/workspace';
+import { usePageHelper } from '@polymind/core/blocksuite/block-suite-page-list/utils';
+import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
+import { DocsService } from '@polymind/core/modules/doc';
+import { TemplateDocService } from '@polymind/core/modules/template-doc';
+import { WorkbenchService } from '@polymind/core/modules/workbench';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { EditIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 

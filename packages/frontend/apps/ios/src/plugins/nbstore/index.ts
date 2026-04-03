@@ -1,11 +1,11 @@
 import {
   base64ToUint8Array,
   uint8ArrayToBase64,
-} from '@affine/core/modules/workspace-engine';
+} from '@polymind/core/modules/workspace-engine';
 import {
   decodePayload,
   MOBILE_BLOB_FILE_PREFIX,
-} from '@affine/mobile-shared/nbstore/payload';
+} from '@polymind/mobile-shared/nbstore/payload';
 import {
   type BlobRecord,
   type CrawlResult,
@@ -14,8 +14,8 @@ import {
   type DocRecord,
   type ListedBlobRecord,
   parseUniversalId,
-} from '@affine/nbstore';
-import { type NativeDBApis } from '@affine/nbstore/sqlite';
+} from '@polymind/nbstore';
+import { type NativeDBApis } from '@polymind/nbstore/sqlite';
 import { registerPlugin } from '@capacitor/core';
 
 import type { NbStorePlugin } from './definitions';

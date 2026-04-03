@@ -4,15 +4,15 @@ import {
   MenuSeparator,
   notify,
   useConfirmModal,
-} from '@affine/component';
-import { usePageHelper } from '@affine/core/blocksuite/block-suite-page-list/utils';
-import { IsFavoriteIcon } from '@affine/core/components/pure/icons';
-import type { NodeOperation } from '@affine/core/desktop/components/navigation-panel';
-import { CollectionService } from '@affine/core/modules/collection';
-import { CompatibleFavoriteItemsAdapter } from '@affine/core/modules/favorite';
-import { WorkbenchService } from '@affine/core/modules/workbench';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component';
+import { usePageHelper } from '@polymind/core/blocksuite/block-suite-page-list/utils';
+import { IsFavoriteIcon } from '@polymind/core/components/pure/icons';
+import type { NodeOperation } from '@polymind/core/desktop/components/navigation-panel';
+import { CollectionService } from '@polymind/core/modules/collection';
+import { CompatibleFavoriteItemsAdapter } from '@polymind/core/modules/favorite';
+import { WorkbenchService } from '@polymind/core/modules/workbench';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { useI18n } from '@polymind/i18n';
 import {
   DeleteIcon,
   FilterIcon,
@@ -68,8 +68,8 @@ export const useNavigationPanelCollectionNodeOperations = (
 
   const handleAddDocToCollection = useCallback(() => {
     openConfirmModal({
-      title: t['com.affine.collection.add-doc.confirm.title'](),
-      description: t['com.affine.collection.add-doc.confirm.description'](),
+      title: t['com.polymind.collection.add-doc.confirm.title'](),
+      description: t['com.polymind.collection.add-doc.confirm.description'](),
       cancelText: t['Cancel'](),
       confirmText: t['Confirm'](),
       confirmButtonOptions: {
@@ -103,7 +103,7 @@ export const useNavigationPanelCollectionNodeOperations = (
           name,
         });
 
-        notify.success({ message: t['com.affine.toastMessage.rename']() });
+        notify.success({ message: t['com.polymind.toastMessage.rename']() });
       }
     },
     [collectionId, collectionService, t]
@@ -165,7 +165,7 @@ export const useNavigationPanelCollectionNodeOperationsMenu = (
             size="16"
             onClick={handleAddDocToCollection}
             tooltip={t[
-              'com.affine.rootAppSidebar.explorer.collection-add-tooltip'
+              'com.polymind.rootAppSidebar.explorer.collection-add-tooltip'
             ]()}
           >
             <PlusIcon />
@@ -184,7 +184,7 @@ export const useNavigationPanelCollectionNodeOperationsMenu = (
         index: 99,
         view: (
           <MenuItem prefixIcon={<FilterIcon />} onClick={handleShowEdit}>
-            {t['com.affine.collection.menu.edit']()}
+            {t['com.polymind.collection.menu.edit']()}
           </MenuItem>
         ),
       },
@@ -207,8 +207,8 @@ export const useNavigationPanelCollectionNodeOperationsMenu = (
             onClick={handleToggleFavoriteCollection}
           >
             {favorite
-              ? t['com.affine.favoritePageOperation.remove']()
-              : t['com.affine.favoritePageOperation.add']()}
+              ? t['com.polymind.favoritePageOperation.remove']()
+              : t['com.polymind.favoritePageOperation.add']()}
           </MenuItem>
         ),
       },
@@ -216,7 +216,7 @@ export const useNavigationPanelCollectionNodeOperationsMenu = (
         index: 99,
         view: (
           <MenuItem prefixIcon={<OpenInNewIcon />} onClick={handleOpenInNewTab}>
-            {t['com.affine.workbench.tab.page-menu-open']()}
+            {t['com.polymind.workbench.tab.page-menu-open']()}
           </MenuItem>
         ),
       },
@@ -229,7 +229,7 @@ export const useNavigationPanelCollectionNodeOperationsMenu = (
                   prefixIcon={<SplitViewIcon />}
                   onClick={handleOpenInSplitView}
                 >
-                  {t['com.affine.workbench.split-view.page-menu-open']()}
+                  {t['com.polymind.workbench.split-view.page-menu-open']()}
                 </MenuItem>
               ),
             },

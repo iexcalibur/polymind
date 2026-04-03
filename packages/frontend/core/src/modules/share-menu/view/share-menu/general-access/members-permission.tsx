@@ -4,12 +4,12 @@ import {
   MenuTrigger,
   notify,
   Tooltip,
-} from '@affine/component';
-import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
-import { DocGrantedUsersService } from '@affine/core/modules/permissions';
-import { UserFriendlyError } from '@affine/error';
-import { DocRole } from '@affine/graphql';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component';
+import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
+import { DocGrantedUsersService } from '@polymind/core/modules/permissions';
+import { UserFriendlyError } from '@polymind/error';
+import { DocRole } from '@polymind/graphql';
+import { useI18n } from '@polymind/i18n';
 import { InformationIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import clsx from 'clsx';
@@ -21,13 +21,13 @@ import * as styles from './styles.css';
 const getRoleName = (t: ReturnType<typeof useI18n>, role?: DocRole) => {
   switch (role) {
     case DocRole.Manager:
-      return t['com.affine.share-menu.option.permission.can-manage']();
+      return t['com.polymind.share-menu.option.permission.can-manage']();
     case DocRole.Editor:
-      return t['com.affine.share-menu.option.permission.can-edit']();
+      return t['com.polymind.share-menu.option.permission.can-edit']();
     case DocRole.Reader:
-      return t['com.affine.share-menu.option.permission.can-read']();
+      return t['com.polymind.share-menu.option.permission.can-read']();
     case DocRole.None:
-      return t['com.affine.share-menu.option.permission.no-access']();
+      return t['com.polymind.share-menu.option.permission.no-access']();
     default:
       return '';
   }
@@ -99,7 +99,7 @@ export const MembersPermission = ({
   return (
     <div className={styles.rowContainerStyle}>
       <div className={styles.labelStyle}>
-        {t['com.affine.share-menu.option.permission.label']()}
+        {t['com.polymind.share-menu.option.permission.label']()}
       </div>
       {disabled ? (
         <div className={clsx(styles.menuTriggerStyle, 'disable')}>
@@ -119,7 +119,7 @@ export const MembersPermission = ({
                 selected={docDefaultRole === DocRole.Manager}
               >
                 <div className={styles.publicItemRowStyle}>
-                  {t['com.affine.share-menu.option.permission.can-manage']()}
+                  {t['com.polymind.share-menu.option.permission.can-manage']()}
                 </div>
               </MenuItem>
               <MenuItem
@@ -128,7 +128,7 @@ export const MembersPermission = ({
               >
                 <div className={styles.publicItemRowStyle}>
                   <div className={styles.tagContainerStyle}>
-                    {t['com.affine.share-menu.option.permission.can-edit']()}
+                    {t['com.polymind.share-menu.option.permission.can-edit']()}
                     {hittingPaywall ? <PlanTag /> : null}
                   </div>
                 </div>
@@ -139,7 +139,7 @@ export const MembersPermission = ({
               >
                 <div className={styles.publicItemRowStyle}>
                   <div className={styles.tagContainerStyle}>
-                    {t['com.affine.share-menu.option.permission.can-read']()}
+                    {t['com.polymind.share-menu.option.permission.can-read']()}
                     {hittingPaywall ? <PlanTag /> : null}
                   </div>
                 </div>
@@ -150,7 +150,7 @@ export const MembersPermission = ({
               >
                 <div className={styles.publicItemRowStyle}>
                   <div className={styles.tagContainerStyle}>
-                    {t['com.affine.share-menu.option.permission.no-access']()}
+                    {t['com.polymind.share-menu.option.permission.no-access']()}
                     {hittingPaywall ? <PlanTag /> : null}
                   </div>
                 </div>
@@ -179,7 +179,7 @@ export const Tips = ({ disable }: { disable?: boolean }) => {
   const t = useI18n();
 
   return (
-    <Tooltip content={t['com.affine.share-menu.option.permission.tips']()}>
+    <Tooltip content={t['com.polymind.share-menu.option.permission.tips']()}>
       <InformationIcon
         className={clsx(styles.informationIcon, {
           disable: disable,

@@ -1,7 +1,7 @@
-import { MenuItem } from '@affine/component';
-import type { OrderByParams } from '@affine/core/modules/collection-rules/types';
-import { WorkspacePropertyService } from '@affine/core/modules/workspace-property';
-import { useI18n } from '@affine/i18n';
+import { MenuItem } from '@polymind/component';
+import type { OrderByParams } from '@polymind/core/modules/collection-rules/types';
+import { WorkspacePropertyService } from '@polymind/core/modules/workspace-property';
+import { useI18n } from '@polymind/i18n';
 import { SortDownIcon, SortUpIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import { cssVarV2 } from '@toeverything/theme/v2';

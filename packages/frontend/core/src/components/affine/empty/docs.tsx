@@ -1,7 +1,7 @@
-import { TagService } from '@affine/core/modules/tag';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { inferOpenMode } from '@affine/core/utils';
-import { useI18n } from '@affine/i18n';
+import { TagService } from '@polymind/core/modules/tag';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { inferOpenMode } from '@polymind/core/utils';
+import { useI18n } from '@polymind/i18n';
 import { AllDocsIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import { type MouseEvent, useCallback } from 'react';
@@ -51,16 +51,16 @@ export const EmptyDocs = ({
     <EmptyLayout
       illustrationLight={docsIllustrationLight}
       illustrationDark={docsIllustrationDark}
-      title={t['com.affine.empty.docs.title']()}
+      title={t['com.polymind.empty.docs.title']()}
       description={
         type === 'trash'
-          ? t['com.affine.empty.docs.trash-description']()
-          : t['com.affine.empty.docs.all-description']()
+          ? t['com.polymind.empty.docs.trash-description']()
+          : t['com.polymind.empty.docs.all-description']()
       }
       action={
         allowCreate && showActionButton ? (
           <ActionButton onClick={onCreate} prefix={<AllDocsIcon />}>
-            {t['com.affine.empty.docs.action.new-doc']()}
+            {t['com.polymind.empty.docs.action.new-doc']()}
           </ActionButton>
         ) : null
       }

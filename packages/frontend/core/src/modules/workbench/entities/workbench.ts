@@ -1,5 +1,5 @@
-import { toDocSearchParams } from '@affine/core/modules/navigation/utils';
-import { Unreachable } from '@affine/env/constant';
+import { toDocSearchParams } from '@polymind/core/modules/navigation/utils';
+import { Unreachable } from '@polymind/env/constant';
 import type { ReferenceParams } from '@blocksuite/affine/model';
 import { Entity, LiveData } from '@toeverything/infra';
 import { type To } from 'history';

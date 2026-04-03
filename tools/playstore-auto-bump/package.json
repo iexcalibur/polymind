@@ -1,5 +1,5 @@
 {
-  "name": "@affine/playstore-auto-bump",
+  "name": "@polymind/playstore-auto-bump",
   "version": "0.26.3",
   "private": true,
   "type": "module",

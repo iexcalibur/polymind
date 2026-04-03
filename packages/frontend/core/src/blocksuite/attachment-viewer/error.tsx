@@ -1,5 +1,5 @@
-import { Button } from '@affine/component';
-import { useI18n } from '@affine/i18n';
+import { Button } from '@polymind/component';
+import { useI18n } from '@polymind/i18n';
 import type { AttachmentBlockModel } from '@blocksuite/affine/model';
 import { ArrowDownBigIcon } from '@blocksuite/icons/rc';
 import clsx from 'clsx';
@@ -91,8 +91,8 @@ interface ErrorProps {
 export const AttachmentFallback = ({ model, ext }: ErrorProps) => {
   const t = useI18n();
   const Icon = FILE_ICONS[model.props.type] ?? FileIcon;
-  const title = t['com.affine.attachment.preview.error.title']();
-  const subtitle = `.${ext} ${t['com.affine.attachment.preview.error.subtitle']()}`;
+  const title = t['com.polymind.attachment.preview.error.title']();
+  const subtitle = `.${ext} ${t['com.polymind.attachment.preview.error.subtitle']()}`;
 
   return (
     <ErrorBase
@@ -117,7 +117,7 @@ export const AttachmentFallback = ({ model, ext }: ErrorProps) => {
 
 const ErrorBoundaryInner = (props: FallbackProps): ReactElement => {
   const t = useI18n();
-  const title = t['com.affine.attachment.preview.error.title']();
+  const title = t['com.polymind.attachment.preview.error.title']();
   const subtitle = `${props.error}`;
   return <ErrorBase title={title} subtitle={subtitle} />;
 };

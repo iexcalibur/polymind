@@ -1,4 +1,4 @@
-import type { Permission, WorkspaceInviteLinkExpireTime } from '@affine/graphql';
+import type { Permission, WorkspaceInviteLinkExpireTime } from '@polymind/graphql';
 import { Store } from '@toeverything/infra';
 
 export class WorkspaceMembersStore extends Store {

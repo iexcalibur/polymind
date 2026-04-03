@@ -1,4 +1,4 @@
-import { DebugLogger } from '@affine/debug';
+import { DebugLogger } from '@polymind/debug';
 import type { BackendModule, i18n } from 'i18next';
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
@@ -165,7 +165,7 @@ export function createI18nWrapper(getI18nFn: () => i18n) {
 }
 
 /**
- * I18n['com.affine.xxx']({ arg1: 'hello' }) -> '中文 hello'
+ * I18n['com.polymind.xxx']({ arg1: 'hello' }) -> '中文 hello'
  */
 export const I18n = createI18nWrapper(getOrCreateI18n);
 export type I18nInstance = typeof I18n;

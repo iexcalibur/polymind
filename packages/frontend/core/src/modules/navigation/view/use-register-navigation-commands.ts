@@ -1,7 +1,7 @@
 import {
   PreconditionStrategy,
   registerAffineCommand,
-} from '@affine/core/commands';
+} from '@polymind/core/commands';
 import { useService } from '@toeverything/infra';
 import { useEffect } from 'react';
 

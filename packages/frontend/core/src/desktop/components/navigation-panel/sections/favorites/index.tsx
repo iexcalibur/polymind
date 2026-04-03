@@ -2,18 +2,18 @@ import {
   type DropTargetDropEvent,
   IconButton,
   useDropTarget,
-} from '@affine/component';
-import { usePageHelper } from '@affine/core/blocksuite/block-suite-page-list/utils';
-import type { FavoriteSupportTypeUnion } from '@affine/core/modules/favorite';
+} from '@polymind/component';
+import { usePageHelper } from '@polymind/core/blocksuite/block-suite-page-list/utils';
+import type { FavoriteSupportTypeUnion } from '@polymind/core/modules/favorite';
 import {
   FavoriteService,
   isFavoriteSupportType,
-} from '@affine/core/modules/favorite';
-import { NavigationPanelService } from '@affine/core/modules/navigation-panel';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import type { AffineDNDData } from '@affine/core/types/dnd';
-import { inferOpenMode } from '@affine/core/utils';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/favorite';
+import { NavigationPanelService } from '@polymind/core/modules/navigation-panel';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import type { AffineDNDData } from '@polymind/core/types/dnd';
+import { inferOpenMode } from '@polymind/core/utils';
+import { useI18n } from '@polymind/i18n';
 import { PlusIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useServices } from '@toeverything/infra';
 import { type MouseEventHandler, useCallback, useMemo } from 'react';
@@ -145,7 +145,7 @@ export const NavigationPanelFavorites = () => {
   return (
     <CollapsibleSection
       path={path}
-      title={t['com.affine.rootAppSidebar.favorites']()}
+      title={t['com.polymind.rootAppSidebar.favorites']()}
       headerRef={dropTargetRef}
       testId="navigation-panel-favorites"
       headerTestId="navigation-panel-favorite-category-divider"
@@ -157,7 +157,7 @@ export const NavigationPanelFavorites = () => {
             onAuxClick={handleCreateNewFavoriteDoc}
             size="16"
             tooltip={t[
-              'com.affine.rootAppSidebar.explorer.fav-section-add-tooltip'
+              'com.polymind.rootAppSidebar.explorer.fav-section-add-tooltip'
             ]()}
           >
             <PlusIcon />

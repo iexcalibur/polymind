@@ -6,13 +6,13 @@ export class DevCommand extends PackageSelectorCommand {
   static override paths = [['dev'], ['d']];
 
   protected override availablePackages: PackageName[] = [
-    '@affine/web',
-    '@affine/server',
-    '@affine/electron',
-    '@affine/electron-renderer',
-    '@affine/mobile',
-    '@affine/ios',
-    '@affine/android',
+    '@polymind/web',
+    '@polymind/server',
+    '@polymind/electron',
+    '@polymind/electron-renderer',
+    '@polymind/mobile',
+    '@polymind/ios',
+    '@polymind/android',
   ];
 
   protected deps = Option.Boolean('--deps', {

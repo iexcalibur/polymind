@@ -10,7 +10,7 @@ import { glob } from 'glob';
 const isDev = process.argv.includes('--dev');
 const shouldCleanup = process.argv.includes('--cleanup');
 
-const i18nPkg = new Package('@affine/i18n');
+const i18nPkg = new Package('@polymind/i18n');
 const resourcesDir = i18nPkg.join('src', 'resources').toString();
 
 function readResource(lang: string): Record<string, string> {
@@ -89,7 +89,7 @@ async function cleanupResources() {
 
   for (const resource of Object.values(resources)) {
     Object.keys(resource).forEach(key => {
-      if (!key.startsWith('com.affine.payment.modal.')) {
+      if (!key.startsWith('com.polymind.payment.modal.')) {
         candidateKeys.add(key);
       }
     });
@@ -182,7 +182,7 @@ function i18nnext() {
 }
 
 async function appendErrorI18n() {
-  const server = new Package('@affine/server');
+  const server = new Package('@polymind/server');
   const defFilePath = server.srcPath.join('base/error/def.ts');
 
   if (!defFilePath.exists()) {

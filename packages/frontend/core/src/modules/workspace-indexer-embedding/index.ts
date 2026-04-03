@@ -1,7 +1,7 @@
 import {
   WorkspaceScope,
   WorkspaceService,
-} from '@affine/core/modules/workspace';
+} from '@polymind/core/modules/workspace';
 import { type Framework } from '@toeverything/infra';
 
 import { AdditionalAttachments } from './entities/additional-attachments';

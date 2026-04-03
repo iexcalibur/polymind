@@ -1,4 +1,4 @@
-import type { useI18n } from '@affine/i18n';
+import type { useI18n } from '@polymind/i18n';
 import type { DocMode } from '@blocksuite/affine/model';
 import { ImportIcon, PlusIcon } from '@blocksuite/icons/rc';
 
@@ -20,7 +20,7 @@ export function registerAffineCreationCommands({
     registerAffineCommand({
       id: 'affine:new-page',
       category: 'affine:creation',
-      label: t['com.affine.cmdk.affine.new-page'](),
+      label: t['com.polymind.cmdk.affine.new-page'](),
       icon: <PlusIcon />,
       keyBinding: BUILD_CONFIG.isElectron
         ? {
@@ -39,7 +39,7 @@ export function registerAffineCreationCommands({
       id: 'affine:new-edgeless-page',
       category: 'affine:creation',
       icon: <PlusIcon />,
-      label: t['com.affine.cmdk.affine.new-edgeless-page'](),
+      label: t['com.polymind.cmdk.affine.new-edgeless-page'](),
       run() {
         pageHelper.createEdgeless();
       },
@@ -51,7 +51,7 @@ export function registerAffineCreationCommands({
       id: 'affine:new-workspace',
       category: 'affine:creation',
       icon: <PlusIcon />,
-      label: t['com.affine.cmdk.affine.new-workspace'](),
+      label: t['com.polymind.cmdk.affine.new-workspace'](),
       run() {
         globalDialogService.open('create-workspace', {});
       },
@@ -62,7 +62,7 @@ export function registerAffineCreationCommands({
       id: 'affine:import-workspace',
       category: 'affine:creation',
       icon: <ImportIcon />,
-      label: t['com.affine.cmdk.affine.import-workspace'](),
+      label: t['com.polymind.cmdk.affine.import-workspace'](),
       preconditionStrategy: () => {
         return BUILD_CONFIG.isElectron;
       },

@@ -1,7 +1,7 @@
-import { Checkbox, notify, useDndMonitor } from '@affine/component';
-import { useAppSettingHelper } from '@affine/core/components/hooks/affine/use-app-setting-helper';
-import type { AffineDNDData } from '@affine/core/types/dnd';
-import { useI18n } from '@affine/i18n';
+import { Checkbox, notify, useDndMonitor } from '@polymind/component';
+import { useAppSettingHelper } from '@polymind/core/components/hooks/affine/use-app-setting-helper';
+import type { AffineDNDData } from '@polymind/core/types/dnd';
+import { useI18n } from '@polymind/i18n';
 import { useService } from '@toeverything/infra';
 import clsx from 'clsx';
 import { useSetAtom } from 'jotai';
@@ -129,7 +129,7 @@ export const SplitView = ({
                 message: (
                   <div className={styles.folderWarningMessage}>
                     <p>
-                      {t['com.affine.split-view-folder-warning.description']()}
+                      {t['com.polymind.split-view-folder-warning.description']()}
                     </p>
                     <p>
                       <Checkbox

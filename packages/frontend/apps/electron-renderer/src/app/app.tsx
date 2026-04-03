@@ -1,9 +1,9 @@
-import { AffineContext } from '@affine/core/components/context';
-import { WindowsAppControls } from '@affine/core/components/pure/header/windows-app-controls';
-import { AppContainer } from '@affine/core/desktop/components/app-container';
-import { router } from '@affine/core/desktop/router';
-import { I18nProvider } from '@affine/core/modules/i18n';
-import createEmotionCache from '@affine/core/utils/create-emotion-cache';
+import { AffineContext } from '@polymind/core/components/context';
+import { WindowsAppControls } from '@polymind/core/components/pure/header/windows-app-controls';
+import { AppContainer } from '@polymind/core/desktop/components/app-container';
+import { router } from '@polymind/core/desktop/router';
+import { I18nProvider } from '@polymind/core/modules/i18n';
+import createEmotionCache from '@polymind/core/utils/create-emotion-cache';
 import { CacheProvider } from '@emotion/react';
 import { FrameworkRoot, getCurrentStore } from '@toeverything/infra';
 import { Suspense, useEffect } from 'react';

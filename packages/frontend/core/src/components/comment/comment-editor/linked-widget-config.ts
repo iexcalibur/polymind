@@ -1,6 +1,6 @@
-import { MemberSearchService } from '@affine/core/modules/permissions';
-import { highlighter } from '@affine/core/modules/quicksearch/utils/highlighter';
-import { I18n } from '@affine/i18n';
+import { MemberSearchService } from '@polymind/core/modules/permissions';
+import { highlighter } from '@polymind/core/modules/quicksearch/utils/highlighter';
+import { I18n } from '@polymind/i18n';
 import type { AffineInlineEditor } from '@blocksuite/affine/shared/types';
 import type {
   LinkedMenuItem,
@@ -131,7 +131,7 @@ export const createCommentLinkedWidgetConfig = (
     });
 
     return {
-      name: I18n.t('com.affine.editor.at-menu.mention-members'),
+      name: I18n.t('com.polymind.editor.at-menu.mention-members'),
       items,
       loading: memberSearchService.isLoading$.signal,
       hidden: computed(() => {
@@ -144,7 +144,7 @@ export const createCommentLinkedWidgetConfig = (
       overflowText: computed(() => {
         const totalCount = memberSearchService.result$.signal.value.length;
         const remainingCount = totalCount - 3;
-        return I18n.t('com.affine.editor.at-menu.more-members-hint', {
+        return I18n.t('com.polymind.editor.at-menu.more-members-hint', {
           count: remainingCount,
         });
       }),

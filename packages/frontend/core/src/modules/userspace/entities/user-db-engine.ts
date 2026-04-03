@@ -1,9 +1,9 @@
 import {
   IndexedDBDocStorage,
   IndexedDBDocSyncStorage,
-} from '@affine/nbstore/idb';
-import { SqliteDocStorage, SqliteDocSyncStorage } from '@affine/nbstore/sqlite';
-import type { StoreClient } from '@affine/nbstore/worker/client';
+} from '@polymind/nbstore/idb';
+import { SqliteDocStorage, SqliteDocSyncStorage } from '@polymind/nbstore/sqlite';
+import type { StoreClient } from '@polymind/nbstore/worker/client';
 import { Entity } from '@toeverything/infra';
 
 import type { NbstoreService } from '../../storage';

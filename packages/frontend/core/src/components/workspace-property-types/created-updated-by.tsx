@@ -1,8 +1,8 @@
-import { Avatar, type MenuRef, PropertyValue } from '@affine/component';
-import type { FilterParams } from '@affine/core/modules/collection-rules';
-import { type DocRecord, DocService } from '@affine/core/modules/doc';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { useI18n } from '@affine/i18n';
+import { Avatar, type MenuRef, PropertyValue } from '@polymind/component';
+import type { FilterParams } from '@polymind/core/modules/collection-rules';
+import { type DocRecord, DocService } from '@polymind/core/modules/doc';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { useI18n } from '@polymind/i18n';
 import { useLiveData, useService } from '@toeverything/infra';
 import { cssVarV2 } from '@toeverything/theme/v2';
 import { type ReactNode, useCallback, useEffect, useMemo, useRef } from 'react';
@@ -14,13 +14,13 @@ import * as styles from './created-updated-by.css';
 
 const CreatedUsernameTip = ({ userName }: { userName: string }) => {
   const i18n = useI18n();
-  return i18n.t('com.affine.page-properties.property.createdBy.tip', {
+  return i18n.t('com.polymind.page-properties.property.createdBy.tip', {
     userName,
   });
 };
 const UpdatedUsernameTip = ({ userName }: { userName: string }) => {
   const i18n = useI18n();
-  return i18n.t('com.affine.page-properties.property.updatedBy.tip', {
+  return i18n.t('com.polymind.page-properties.property.updatedBy.tip', {
     userName,
   });
 };
@@ -57,14 +57,14 @@ const NoRecordValue = () => {
   const t = useI18n();
   return (
     <span>
-      {t['com.affine.page-properties.property-user-avatar-no-record']()}
+      {t['com.polymind.page-properties.property-user-avatar-no-record']()}
     </span>
   );
 };
 
 const LocalUserValue = () => {
   const t = useI18n();
-  return <span>{t['com.affine.page-properties.local-user']()}</span>;
+  return <span>{t['com.polymind.page-properties.local-user']()}</span>;
 };
 
 export const CreatedByValue = () => {
@@ -146,7 +146,7 @@ export const CreatedByUpdatedByFilterValue = ({
     <MemberSelectorInline
       placeholder={
         <span style={{ color: cssVarV2('text/placeholder') }}>
-          {t['com.affine.filter.empty']()}
+          {t['com.polymind.filter.empty']()}
         </span>
       }
       selected={selected}

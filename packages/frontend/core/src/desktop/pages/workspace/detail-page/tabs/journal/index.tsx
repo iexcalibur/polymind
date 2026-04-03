@@ -1,4 +1,4 @@
-import type { DateCell } from '@affine/component';
+import type { DateCell } from '@polymind/component';
 import {
   DatePicker,
   IconButton,
@@ -7,22 +7,22 @@ import {
   MenuSeparator,
   Scrollable,
   useConfirmModal,
-} from '@affine/component';
-import { Guard } from '@affine/core/components/guard';
-import { MoveToTrash } from '@affine/core/components/page-list';
+} from '@polymind/component';
+import { Guard } from '@polymind/core/components/guard';
+import { MoveToTrash } from '@polymind/core/components/page-list';
 import {
   type DocRecord,
   DocService,
   DocsService,
-} from '@affine/core/modules/doc';
-import { DocDisplayMetaService } from '@affine/core/modules/doc-display-meta';
-import { JournalService } from '@affine/core/modules/journal';
+} from '@polymind/core/modules/doc';
+import { DocDisplayMetaService } from '@polymind/core/modules/doc-display-meta';
+import { JournalService } from '@polymind/core/modules/journal';
 import {
   ViewService,
   WorkbenchLink,
   WorkbenchService,
-} from '@affine/core/modules/workbench';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/workbench';
+import { useI18n } from '@polymind/i18n';
 import { CalendarXmarkIcon, EditIcon } from '@blocksuite/icons/rc';
 import {
   useLiveData,
@@ -85,7 +85,7 @@ const PageItem = ({
         {title}
         {duplicate ? (
           <div className={styles.duplicateTag}>
-            {i18n['com.affine.page-properties.property.journal-duplicated']()}
+            {i18n['com.polymind.page-properties.property.journal-duplicated']()}
           </div>
         ) : null}
       </div>
@@ -266,9 +266,9 @@ export const EditorJournalPanel = () => {
     >
       <div data-mobile={mobile} className={styles.calendar}>
         <DatePicker
-          weekDays={t['com.affine.calendar-date-picker.week-days']()}
-          monthNames={t['com.affine.calendar-date-picker.month-names']()}
-          todayLabel={t['com.affine.calendar-date-picker.today']()}
+          weekDays={t['com.polymind.calendar-date-picker.week-days']()}
+          monthNames={t['com.polymind.calendar-date-picker.month-names']()}
+          todayLabel={t['com.polymind.calendar-date-picker.today']()}
           customDayRenderer={customDayRenderer}
           value={selectedDate.format('YYYY-MM-DD')}
           onChange={onDateSelect}
@@ -304,8 +304,8 @@ const DailyCountEmptyFallback = ({ name }: { name: NavItemName }) => {
   return (
     <div className={styles.dailyCountEmpty}>
       {name === 'createdToday'
-        ? t['com.affine.journal.daily-count-created-empty-tips']()
-        : t['com.affine.journal.daily-count-updated-empty-tips']()}
+        ? t['com.polymind.journal.daily-count-created-empty-tips']()
+        : t['com.polymind.journal.daily-count-updated-empty-tips']()}
     </div>
   );
 };
@@ -342,12 +342,12 @@ const JournalDailyCountBlock = ({ date }: JournalBlockProps) => {
     () => [
       {
         name: 'createdToday',
-        label: t['com.affine.journal.created-today'](),
+        label: t['com.polymind.journal.created-today'](),
         count: createdToday.length,
       },
       {
         name: 'updatedToday',
-        label: t['com.affine.journal.updated-today'](),
+        label: t['com.polymind.journal.updated-today'](),
         count: updatedToday.length,
       },
     ],
@@ -431,11 +431,11 @@ const ConflictList = ({
   const handleOpenTrashModal = useCallback(
     (docRecord: DocRecord) => {
       openConfirmModal({
-        title: t['com.affine.moveToTrash.confirmModal.title'](),
-        description: t['com.affine.moveToTrash.confirmModal.description']({
+        title: t['com.polymind.moveToTrash.confirmModal.title'](),
+        description: t['com.polymind.moveToTrash.confirmModal.description']({
           title: docRecord.title$.value || t['Untitled'](),
         }),
-        cancelText: t['com.affine.confirmModal.button.cancel'](),
+        cancelText: t['com.polymind.confirmModal.button.cancel'](),
         confirmButtonOptions: {
           variant: 'error',
         },
@@ -490,7 +490,7 @@ const ConflictList = ({
                           disabled={!canEdit}
                         >
                           {t[
-                            'com.affine.page-properties.property.journal-remove'
+                            'com.polymind.page-properties.property.journal-remove'
                           ]()}
                         </MenuItem>
                       )}
@@ -553,7 +553,7 @@ const JournalConflictBlock = ({ date }: JournalBlockProps) => {
           }
         >
           <div className={styles.journalConflictMoreTrigger}>
-            {t['com.affine.journal.conflict-show-more']({
+            {t['com.polymind.journal.conflict-show-more']({
               count: (docRecords.length - MAX_CONFLICT_COUNT).toFixed(0),
             })}
           </div>

@@ -1,6 +1,6 @@
 import './setup';
 
-import { bindNativeDBApis } from '@affine/nbstore/sqlite';
+import { bindNativeDBApis } from '@polymind/nbstore/sqlite';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 

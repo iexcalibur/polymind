@@ -1,6 +1,6 @@
-import { ScrollableContainer } from '@affine/component';
-import { GlobalDialogService } from '@affine/core/modules/dialogs';
-import { type WorkspaceMetadata } from '@affine/core/modules/workspace';
+import { ScrollableContainer } from '@polymind/component';
+import { GlobalDialogService } from '@polymind/core/modules/dialogs';
+import { type WorkspaceMetadata } from '@polymind/core/modules/workspace';
 import { useService } from '@toeverything/infra';
 import { useCallback } from 'react';
 

@@ -2,9 +2,9 @@ import {
   type DropTargetDropEvent,
   type DropTargetOptions,
   useDropTarget,
-} from '@affine/component';
-import type { AffineDNDData } from '@affine/core/types/dnd';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component';
+import type { AffineDNDData } from '@polymind/core/types/dnd';
+import { useI18n } from '@polymind/i18n';
 
 import { EmptyNodeChildren } from '../../layouts/empty-node-children';
 import { draggedOverHighlight } from './empty.css';
@@ -27,7 +27,7 @@ export const FolderEmpty = ({
   const t = useI18n();
   return (
     <EmptyNodeChildren ref={dropTargetRef} className={draggedOverHighlight}>
-      {t['com.affine.rootAppSidebar.organize.empty-folder']()}
+      {t['com.polymind.rootAppSidebar.organize.empty-folder']()}
     </EmptyNodeChildren>
   );
 };

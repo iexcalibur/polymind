@@ -55,7 +55,7 @@ export async function fetchVersionCode(applicationId: string): Promise<number> {
 
 const versionCodeRegexPattern = /(versionCode(?:\s|=)*)(.*)/;
 
-const gradlePath = new Package('@affine/android').join(
+const gradlePath = new Package('@polymind/android').join(
   'App/app/build.gradle'
 ).value;
 

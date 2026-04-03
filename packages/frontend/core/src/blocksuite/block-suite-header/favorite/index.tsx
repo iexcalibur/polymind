@@ -1,7 +1,7 @@
-import { FavoriteTag } from '@affine/core/components/page-list';
-import { CompatibleFavoriteItemsAdapter } from '@affine/core/modules/favorite';
-import { toast } from '@affine/core/utils';
-import { useI18n } from '@affine/i18n';
+import { FavoriteTag } from '@polymind/core/components/page-list';
+import { CompatibleFavoriteItemsAdapter } from '@polymind/core/modules/favorite';
+import { toast } from '@polymind/core/utils';
+import { useI18n } from '@polymind/i18n';
 import { useLiveData, useService } from '@toeverything/infra';
 import { useCallback } from 'react';
 
@@ -19,8 +19,8 @@ export const useFavorite = (pageId: string) => {
     favAdapter.toggle(pageId, 'doc');
     toast(
       favorite
-        ? t['com.affine.toastMessage.removedFavorites']()
-        : t['com.affine.toastMessage.addedFavorites']()
+        ? t['com.polymind.toastMessage.removedFavorites']()
+        : t['com.polymind.toastMessage.addedFavorites']()
     );
   }, [favorite, pageId, t, favAdapter]);
 

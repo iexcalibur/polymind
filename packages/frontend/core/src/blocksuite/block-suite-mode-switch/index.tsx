@@ -1,8 +1,8 @@
-import { RadioGroup, type RadioItem } from '@affine/component';
-import { registerAffineCommand } from '@affine/core/commands';
-import { EditorService } from '@affine/core/modules/editor';
-import { ViewService, WorkbenchService } from '@affine/core/modules/workbench';
-import { useI18n } from '@affine/i18n';
+import { RadioGroup, type RadioItem } from '@polymind/component';
+import { registerAffineCommand } from '@polymind/core/commands';
+import { EditorService } from '@polymind/core/modules/editor';
+import { ViewService, WorkbenchService } from '@polymind/core/modules/workbench';
+import { useI18n } from '@polymind/i18n';
 import type { DocMode } from '@blocksuite/affine/model';
 import { EdgelessIcon, PageIcon } from '@blocksuite/icons/rc';
 import {
@@ -77,8 +77,8 @@ export const EditorModeSwitch = () => {
       category: 'editor:page',
       label:
         currentMode === 'page'
-          ? t['com.affine.cmdk.switch-to-edgeless']()
-          : t['com.affine.cmdk.switch-to-page'](),
+          ? t['com.polymind.cmdk.switch-to-edgeless']()
+          : t['com.polymind.cmdk.switch-to-page'](),
       icon: currentMode === 'page' ? <EdgelessIcon /> : <PageIcon />,
       keyBinding: {
         binding: 'Alt+KeyS',

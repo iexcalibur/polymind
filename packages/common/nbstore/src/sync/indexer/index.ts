@@ -1,4 +1,4 @@
-import { readAllDocsFromRootDoc } from '@affine/reader';
+import { readAllDocsFromRootDoc } from '@polymind/reader';
 import { omit } from 'lodash-es';
 import {
   filter,

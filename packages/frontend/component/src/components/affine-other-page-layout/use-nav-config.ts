@@ -1,4 +1,4 @@
-import { useI18n } from '@affine/i18n';
+import { useI18n } from '@polymind/i18n';
 import { useMemo } from 'react';
 
 export const useNavConfig = () => {
@@ -6,15 +6,15 @@ export const useNavConfig = () => {
   return useMemo(
     () => [
       {
-        title: t['com.affine.other-page.nav.official-website'](),
+        title: t['com.polymind.other-page.nav.official-website'](),
         path: 'https://affine.pro',
       },
       {
-        title: t['com.affine.other-page.nav.blog'](),
+        title: t['com.polymind.other-page.nav.blog'](),
         path: 'https://affine.pro/blog',
       },
       {
-        title: t['com.affine.other-page.nav.contact-us'](),
+        title: t['com.polymind.other-page.nav.contact-us'](),
         path: 'https://affine.pro/about-us',
       },
     ],

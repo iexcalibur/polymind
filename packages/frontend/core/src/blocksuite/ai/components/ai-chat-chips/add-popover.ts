@@ -1,6 +1,6 @@
-import { toast } from '@affine/component';
-import type { TagMeta } from '@affine/core/components/page-list';
-import type { CollectionMeta } from '@affine/core/modules/collection';
+import { toast } from '@polymind/component';
+import type { TagMeta } from '@polymind/core/components/page-list';
+import type { CollectionMeta } from '@polymind/core/modules/collection';
 import { SignalWatcher, WithDisposable } from '@blocksuite/affine/global/lit';
 import { scrollbarStyle } from '@blocksuite/affine/shared/styles';
 import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/affine/shared/theme';

@@ -1,11 +1,11 @@
 {
-  "name": "@affine/server",
+  "name": "@polymind/server",
   "private": true,
   "version": "0.26.3",
   "description": "Affine Node.js server",
   "type": "module",
   "scripts": {
-    "build": "affine bundle -p @affine/server",
+    "build": "affine bundle -p @polymind/server",
     "dev": "nodemon ./src/index.ts",
     "dev:mail": "email dev -d src/mails",
     "test": "ava --concurrency 1 --serial",
@@ -23,8 +23,8 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@affine/s3-compat": "workspace:*",
-    "@affine/server-native": "workspace:*",
+    "@polymind/s3-compat": "workspace:*",
+    "@polymind/server-native": "workspace:*",
     "@apollo/server": "^4.13.0",
     "@fal-ai/serverless-client": "^0.15.0",
     "@nestjs-cls/transactional": "^3.2.0",
@@ -92,7 +92,7 @@
   "devDependencies": {
     "@affine-tools/cli": "workspace:*",
     "@affine-tools/utils": "workspace:*",
-    "@affine/graphql": "workspace:*",
+    "@polymind/graphql": "workspace:*",
     "@faker-js/faker": "^10.1.0",
     "@nestjs/swagger": "^11.2.0",
     "@nestjs/testing": "patch:@nestjs/testing@npm%3A10.4.15#~/.yarn/patches/@nestjs-testing-npm-10.4.15-d591a1705a.patch",

@@ -1,7 +1,7 @@
-import { DesktopApiService } from '@affine/core/modules/desktop-api';
-import { WorkspacesService } from '@affine/core/modules/workspace';
-import { buildShowcaseWorkspace } from '@affine/core/utils/first-app-data';
-import { DEFAULT_WORKSPACE_NAME } from '@affine/env/constant';
+import { DesktopApiService } from '@polymind/core/modules/desktop-api';
+import { WorkspacesService } from '@polymind/core/modules/workspace';
+import { buildShowcaseWorkspace } from '@polymind/core/utils/first-app-data';
+import { DEFAULT_WORKSPACE_NAME } from '@polymind/env/constant';
 import {
   useLiveData,
   useService,

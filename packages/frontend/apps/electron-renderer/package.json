@@ -1,5 +1,5 @@
 {
-  "name": "@affine/electron-renderer",
+  "name": "@polymind/electron-renderer",
   "private": true,
   "version": "0.26.3",
   "type": "module",
@@ -8,12 +8,12 @@
     "dev": "affine bundle --dev"
   },
   "dependencies": {
-    "@affine/component": "workspace:*",
-    "@affine/core": "workspace:*",
-    "@affine/debug": "workspace:*",
-    "@affine/electron-api": "workspace:*",
-    "@affine/i18n": "workspace:*",
-    "@affine/nbstore": "workspace:*",
+    "@polymind/component": "workspace:*",
+    "@polymind/core": "workspace:*",
+    "@polymind/debug": "workspace:*",
+    "@polymind/electron-api": "workspace:*",
+    "@polymind/i18n": "workspace:*",
+    "@polymind/nbstore": "workspace:*",
     "@blocksuite/affine": "workspace:*",
     "@emotion/react": "^11.14.0",
     "@toeverything/infra": "workspace:*",

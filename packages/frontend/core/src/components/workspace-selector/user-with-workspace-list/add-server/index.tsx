@@ -1,6 +1,6 @@
-import { Divider, MenuItem } from '@affine/component';
-import { GlobalDialogService } from '@affine/core/modules/dialogs';
-import { useI18n } from '@affine/i18n';
+import { Divider, MenuItem } from '@polymind/component';
+import { GlobalDialogService } from '@polymind/core/modules/dialogs';
+import { useI18n } from '@polymind/i18n';
 import { PlusIcon } from '@blocksuite/icons/rc';
 import { useService } from '@toeverything/infra';
 import { useCallback } from 'react';
@@ -38,7 +38,7 @@ export const AddServer = () => {
         className={ItemContainer}
       >
         <div className={ItemText}>
-          {t['com.affine.workspaceList.addServer']()}
+          {t['com.polymind.workspaceList.addServer']()}
         </div>
       </MenuItem>
     </>

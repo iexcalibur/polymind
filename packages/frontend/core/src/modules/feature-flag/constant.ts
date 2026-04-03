@@ -10,9 +10,9 @@ export const AFFINE_FLAGS = {
   enable_ai: {
     category: 'affine',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-ai.name',
+      'com.polymind.settings.workspace.experimental-features.enable-ai.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-ai.description',
+      'com.polymind.settings.workspace.experimental-features.enable-ai.description',
     hide: true,
     configurable: true,
     defaultState: true,
@@ -20,9 +20,9 @@ export const AFFINE_FLAGS = {
   enable_ai_network_search: {
     category: 'affine',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-ai-network-search.name',
+      'com.polymind.settings.workspace.experimental-features.enable-ai-network-search.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-ai-network-search.description',
+      'com.polymind.settings.workspace.experimental-features.enable-ai-network-search.description',
     hide: true,
     configurable: false,
     defaultState: true,
@@ -30,9 +30,9 @@ export const AFFINE_FLAGS = {
   enable_ai_playground: {
     category: 'affine',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-ai-model-switch.name',
+      'com.polymind.settings.workspace.experimental-features.enable-ai-model-switch.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-ai-model-switch.description',
+      'com.polymind.settings.workspace.experimental-features.enable-ai-model-switch.description',
     configurable: isCanaryBuild,
     defaultState: isCanaryBuild,
   },
@@ -40,9 +40,9 @@ export const AFFINE_FLAGS = {
     category: 'blocksuite',
     bsFlag: 'enable_edgeless_text',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-edgeless-text.name',
+      'com.polymind.settings.workspace.experimental-features.enable-edgeless-text.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-edgeless-text.description',
+      'com.polymind.settings.workspace.experimental-features.enable-edgeless-text.description',
     configurable: false,
     defaultState: true,
   },
@@ -50,9 +50,9 @@ export const AFFINE_FLAGS = {
     category: 'blocksuite',
     bsFlag: 'enable_color_picker',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-color-picker.name',
+      'com.polymind.settings.workspace.experimental-features.enable-color-picker.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-color-picker.description',
+      'com.polymind.settings.workspace.experimental-features.enable-color-picker.description',
     configurable: false,
     defaultState: true,
   },
@@ -60,9 +60,9 @@ export const AFFINE_FLAGS = {
     category: 'blocksuite',
     bsFlag: 'enable_ai_chat_block',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-ai-chat-block.name',
+      'com.polymind.settings.workspace.experimental-features.enable-ai-chat-block.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-ai-chat-block.description',
+      'com.polymind.settings.workspace.experimental-features.enable-ai-chat-block.description',
     configurable: false,
     defaultState: true,
   },
@@ -70,9 +70,9 @@ export const AFFINE_FLAGS = {
     category: 'blocksuite',
     bsFlag: 'enable_ai_onboarding',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-ai-onboarding.name',
+      'com.polymind.settings.workspace.experimental-features.enable-ai-onboarding.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-ai-onboarding.description',
+      'com.polymind.settings.workspace.experimental-features.enable-ai-onboarding.description',
     configurable: false,
     defaultState: true,
   },
@@ -80,9 +80,9 @@ export const AFFINE_FLAGS = {
     category: 'blocksuite',
     bsFlag: 'enable_mind_map_import',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-mind-map-import.name',
+      'com.polymind.settings.workspace.experimental-features.enable-mind-map-import.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-mind-map-import.description',
+      'com.polymind.settings.workspace.experimental-features.enable-mind-map-import.description',
     configurable: false,
     defaultState: true,
   },
@@ -90,9 +90,9 @@ export const AFFINE_FLAGS = {
     category: 'blocksuite',
     bsFlag: 'enable_block_meta',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-block-meta.name',
+      'com.polymind.settings.workspace.experimental-features.enable-block-meta.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-block-meta.description',
+      'com.polymind.settings.workspace.experimental-features.enable-block-meta.description',
     configurable: isCanaryBuild,
     defaultState: true,
   },
@@ -100,9 +100,9 @@ export const AFFINE_FLAGS = {
   enable_emoji_folder_icon: {
     category: 'affine',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-emoji-folder-icon.name',
+      'com.polymind.settings.workspace.experimental-features.enable-emoji-folder-icon.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-emoji-folder-icon.description',
+      'com.polymind.settings.workspace.experimental-features.enable-emoji-folder-icon.description',
 
     feedbackType: 'discord',
     feedbackLink:
@@ -113,9 +113,9 @@ export const AFFINE_FLAGS = {
   enable_emoji_doc_icon: {
     category: 'affine',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-emoji-doc-icon.name',
+      'com.polymind.settings.workspace.experimental-features.enable-emoji-doc-icon.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-emoji-doc-icon.description',
+      'com.polymind.settings.workspace.experimental-features.enable-emoji-doc-icon.description',
     feedbackType: 'discord',
     feedbackLink:
       'https://discord.com/channels/959027316334407691/1280014319865696351',
@@ -125,18 +125,18 @@ export const AFFINE_FLAGS = {
   enable_editor_settings: {
     category: 'affine',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-editor-settings.name',
+      'com.polymind.settings.workspace.experimental-features.enable-editor-settings.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-editor-settings.description',
+      'com.polymind.settings.workspace.experimental-features.enable-editor-settings.description',
     configurable: false,
     defaultState: true,
   },
   enable_theme_editor: {
     category: 'affine',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-theme-editor.name',
+      'com.polymind.settings.workspace.experimental-features.enable-theme-editor.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-theme-editor.description',
+      'com.polymind.settings.workspace.experimental-features.enable-theme-editor.description',
     configurable: isCanaryBuild && !isMobile,
     defaultState: isCanaryBuild,
   },
@@ -144,9 +144,9 @@ export const AFFINE_FLAGS = {
     category: 'blocksuite',
     bsFlag: 'enable_advanced_block_visibility',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-advanced-block-visibility.name',
+      'com.polymind.settings.workspace.experimental-features.enable-advanced-block-visibility.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-advanced-block-visibility.description',
+      'com.polymind.settings.workspace.experimental-features.enable-advanced-block-visibility.description',
     configurable: true,
     defaultState: false,
   },
@@ -154,9 +154,9 @@ export const AFFINE_FLAGS = {
     category: 'blocksuite',
     bsFlag: 'enable_mobile_keyboard_toolbar',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-mobile-keyboard-toolbar.name',
+      'com.polymind.settings.workspace.experimental-features.enable-mobile-keyboard-toolbar.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-mobile-keyboard-toolbar.description',
+      'com.polymind.settings.workspace.experimental-features.enable-mobile-keyboard-toolbar.description',
     configurable: false,
     defaultState: isMobile,
   },
@@ -164,36 +164,36 @@ export const AFFINE_FLAGS = {
     category: 'blocksuite',
     bsFlag: 'enable_mobile_linked_doc_menu',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.name',
+      'com.polymind.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.description',
+      'com.polymind.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.description',
     configurable: false,
     defaultState: isMobile,
   },
   enable_mobile_edgeless_editing: {
     category: 'affine',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-mobile-edgeless-editing.name',
+      'com.polymind.settings.workspace.experimental-features.enable-mobile-edgeless-editing.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-mobile-edgeless-editing.description',
+      'com.polymind.settings.workspace.experimental-features.enable-mobile-edgeless-editing.description',
     configurable: isMobile,
     defaultState: false,
   },
   enable_pdf_embed_preview: {
     category: 'affine',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-pdf-embed-preview.name',
+      'com.polymind.settings.workspace.experimental-features.enable-pdf-embed-preview.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-pdf-embed-preview.description',
+      'com.polymind.settings.workspace.experimental-features.enable-pdf-embed-preview.description',
     configurable: !isMobile,
     defaultState: true,
   },
   enable_editor_rtl: {
     category: 'affine',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-editor-rtl.name',
+      'com.polymind.settings.workspace.experimental-features.enable-editor-rtl.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-editor-rtl.description',
+      'com.polymind.settings.workspace.experimental-features.enable-editor-rtl.description',
     configurable: isCanaryBuild,
     defaultState: false,
   },
@@ -232,9 +232,9 @@ export const AFFINE_FLAGS = {
     category: 'blocksuite',
     bsFlag: 'enable_edgeless_scribbled_style',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-edgeless-scribbled-style.name',
+      'com.polymind.settings.workspace.experimental-features.enable-edgeless-scribbled-style.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-edgeless-scribbled-style.description',
+      'com.polymind.settings.workspace.experimental-features.enable-edgeless-scribbled-style.description',
     configurable: isCanaryBuild,
     defaultState: false,
   },
@@ -242,9 +242,9 @@ export const AFFINE_FLAGS = {
     category: 'blocksuite',
     bsFlag: 'enable_table_virtual_scroll',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-table-virtual-scroll.name',
+      'com.polymind.settings.workspace.experimental-features.enable-table-virtual-scroll.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-table-virtual-scroll.description',
+      'com.polymind.settings.workspace.experimental-features.enable-table-virtual-scroll.description',
     configurable: isCanaryBuild,
     defaultState: false,
   },
@@ -258,9 +258,9 @@ export const AFFINE_FLAGS = {
   enable_adapter_panel: {
     category: 'affine',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-adapter-panel.name',
+      'com.polymind.settings.workspace.experimental-features.enable-adapter-panel.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-adapter-panel.description',
+      'com.polymind.settings.workspace.experimental-features.enable-adapter-panel.description',
     configurable: isCanaryBuild,
     defaultState: false,
   },
@@ -282,9 +282,9 @@ export const AFFINE_FLAGS = {
   enable_send_detailed_object_to_ai: {
     category: 'affine',
     displayName:
-      'com.affine.settings.workspace.experimental-features.enable-ai-send-detailed-object.name',
+      'com.polymind.settings.workspace.experimental-features.enable-ai-send-detailed-object.name',
     description:
-      'com.affine.settings.workspace.experimental-features.enable-ai-send-detailed-object.description',
+      'com.polymind.settings.workspace.experimental-features.enable-ai-send-detailed-object.description',
     configurable: true,
     defaultState: true,
   },

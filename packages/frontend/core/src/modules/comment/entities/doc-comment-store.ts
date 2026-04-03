@@ -12,7 +12,7 @@ import {
   updateCommentMutation,
   updateReplyMutation,
   uploadCommentAttachmentMutation,
-} from '@affine/graphql';
+} from '@polymind/graphql';
 import { Entity } from '@toeverything/infra';
 
 import type { WorkspaceService } from '../../workspace';

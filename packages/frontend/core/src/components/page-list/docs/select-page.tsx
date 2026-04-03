@@ -1,9 +1,9 @@
-import { IconButton, Menu } from '@affine/component';
+import { IconButton, Menu } from '@polymind/component';
 import {
   CollectionRulesService,
   type FilterParams,
-} from '@affine/core/modules/collection-rules';
-import { Trans, useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/collection-rules';
+import { Trans, useI18n } from '@polymind/i18n';
 import { FilterIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useServices } from '@toeverything/infra';
 import { memo, type ReactNode, useCallback, useEffect, useState } from 'react';
@@ -149,7 +149,7 @@ export const SelectPage = memo(function SelectPage({
 
   return (
     <SelectorLayout
-      searchPlaceholder={t['com.affine.editCollection.search.placeholder']()}
+      searchPlaceholder={t['com.polymind.editCollection.search.placeholder']()}
       selectedCount={selectedDocIds.length}
       onSearch={setSearchText}
       onClear={clearSelected}
@@ -161,7 +161,7 @@ export const SelectPage = memo(function SelectPage({
         <div className={styles.pagesTabContent}>
           {header ?? (
             <div style={{ fontSize: 12, lineHeight: '20px', fontWeight: 600 }}>
-              {t['com.affine.selectPage.title']()}
+              {t['com.polymind.selectPage.title']()}
             </div>
           )}
           {filters.length === 0 ? (
@@ -213,14 +213,14 @@ export const EmptyList = ({ search }: { search?: string }) => {
           fontWeight: 600,
         }}
       >
-        {t['com.affine.selectPage.empty']()}
+        {t['com.polymind.selectPage.empty']()}
       </div>
       {search ? (
         <div
           className={styles.ellipsis}
           style={{ maxWidth: 300, fontSize: 15, lineHeight: '24px' }}
         >
-          <Trans i18nKey="com.affine.selectPage.empty.tips" values={{ search }}>
+          <Trans i18nKey="com.polymind.selectPage.empty.tips" values={{ search }}>
             No page titles contain
             <span
               style={{ fontWeight: 600, color: 'var(--affine-primary-color)' }}

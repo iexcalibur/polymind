@@ -1,13 +1,13 @@
-import { MenuItem, notify } from '@affine/component';
-import type { NodeOperation } from '@affine/core/desktop/components/navigation-panel';
+import { MenuItem, notify } from '@polymind/component';
+import type { NodeOperation } from '@polymind/core/desktop/components/navigation-panel';
 import {
   type Collection,
   CollectionService,
-} from '@affine/core/modules/collection';
-import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import { GlobalContextService } from '@affine/core/modules/global-context';
-import { NavigationPanelService } from '@affine/core/modules/navigation-panel';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/collection';
+import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import { GlobalContextService } from '@polymind/core/modules/global-context';
+import { NavigationPanelService } from '@polymind/core/modules/navigation-panel';
+import { useI18n } from '@polymind/i18n';
 import { FilterMinusIcon, ViewLayersIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService, useServices } from '@toeverything/infra';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -133,7 +133,7 @@ const NavigationPanelCollectionNodeChildren = ({
     (id: string) => {
       collectionService.removeDocFromCollection(collection.id, id);
       notify.success({
-        message: t['com.affine.collection.removePage.success'](),
+        message: t['com.polymind.collection.removePage.success'](),
       });
     },
     [collection.id, collectionService, t]

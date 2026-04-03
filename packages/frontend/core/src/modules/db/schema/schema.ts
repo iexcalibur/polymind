@@ -1,4 +1,4 @@
-import type { IconData } from '@affine/component';
+import type { IconData } from '@polymind/component';
 import {
   type DBSchemaBuilder,
   f,

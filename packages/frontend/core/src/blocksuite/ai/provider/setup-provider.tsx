@@ -1,5 +1,5 @@
-import { toggleGeneralAIOnboarding } from '@affine/core/components/affine/ai-onboarding/apis';
-import type { GlobalDialogService } from '@affine/core/modules/dialogs';
+import { toggleGeneralAIOnboarding } from '@polymind/core/components/affine/ai-onboarding/apis';
+import type { GlobalDialogService } from '@polymind/core/modules/dialogs';
 import {
   type AddContextFileInput,
   ContextCategories,
@@ -8,7 +8,7 @@ import {
   type QueryChatSessionsInput,
   type RequestOptions,
   type UpdateChatSessionInput,
-} from '@affine/graphql';
+} from '@polymind/graphql';
 import type { Observable } from 'rxjs';
 import { z } from 'zod';
 

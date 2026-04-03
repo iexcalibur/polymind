@@ -1,5 +1,5 @@
-import { channelToScheme } from '@affine/core/utils/channel';
-import { DebugLogger } from '@affine/debug';
+import { channelToScheme } from '@polymind/core/utils/channel';
+import { DebugLogger } from '@polymind/debug';
 
 const logger = new DebugLogger('open-in-app');
 

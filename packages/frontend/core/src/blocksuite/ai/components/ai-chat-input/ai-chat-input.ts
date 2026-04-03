@@ -1,10 +1,10 @@
 import type {
   AIDraftService,
   AIToolsConfigService,
-} from '@affine/core/modules/ai-button';
-import type { AIModelService } from '@affine/core/modules/ai-button/services/models';
-import type { FeatureFlagService } from '@affine/core/modules/feature-flag';
-import type { CopilotChatHistoryFragment } from '@affine/graphql';
+} from '@polymind/core/modules/ai-button';
+import type { AIModelService } from '@polymind/core/modules/ai-button/services/models';
+import type { FeatureFlagService } from '@polymind/core/modules/feature-flag';
+import type { CopilotChatHistoryFragment } from '@polymind/graphql';
 import { SignalWatcher, WithDisposable } from '@blocksuite/affine/global/lit';
 import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/affine/shared/theme';
 import type { EditorHost } from '@blocksuite/affine/std';

@@ -1,5 +1,5 @@
-import { MobileMenu } from '@affine/component';
-import { WorkspacesService } from '@affine/core/modules/workspace';
+import { MobileMenu } from '@polymind/component';
+import { WorkspacesService } from '@polymind/core/modules/workspace';
 import { useServiceOptional } from '@toeverything/infra';
 import {
   forwardRef,

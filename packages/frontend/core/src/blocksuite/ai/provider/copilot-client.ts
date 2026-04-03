@@ -1,5 +1,5 @@
-import type { AIToolsConfig } from '@affine/core/modules/ai-button';
-import { UserFriendlyError } from '@affine/error';
+import type { AIToolsConfig } from '@polymind/core/modules/ai-button';
+import { UserFriendlyError } from '@polymind/error';
 import {
   addContextBlobMutation,
   addContextCategoryMutation,
@@ -31,7 +31,7 @@ import {
   removeContextFileMutation,
   type RequestOptions,
   updateCopilotSessionMutation,
-} from '@affine/graphql';
+} from '@polymind/graphql';
 import {
   GeneralNetworkError,
   PaymentRequiredError,

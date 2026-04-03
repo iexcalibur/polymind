@@ -1,40 +1,40 @@
-import { useConfirmModal } from '@affine/component';
-import { AIProvider } from '@affine/core/blocksuite/ai';
-import type { AppSidebarConfig } from '@affine/core/blocksuite/ai/chat-panel/chat-config';
+import { useConfirmModal } from '@polymind/component';
+import { AIProvider } from '@polymind/core/blocksuite/ai';
+import type { AppSidebarConfig } from '@polymind/core/blocksuite/ai/chat-panel/chat-config';
 import {
   AIChatContent,
   type ChatContextValue,
-} from '@affine/core/blocksuite/ai/components/ai-chat-content';
-import type { ChatStatus } from '@affine/core/blocksuite/ai/components/ai-chat-messages';
-import type { AIChatToolbar } from '@affine/core/blocksuite/ai/components/ai-chat-toolbar';
+} from '@polymind/core/blocksuite/ai/components/ai-chat-content';
+import type { ChatStatus } from '@polymind/core/blocksuite/ai/components/ai-chat-messages';
+import type { AIChatToolbar } from '@polymind/core/blocksuite/ai/components/ai-chat-toolbar';
 import {
   configureAIChatToolbar,
   getOrCreateAIChatToolbar,
-} from '@affine/core/blocksuite/ai/components/ai-chat-toolbar';
-import { createPlaygroundModal } from '@affine/core/blocksuite/ai/components/playground/modal';
-import { registerAIAppEffects } from '@affine/core/blocksuite/ai/effects/app';
-import type { AffineEditorContainer } from '@affine/core/blocksuite/block-suite-editor';
-import { NotificationServiceImpl } from '@affine/core/blocksuite/view-extensions/editor-view/notification-service';
-import { useAIChatConfig } from '@affine/core/components/hooks/affine/use-ai-chat-config';
-import { useAISpecs } from '@affine/core/components/hooks/affine/use-ai-specs';
-import { useAISubscribe } from '@affine/core/components/hooks/affine/use-ai-subscribe';
+} from '@polymind/core/blocksuite/ai/components/ai-chat-toolbar';
+import { createPlaygroundModal } from '@polymind/core/blocksuite/ai/components/playground/modal';
+import { registerAIAppEffects } from '@polymind/core/blocksuite/ai/effects/app';
+import type { AffineEditorContainer } from '@polymind/core/blocksuite/block-suite-editor';
+import { NotificationServiceImpl } from '@polymind/core/blocksuite/view-extensions/editor-view/notification-service';
+import { useAIChatConfig } from '@polymind/core/components/hooks/affine/use-ai-chat-config';
+import { useAISpecs } from '@polymind/core/components/hooks/affine/use-ai-specs';
+import { useAISubscribe } from '@polymind/core/components/hooks/affine/use-ai-subscribe';
 import {
   AIDraftService,
   AIToolsConfigService,
-} from '@affine/core/modules/ai-button';
-import { AIModelService } from '@affine/core/modules/ai-button/services/models';
-import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import { useSignalValue } from '@affine/core/modules/doc-info/utils';
-import { FeatureFlagService } from '@affine/core/modules/feature-flag';
-import { PeekViewService } from '@affine/core/modules/peek-view';
-import { AppThemeService } from '@affine/core/modules/theme';
-import { WorkbenchService } from '@affine/core/modules/workbench';
+} from '@polymind/core/modules/ai-button';
+import { AIModelService } from '@polymind/core/modules/ai-button/services/models';
+import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import { useSignalValue } from '@polymind/core/modules/doc-info/utils';
+import { FeatureFlagService } from '@polymind/core/modules/feature-flag';
+import { PeekViewService } from '@polymind/core/modules/peek-view';
+import { AppThemeService } from '@polymind/core/modules/theme';
+import { WorkbenchService } from '@polymind/core/modules/workbench';
 import type {
   ContextEmbedStatus,
   CopilotChatHistoryFragment,
   UpdateChatSessionInput,
-} from '@affine/graphql';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/graphql';
+import { useI18n } from '@polymind/i18n';
 import { RefNodeSlotsProvider } from '@blocksuite/affine/inlines/reference';
 import { DocModeProvider } from '@blocksuite/affine/shared/services';
 import { createSignalFromObservable } from '@blocksuite/affine/shared/utils';
@@ -639,7 +639,7 @@ export const EditorChatPanel = ({ editor, onLoad }: SidebarTabProps) => {
           <div className={styles.loading}>
             <Logo1Icon className={styles.loadingIcon} />
             <div className={styles.loadingTitle}>
-              {t['com.affine.ai.chat-panel.loading-history']()}
+              {t['com.polymind.ai.chat-panel.loading-history']()}
             </div>
           </div>
         </div>
@@ -649,13 +649,13 @@ export const EditorChatPanel = ({ editor, onLoad }: SidebarTabProps) => {
             <div className={styles.title}>
               {isEmbedding ? (
                 <span data-testid="chat-panel-embedding-progress">
-                  {t.t('com.affine.ai.chat-panel.embedding-progress', {
+                  {t.t('com.polymind.ai.chat-panel.embedding-progress', {
                     done,
                     total,
                   })}
                 </span>
               ) : (
-                t['com.affine.ai.chat-panel.title']()
+                t['com.polymind.ai.chat-panel.title']()
               )}
             </div>
             {playgroundVisible ? (

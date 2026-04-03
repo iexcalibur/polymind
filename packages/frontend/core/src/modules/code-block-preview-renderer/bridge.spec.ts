@@ -15,7 +15,7 @@ const { domPurifySanitize } = vi.hoisted(() => ({
 }));
 
 vi.mock(
-  '@affine/core/modules/code-block-preview-renderer/platform-backend',
+  '@polymind/core/modules/code-block-preview-renderer/platform-backend',
   () => ({
     renderMermaidSvgBackend: mermaidRender,
     renderTypstSvgBackend: typstRender,

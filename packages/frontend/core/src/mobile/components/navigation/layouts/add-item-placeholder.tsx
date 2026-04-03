@@ -1,4 +1,4 @@
-import { NavigationPanelTreeContext } from '@affine/core/desktop/components/navigation-panel';
+import { NavigationPanelTreeContext } from '@polymind/core/desktop/components/navigation-panel';
 import { PlusIcon } from '@blocksuite/icons/rc';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
 import clsx from 'clsx';

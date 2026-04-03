@@ -1,6 +1,6 @@
-import { MenuItem } from '@affine/component';
-import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import { useI18n } from '@affine/i18n';
+import { MenuItem } from '@polymind/component';
+import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import { useI18n } from '@polymind/i18n';
 import { AccountIcon, SignOutIcon } from '@blocksuite/icons/rc';
 import { useService } from '@toeverything/infra';
 import { useCallback } from 'react';
@@ -26,14 +26,14 @@ export const AccountMenu = () => {
         data-testid="workspace-modal-account-settings-option"
         onClick={onOpenAccountSetting}
       >
-        {t['com.affine.workspace.cloud.account.settings']()}
+        {t['com.polymind.workspace.cloud.account.settings']()}
       </MenuItem>
       <MenuItem
         prefixIcon={<SignOutIcon />}
         data-testid="workspace-modal-sign-out-option"
         onClick={openSignOutModal}
       >
-        {t['com.affine.workspace.cloud.account.logout']()}
+        {t['com.polymind.workspace.cloud.account.logout']()}
       </MenuItem>
     </>
   );

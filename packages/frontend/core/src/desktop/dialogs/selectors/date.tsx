@@ -1,7 +1,7 @@
-import { DatePicker, Menu } from '@affine/component';
-import type { DialogComponentProps } from '@affine/core/modules/dialogs';
-import type { WORKSPACE_DIALOG_SCHEMA } from '@affine/core/modules/dialogs/constant';
-import { useI18n } from '@affine/i18n';
+import { DatePicker, Menu } from '@polymind/component';
+import type { DialogComponentProps } from '@polymind/core/modules/dialogs';
+import type { WORKSPACE_DIALOG_SCHEMA } from '@polymind/core/modules/dialogs/constant';
+import { useI18n } from '@polymind/i18n';
 import { cssVarV2 } from '@toeverything/theme/v2';
 import { useCallback, useState } from 'react';
 
@@ -53,9 +53,9 @@ export const DateSelectorDialog = ({
       }}
       items={
         <DatePicker
-          weekDays={t['com.affine.calendar-date-picker.week-days']()}
-          monthNames={t['com.affine.calendar-date-picker.month-names']()}
-          todayLabel={t['com.affine.calendar-date-picker.today']()}
+          weekDays={t['com.polymind.calendar-date-picker.week-days']()}
+          monthNames={t['com.polymind.calendar-date-picker.month-names']()}
+          todayLabel={t['com.polymind.calendar-date-picker.today']()}
           value={selectedDate}
           onChange={handleSelect}
         />

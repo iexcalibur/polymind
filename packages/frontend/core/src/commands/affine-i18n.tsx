@@ -1,5 +1,5 @@
-import type { I18n } from '@affine/core/modules/i18n';
-import type { useI18n } from '@affine/i18n';
+import type { I18n } from '@polymind/core/modules/i18n';
+import type { useI18n } from '@polymind/i18n';
 import { SettingsIcon } from '@blocksuite/icons/rc';
 
 import { registerAffineCommand } from './registry';
@@ -15,7 +15,7 @@ export function registerAffineLanguageCommands({
   const disposables = i18n.languageList.map(language => {
     return registerAffineCommand({
       id: `affine:change-display-language-to-${language.name}`,
-      label: `${t['com.affine.cmdk.affine.display-language.to']()} ${
+      label: `${t['com.polymind.cmdk.affine.display-language.to']()} ${
         language.originalName
       }`,
       category: 'affine:settings',

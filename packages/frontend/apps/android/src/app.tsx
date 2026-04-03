@@ -1,28 +1,28 @@
-import { getStoreManager } from '@affine/core/blocksuite/manager/store';
-import { AffineContext } from '@affine/core/components/context';
-import { AppFallback } from '@affine/core/mobile/components/app-fallback';
-import { configureMobileModules } from '@affine/core/mobile/modules';
-import { VirtualKeyboardProvider } from '@affine/core/mobile/modules/virtual-keyboard';
-import { router } from '@affine/core/mobile/router';
-import { configureCommonModules } from '@affine/core/modules';
-import { AIButtonProvider } from '@affine/core/modules/ai-button';
-import { registerNativePreviewHandlers } from '@affine/core/modules/code-block-preview-renderer';
-import { DocsService } from '@affine/core/modules/doc';
-import { GlobalContextService } from '@affine/core/modules/global-context';
-import { I18nProvider } from '@affine/core/modules/i18n';
-import { LifecycleService } from '@affine/core/modules/lifecycle';
+import { getStoreManager } from '@polymind/core/blocksuite/manager/store';
+import { AffineContext } from '@polymind/core/components/context';
+import { AppFallback } from '@polymind/core/mobile/components/app-fallback';
+import { configureMobileModules } from '@polymind/core/mobile/modules';
+import { VirtualKeyboardProvider } from '@polymind/core/mobile/modules/virtual-keyboard';
+import { router } from '@polymind/core/mobile/router';
+import { configureCommonModules } from '@polymind/core/modules';
+import { AIButtonProvider } from '@polymind/core/modules/ai-button';
+import { registerNativePreviewHandlers } from '@polymind/core/modules/code-block-preview-renderer';
+import { DocsService } from '@polymind/core/modules/doc';
+import { GlobalContextService } from '@polymind/core/modules/global-context';
+import { I18nProvider } from '@polymind/core/modules/i18n';
+import { LifecycleService } from '@polymind/core/modules/lifecycle';
 import {
   configureLocalStorageStateStorageImpls,
   NbstoreProvider,
-} from '@affine/core/modules/storage';
-import { PopupWindowProvider } from '@affine/core/modules/url';
-import { ClientSchemeProvider } from '@affine/core/modules/url/providers/client-schema';
-import { configureBrowserWorkbenchModule } from '@affine/core/modules/workbench';
-import { WorkspacesService } from '@affine/core/modules/workspace';
-import { configureBrowserWorkspaceFlavours } from '@affine/core/modules/workspace-engine';
-import { getWorkerUrl } from '@affine/env/worker';
-import { I18n } from '@affine/i18n';
-import { StoreManagerClient } from '@affine/nbstore/worker/client';
+} from '@polymind/core/modules/storage';
+import { PopupWindowProvider } from '@polymind/core/modules/url';
+import { ClientSchemeProvider } from '@polymind/core/modules/url/providers/client-schema';
+import { configureBrowserWorkbenchModule } from '@polymind/core/modules/workbench';
+import { WorkspacesService } from '@polymind/core/modules/workspace';
+import { configureBrowserWorkspaceFlavours } from '@polymind/core/modules/workspace-engine';
+import { getWorkerUrl } from '@polymind/env/worker';
+import { I18n } from '@polymind/i18n';
+import { StoreManagerClient } from '@polymind/nbstore/worker/client';
 import { Container } from '@blocksuite/affine/global/di';
 import {
   docLinkBaseURLMiddleware,

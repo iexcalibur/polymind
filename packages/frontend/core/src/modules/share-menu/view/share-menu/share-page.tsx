@@ -1,8 +1,8 @@
-import { Divider } from '@affine/component';
-import { Button } from '@affine/component/ui/button';
-import { useGuard } from '@affine/core/components/guard';
-import { DocService } from '@affine/core/modules/doc';
-import { useI18n } from '@affine/i18n';
+import { Divider } from '@polymind/component';
+import { Button } from '@polymind/component/ui/button';
+import { useGuard } from '@polymind/core/components/guard';
+import { DocService } from '@polymind/core/modules/doc';
+import { useI18n } from '@polymind/i18n';
 import { useService } from '@toeverything/infra';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -28,7 +28,7 @@ export const LocalSharePage = (props: ShareMenuProps) => {
             className={styles.descriptionStyle}
             style={{ maxWidth: '230px' }}
           >
-            {t['com.affine.share-menu.EnableCloudDescription']()}
+            {t['com.polymind.share-menu.EnableCloudDescription']()}
           </div>
           <div>
             <Button
@@ -74,7 +74,7 @@ export const AFFiNESharePage = (
         </div>
 
         <div className={styles.generalAccessStyle}>
-          {t['com.affine.share-menu.generalAccess']()}
+          {t['com.polymind.share-menu.generalAccess']()}
         </div>
         <MembersPermission
           openPaywallModal={props.openPaywallModal}

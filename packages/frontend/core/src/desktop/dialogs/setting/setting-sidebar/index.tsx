@@ -1,8 +1,8 @@
-import { Scrollable } from '@affine/component';
-import { useCatchEventCallback } from '@affine/core/components/hooks/use-catch-event-hook';
-import type { SettingTab } from '@affine/core/modules/dialogs/constant';
-import { type WorkspaceMetadata } from '@affine/core/modules/workspace';
-import { useI18n } from '@affine/i18n';
+import { Scrollable } from '@polymind/component';
+import { useCatchEventCallback } from '@polymind/core/components/hooks/use-catch-event-hook';
+import type { SettingTab } from '@polymind/core/modules/dialogs/constant';
+import { type WorkspaceMetadata } from '@polymind/core/modules/workspace';
+import { useI18n } from '@polymind/i18n';
 import clsx from 'clsx';
 import {
   type HTMLAttributes,
@@ -105,12 +105,12 @@ export const SettingSidebar = ({
     const res = [
       {
         key: 'setting:general',
-        title: t['com.affine.settingSidebar.settings.general'](),
+        title: t['com.polymind.settingSidebar.settings.general'](),
         items: generalList,
       },
       {
         key: 'setting:workspace',
-        title: t['com.affine.settingSidebar.settings.workspace'](),
+        title: t['com.polymind.settingSidebar.settings.workspace'](),
         items: workspaceSettingList,
       },
     ].map(group => {
@@ -132,7 +132,7 @@ export const SettingSidebar = ({
   return (
     <div className={style.settingSlideBar} data-testid="settings-sidebar">
       <div className={style.sidebarTitle}>
-        {t['com.affine.settingSidebar.title']()}
+        {t['com.polymind.settingSidebar.title']()}
       </div>
 
       <Scrollable.Root>

@@ -1,7 +1,7 @@
-import { Button } from '@affine/component/ui/button';
-import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import { appIconMap, appNames } from '@affine/core/utils/channel';
-import { Trans, useI18n } from '@affine/i18n';
+import { Button } from '@polymind/component/ui/button';
+import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import { appIconMap, appNames } from '@polymind/core/utils/channel';
+import { Trans, useI18n } from '@polymind/i18n';
 import { LocalWorkspaceIcon, Logo1Icon } from '@blocksuite/icons/rc';
 import { useServiceOptional } from '@toeverything/infra';
 import type { MouseEvent } from 'react';
@@ -92,7 +92,7 @@ export const OpenInAppPage = ({
         </div>
 
         <Button onClick={openDownloadLink}>
-          {t['com.affine.auth.open.affine.download-app']()}
+          {t['com.polymind.auth.open.affine.download-app']()}
         </Button>
       </div>
 
@@ -101,11 +101,11 @@ export const OpenInAppPage = ({
 
         <div className={styles.prompt}>
           {mode === 'open-doc' ? (
-            <Trans i18nKey="com.affine.auth.open.affine.open-doc-prompt">
+            <Trans i18nKey="com.polymind.auth.open.affine.open-doc-prompt">
               This doc is now opened in {appName}
             </Trans>
           ) : (
-            <Trans i18nKey="com.affine.auth.open.affine.prompt">
+            <Trans i18nKey="com.polymind.auth.open.affine.prompt">
               Open {appName} app now
             </Trans>
           )}
@@ -119,7 +119,7 @@ export const OpenInAppPage = ({
               target="_blank"
               rel="noreferrer"
             >
-              {t['com.affine.auth.open.affine.doc.open-here']()}
+              {t['com.polymind.auth.open.affine.doc.open-here']()}
             </a>
           )}
           <a
@@ -128,7 +128,7 @@ export const OpenInAppPage = ({
             target="_blank"
             rel="noreferrer"
           >
-            {t['com.affine.auth.open.affine.try-again']()}
+            {t['com.polymind.auth.open.affine.try-again']()}
           </a>
         </div>
       </div>
@@ -139,12 +139,12 @@ export const OpenInAppPage = ({
             className={styles.editSettingsLink}
             onClick={goToAppearanceSetting}
           >
-            {t['com.affine.auth.open.affine.doc.edit-settings']()}
+            {t['com.polymind.auth.open.affine.doc.edit-settings']()}
           </button>
 
           <div className={styles.docFooterText}>
             <LocalWorkspaceIcon width={16} height={16} />
-            {t['com.affine.auth.open.affine.doc.footer-text']()}
+            {t['com.polymind.auth.open.affine.doc.footer-text']()}
           </div>
         </div>
       ) : null}

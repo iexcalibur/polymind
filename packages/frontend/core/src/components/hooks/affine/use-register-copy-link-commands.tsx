@@ -1,10 +1,10 @@
 import {
   PreconditionStrategy,
   registerAffineCommand,
-} from '@affine/core/commands';
-import { useSharingUrl } from '@affine/core/components/hooks/affine/use-share-url';
-import { useIsActiveView } from '@affine/core/modules/workbench';
-import type { WorkspaceMetadata } from '@affine/core/modules/workspace';
+} from '@polymind/core/commands';
+import { useSharingUrl } from '@polymind/core/components/hooks/affine/use-share-url';
+import { useIsActiveView } from '@polymind/core/modules/workbench';
+import type { WorkspaceMetadata } from '@polymind/core/modules/workspace';
 import { useEffect } from 'react';
 
 export function useRegisterCopyLinkCommands({

@@ -118,7 +118,7 @@ export class InitCommand extends Command {
     //   currently electron-api => electron => nbstore => electron-api
     //   this is a circular dependency, we need to fix it
     //   basically, the electron app don't need to use nbstore for exposing js bridge apis
-    if (pkg.name === '@affine/electron-api') {
+    if (pkg.name === '@polymind/electron-api') {
       return prev;
     }
 

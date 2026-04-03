@@ -1,14 +1,14 @@
-import { DNDContext } from '@affine/component';
-import { GlobalDialogService } from '@affine/core/modules/dialogs';
-import { DndService } from '@affine/core/modules/dnd/services';
-import { GlobalContextService } from '@affine/core/modules/global-context';
-import { OpenInAppGuard } from '@affine/core/modules/open-in-app';
+import { DNDContext } from '@polymind/component';
+import { GlobalDialogService } from '@polymind/core/modules/dialogs';
+import { DndService } from '@polymind/core/modules/dnd/services';
+import { GlobalContextService } from '@polymind/core/modules/global-context';
+import { OpenInAppGuard } from '@polymind/core/modules/open-in-app';
 import {
   getAFFiNEWorkspaceSchema,
   type Workspace,
   type WorkspaceMetadata,
   WorkspacesService,
-} from '@affine/core/modules/workspace';
+} from '@polymind/core/modules/workspace';
 import { ZipTransformer } from '@blocksuite/affine/widgets/linked-doc';
 import {
   FrameworkScope,

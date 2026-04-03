@@ -2,7 +2,7 @@ import {
   appEffectElementTags,
   editorEffectElementTags,
   sharedEffectElementTags,
-} from '@affine/core/blocksuite/ai/effects/registry';
+} from '@polymind/core/blocksuite/ai/effects/registry';
 import { describe, expect, test } from 'vitest';
 
 describe('ai effects registration split', () => {

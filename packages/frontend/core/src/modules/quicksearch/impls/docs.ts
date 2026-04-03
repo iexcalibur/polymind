@@ -59,7 +59,7 @@ export class DocsQuickSearchSession
     source: 'docs',
     label: {
       title: {
-        i18nKey: 'com.affine.quicksearch.search-locally',
+        i18nKey: 'com.polymind.quicksearch.search-locally',
       },
     },
     score: 1000,
@@ -157,8 +157,8 @@ export class DocsQuickSearchSession
                     id: 'docs',
                     label: {
                       i18nKey: useLocalLabel
-                        ? 'com.affine.quicksearch.group.searchfor-locally'
-                        : 'com.affine.quicksearch.group.searchfor',
+                        ? 'com.polymind.quicksearch.group.searchfor-locally'
+                        : 'com.polymind.quicksearch.group.searchfor',
                       options: { query: truncate(query) },
                     },
                     score: 5,

@@ -1,5 +1,5 @@
 {
-  "name": "@affine/nbstore",
+  "name": "@polymind/nbstore",
   "type": "module",
   "version": "0.26.3",
   "private": true,
@@ -18,7 +18,7 @@
     "./frontend": "./src/frontend/index.ts"
   },
   "dependencies": {
-    "@affine/reader": "workspace:*",
+    "@polymind/reader": "workspace:*",
     "@toeverything/infra": "workspace:*",
     "eventemitter2": "^6.4.9",
     "graphemer": "^1.4.0",
@@ -31,8 +31,8 @@
     "yjs": "^13.6.27"
   },
   "devDependencies": {
-    "@affine/error": "workspace:*",
-    "@affine/graphql": "workspace:*",
+    "@polymind/error": "workspace:*",
+    "@polymind/graphql": "workspace:*",
     "@blocksuite/affine": "workspace:*",
     "fake-indexeddb": "^6.0.0",
     "idb": "^8.0.0",
@@ -40,8 +40,8 @@
     "vitest": "^4.0.18"
   },
   "peerDependencies": {
-    "@affine/error": "workspace:*",
-    "@affine/graphql": "workspace:*",
+    "@polymind/error": "workspace:*",
+    "@polymind/graphql": "workspace:*",
     "@blocksuite/affine": "workspace:*",
     "idb": "^8.0.0",
     "socket.io-client": "^4.8.3"

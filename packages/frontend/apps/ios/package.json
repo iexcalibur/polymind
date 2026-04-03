@@ -1,5 +1,5 @@
 {
-  "name": "@affine/ios",
+  "name": "@polymind/ios",
   "version": "0.26.3",
   "description": "AFFiNE Desktop Web application",
   "type": "module",
@@ -14,13 +14,13 @@
     "codegen": "r ./codegen.ts"
   },
   "dependencies": {
-    "@affine/component": "workspace:*",
-    "@affine/core": "workspace:*",
-    "@affine/env": "workspace:*",
-    "@affine/graphql": "workspace:*",
-    "@affine/i18n": "workspace:*",
-    "@affine/mobile-shared": "workspace:*",
-    "@affine/nbstore": "workspace:*",
+    "@polymind/component": "workspace:*",
+    "@polymind/core": "workspace:*",
+    "@polymind/env": "workspace:*",
+    "@polymind/graphql": "workspace:*",
+    "@polymind/i18n": "workspace:*",
+    "@polymind/mobile-shared": "workspace:*",
+    "@polymind/nbstore": "workspace:*",
     "@blocksuite/affine": "workspace:*",
     "@blocksuite/icons": "^2.2.17",
     "@capacitor/app": "^7.0.0",
@@ -42,7 +42,7 @@
   "devDependencies": {
     "@affine-tools/cli": "workspace:*",
     "@affine-tools/utils": "workspace:*",
-    "@affine/native": "workspace:*",
+    "@polymind/native": "workspace:*",
     "@capacitor/cli": "^7.0.0",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",

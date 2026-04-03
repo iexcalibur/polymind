@@ -1,15 +1,15 @@
-import { IconButton, observeIntersection } from '@affine/component';
+import { IconButton, observeIntersection } from '@polymind/component';
 import {
   type PDF,
   type PDFPage,
   PDFService,
   PDFStatus,
-} from '@affine/core/modules/pdf';
-import type { PDFMeta } from '@affine/core/modules/pdf/renderer';
-import type { PageSize } from '@affine/core/modules/pdf/renderer/types';
-import { LoadingSvg, PDFPageCanvas } from '@affine/core/modules/pdf/views';
-import { PeekViewService } from '@affine/core/modules/peek-view/services/peek-view';
-import { stopPropagation } from '@affine/core/utils';
+} from '@polymind/core/modules/pdf';
+import type { PDFMeta } from '@polymind/core/modules/pdf/renderer';
+import type { PageSize } from '@polymind/core/modules/pdf/renderer/types';
+import { LoadingSvg, PDFPageCanvas } from '@polymind/core/modules/pdf/views';
+import { PeekViewService } from '@polymind/core/modules/peek-view/services/peek-view';
+import { stopPropagation } from '@polymind/core/utils';
 import {
   ArrowDownSmallIcon,
   ArrowUpSmallIcon,

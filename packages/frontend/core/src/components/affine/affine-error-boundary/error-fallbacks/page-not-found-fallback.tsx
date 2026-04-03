@@ -1,4 +1,4 @@
-import { useI18n } from '@affine/i18n';
+import { useI18n } from '@polymind/i18n';
 import type { Workspace } from '@blocksuite/affine/store';
 import { useCallback } from 'react';
 
@@ -31,7 +31,7 @@ export const PageNotFoundDetail = createErrorFallback(PageNotFoundError, () => {
 
   return (
     <ErrorDetail
-      title={t['com.affine.notFoundPage.title']()}
+      title={t['com.polymind.notFoundPage.title']()}
       description={t['404.hint']()}
       buttonText={t['404.back']()}
       onButtonClick={onBtnClick}

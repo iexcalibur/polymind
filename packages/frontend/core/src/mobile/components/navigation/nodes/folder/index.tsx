@@ -5,22 +5,22 @@ import {
   MenuSeparator,
   MenuSub,
   notify,
-} from '@affine/component';
-import { usePageHelper } from '@affine/core/blocksuite/block-suite-page-list/utils';
+} from '@polymind/component';
+import { usePageHelper } from '@polymind/core/blocksuite/block-suite-page-list/utils';
 import type {
   NavigationPanelTreeNodeIcon,
   NodeOperation,
-} from '@affine/core/desktop/components/navigation-panel';
-import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import { CompatibleFavoriteItemsAdapter } from '@affine/core/modules/favorite';
-import { FeatureFlagService } from '@affine/core/modules/feature-flag';
-import { NavigationPanelService } from '@affine/core/modules/navigation-panel';
+} from '@polymind/core/desktop/components/navigation-panel';
+import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import { CompatibleFavoriteItemsAdapter } from '@polymind/core/modules/favorite';
+import { FeatureFlagService } from '@polymind/core/modules/feature-flag';
+import { NavigationPanelService } from '@polymind/core/modules/navigation-panel';
 import {
   type FolderNode,
   OrganizeService,
-} from '@affine/core/modules/organize';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/organize';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { useI18n } from '@polymind/i18n';
 import {
   DeleteIcon,
   FolderIcon,
@@ -168,10 +168,10 @@ const NavigationPanelFolderNodeFolder = ({
   const handleDelete = useCallback(() => {
     node.delete();
     notify.success({
-      title: t['com.affine.rootAppSidebar.organize.delete.notify-title']({
+      title: t['com.polymind.rootAppSidebar.organize.delete.notify-title']({
         name,
       }),
-      message: t['com.affine.rootAppSidebar.organize.delete.notify-message'](),
+      message: t['com.polymind.rootAppSidebar.organize.delete.notify-message'](),
     });
   }, [name, node, t]);
 
@@ -255,7 +255,7 @@ const NavigationPanelFolderNodeFolder = ({
             size="16"
             onClick={handleNewDoc}
             tooltip={t[
-              'com.affine.rootAppSidebar.explorer.organize-add-tooltip'
+              'com.polymind.rootAppSidebar.explorer.organize-add-tooltip'
             ]()}
           >
             <PlusIcon />
@@ -283,10 +283,10 @@ const NavigationPanelFolderNodeFolder = ({
         view: (
           <FolderRenameSubMenu
             text={t[
-              'com.affine.rootAppSidebar.organize.folder.create-subfolder'
+              'com.polymind.rootAppSidebar.organize.folder.create-subfolder'
             ]()}
             title={t[
-              'com.affine.rootAppSidebar.organize.folder.create-subfolder'
+              'com.polymind.rootAppSidebar.organize.folder.create-subfolder'
             ]()}
             onConfirm={handleCreateSubfolder}
             descRenderer={createSubTipRenderer}
@@ -310,26 +310,26 @@ const NavigationPanelFolderNodeFolder = ({
                   prefixIcon={<PageIcon />}
                   onClick={() => handleAddToFolder('doc')}
                 >
-                  {t['com.affine.rootAppSidebar.organize.folder.add-docs']()}
+                  {t['com.polymind.rootAppSidebar.organize.folder.add-docs']()}
                 </MenuItem>
                 <MenuItem
                   onClick={() => handleAddToFolder('tag')}
                   prefixIcon={<TagsIcon />}
                 >
-                  {t['com.affine.rootAppSidebar.organize.folder.add-tags']()}
+                  {t['com.polymind.rootAppSidebar.organize.folder.add-tags']()}
                 </MenuItem>
                 <MenuItem
                   onClick={() => handleAddToFolder('collection')}
                   prefixIcon={<LayerIcon />}
                 >
                   {t[
-                    'com.affine.rootAppSidebar.organize.folder.add-collections'
+                    'com.polymind.rootAppSidebar.organize.folder.add-collections'
                   ]()}
                 </MenuItem>
               </>
             }
           >
-            {t['com.affine.rootAppSidebar.organize.folder.add-others']()}
+            {t['com.polymind.rootAppSidebar.organize.folder.add-others']()}
           </MenuSub>
         ),
       },
@@ -351,7 +351,7 @@ const NavigationPanelFolderNodeFolder = ({
             prefixIcon={<DeleteIcon />}
             onClick={handleDelete}
           >
-            {t['com.affine.rootAppSidebar.organize.delete']()}
+            {t['com.polymind.rootAppSidebar.organize.delete']()}
           </MenuItem>
         ),
       },
@@ -389,7 +389,7 @@ const NavigationPanelFolderNodeFolder = ({
                 data-event-args-type={node.type$.value}
                 onClick={() => node.delete()}
               >
-                {t['com.affine.rootAppSidebar.organize.delete-from-folder']()}
+                {t['com.polymind.rootAppSidebar.organize.delete-from-folder']()}
               </MenuItem>
             ),
           },
@@ -432,7 +432,7 @@ const NavigationPanelFolderNodeFolder = ({
         />
       ))}
       <AddItemPlaceholder
-        label={t['com.affine.rootAppSidebar.organize.folder.new-doc']()}
+        label={t['com.polymind.rootAppSidebar.organize.folder.new-doc']()}
         onClick={handleNewDoc}
         data-testid="new-folder-in-folder-button"
       />

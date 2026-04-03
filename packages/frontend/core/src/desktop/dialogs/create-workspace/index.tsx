@@ -1,12 +1,12 @@
-import { Button, ConfirmModal, notify, RowInput } from '@affine/component';
-import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
+import { Button, ConfirmModal, notify, RowInput } from '@polymind/component';
+import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
 import {
   type DialogComponentProps,
   type GLOBAL_DIALOG_SCHEMA,
-} from '@affine/core/modules/dialogs';
-import { WorkspacesService } from '@affine/core/modules/workspace';
-import { buildShowcaseWorkspace } from '@affine/core/utils/first-app-data';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/dialogs';
+import { WorkspacesService } from '@polymind/core/modules/workspace';
+import { buildShowcaseWorkspace } from '@polymind/core/utils/first-app-data';
+import { useI18n } from '@polymind/i18n';
 import { useService } from '@toeverything/infra';
 import { useCallback, useState } from 'react';
 
@@ -46,9 +46,9 @@ export const CreateWorkspaceDialog = ({
     <ConfirmModal
       open
       onOpenChange={onOpenChange}
-      title={t['com.affine.nameWorkspace.title']()}
-      description={t['com.affine.nameWorkspace.description']()}
-      cancelText={t['com.affine.nameWorkspace.button.cancel']()}
+      title={t['com.polymind.nameWorkspace.title']()}
+      description={t['com.polymind.nameWorkspace.description']()}
+      cancelText={t['com.polymind.nameWorkspace.button.cancel']()}
       closeButtonOptions={{
         ['data-testid' as string]: 'create-workspace-close-button',
       }}
@@ -67,13 +67,13 @@ export const CreateWorkspaceDialog = ({
       {...props}
     >
       <FormSection
-        label={t['com.affine.nameWorkspace.subtitle.workspace-name']()}
+        label={t['com.polymind.nameWorkspace.subtitle.workspace-name']()}
         input={
           <RowInput
             autoFocus
             className={styles.input}
             data-testid="create-workspace-input"
-            placeholder={t['com.affine.nameWorkspace.placeholder']()}
+            placeholder={t['com.polymind.nameWorkspace.placeholder']()}
             maxLength={64}
             minLength={0}
             onChange={setWorkspaceName}
@@ -125,7 +125,7 @@ const LocalConfirmButton = ({
       onClick={handleConfirm}
       loading={loading}
     >
-      {t['com.affine.nameWorkspace.button.create']()}
+      {t['com.polymind.nameWorkspace.button.create']()}
     </Button>
   );
 };

@@ -1,9 +1,9 @@
-import type { InlineEditProps } from '@affine/component';
-import { InlineEdit } from '@affine/component';
-import { useGuard } from '@affine/core/components/guard';
-import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
-import { DocService, DocsService } from '@affine/core/modules/doc';
-import { WorkspaceService } from '@affine/core/modules/workspace';
+import type { InlineEditProps } from '@polymind/component';
+import { InlineEdit } from '@polymind/component';
+import { useGuard } from '@polymind/core/components/guard';
+import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
+import { DocService, DocsService } from '@polymind/core/modules/doc';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { useLiveData, useService } from '@toeverything/infra';
 import clsx from 'clsx';
 import type { HTMLAttributes } from 'react';

@@ -1,8 +1,8 @@
 import './setup';
-import '@affine/component/theme';
-import '@affine/core/mobile/styles/mobile.css';
+import '@polymind/component/theme';
+import '@polymind/core/mobile/styles/mobile.css';
 
-import { bindNativeDBApis } from '@affine/nbstore/sqlite';
+import { bindNativeDBApis } from '@polymind/nbstore/sqlite';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 

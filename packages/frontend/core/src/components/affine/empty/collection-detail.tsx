@@ -1,6 +1,6 @@
-import type { Collection } from '@affine/core/modules/collection';
-import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import { useI18n } from '@affine/i18n';
+import type { Collection } from '@polymind/core/modules/collection';
+import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import { useI18n } from '@polymind/i18n';
 import { AllDocsIcon, FilterIcon } from '@blocksuite/icons/rc';
 import { useService } from '@toeverything/infra';
 import { useCallback } from 'react';
@@ -26,8 +26,8 @@ export const EmptyCollectionDetail = ({
     <EmptyLayout
       illustrationLight={collectionDetailLight}
       illustrationDark={collectionDetailDark}
-      title={t['com.affine.empty.collection-detail.title']()}
-      description={t['com.affine.empty.collection-detail.description']()}
+      title={t['com.polymind.empty.collection-detail.title']()}
+      description={t['com.polymind.empty.collection-detail.description']()}
       action={
         BUILD_CONFIG.isMobileEdition ? null : (
           <Actions collection={collection} />
@@ -59,11 +59,11 @@ const Actions = ({ collection }: { collection: Collection }) => {
   return (
     <div className={actionGroup}>
       <ActionButton prefix={<AllDocsIcon />} onClick={openAddDocs}>
-        {t['com.affine.empty.collection-detail.action.add-doc']()}
+        {t['com.polymind.empty.collection-detail.action.add-doc']()}
       </ActionButton>
 
       <ActionButton prefix={<FilterIcon />} onClick={openAddRules}>
-        {t['com.affine.empty.collection-detail.action.add-rule']()}
+        {t['com.polymind.empty.collection-detail.action.add-rule']()}
       </ActionButton>
     </div>
   );

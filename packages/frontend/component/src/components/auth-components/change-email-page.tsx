@@ -1,4 +1,4 @@
-import { useI18n } from '@affine/i18n';
+import { useI18n } from '@polymind/i18n';
 import { useCallback, useState } from 'react';
 
 import { Button } from '../../ui/button';
@@ -40,19 +40,19 @@ export const ChangeEmailPage = ({
   }, []);
   return (
     <AuthPageContainer
-      title={t['com.affine.auth.change.email.page.title']()}
-      subtitle={t['com.affine.auth.change.email.page.subtitle']()}
+      title={t['com.polymind.auth.change.email.page.title']()}
+      subtitle={t['com.polymind.auth.change.email.page.subtitle']()}
     >
       <>
         <AuthInput
           className={styles.input}
-          label={t['com.affine.settings.email']()}
-          placeholder={t['com.affine.auth.sign.email.placeholder']()}
+          label={t['com.polymind.settings.email']()}
+          placeholder={t['com.polymind.auth.sign.email.placeholder']()}
           value={email}
           onChange={onEmailChange}
           error={!isValidEmail}
           errorHint={
-            isValidEmail ? '' : t['com.affine.auth.sign.email.error']()
+            isValidEmail ? '' : t['com.polymind.auth.sign.email.error']()
           }
           onEnter={onContinue}
           disabled={hasSetUp}
@@ -64,7 +64,7 @@ export const ChangeEmailPage = ({
           loading={loading}
           disabled={hasSetUp}
         >
-          {t['com.affine.auth.set.email.save']()}
+          {t['com.polymind.auth.set.email.save']()}
         </Button>
       </>
     </AuthPageContainer>

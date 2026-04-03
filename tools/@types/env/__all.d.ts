@@ -1,4 +1,4 @@
-import '@affine/env/constant';
+import '@polymind/env/constant';
 import '@blocksuite/affine/global/types'
 
 declare module '@blocksuite/affine/store' {

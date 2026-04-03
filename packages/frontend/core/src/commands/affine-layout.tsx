@@ -1,4 +1,4 @@
-import type { useI18n } from '@affine/i18n';
+import type { useI18n } from '@polymind/i18n';
 import { SidebarIcon } from '@blocksuite/icons/rc';
 
 import type { AppSidebarService } from '../modules/app-sidebar';
@@ -19,8 +19,8 @@ export function registerAffineLayoutCommands({
       icon: <SidebarIcon />,
       label: () =>
         appSidebarService.sidebar.open$.value
-          ? t['com.affine.cmdk.affine.left-sidebar.collapse']()
-          : t['com.affine.cmdk.affine.left-sidebar.expand'](),
+          ? t['com.polymind.cmdk.affine.left-sidebar.collapse']()
+          : t['com.polymind.cmdk.affine.left-sidebar.expand'](),
 
       keyBinding: {
         binding: '$mod+/',

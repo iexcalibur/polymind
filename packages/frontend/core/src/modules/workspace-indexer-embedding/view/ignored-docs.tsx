@@ -1,7 +1,7 @@
-import { Loading } from '@affine/component';
-import { DocsService } from '@affine/core/modules/doc';
-import { DocDisplayMetaService } from '@affine/core/modules/doc-display-meta';
-import { i18nTime } from '@affine/i18n';
+import { Loading } from '@polymind/component';
+import { DocsService } from '@polymind/core/modules/doc';
+import { DocDisplayMetaService } from '@polymind/core/modules/doc-display-meta';
+import { i18nTime } from '@polymind/i18n';
 import { useLiveData, useService } from '@toeverything/infra';
 import type React from 'react';
 

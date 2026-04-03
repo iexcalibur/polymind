@@ -1,6 +1,6 @@
-import { type DropTargetDropEvent, useDropTarget } from '@affine/component';
-import type { AffineDNDData } from '@affine/core/types/dnd';
-import { useI18n } from '@affine/i18n';
+import { type DropTargetDropEvent, useDropTarget } from '@polymind/component';
+import type { AffineDNDData } from '@polymind/core/types/dnd';
+import { useI18n } from '@polymind/i18n';
 
 import { EmptyNodeChildren } from '../../layouts/empty-node-children';
 
@@ -18,7 +18,7 @@ export const Empty = ({
   const t = useI18n();
   return (
     <EmptyNodeChildren ref={dropTargetRef}>
-      {t['com.affine.collection.emptyCollection']()}
+      {t['com.polymind.collection.emptyCollection']()}
     </EmptyNodeChildren>
   );
 };

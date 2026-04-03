@@ -1,10 +1,10 @@
-import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import type { SettingTab } from '@affine/core/modules/dialogs/constant';
-import { DocsService } from '@affine/core/modules/doc';
-import { JournalService } from '@affine/core/modules/journal';
-import { LifecycleService } from '@affine/core/modules/lifecycle';
-import { WorkbenchService } from '@affine/core/modules/workbench';
-import { apis, events } from '@affine/electron-api';
+import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import type { SettingTab } from '@polymind/core/modules/dialogs/constant';
+import { DocsService } from '@polymind/core/modules/doc';
+import { JournalService } from '@polymind/core/modules/journal';
+import { LifecycleService } from '@polymind/core/modules/lifecycle';
+import { WorkbenchService } from '@polymind/core/modules/workbench';
+import { apis, events } from '@polymind/electron-api';
 import type { FrameworkProvider } from '@toeverything/infra';
 
 import { setupRecordingEvents } from './recording';

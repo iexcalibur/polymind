@@ -1,14 +1,14 @@
-import { uniReactRoot } from '@affine/component';
-import { AffineErrorBoundary } from '@affine/core/components/affine/affine-error-boundary';
-import { SWRConfigProvider } from '@affine/core/components/providers/swr-config-provider';
-import { WorkspaceSideEffects } from '@affine/core/components/providers/workspace-side-effects';
-import { GlobalContextService } from '@affine/core/modules/global-context';
-import { PeekViewManagerModal } from '@affine/core/modules/peek-view';
+import { uniReactRoot } from '@polymind/component';
+import { AffineErrorBoundary } from '@polymind/core/components/affine/affine-error-boundary';
+import { SWRConfigProvider } from '@polymind/core/components/providers/swr-config-provider';
+import { WorkspaceSideEffects } from '@polymind/core/components/providers/workspace-side-effects';
+import { GlobalContextService } from '@polymind/core/modules/global-context';
+import { PeekViewManagerModal } from '@polymind/core/modules/peek-view';
 import type {
   Workspace,
   WorkspaceMetadata,
-} from '@affine/core/modules/workspace';
-import { WorkspacesService } from '@affine/core/modules/workspace';
+} from '@polymind/core/modules/workspace';
+import { WorkspacesService } from '@polymind/core/modules/workspace';
 import {
   FrameworkScope,
   LiveData,

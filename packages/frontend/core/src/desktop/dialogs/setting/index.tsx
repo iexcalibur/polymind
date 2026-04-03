@@ -1,13 +1,13 @@
-import { Loading, Scrollable } from '@affine/component';
-import { WorkspaceDetailSkeleton } from '@affine/component/setting-components';
-import type { ModalProps } from '@affine/component/ui/modal';
-import { Modal } from '@affine/component/ui/modal';
-import type { DialogComponentProps } from '@affine/core/modules/dialogs';
+import { Loading, Scrollable } from '@polymind/component';
+import { WorkspaceDetailSkeleton } from '@polymind/component/setting-components';
+import type { ModalProps } from '@polymind/component/ui/modal';
+import { Modal } from '@polymind/component/ui/modal';
+import type { DialogComponentProps } from '@polymind/core/modules/dialogs';
 import type {
   SettingTab,
   WORKSPACE_DIALOG_SCHEMA,
-} from '@affine/core/modules/dialogs/constant';
-import { createIsland, type Island } from '@affine/core/utils/island';
+} from '@polymind/core/modules/dialogs/constant';
+import { createIsland, type Island } from '@polymind/core/utils/island';
 import {
   Suspense,
   useCallback,

@@ -1,6 +1,6 @@
-import { NbstoreProvider } from '@affine/core/modules/storage';
-import { apis } from '@affine/electron-api';
-import { StoreManagerClient } from '@affine/nbstore/worker/client';
+import { NbstoreProvider } from '@polymind/core/modules/storage';
+import { apis } from '@polymind/electron-api';
+import { StoreManagerClient } from '@polymind/nbstore/worker/client';
 import type { Framework } from '@toeverything/infra';
 import { OpClient } from '@toeverything/infra/op';
 import { v4 as uuid } from 'uuid';

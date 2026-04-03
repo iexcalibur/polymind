@@ -1,4 +1,4 @@
-import { I18n, i18nTime } from '@affine/i18n';
+import { I18n, i18nTime } from '@polymind/i18n';
 import type { DocMode } from '@blocksuite/affine/model';
 import type { AffineInlineEditor } from '@blocksuite/affine/shared/types';
 import {
@@ -135,7 +135,7 @@ export class AtMenuConfigService extends Service {
       {
         key: RESERVED_ITEM_KEYS.createPage,
         icon: NewXxxPageIcon(),
-        name: I18n.t('com.affine.editor.at-menu.create-page', {
+        name: I18n.t('com.polymind.editor.at-menu.create-page', {
           name: query || I18n.t('Untitled'),
         }),
         action: () => {
@@ -147,7 +147,7 @@ export class AtMenuConfigService extends Service {
       {
         key: RESERVED_ITEM_KEYS.createEdgeless,
         icon: NewXxxEdgelessIcon(),
-        name: I18n.t('com.affine.editor.at-menu.create-edgeless', {
+        name: I18n.t('com.polymind.editor.at-menu.create-edgeless', {
           name: query || I18n.t('Untitled'),
         }),
         action: () => {
@@ -159,7 +159,7 @@ export class AtMenuConfigService extends Service {
     ];
     const customImportItem: LinkedMenuItem = {
       ...importItem,
-      name: I18n.t('com.affine.editor.at-menu.import'),
+      name: I18n.t('com.polymind.editor.at-menu.import'),
       action: () => {
         close();
         this.dialogService.open('import', undefined, payload => {
@@ -184,7 +184,7 @@ export class AtMenuConfigService extends Service {
 
     return {
       ...originalNewDocMenuGroup,
-      name: I18n.t('com.affine.editor.at-menu.new-doc'),
+      name: I18n.t('com.polymind.editor.at-menu.new-doc'),
       items: [...customNewDocItems, customImportItem],
     };
   }
@@ -200,7 +200,7 @@ export class AtMenuConfigService extends Service {
       {
         icon: DateTimeIcon(),
         key: RESERVED_ITEM_KEYS.datePicker,
-        name: I18n.t('com.affine.editor.at-menu.date-picker'),
+        name: I18n.t('com.polymind.editor.at-menu.date-picker'),
         action: () => {
           close();
 
@@ -264,7 +264,7 @@ export class AtMenuConfigService extends Service {
     }
 
     return {
-      name: I18n.t('com.affine.editor.at-menu.journal'),
+      name: I18n.t('com.polymind.editor.at-menu.journal'),
       items,
     };
   }
@@ -454,7 +454,7 @@ export class AtMenuConfigService extends Service {
     }
 
     return {
-      name: I18n.t('com.affine.editor.at-menu.mention-members'),
+      name: I18n.t('com.polymind.editor.at-menu.mention-members'),
       items,
       loading: this.memberSearchService.isLoading$.signal,
       hidden,
@@ -462,7 +462,7 @@ export class AtMenuConfigService extends Service {
       overflowText: computed(() => {
         const totalCount = this.memberSearchService.result$.signal.value.length;
         const remainingCount = totalCount - 3;
-        return I18n.t('com.affine.editor.at-menu.more-members-hint', {
+        return I18n.t('com.polymind.editor.at-menu.more-members-hint', {
           count: remainingCount,
         });
       }),

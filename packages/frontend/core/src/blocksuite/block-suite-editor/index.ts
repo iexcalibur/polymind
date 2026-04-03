@@ -1,5 +1,5 @@
-import { registerAIEditorEffects } from '@affine/core/blocksuite/ai/effects/editor';
-import { editorEffects } from '@affine/core/blocksuite/editors';
+import { registerAIEditorEffects } from '@polymind/core/blocksuite/ai/effects/editor';
+import { editorEffects } from '@polymind/core/blocksuite/editors';
 
 import { registerTemplates } from './register-templates';
 

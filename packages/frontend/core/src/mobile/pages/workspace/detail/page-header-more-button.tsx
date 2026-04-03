@@ -1,20 +1,20 @@
-import { IconButton, notify, toast, useConfirmModal } from '@affine/component';
+import { IconButton, notify, toast, useConfirmModal } from '@polymind/component';
 import {
   MenuSeparator,
   MenuSub,
   MobileMenu,
   MobileMenuItem,
-} from '@affine/component/ui/menu';
-import { useFavorite } from '@affine/core/blocksuite/block-suite-header/favorite';
-import { Guard, useGuard } from '@affine/core/components/guard';
-import { IsFavoriteIcon } from '@affine/core/components/pure/icons';
-import { DocInfoSheet } from '@affine/core/mobile/components';
-import { MobileTocMenu } from '@affine/core/mobile/components/toc-menu';
-import { DocService } from '@affine/core/modules/doc';
-import { EditorService } from '@affine/core/modules/editor';
-import { ViewService } from '@affine/core/modules/workbench/services/view';
-import { preventDefault } from '@affine/core/utils';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component/ui/menu';
+import { useFavorite } from '@polymind/core/blocksuite/block-suite-header/favorite';
+import { Guard, useGuard } from '@polymind/core/components/guard';
+import { IsFavoriteIcon } from '@polymind/core/components/pure/icons';
+import { DocInfoSheet } from '@polymind/core/mobile/components';
+import { MobileTocMenu } from '@polymind/core/mobile/components/toc-menu';
+import { DocService } from '@polymind/core/modules/doc';
+import { EditorService } from '@polymind/core/modules/editor';
+import { ViewService } from '@polymind/core/modules/workbench/services/view';
+import { preventDefault } from '@polymind/core/utils';
+import { useI18n } from '@polymind/i18n';
 import {
   DeleteIcon,
   EdgelessIcon,
@@ -61,12 +61,12 @@ export const PageHeaderMenuButton = () => {
     notify.success({
       title:
         primaryMode === 'page'
-          ? t['com.affine.toastMessage.defaultMode.edgeless.title']()
-          : t['com.affine.toastMessage.defaultMode.page.title'](),
+          ? t['com.polymind.toastMessage.defaultMode.edgeless.title']()
+          : t['com.polymind.toastMessage.defaultMode.page.title'](),
       message:
         primaryMode === 'page'
-          ? t['com.affine.toastMessage.defaultMode.edgeless.message']()
-          : t['com.affine.toastMessage.defaultMode.page.message'](),
+          ? t['com.polymind.toastMessage.defaultMode.edgeless.message']()
+          : t['com.polymind.toastMessage.defaultMode.page.message'](),
     });
   }, [primaryMode, editorService, t]);
 
@@ -90,18 +90,18 @@ export const PageHeaderMenuButton = () => {
       return;
     }
     openConfirmModal({
-      title: t['com.affine.moveToTrash.title'](),
-      description: t['com.affine.moveToTrash.confirmModal.description']({
+      title: t['com.polymind.moveToTrash.title'](),
+      description: t['com.polymind.moveToTrash.confirmModal.description']({
         title: doc.title$.value,
       }),
-      confirmText: t['com.affine.moveToTrash.confirmModal.confirm'](),
-      cancelText: t['com.affine.moveToTrash.confirmModal.cancel'](),
+      confirmText: t['com.polymind.moveToTrash.confirmModal.confirm'](),
+      cancelText: t['com.polymind.moveToTrash.confirmModal.cancel'](),
       confirmButtonOptions: {
         variant: 'error',
       },
       onConfirm() {
         doc.moveToTrash();
-        toast(t['com.affine.toastMessage.movedTrash']());
+        toast(t['com.polymind.toastMessage.movedTrash']());
         // navigate back
         history.back();
       },
@@ -119,8 +119,8 @@ export const PageHeaderMenuButton = () => {
         disabled={!canEdit}
       >
         {primaryMode === 'page'
-          ? t['com.affine.editorDefaultMode.edgeless']()
-          : t['com.affine.editorDefaultMode.page']()}
+          ? t['com.polymind.editorDefaultMode.edgeless']()
+          : t['com.polymind.editorDefaultMode.page']()}
       </MobileMenuItem>
       <MobileMenuItem
         data-testid="editor-option-menu-favorite"
@@ -128,8 +128,8 @@ export const PageHeaderMenuButton = () => {
         prefixIcon={<IsFavoriteIcon favorite={favorite} />}
       >
         {favorite
-          ? t['com.affine.favoritePageOperation.remove']()
-          : t['com.affine.favoritePageOperation.add']()}
+          ? t['com.polymind.favoritePageOperation.remove']()
+          : t['com.polymind.favoritePageOperation.add']()}
       </MobileMenuItem>
       <MenuSeparator />
       <MenuSub
@@ -140,10 +140,10 @@ export const PageHeaderMenuButton = () => {
         title={title ?? t['unnamed']()}
         items={<DocInfoSheet docId={docId} />}
       >
-        <span>{t['com.affine.page-properties.page-info.view']()}</span>
+        <span>{t['com.polymind.page-properties.page-info.view']()}</span>
       </MenuSub>
       <MobileMenu
-        title={t['com.affine.header.menu.toc']()}
+        title={t['com.polymind.header.menu.toc']()}
         items={
           <div className={styles.outlinePanel}>
             <MobileTocMenu editor={editorContainer?.host ?? null} />
@@ -151,7 +151,7 @@ export const PageHeaderMenuButton = () => {
         }
       >
         <MobileMenuItem prefixIcon={<TocIcon />} onClick={preventDefault}>
-          <span>{t['com.affine.header.option.view-toc']()}</span>
+          <span>{t['com.polymind.header.option.view-toc']()}</span>
         </MobileMenuItem>
       </MobileMenu>
       <JournalConflictsMenuItem />
@@ -163,7 +163,7 @@ export const PageHeaderMenuButton = () => {
             disabled={!canMoveToTrash}
             onSelect={handleMoveToTrash}
           >
-            {t['com.affine.moveToTrash.title']()}
+            {t['com.polymind.moveToTrash.title']()}
           </MobileMenuItem>
         )}
       </Guard>

@@ -1,13 +1,13 @@
-import { Avatar, Loading, Scrollable } from '@affine/component';
-import { EditorLoading } from '@affine/component/page-detail-skeleton';
-import { Button, IconButton } from '@affine/component/ui/button';
-import { Modal, useConfirmModal } from '@affine/component/ui/modal';
-import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import { DocDisplayMetaService } from '@affine/core/modules/doc-display-meta';
-import { EditorService } from '@affine/core/modules/editor';
-import { WorkspacePermissionService } from '@affine/core/modules/permissions';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { i18nTime, Trans, useI18n } from '@affine/i18n';
+import { Avatar, Loading, Scrollable } from '@polymind/component';
+import { EditorLoading } from '@polymind/component/page-detail-skeleton';
+import { Button, IconButton } from '@polymind/component/ui/button';
+import { Modal, useConfirmModal } from '@polymind/component/ui/modal';
+import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import { DocDisplayMetaService } from '@polymind/core/modules/doc-display-meta';
+import { EditorService } from '@polymind/core/modules/editor';
+import { WorkspacePermissionService } from '@polymind/core/modules/permissions';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { i18nTime, Trans, useI18n } from '@polymind/i18n';
 import type { DocMode } from '@blocksuite/affine/model';
 import type { Store, Workspace } from '@blocksuite/affine/store';
 import { CloseIcon, ToggleRightIcon } from '@blocksuite/icons/rc';
@@ -202,7 +202,7 @@ const PageHistoryList = ({
   return (
     <div className={styles.historyList}>
       <div className={styles.historyListHeader}>
-        {t['com.affine.history.version-history']()}
+        {t['com.polymind.history.version-history']()}
       </div>
       <Scrollable.Root className={styles.historyListScrollable}>
         <Scrollable.Viewport className={styles.historyListScrollableInner}>
@@ -282,7 +282,7 @@ const PageHistoryList = ({
                             onClick={onLoadMore}
                           >
                             {t[
-                              'com.affine.history.confirm-restore-modal.load-more'
+                              'com.polymind.history.confirm-restore-modal.load-more'
                             ]()}
                           </Button>
                         ) : null}
@@ -310,10 +310,10 @@ const EmptyHistoryPrompt = () => {
     >
       <EmptyHistoryShape />
       <div className={styles.emptyHistoryPromptTitle}>
-        {t['com.affine.history.empty-prompt.title']()}
+        {t['com.polymind.history.empty-prompt.title']()}
       </div>
       <div className={styles.emptyHistoryPromptDescription}>
-        {t['com.affine.history.empty-prompt.description']()}
+        {t['com.polymind.history.empty-prompt.description']()}
       </div>
     </div>
   );
@@ -366,14 +366,14 @@ const PageHistoryManager = ({
 
   const onConfirmRestore = useCallback(() => {
     openConfirmModal({
-      title: t['com.affine.history.restore-current-version'](),
-      description: t['com.affine.history.confirm-restore-modal.hint'](),
+      title: t['com.polymind.history.restore-current-version'](),
+      description: t['com.polymind.history.confirm-restore-modal.hint'](),
       cancelText: t['Cancel'](),
       contentOptions: {
         ['data-testid' as string]: 'confirm-restore-history-modal',
         style: { padding: '20px 26px' },
       },
-      confirmText: t['com.affine.history.confirm-restore-modal.restore'](),
+      confirmText: t['com.polymind.history.confirm-restore-modal.restore'](),
       confirmButtonOptions: {
         variant: 'primary',
         ['data-testid' as string]: 'confirm-restore-history-button',
@@ -416,7 +416,7 @@ const PageHistoryManager = ({
 
       <div className={styles.historyFooter}>
         <Button onClick={onClose}>
-          {t['com.affine.history.back-to-page']()}
+          {t['com.polymind.history.back-to-page']()}
         </Button>
         <div className={styles.spacer} />
         <Button
@@ -424,7 +424,7 @@ const PageHistoryManager = ({
           onClick={onConfirmRestore}
           disabled={isMutating || !activeVersion || !canEdit}
         >
-          {t['com.affine.history.restore-current-version']()}
+          {t['com.polymind.history.restore-current-version']()}
         </Button>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { useCatchEventCallback } from '@affine/core/components/hooks/use-catch-event-hook';
+import { useCatchEventCallback } from '@polymind/core/components/hooks/use-catch-event-hook';
 import { CloseIcon, DownloadIcon } from '@blocksuite/icons/rc';
 import clsx from 'clsx';
 import { useCallback, useState } from 'react';

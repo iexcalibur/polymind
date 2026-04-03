@@ -1,4 +1,4 @@
-import type { I18nInstance } from '@affine/i18n';
+import type { I18nInstance } from '@polymind/i18n';
 import type { NotificationService } from '@blocksuite/affine/shared/services';
 
 export type SessionDeleteCleanupFn = (
@@ -25,14 +25,14 @@ export function createSessionDeleteHandler({
   return async (sessionToDelete: BlockSuitePresets.AIRecentSession) => {
     if (canDeleteSession && !canDeleteSession(sessionToDelete)) {
       notificationService.toast(
-        t['com.affine.ai.chat-panel.session.delete.toast.failed']()
+        t['com.polymind.ai.chat-panel.session.delete.toast.failed']()
       );
       return;
     }
 
     const confirm = await notificationService.confirm({
-      title: t['com.affine.ai.chat-panel.session.delete.confirm.title'](),
-      message: t['com.affine.ai.chat-panel.session.delete.confirm.message'](),
+      title: t['com.polymind.ai.chat-panel.session.delete.confirm.title'](),
+      message: t['com.polymind.ai.chat-panel.session.delete.confirm.message'](),
       confirmText: t['Delete'](),
       cancelText: t['Cancel'](),
     });
@@ -44,12 +44,12 @@ export function createSessionDeleteHandler({
     try {
       await cleanupSession(sessionToDelete);
       notificationService.toast(
-        t['com.affine.ai.chat-panel.session.delete.toast.success']()
+        t['com.polymind.ai.chat-panel.session.delete.toast.success']()
       );
     } catch (error) {
       console.error(error);
       notificationService.toast(
-        t['com.affine.ai.chat-panel.session.delete.toast.failed']()
+        t['com.polymind.ai.chat-panel.session.delete.toast.failed']()
       );
       return;
     }

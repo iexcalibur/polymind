@@ -1,4 +1,4 @@
-import { Empty } from '@affine/component';
+import { Empty } from '@polymind/component';
 
 export const ThemeEmpty = () => {
   return (

@@ -1,4 +1,4 @@
-import { WorkspaceImpl } from '@affine/core/modules/workspace/impls/workspace.js';
+import { WorkspaceImpl } from '@polymind/core/modules/workspace/impls/workspace.js';
 import type { SurfaceBlockModel } from '@blocksuite/affine/blocks/surface';
 import {
   MindmapStyleFour,

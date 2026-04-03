@@ -1,4 +1,4 @@
-import type { SettingTab } from '@affine/core/modules/dialogs/constant';
+import type { SettingTab } from '@polymind/core/modules/dialogs/constant';
 import type { ReactElement } from 'react';
 
 export interface SettingState {

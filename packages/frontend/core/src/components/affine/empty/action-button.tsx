@@ -1,4 +1,4 @@
-import { Button, type ButtonProps } from '@affine/component';
+import { Button, type ButtonProps } from '@polymind/component';
 import clsx from 'clsx';
 
 import {

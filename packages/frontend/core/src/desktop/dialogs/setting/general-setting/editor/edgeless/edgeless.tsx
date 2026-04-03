@@ -1,5 +1,5 @@
-import { SettingWrapper } from '@affine/component/setting-components';
-import { useI18n } from '@affine/i18n';
+import { SettingWrapper } from '@polymind/component/setting-components';
+import { useI18n } from '@polymind/i18n';
 
 import { ConnectorSettings } from './connector';
 import { FrameSettings } from './frame';
@@ -13,7 +13,7 @@ import { TextSettings } from './text';
 export const Edgeless = () => {
   const t = useI18n();
   return (
-    <SettingWrapper title={t['com.affine.settings.editorSettings.edgeless']()}>
+    <SettingWrapper title={t['com.polymind.settings.editorSettings.edgeless']()}>
       <GeneralEdgelessSetting />
       <NoteSettings />
       <TextSettings />

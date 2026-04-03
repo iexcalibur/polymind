@@ -1,8 +1,8 @@
 import {
   PreconditionStrategy,
   registerAffineCommand,
-} from '@affine/core/commands';
-import { FindInPageService } from '@affine/core/modules/find-in-page/services/find-in-page';
+} from '@polymind/core/commands';
+import { FindInPageService } from '@polymind/core/modules/find-in-page/services/find-in-page';
 import { useServiceOptional } from '@toeverything/infra';
 import { useCallback, useEffect } from 'react';
 

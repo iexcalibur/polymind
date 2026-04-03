@@ -2,13 +2,13 @@ import {
   type DropTargetDropEvent,
   type DropTargetOptions,
   toast,
-} from '@affine/component';
-import { GlobalContextService } from '@affine/core/modules/global-context';
-import { NavigationPanelService } from '@affine/core/modules/navigation-panel';
-import type { Tag } from '@affine/core/modules/tag';
-import { TagService } from '@affine/core/modules/tag';
-import type { AffineDNDData } from '@affine/core/types/dnd';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component';
+import { GlobalContextService } from '@polymind/core/modules/global-context';
+import { NavigationPanelService } from '@polymind/core/modules/navigation-panel';
+import type { Tag } from '@polymind/core/modules/tag';
+import { TagService } from '@polymind/core/modules/tag';
+import type { AffineDNDData } from '@polymind/core/types/dnd';
+import { useI18n } from '@polymind/i18n';
 import { useLiveData, useService, useServices } from '@toeverything/infra';
 import clsx from 'clsx';
 import { useCallback, useMemo } from 'react';
@@ -105,7 +105,7 @@ export const NavigationPanelTagNode = ({
         if (data.source.data.entity?.type === 'doc') {
           tagRecord.tag(data.source.data.entity.id);
         } else {
-          toast(t['com.affine.rootAppSidebar.tag.doc-only']());
+          toast(t['com.polymind.rootAppSidebar.tag.doc-only']());
         }
       } else {
         onDrop?.(data);
@@ -134,7 +134,7 @@ export const NavigationPanelTagNode = ({
         if (data.source.data.entity?.type === 'doc') {
           tagRecord.tag(data.source.data.entity.id);
         } else {
-          toast(t['com.affine.rootAppSidebar.tag.doc-only']());
+          toast(t['com.polymind.rootAppSidebar.tag.doc-only']());
         }
       }
     },

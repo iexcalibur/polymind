@@ -1,6 +1,6 @@
-import type { AIToolsConfigService } from '@affine/core/modules/ai-button';
-import type { AIModelService } from '@affine/core/modules/ai-button/services/models';
-import type { CopilotChatHistoryFragment } from '@affine/graphql';
+import type { AIToolsConfigService } from '@polymind/core/modules/ai-button';
+import type { AIModelService } from '@polymind/core/modules/ai-button/services/models';
+import type { CopilotChatHistoryFragment } from '@polymind/graphql';
 import {
   menu,
   popMenu,

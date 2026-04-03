@@ -1,4 +1,4 @@
-import { Button } from '@affine/component';
+import { Button } from '@polymind/component';
 import clsx from 'clsx';
 import { debounce } from 'lodash-es';
 import type { CSSProperties } from 'react';

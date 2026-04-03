@@ -1,4 +1,4 @@
-import { FeatureFlagService } from '@affine/core/modules/feature-flag';
+import { FeatureFlagService } from '@polymind/core/modules/feature-flag';
 import { useLiveData, useService } from '@toeverything/infra';
 
 export const useEnableAI = () => {

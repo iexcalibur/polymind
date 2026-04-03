@@ -1,5 +1,5 @@
-import type { DropTargetDropEvent, DropTargetOptions } from '@affine/component';
-import type { AffineDNDData } from '@affine/core/types/dnd';
+import type { DropTargetDropEvent, DropTargetOptions } from '@polymind/component';
+import type { AffineDNDData } from '@polymind/core/types/dnd';
 
 import type { NavigationPanelTreeNodeDropEffect } from '../tree';
 import type { NodeOperation } from '../tree/types';

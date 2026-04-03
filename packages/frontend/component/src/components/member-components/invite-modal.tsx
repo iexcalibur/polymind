@@ -1,5 +1,5 @@
-import { Permission } from '@affine/graphql';
-import { useI18n } from '@affine/i18n';
+import { Permission } from '@polymind/graphql';
+import { useI18n } from '@polymind/i18n';
 import { useCallback, useEffect, useState } from 'react';
 
 import { ConfirmModal } from '../../ui/modal';
@@ -50,7 +50,7 @@ export const InviteModal = ({
       onOpenChange={setOpen}
       title={t['Invite Members']()}
       description={t['Invite Members Message']()}
-      cancelText={t['com.affine.inviteModal.button.cancel']()}
+      cancelText={t['com.polymind.inviteModal.button.cancel']()}
       contentOptions={{
         ['data-testid' as string]: 'invite-modal',
         style: {
@@ -71,7 +71,7 @@ export const InviteModal = ({
         value={inviteEmail}
         onChange={setInviteEmail}
         error={!isValidEmail}
-        errorHint={isValidEmail ? '' : t['com.affine.auth.sign.email.error']()}
+        errorHint={isValidEmail ? '' : t['com.polymind.auth.sign.email.error']()}
         onEnter={handleConfirm}
         size="large"
       />

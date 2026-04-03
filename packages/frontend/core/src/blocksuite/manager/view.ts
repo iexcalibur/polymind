@@ -1,29 +1,29 @@
-import type { ReactToLit } from '@affine/component';
-import { AIViewExtension } from '@affine/core/blocksuite/view-extensions/ai';
-import { CloudViewExtension } from '@affine/core/blocksuite/view-extensions/cloud';
-import { CodeBlockPreviewViewExtension } from '@affine/core/blocksuite/view-extensions/code-block-preview';
-import { CommentViewExtension } from '@affine/core/blocksuite/view-extensions/comment';
-import { AffineDatabaseViewExtension } from '@affine/core/blocksuite/view-extensions/database';
+import type { ReactToLit } from '@polymind/component';
+import { AIViewExtension } from '@polymind/core/blocksuite/view-extensions/ai';
+import { CloudViewExtension } from '@polymind/core/blocksuite/view-extensions/cloud';
+import { CodeBlockPreviewViewExtension } from '@polymind/core/blocksuite/view-extensions/code-block-preview';
+import { CommentViewExtension } from '@polymind/core/blocksuite/view-extensions/comment';
+import { AffineDatabaseViewExtension } from '@polymind/core/blocksuite/view-extensions/database';
 import {
   EdgelessBlockHeaderConfigViewExtension,
   type EdgelessBlockHeaderViewOptions,
-} from '@affine/core/blocksuite/view-extensions/edgeless-block-header';
-import { AffineEditorConfigViewExtension } from '@affine/core/blocksuite/view-extensions/editor-config';
-import { createDatabaseOptionsConfig } from '@affine/core/blocksuite/view-extensions/editor-config/database';
-import { createLinkedWidgetConfig } from '@affine/core/blocksuite/view-extensions/editor-config/linked';
+} from '@polymind/core/blocksuite/view-extensions/edgeless-block-header';
+import { AffineEditorConfigViewExtension } from '@polymind/core/blocksuite/view-extensions/editor-config';
+import { createDatabaseOptionsConfig } from '@polymind/core/blocksuite/view-extensions/editor-config/database';
+import { createLinkedWidgetConfig } from '@polymind/core/blocksuite/view-extensions/editor-config/linked';
 import {
   AffineEditorViewExtension,
   type AffineEditorViewOptions,
-} from '@affine/core/blocksuite/view-extensions/editor-view/editor-view';
-import { ElectronViewExtension } from '@affine/core/blocksuite/view-extensions/electron';
-import { AffineIconPickerExtension } from '@affine/core/blocksuite/view-extensions/icon-picker';
-import { AffineLinkPreviewExtension } from '@affine/core/blocksuite/view-extensions/link-preview-service';
-import { MobileViewExtension } from '@affine/core/blocksuite/view-extensions/mobile';
-import { PdfViewExtension } from '@affine/core/blocksuite/view-extensions/pdf';
-import { AffineThemeViewExtension } from '@affine/core/blocksuite/view-extensions/theme';
-import { TurboRendererViewExtension } from '@affine/core/blocksuite/view-extensions/turbo-renderer';
-import { PeekViewService } from '@affine/core/modules/peek-view';
-import { DebugLogger } from '@affine/debug';
+} from '@polymind/core/blocksuite/view-extensions/editor-view/editor-view';
+import { ElectronViewExtension } from '@polymind/core/blocksuite/view-extensions/electron';
+import { AffineIconPickerExtension } from '@polymind/core/blocksuite/view-extensions/icon-picker';
+import { AffineLinkPreviewExtension } from '@polymind/core/blocksuite/view-extensions/link-preview-service';
+import { MobileViewExtension } from '@polymind/core/blocksuite/view-extensions/mobile';
+import { PdfViewExtension } from '@polymind/core/blocksuite/view-extensions/pdf';
+import { AffineThemeViewExtension } from '@polymind/core/blocksuite/view-extensions/theme';
+import { TurboRendererViewExtension } from '@polymind/core/blocksuite/view-extensions/turbo-renderer';
+import { PeekViewService } from '@polymind/core/modules/peek-view';
+import { DebugLogger } from '@polymind/debug';
 import { DatabaseViewExtension } from '@blocksuite/affine/blocks/database/view';
 import { ParagraphViewExtension } from '@blocksuite/affine/blocks/paragraph/view';
 import type {

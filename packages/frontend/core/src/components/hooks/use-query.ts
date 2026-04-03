@@ -2,7 +2,7 @@ import type {
   GraphQLQuery,
   QueryOptions,
   QueryResponse,
-} from '@affine/graphql';
+} from '@polymind/graphql';
 import type { GraphQLError } from 'graphql';
 import { useCallback, useMemo } from 'react';
 import type { SWRConfiguration, SWRResponse } from 'swr';

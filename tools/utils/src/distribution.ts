@@ -4,26 +4,26 @@ export const PackageToDistribution = new Map<
   PackageName,
   BUILD_CONFIG_TYPE['distribution']
 >([
-  ['@affine/admin', 'admin'],
-  ['@affine/web', 'web'],
-  ['@affine/electron-renderer', 'desktop'],
-  ['@affine/electron', 'desktop'],
-  ['@affine/mobile', 'mobile'],
-  ['@affine/ios', 'ios'],
-  ['@affine/android', 'android'],
+  ['@polymind/admin', 'admin'],
+  ['@polymind/web', 'web'],
+  ['@polymind/electron-renderer', 'desktop'],
+  ['@polymind/electron', 'desktop'],
+  ['@polymind/mobile', 'mobile'],
+  ['@polymind/ios', 'ios'],
+  ['@polymind/android', 'android'],
 ]);
 
 export const AliasToPackage = new Map<string, PackageName>([
-  ['admin', '@affine/admin'],
-  ['web', '@affine/web'],
-  ['electron', '@affine/electron'],
-  ['desktop', '@affine/electron-renderer'],
-  ['renderer', '@affine/electron-renderer'],
-  ['mobile', '@affine/mobile'],
-  ['ios', '@affine/ios'],
-  ['android', '@affine/android'],
-  ['server', '@affine/server'],
-  ['gql', '@affine/graphql'],
+  ['admin', '@polymind/admin'],
+  ['web', '@polymind/web'],
+  ['electron', '@polymind/electron'],
+  ['desktop', '@polymind/electron-renderer'],
+  ['renderer', '@polymind/electron-renderer'],
+  ['mobile', '@polymind/mobile'],
+  ['ios', '@polymind/ios'],
+  ['android', '@polymind/android'],
+  ['server', '@polymind/server'],
+  ['gql', '@polymind/graphql'],
   ...PackageList.map(
     pkg => [pkg.name.split('/').pop()!, pkg.name] as [string, PackageName]
   ),

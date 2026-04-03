@@ -1,11 +1,11 @@
-import { Loading, Switch, Tooltip } from '@affine/component';
-import { SettingHeader } from '@affine/component/setting-components';
+import { Loading, Switch, Tooltip } from '@polymind/component';
+import { SettingHeader } from '@polymind/component/setting-components';
 import {
   AFFINE_FLAGS,
   FeatureFlagService,
   type Flag,
-} from '@affine/core/modules/feature-flag';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/feature-flag';
+import { useI18n } from '@polymind/i18n';
 import {
   ArrowRightSmallIcon,
   DiscordIcon,
@@ -35,7 +35,7 @@ const ExperimentalFeaturesPrompt = ({
     <div className={styles.promptRoot} data-testid="experimental-prompt">
       <div className={styles.promptTitle}>
         {t[
-          'com.affine.settings.workspace.experimental-features.prompt-header'
+          'com.polymind.settings.workspace.experimental-features.prompt-header'
         ]()}
       </div>
       <div className={styles.promptArt}>
@@ -44,11 +44,11 @@ const ExperimentalFeaturesPrompt = ({
       <div className={styles.promptWarning}>
         <div className={styles.promptWarningTitle}>
           {t[
-            'com.affine.settings.workspace.experimental-features.prompt-warning-title'
+            'com.polymind.settings.workspace.experimental-features.prompt-warning-title'
           ]()}
         </div>
         {t[
-          'com.affine.settings.workspace.experimental-features.prompt-warning'
+          'com.polymind.settings.workspace.experimental-features.prompt-warning'
         ]()}
       </div>
 
@@ -61,7 +61,7 @@ const ExperimentalFeaturesPrompt = ({
           data-testid="experimental-prompt-disclaimer"
         />
         {t[
-          'com.affine.settings.workspace.experimental-features.prompt-disclaimer'
+          'com.polymind.settings.workspace.experimental-features.prompt-disclaimer'
         ]()}
       </label>
 
@@ -73,7 +73,7 @@ const ExperimentalFeaturesPrompt = ({
           data-testid="experimental-confirm-button"
         >
           {t[
-            'com.affine.settings.workspace.experimental-features.get-started'
+            'com.polymind.settings.workspace.experimental-features.get-started'
           ]()}
         </Button>
       </div>
@@ -163,10 +163,10 @@ const ExperimentalFeaturesMain = () => {
     <>
       <SettingHeader
         title={t[
-          'com.affine.settings.workspace.experimental-features.header.plugins'
+          'com.polymind.settings.workspace.experimental-features.header.plugins'
         ]()}
         subtitle={t[
-          'com.affine.settings.workspace.experimental-features.header.subtitle'
+          'com.polymind.settings.workspace.experimental-features.header.subtitle'
         ]()}
       />
       <div

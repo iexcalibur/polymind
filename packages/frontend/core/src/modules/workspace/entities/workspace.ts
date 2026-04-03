@@ -1,5 +1,5 @@
-import type { FeatureFlagService } from '@affine/core/modules/feature-flag';
-import { toArrayBuffer } from '@affine/core/utils/array-buffer';
+import type { FeatureFlagService } from '@polymind/core/modules/feature-flag';
+import { toArrayBuffer } from '@polymind/core/utils/array-buffer';
 import type { Workspace as WorkspaceInterface } from '@blocksuite/affine/store';
 import { Entity, LiveData, yjsGetPath } from '@toeverything/infra';
 import type { Observable } from 'rxjs';

@@ -1,14 +1,14 @@
-import { Button, IconButton, Menu, MenuItem, MenuSub } from '@affine/component';
-import { usePageHelper } from '@affine/core/blocksuite/block-suite-page-list/utils';
-import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
-import { DocsService } from '@affine/core/modules/doc';
-import { EditorSettingService } from '@affine/core/modules/editor-setting';
-import { TemplateDocService } from '@affine/core/modules/template-doc';
-import { TemplateListMenuContentScrollable } from '@affine/core/modules/template-doc/view/template-list-menu';
-import { WorkbenchService } from '@affine/core/modules/workbench';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { inferOpenMode } from '@affine/core/utils';
-import { useI18n } from '@affine/i18n';
+import { Button, IconButton, Menu, MenuItem, MenuSub } from '@polymind/component';
+import { usePageHelper } from '@polymind/core/blocksuite/block-suite-page-list/utils';
+import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
+import { DocsService } from '@polymind/core/modules/doc';
+import { EditorSettingService } from '@polymind/core/modules/editor-setting';
+import { TemplateDocService } from '@polymind/core/modules/template-doc';
+import { TemplateListMenuContentScrollable } from '@polymind/core/modules/template-doc/view/template-list-menu';
+import { WorkbenchService } from '@polymind/core/modules/workbench';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { inferOpenMode } from '@polymind/core/utils';
+import { useI18n } from '@polymind/i18n';
 import type { DocMode } from '@blocksuite/affine/model';
 import {
   ArrowDownSmallIcon,

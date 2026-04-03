@@ -1,8 +1,8 @@
-import { IconButton } from '@affine/component';
-import { RenameModal } from '@affine/component/rename-modal';
-import { NavigationPanelService } from '@affine/core/modules/navigation-panel';
-import { TagService } from '@affine/core/modules/tag';
-import { useI18n } from '@affine/i18n';
+import { IconButton } from '@polymind/component';
+import { RenameModal } from '@polymind/component/rename-modal';
+import { NavigationPanelService } from '@polymind/core/modules/navigation-panel';
+import { TagService } from '@polymind/core/modules/tag';
+import { useI18n } from '@polymind/i18n';
 import { AddTagIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useServices } from '@toeverything/infra';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -46,7 +46,7 @@ export const NavigationPanelTags = () => {
       path={path}
       testId="navigation-panel-tags"
       headerClassName={styles.draggedOverHighlight}
-      title={t['com.affine.rootAppSidebar.tags']()}
+      title={t['com.polymind.rootAppSidebar.tags']()}
       actions={
         <div className={styles.iconContainer}>
           <IconButton
@@ -54,7 +54,7 @@ export const NavigationPanelTags = () => {
             onClick={handleOpenCreateModal}
             size="16"
             tooltip={t[
-              'com.affine.rootAppSidebar.explorer.tag-section-add-tooltip'
+              'com.polymind.rootAppSidebar.explorer.tag-section-add-tooltip'
             ]()}
           >
             <AddTagIcon />
@@ -64,7 +64,7 @@ export const NavigationPanelTags = () => {
               open
               onOpenChange={setCreating}
               onRename={handleCreateNewTag}
-              currentName={t['com.affine.rootAppSidebar.tags.new-tag']()}
+              currentName={t['com.polymind.rootAppSidebar.tags.new-tag']()}
             />
           )}
         </div>

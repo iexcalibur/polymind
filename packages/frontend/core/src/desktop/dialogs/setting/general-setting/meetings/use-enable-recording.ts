@@ -1,7 +1,7 @@
-import { useConfirmModal } from '@affine/component';
-import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
-import { MeetingSettingsService } from '@affine/core/modules/media/services/meeting-settings';
-import { useI18n } from '@affine/i18n';
+import { useConfirmModal } from '@polymind/component';
+import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
+import { MeetingSettingsService } from '@polymind/core/modules/media/services/meeting-settings';
+import { useI18n } from '@polymind/i18n';
 import { useService } from '@toeverything/infra';
 
 export const useEnableRecording = () => {
@@ -16,23 +16,23 @@ export const useEnableRecording = () => {
       } catch {
         confirmModal.openConfirmModal({
           title:
-            t['com.affine.settings.meetings.record.permission-modal.title'](),
+            t['com.polymind.settings.meetings.record.permission-modal.title'](),
           description:
             t[
-              'com.affine.settings.meetings.record.permission-modal.description'
+              'com.polymind.settings.meetings.record.permission-modal.description'
             ](),
           onConfirm: async () => {
             await meetingSettingsService.showRecordingPermissionSetting(
               'screen'
             );
           },
-          cancelText: t['com.affine.recording.dismiss'](),
+          cancelText: t['com.polymind.recording.dismiss'](),
           confirmButtonOptions: {
             variant: 'primary',
           },
           confirmText:
             t[
-              'com.affine.settings.meetings.record.permission-modal.open-setting'
+              'com.polymind.settings.meetings.record.permission-modal.open-setting'
             ](),
         });
       }

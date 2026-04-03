@@ -1,10 +1,10 @@
-import { Divider } from '@affine/component/ui/divider';
+import { Divider } from '@polymind/component/ui/divider';
 import {
   type WorkspaceMetadata,
   WorkspaceService,
   WorkspacesService,
-} from '@affine/core/modules/workspace';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/workspace';
+import { useI18n } from '@polymind/i18n';
 import { LocalWorkspaceIcon } from '@blocksuite/icons/rc';
 import {
   useLiveData,
@@ -35,7 +35,7 @@ const LocalWorkspaces = ({
         </div>
         <div className={styles.workspaceServerContent}>
           <div className={styles.workspaceServerName}>
-            {t['com.affine.workspaceList.workspaceListType.local']()}
+            {t['com.polymind.workspaceList.workspaceListType.local']()}
           </div>
         </div>
         <div className={styles.workspaceServerSpacer} />

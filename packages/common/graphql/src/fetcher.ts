@@ -1,5 +1,5 @@
-import { DebugLogger } from '@affine/debug';
-import { GraphQLError } from '@affine/error';
+import { DebugLogger } from '@polymind/debug';
+import { GraphQLError } from '@polymind/error';
 import type { ExecutionResult } from 'graphql';
 import { isNil, isObject, merge } from 'lodash-es';
 

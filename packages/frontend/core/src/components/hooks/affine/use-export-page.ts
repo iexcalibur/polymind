@@ -1,12 +1,12 @@
-import { notify } from '@affine/component';
+import { notify } from '@polymind/component';
 import {
   pushGlobalLoadingEventAtom,
   resolveGlobalLoadingEventAtom,
-} from '@affine/component/global-loading';
-import type { AffineEditorContainer } from '@affine/core/blocksuite/block-suite-editor/blocksuite-editor';
-import { EditorService } from '@affine/core/modules/editor';
-import { getAFFiNEWorkspaceSchema } from '@affine/core/modules/workspace/global-schema';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component/global-loading';
+import type { AffineEditorContainer } from '@polymind/core/blocksuite/block-suite-editor/blocksuite-editor';
+import { EditorService } from '@polymind/core/modules/editor';
+import { getAFFiNEWorkspaceSchema } from '@polymind/core/modules/workspace/global-schema';
+import { useI18n } from '@polymind/i18n';
 import { ExportManager } from '@blocksuite/affine/blocks/surface';
 import {
   docLinkBaseURLMiddleware,
@@ -201,14 +201,14 @@ export const useExportPage = () => {
           editorContainer: originEditorContainer,
         });
         notify.success({
-          title: t['com.affine.export.success.title'](),
-          message: t['com.affine.export.success.message'](),
+          title: t['com.polymind.export.success.title'](),
+          message: t['com.polymind.export.success.message'](),
         });
       } catch (err) {
         console.error(err);
         notify.error({
-          title: t['com.affine.export.error.title'](),
-          message: t['com.affine.export.error.message'](),
+          title: t['com.polymind.export.error.title'](),
+          message: t['com.polymind.export.error.message'](),
         });
       } finally {
         resolveGlobalLoadingEvent(globalLoadingID);

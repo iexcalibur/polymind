@@ -1,27 +1,27 @@
-import { notify, toast, useConfirmModal } from '@affine/component';
+import { notify, toast, useConfirmModal } from '@polymind/component';
 import {
   Menu,
   MenuItem,
   MenuSeparator,
   MenuSub,
-} from '@affine/component/ui/menu';
-import { PageHistoryModal } from '@affine/core/components/affine/page-history-modal';
-import { useGuard } from '@affine/core/components/guard';
-import { useBlockSuiteMetaHelper } from '@affine/core/components/hooks/affine/use-block-suite-meta-helper';
-import { useEnableCloud } from '@affine/core/components/hooks/affine/use-enable-cloud';
-import { useExportPage } from '@affine/core/components/hooks/affine/use-export-page';
-import { Export, MoveToTrash } from '@affine/core/components/page-list';
-import { IsFavoriteIcon } from '@affine/core/components/pure/icons';
-import { useDetailPageHeaderResponsive } from '@affine/core/desktop/pages/workspace/detail-page/use-header-responsive';
-import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import { EditorService } from '@affine/core/modules/editor';
-import { OpenInAppService } from '@affine/core/modules/open-in-app/services';
-import { GuardService } from '@affine/core/modules/permissions';
-import { ShareMenuContent } from '@affine/core/modules/share-menu';
-import { WorkbenchService } from '@affine/core/modules/workbench';
-import { ViewService } from '@affine/core/modules/workbench/services/view';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component/ui/menu';
+import { PageHistoryModal } from '@polymind/core/components/affine/page-history-modal';
+import { useGuard } from '@polymind/core/components/guard';
+import { useBlockSuiteMetaHelper } from '@polymind/core/components/hooks/affine/use-block-suite-meta-helper';
+import { useEnableCloud } from '@polymind/core/components/hooks/affine/use-enable-cloud';
+import { useExportPage } from '@polymind/core/components/hooks/affine/use-export-page';
+import { Export, MoveToTrash } from '@polymind/core/components/page-list';
+import { IsFavoriteIcon } from '@polymind/core/components/pure/icons';
+import { useDetailPageHeaderResponsive } from '@polymind/core/desktop/pages/workspace/detail-page/use-header-responsive';
+import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import { EditorService } from '@polymind/core/modules/editor';
+import { OpenInAppService } from '@polymind/core/modules/open-in-app/services';
+import { GuardService } from '@polymind/core/modules/permissions';
+import { ShareMenuContent } from '@polymind/core/modules/share-menu';
+import { WorkbenchService } from '@polymind/core/modules/workbench';
+import { ViewService } from '@polymind/core/modules/workbench/services/view';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { useI18n } from '@polymind/i18n';
 import type { Store } from '@blocksuite/affine/store';
 import {
   DuplicateIcon,
@@ -192,11 +192,11 @@ const PageHeaderMenuItem = ({
 
   const handleOpenTrashModal = useCallback(() => {
     openConfirmModal({
-      title: t['com.affine.moveToTrash.confirmModal.title'](),
-      description: t['com.affine.moveToTrash.confirmModal.description']({
+      title: t['com.polymind.moveToTrash.confirmModal.title'](),
+      description: t['com.polymind.moveToTrash.confirmModal.description']({
         title: editorService.editor.doc.title$.value || t['Untitled'](),
       }),
-      cancelText: t['com.affine.confirmModal.button.cancel'](),
+      cancelText: t['com.polymind.confirmModal.button.cancel'](),
       confirmText: t.Delete(),
       confirmButtonOptions: {
         variant: 'error',
@@ -204,7 +204,7 @@ const PageHeaderMenuItem = ({
       onConfirm: async () => {
         const canTrash = await guardService.can('Doc_Trash', pageId);
         if (!canTrash) {
-          toast(t['com.affine.no-permission']());
+          toast(t['com.polymind.no-permission']());
           return;
         }
         editorService.editor.doc.moveToTrash();
@@ -223,12 +223,12 @@ const PageHeaderMenuItem = ({
     notify.success({
       title:
         primaryMode === 'page'
-          ? t['com.affine.toastMessage.defaultMode.edgeless.title']()
-          : t['com.affine.toastMessage.defaultMode.page.title'](),
+          ? t['com.polymind.toastMessage.defaultMode.edgeless.title']()
+          : t['com.polymind.toastMessage.defaultMode.page.title'](),
       message:
         primaryMode === 'page'
-          ? t['com.affine.toastMessage.defaultMode.edgeless.message']()
-          : t['com.affine.toastMessage.defaultMode.page.message'](),
+          ? t['com.polymind.toastMessage.defaultMode.edgeless.message']()
+          : t['com.polymind.toastMessage.defaultMode.page.message'](),
     });
   }, [primaryMode, editorService, t]);
 
@@ -312,7 +312,7 @@ const PageHeaderMenuItem = ({
             onOpenChange: handleShareMenuOpenChange,
           }}
         >
-          {t['com.affine.share-menu.shareButton']()}
+          {t['com.polymind.share-menu.shareButton']()}
         </MenuSub>
       ) : null}
       <MenuSeparator />
@@ -346,8 +346,8 @@ const PageHeaderMenuItem = ({
         disabled={!canEdit}
       >
         {primaryMode === 'page'
-          ? t['com.affine.editorDefaultMode.edgeless']()
-          : t['com.affine.editorDefaultMode.page']()}
+          ? t['com.polymind.editorDefaultMode.edgeless']()
+          : t['com.polymind.editorDefaultMode.page']()}
       </MenuItem>
       <MenuItem
         data-testid="editor-option-menu-favorite"
@@ -355,8 +355,8 @@ const PageHeaderMenuItem = ({
         prefixIcon={<IsFavoriteIcon favorite={favorite} />}
       >
         {favorite
-          ? t['com.affine.favoritePageOperation.remove']()
-          : t['com.affine.favoritePageOperation.add']()}
+          ? t['com.polymind.favoritePageOperation.remove']()
+          : t['com.polymind.favoritePageOperation.add']()}
       </MenuItem>
       <MenuSeparator />
       <MenuItem
@@ -364,7 +364,7 @@ const PageHeaderMenuItem = ({
         data-testid="editor-option-menu-open-in-new-tab"
         onSelect={handleOpenInNewTab}
       >
-        {t['com.affine.workbench.tab.page-menu-open']()}
+        {t['com.polymind.workbench.tab.page-menu-open']()}
       </MenuItem>
       {BUILD_CONFIG.isElectron && (
         <MenuItem
@@ -372,7 +372,7 @@ const PageHeaderMenuItem = ({
           data-testid="editor-option-menu-open-in-split-new"
           onSelect={handleOpenInSplitView}
         >
-          {t['com.affine.workbench.split-view.page-menu-open']()}
+          {t['com.polymind.workbench.split-view.page-menu-open']()}
         </MenuItem>
       )}
 
@@ -382,7 +382,7 @@ const PageHeaderMenuItem = ({
         data-testid="editor-option-menu-info"
         onSelect={openInfoModal}
       >
-        {t['com.affine.page-properties.page-info.view']()}
+        {t['com.polymind.page-properties.page-info.view']()}
       </MenuItem>
       {currentMode === 'page' ? (
         <MenuItem
@@ -390,7 +390,7 @@ const PageHeaderMenuItem = ({
           data-testid="editor-option-toc"
           onSelect={openOutlinePanel}
         >
-          {t['com.affine.header.option.view-toc']()}
+          {t['com.polymind.header.option.view-toc']()}
         </MenuItem>
       ) : (
         <MenuItem
@@ -398,7 +398,7 @@ const PageHeaderMenuItem = ({
           data-testid="editor-option-frame"
           onSelect={openAllFrames}
         >
-          {t['com.affine.header.option.view-frame']()}
+          {t['com.polymind.header.option.view-frame']()}
         </MenuItem>
       )}
       <MenuItem
@@ -406,7 +406,7 @@ const PageHeaderMenuItem = ({
         data-testid="editor-option-menu-history"
         onSelect={openHistoryModal}
       >
-        {t['com.affine.history.view-history-version']()}
+        {t['com.polymind.history.view-history-version']()}
       </MenuItem>
       <MenuSeparator />
       {!isJournal && (
@@ -415,7 +415,7 @@ const PageHeaderMenuItem = ({
           data-testid="editor-option-menu-duplicate"
           onSelect={handleDuplicate}
         >
-          {t['com.affine.header.option.duplicate']()}
+          {t['com.polymind.header.option.duplicate']()}
         </MenuItem>
       )}
       <MenuItem
@@ -438,7 +438,7 @@ const PageHeaderMenuItem = ({
           data-testid="editor-option-menu-link"
           onSelect={onOpenInDesktop}
         >
-          {t['com.affine.header.option.open-in-desktop']()}
+          {t['com.polymind.header.option.open-in-desktop']()}
         </MenuItem>
       ) : null}
     </>

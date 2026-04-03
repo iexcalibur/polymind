@@ -13,7 +13,7 @@ export default defineConfig({
     alias: {
       // prevent tests using two different sources of yjs
       yjs: resolve(rootDir, 'node_modules/yjs'),
-      '@affine/electron': resolve(
+      '@polymind/electron': resolve(
         rootDir,
         'packages/frontend/apps/electron/src'
       ),

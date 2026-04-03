@@ -1,14 +1,14 @@
 import type {
   AIDraftService,
   AIToolsConfigService,
-} from '@affine/core/modules/ai-button';
-import type { AIModelService } from '@affine/core/modules/ai-button/services/models';
-import type { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import type { FeatureFlagService } from '@affine/core/modules/feature-flag';
+} from '@polymind/core/modules/ai-button';
+import type { AIModelService } from '@polymind/core/modules/ai-button/services/models';
+import type { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import type { FeatureFlagService } from '@polymind/core/modules/feature-flag';
 import type {
   ContextEmbedStatus,
   CopilotChatHistoryFragment,
-} from '@affine/graphql';
+} from '@polymind/graphql';
 import {
   CanvasElementType,
   EdgelessCRUDIdentifier,

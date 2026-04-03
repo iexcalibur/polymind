@@ -1,4 +1,4 @@
-import { DocRole, type GetPageGrantedUsersListQuery } from '@affine/graphql';
+import { DocRole, type GetPageGrantedUsersListQuery } from '@polymind/graphql';
 import {
   catchErrorInto,
   effect,

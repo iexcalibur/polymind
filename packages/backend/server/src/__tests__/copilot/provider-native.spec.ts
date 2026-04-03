@@ -1,4 +1,4 @@
-import serverNativeModule from '@affine/server-native';
+import serverNativeModule from '@polymind/server-native';
 import test from 'ava';
 
 import type { NativeLlmRerankRequest } from '../../native';

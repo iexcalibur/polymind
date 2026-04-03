@@ -31,7 +31,7 @@ beforeEach(() => {
   storageState.clear();
   watchSubjects.clear();
 
-  vi.doMock('@affine/native', () => ({
+  vi.doMock('@polymind/native', () => ({
     ShareableContent: class ShareableContent {
       static applications() {
         return [];

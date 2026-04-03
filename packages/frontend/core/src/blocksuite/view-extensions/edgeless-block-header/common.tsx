@@ -1,8 +1,8 @@
-import { IconButton } from '@affine/component';
-import { useSharingUrl } from '@affine/core/components/hooks/affine/use-share-url';
-import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { useI18n } from '@affine/i18n';
+import { IconButton } from '@polymind/component';
+import { useSharingUrl } from '@polymind/core/components/hooks/affine/use-share-url';
+import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { useI18n } from '@polymind/i18n';
 import { type DocMode } from '@blocksuite/affine/model';
 import { InformationIcon, LinkIcon } from '@blocksuite/icons/rc';
 import { useService } from '@toeverything/infra';
@@ -31,7 +31,7 @@ export const DocInfoButton = ({
     <IconButton
       className={styles.button}
       size={styles.iconSize}
-      tooltip={t['com.affine.page-properties.page-info.view']()}
+      tooltip={t['com.polymind.page-properties.page-info.view']()}
       data-testid={dataTestId}
       onClick={onClick}
     >
@@ -70,7 +70,7 @@ export const CopyLinkButton = ({
     <IconButton
       className={styles.button}
       size={styles.iconSize}
-      tooltip={t['com.affine.share-menu.copy']()}
+      tooltip={t['com.polymind.share-menu.copy']()}
       data-testid={dataTestId}
       onClick={copyLink}
     >

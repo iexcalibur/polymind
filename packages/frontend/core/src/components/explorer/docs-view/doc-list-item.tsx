@@ -4,12 +4,12 @@ import {
   DragHandle as DragHandleIcon,
   Tooltip,
   useDraggable,
-} from '@affine/component';
-import { DocsService } from '@affine/core/modules/doc';
-import { DocDisplayMetaService } from '@affine/core/modules/doc-display-meta';
-import { WorkbenchLink } from '@affine/core/modules/workbench';
-import type { AffineDNDData } from '@affine/core/types/dnd';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/component';
+import { DocsService } from '@polymind/core/modules/doc';
+import { DocDisplayMetaService } from '@polymind/core/modules/doc-display-meta';
+import { WorkbenchLink } from '@polymind/core/modules/workbench';
+import type { AffineDNDData } from '@polymind/core/types/dnd';
+import { useI18n } from '@polymind/i18n';
 import {
   AutoTidyUpIcon,
   PropertyIcon,

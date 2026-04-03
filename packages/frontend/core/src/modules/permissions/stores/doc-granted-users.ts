@@ -3,7 +3,7 @@ import type {
   GrantDocUserRolesInput,
   PaginationInput,
   UpdateDocDefaultRoleInput,
-} from '@affine/graphql';
+} from '@polymind/graphql';
 import { Store } from '@toeverything/infra';
 
 export class DocGrantedUsersStore extends Store {

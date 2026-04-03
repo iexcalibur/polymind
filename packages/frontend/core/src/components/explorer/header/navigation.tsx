@@ -1,18 +1,18 @@
-import { WorkbenchLink } from '@affine/core/modules/workbench';
-import { useI18n } from '@affine/i18n';
+import { WorkbenchLink } from '@polymind/core/modules/workbench';
+import { useI18n } from '@polymind/i18n';
 
 import * as styles from './navigation.css';
 
 const items = [
   {
     value: 'docs',
-    label: 'com.affine.docs.header',
+    label: 'com.polymind.docs.header',
     testId: 'workspace-docs-button',
     to: '/all',
   },
   {
     value: 'collections',
-    label: 'com.affine.collections.header',
+    label: 'com.polymind.collections.header',
     testId: 'workspace-collections-button',
     to: '/collection',
   },

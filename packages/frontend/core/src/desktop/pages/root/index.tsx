@@ -1,4 +1,4 @@
-import { NotificationCenter } from '@affine/component';
+import { NotificationCenter } from '@polymind/component';
 import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 

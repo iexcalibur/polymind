@@ -1,9 +1,9 @@
-import { Switch } from '@affine/component';
+import { Switch } from '@polymind/component';
 import {
   SettingHeader,
   SettingRow,
   SettingWrapper,
-} from '@affine/component/setting-components';
+} from '@polymind/component/setting-components';
 import { useService } from '@toeverything/infra';
 import { useCallback, useState } from 'react';
 

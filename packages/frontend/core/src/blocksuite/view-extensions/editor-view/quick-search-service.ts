@@ -1,13 +1,13 @@
-import { DocsService } from '@affine/core/modules/doc';
+import { DocsService } from '@polymind/core/modules/doc';
 import {
   CreationQuickSearchSession,
   DocsQuickSearchSession,
   LinksQuickSearchSession,
   QuickSearchService,
   RecentDocsQuickSearchSession,
-} from '@affine/core/modules/quicksearch';
-import { ExternalLinksQuickSearchSession } from '@affine/core/modules/quicksearch/impls/external-links';
-import { JournalsQuickSearchSession } from '@affine/core/modules/quicksearch/impls/journals';
+} from '@polymind/core/modules/quicksearch';
+import { ExternalLinksQuickSearchSession } from '@polymind/core/modules/quicksearch/impls/external-links';
+import { JournalsQuickSearchSession } from '@polymind/core/modules/quicksearch/impls/journals';
 import {
   BookmarkSlashMenuConfigIdentifier,
   insertLinkByQuickSearchCommand,
@@ -105,10 +105,10 @@ export function patchQuickSearchService(framework: FrameworkProvider) {
           },
           {
             label: {
-              i18nKey: 'com.affine.cmdk.insert-links',
+              i18nKey: 'com.polymind.cmdk.insert-links',
             },
             placeholder: {
-              i18nKey: 'com.affine.cmdk.docs.placeholder',
+              i18nKey: 'com.polymind.cmdk.docs.placeholder',
             },
           }
         )

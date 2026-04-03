@@ -1,18 +1,18 @@
-import { toast, useConfirmModal } from '@affine/component';
+import { toast, useConfirmModal } from '@polymind/component';
 import {
   PreconditionStrategy,
   registerAffineCommand,
-} from '@affine/core/commands';
-import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
-import { DocService } from '@affine/core/modules/doc';
-import type { Editor } from '@affine/core/modules/editor';
-import { EditorSettingService } from '@affine/core/modules/editor-setting';
-import { CompatibleFavoriteItemsAdapter } from '@affine/core/modules/favorite';
-import { OpenInAppService } from '@affine/core/modules/open-in-app';
-import { GuardService } from '@affine/core/modules/permissions';
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { UserFriendlyError } from '@affine/error';
-import { useI18n } from '@affine/i18n';
+} from '@polymind/core/commands';
+import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
+import { DocService } from '@polymind/core/modules/doc';
+import type { Editor } from '@polymind/core/modules/editor';
+import { EditorSettingService } from '@polymind/core/modules/editor-setting';
+import { CompatibleFavoriteItemsAdapter } from '@polymind/core/modules/favorite';
+import { OpenInAppService } from '@polymind/core/modules/open-in-app';
+import { GuardService } from '@polymind/core/modules/permissions';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { UserFriendlyError } from '@polymind/error';
+import { useI18n } from '@polymind/i18n';
 import {
   EdgelessIcon,
   HistoryIcon,
@@ -70,11 +70,11 @@ export function useRegisterBlocksuiteEditorCommands(
   const { openConfirmModal } = useConfirmModal();
   const onClickDelete = useCallback(() => {
     openConfirmModal({
-      title: t['com.affine.moveToTrash.confirmModal.title'](),
-      description: t['com.affine.moveToTrash.confirmModal.description']({
+      title: t['com.polymind.moveToTrash.confirmModal.title'](),
+      description: t['com.polymind.moveToTrash.confirmModal.description']({
         title: doc.title$.value || t['Untitled'](),
       }),
-      cancelText: t['com.affine.confirmModal.button.cancel'](),
+      cancelText: t['com.polymind.confirmModal.button.cancel'](),
       confirmButtonOptions: {
         variant: 'error',
       },
@@ -83,7 +83,7 @@ export function useRegisterBlocksuiteEditorCommands(
         try {
           const canTrash = await guardService.can('Doc_Trash', docId);
           if (!canTrash) {
-            toast(t['com.affine.no-permission']());
+            toast(t['com.polymind.no-permission']());
             return;
           }
           doc.moveToTrash();
@@ -118,7 +118,7 @@ export function useRegisterBlocksuiteEditorCommands(
     //     preconditionStrategy: () => PreconditionStrategy.InEdgeless && !trash,
     //     category: 'editor:edgeless',
     //     icon: <EdgelessIcon />,
-    //     label: t['com.affine.cmdk.affine.editor.edgeless.presentation-start'](),
+    //     label: t['com.polymind.cmdk.affine.editor.edgeless.presentation-start'](),
     //     run() {
     //       document
     //         .querySelector<HTMLElement>('edgeless-toolbar')
@@ -137,7 +137,7 @@ export function useRegisterBlocksuiteEditorCommands(
           PreconditionStrategy.InPaperOrEdgeless && !trash,
         category: `editor:${mode}`,
         icon: mode === 'page' ? <PageIcon /> : <EdgelessIcon />,
-        label: t['com.affine.page-properties.page-info.view'](),
+        label: t['com.polymind.page-properties.page-info.view'](),
         run() {
           openInfoModal();
         },
@@ -151,14 +151,14 @@ export function useRegisterBlocksuiteEditorCommands(
         category: `editor:${mode}`,
         icon: mode === 'page' ? <PageIcon /> : <EdgelessIcon />,
         label: favorite
-          ? t['com.affine.favoritePageOperation.remove']()
-          : t['com.affine.favoritePageOperation.add'](),
+          ? t['com.polymind.favoritePageOperation.remove']()
+          : t['com.polymind.favoritePageOperation.add'](),
         run() {
           favAdapter.toggle(docId, 'doc');
           toast(
             favorite
-              ? t['com.affine.cmdk.affine.editor.remove-from-favourites']()
-              : t['com.affine.cmdk.affine.editor.add-to-favourites']()
+              ? t['com.polymind.cmdk.affine.editor.remove-from-favourites']()
+              : t['com.polymind.cmdk.affine.editor.add-to-favourites']()
           );
         },
       })
@@ -174,15 +174,15 @@ export function useRegisterBlocksuiteEditorCommands(
         icon: mode === 'page' ? <PageIcon /> : <EdgelessIcon />,
         label: `${t['Convert to ']()}${
           mode === 'page'
-            ? t['com.affine.pageMode.edgeless']()
-            : t['com.affine.pageMode.page']()
+            ? t['com.polymind.pageMode.edgeless']()
+            : t['com.polymind.pageMode.page']()
         }`,
         run() {
           editor.toggleMode();
           toast(
             mode === 'page'
-              ? t['com.affine.toastMessage.edgelessMode']()
-              : t['com.affine.toastMessage.pageMode']()
+              ? t['com.polymind.toastMessage.edgelessMode']()
+              : t['com.polymind.toastMessage.pageMode']()
           );
         },
       })
@@ -195,12 +195,12 @@ export function useRegisterBlocksuiteEditorCommands(
         category: `editor:page`,
         icon: <PageIcon />,
         label: checked
-          ? t['com.affine.cmdk.affine.current-page-width-layout.standard']()
-          : t['com.affine.cmdk.affine.current-page-width-layout.full-width'](),
+          ? t['com.polymind.cmdk.affine.current-page-width-layout.standard']()
+          : t['com.polymind.cmdk.affine.current-page-width-layout.full-width'](),
         async run() {
           const canEdit = await guardService.can('Doc_Update', docId);
           if (!canEdit) {
-            toast(t['com.affine.no-permission']());
+            toast(t['com.polymind.no-permission']());
             return;
           }
           doc.record.setProperty(
@@ -218,7 +218,7 @@ export function useRegisterBlocksuiteEditorCommands(
         preconditionStrategy,
         category: `editor:${mode}`,
         icon: mode === 'page' ? <PageIcon /> : <EdgelessIcon />,
-        label: t['com.affine.header.option.duplicate'](),
+        label: t['com.polymind.header.option.duplicate'](),
         run() {
           duplicate(docId);
         },
@@ -283,7 +283,7 @@ export function useRegisterBlocksuiteEditorCommands(
         preconditionStrategy,
         category: `editor:${mode}`,
         icon: mode === 'page' ? <PageIcon /> : <EdgelessIcon />,
-        label: t['com.affine.moveToTrash.title'](),
+        label: t['com.polymind.moveToTrash.title'](),
         run() {
           onClickDelete();
         },
@@ -297,11 +297,11 @@ export function useRegisterBlocksuiteEditorCommands(
           PreconditionStrategy.InPaperOrEdgeless && trash,
         category: `editor:${mode}`,
         icon: mode === 'page' ? <PageIcon /> : <EdgelessIcon />,
-        label: t['com.affine.cmdk.affine.editor.restore-from-trash'](),
+        label: t['com.polymind.cmdk.affine.editor.restore-from-trash'](),
         async run() {
           const canRestore = await guardService.can('Doc_Restore', docId);
           if (!canRestore) {
-            toast(t['com.affine.no-permission']());
+            toast(t['com.polymind.no-permission']());
             return;
           }
           doc.restoreFromTrash();
@@ -315,7 +315,7 @@ export function useRegisterBlocksuiteEditorCommands(
           id: `editor:${mode}-page-history`,
           category: `editor:${mode}`,
           icon: <HistoryIcon />,
-          label: t['com.affine.cmdk.affine.editor.reveal-page-history-modal'](),
+          label: t['com.polymind.cmdk.affine.editor.reveal-page-history-modal'](),
           run() {
             openHistoryModal();
           },
@@ -329,7 +329,7 @@ export function useRegisterBlocksuiteEditorCommands(
           id: 'editor:open-in-app',
           category: `editor:${mode}`,
           icon: <LocalWorkspaceIcon />,
-          label: t['com.affine.header.option.open-in-desktop'](),
+          label: t['com.polymind.header.option.open-in-desktop'](),
           run() {
             openInAppService?.showOpenInAppPage();
           },

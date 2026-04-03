@@ -1,5 +1,5 @@
-import { Progress } from '@affine/component';
-import { useI18n } from '@affine/i18n';
+import { Progress } from '@polymind/component';
+import { useI18n } from '@polymind/i18n';
 import { cssVarV2 } from '@toeverything/theme/v2';
 
 import { embeddingProgress, embeddingProgressTitle } from './styles-css';
@@ -34,14 +34,14 @@ const EmbeddingProgress: React.FC<EmbeddingProgressProps> = ({ status }) => {
         <div>
           {loading
             ? t[
-                'com.affine.settings.workspace.indexer-embedding.embedding.progress.loading-sync-status'
+                'com.polymind.settings.workspace.indexer-embedding.embedding.progress.loading-sync-status'
               ]()
             : synced
               ? t[
-                  'com.affine.settings.workspace.indexer-embedding.embedding.progress.synced'
+                  'com.polymind.settings.workspace.indexer-embedding.embedding.progress.synced'
                 ]()
               : t[
-                  'com.affine.settings.workspace.indexer-embedding.embedding.progress.syncing'
+                  'com.polymind.settings.workspace.indexer-embedding.embedding.progress.syncing'
                 ]()}
         </div>
         {loading ? null : (

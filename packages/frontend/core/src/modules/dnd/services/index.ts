@@ -5,8 +5,8 @@ import {
   monitorForElements,
   type MonitorGetFeedback,
   type toExternalData,
-} from '@affine/component';
-import type { AffineDNDData } from '@affine/core/types/dnd';
+} from '@polymind/component';
+import type { AffineDNDData } from '@polymind/core/types/dnd';
 import {
   DNDAPIExtension,
   DndApiExtensionIdentifier,

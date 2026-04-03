@@ -1,17 +1,17 @@
-import { useAppSettingHelper } from '@affine/core/components/hooks/affine/use-app-setting-helper';
-import { WindowsAppControls } from '@affine/core/components/pure/header/windows-app-controls';
-import { ThemeProvider } from '@affine/core/components/theme-provider';
-import { configureElectronStateStorageImpls } from '@affine/core/desktop/storage';
-import { configureAppSidebarModule } from '@affine/core/modules/app-sidebar';
-import { ShellAppSidebarFallback } from '@affine/core/modules/app-sidebar/views';
+import { useAppSettingHelper } from '@polymind/core/components/hooks/affine/use-app-setting-helper';
+import { WindowsAppControls } from '@polymind/core/components/pure/header/windows-app-controls';
+import { ThemeProvider } from '@polymind/core/components/theme-provider';
+import { configureElectronStateStorageImpls } from '@polymind/core/desktop/storage';
+import { configureAppSidebarModule } from '@polymind/core/modules/app-sidebar';
+import { ShellAppSidebarFallback } from '@polymind/core/modules/app-sidebar/views';
 import {
   AppTabsHeader,
   configureAppTabsHeaderModule,
-} from '@affine/core/modules/app-tabs-header';
-import { configureDesktopApiModule } from '@affine/core/modules/desktop-api';
-import { configureI18nModule, I18nProvider } from '@affine/core/modules/i18n';
-import { configureStorageModule } from '@affine/core/modules/storage';
-import { configureAppThemeModule } from '@affine/core/modules/theme';
+} from '@polymind/core/modules/app-tabs-header';
+import { configureDesktopApiModule } from '@polymind/core/modules/desktop-api';
+import { configureI18nModule, I18nProvider } from '@polymind/core/modules/i18n';
+import { configureStorageModule } from '@polymind/core/modules/storage';
+import { configureAppThemeModule } from '@polymind/core/modules/theme';
 import { Framework, FrameworkRoot } from '@toeverything/infra';
 
 import * as styles from './app.css';

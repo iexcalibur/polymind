@@ -1,8 +1,8 @@
-import type { ElementOrFactory } from '@affine/component';
+import type { ElementOrFactory } from '@polymind/component';
 import {
   patchForEdgelessNoteConfig,
   patchForEmbedSyncedDocConfig,
-} from '@affine/core/blocksuite/view-extensions/edgeless-block-header/patch';
+} from '@polymind/core/blocksuite/view-extensions/edgeless-block-header/patch';
 import {
   type ViewExtensionContext,
   ViewExtensionProvider,

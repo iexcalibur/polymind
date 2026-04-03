@@ -55,7 +55,7 @@ function getBaseWorkerConfigs(
   createWorkerTargetConfig: CreateWorkerTargetConfig,
   options: BaseWorkerOptions = {}
 ) {
-  const core = new Package('@affine/core');
+  const core = new Package('@polymind/core');
   const includeMermaidAndTypst = options.includeMermaidAndTypst ?? true;
 
   const workerConfigs = [
@@ -97,8 +97,8 @@ function getRspackBundleConfigs(pkg: Package): MultiRspackOptions {
   assertRspackSupportedPackage(pkg);
 
   switch (pkg.name) {
-    case '@affine/web':
-    case '@affine/mobile': {
+    case '@polymind/web':
+    case '@polymind/mobile': {
       const workerConfigs = getBaseWorkerConfigs(
         pkg,
         createRspackWorkerTargetConfig
@@ -120,8 +120,8 @@ function getRspackBundleConfigs(pkg: Package): MultiRspackOptions {
         ...workerConfigs,
       ] as MultiRspackOptions;
     }
-    case '@affine/ios':
-    case '@affine/android': {
+    case '@polymind/ios':
+    case '@polymind/android': {
       const workerConfigs = getBaseWorkerConfigs(
         pkg,
         createRspackWorkerTargetConfig,
@@ -144,7 +144,7 @@ function getRspackBundleConfigs(pkg: Package): MultiRspackOptions {
         ...workerConfigs,
       ] as MultiRspackOptions;
     }
-    case '@affine/electron-renderer': {
+    case '@polymind/electron-renderer': {
       const workerConfigs = getBaseWorkerConfigs(
         pkg,
         createRspackWorkerTargetConfig,
@@ -171,12 +171,12 @@ function getRspackBundleConfigs(pkg: Package): MultiRspackOptions {
         ...workerConfigs,
       ] as MultiRspackOptions;
     }
-    case '@affine/server': {
+    case '@polymind/server': {
       return [
         createRspackNodeTargetConfig(pkg, pkg.srcPath.join('index.ts').value),
       ] as MultiRspackOptions;
     }
-    case '@affine/reader': {
+    case '@polymind/reader': {
       return [
         createRspackNodeTargetConfig(pkg, pkg.srcPath.join('index.ts').value, {
           outputFilename: 'index.js',

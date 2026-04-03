@@ -1,5 +1,5 @@
-import { Menu, MenuItem, MenuTrigger } from '@affine/component/ui/menu';
-import { type I18n, I18nService } from '@affine/core/modules/i18n';
+import { Menu, MenuItem, MenuTrigger } from '@polymind/component/ui/menu';
+import { type I18n, I18nService } from '@polymind/core/modules/i18n';
 import { DoneIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import type { ReactElement } from 'react';

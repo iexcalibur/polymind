@@ -104,7 +104,7 @@ function main() {
     ProjectRoot.join('.docker', 'selfhost', 'schema.json').toString()
   );
   generateAdminConfigJson(
-    new Package('@affine/admin').join('src/config.json').toString()
+    new Package('@polymind/admin').join('src/config.json').toString()
   );
 }
 

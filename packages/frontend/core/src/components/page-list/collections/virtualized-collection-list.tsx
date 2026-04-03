@@ -1,5 +1,5 @@
-import { WorkspaceService } from '@affine/core/modules/workspace';
-import { Trans } from '@affine/i18n';
+import { WorkspaceService } from '@polymind/core/modules/workspace';
+import { Trans } from '@polymind/i18n';
 import { useLiveData, useService } from '@toeverything/infra';
 import { useCallback, useMemo, useRef, useState } from 'react';
 
@@ -89,7 +89,7 @@ export const VirtualizedCollectionList = ({
         open={showFloatingToolbar}
         content={
           <Trans
-            i18nKey="com.affine.collection.toolbar.selected"
+            i18nKey="com.polymind.collection.toolbar.selected"
             count={selectedCollectionIds.length}
           >
             <div style={{ color: 'var(--affine-text-secondary-color)' }}>

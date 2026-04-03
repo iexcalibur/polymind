@@ -12,26 +12,26 @@ import {
   Slider,
   Switch,
   useConfirmModal,
-} from '@affine/component';
+} from '@polymind/component';
 import {
   SettingRow,
   SettingWrapper,
-} from '@affine/component/setting-components';
-import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
-import { DesktopApiService } from '@affine/core/modules/desktop-api';
+} from '@polymind/component/setting-components';
+import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
+import { DesktopApiService } from '@polymind/core/modules/desktop-api';
 import {
   type EditorSettingSchema,
   EditorSettingService,
   type FontFamily,
   fontStyleOptions,
-} from '@affine/core/modules/editor-setting';
-import { SpellCheckSettingService } from '@affine/core/modules/editor-setting/services/spell-check-setting';
-import { FeatureFlagService } from '@affine/core/modules/feature-flag';
+} from '@polymind/core/modules/editor-setting';
+import { SpellCheckSettingService } from '@polymind/core/modules/editor-setting/services/spell-check-setting';
+import { FeatureFlagService } from '@polymind/core/modules/feature-flag';
 import {
   type FontData,
   SystemFontFamilyService,
-} from '@affine/core/modules/system-font-family';
-import { Trans, useI18n } from '@affine/i18n';
+} from '@polymind/core/modules/system-font-family';
+import { Trans, useI18n } from '@polymind/i18n';
 import { DoneIcon, SearchIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService, useServices } from '@toeverything/infra';
 import clsx from 'clsx';
@@ -51,13 +51,13 @@ import * as styles from './style.css';
 const getLabel = (fontKey: FontFamily, t: ReturnType<typeof useI18n>) => {
   switch (fontKey) {
     case 'Sans':
-      return t['com.affine.appearanceSettings.fontStyle.sans']();
+      return t['com.polymind.appearanceSettings.fontStyle.sans']();
     case 'Serif':
-      return t['com.affine.appearanceSettings.fontStyle.serif']();
+      return t['com.polymind.appearanceSettings.fontStyle.serif']();
     case 'Mono':
-      return t[`com.affine.appearanceSettings.fontStyle.mono`]();
+      return t[`com.polymind.appearanceSettings.fontStyle.mono`]();
     case 'Custom':
-      return t['com.affine.settings.editorSettings.edgeless.custom']();
+      return t['com.polymind.settings.editorSettings.edgeless.custom']();
     default:
       return '';
   }
@@ -119,8 +119,8 @@ const FontFamilySettings = () => {
 
   return (
     <SettingRow
-      name={t['com.affine.appearanceSettings.font.title']()}
-      desc={t['com.affine.appearanceSettings.font.description']()}
+      name={t['com.polymind.appearanceSettings.font.title']()}
+      desc={t['com.polymind.appearanceSettings.font.description']()}
     >
       <RadioGroup
         items={radioItems}
@@ -287,10 +287,10 @@ const CustomFontFamilySettings = () => {
   return (
     <SettingRow
       name={t[
-        'com.affine.settings.editorSettings.general.font-family.custom.title'
+        'com.polymind.settings.editorSettings.general.font-family.custom.title'
       ]()}
       desc={t[
-        'com.affine.settings.editorSettings.general.font-family.custom.description'
+        'com.polymind.settings.editorSettings.general.font-family.custom.description'
       ]()}
     >
       <Menu
@@ -336,9 +336,9 @@ const FontSizeSettings = () => {
 
   return (
     <SettingRow
-      name={t['com.affine.settings.editorSettings.general.font-size.title']()}
+      name={t['com.polymind.settings.editorSettings.general.font-size.title']()}
       desc={t[
-        'com.affine.settings.editorSettings.general.font-size.description'
+        'com.polymind.settings.editorSettings.general.font-size.description'
       ]()}
     >
       <div className={styles.fontSizeContainer}>
@@ -380,7 +380,7 @@ const NewDocDefaultModeSettings = () => {
         },
         {
           value: 'ask',
-          label: t['com.affine.settings.editorSettings.ask-me-every-time'](),
+          label: t['com.polymind.settings.editorSettings.ask-me-every-time'](),
           testId: 'ask-every-time-trigger',
         },
       ] as const,
@@ -395,10 +395,10 @@ const NewDocDefaultModeSettings = () => {
   return (
     <SettingRow
       name={t[
-        'com.affine.settings.editorSettings.general.default-new-doc.title'
+        'com.polymind.settings.editorSettings.general.default-new-doc.title'
       ]()}
       desc={t[
-        'com.affine.settings.editorSettings.general.default-new-doc.description'
+        'com.polymind.settings.editorSettings.general.default-new-doc.description'
       ]()}
     >
       <Menu
@@ -445,19 +445,19 @@ const AISettings = () => {
     (checked: boolean) => {
       openConfirmModal({
         title: checked
-          ? t['com.affine.settings.editorSettings.general.ai.enable.title']()
-          : t['com.affine.settings.editorSettings.general.ai.disable.title'](),
+          ? t['com.polymind.settings.editorSettings.general.ai.enable.title']()
+          : t['com.polymind.settings.editorSettings.general.ai.disable.title'](),
         description: checked
           ? t[
-              'com.affine.settings.editorSettings.general.ai.enable.description'
+              'com.polymind.settings.editorSettings.general.ai.enable.description'
             ]()
           : t[
-              'com.affine.settings.editorSettings.general.ai.disable.description'
+              'com.polymind.settings.editorSettings.general.ai.disable.description'
             ](),
         confirmText: checked
-          ? t['com.affine.settings.editorSettings.general.ai.enable.confirm']()
+          ? t['com.polymind.settings.editorSettings.general.ai.enable.confirm']()
           : t[
-              'com.affine.settings.editorSettings.general.ai.disable.confirm'
+              'com.polymind.settings.editorSettings.general.ai.disable.confirm'
             ](),
         cancelText: t['Cancel'](),
         onConfirm: () => onAIChange(checked),
@@ -471,8 +471,8 @@ const AISettings = () => {
 
   return (
     <SettingRow
-      name={t['com.affine.settings.editorSettings.general.ai.title']()}
-      desc={t['com.affine.settings.editorSettings.general.ai.description']()}
+      name={t['com.polymind.settings.editorSettings.general.ai.title']()}
+      desc={t['com.polymind.settings.editorSettings.general.ai.description']()}
     >
       <Switch checked={enableAI} onChange={onToggleAI} />
     </SettingRow>
@@ -503,11 +503,11 @@ const SpellCheckSettings = () => {
 
   return (
     <SettingRow
-      name={t['com.affine.settings.editorSettings.general.spell-check.title']()}
+      name={t['com.polymind.settings.editorSettings.general.spell-check.title']()}
       desc={
         requireRestart ? (
           <div className={styles.spellCheckSettingDescription}>
-            <Trans i18nKey="com.affine.settings.editorSettings.general.spell-check.restart-hint">
+            <Trans i18nKey="com.polymind.settings.editorSettings.general.spell-check.restart-hint">
               Settings changed; please restart the app.
               <button
                 onClick={onRestart}
@@ -519,7 +519,7 @@ const SpellCheckSettings = () => {
           </div>
         ) : (
           t[
-            'com.affine.settings.editorSettings.general.spell-check.description'
+            'com.polymind.settings.editorSettings.general.spell-check.description'
           ]()
         )
       }
@@ -542,10 +542,10 @@ const MiddleClickPasteSettings = () => {
   return (
     <SettingRow
       name={t[
-        'com.affine.settings.editorSettings.general.middle-click-paste.title'
+        'com.polymind.settings.editorSettings.general.middle-click-paste.title'
       ]()}
       desc={t[
-        'com.affine.settings.editorSettings.general.middle-click-paste.description'
+        'com.polymind.settings.editorSettings.general.middle-click-paste.description'
       ]()}
     >
       <Switch
@@ -560,7 +560,7 @@ export const General = () => {
   const t = useI18n();
 
   return (
-    <SettingWrapper title={t['com.affine.settings.editorSettings.general']()}>
+    <SettingWrapper title={t['com.polymind.settings.editorSettings.general']()}>
       <AISettings />
       <FontFamilySettings />
       <CustomFontFamilySettings />

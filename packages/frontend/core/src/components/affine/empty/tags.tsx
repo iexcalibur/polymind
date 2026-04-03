@@ -1,4 +1,4 @@
-import { useI18n } from '@affine/i18n';
+import { useI18n } from '@polymind/i18n';
 
 import tagsDark from './assets/tag-list.dark.png';
 import tagsLight from './assets/tag-list.light.png';
@@ -12,8 +12,8 @@ export const EmptyTags = (props: UniversalEmptyProps) => {
     <EmptyLayout
       illustrationLight={tagsLight}
       illustrationDark={tagsDark}
-      title={t['com.affine.empty.tags.title']()}
-      description={t['com.affine.empty.tags.description']()}
+      title={t['com.polymind.empty.tags.title']()}
+      description={t['com.polymind.empty.tags.description']()}
       {...props}
     />
   );

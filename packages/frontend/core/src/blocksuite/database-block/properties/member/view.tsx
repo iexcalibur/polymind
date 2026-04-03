@@ -1,4 +1,4 @@
-import { Avatar, Popover, uniReactRoot } from '@affine/component';
+import { Avatar, Popover, uniReactRoot } from '@polymind/component';
 import {
   type Cell,
   type CellRenderProps,
