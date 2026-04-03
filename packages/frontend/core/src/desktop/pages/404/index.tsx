@@ -14,7 +14,6 @@ import {
 
 /**
  * only for web, should not be used in electron
- * ServersService and SignIn have been removed.
  */
 export const PageNotFound = ({
   noPermission,

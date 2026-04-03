@@ -4,6 +4,7 @@ import {
   deleteCommentMutation,
   deleteReplyMutation,
   type DocMode,
+  gqlFetcherFactory,
   listCommentChangesQuery,
   type ListCommentsQuery,
   listCommentsQuery,
@@ -65,6 +66,10 @@ const normalizeComment = (comment: GQLCommentType): DocComment => ({
   replies: comment.replies?.map(normalizeReply) ?? [],
 });
 
+const gql = gqlFetcherFactory('/graphql', (input, init) =>
+  globalThis.fetch(input, { ...init, credentials: 'include' })
+);
+
 export class DocCommentStore extends Entity<{
   docId: string;
   getDocMode: () => DocMode;
@@ -72,11 +77,6 @@ export class DocCommentStore extends Entity<{
 }> {
   constructor(private readonly workspaceService: WorkspaceService) {
     super();
-  }
-
-  private get graphqlService(): any {
-    // Cloud module removed - graphql not available
-    return null;
   }
 
   private get currentWorkspaceId() {
@@ -88,11 +88,7 @@ export class DocCommentStore extends Entity<{
   }: {
     after?: string;
   }): Promise<DocCommentListResult> {
-    const graphql = this.graphqlService;
-    if (!graphql) {
-      throw new Error('GraphQL service not found');
-    }
-    const response = await graphql.gql({
+    const response = await gql({
       query: listCommentsQuery,
       variables: {
         pagination: {
@@ -121,18 +117,12 @@ export class DocCommentStore extends Entity<{
     };
   }
 
-  // pool every 30s
   async listCommentChanges({
     after,
   }: {
     after?: string;
   }): Promise<DocCommentChangeListResult> {
-    const graphql = this.graphqlService;
-    if (!graphql) {
-      throw new Error('GraphQL service not found');
-    }
-
-    const response = await graphql.gql({
+    const response = await gql({
       query: listCommentChangesQuery,
       variables: {
         pagination: {
@@ -170,14 +160,9 @@ export class DocCommentStore extends Entity<{
     content: DocCommentContent;
     mentions?: string[];
   }): Promise<DocComment> {
-    const graphql = this.graphqlService;
-    if (!graphql) {
-      throw new Error('GraphQL service not found');
-    }
-
     const mentions = commentInput.mentions;
 
-    const response = await graphql.gql({
+    const response = await gql({
       query: createCommentMutation,
       variables: {
         input: {
@@ -201,12 +186,7 @@ export class DocCommentStore extends Entity<{
       content: DocCommentContent;
     }
   ): Promise<void> {
-    const graphql = this.graphqlService;
-    if (!graphql) {
-      throw new Error('GraphQL service not found');
-    }
-
-    await graphql.gql({
+    await gql({
       query: updateCommentMutation,
       variables: {
         input: {
@@ -218,12 +198,7 @@ export class DocCommentStore extends Entity<{
   }
 
   async resolveComment(commentId: string, resolved = true): Promise<boolean> {
-    const graphql = this.graphqlService;
-    if (!graphql) {
-      throw new Error('GraphQL service not found');
-    }
-
-    const response = await graphql.gql({
+    const response = await gql({
       query: resolveCommentMutation,
       variables: {
         input: {
@@ -237,12 +212,7 @@ export class DocCommentStore extends Entity<{
   }
 
   async deleteComment(commentId: string): Promise<boolean> {
-    const graphql = this.graphqlService;
-    if (!graphql) {
-      throw new Error('GraphQL service not found');
-    }
-
-    const response = await graphql.gql({
+    const response = await gql({
       query: deleteCommentMutation,
       variables: {
         id: commentId,
@@ -258,12 +228,7 @@ export class DocCommentStore extends Entity<{
       mentions?: string[];
     }
   ): Promise<DocCommentReply> {
-    const graphql = this.graphqlService;
-    if (!graphql) {
-      throw new Error('GraphQL service not found');
-    }
-
-    const response = await graphql.gql({
+    const response = await gql({
       query: createReplyMutation,
       variables: {
         input: {
@@ -284,12 +249,7 @@ export class DocCommentStore extends Entity<{
       content: DocCommentContent;
     }
   ): Promise<void> {
-    const graphql = this.graphqlService;
-    if (!graphql) {
-      throw new Error('GraphQL service not found');
-    }
-
-    await graphql.gql({
+    await gql({
       query: updateReplyMutation,
       variables: {
         input: {
@@ -301,12 +261,7 @@ export class DocCommentStore extends Entity<{
   }
 
   async deleteReply(replyId: string): Promise<void> {
-    const graphql = this.graphqlService;
-    if (!graphql) {
-      throw new Error('GraphQL service not found');
-    }
-
-    await graphql.gql({
+    await gql({
       query: deleteReplyMutation,
       variables: {
         id: replyId,
@@ -320,12 +275,7 @@ export class DocCommentStore extends Entity<{
    * @returns url string returned by server
    */
   uploadCommentAttachment = async (file: File): Promise<string> => {
-    const graphql = this.graphqlService;
-    if (!graphql) {
-      throw new Error('GraphQL service not found');
-    }
-
-    const res = await graphql.gql({
+    const res = await gql({
       timeout: 180_000,
       query: uploadCommentAttachmentMutation,
       variables: {

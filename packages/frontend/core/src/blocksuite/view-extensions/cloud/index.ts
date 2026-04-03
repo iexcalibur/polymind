@@ -19,7 +19,5 @@ export class CloudViewExtension extends ViewExtensionProvider<CloudViewOptions> 
 
   override setup(context: ViewExtensionContext, _options?: CloudViewOptions) {
     super.setup(context, _options);
-    // Cloud services (AuthService, PublicUserService) have been removed.
-    // This extension is now a no-op.
   }
 }

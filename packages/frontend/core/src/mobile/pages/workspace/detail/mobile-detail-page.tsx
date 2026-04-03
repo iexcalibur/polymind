@@ -10,7 +10,6 @@ import { DetailPageWrapper } from '@affine/core/desktop/pages/workspace/detail-p
 import { PageHeader } from '@affine/core/mobile/components';
 import { useGlobalEvent } from '@affine/core/mobile/hooks/use-global-events';
 import { AIButtonService } from '@affine/core/modules/ai-button';
-import { ServerService } from '@affine/core/modules/cloud';
 import { DocService } from '@affine/core/modules/doc';
 import { DocDisplayMetaService } from '@affine/core/modules/doc-display-meta';
 import { EditorService } from '@affine/core/modules/editor';
@@ -128,14 +127,12 @@ const DetailPageImpl = () => {
     };
   }, [globalContext, isInTrash]);
 
-  const server = useService(ServerService).server;
-
   const onLoad = useCallback(
     (editorContainer: AffineEditorContainer) => {
       // provide image proxy endpoint to blocksuite
       const imageProxyUrl = new URL(
         BUILD_CONFIG.imageProxyUrl,
-        server.baseUrl
+        window.location.origin
       ).toString();
 
       editorContainer.std.clipboard.use(
@@ -178,7 +175,7 @@ const DetailPageImpl = () => {
         disposable.dispose();
       };
     },
-    [docCollection.id, editor, jumpToPageBlock, openPage, server]
+    [docCollection.id, editor, jumpToPageBlock, openPage]
   );
 
   const canEdit = useGuard('Doc_Update', doc.id);

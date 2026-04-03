@@ -8,8 +8,6 @@ import { AddWorkspace } from './add-workspace';
 import * as styles from './index.css';
 import { AFFiNEWorkspaceList } from './workspace-list';
 
-// SignInItem removed — local-only mode, no cloud auth
-
 interface UserWithWorkspaceListProps {
   onEventEnd?: () => void;
   onClickWorkspace?: (workspace: WorkspaceMetadata) => void;
@@ -28,7 +26,6 @@ export const UserWithWorkspaceList = ({
 }: UserWithWorkspaceListProps) => {
   const globalDialogService = useService(GlobalDialogService);
 
-  // Local-only mode: always allow creating local workspace, no auth needed
   const onNewWorkspace = useCallback(() => {
     globalDialogService.open('create-workspace', {}, payload => {
       if (payload) {

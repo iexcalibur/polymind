@@ -261,7 +261,7 @@ class CloudWorkspaceFlavourProvider implements WorkspaceFlavourProvider {
       ({ accountId }) => {
         return fromPromise(async signal => {
           if (!accountId) {
-            return null; // no cloud workspace if no account
+            return null;
           }
 
           const { workspaces } = await this.graphqlService.gql({

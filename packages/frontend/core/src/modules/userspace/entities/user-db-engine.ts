@@ -31,7 +31,6 @@ export class UserDBEngine extends Entity<{
   constructor(private readonly nbstoreService: NbstoreService) {
     super();
 
-    // Cloud module removed - use local-only store
     const { store, dispose } = this.nbstoreService.openStore(
       `userspace:local,${this.userId}`,
       {

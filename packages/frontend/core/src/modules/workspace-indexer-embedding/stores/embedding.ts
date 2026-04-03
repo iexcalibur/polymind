@@ -7,7 +7,6 @@ export class EmbeddingStore extends Store {
   }
 
   async getEnabled(_workspaceId: string, _signal?: AbortSignal) {
-    // Cloud module removed
     return false;
   }
 
@@ -16,7 +15,7 @@ export class EmbeddingStore extends Store {
     _enabled: boolean,
     _signal?: AbortSignal
   ) {
-    throw new Error('No Server (cloud module removed)');
+    return undefined;
   }
 
   async getIgnoredDocs(_workspaceId: string, _signal?: AbortSignal) {
@@ -29,7 +28,7 @@ export class EmbeddingStore extends Store {
     _remove: string[],
     _signal?: AbortSignal
   ) {
-    throw new Error('No Server (cloud module removed)');
+    return undefined;
   }
 
   async addEmbeddingFile(
@@ -37,7 +36,7 @@ export class EmbeddingStore extends Store {
     _blob: File,
     _signal?: AbortSignal
   ) {
-    throw new Error('No Server (cloud module removed)');
+    return undefined;
   }
 
   async addEmbeddingFiles(
@@ -45,7 +44,7 @@ export class EmbeddingStore extends Store {
     _files: File[],
     _signal?: AbortSignal
   ) {
-    throw new Error('No Server (cloud module removed)');
+    return undefined;
   }
 
   async removeEmbeddingFile(
@@ -53,7 +52,7 @@ export class EmbeddingStore extends Store {
     _fileId: string,
     _signal?: AbortSignal
   ) {
-    throw new Error('No Server (cloud module removed)');
+    return undefined;
   }
 
   async removeEmbeddingFiles(
@@ -61,7 +60,7 @@ export class EmbeddingStore extends Store {
     _fileIds: string[],
     _signal?: AbortSignal
   ) {
-    throw new Error('No Server (cloud module removed)');
+    return undefined;
   }
 
   async getEmbeddingFiles(
@@ -69,10 +68,10 @@ export class EmbeddingStore extends Store {
     _pagination: PaginationInput,
     _signal?: AbortSignal
   ) {
-    throw new Error('No Server (cloud module removed)');
+    return { files: [], totalCount: 0 };
   }
 
   async getEmbeddingProgress(_workspaceId: string, _signal?: AbortSignal) {
-    throw new Error('No Server (cloud module removed)');
+    return undefined;
   }
 }

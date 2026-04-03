@@ -7,7 +7,6 @@ import {
 import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
 import { GlobalContextService } from '@affine/core/modules/global-context';
 import { NavigationPanelService } from '@affine/core/modules/navigation-panel';
-import { ShareDocsListService } from '@affine/core/modules/share-doc';
 import { useI18n } from '@affine/i18n';
 import { FilterMinusIcon, ViewLayersIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService, useServices } from '@toeverything/infra';
@@ -124,15 +123,9 @@ const NavigationPanelCollectionNodeChildren = ({
   path: string[];
 }) => {
   const t = useI18n();
-  const { shareDocsListService, collectionService } = useServices({
-    ShareDocsListService,
+  const { collectionService } = useServices({
     CollectionService,
   });
-
-  useEffect(() => {
-    // TODO(@eyhn): loading & error UI
-    shareDocsListService.shareDocs?.revalidate();
-  }, [shareDocsListService]);
 
   const allowList = useLiveData(collection.allowList$);
 

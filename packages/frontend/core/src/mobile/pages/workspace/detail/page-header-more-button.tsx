@@ -72,7 +72,6 @@ export const PageHeaderMenuButton = () => {
 
   const handleMenuOpenChange = useCallback((open: boolean) => {
     if (open) {
-      // no-op
     }
     setOpen(open);
   }, []);

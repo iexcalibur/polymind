@@ -17,7 +17,6 @@ export class DocSummaryStore extends Store {
   }
 
   async getDocSummaryFromCloud(_docId: string) {
-    // Cloud module removed - no GraphQL available
     return undefined;
   }
 

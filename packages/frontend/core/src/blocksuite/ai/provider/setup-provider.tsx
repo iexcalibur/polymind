@@ -1,5 +1,4 @@
 import { toggleGeneralAIOnboarding } from '@affine/core/components/affine/ai-onboarding/apis';
-import type { AuthAccountInfo, AuthService } from '@affine/core/modules/cloud';
 import type { GlobalDialogService } from '@affine/core/modules/dialogs';
 import {
   type AddContextFileInput,
@@ -10,6 +9,7 @@ import {
   type RequestOptions,
   type UpdateChatSessionInput,
 } from '@affine/graphql';
+import type { Observable } from 'rxjs';
 import { z } from 'zod';
 
 import { AIProvider } from './ai-provider';
@@ -17,7 +17,21 @@ import { type CopilotClient, Endpoint } from './copilot-client';
 import type { PromptKey } from './prompt';
 import { textToText, toImage } from './request';
 
-function toAIUserInfo(account: AuthAccountInfo | null) {
+interface AccountInfo {
+  id: string;
+  label: string;
+  avatar?: string | null;
+  email?: string | null;
+}
+
+interface AuthServiceLike {
+  session: {
+    account$: Observable<AccountInfo | null> & { value: AccountInfo | null };
+    revalidate: () => void;
+  };
+}
+
+function toAIUserInfo(account: AccountInfo | null) {
   if (!account) return null;
   return {
     avatarUrl: account.avatar ?? '',
@@ -47,7 +61,7 @@ const processTypeToPromptName = new Map<string, PromptKey>(
 export function setupAIProvider(
   client: CopilotClient,
   globalDialogService: GlobalDialogService,
-  authService: AuthService
+  authService?: AuthServiceLike
 ) {
   async function createSession({
     promptName,
@@ -71,10 +85,11 @@ export function setupAIProvider(
   }
 
   AIProvider.provide('userInfo', () => {
+    if (!authService) return null;
     return toAIUserInfo(authService.session.account$.value);
   });
 
-  const accountSubscription = authService.session.account$.subscribe(
+  const accountSubscription = authService?.session.account$.subscribe(
     account => {
       AIProvider.slots.userInfo.next(toAIUserInfo(account));
     }
@@ -865,6 +880,6 @@ Could you make a new website based on these notes and send back just the html fi
 
   return () => {
     disposeRequestLoginHandler.unsubscribe();
-    accountSubscription.unsubscribe();
+    accountSubscription?.unsubscribe();
   };
 }

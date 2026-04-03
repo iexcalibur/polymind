@@ -1,16 +1,32 @@
-import type {
-  AuthService,
-  PublicUserService,
-} from '@affine/core/modules/cloud';
 import { UserFriendlyError } from '@affine/error';
 import {
   type AffineUserInfo,
   UserServiceExtension,
 } from '@blocksuite/affine/shared/services';
 
+interface AccountInfo {
+  id: string;
+  label: string;
+  avatar?: string | null;
+  email?: string | null;
+}
+
+interface AuthServiceLike {
+  session: {
+    account$: { map: (fn: (a: AccountInfo | null) => AffineUserInfo | null) => { signal: unknown } };
+  };
+}
+
+interface PublicUserServiceLike {
+  publicUser$(id: string): { signal: unknown };
+  isLoading$(id: string): { signal: unknown };
+  error$(id: string): { selector: (fn: (e: unknown) => string | null) => { signal: unknown } };
+  revalidate(id: string): void;
+}
+
 export function patchUserExtensions(
-  publicUserService: PublicUserService,
-  authService: AuthService
+  publicUserService: PublicUserServiceLike,
+  authService: AuthServiceLike
 ) {
   return UserServiceExtension({
     // eslint-disable-next-line rxjs/finnish

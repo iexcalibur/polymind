@@ -17,11 +17,11 @@ export class DocGrantedUsersStore extends Store {
     _pagination: PaginationInput,
     _signal?: AbortSignal
   ) {
-    throw new Error('No Server (cloud module removed)');
+    return { users: [], totalCount: 0 };
   }
 
   async grantDocUserRoles(_input: GrantDocUserRolesInput) {
-    throw new Error('No Server (cloud module removed)');
+    return false;
   }
 
   async revokeDocUserRoles(
@@ -29,7 +29,7 @@ export class DocGrantedUsersStore extends Store {
     _docId: string,
     _userId: string
   ) {
-    throw new Error('No Server (cloud module removed)');
+    return false;
   }
 
   async updateDocUserRole(
@@ -38,10 +38,10 @@ export class DocGrantedUsersStore extends Store {
     _userId: string,
     _role: DocRole
   ) {
-    throw new Error('No Server (cloud module removed)');
+    return false;
   }
 
   async updateDocDefaultRole(_input: UpdateDocDefaultRoleInput) {
-    throw new Error('No Server (cloud module removed)');
+    return false;
   }
 }

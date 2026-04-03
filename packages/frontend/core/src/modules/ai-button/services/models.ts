@@ -43,7 +43,6 @@ export class AIModelService extends Service {
   };
 
   setModel = (modelId: string) => {
-    // Cloud module removed - no subscription check
     this.globalStateService.globalState.set(AI_MODEL_ID_KEY, modelId);
   };
 }

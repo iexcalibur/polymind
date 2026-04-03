@@ -59,7 +59,6 @@ export const AFFiNESharePage = (
   const {
     workspaceMetadata: { id: workspaceId },
   } = props;
-  // ShareInfoService removed (share-doc module deleted)
   const docService = useService(DocService);
 
   const canManageUsers = useGuard('Doc_Users_Manage', docService.doc.id);

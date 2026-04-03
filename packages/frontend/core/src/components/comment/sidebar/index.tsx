@@ -8,7 +8,6 @@ import {
   useConfirmModal,
 } from '@affine/component';
 import { useGuard } from '@affine/core/components/guard';
-// AuthService has been removed; account will be null
 import { type DocCommentEntity } from '@affine/core/modules/comment/entities/doc-comment';
 import { CommentPanelService } from '@affine/core/modules/comment/services/comment-panel-service';
 import { DocCommentManagerService } from '@affine/core/modules/comment/services/doc-comment-manager';

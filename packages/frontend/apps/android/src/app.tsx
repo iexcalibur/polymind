@@ -6,15 +6,6 @@ import { VirtualKeyboardProvider } from '@affine/core/mobile/modules/virtual-key
 import { router } from '@affine/core/mobile/router';
 import { configureCommonModules } from '@affine/core/modules';
 import { AIButtonProvider } from '@affine/core/modules/ai-button';
-import {
-  AuthProvider,
-  AuthService,
-  DefaultServerService,
-  ServerScope,
-  ServerService,
-  ServersService,
-  ValidatorProvider,
-} from '@affine/core/modules/cloud';
 import { registerNativePreviewHandlers } from '@affine/core/modules/code-block-preview-renderer';
 import { DocsService } from '@affine/core/modules/doc';
 import { GlobalContextService } from '@affine/core/modules/global-context';
@@ -51,11 +42,8 @@ import { RouterProvider } from 'react-router-dom';
 
 import { AffineTheme } from './plugins/affine-theme';
 import { AIButton } from './plugins/ai-button';
-import { Auth } from './plugins/auth';
-import { HashCash } from './plugins/hashcash';
 import { NbStoreNativeDBApis } from './plugins/nbstore';
 import { Preview } from './plugins/preview';
-import { writeEndpointToken } from './proxy';
 
 const storeManagerClient = createStoreManagerClient();
 window.addEventListener('beforeunload', () => {
@@ -156,13 +144,6 @@ framework.impl(VirtualKeyboardProvider, {
   },
 });
 
-framework.impl(ValidatorProvider, {
-  async validate(_challenge, resource) {
-    const res = await HashCash.hash({ challenge: resource });
-    return res.value;
-  },
-});
-
 framework.impl(AIButtonProvider, {
   presentAIButton: () => {
     return AIButton.present();
@@ -172,54 +153,9 @@ framework.impl(AIButtonProvider, {
   },
 });
 
-framework.scope(ServerScope).override(AuthProvider, resolver => {
-  const serverService = resolver.get(ServerService);
-  const endpoint = serverService.server.baseUrl;
-  return {
-    async signInMagicLink(email, linkToken, clientNonce) {
-      const { token } = await Auth.signInMagicLink({
-        endpoint,
-        email,
-        token: linkToken,
-        clientNonce,
-      });
-      await writeEndpointToken(endpoint, token);
-    },
-    async signInOauth(code, state, _provider, clientNonce) {
-      const { token } = await Auth.signInOauth({
-        endpoint,
-        code,
-        state,
-        clientNonce,
-      });
-      await writeEndpointToken(endpoint, token);
-      return {};
-    },
-    async signInPassword(credential) {
-      const { token } = await Auth.signInPassword({
-        endpoint,
-        ...credential,
-      });
-      await writeEndpointToken(endpoint, token);
-    },
-    async signOut() {
-      await Auth.signOut({
-        endpoint,
-      });
-    },
-  };
-});
-
 // ------ some apis for native ------
 (window as any).getCurrentServerBaseUrl = () => {
-  const globalContextService = frameworkProvider.get(GlobalContextService);
-  const currentServerId = globalContextService.globalContext.serverId.get();
-  const serversService = frameworkProvider.get(ServersService);
-  const defaultServerService = frameworkProvider.get(DefaultServerService);
-  const currentServer =
-    (currentServerId ? serversService.server$(currentServerId).value : null) ??
-    defaultServerService.server;
-  return currentServer.baseUrl;
+  return window.location.origin;
 };
 (window as any).getCurrentI18nLocale = () => {
   return I18n.language;
@@ -296,35 +232,7 @@ frameworkProvider.get(LifecycleService).applicationStart();
 CapacitorApp.addListener('appUrlOpen', ({ url }) => {
   // try to close browser if it's open
   InAppBrowser.close().catch(e => console.error('Failed to close browser', e));
-
-  const urlObj = new URL(url);
-
-  if (urlObj.hostname === 'authentication') {
-    const method = urlObj.searchParams.get('method');
-    const payload = JSON.parse(urlObj.searchParams.get('payload') ?? 'false');
-
-    if (
-      !method ||
-      (method !== 'magic-link' && method !== 'oauth') ||
-      !payload
-    ) {
-      console.error('Invalid authentication url', url);
-      return;
-    }
-
-    const authService = frameworkProvider
-      .get(DefaultServerService)
-      .server.scope.get(AuthService);
-    if (method === 'oauth') {
-      authService
-        .signInOauth(payload.code, payload.state, payload.provider)
-        .catch(console.error);
-    } else if (method === 'magic-link') {
-      authService
-        .signInMagicLink(payload.email, payload.token)
-        .catch(console.error);
-    }
-  }
+  console.log('App URL opened (auth disabled):', url);
 }).catch(e => {
   console.error(e);
 });

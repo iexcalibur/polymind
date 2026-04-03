@@ -1,12 +1,7 @@
 import { uniReactRoot } from '@affine/component';
 import { AffineErrorBoundary } from '@affine/core/components/affine/affine-error-boundary';
-import { AiLoginRequiredModal } from '@affine/core/components/affine/auth/ai-login-required';
 import { SWRConfigProvider } from '@affine/core/components/providers/swr-config-provider';
 import { WorkspaceSideEffects } from '@affine/core/components/providers/workspace-side-effects';
-import {
-  DefaultServerService,
-  WorkspaceServerService,
-} from '@affine/core/modules/cloud';
 import { GlobalContextService } from '@affine/core/modules/global-context';
 import { PeekViewManagerModal } from '@affine/core/modules/peek-view';
 import type {
@@ -52,16 +47,13 @@ export const WorkspaceLayout = ({
   meta,
   children,
 }: PropsWithChildren<{ meta: WorkspaceMetadata }>) => {
-  // todo: reduce code duplication with packages\frontend\core\src\pages\workspace\index.tsx
-  const { workspacesService, globalContextService, defaultServerService } =
+  const { workspacesService, globalContextService } =
     useServices({
       WorkspacesService,
       GlobalContextService,
-      DefaultServerService,
     });
 
   const [workspace, setWorkspace] = useState<Workspace | null>(null);
-  const workspaceServer = workspace?.scope.get(WorkspaceServerService)?.server;
 
   useLayoutEffect(() => {
     const ref = workspacesService.open({ metadata: meta });
@@ -82,31 +74,20 @@ export const WorkspaceLayout = ({
           },
         })
       );
-      // Don't store last workspace id — always start fresh
       globalContextService.globalContext.workspaceId.set(workspace.id);
-      if (workspaceServer) {
-        globalContextService.globalContext.serverId.set(workspaceServer.id);
-      }
       globalContextService.globalContext.workspaceFlavour.set(
         workspace.flavour
       );
       return () => {
         window.currentWorkspace = undefined;
         globalContextService.globalContext.workspaceId.set(null);
-        if (workspaceServer) {
-          globalContextService.globalContext.serverId.set(
-            defaultServerService.server.id
-          );
-        }
         globalContextService.globalContext.workspaceFlavour.set(null);
       };
     }
     return;
   }, [
-    defaultServerService.server.id,
     globalContextService,
     workspace,
-    workspaceServer,
   ]);
 
   const rootDocReady$ = useMemo(
@@ -132,21 +113,18 @@ export const WorkspaceLayout = ({
   }
 
   return (
-    <FrameworkScope scope={workspaceServer?.scope}>
-      <FrameworkScope scope={workspace.scope}>
-        <AffineErrorBoundary height="100dvh">
-          <SWRConfigProvider>
-            <WorkspaceDialogs />
+    <FrameworkScope scope={workspace.scope}>
+      <AffineErrorBoundary height="100dvh">
+        <SWRConfigProvider>
+          <WorkspaceDialogs />
 
-            {/* ---- some side-effect components ---- */}
-            <PeekViewManagerModal />
-            <AiLoginRequiredModal />
-            <uniReactRoot.Root />
-            <WorkspaceSideEffects />
-            {children}
-          </SWRConfigProvider>
-        </AffineErrorBoundary>
-      </FrameworkScope>
+          {/* ---- some side-effect components ---- */}
+          <PeekViewManagerModal />
+          <uniReactRoot.Root />
+          <WorkspaceSideEffects />
+          {children}
+        </SWRConfigProvider>
+      </AffineErrorBoundary>
     </FrameworkScope>
   );
 };

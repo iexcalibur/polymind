@@ -95,7 +95,6 @@ export class WorkspaceDBService extends Service {
   }
 
   public get userdataDB$() {
-    // Cloud module removed - always use local userdata
     return new LiveData(this.userdataDB('__local__'));
   }
 

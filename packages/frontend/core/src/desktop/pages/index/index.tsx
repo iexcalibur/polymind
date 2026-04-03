@@ -21,9 +21,6 @@ import {
 } from '../../../components/hooks/use-navigate-helper';
 import { AppContainer } from '../../components/app-container';
 
-/**
- * index page — always start fresh with a local workspace, no cloud.
- */
 export const Component = ({
   defaultIndexRoute = 'all',
   fallback,

@@ -8,6 +8,5 @@ export class CurrentUserDB extends Entity {
     super();
   }
 
-  // Cloud module removed - no auth, always null
   db$ = new LiveData<UserDBWithTables | null>(null);
 }

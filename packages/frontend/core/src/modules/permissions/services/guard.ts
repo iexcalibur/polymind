@@ -38,10 +38,8 @@ export class GuardService extends Service {
     _action: T,
     ..._args: T extends DocPermissionActions ? [string] : []
   ) {
-    // No-op: always permitted
   }
 
   override dispose() {
-    // No-op
   }
 }

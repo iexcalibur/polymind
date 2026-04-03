@@ -2,7 +2,6 @@ import { configureElectronStateStorageImpls } from '@affine/core/desktop/storage
 import { configureCommonModules } from '@affine/core/modules';
 import { configureAppTabsHeaderModule } from '@affine/core/modules/app-tabs-header';
 import { configureDesktopBackupModule } from '@affine/core/modules/backup';
-import { ValidatorProvider } from '@affine/core/modules/cloud';
 import {
   configureDesktopApiModule,
   DesktopApiService,
@@ -51,19 +50,6 @@ export function setupModules() {
       },
     };
   });
-  framework.impl(ValidatorProvider, p => {
-    const apis = p.get(DesktopApiService).api;
-    return {
-      async validate(_challenge, resource) {
-        const token = await apis.handler.ui.getChallengeResponse(resource);
-        if (!token) {
-          throw new Error('Challenge failed');
-        }
-        return token;
-      },
-    };
-  });
-
   const frameworkProvider = framework.provider();
 
   return { framework, frameworkProvider };

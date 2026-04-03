@@ -142,7 +142,6 @@ export const Export = ({ exportHandler, className, pageMode }: ExportProps) => {
   );
   const handleExportMenuOpenChange = useCallback((open: boolean) => {
     if (open) {
-      // no-op
     }
   }, []);
 

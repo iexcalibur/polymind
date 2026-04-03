@@ -19,7 +19,6 @@ export class CalendarStore extends Store {
   }
 
   private get gql(): any {
-    // Cloud module removed - no GraphQL available
     return null;
   }
 
@@ -55,7 +54,7 @@ export class CalendarStore extends Store {
   async updateWorkspaceCalendars(items: WorkspaceCalendarItemInput[]) {
     const gql = this.gql;
     if (!gql) {
-      throw new Error('No graphql service available');
+      return [];
     }
     const data = await gql({
       query: updateWorkspaceCalendarsMutation,

@@ -22,19 +22,6 @@ import {
   AIToolsConfigService,
 } from '@affine/core/modules/ai-button';
 import { AIModelService } from '@affine/core/modules/ai-button/services/models';
-import { ServerDeploymentType } from '@affine/graphql';
-import { LiveData } from '@toeverything/infra';
-
-// Stubs for removed cloud services — satisfy Lit component property access
-const LOCAL_SERVER_STUB = {
-  server: { config$: new LiveData({ type: ServerDeploymentType.Selfhosted }) },
-} as any;
-const LOCAL_SUBSCRIPTION_STUB = {
-  subscription: {
-    ai$: new LiveData(null),
-    revalidate() {},
-  },
-} as any;
 import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
 import { FeatureFlagService } from '@affine/core/modules/feature-flag';
 import { PeekViewService } from '@affine/core/modules/peek-view';
@@ -310,8 +297,6 @@ export const Component = () => {
     content.notificationService = notificationService;
     content.aiDraftService = framework.get(AIDraftService);
     content.aiToolsConfigService = framework.get(AIToolsConfigService);
-    content.serverService = LOCAL_SERVER_STUB;
-    content.subscriptionService = LOCAL_SUBSCRIPTION_STUB;
     content.aiModelService = framework.get(AIModelService);
     content.onAISubscribe = handleAISubscribe;
 

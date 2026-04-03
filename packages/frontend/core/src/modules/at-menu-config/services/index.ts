@@ -367,7 +367,6 @@ export class AtMenuConfigService extends Service {
             length: 0,
           });
 
-          // Notification service removed (cloud module deleted)
         },
       };
     };
@@ -387,7 +386,7 @@ export class AtMenuConfigService extends Service {
 
     const items = computed<LinkedMenuItem[]>(() => {
       const members = this.memberSearchService.result$.signal.value;
-      const currentUser = null; // cloud module removed
+      const currentUser = null;
       const canUserManage = this.guardService.can$('Workspace_Users_Manage')
         .signal.value;
 

@@ -3,7 +3,6 @@ import { AuthHeader } from '@affine/component/auth-components';
 import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
 import { useWorkspaceName } from '@affine/core/components/hooks/use-workspace-info';
 import { WorkspaceSelector } from '@affine/core/components/workspace-selector';
-// AuthService and ServerService have been removed
 import {
   type ClipperInput,
   ImportClipperService,

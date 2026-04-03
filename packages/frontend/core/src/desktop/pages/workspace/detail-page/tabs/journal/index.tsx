@@ -115,7 +115,6 @@ export const EditorJournalPanel = () => {
   const viewService = useService(ViewService);
   const journalService = useService(JournalService);
   const calendar = useService(IntegrationService).calendar;
-  // WorkspaceServerService has been removed
   const location = useLiveData(viewService.view.location$);
   const journalDateStr = useLiveData(
     doc ? journalService.journalDate$(doc.id) : null

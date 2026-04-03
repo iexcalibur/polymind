@@ -74,7 +74,6 @@ export const PageHeaderMenuButton = ({
 
   const handleMenuOpenChange = useCallback((open: boolean) => {
     if (open) {
-      // no-op
     }
   }, []);
 
@@ -274,7 +273,6 @@ const PageHeaderMenuItem = ({
 
   const handleShareMenuOpenChange = useCallback((open: boolean) => {
     if (open) {
-      // no-op
     }
   }, []);
 

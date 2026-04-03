@@ -8,14 +8,9 @@ interface ConfirmEnableCloudOptions {
   serverId?: string;
 }
 
-/**
- * No-op stub: cloud enablement has been removed.
- * Returns a function that does nothing.
- */
 export const useEnableCloud = () => {
   const confirmEnableCloud = useCallback(
     (_ws: Workspace, _options?: ConfirmEnableCloudOptions) => {
-      // no-op: cloud is not available
     },
     []
   );

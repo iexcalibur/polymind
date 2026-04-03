@@ -74,8 +74,6 @@ const AllDocsButton = () => {
   );
 };
 
-// AIChatButton removed — local-only mode, no cloud AI
-
 /**
  * This is for the whole affine app sidebar.
  * This component wraps the app sidebar in `@affine/component` with logic and data.

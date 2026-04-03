@@ -292,7 +292,6 @@ export const WorkspaceCard = forwardRef<
 
     const name = information?.name ?? UNTITLED_WORKSPACE_NAME;
 
-    // Enable Cloud removed — local-only mode
     void _onClickEnableCloud;
 
     const onRemoveWorkspace = useAsyncCallback(async () => {
@@ -357,8 +356,6 @@ export const WorkspaceCard = forwardRef<
             <Button onClick={onRemoveWorkspace}>Remove</Button>
           ) : null}
           <div className={styles.showOnCardHover}>
-            {/* Enable Cloud button removed — local-only mode */}
-
             {onClickOpenSettings && (
               <div className={styles.settingButton} onClick={onOpenSettings}>
                 <SettingsIcon width={16} height={16} />

@@ -31,7 +31,6 @@ export const MemberItem = ({
     [onRemove]
   );
 
-  // PublicUserService has been removed; display userId as fallback
   const name = userId;
 
   return (

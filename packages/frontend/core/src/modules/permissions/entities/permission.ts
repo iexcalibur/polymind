@@ -30,10 +30,8 @@ export class WorkspacePermission extends Entity {
   };
 
   async waitForRevalidation(_signal?: AbortSignal) {
-    // No-op: always has full access
   }
 
   override dispose(): void {
-    // No-op
   }
 }

@@ -39,7 +39,6 @@ export class DocsQuickSearchSession
   }
 
   private readonly isSupportServerIndexer = () =>
-    // Cloud module removed - no server indexer support
     false;
 
   private readonly isEnableBatterySaveMode = () =>

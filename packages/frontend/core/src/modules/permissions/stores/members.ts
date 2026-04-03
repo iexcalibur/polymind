@@ -12,22 +12,22 @@ export class WorkspaceMembersStore extends Store {
     _take: number,
     _signal?: AbortSignal
   ) {
-    throw new Error('No Server (cloud module removed)');
+    return { memberCount: 0, members: [] };
   }
 
   async inviteBatch(_workspaceId: string, _emails: string[]) {
-    throw new Error('No Server (cloud module removed)');
+    return [];
   }
 
   async generateInviteLink(
     _workspaceId: string,
     _expireTime: WorkspaceInviteLinkExpireTime
   ) {
-    throw new Error('No Server (cloud module removed)');
+    return undefined;
   }
 
   async revokeInviteLink(_workspaceId: string, _signal?: AbortSignal) {
-    throw new Error('No Server (cloud module removed)');
+    return false;
   }
 
   async revokeMemberPermission(
@@ -35,11 +35,11 @@ export class WorkspaceMembersStore extends Store {
     _userId: string,
     _signal?: AbortSignal
   ) {
-    throw new Error('No Server (cloud module removed)');
+    return false;
   }
 
   async approveMember(_workspaceId: string, _userId: string) {
-    throw new Error('No Server (cloud module removed)');
+    return false;
   }
 
   async adjustMemberPermission(
@@ -47,6 +47,6 @@ export class WorkspaceMembersStore extends Store {
     _userId: string,
     _permission: Permission
   ) {
-    throw new Error('No Server (cloud module removed)');
+    return false;
   }
 }

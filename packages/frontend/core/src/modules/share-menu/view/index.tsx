@@ -15,7 +15,6 @@ type SharePageModalProps = {
 export const SharePageButton = ({ workspace, page }: SharePageModalProps) => {
   const confirmEnableCloud = useEnableCloud();
   const handleOpenShareModal = useCallback((_open: boolean) => {
-    // no-op
   }, []);
 
   return (

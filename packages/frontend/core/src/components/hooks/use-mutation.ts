@@ -16,7 +16,6 @@ import useSWRMutation from 'swr/mutation';
 
 /**
  * A useSWRMutation wrapper for sending graphql mutations
- * (no-op stub: GraphQLService has been removed)
  */
 export function useMutation<Mutation extends GraphQLQuery, K extends Key = Key>(
   _options: { mutation: Mutation },

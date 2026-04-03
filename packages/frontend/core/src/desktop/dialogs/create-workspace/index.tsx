@@ -100,7 +100,6 @@ const LocalConfirmButton = ({
     if (loading) return;
     setLoading(true);
     try {
-      // Always create local workspace — no cloud
       const res = await buildShowcaseWorkspace(
         workspacesService,
         'local',

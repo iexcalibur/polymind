@@ -12,6 +12,6 @@ export class MemberSearchStore extends Store {
     _take?: number,
     _signal?: AbortSignal
   ) {
-    throw new Error('No Server (cloud module removed)');
+    return { memberCount: 0, members: [] };
   }
 }

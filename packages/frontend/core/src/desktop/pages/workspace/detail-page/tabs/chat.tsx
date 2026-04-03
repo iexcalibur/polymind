@@ -23,15 +23,6 @@ import {
   AIToolsConfigService,
 } from '@affine/core/modules/ai-button';
 import { AIModelService } from '@affine/core/modules/ai-button/services/models';
-import { ServerDeploymentType } from '@affine/graphql';
-import { LiveData } from '@toeverything/infra';
-
-const LOCAL_SERVER_STUB = {
-  server: { config$: new LiveData({ type: ServerDeploymentType.Selfhosted }) },
-} as any;
-const LOCAL_SUBSCRIPTION_STUB = {
-  subscription: { ai$: new LiveData(null), revalidate() {} },
-} as any;
 import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
 import { useSignalValue } from '@affine/core/modules/doc-info/utils';
 import { FeatureFlagService } from '@affine/core/modules/feature-flag';
@@ -443,7 +434,6 @@ export const EditorChatPanel = ({ editor, onLoad }: SidebarTabProps) => {
     content.searchMenuConfig = searchMenuConfig;
     content.docDisplayConfig = docDisplayConfig;
     content.extensions = specs;
-    content.serverService = LOCAL_SERVER_STUB;
     content.affineFeatureFlagService = framework.get(FeatureFlagService);
     content.affineWorkspaceDialogService = framework.get(
       WorkspaceDialogService
@@ -453,7 +443,6 @@ export const EditorChatPanel = ({ editor, onLoad }: SidebarTabProps) => {
     content.aiDraftService = framework.get(AIDraftService);
     content.aiToolsConfigService = framework.get(AIToolsConfigService);
     content.peekViewService = framework.get(PeekViewService);
-    content.subscriptionService = LOCAL_SUBSCRIPTION_STUB;
     content.aiModelService = framework.get(AIModelService);
     content.onAISubscribe = handleAISubscribe;
     content.onEmbeddingProgressChange = onEmbeddingProgressChange;
@@ -599,13 +588,11 @@ export const EditorChatPanel = ({ editor, onLoad }: SidebarTabProps) => {
         .searchMenuConfig=${searchMenuConfig}
         .docDisplayConfig=${docDisplayConfig}
         .extensions=${specs}
-        .serverService=${LOCAL_SERVER_STUB}
         .affineFeatureFlagService=${framework.get(FeatureFlagService)}
         .affineThemeService=${framework.get(AppThemeService)}
         .notificationService=${notificationService}
         .affineWorkspaceDialogService=${framework.get(WorkspaceDialogService)}
         .aiToolsConfigService=${framework.get(AIToolsConfigService)}
-        .subscriptionService=${LOCAL_SUBSCRIPTION_STUB}
         .aiModelService=${framework.get(AIModelService)}
       ></playground-content>
     `;

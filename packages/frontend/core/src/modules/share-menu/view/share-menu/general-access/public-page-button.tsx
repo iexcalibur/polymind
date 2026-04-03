@@ -8,16 +8,13 @@ import * as styles from './styles.css';
 
 export const PublicDoc = ({ disabled }: { disabled?: boolean }) => {
   const t = useI18n();
-  // ShareInfoService removed (share-doc module deleted)
   const isSharedPage = false;
   const isRevalidating = false;
 
   const onDisablePublic = useCallback(() => {
-    // no-op: share-doc module removed
   }, []);
 
   const onClickAnyoneReadOnlyShare = useCallback(() => {
-    // no-op: share-doc module removed
   }, []);
 
   return (

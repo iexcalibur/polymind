@@ -1,4 +1,3 @@
-// ServerService removed — local-only mode
 import { AdapterPanel } from '@blocksuite/affine/fragments/adapter-panel';
 import {
   customImageProxyMiddleware,

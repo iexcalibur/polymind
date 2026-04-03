@@ -8,9 +8,6 @@ import {
 
 export { base64ToUint8Array, uint8ArrayToBase64 } from './utils/base64';
 
-/**
- * Local-first only — no cloud workspace flavour registered.
- */
 export function configureBrowserWorkspaceFlavours(framework: Framework) {
   framework.impl(
     WorkspaceFlavoursProvider('LOCAL'),

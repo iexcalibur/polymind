@@ -10,7 +10,6 @@ import {
 } from '@affine/core/blocksuite/editors';
 import { getViewManager } from '@affine/core/blocksuite/manager/view';
 import { useEnableAI } from '@affine/core/components/hooks/affine/use-enable-ai';
-// ServerService removed — local-only mode
 import type { DocCustomPropertyInfo } from '@affine/core/modules/db';
 import type {
   DatabaseRow,
@@ -81,7 +80,6 @@ const usePatchSpecs = (mode: DocMode, shared?: boolean) => {
     featureFlagService.flags.enable_pdf_embed_preview.$
   );
 
-  // Comments disabled — local-only mode, no server config
   const enableComment = false;
 
   const patchedSpecs = useMemo(() => {

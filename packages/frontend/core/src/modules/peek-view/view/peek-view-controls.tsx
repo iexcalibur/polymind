@@ -22,7 +22,6 @@ import {
   useMemo,
 } from 'react';
 
-// ServerService removed — local-only mode
 import { WorkspaceDialogService } from '../../dialogs';
 import { DocsService } from '../../doc/services/docs';
 import { toDocSearchParams } from '../../navigation';

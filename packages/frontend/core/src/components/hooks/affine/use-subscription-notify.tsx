@@ -1,7 +1,14 @@
 import { SubscriptionPlan, SubscriptionRecurring } from '@affine/graphql';
 import { nanoid } from 'nanoid';
 
-import { type AuthAccountInfo } from '../../../modules/cloud';
+interface AuthAccountInfo {
+  id: string;
+  email: string;
+  label: string;
+  info?: {
+    name?: string;
+  };
+}
 
 const separator = '::';
 const recoverSeparator = nanoid();

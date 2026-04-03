@@ -1,9 +1,6 @@
 import { SettingRow } from '@affine/component/setting-components';
 import { useI18n } from '@affine/i18n';
 
-/**
- * WorkspaceQuotaService has been removed. Show a static placeholder.
- */
 export const WorkspaceQuotaPanel = () => {
   const t = useI18n();
 

@@ -168,7 +168,6 @@ const HistoryEditorPreview = ({
 const planPromptClosedAtom = atom(false);
 
 const PlanPrompt = () => {
-  // Quota service has been removed; render nothing.
   return null;
 };
 

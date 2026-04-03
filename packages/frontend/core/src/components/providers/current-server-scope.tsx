@@ -1,6 +1,3 @@
-/**
- * ServersService has been removed. This component now simply passes through children.
- */
 export const CurrentServerScopeProvider = ({
   children,
 }: {

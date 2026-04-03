@@ -38,15 +38,12 @@ import {
 } from '@toeverything/infra';
 import { useSetAtom } from 'jotai';
 import { useEffect, useMemo } from 'react';
-import { BehaviorSubject } from 'rxjs';
 import { catchError, EMPTY, finalize, switchMap, tap, timeout } from 'rxjs';
 
-// Minimal gql function — direct POST to /graphql, no cloud module needed
 const localGql = gqlFetcherFactory('/graphql', (input, init) =>
   globalThis.fetch(input, { ...init, credentials: 'include' })
 );
 
-// Minimal eventSource factory — just creates EventSource with full URL
 function localEventSource(
   url: string,
   eventSourceInitDict?: EventSourceInit
@@ -56,14 +53,6 @@ function localEventSource(
     : `${location.origin}${url.startsWith('/') ? '' : '/'}${url}`;
   return new EventSource(fullUrl, eventSourceInitDict);
 }
-
-// Fake auth service — no login, no accounts, just stubs
-const LOCAL_AUTH_STUB = {
-  session: {
-    account$: new BehaviorSubject(null),
-    revalidate: () => {},
-  },
-} as any;
 
 /**
  * @deprecated just for legacy code, will be removed in the future
@@ -156,26 +145,19 @@ export const WorkspaceSideEffects = () => {
     };
   }, [workspaceDialogService]);
 
-  // Create CopilotClient with direct fetch — no cloud services needed
   const copilotClient = useMemo(
     () => new CopilotClient(localGql, localEventSource),
     []
   );
 
-  // Auto-login as local user on startup (silent, no UI)
   useEffect(() => {
     fetch('/api/local/auth', { method: 'GET', credentials: 'include' }).catch(
-      err => console.warn('[local-auth] Could not establish session', err)
+      () => {}
     );
   }, []);
 
-  // Wire up all AI actions using local client + stub auth
   useEffect(() => {
-    const dispose = setupAIProvider(
-      copilotClient,
-      globalDialogService,
-      LOCAL_AUTH_STUB
-    );
+    const dispose = setupAIProvider(copilotClient, globalDialogService);
     return () => {
       dispose();
     };

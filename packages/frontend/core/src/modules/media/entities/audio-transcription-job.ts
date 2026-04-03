@@ -266,8 +266,7 @@ export class AudioTranscriptionJob extends Entity<{
     );
   }
 
-  get currentUserId() {
-    // Cloud module removed - no auth available
+  get currentUserId(): string | undefined {
     return undefined;
   }
 }

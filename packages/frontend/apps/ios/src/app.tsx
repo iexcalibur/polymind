@@ -7,23 +7,12 @@ import { NavigationGestureProvider } from '@affine/core/mobile/modules/navigatio
 import { VirtualKeyboardProvider } from '@affine/core/mobile/modules/virtual-keyboard';
 import { router } from '@affine/core/mobile/router';
 import { configureCommonModules } from '@affine/core/modules';
-import {
-  AuthProvider,
-  AuthService,
-  DefaultServerService,
-  ServerScope,
-  ServerService,
-  ServersService,
-  SubscriptionService,
-  ValidatorProvider,
-} from '@affine/core/modules/cloud';
 import { registerNativePreviewHandlers } from '@affine/core/modules/code-block-preview-renderer';
 import { DocsService } from '@affine/core/modules/doc';
 import { FeatureFlagService } from '@affine/core/modules/feature-flag';
 import { GlobalContextService } from '@affine/core/modules/global-context';
 import { I18nProvider } from '@affine/core/modules/i18n';
 import { LifecycleService } from '@affine/core/modules/lifecycle';
-import { NativePaywallProvider } from '@affine/core/modules/paywall';
 import {
   configureLocalStorageStateStorageImpls,
   NbstoreProvider,
@@ -40,10 +29,6 @@ import {
 } from '@affine/core/modules/workspace';
 import { configureBrowserWorkspaceFlavours } from '@affine/core/modules/workspace-engine';
 import { getWorkerUrl } from '@affine/env/worker';
-import {
-  refreshSubscriptionMutation,
-  requestApplySubscriptionMutation,
-} from '@affine/graphql';
 import { I18n } from '@affine/i18n';
 import { StoreManagerClient } from '@affine/nbstore/worker/client';
 import { Container } from '@blocksuite/affine/global/di';
@@ -67,12 +52,8 @@ import { RouterProvider } from 'react-router-dom';
 
 import { BlocksuiteMenuConfigProvider } from './bs-menu-config';
 import { ModalConfigProvider } from './modal-config';
-import { Auth } from './plugins/auth';
-import { Hashcash } from './plugins/hashcash';
 import { NbStoreNativeDBApis } from './plugins/nbstore';
-import { PayWall } from './plugins/paywall';
 import { Preview } from './plugins/preview';
-import { writeEndpointToken } from './proxy';
 import { enableNavigationGesture$ } from './web-navigation-control';
 
 const storeManagerClient = createStoreManagerClient();
@@ -112,12 +93,6 @@ framework.impl(PopupWindowProvider, {
 framework.impl(ClientSchemeProvider, {
   getClientScheme() {
     return 'affine';
-  },
-});
-framework.impl(ValidatorProvider, {
-  async validate(_challenge, resource) {
-    const res = await Hashcash.hash({ challenge: resource });
-    return res.value;
   },
 });
 framework.impl(VirtualKeyboardProvider, {
@@ -170,49 +145,6 @@ framework.impl(HapticProvider, {
   selectionChanged: () => Haptics.selectionChanged(),
   selectionEnd: () => Haptics.selectionEnd(),
 });
-framework.scope(ServerScope).override(AuthProvider, resolver => {
-  const serverService = resolver.get(ServerService);
-  const endpoint = serverService.server.baseUrl;
-  return {
-    async signInMagicLink(email, linkToken, clientNonce) {
-      const { token } = await Auth.signInMagicLink({
-        endpoint,
-        email,
-        token: linkToken,
-        clientNonce,
-      });
-      await writeEndpointToken(endpoint, token);
-    },
-    async signInOauth(code, state, _provider, clientNonce) {
-      const { token } = await Auth.signInOauth({
-        endpoint,
-        code,
-        state,
-        clientNonce,
-      });
-      await writeEndpointToken(endpoint, token);
-      return {};
-    },
-    async signInPassword(credential) {
-      const { token } = await Auth.signInPassword({
-        endpoint,
-        ...credential,
-      });
-      await writeEndpointToken(endpoint, token);
-    },
-    async signOut() {
-      await Auth.signOut({
-        endpoint,
-      });
-    },
-  };
-});
-framework.impl(NativePaywallProvider, {
-  showPaywall: async (type: 'Pro' | 'AI') => {
-    await PayWall.showPayWall({ type });
-  },
-});
-
 const frameworkProvider = framework.provider();
 
 registerNativePreviewHandlers({
@@ -222,14 +154,7 @@ registerNativePreviewHandlers({
 
 // ------ some apis for native ------
 (window as any).getCurrentServerBaseUrl = () => {
-  const globalContextService = frameworkProvider.get(GlobalContextService);
-  const currentServerId = globalContextService.globalContext.serverId.get();
-  const serversService = frameworkProvider.get(ServersService);
-  const defaultServerService = frameworkProvider.get(DefaultServerService);
-  const currentServer =
-    (currentServerId ? serversService.server$(currentServerId).value : null) ??
-    defaultServerService.server;
-  return currentServer.baseUrl;
+  return window.location.origin;
 };
 (window as any).getCurrentI18nLocale = () => {
   return I18n.language;
@@ -247,14 +172,7 @@ registerNativePreviewHandlers({
   return globalContextService.globalContext.docId.get();
 };
 (window as any).getCurrentUserIdentifier = () => {
-  const globalContextService = frameworkProvider.get(GlobalContextService);
-  const currentServerId = globalContextService.globalContext.serverId.get();
-  const serversService = frameworkProvider.get(ServersService);
-  const defaultServerService = frameworkProvider.get(DefaultServerService);
-  const currentServer =
-    (currentServerId ? serversService.server$(currentServerId).value : null) ??
-    defaultServerService.server;
-  return currentServer.account$.value?.id;
+  return undefined;
 };
 (window as any).getCurrentDocContentInMarkdown = async () => {
   const globalContextService = frameworkProvider.get(GlobalContextService);
@@ -352,53 +270,10 @@ registerNativePreviewHandlers({
   }
 };
 (window as any).getSubscriptionState = async () => {
-  const globalContextService = frameworkProvider.get(GlobalContextService);
-  const currentServerId = globalContextService.globalContext.serverId.get();
-  const serversService = frameworkProvider.get(ServersService);
-  const defaultServerService = frameworkProvider.get(DefaultServerService);
-  const currentServer =
-    (currentServerId ? serversService.server$(currentServerId).value : null) ??
-    defaultServerService.server;
-  const subscriptionService = currentServer.scope.get(SubscriptionService);
-  await subscriptionService.subscription.waitForRevalidation();
-  return {
-    pro: subscriptionService.subscription.pro$.value,
-    ai: subscriptionService.subscription.ai$.value,
-  };
+  return { pro: null, ai: null };
 };
-(window as any).updateSubscriptionState = async () => {
-  const globalContextService = frameworkProvider.get(GlobalContextService);
-  const currentServerId = globalContextService.globalContext.serverId.get();
-  const serversService = frameworkProvider.get(ServersService);
-  const defaultServerService = frameworkProvider.get(DefaultServerService);
-  const currentServer =
-    (currentServerId ? serversService.server$(currentServerId).value : null) ??
-    defaultServerService.server;
-  await currentServer
-    .gql({
-      query: refreshSubscriptionMutation,
-    })
-    .catch(console.error);
-  const subscriptionService = currentServer.scope.get(SubscriptionService);
-  subscriptionService.subscription.revalidate();
-};
-(window as any).requestApplySubscription = async (transactionId: string) => {
-  const globalContextService = frameworkProvider.get(GlobalContextService);
-  const currentServerId = globalContextService.globalContext.serverId.get();
-  const serversService = frameworkProvider.get(ServersService);
-  const defaultServerService = frameworkProvider.get(DefaultServerService);
-  const currentServer =
-    (currentServerId ? serversService.server$(currentServerId).value : null) ??
-    defaultServerService.server;
-  await currentServer
-    .gql({
-      query: requestApplySubscriptionMutation,
-      variables: { transactionId },
-    })
-    .catch(console.error);
-  const subscriptionService = currentServer.scope.get(SubscriptionService);
-  subscriptionService.subscription.revalidate();
-};
+(window as any).updateSubscriptionState = async () => {};
+(window as any).requestApplySubscription = async (_transactionId: string) => {};
 
 // setup application lifecycle events, and emit application start event
 window.addEventListener('focus', () => {
@@ -409,45 +284,7 @@ frameworkProvider.get(LifecycleService).applicationStart();
 CapacitorApp.addListener('appUrlOpen', ({ url }) => {
   // try to close browser if it's open
   Browser.close().catch(e => console.error('Failed to close browser', e));
-
-  const urlObj = new URL(url);
-
-  if (urlObj.hostname === 'authentication') {
-    const method = urlObj.searchParams.get('method');
-    const payload = JSON.parse(urlObj.searchParams.get('payload') ?? 'false');
-    const serverBaseUrl = urlObj.searchParams.get('server');
-
-    if (
-      !method ||
-      (method !== 'magic-link' && method !== 'oauth') ||
-      !payload
-    ) {
-      console.error('Invalid authentication url', url);
-      return;
-    }
-
-    let authService = frameworkProvider
-      .get(DefaultServerService)
-      .server.scope.get(AuthService);
-
-    if (serverBaseUrl) {
-      const serversService = frameworkProvider.get(ServersService);
-      const server = serversService.getServerByBaseUrl(serverBaseUrl);
-      if (server) {
-        authService = server.scope.get(AuthService);
-      }
-    }
-
-    if (method === 'oauth') {
-      authService
-        .signInOauth(payload.code, payload.state, payload.provider)
-        .catch(console.error);
-    } else if (method === 'magic-link') {
-      authService
-        .signInMagicLink(payload.email, payload.token)
-        .catch(console.error);
-    }
-  }
+  console.log('App URL opened (auth disabled):', url);
 }).catch(e => {
   console.error(e);
 });

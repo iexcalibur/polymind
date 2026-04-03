@@ -44,7 +44,6 @@ export const MembersPermission = ({
 }) => {
   const t = useI18n();
   const docGrantedUsersService = useService(DocGrantedUsersService);
-  // ShareInfoService removed (share-doc module deleted)
   const docDefaultRole = undefined;
   const currentRoleName = useMemo(
     () => getRoleName(t, docDefaultRole),

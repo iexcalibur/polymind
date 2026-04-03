@@ -25,7 +25,6 @@ export class ReadwiseStore extends Store {
 
   workspaceId = this.workspaceService.workspace.id;
 
-  // Cloud module removed - always local
   userId$ = new LiveData('__local__');
 
   getUserId() {

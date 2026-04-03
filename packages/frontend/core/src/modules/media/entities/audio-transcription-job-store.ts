@@ -1,12 +1,17 @@
 import {
   claimAudioTranscriptionMutation,
   getAudioTranscriptionQuery,
+  gqlFetcherFactory,
   retryAudioTranscriptionMutation,
   submitAudioTranscriptionMutation,
 } from '@affine/graphql';
 import { Entity } from '@toeverything/infra';
 
 import type { WorkspaceService } from '../../workspace';
+
+const gql = gqlFetcherFactory('/graphql', (input, init) =>
+  globalThis.fetch(input, { ...init, credentials: 'include' })
+);
 
 export class AudioTranscriptionJobStore extends Entity<{
   readonly blobId: string;
@@ -16,22 +21,13 @@ export class AudioTranscriptionJobStore extends Entity<{
     super();
   }
 
-  private get graphqlService(): any {
-    // Cloud module removed - no GraphQL available
-    return null;
-  }
-
   private get currentWorkspaceId() {
     return this.workspaceService.workspace.id;
   }
 
   submitAudioTranscription = async () => {
-    const graphqlService = this.graphqlService;
-    if (!graphqlService) {
-      throw new Error('No graphql service available');
-    }
     const files = await this.props.getAudioFiles();
-    const response = await graphqlService.gql({
+    const response = await gql({
       timeout: 0, // default 15s is too short for audio transcription
       query: submitAudioTranscriptionMutation,
       variables: {
@@ -47,11 +43,7 @@ export class AudioTranscriptionJobStore extends Entity<{
   };
 
   retryAudioTranscription = async (jobId: string) => {
-    const graphqlService = this.graphqlService;
-    if (!graphqlService) {
-      throw new Error('No graphql service available');
-    }
-    const response = await graphqlService.gql({
+    const response = await gql({
       query: retryAudioTranscriptionMutation,
       variables: {
         jobId,
@@ -65,15 +57,11 @@ export class AudioTranscriptionJobStore extends Entity<{
   };
 
   getAudioTranscription = async (blobId: string, jobId?: string) => {
-    const graphqlService = this.graphqlService;
-    if (!graphqlService) {
-      throw new Error('No graphql service available');
-    }
     const currentWorkspaceId = this.currentWorkspaceId;
     if (!currentWorkspaceId) {
       throw new Error('No current workspace id');
     }
-    const response = await graphqlService.gql({
+    const response = await gql({
       query: getAudioTranscriptionQuery,
       variables: {
         workspaceId: currentWorkspaceId,
@@ -87,11 +75,7 @@ export class AudioTranscriptionJobStore extends Entity<{
     return response.currentUser.copilot.audioTranscription;
   };
   claimAudioTranscription = async (jobId: string) => {
-    const graphqlService = this.graphqlService;
-    if (!graphqlService) {
-      throw new Error('No graphql service available');
-    }
-    const response = await graphqlService.gql({
+    const response = await gql({
       query: claimAudioTranscriptionMutation,
       variables: {
         jobId,

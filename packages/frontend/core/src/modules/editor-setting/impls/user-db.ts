@@ -12,7 +12,6 @@ export class CurrentUserDBEditorSettingProvider
 
   constructor(public readonly globalState: GlobalState) {
     super();
-    // Cloud module removed - always use GlobalState fallback
     this.fallback = new GlobalStateEditorSettingProvider(this.globalState);
   }
 

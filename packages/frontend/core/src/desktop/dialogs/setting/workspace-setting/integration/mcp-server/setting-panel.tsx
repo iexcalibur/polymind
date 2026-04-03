@@ -1,11 +1,8 @@
-import { Button, ErrorMessage, notify, Skeleton } from '@affine/component';
-import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
-// AccessTokenService and ServerService have been removed
+import { Button, notify, Skeleton } from '@affine/component';
 import { WorkspaceService } from '@affine/core/modules/workspace';
-import { UserFriendlyError } from '@affine/error';
 import { useI18n } from '@affine/i18n';
 import { useLiveData, useService } from '@toeverything/infra';
-import { type ReactNode, useEffect, useMemo, useState } from 'react';
+import { type ReactNode, useMemo } from 'react';
 
 import { IntegrationSettingHeader } from '../setting';
 import MCPIcon from './MCP.inline.svg';
@@ -31,104 +28,27 @@ const McpServerSettingHeader = ({ action }: { action?: ReactNode }) => {
 const McpServerSetting = () => {
   const workspaceService = useService(WorkspaceService);
   const workspaceName = useLiveData(workspaceService.workspace.name$);
-  const [mutating, setMutating] = useState(false);
   const t = useI18n();
 
-  // AccessTokenService and ServerService have been removed
-  const accessTokens = null as any[] | null;
-  const isRevalidating = false;
-  const error = null;
-  const mcpAccessToken = null as any;
-  const displayedToken = mcpAccessToken;
-  const hasMcpToken = Boolean(revealedAccessToken || mcpAccessToken);
-  const hasCopyableToken = Boolean(revealedAccessToken);
-  const isRedactedDisplay = hasMcpToken && !hasCopyableToken;
-
   const code = useMemo(() => {
-    return displayedToken
-      ? JSON.stringify(
-          {
-            mcpServers: {
-              [`affine_workspace_${workspaceService.workspace.id}`]: {
-                type: 'streamable-http',
-                url: `${location.origin}/api/workspaces/${workspaceService.workspace.id}/mcp`,
-                note: `Read docs from AFFiNE workspace "${workspaceName}"`,
-                headers: {
-                  Authorization: `Bearer ${displayedToken.token}`,
-                },
-              },
-            },
+    return JSON.stringify(
+      {
+        mcpServers: {
+          [`affine_workspace_${workspaceService.workspace.id}`]: {
+            type: 'streamable-http',
+            url: `${location.origin}/api/workspaces/${workspaceService.workspace.id}/mcp`,
+            note: `Read docs from AFFiNE workspace "${workspaceName}"`,
           },
-          null,
-          2
-        )
-      : null;
-  }, [displayedToken, workspaceName, workspaceService]);
-
-  const copyJsonDisabled = !code || mutating || isRedactedDisplay;
-  const copyJsonTooltip = isRedactedDisplay
-    ? t['com.affine.integration.mcp-server.copy-json.disabled-hint']()
-    : undefined;
-
-  const showLoading = accessTokens === null && isRevalidating;
-  const showError = accessTokens === null && error !== null;
-
-  const handleGenerateAccessToken = useAsyncCallback(async () => {
-    // AccessTokenService has been removed -- no-op
-  }, []);
-
-  const handleRevokeAccessToken = useAsyncCallback(async () => {
-    // AccessTokenService has been removed -- no-op
-  }, []);
-
-  if (showLoading) {
-    return (
-      <div>
-        <McpServerSettingHeader />
-        <Skeleton />
-      </div>
+        },
+      },
+      null,
+      2
     );
-  }
-
-  if (showError) {
-    return (
-      <div>
-        <McpServerSettingHeader />
-        <ErrorMessage>{error}</ErrorMessage>
-      </div>
-    );
-  }
+  }, [workspaceName, workspaceService]);
 
   return (
     <div>
       <McpServerSettingHeader />
-
-      <div className={styles.section}>
-        <div className={styles.sectionHeader}>
-          <div className={styles.sectionTitle}>Personal access token</div>
-          {!hasMcpToken ? (
-            <Button
-              variant="primary"
-              onClick={handleGenerateAccessToken}
-              disabled={mutating}
-            >
-              Create New
-            </Button>
-          ) : (
-            <Button
-              variant="error"
-              onClick={handleRevokeAccessToken}
-              disabled={mutating}
-            >
-              Delete
-            </Button>
-          )}
-        </div>
-        <p className={styles.sectionDescription}>
-          This access token is used for the MCP service, please keep this
-          information secure. Deleting it will invalidate the access token.
-        </p>
-      </div>
 
       <div className={styles.section}>
         <div className={styles.sectionHeader}>
@@ -143,22 +63,11 @@ const McpServerSetting = () => {
                 title: t['Copied to clipboard'](),
               });
             }}
-            disabled={copyJsonDisabled}
-            tooltip={copyJsonTooltip}
           >
             Copy json
           </Button>
         </div>
-        {code ? (
-          <pre className={styles.preArea}>{code}</pre>
-        ) : (
-          <p
-            className={styles.sectionDescription}
-            style={{ textAlign: 'center' }}
-          >
-            No access token found, please generate one first.
-          </p>
-        )}
+        <pre className={styles.preArea}>{code}</pre>
       </div>
 
       <div className={styles.section}>

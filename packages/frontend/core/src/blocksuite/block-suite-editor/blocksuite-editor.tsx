@@ -3,7 +3,6 @@ import type {
   EdgelessEditor,
   PageEditor,
 } from '@affine/core/blocksuite/editors';
-// ServerService removed — local-only mode
 import {
   EditorSettingService,
   fontStyleOptions,

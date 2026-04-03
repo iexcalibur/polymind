@@ -18,7 +18,6 @@ export class WorkspacePermissionStore extends Store {
   }
 
   async leaveWorkspace(_workspaceId: string) {
-    // Cloud module removed - no-op
   }
 
   watchWorkspacePermissionCache() {

@@ -14,7 +14,6 @@ export const SidebarSwitch = ({
   show: boolean;
   className?: string;
 }) => {
-  // Notification dot removed — local-only mode, no cloud notifications
   const hasNotification = false;
 
   const appSidebarService = useService(AppSidebarService).sidebar;

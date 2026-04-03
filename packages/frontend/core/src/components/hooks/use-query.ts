@@ -21,7 +21,6 @@ export type UseQueryConfig<Query extends GraphQLQuery = GraphQLQuery> = Omit<
 
 /**
  * A `useSWR` wrapper for sending graphql queries
- * (no-op stub: GraphQLService has been removed)
  */
 type useQueryFn = <Query extends GraphQLQuery>(
   options?: QueryOptions<Query>,

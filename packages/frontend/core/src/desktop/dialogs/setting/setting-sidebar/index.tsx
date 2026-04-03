@@ -25,12 +25,10 @@ export type UserInfoProps = {
 };
 
 export const UserInfo = (_props: UserInfoProps) => {
-  // No user info in local-only mode
   return null;
 };
 
 export const SignInButton = () => {
-  // No sign-in in local-only mode
   return null;
 };
 

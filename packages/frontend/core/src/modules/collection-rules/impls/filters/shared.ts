@@ -10,7 +10,6 @@ export class SharedFilterProvider extends Service implements FilterProvider {
   }
 
   filter$(_params: FilterParams): Observable<Set<string>> {
-    // ShareDocsListService removed (share-doc module deleted)
     return of(new Set<string>());
   }
 }

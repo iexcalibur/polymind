@@ -3,10 +3,6 @@ import type {
   AIToolsConfigService,
 } from '@affine/core/modules/ai-button';
 import type { AIModelService } from '@affine/core/modules/ai-button/services/models';
-import type {
-  ServerService,
-  SubscriptionService,
-} from '@affine/core/modules/cloud';
 import type { FeatureFlagService } from '@affine/core/modules/feature-flag';
 import type { CopilotChatHistoryFragment } from '@affine/graphql';
 import { SignalWatcher, WithDisposable } from '@blocksuite/affine/global/lit';
@@ -356,9 +352,6 @@ export class AIChatInput extends SignalWatcher(
   accessor searchMenuConfig!: SearchMenuConfig;
 
   @property({ attribute: false })
-  accessor serverService!: ServerService;
-
-  @property({ attribute: false })
   accessor aiDraftService: AIDraftService | undefined;
 
   @property({ attribute: false })
@@ -369,9 +362,6 @@ export class AIChatInput extends SignalWatcher(
 
   @property({ attribute: false })
   accessor notificationService!: NotificationService;
-
-  @property({ attribute: false })
-  accessor subscriptionService!: SubscriptionService;
 
   @property({ attribute: false })
   accessor aiModelService!: AIModelService;
@@ -522,10 +512,8 @@ export class AIChatInput extends SignalWatcher(
           .session=${this.session}
           .extendedThinking=${this._isReasoningActive}
           .onExtendedThinkingChange=${this._toggleReasoning}
-          .serverService=${this.serverService}
           .toolsConfigService=${this.aiToolsConfigService}
           .notificationService=${this.notificationService}
-          .subscriptionService=${this.subscriptionService}
           .aiModelService=${this.aiModelService}
           .onAISubscribe=${this.onAISubscribe}
         ></chat-input-preference>

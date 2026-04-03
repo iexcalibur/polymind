@@ -1,7 +1,6 @@
 import { Tabs, Tooltip, useConfirmModal } from '@affine/component';
 import { Button } from '@affine/component/ui/button';
 import { Menu } from '@affine/component/ui/menu';
-// ServerService removed — local-only mode
 import { WorkspaceDialogService } from '@affine/core/modules/dialogs';
 import { WorkspacePermissionService } from '@affine/core/modules/permissions';
 import type { WorkspaceMetadata } from '@affine/core/modules/workspace';
@@ -184,7 +183,6 @@ const DefaultShareButton = forwardRef(function DefaultShareButton(
   ref: Ref<HTMLButtonElement>
 ) {
   const t = useI18n();
-  // ShareInfoService removed (share-doc module deleted)
   const shared = false;
 
   const tooltip =
