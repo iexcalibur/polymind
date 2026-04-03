@@ -201,7 +201,7 @@ export function Recording() {
 
   return (
     <div className={styles.root}>
-      <img className={styles.affineIcon} src={appIcon} alt="AFFiNE" />
+      <img className={styles.affineIcon} src={appIcon} alt="PolyMind" />
       <div className={styles.text}>{textElement}</div>
       <div className={styles.controls}>{controlsElement}</div>
     </div>

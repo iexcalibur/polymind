@@ -3,7 +3,7 @@ import { MobileFeatureFlagControl } from '@polymind/core/blocksuite/view-extensi
 import {
   type ViewExtensionContext,
   ViewExtensionProvider,
-} from '@blocksuite/affine/ext-loader';
+} from '@blocksuite/polymind/ext-loader';
 import { FrameworkProvider } from '@toeverything/infra';
 import { z } from 'zod';
 

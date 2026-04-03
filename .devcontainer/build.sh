@@ -5,7 +5,7 @@
 yarn install
 
 # Build Server Dependencies
-yarn affine @affine/server-native build
+yarn polymind @polymind/server-native build
 
 # Create database
-yarn affine @affine/server prisma migrate reset -f
+yarn polymind @polymind/server prisma migrate reset -f

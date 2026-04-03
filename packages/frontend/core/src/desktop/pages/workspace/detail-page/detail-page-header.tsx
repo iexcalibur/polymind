@@ -13,7 +13,7 @@ import { PageHeaderMenuButton } from '@polymind/core/blocksuite/block-suite-head
 import { DetailPageHeaderPresentButton } from '@polymind/core/blocksuite/block-suite-header/present/detail-header-present-button';
 import { BlocksuiteHeaderTitle } from '@polymind/core/blocksuite/block-suite-header/title';
 import { EditorModeSwitch } from '@polymind/core/blocksuite/block-suite-mode-switch';
-import { useRegisterCopyLinkCommands } from '@polymind/core/components/hooks/affine/use-register-copy-link-commands';
+import { useRegisterCopyLinkCommands } from '@polymind/core/components/hooks/polymind/use-register-copy-link-commands';
 import { HeaderDivider } from '@polymind/core/components/pure/header';
 import { DocService } from '@polymind/core/modules/doc';
 import { DocDisplayMetaService } from '@polymind/core/modules/doc-display-meta';
@@ -23,9 +23,9 @@ import { SharePageButton } from '@polymind/core/modules/share-menu';
 import { TemplateDocService } from '@polymind/core/modules/template-doc';
 import { ViewIcon, ViewTitle } from '@polymind/core/modules/workbench';
 import type { Workspace } from '@polymind/core/modules/workspace';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { useI18n } from '@polymind/i18n';
-import type { Store } from '@blocksuite/affine/store';
+import type { Store } from '@blocksuite/polymind/store';
 import { useLiveData, useService } from '@toeverything/infra';
 import clsx from 'clsx';
 import {
@@ -204,7 +204,7 @@ export function DetailPageHeader(
   });
 
   const { dragRef, dragging, CustomDragPreview } =
-    useDraggable<AffineDNDData>(() => {
+    useDraggable<PolymindDNDData>(() => {
       return {
         data: {
           from: {

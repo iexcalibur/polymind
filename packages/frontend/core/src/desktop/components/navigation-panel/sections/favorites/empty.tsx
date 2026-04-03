@@ -3,7 +3,7 @@ import {
   Skeleton,
   useDropTarget,
 } from '@polymind/component';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { useI18n } from '@polymind/i18n';
 import { FavoriteIcon } from '@blocksuite/icons/rc';
 
@@ -12,7 +12,7 @@ import { DropEffect } from '../../tree';
 import { favoriteRootCanDrop, favoriteRootDropEffect } from './dnd';
 
 interface RootEmptyProps {
-  onDrop?: (data: DropTargetDropEvent<AffineDNDData>) => void;
+  onDrop?: (data: DropTargetDropEvent<PolymindDNDData>) => void;
   isLoading?: boolean;
 }
 
@@ -23,7 +23,7 @@ const RootEmptyReady = ({ onDrop }: Omit<RootEmptyProps, 'isLoading'>) => {
   const t = useI18n();
 
   const { dropTargetRef, draggedOverDraggable, draggedOverPosition } =
-    useDropTarget<AffineDNDData>(
+    useDropTarget<PolymindDNDData>(
       () => ({
         data: {
           at: 'navigation-panel:favorite:root',

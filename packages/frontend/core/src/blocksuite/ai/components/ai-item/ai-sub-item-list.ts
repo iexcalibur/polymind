@@ -1,11 +1,11 @@
-import { EnterIcon } from '@blocksuite/affine/components/icons';
-import { WithDisposable } from '@blocksuite/affine/global/lit';
-import { stopPropagation } from '@blocksuite/affine/shared/utils';
+import { EnterIcon } from '@blocksuite/polymind/components/icons';
+import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import { stopPropagation } from '@blocksuite/polymind/shared/utils';
 import {
   EditorHost,
   PropTypes,
   requiredProperties,
-} from '@blocksuite/affine/std';
+} from '@blocksuite/polymind/std';
 import { baseTheme } from '@toeverything/theme';
 import { css, html, LitElement, nothing, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';

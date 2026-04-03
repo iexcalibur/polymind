@@ -2,10 +2,10 @@ import {
   AIDoneIcon,
   CopyIcon,
   WarningIcon,
-} from '@blocksuite/affine/components/icons';
-import { WithDisposable } from '@blocksuite/affine/global/lit';
-import { NotificationProvider } from '@blocksuite/affine/shared/services';
-import type { EditorHost } from '@blocksuite/affine/std';
+} from '@blocksuite/polymind/components/icons';
+import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import { NotificationProvider } from '@blocksuite/polymind/shared/services';
+import type { EditorHost } from '@blocksuite/polymind/std';
 import { baseTheme } from '@toeverything/theme';
 import { css, html, LitElement, nothing, unsafeCSS } from 'lit';
 import { property, state } from 'lit/decorators.js';
@@ -90,7 +90,7 @@ export class AIFinishTip extends WithDisposable(LitElement) {
                   }}
                 >
                   ${CopyIcon}
-                  <affine-tooltip>Copy</affine-tooltip>
+                  <polymind-tooltip>Copy</polymind-tooltip>
                 </div>`}
           </div>`
         : nothing}

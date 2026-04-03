@@ -52,7 +52,7 @@ test.before(async t => {
           },
         },
         server: {
-          hosts: ['localhost', 'test.affine.dev'],
+          hosts: ['localhost', 'test.polymind.dev'],
           https: true,
         },
       }),
@@ -78,7 +78,7 @@ test.beforeEach(async t => {
       },
     },
   });
-  t.context.u1 = await t.context.auth.signUp('u1@affine.pro', '1');
+  t.context.u1 = await t.context.auth.signUp('u1@polymind.pro', '1');
 });
 
 test.after.always(async t => {
@@ -121,7 +121,7 @@ test('should be able to redirect to oauth provider with multiple hosts', async t
 
   const res = await app
     .POST('/api/oauth/preflight')
-    .set('host', 'test.affine.dev')
+    .set('host', 'test.polymind.dev')
     .send({ provider: 'Google', client_nonce: 'test-nonce' })
     .expect(HttpStatus.OK);
 
@@ -134,7 +134,7 @@ test('should be able to redirect to oauth provider with multiple hosts', async t
   t.is(redirect.searchParams.get('client_id'), 'google-client-id');
   t.is(
     redirect.searchParams.get('redirect_uri'),
-    'https://test.affine.dev/oauth/callback'
+    'https://test.polymind.dev/oauth/callback'
   );
   t.is(redirect.searchParams.get('response_type'), 'code');
   t.is(redirect.searchParams.get('prompt'), 'select_account');
@@ -153,7 +153,7 @@ test('should be able to redirect to oauth provider with client_nonce', async t =
 
   const res = await app
     .POST('/api/oauth/preflight')
-    .send({ provider: 'Google', client: 'affine', client_nonce: '1234567890' })
+    .send({ provider: 'Google', client: 'polymind', client_nonce: '1234567890' })
     .expect(HttpStatus.OK);
 
   const { url } = res.body;
@@ -173,7 +173,7 @@ test('should be able to redirect to oauth provider with client_nonce', async t =
   // state should be a json string
   const state = JSON.parse(redirect.searchParams.get('state')!);
   t.is(state.provider, 'Google');
-  t.is(state.client, 'affine');
+  t.is(state.client, 'polymind');
   t.falsy(state.clientNonce);
   t.truthy(state.state);
 });
@@ -193,7 +193,7 @@ test('should record sign in client version from oauth preflight state', async t 
 
   const preflightRes = await app
     .POST('/api/oauth/preflight')
-    .set('x-affine-version', '0.25.3')
+    .set('x-polymind-version', '0.25.3')
     .send({ provider: 'Google', client_nonce: 'test-nonce' })
     .expect(HttpStatus.OK);
 
@@ -208,7 +208,7 @@ test('should record sign in client version from oauth preflight state', async t 
   Sinon.stub(provider, 'getToken').resolves({ accessToken: '1' });
   Sinon.stub(provider, 'getUser').resolves({
     id: '1',
-    email: 'oauth-version@affine.pro',
+    email: 'oauth-version@polymind.pro',
     avatarUrl: 'avatar',
   });
 
@@ -486,7 +486,7 @@ function mockOidcProvider(
     provider as unknown as { endpoints: { userinfo_endpoint: string } },
     'endpoints'
   ).get(() => ({
-    userinfo_endpoint: 'https://oidc.affine.dev/userinfo',
+    userinfo_endpoint: 'https://oidc.polymind.dev/userinfo',
   }));
   Sinon.stub(
     provider as unknown as { verifyIdToken: () => unknown },
@@ -508,7 +508,7 @@ function createOidcRegistrationHarness(config?: {
     disableFeature: Sinon.spy(),
   };
   const factory = new OAuthProviderFactory(server as any);
-  const affineConfig = {
+  const polymindConfig = {
     server: {
       externalUrl: 'https://affine.example',
       host: 'localhost',
@@ -521,16 +521,16 @@ function createOidcRegistrationHarness(config?: {
         oidc: {
           clientId: config?.clientId ?? 'oidc-client-id',
           clientSecret: config?.clientSecret ?? 'oidc-client-secret',
-          issuer: config?.issuer ?? 'https://issuer.affine.dev',
+          issuer: config?.issuer ?? 'https://issuer.polymind.dev',
           args: {},
         },
       },
     },
   };
-  const provider = new OIDCProvider(new URLHelper(affineConfig as any));
+  const provider = new OIDCProvider(new URLHelper(polymindConfig as any));
 
   (provider as any).factory = factory;
-  (provider as any).AFFiNEConfig = affineConfig;
+  (provider as any).PolymindConfig = polymindConfig;
 
   return {
     provider,
@@ -548,7 +548,7 @@ async function flushAsyncWork(iterations = 5) {
 test('should be able to sign up with oauth', async t => {
   const { app, db } = t.context;
 
-  const clientNonce = mockOAuthProvider(app, 'u2@affine.pro');
+  const clientNonce = mockOAuthProvider(app, 'u2@polymind.pro');
 
   await app
     .POST('/api/oauth/callback')
@@ -558,7 +558,7 @@ test('should be able to sign up with oauth', async t => {
   const sessionUser = await currentUser(app);
 
   t.truthy(sessionUser);
-  t.is(sessionUser!.email, 'u2@affine.pro');
+  t.is(sessionUser!.email, 'u2@polymind.pro');
 
   const user = await db.user.findFirst({
     select: {
@@ -566,12 +566,12 @@ test('should be able to sign up with oauth', async t => {
       connectedAccounts: true,
     },
     where: {
-      email: 'u2@affine.pro',
+      email: 'u2@polymind.pro',
     },
   });
 
   t.truthy(user);
-  t.is(user!.email, 'u2@affine.pro');
+  t.is(user!.email, 'u2@polymind.pro');
   t.is(user!.connectedAccounts[0].providerAccountId, '1');
 });
 
@@ -579,7 +579,7 @@ test('should be able to sign up with oauth and client_nonce', async t => {
   const { app, db } = t.context;
 
   const clientNonce = randomUUID();
-  const userEmail = `${clientNonce}@affine.pro`;
+  const userEmail = `${clientNonce}@polymind.pro`;
   mockOAuthProvider(app, userEmail, clientNonce);
 
   await app
@@ -611,7 +611,7 @@ test('should throw if client_nonce is invalid', async t => {
   const { app } = t.context;
 
   const clientNonce = randomUUID();
-  const userEmail = `${clientNonce}@affine.pro`;
+  const userEmail = `${clientNonce}@polymind.pro`;
   mockOAuthProvider(app, userEmail, clientNonce);
 
   await app
@@ -646,7 +646,7 @@ test('should not throw if account registered', async t => {
 test('should be able to fullfil user with oauth sign in', async t => {
   const { app, models } = t.context;
 
-  const u3 = await app.createUser('u3@affine.pro');
+  const u3 = await app.createUser('u3@polymind.pro');
 
   const clientNonce = mockOAuthProvider(app, u3.email);
 
@@ -671,7 +671,7 @@ test('should be able to fullfil user with oauth sign in', async t => {
 test('github oauth should resolve private email from emails api', async t => {
   const { app, db } = t.context;
 
-  const email = 'github-private@affine.pro';
+  const email = 'github-private@polymind.pro';
   const { clientNonce, provider } = mockGithubOAuthProvider(app);
   const fetchJson = Sinon.stub(provider as any, 'fetchJson');
 
@@ -682,7 +682,7 @@ test('github oauth should resolve private email from emails api', async t => {
     name: 'DarkSky',
   });
   fetchJson.onSecondCall().resolves([
-    { email: 'unverified@affine.pro', primary: true, verified: false },
+    { email: 'unverified@polymind.pro', primary: true, verified: false },
     { email, primary: false, verified: true },
   ]);
 
@@ -725,7 +725,7 @@ test('github oauth should reject responses without a verified email', async t =>
   fetchJson
     .onSecondCall()
     .resolves([
-      { email: 'private@affine.pro', primary: true, verified: false },
+      { email: 'private@polymind.pro', primary: true, verified: false },
     ]);
 
   const error = await t.throwsAsync(
@@ -745,7 +745,7 @@ test('oidc should accept email from id token when userinfo email is missing', as
   mockOidcProvider(provider, {
     idTokenClaims: {
       sub: 'oidc-user',
-      email: 'oidc-id-token@affine.pro',
+      email: 'oidc-id-token@polymind.pro',
       name: 'OIDC User',
     },
     userinfo: {
@@ -760,7 +760,7 @@ test('oidc should accept email from id token when userinfo email is missing', as
   );
 
   t.is(user.id, 'oidc-user');
-  t.is(user.email, 'oidc-id-token@affine.pro');
+  t.is(user.email, 'oidc-id-token@polymind.pro');
   t.is(user.name, 'OIDC User');
 });
 
@@ -775,7 +775,7 @@ test('oidc should resolve custom email claim from userinfo', async t => {
     },
     userinfo: {
       sub: 'oidc-user',
-      mail: 'oidc-userinfo@affine.pro',
+      mail: 'oidc-userinfo@polymind.pro',
       display_name: 'OIDC Custom',
     },
   });
@@ -786,7 +786,7 @@ test('oidc should resolve custom email claim from userinfo', async t => {
   );
 
   t.is(user.id, 'oidc-user');
-  t.is(user.email, 'oidc-userinfo@affine.pro');
+  t.is(user.email, 'oidc-userinfo@polymind.pro');
   t.is(user.name, 'OIDC Custom');
 });
 
@@ -798,7 +798,7 @@ test('oidc should resolve custom email claim from id token', async t => {
     args: { claim_email: 'mail', claim_email_verified: 'mail_verified' },
     idTokenClaims: {
       sub: 'oidc-user',
-      mail: 'oidc-custom-id-token@affine.pro',
+      mail: 'oidc-custom-id-token@polymind.pro',
       mail_verified: 'true',
     },
     userinfo: {
@@ -812,7 +812,7 @@ test('oidc should resolve custom email claim from id token', async t => {
   );
 
   t.is(user.id, 'oidc-user');
-  t.is(user.email, 'oidc-custom-id-token@affine.pro');
+  t.is(user.email, 'oidc-custom-id-token@polymind.pro');
 });
 
 test('oidc should reject responses without a usable email claim', async t => {
@@ -854,11 +854,11 @@ test('oidc should not fall back to default email claim when custom claim is conf
     args: { claim_email: 'mail' },
     idTokenClaims: {
       sub: 'oidc-user',
-      email: 'fallback@affine.pro',
+      email: 'fallback@polymind.pro',
     },
     userinfo: {
       sub: 'oidc-user',
-      email: 'userinfo-fallback@affine.pro',
+      email: 'userinfo-fallback@polymind.pro',
     },
   });
 
@@ -905,11 +905,11 @@ test('oidc discovery should remove oauth feature on failure and restore it after
     .resolves(
       new Response(
         JSON.stringify({
-          authorization_endpoint: 'https://issuer.affine.dev/auth',
-          token_endpoint: 'https://issuer.affine.dev/token',
-          userinfo_endpoint: 'https://issuer.affine.dev/userinfo',
-          issuer: 'https://issuer.affine.dev',
-          jwks_uri: 'https://issuer.affine.dev/jwks',
+          authorization_endpoint: 'https://issuer.polymind.dev/auth',
+          token_endpoint: 'https://issuer.polymind.dev/token',
+          userinfo_endpoint: 'https://issuer.polymind.dev/userinfo',
+          issuer: 'https://issuer.polymind.dev',
+          jwks_uri: 'https://issuer.polymind.dev/jwks',
         }),
         {
           status: 200,

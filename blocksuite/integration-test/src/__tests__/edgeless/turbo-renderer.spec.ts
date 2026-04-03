@@ -1,12 +1,12 @@
 /**
  * Please refer to integration-test/README.md for commands to run tests.
  */
-import { ParagraphLayoutHandlerExtension } from '@blocksuite/affine/blocks/paragraph';
-import { noop } from '@blocksuite/affine/global/utils';
+import { ParagraphLayoutHandlerExtension } from '@blocksuite/polymind/blocks/paragraph';
+import { noop } from '@blocksuite/polymind/global/utils';
 import {
   TurboRendererConfigFactory,
   ViewportTurboRendererExtension,
-} from '@blocksuite/affine-gfx-turbo-renderer';
+} from '@blocksuite/polymind-gfx-turbo-renderer';
 import { firstValueFrom } from 'rxjs';
 import { afterEach, beforeEach, describe, expect, test } from 'vitest';
 

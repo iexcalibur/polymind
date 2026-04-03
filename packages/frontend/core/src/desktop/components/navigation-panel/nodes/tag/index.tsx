@@ -7,7 +7,7 @@ import { GlobalContextService } from '@polymind/core/modules/global-context';
 import { NavigationPanelService } from '@polymind/core/modules/navigation-panel';
 import type { Tag } from '@polymind/core/modules/tag';
 import { TagService } from '@polymind/core/modules/tag';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { useI18n } from '@polymind/i18n';
 import { useLiveData, useService, useServices } from '@toeverything/infra';
 import clsx from 'clsx';
@@ -87,7 +87,7 @@ export const NavigationPanelTagNode = ({
       dropTarget: {
         at: 'navigation-panel:tag',
       },
-    } satisfies AffineDNDData;
+    } satisfies PolymindDNDData;
   }, [location, tagId]);
 
   const handleRename = useCallback(
@@ -100,7 +100,7 @@ export const NavigationPanelTagNode = ({
   );
 
   const handleDropOnTag = useCallback(
-    (data: DropTargetDropEvent<AffineDNDData>) => {
+    (data: DropTargetDropEvent<PolymindDNDData>) => {
       if (data.treeInstruction?.type === 'make-child' && tagRecord) {
         if (data.source.data.entity?.type === 'doc') {
           tagRecord.tag(data.source.data.entity.id);
@@ -129,7 +129,7 @@ export const NavigationPanelTagNode = ({
   );
 
   const handleDropOnPlaceholder = useCallback(
-    (data: DropTargetDropEvent<AffineDNDData>) => {
+    (data: DropTargetDropEvent<PolymindDNDData>) => {
       if (tagRecord) {
         if (data.source.data.entity?.type === 'doc') {
           tagRecord.tag(data.source.data.entity.id);
@@ -141,7 +141,7 @@ export const NavigationPanelTagNode = ({
     [t, tagRecord]
   );
 
-  const handleCanDrop = useMemo<DropTargetOptions<AffineDNDData>['canDrop']>(
+  const handleCanDrop = useMemo<DropTargetOptions<PolymindDNDData>['canDrop']>(
     () => args => {
       const entityType = args.source.data.entity?.type;
       return args.treeInstruction?.type !== 'make-child'

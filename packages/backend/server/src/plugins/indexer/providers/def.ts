@@ -136,10 +136,10 @@ export abstract class SearchProvider {
   protected readonly logger = new Logger(this.constructor.name);
 
   @Inject() private readonly factory!: SearchProviderFactory;
-  @Inject() private readonly AFFiNEConfig!: Config;
+  @Inject() private readonly PolymindConfig!: Config;
 
   protected get config() {
-    return this.AFFiNEConfig.indexer;
+    return this.PolymindConfig.indexer;
   }
 
   protected get configured() {

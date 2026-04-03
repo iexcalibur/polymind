@@ -1,11 +1,11 @@
-import { generateUrl } from '@polymind/core/components/hooks/affine/use-share-url';
+import { generateUrl } from '@polymind/core/components/hooks/polymind/use-share-url';
 import { resolveLinkToDoc } from '@polymind/core/modules/navigation/utils';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
-import { type ReferenceParams } from '@blocksuite/affine/model';
+import { type ReferenceParams } from '@blocksuite/polymind/model';
 import {
   GenerateDocUrlExtension,
   ParseDocUrlExtension,
-} from '@blocksuite/affine/shared/services';
+} from '@blocksuite/polymind/shared/services';
 import type { FrameworkProvider } from '@toeverything/infra';
 
 function patchParseDocUrlExtension(framework: FrameworkProvider) {

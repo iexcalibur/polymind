@@ -1,11 +1,11 @@
 import type { DocService, DocsService } from '@polymind/core/modules/doc';
 import type { EditorService } from '@polymind/core/modules/editor';
-import type { DocMode } from '@blocksuite/affine/model';
+import type { DocMode } from '@blocksuite/polymind/model';
 import {
   DocModeExtension,
   type DocModeProvider,
-} from '@blocksuite/affine/shared/services';
-import type { ExtensionType } from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/shared/services';
+import type { ExtensionType } from '@blocksuite/polymind/store';
 
 export function patchDocModeService(
   docService: DocService,
@@ -13,7 +13,7 @@ export function patchDocModeService(
   editorService: EditorService
 ): ExtensionType {
   const DEFAULT_MODE = 'page';
-  class AffineDocModeService implements DocModeProvider {
+  class PolymindDocModeService implements DocModeProvider {
     setEditorMode = (mode: DocMode) => {
       editorService.editor.setMode(mode);
     };
@@ -48,7 +48,7 @@ export function patchDocModeService(
     };
   }
 
-  const docModeExtension = DocModeExtension(new AffineDocModeService());
+  const docModeExtension = DocModeExtension(new PolymindDocModeService());
 
   return docModeExtension;
 }

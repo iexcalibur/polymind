@@ -1,9 +1,9 @@
 import type { CopilotChatHistoryFragment } from '@polymind/graphql';
-import { createLitPortal } from '@blocksuite/affine/components/portal';
-import { WithDisposable } from '@blocksuite/affine/global/lit';
-import type { NotificationService } from '@blocksuite/affine/shared/services';
-import { unsafeCSSVarV2 } from '@blocksuite/affine/shared/theme';
-import { ShadowlessElement } from '@blocksuite/affine/std';
+import { createLitPortal } from '@blocksuite/polymind/components/portal';
+import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import type { NotificationService } from '@blocksuite/polymind/shared/services';
+import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
+import { ShadowlessElement } from '@blocksuite/polymind/std';
 import {
   ArrowDownSmallIcon,
   PinedIcon,
@@ -103,7 +103,7 @@ export class AIChatToolbar extends WithDisposable(ShadowlessElement) {
           data-testid="ai-panel-new-chat"
         >
           ${PlusIcon()}
-          <affine-tooltip>New Chat</affine-tooltip>
+          <polymind-tooltip>New Chat</polymind-tooltip>
         </div>
         <div
           class="chat-toolbar-icon"
@@ -113,16 +113,16 @@ export class AIChatToolbar extends WithDisposable(ShadowlessElement) {
           data-testid="ai-panel-pin-chat"
         >
           ${pinned ? PinedIcon() : PinIcon()}
-          <affine-tooltip>
+          <polymind-tooltip>
             ${pinned ? 'Unpin this Chat' : 'Pin this Chat'}
-          </affine-tooltip>
+          </polymind-tooltip>
         </div>
         <div
           class="chat-toolbar-icon history-button"
           @click=${this.toggleHistoryMenu}
         >
           ${ArrowDownSmallIcon()}
-          <affine-tooltip>Chat History</affine-tooltip>
+          <polymind-tooltip>Chat History</polymind-tooltip>
         </div>
       </div>
     `;

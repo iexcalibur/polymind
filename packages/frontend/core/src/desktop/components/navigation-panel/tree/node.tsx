@@ -19,7 +19,7 @@ import { ExplorerIconService } from '@polymind/core/modules/explorer-icon/servic
 import type { ExplorerType } from '@polymind/core/modules/explorer-icon/store/explorer-icon';
 import type { DocPermissionActions } from '@polymind/core/modules/permissions';
 import { WorkbenchLink } from '@polymind/core/modules/workbench';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { useI18n } from '@polymind/i18n';
 import {
   ArrowDownSmallIcon,
@@ -49,7 +49,7 @@ import * as styles from './node.css';
 import type { NodeOperation } from './types';
 
 export type NavigationPanelTreeNodeDropEffectData = {
-  source: { data: AffineDNDData['draggable'] };
+  source: { data: PolymindDNDData['draggable'] };
   treeInstruction: DropTargetTreeInstruction | null;
 };
 export type NavigationPanelTreeNodeDropEffect = (
@@ -98,10 +98,10 @@ interface WebNavigationPanelTreeNodeProps extends BaseNavigationPanelTreeNodePro
 
   explorerIconConfig?: ExplorerIconConfig | null;
 
-  canDrop?: DropTargetOptions<AffineDNDData>['canDrop'];
+  canDrop?: DropTargetOptions<PolymindDNDData>['canDrop'];
   reorderable?: boolean;
-  dndData?: AffineDNDData;
-  onDrop?: (data: DropTargetDropEvent<AffineDNDData>) => void;
+  dndData?: PolymindDNDData;
+  onDrop?: (data: DropTargetDropEvent<PolymindDNDData>) => void;
   dropEffect?: NavigationPanelTreeNodeDropEffect;
 }
 
@@ -226,7 +226,7 @@ export const NavigationPanelTreeNode = ({
   );
 
   const { dragRef, dragging, CustomDragPreview } = useDraggable<
-    AffineDNDData & { draggable: { __cid: string } }
+    PolymindDNDData & { draggable: { __cid: string } }
   >(
     () => ({
       data: { ...dndData?.draggable, __cid: cid },
@@ -234,7 +234,7 @@ export const NavigationPanelTreeNode = ({
     }),
     [cid, dndData]
   );
-  const handleCanDrop = useMemo<DropTargetOptions<AffineDNDData>['canDrop']>(
+  const handleCanDrop = useMemo<DropTargetOptions<PolymindDNDData>['canDrop']>(
     () => args => {
       if (!reorderable && args.treeInstruction?.type !== 'make-child') {
         return false;
@@ -250,7 +250,7 @@ export const NavigationPanelTreeNode = ({
     draggedOverDraggable,
     draggedOver,
     draggedOverPosition,
-  } = useDropTarget<AffineDNDData & { draggable: { __cid: string } }>(
+  } = useDropTarget<PolymindDNDData & { draggable: { __cid: string } }>(
     () => ({
       data: dndData?.dropTarget,
       treeInstruction: {

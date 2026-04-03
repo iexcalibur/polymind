@@ -1,7 +1,7 @@
 import {
   type ViewExtensionContext,
   ViewExtensionProvider,
-} from '@blocksuite/affine/ext-loader';
+} from '@blocksuite/polymind/ext-loader';
 import { FrameworkProvider } from '@toeverything/infra';
 import { z } from 'zod';
 
@@ -13,7 +13,7 @@ const optionsSchema = z.object({
 type CloudViewOptions = z.infer<typeof optionsSchema>;
 
 export class CloudViewExtension extends ViewExtensionProvider<CloudViewOptions> {
-  override name = 'affine-view-cloud';
+  override name = 'polymind-view-cloud';
 
   override schema = optionsSchema;
 

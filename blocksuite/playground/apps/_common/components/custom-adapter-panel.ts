@@ -1,7 +1,7 @@
-import { SignalWatcher, WithDisposable } from '@blocksuite/affine/global/lit';
-import { ShadowlessElement } from '@blocksuite/affine/std';
-import type { TransformerMiddleware } from '@blocksuite/affine/store';
-import type { TestAffineEditorContainer } from '@blocksuite/integration-test';
+import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
+import { ShadowlessElement } from '@blocksuite/polymind/std';
+import type { TransformerMiddleware } from '@blocksuite/polymind/store';
+import type { TestPolymindEditorContainer } from '@blocksuite/integration-test';
 import { css, html, nothing } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 
@@ -24,10 +24,10 @@ export class CustomAdapterPanel extends SignalWatcher(
   `;
 
   private _renderPanel() {
-    return html`<affine-adapter-panel
+    return html`<polymind-adapter-panel
       .store=${this.editor.doc}
       .transformerMiddlewares=${this.transformerMiddlewares}
-    ></affine-adapter-panel>`;
+    ></polymind-adapter-panel>`;
   }
 
   override render() {
@@ -48,7 +48,7 @@ export class CustomAdapterPanel extends SignalWatcher(
   private accessor _show = false;
 
   @property({ attribute: false })
-  accessor editor!: TestAffineEditorContainer;
+  accessor editor!: TestPolymindEditorContainer;
 
   @property({ attribute: false })
   accessor transformerMiddlewares: TransformerMiddleware[] = [];

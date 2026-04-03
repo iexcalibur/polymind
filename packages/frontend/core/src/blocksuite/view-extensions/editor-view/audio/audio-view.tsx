@@ -1,6 +1,6 @@
 import type { ReactToLit } from '@polymind/component';
 import { AttachmentEmbedPreview } from '@polymind/core/blocksuite/attachment-viewer/attachment-embed-preview';
-import { AttachmentEmbedConfigIdentifier } from '@blocksuite/affine/blocks/attachment';
+import { AttachmentEmbedConfigIdentifier } from '@blocksuite/polymind/blocks/attachment';
 import type { ExtensionType } from '@blocksuite/store';
 
 export function patchForAudioEmbedView(reactToLit: ReactToLit): ExtensionType {

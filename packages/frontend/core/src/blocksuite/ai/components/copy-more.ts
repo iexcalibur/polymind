@@ -1,15 +1,15 @@
 import type { CopilotChatHistoryFragment } from '@polymind/graphql';
-import { Tooltip } from '@blocksuite/affine/components/tooltip';
-import { WithDisposable } from '@blocksuite/affine/global/lit';
-import { noop } from '@blocksuite/affine/global/utils';
-import { unsafeCSSVarV2 } from '@blocksuite/affine/shared/theme';
-import { createButtonPopper } from '@blocksuite/affine/shared/utils';
+import { Tooltip } from '@blocksuite/polymind/components/tooltip';
+import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import { noop } from '@blocksuite/polymind/global/utils';
+import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
+import { createButtonPopper } from '@blocksuite/polymind/shared/utils';
 import type {
   BlockSelection,
   EditorHost,
   TextSelection,
-} from '@blocksuite/affine/std';
-import type { NotificationService } from '@blocksuite/affine-shared/services';
+} from '@blocksuite/polymind/std';
+import type { NotificationService } from '@blocksuite/polymind-shared/services';
 import { CopyIcon, MoreHorizontalIcon, ResetIcon } from '@blocksuite/icons/lit';
 import { css, html, LitElement, nothing, type PropertyValues } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
@@ -190,7 +190,7 @@ export class ChatCopyMore extends WithDisposable(LitElement) {
               data-testid="action-copy-button"
             >
               ${CopyIcon({ width: '20px', height: '20px' })}
-              <affine-tooltip>Copy</affine-tooltip>
+              <polymind-tooltip>Copy</polymind-tooltip>
             </div>`
           : nothing}
         ${isLast
@@ -200,7 +200,7 @@ export class ChatCopyMore extends WithDisposable(LitElement) {
               data-testid="action-retry-button"
             >
               ${ResetIcon({ width: '20px', height: '20px' })}
-              <affine-tooltip .autoShift=${true}>Retry</affine-tooltip>
+              <polymind-tooltip .autoShift=${true}>Retry</polymind-tooltip>
             </div>`
           : nothing}
         ${showMoreIcon && host

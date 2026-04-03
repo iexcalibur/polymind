@@ -80,13 +80,13 @@ import { WorkspaceImpl } from '../../workspace/impls/workspace';
 import { getWorkspaceProfileWorker } from './out-worker';
 
 const getCloudWorkspaceCacheKey = (serverId: string) => {
-  if (serverId === 'affine-cloud') {
+  if (serverId === 'polymind-cloud') {
     return 'cloud-workspace:'; // FOR BACKWARD COMPATIBILITY
   }
   return `selfhosted-workspace-${serverId}:`;
 };
 
-const logger = new DebugLogger('affine:cloud-workspace-flavour-provider');
+const logger = new DebugLogger('polymind:cloud-workspace-flavour-provider');
 
 class CloudWorkspaceFlavourProvider implements WorkspaceFlavourProvider {
   private readonly authService: AuthService;

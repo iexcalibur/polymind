@@ -21,24 +21,24 @@ import { useEffect } from 'react';
 import { usePageHelper } from '../../blocksuite/block-suite-page-list/utils';
 import {
   PreconditionStrategy,
-  registerAffineCommand,
-  registerAffineCreationCommands,
-  registerAffineHelpCommands,
-  registerAffineLanguageCommands,
-  registerAffineLayoutCommands,
-  registerAffineNavigationCommands,
-  registerAffineSettingsCommands,
-  registerAffineUpdatesCommands,
+  registerPolymindCommand,
+  registerPolymindCreationCommands,
+  registerPolymindHelpCommands,
+  registerPolymindLanguageCommands,
+  registerPolymindLayoutCommands,
+  registerPolymindNavigationCommands,
+  registerPolymindSettingsCommands,
+  registerPolymindUpdatesCommands,
 } from '../../commands';
 import { EditorSettingService } from '../../modules/editor-setting';
 import { CMDKQuickSearchService } from '../../modules/quicksearch/services/cmdk';
 import { useNavigateHelper } from './use-navigate-helper';
 
 function registerCMDKCommand(service: CMDKQuickSearchService) {
-  return registerAffineCommand({
-    id: 'affine:show-quick-search',
+  return registerPolymindCommand({
+    id: 'polymind:show-quick-search',
     preconditionStrategy: PreconditionStrategy.Never,
-    category: 'affine:general',
+    category: 'polymind:general',
     keyBinding: {
       binding: '$mod+K',
     },
@@ -89,13 +89,13 @@ export function useRegisterWorkspaceCommands() {
     };
   }, [cMDKQuickSearchService]);
 
-  // register AffineUpdatesCommands
+  // register PolymindUpdatesCommands
   useEffect(() => {
     if (!quitAndInstall) {
       return;
     }
 
-    const unsub = registerAffineUpdatesCommands({
+    const unsub = registerPolymindUpdatesCommands({
       store,
       t,
       quitAndInstall,
@@ -106,9 +106,9 @@ export function useRegisterWorkspaceCommands() {
     };
   }, [quitAndInstall, store, t]);
 
-  // register AffineNavigationCommands
+  // register PolymindNavigationCommands
   useEffect(() => {
-    const unsub = registerAffineNavigationCommands({
+    const unsub = registerPolymindNavigationCommands({
       t,
       docCollection: currentWorkspace.docCollection,
       navigationHelper,
@@ -129,9 +129,9 @@ export function useRegisterWorkspaceCommands() {
     workbenchService,
   ]);
 
-  // register AffineSettingsCommands
+  // register PolymindSettingsCommands
   useEffect(() => {
-    const unsub = registerAffineSettingsCommands({
+    const unsub = registerPolymindSettingsCommands({
       store,
       t,
       theme,
@@ -144,7 +144,7 @@ export function useRegisterWorkspaceCommands() {
   }, [editorSettingService, store, t, theme]);
 
   useEffect(() => {
-    const unsub = registerAffineLanguageCommands({
+    const unsub = registerPolymindLanguageCommands({
       i18n,
       t,
     });
@@ -154,18 +154,18 @@ export function useRegisterWorkspaceCommands() {
     };
   }, [i18n, t]);
 
-  // register AffineLayoutCommands
+  // register PolymindLayoutCommands
   useEffect(() => {
-    const unsub = registerAffineLayoutCommands({ t, appSidebarService });
+    const unsub = registerPolymindLayoutCommands({ t, appSidebarService });
 
     return () => {
       unsub();
     };
   }, [appSidebarService, store, t]);
 
-  // register AffineCreationCommands
+  // register PolymindCreationCommands
   useEffect(() => {
-    const unsub = registerAffineCreationCommands({
+    const unsub = registerPolymindCreationCommands({
       globalDialogService,
       pageHelper: pageHelper,
       t,
@@ -176,9 +176,9 @@ export function useRegisterWorkspaceCommands() {
     };
   }, [store, pageHelper, t, globalDialogService]);
 
-  // register AffineHelpCommands
+  // register PolymindHelpCommands
   useEffect(() => {
-    const unsub = registerAffineHelpCommands({
+    const unsub = registerPolymindHelpCommands({
       t,
       urlService,
       workspaceDialogService,

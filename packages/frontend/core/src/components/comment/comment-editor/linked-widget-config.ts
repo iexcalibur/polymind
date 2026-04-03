@@ -1,11 +1,11 @@
 import { MemberSearchService } from '@polymind/core/modules/permissions';
 import { highlighter } from '@polymind/core/modules/quicksearch/utils/highlighter';
 import { I18n } from '@polymind/i18n';
-import type { AffineInlineEditor } from '@blocksuite/affine/shared/types';
+import type { PolymindInlineEditor } from '@blocksuite/polymind/shared/types';
 import type {
   LinkedMenuItem,
   LinkedWidgetConfig,
-} from '@blocksuite/affine/widgets/linked-doc';
+} from '@blocksuite/polymind/widgets/linked-doc';
 import { UserIcon } from '@blocksuite/icons/lit';
 import { BLOCK_ID_ATTR, type BlockComponent } from '@blocksuite/std';
 import { computed } from '@preact/signals-core';
@@ -22,7 +22,7 @@ export const createCommentLinkedWidgetConfig = (
   const memberGroup = (
     query: string,
     close: () => void,
-    inlineEditor: AffineInlineEditor
+    inlineEditor: PolymindInlineEditor
   ) => {
     const memberSearchService = framework.get(MemberSearchService);
 

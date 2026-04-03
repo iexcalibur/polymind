@@ -262,7 +262,7 @@ test(scoped`pasting internal url`, async ({ page }) => {
   await pasteContent(page, {
     'text/plain': 'http://workspace/doc-id',
   });
-  await expect(page.locator('affine-reference')).toContainText('test page');
+  await expect(page.locator('polymind-reference')).toContainText('test page');
 });
 
 test(scoped`pasting internal url with params`, async ({ page }) => {
@@ -280,7 +280,7 @@ test(scoped`pasting internal url with params`, async ({ page }) => {
     'text/plain':
       'http://workspace/doc-id?mode=page&blockIds=rL2_GXbtLU2SsJVfCSmh_',
   });
-  await expect(page.locator('affine-reference')).toContainText('test page');
+  await expect(page.locator('polymind-reference')).toContainText('test page');
 });
 
 test(
@@ -298,7 +298,7 @@ test(
     await pasteContent(page, {
       'text/plain': 'https://affine.pro/',
     });
-    await expect(page.locator('affine-link')).toContainText('alias');
+    await expect(page.locator('polymind-link')).toContainText('alias');
   }
 );
 
@@ -321,7 +321,7 @@ test(
     await pasteContent(page, {
       'text/plain': 'http://workspace/doc-id',
     });
-    await expect(page.locator('affine-reference')).toContainText('alias');
+    await expect(page.locator('polymind-reference')).toContainText('alias');
   }
 );
 

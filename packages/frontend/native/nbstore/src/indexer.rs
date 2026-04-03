@@ -1,4 +1,4 @@
-use affine_common::doc_parser::{BlockInfo, CrawlResult, ParseError, parse_doc_from_binary};
+use polymind_common::doc_parser::{BlockInfo, CrawlResult, ParseError, parse_doc_from_binary};
 use memory_indexer::{SearchHit, SnapshotData};
 use napi_derive::napi;
 use serde::Serialize;
@@ -276,7 +276,7 @@ fn merge_updates(mut segments: Vec<Vec<u8>>, guid: &str) -> Result<Vec<u8>> {
 mod tests {
   use std::path::{Path, PathBuf};
 
-  use affine_common::doc_parser::ParseError;
+  use polymind_common::doc_parser::ParseError;
   use chrono::Utc;
   use serde_json::Value;
   use tokio::fs;
@@ -288,7 +288,7 @@ mod tests {
   const DEMO_JSON: &[u8] = include_bytes!("../../../../common/native/fixtures/demo.ydoc.json");
 
   fn temp_workspace_dir() -> PathBuf {
-    std::env::temp_dir().join(format!("affine-native-{}", Uuid::new_v4()))
+    std::env::temp_dir().join(format!("polymind-native-{}", Uuid::new_v4()))
   }
 
   async fn init_db(path: &Path) -> SqliteDocStorage {

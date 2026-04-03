@@ -1,6 +1,6 @@
 import { parsePageDoc } from '@polymind/reader';
-import { LifeCycleWatcher } from '@blocksuite/affine/std';
-import { Extension, type Store } from '@blocksuite/affine/store';
+import { LifeCycleWatcher } from '@blocksuite/polymind/std';
+import { Extension, type Store } from '@blocksuite/polymind/store';
 import { type Container, createIdentifier } from '@blocksuite/global/di';
 import { LiveData } from '@toeverything/infra';
 import type { Subscription } from 'rxjs';
@@ -151,7 +151,7 @@ export interface BlockDiffProvider {
 }
 
 export const BlockDiffProvider = createIdentifier<BlockDiffProvider>(
-  'AffineBlockDiffService'
+  'PolymindBlockDiffService'
 );
 
 export class BlockDiffService extends Extension implements BlockDiffProvider {
@@ -177,7 +177,7 @@ export class BlockDiffService extends Extension implements BlockDiffProvider {
   }
 
   getBlockIndexById(doc: Store, blockId: string): number {
-    const notes = doc.getBlocksByFlavour('affine:note');
+    const notes = doc.getBlocksByFlavour('polymind:note');
     if (notes.length === 0) return 0;
     const note = notes[0].model;
     return note.children.findIndex(child => child.id === blockId);

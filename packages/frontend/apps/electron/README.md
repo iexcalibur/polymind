@@ -1,13 +1,13 @@
-# AFFiNE Electron App
+# PolyMind Electron App
 
 ## Development
 
-To run AFFiNE Desktop Client Application locally, run the following commands:
+To run PolyMind Desktop Client Application locally, run the following commands:
 
 ```sh
 # in repo root
 yarn install
-yarn affine @affine/native build
+yarn polymind @polymind/native build
 yarn dev
 
 # in packages/frontend/apps/electron

@@ -1,19 +1,19 @@
 import type { FeatureFlagService } from '@polymind/core/modules/feature-flag';
 import type { PeekViewService } from '@polymind/core/modules/peek-view';
-import { WithDisposable } from '@blocksuite/affine/global/lit';
-import type { ColorScheme } from '@blocksuite/affine/model';
+import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import type { ColorScheme } from '@blocksuite/polymind/model';
 import {
   type BlockStdScope,
   type EditorHost,
   ShadowlessElement,
-} from '@blocksuite/affine/std';
-import type { ExtensionType } from '@blocksuite/affine/store';
-import type { NotificationService } from '@blocksuite/affine-shared/services';
+} from '@blocksuite/polymind/std';
+import type { ExtensionType } from '@blocksuite/polymind/store';
+import type { NotificationService } from '@blocksuite/polymind-shared/services';
 import type { Signal } from '@preact/signals-core';
 import { css, html, nothing } from 'lit';
 import { property } from 'lit/decorators.js';
 
-import type { AffineAIPanelState } from '../../widgets/ai-panel/type';
+import type { PolymindAIPanelState } from '../../widgets/ai-panel/type';
 import type { DocDisplayConfig } from '../ai-chat-chips';
 import type { StreamObject } from '../ai-chat-messages';
 
@@ -39,7 +39,7 @@ export class ChatContentStreamObjects extends WithDisposable(
   accessor std: BlockStdScope | null | undefined;
 
   @property({ attribute: false })
-  accessor state: AffineAIPanelState = 'finished';
+  accessor state: PolymindAIPanelState = 'finished';
 
   @property({ attribute: false })
   accessor width: Signal<number | undefined> | undefined;

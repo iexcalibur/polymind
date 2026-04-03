@@ -3,8 +3,8 @@ import {
   createToolbarMoreMenuConfig,
 } from '@polymind/core/blocksuite/view-extensions/editor-config/toolbar';
 import { EditorSettingService } from '@polymind/core/modules/editor-setting';
-import { ToolbarMoreMenuConfigExtension } from '@blocksuite/affine/components/toolbar';
-import { EditorSettingExtension } from '@blocksuite/affine/shared/services';
+import { ToolbarMoreMenuConfigExtension } from '@blocksuite/polymind/components/toolbar';
+import { EditorSettingExtension } from '@blocksuite/polymind/shared/services';
 import type { ExtensionType } from '@blocksuite/store';
 import type { FrameworkProvider } from '@toeverything/infra';
 

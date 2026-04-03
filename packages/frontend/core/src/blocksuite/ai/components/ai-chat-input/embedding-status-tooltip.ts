@@ -1,6 +1,6 @@
 import type { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
-import { SignalWatcher } from '@blocksuite/affine/global/lit';
-import { unsafeCSSVar } from '@blocksuite/affine/shared/theme';
+import { SignalWatcher } from '@blocksuite/polymind/global/lit';
+import { unsafeCSSVar } from '@blocksuite/polymind/shared/theme';
 import { css, html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
 import { debounce } from 'lodash-es';
@@ -36,7 +36,7 @@ export class AIChatEmbeddingStatusTooltip extends SignalWatcher(LitElement) {
   `;
 
   @property({ attribute: false })
-  accessor affineWorkspaceDialogService!: WorkspaceDialogService;
+  accessor polymindWorkspaceDialogService!: WorkspaceDialogService;
 
   override connectedCallback() {
     super.connectedCallback();
@@ -44,7 +44,7 @@ export class AIChatEmbeddingStatusTooltip extends SignalWatcher(LitElement) {
 
   private readonly _handleCheckStatusClick = debounce(
     () => {
-      this.affineWorkspaceDialogService.open('setting', {
+      this.polymindWorkspaceDialogService.open('setting', {
         activeTab: 'workspace:embedding',
       });
     },

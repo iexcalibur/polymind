@@ -23,37 +23,37 @@ const useUpdateStatusLabels = (checkUpdateStatus: CheckUpdateStatus) => {
 
   const buttonLabel = useMemo(() => {
     if (updateReady) {
-      return t['com.polymind.aboutAFFiNE.checkUpdate.button.restart']();
+      return t['com.polymind.aboutPolyMind.checkUpdate.button.restart']();
     }
     if (updateAvailable && downloadProgress === null) {
-      return t['com.polymind.aboutAFFiNE.checkUpdate.button.download']();
+      return t['com.polymind.aboutPolyMind.checkUpdate.button.download']();
     }
     if (
       checkUpdateStatus === CheckUpdateStatus.LATEST ||
       checkUpdateStatus === CheckUpdateStatus.ERROR
     ) {
-      return t['com.polymind.aboutAFFiNE.checkUpdate.button.retry']();
+      return t['com.polymind.aboutPolyMind.checkUpdate.button.retry']();
     }
-    return t['com.polymind.aboutAFFiNE.checkUpdate.button.check']();
+    return t['com.polymind.aboutPolyMind.checkUpdate.button.check']();
   }, [checkUpdateStatus, downloadProgress, t, updateAvailable, updateReady]);
 
   const subtitleLabel = useMemo(() => {
     if (updateReady) {
-      return t['com.polymind.aboutAFFiNE.checkUpdate.subtitle.restart']();
+      return t['com.polymind.aboutPolyMind.checkUpdate.subtitle.restart']();
     } else if (updateAvailable && downloadProgress === null) {
-      return t['com.polymind.aboutAFFiNE.checkUpdate.subtitle.update-available']({
+      return t['com.polymind.aboutPolyMind.checkUpdate.subtitle.update-available']({
         version: updateAvailable.version,
       });
     } else if (checkingForUpdates) {
-      return t['com.polymind.aboutAFFiNE.checkUpdate.subtitle.checking']();
+      return t['com.polymind.aboutPolyMind.checkUpdate.subtitle.checking']();
     } else if (updateAvailable && downloadProgress !== null) {
-      return t['com.polymind.aboutAFFiNE.checkUpdate.subtitle.downloading']();
+      return t['com.polymind.aboutPolyMind.checkUpdate.subtitle.downloading']();
     } else if (checkUpdateStatus === CheckUpdateStatus.ERROR) {
-      return t['com.polymind.aboutAFFiNE.checkUpdate.subtitle.error']();
+      return t['com.polymind.aboutPolyMind.checkUpdate.subtitle.error']();
     } else if (checkUpdateStatus === CheckUpdateStatus.LATEST) {
-      return t['com.polymind.aboutAFFiNE.checkUpdate.subtitle.latest']();
+      return t['com.polymind.aboutPolyMind.checkUpdate.subtitle.latest']();
     }
-    return t['com.polymind.aboutAFFiNE.checkUpdate.subtitle.check']();
+    return t['com.polymind.aboutPolyMind.checkUpdate.subtitle.check']();
   }, [
     checkUpdateStatus,
     downloadProgress,
@@ -145,7 +145,7 @@ export const UpdateCheckSection = () => {
 
   return (
     <SettingRow
-      name={t['com.polymind.aboutAFFiNE.checkUpdate.title']()}
+      name={t['com.polymind.aboutPolyMind.checkUpdate.title']()}
       desc={subtitle}
     >
       <Button

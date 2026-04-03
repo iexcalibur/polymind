@@ -8,7 +8,7 @@ import { MenuLinkItem } from '@polymind/core/modules/app-sidebar/views';
 import { DocsService } from '@polymind/core/modules/doc';
 import { GlobalContextService } from '@polymind/core/modules/global-context';
 import { GuardService } from '@polymind/core/modules/permissions';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { UserFriendlyError } from '@polymind/error';
 import { useI18n } from '@polymind/i18n';
 import { useLiveData, useService } from '@toeverything/infra';
@@ -21,7 +21,7 @@ export const TrashButton = () => {
   const trashActive = useLiveData(globalContextService.globalContext.isTrash.$);
   const guardService = useService(GuardService);
 
-  const { dropTargetRef, draggedOver } = useDropTarget<AffineDNDData>(
+  const { dropTargetRef, draggedOver } = useDropTarget<PolymindDNDData>(
     () => ({
       data: {
         at: 'app-sidebar:trash',

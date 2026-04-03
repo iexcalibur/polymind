@@ -3,9 +3,9 @@ import { DocDisplayMetaService } from '@polymind/core/modules/doc-display-meta';
 import { WorkbenchService } from '@polymind/core/modules/workbench';
 import { stopPropagation } from '@polymind/core/utils';
 import { useI18n } from '@polymind/i18n';
-import { EmbedSyncedDocBlockComponent } from '@blocksuite/affine/blocks/embed-doc';
-import { isPeekable, peek } from '@blocksuite/affine/components/peek';
-import type { EmbedSyncedDocModel } from '@blocksuite/affine-model';
+import { EmbedSyncedDocBlockComponent } from '@blocksuite/polymind/blocks/embed-doc';
+import { isPeekable, peek } from '@blocksuite/polymind/components/peek';
+import type { EmbedSyncedDocModel } from '@blocksuite/polymind-model';
 import {
   ArrowDownSmallIcon,
   CenterPeekIcon,

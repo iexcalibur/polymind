@@ -1,0 +1,15 @@
+{
+  "name": "@polymind-test/polymind-local",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "e2e": "yarn playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "=1.58.2",
+    "@polymind-test/kit": "workspace:*",
+    "@polymind-tools/cli": "workspace:*",
+    "@polymind-tools/utils": "workspace:*"
+  },
+  "version": "0.26.3"
+}

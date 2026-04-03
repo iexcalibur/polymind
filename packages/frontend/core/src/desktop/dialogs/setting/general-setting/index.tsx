@@ -16,7 +16,7 @@ import { useLiveData, useServices } from '@toeverything/infra';
 import { useMemo } from 'react';
 
 import type { SettingSidebarItem, SettingState } from '../types';
-import { AboutAffine } from './about';
+import { AboutPolymind } from './about';
 import { AISettings } from './ai';
 import { AppearanceSettings } from './appearance';
 import { BackupSettingPanel } from './backup';
@@ -130,7 +130,7 @@ export const GeneralSetting = ({
     case 'meetings':
       return <MeetingsSettings />;
     case 'about':
-      return <AboutAffine />;
+      return <AboutPolymind />;
     case 'experimental-features':
       return <ExperimentalFeatures />;
     case 'backup':

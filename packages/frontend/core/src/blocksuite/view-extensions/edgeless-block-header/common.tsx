@@ -1,9 +1,9 @@
 import { IconButton } from '@polymind/component';
-import { useSharingUrl } from '@polymind/core/components/hooks/affine/use-share-url';
+import { useSharingUrl } from '@polymind/core/components/hooks/polymind/use-share-url';
 import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { useI18n } from '@polymind/i18n';
-import { type DocMode } from '@blocksuite/affine/model';
+import { type DocMode } from '@blocksuite/polymind/model';
 import { InformationIcon, LinkIcon } from '@blocksuite/icons/rc';
 import { useService } from '@toeverything/infra';
 import { useCallback } from 'react';

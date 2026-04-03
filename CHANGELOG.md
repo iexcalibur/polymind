@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the Ploy-Note project (AFFiNE fork) are documented in this file.
+All notable changes to the PolyMind project (PolyMind fork) are documented in this file.
 
 ---
 
@@ -17,7 +17,7 @@ All notable changes to the Ploy-Note project (AFFiNE fork) are documented in thi
   - `UserFeature.isAdmin$` always returns `true`
 - **All telemetry fully removed** — zero data sent externally
   - Removed all `track.xxx()` calls from ~150 frontend files
-  - `@affine/track` exports are no-ops (track, tracker, sentry all do nothing)
+  - `@polymind/track` exports are no-ops (track, tracker, sentry all do nothing)
   - Deleted `packages/backend/server/src/core/telemetry/` — backend GA4 forwarding
   - Deleted `packages/common/nbstore/src/telemetry/` — IndexedDB event queue
   - Deleted `packages/frontend/core/src/modules/telemetry/` — frontend telemetry module
@@ -32,7 +32,7 @@ All notable changes to the Ploy-Note project (AFFiNE fork) are documented in thi
   - Cloud module kept as stub (services exist but `server` is always `null`)
 - **Favorites sidebar section** removed from desktop and mobile navigation
   - `NavigationPanelFavorites` and `NavigationPanelMigrationFavorites` removed from sidebar
-  - `favorite` table dropped from `AFFiNE_WORKSPACE_USERDATA_DB_SCHEMA`
+  - `favorite` table dropped from `PolyMind_WORKSPACE_USERDATA_DB_SCHEMA`
   - `FavoriteStore` converted to no-op stub (star icons on docs still render but are inert)
 
 ---
@@ -57,4 +57,4 @@ All notable changes to the Ploy-Note project (AFFiNE fork) are documented in thi
 
 ### Removed
 - iOS, Android, and mobile app support (`chore: remove iOS/Android`)
-- Inherited AFFiNE CI/CD, deployments, helm charts, and Docker configs
+- Inherited PolyMind CI/CD, deployments, helm charts, and Docker configs

@@ -21,11 +21,11 @@ export default {
   require: preludes,
   environmentVariables: {
     NODE_ENV: 'test',
-    DEPLOYMENT_TYPE: 'affine',
+    DEPLOYMENT_TYPE: 'polymind',
     MAILER_HOST: '0.0.0.0',
     MAILER_PORT: '1025',
     MAILER_USER: 'noreply@toeverything.info',
-    MAILER_PASSWORD: 'affine',
+    MAILER_PASSWORD: 'polymind',
     MAILER_SENDER: 'noreply@toeverything.info',
   },
 };

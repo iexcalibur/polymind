@@ -1,4 +1,4 @@
-import { useExportPage } from '@polymind/core/components/hooks/affine/use-export-page';
+import { useExportPage } from '@polymind/core/components/hooks/polymind/use-export-page';
 import {
   ExportMenuItems,
   PrintMenuItems,

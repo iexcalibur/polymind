@@ -1,10 +1,10 @@
 import {
-  type AffineCommand,
-  AffineCommandRegistry,
+  type PolymindCommand,
+  PolymindCommandRegistry,
   type CommandCategory,
   PreconditionStrategy,
 } from '@polymind/core/commands';
-import type { DocMode } from '@blocksuite/affine/model';
+import type { DocMode } from '@blocksuite/polymind/model';
 import { Entity, LiveData } from '@toeverything/infra';
 import Fuse from 'fuse.js';
 
@@ -15,83 +15,83 @@ import type { QuickSearchItem } from '../types/item';
 import { highlighter } from '../utils/highlighter';
 
 const categories = {
-  'affine:recent': {
-    id: 'command:affine:recent',
-    label: { i18nKey: 'com.polymind.cmdk.affine.category.affine.recent' },
+  'polymind:recent': {
+    id: 'command:polymind:recent',
+    label: { i18nKey: 'com.polymind.cmdk.polymind.category.polymind.recent' },
     score: 10,
   },
-  'affine:navigation': {
-    id: 'command:affine:navigation',
+  'polymind:navigation': {
+    id: 'command:polymind:navigation',
     label: {
-      i18nKey: 'com.polymind.cmdk.affine.category.affine.navigation',
+      i18nKey: 'com.polymind.cmdk.polymind.category.polymind.navigation',
     },
     score: 10,
   },
-  'affine:creation': {
-    id: 'command:affine:creation',
-    label: { i18nKey: 'com.polymind.cmdk.affine.category.affine.creation' },
+  'polymind:creation': {
+    id: 'command:polymind:creation',
+    label: { i18nKey: 'com.polymind.cmdk.polymind.category.polymind.creation' },
     score: 10,
   },
-  'affine:general': {
-    id: 'command:affine:general',
-    label: { i18nKey: 'com.polymind.cmdk.affine.category.affine.general' },
+  'polymind:general': {
+    id: 'command:polymind:general',
+    label: { i18nKey: 'com.polymind.cmdk.polymind.category.polymind.general' },
     score: 10,
   },
-  'affine:layout': {
-    id: 'command:affine:layout',
-    label: { i18nKey: 'com.polymind.cmdk.affine.category.affine.layout' },
+  'polymind:layout': {
+    id: 'command:polymind:layout',
+    label: { i18nKey: 'com.polymind.cmdk.polymind.category.polymind.layout' },
     score: 10,
   },
-  'affine:pages': {
-    id: 'command:affine:pages',
-    label: { i18nKey: 'com.polymind.cmdk.affine.category.affine.pages' },
+  'polymind:pages': {
+    id: 'command:polymind:pages',
+    label: { i18nKey: 'com.polymind.cmdk.polymind.category.polymind.pages' },
     score: 10,
   },
-  'affine:edgeless': {
-    id: 'command:affine:edgeless',
-    label: { i18nKey: 'com.polymind.cmdk.affine.category.affine.edgeless' },
+  'polymind:edgeless': {
+    id: 'command:polymind:edgeless',
+    label: { i18nKey: 'com.polymind.cmdk.polymind.category.polymind.edgeless' },
     score: 10,
   },
-  'affine:collections': {
-    id: 'command:affine:collections',
+  'polymind:collections': {
+    id: 'command:polymind:collections',
     label: {
-      i18nKey: 'com.polymind.cmdk.affine.category.affine.collections',
+      i18nKey: 'com.polymind.cmdk.polymind.category.polymind.collections',
     },
     score: 10,
   },
-  'affine:settings': {
-    id: 'command:affine:settings',
-    label: { i18nKey: 'com.polymind.cmdk.affine.category.affine.settings' },
+  'polymind:settings': {
+    id: 'command:polymind:settings',
+    label: { i18nKey: 'com.polymind.cmdk.polymind.category.polymind.settings' },
     score: 10,
   },
-  'affine:updates': {
-    id: 'command:affine:updates',
-    label: { i18nKey: 'com.polymind.cmdk.affine.category.affine.updates' },
+  'polymind:updates': {
+    id: 'command:polymind:updates',
+    label: { i18nKey: 'com.polymind.cmdk.polymind.category.polymind.updates' },
     score: 10,
   },
-  'affine:help': {
-    id: 'command:affine:help',
-    label: { i18nKey: 'com.polymind.cmdk.affine.category.affine.help' },
+  'polymind:help': {
+    id: 'command:polymind:help',
+    label: { i18nKey: 'com.polymind.cmdk.polymind.category.polymind.help' },
     score: 10,
   },
   'editor:edgeless': {
     id: 'command:editor:edgeless',
-    label: { i18nKey: 'com.polymind.cmdk.affine.category.editor.edgeless' },
+    label: { i18nKey: 'com.polymind.cmdk.polymind.category.editor.edgeless' },
     score: 10,
   },
   'editor:insert-object': {
     id: 'command:editor:insert-object',
-    label: { i18nKey: 'com.polymind.cmdk.affine.category.editor.insert-object' },
+    label: { i18nKey: 'com.polymind.cmdk.polymind.category.editor.insert-object' },
     score: 10,
   },
   'editor:page': {
     id: 'command:editor:page',
-    label: { i18nKey: 'com.polymind.cmdk.affine.category.editor.page' },
+    label: { i18nKey: 'com.polymind.cmdk.polymind.category.editor.page' },
     score: 10,
   },
-  'affine:results': {
-    id: 'command:affine:results',
-    label: { i18nKey: 'com.polymind.cmdk.affine.category.results' },
+  'polymind:results': {
+    id: 'command:polymind:results',
+    label: { i18nKey: 'com.polymind.cmdk.polymind.category.results' },
     score: 10,
   },
 } satisfies Required<{
@@ -99,7 +99,7 @@ const categories = {
 }>;
 
 function filterCommandByContext(
-  command: AffineCommand,
+  command: PolymindCommand,
   context: {
     docMode: DocMode | undefined;
   }
@@ -126,7 +126,7 @@ function filterCommandByContext(
 }
 
 function getAllCommand(context: { docMode: DocMode | undefined }) {
-  const commands = AffineCommandRegistry.getAll();
+  const commands = PolymindCommandRegistry.getAll();
   return commands.filter(command => {
     return filterCommandByContext(command, context);
   });
@@ -134,7 +134,7 @@ function getAllCommand(context: { docMode: DocMode | undefined }) {
 
 export class CommandsQuickSearchSession
   extends Entity
-  implements QuickSearchSession<'commands', AffineCommand>
+  implements QuickSearchSession<'commands', PolymindCommand>
 {
   constructor(private readonly contextService: GlobalContextService) {
     super();
@@ -160,7 +160,7 @@ export class CommandsQuickSearchSession
       ? fuse.search(query)
       : commands.map(item => ({ item, matches: [], score: 0 }));
 
-    return result.map<QuickSearchItem<'commands', AffineCommand>>(
+    return result.map<QuickSearchItem<'commands', PolymindCommand>>(
       ({ item, matches, score = 1 }) => {
         const normalizedRange = ([start, end]: [number, number]) =>
           [

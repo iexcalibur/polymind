@@ -1,14 +1,14 @@
-import { Container } from '@blocksuite/affine/global/di';
+import { Container } from '@blocksuite/polymind/global/di';
 import type {
   AttachmentBlockModel,
   BookmarkBlockModel,
   EmbedBlockModel,
   ImageBlockModel,
   TableBlockModel,
-} from '@blocksuite/affine/model';
-import { AffineSchemas } from '@blocksuite/affine/schemas';
-import { MarkdownAdapter } from '@blocksuite/affine/shared/adapters';
-import type { AffineTextAttributes } from '@blocksuite/affine/shared/types';
+} from '@blocksuite/polymind/model';
+import { PolymindSchemas } from '@blocksuite/polymind/schemas';
+import { MarkdownAdapter } from '@blocksuite/polymind/shared/adapters';
+import type { PolymindTextAttributes } from '@blocksuite/polymind/shared/types';
 import {
   createYProxy,
   type DeltaInsert,
@@ -17,7 +17,7 @@ import {
   Transformer,
   type TransformerMiddleware,
   type YBlock,
-} from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/store';
 import { uniqBy } from 'lodash-es';
 import {
   Array as YArray,
@@ -29,7 +29,7 @@ import {
 import { getStoreManager } from './bs-store';
 
 const blocksuiteSchema = new Schema();
-blocksuiteSchema.register([...AffineSchemas]);
+blocksuiteSchema.register([...PolymindSchemas]);
 
 export interface BlockDocumentInfo {
   docId: string;
@@ -51,15 +51,15 @@ export interface BlockDocumentInfo {
 }
 
 const bookmarkFlavours = new Set([
-  'affine:bookmark',
-  'affine:embed-youtube',
-  'affine:embed-figma',
-  'affine:embed-github',
-  'affine:embed-loom',
+  'polymind:bookmark',
+  'polymind:embed-youtube',
+  'polymind:embed-figma',
+  'polymind:embed-github',
+  'polymind:embed-loom',
 ]);
 
 const collectInlineReferences = (
-  deltas: DeltaInsert<AffineTextAttributes>[]
+  deltas: DeltaInsert<PolymindTextAttributes>[]
 ): { refDocId: string; ref: string }[] =>
   uniqBy(
     deltas
@@ -83,19 +83,19 @@ const collectInlineReferences = (
 
 const getTextDeltasFromCellValue = (
   value: unknown
-): DeltaInsert<AffineTextAttributes>[] | null => {
+): DeltaInsert<PolymindTextAttributes>[] | null => {
   if (!value) {
     return null;
   }
 
   if (value instanceof YText) {
-    return value.toDelta() as DeltaInsert<AffineTextAttributes>[];
+    return value.toDelta() as DeltaInsert<PolymindTextAttributes>[];
   }
 
   if (typeof value === 'object' && value !== null) {
     const maybeText = value as { yText?: unknown };
     if (maybeText.yText instanceof YText) {
-      return maybeText.yText.toDelta() as DeltaInsert<AffineTextAttributes>[];
+      return maybeText.yText.toDelta() as DeltaInsert<PolymindTextAttributes>[];
     }
   }
 
@@ -107,11 +107,11 @@ const getTextDeltasFromCellValue = (
         return delta
           .toArray()
           .map(entry => (entry instanceof YMap ? entry.toJSON() : entry)) as
-          | DeltaInsert<AffineTextAttributes>[]
+          | DeltaInsert<PolymindTextAttributes>[]
           | null;
       }
       if (Array.isArray(delta)) {
-        return delta as DeltaInsert<AffineTextAttributes>[];
+        return delta as DeltaInsert<PolymindTextAttributes>[];
       }
     }
   }
@@ -123,10 +123,10 @@ const getTextDeltasFromCellValue = (
   ) {
     const delta = (value as { delta?: unknown }).delta;
     if (delta instanceof YArray) {
-      return delta.toArray() as DeltaInsert<AffineTextAttributes>[];
+      return delta.toArray() as DeltaInsert<PolymindTextAttributes>[];
     }
     if (Array.isArray(delta)) {
-      return delta as DeltaInsert<AffineTextAttributes>[];
+      return delta as DeltaInsert<PolymindTextAttributes>[];
     }
   }
 
@@ -250,7 +250,7 @@ function generateMarkdownPreviewBuilder(
       );
 
       // reach the root block. do not count it.
-      if (!currentBlock || currentBlock.flavour !== 'affine:list') {
+      if (!currentBlock || currentBlock.flavour !== 'polymind:list') {
         break;
       }
       parentBlockCount++;
@@ -274,7 +274,7 @@ function generateMarkdownPreviewBuilder(
 
   const generateDatabaseMarkdownPreview = (block: BlockDocumentInfo) => {
     const isDatabaseBlock = (block: BlockDocumentInfo) => {
-      return block.flavour === 'affine:database';
+      return block.flavour === 'polymind:database';
     };
 
     const model = yblockToDraftModal(block.yblock);
@@ -309,7 +309,7 @@ function generateMarkdownPreviewBuilder(
     const isImageModel = (
       model: DraftModel | null
     ): model is DraftModel<ImageBlockModel> => {
-      return model?.flavour === 'affine:image';
+      return model?.flavour === 'polymind:image';
     };
 
     const model = yblockToDraftModal(block.yblock);
@@ -336,8 +336,8 @@ function generateMarkdownPreviewBuilder(
       model: DraftModel | null
     ): model is DraftModel<EmbedBlockModel> => {
       return (
-        model?.flavour === 'affine:embed-linked-doc' ||
-        model?.flavour === 'affine:embed-synced-doc'
+        model?.flavour === 'polymind:embed-linked-doc' ||
+        model?.flavour === 'polymind:embed-synced-doc'
       );
     };
 
@@ -382,7 +382,7 @@ function generateMarkdownPreviewBuilder(
     const isAttachmentModel = (
       model: DraftModel | null
     ): model is DraftModel<AttachmentBlockModel> => {
-      return model?.flavour === 'affine:attachment';
+      return model?.flavour === 'polymind:attachment';
     };
 
     const draftModel = yblockToDraftModal(block.yblock);
@@ -397,7 +397,7 @@ function generateMarkdownPreviewBuilder(
     const isTableModel = (
       model: DraftModel | null
     ): model is DraftModel<TableBlockModel> => {
-      return model?.flavour === 'affine:table';
+      return model?.flavour === 'polymind:table';
     };
 
     const draftModel = yblockToDraftModal(block.yblock);
@@ -418,48 +418,48 @@ function generateMarkdownPreviewBuilder(
     let markdown: string | null = null;
 
     if (
-      flavour === 'affine:paragraph' ||
-      flavour === 'affine:list' ||
-      flavour === 'affine:code'
+      flavour === 'polymind:paragraph' ||
+      flavour === 'polymind:list' ||
+      flavour === 'polymind:code'
     ) {
       const draftModel = yblockToDraftModal(block.yblock);
       markdown =
-        block.parentFlavour === 'affine:database'
+        block.parentFlavour === 'polymind:database'
           ? generateDatabaseMarkdownPreview(block)
           : ((draftModel ? await markdownAdapter.fromBlock(draftModel) : null)
               ?.file ?? null);
 
       if (markdown) {
-        if (flavour === 'affine:code') {
+        if (flavour === 'polymind:code') {
           markdown = trimCodeBlock(markdown);
-        } else if (flavour === 'affine:paragraph') {
+        } else if (flavour === 'polymind:paragraph') {
           markdown = trimParagraph(markdown);
         }
       }
-    } else if (flavour === 'affine:database') {
+    } else if (flavour === 'polymind:database') {
       markdown = generateDatabaseMarkdownPreview(block);
     } else if (
-      flavour === 'affine:embed-linked-doc' ||
-      flavour === 'affine:embed-synced-doc'
+      flavour === 'polymind:embed-linked-doc' ||
+      flavour === 'polymind:embed-synced-doc'
     ) {
       markdown = generateEmbedMarkdownPreview(block);
-    } else if (flavour === 'affine:attachment') {
+    } else if (flavour === 'polymind:attachment') {
       markdown = generateAttachmentMarkdownPreview(block);
-    } else if (flavour === 'affine:image') {
+    } else if (flavour === 'polymind:image') {
       markdown = generateImageMarkdownPreview(block);
-    } else if (flavour === 'affine:surface' || flavour === 'affine:page') {
+    } else if (flavour === 'polymind:surface' || flavour === 'polymind:page') {
       // skip
-    } else if (flavour === 'affine:latex') {
+    } else if (flavour === 'polymind:latex') {
       markdown = generateLatexMarkdownPreview(block);
     } else if (bookmarkFlavours.has(flavour)) {
       markdown = generateBookmarkMarkdownPreview(block);
-    } else if (flavour === 'affine:table') {
+    } else if (flavour === 'polymind:table') {
       markdown = generateTableMarkdownPreview(block);
     } else {
       console.warn(`unknown flavour: ${flavour}`);
     }
 
-    if (markdown && flavour === 'affine:list') {
+    if (markdown && flavour === 'polymind:list') {
       const blockDepth = getListDepth(block);
       markdown = indentMarkdown(markdown, Math.max(0, blockDepth));
     }
@@ -579,7 +579,7 @@ export async function readAllBlocksFromDoc({
   for (const block of blocks.values()) {
     const flavour = block.get('sys:flavour')?.toString();
     const blockId = block.get('sys:id')?.toString();
-    if (flavour === 'affine:page' && blockId) {
+    if (flavour === 'polymind:page' && blockId) {
       rootBlockId = blockId;
     }
   }
@@ -620,7 +620,7 @@ export async function readAllBlocksFromDoc({
 
     const flavour = block.get('sys:flavour')?.toString();
     const parentFlavour = parentBlock?.get('sys:flavour')?.toString();
-    const noteBlock = nearestByFlavour(blockId, 'affine:note');
+    const noteBlock = nearestByFlavour(blockId, 'polymind:note');
 
     // display mode:
     // - both: page and edgeless -> fallback to page
@@ -647,13 +647,13 @@ export async function readAllBlocksFromDoc({
       additional: { displayMode, noteBlockId },
     };
 
-    if (flavour === 'affine:page') {
+    if (flavour === 'polymind:page') {
       docTitle = block.get('prop:title').toString();
       blockDocuments.push({ ...commonBlockProps, content: docTitle });
     } else if (
-      flavour === 'affine:paragraph' ||
-      flavour === 'affine:list' ||
-      flavour === 'affine:code'
+      flavour === 'polymind:paragraph' ||
+      flavour === 'polymind:list' ||
+      flavour === 'polymind:code'
     ) {
       const text = block.get('prop:text') as YText;
 
@@ -661,11 +661,11 @@ export async function readAllBlocksFromDoc({
         continue;
       }
 
-      const deltas: DeltaInsert<AffineTextAttributes>[] = text.toDelta();
+      const deltas: DeltaInsert<PolymindTextAttributes>[] = text.toDelta();
       const refs = collectInlineReferences(deltas);
 
       const databaseName =
-        flavour === 'affine:paragraph' && parentFlavour === 'affine:database' // if block is a database row
+        flavour === 'polymind:paragraph' && parentFlavour === 'polymind:database' // if block is a database row
           ? parentBlock?.get('prop:title')?.toString()
           : undefined;
 
@@ -690,8 +690,8 @@ export async function readAllBlocksFromDoc({
         maxSummaryLength -= text.length;
       }
     } else if (
-      flavour === 'affine:embed-linked-doc' ||
-      flavour === 'affine:embed-synced-doc'
+      flavour === 'polymind:embed-linked-doc' ||
+      flavour === 'polymind:embed-synced-doc'
     ) {
       const pageId = block.get('prop:pageId');
       if (typeof pageId === 'string') {
@@ -705,7 +705,7 @@ export async function readAllBlocksFromDoc({
           parentBlockId,
         });
       }
-    } else if (flavour === 'affine:attachment') {
+    } else if (flavour === 'polymind:attachment') {
       const blobId = block.get('prop:sourceId');
       if (typeof blobId === 'string') {
         blockDocuments.push({
@@ -716,7 +716,7 @@ export async function readAllBlocksFromDoc({
           parentBlockId,
         });
       }
-    } else if (flavour === 'affine:image') {
+    } else if (flavour === 'polymind:image') {
       const blobId = block.get('prop:sourceId');
       if (typeof blobId === 'string') {
         blockDocuments.push({
@@ -727,7 +727,7 @@ export async function readAllBlocksFromDoc({
           parentBlockId,
         });
       }
-    } else if (flavour === 'affine:surface') {
+    } else if (flavour === 'polymind:surface') {
       const texts = [];
 
       const elementsObj = block.get('prop:elements');
@@ -762,7 +762,7 @@ export async function readAllBlocksFromDoc({
         parentFlavour,
         parentBlockId,
       });
-    } else if (flavour === 'affine:database') {
+    } else if (flavour === 'polymind:database') {
       const texts = [];
       const columnsObj = block.get('prop:columns');
       const databaseTitle = block.get('prop:title');
@@ -839,12 +839,12 @@ export async function readAllBlocksFromDoc({
             )
           : {}),
       });
-    } else if (flavour === 'affine:latex') {
+    } else if (flavour === 'polymind:latex') {
       blockDocuments.push({
         ...commonBlockProps,
         content: block.get('prop:latex')?.toString() ?? '',
       });
-    } else if (flavour === 'affine:table') {
+    } else if (flavour === 'polymind:table') {
       const contents = Array.from<string>(block.keys())
         .map(key => {
           if (key.startsWith('prop:cells.') && key.endsWith('.text')) {
@@ -872,12 +872,12 @@ export async function readAllBlocksFromDoc({
       const target = block;
 
       // should only generate the markdown preview belong to the same affine:note
-      const noteBlock = nearestByFlavour(block.blockId, 'affine:note');
+      const noteBlock = nearestByFlavour(block.blockId, 'polymind:note');
 
       const sameNoteBlocks = noteBlock
         ? blockDocuments.filter(
             candidate =>
-              nearestByFlavour(candidate.blockId, 'affine:note') === noteBlock
+              nearestByFlavour(candidate.blockId, 'polymind:note') === noteBlock
           )
         : [];
 

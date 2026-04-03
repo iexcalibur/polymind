@@ -5,9 +5,9 @@ import { WorkbenchService } from '@polymind/core/modules/workbench';
 import { DebugLogger } from '@polymind/debug';
 import { apis, events } from '@polymind/electron-api';
 import { i18nTime } from '@polymind/i18n';
-import type { AttachmentBlockModel } from '@blocksuite/affine/model';
-import type { Store } from '@blocksuite/affine/store';
-import type { BlobEngine } from '@blocksuite/affine/sync';
+import type { AttachmentBlockModel } from '@blocksuite/polymind/model';
+import type { Store } from '@blocksuite/polymind/store';
+import type { BlobEngine } from '@blocksuite/polymind/sync';
 import type { FrameworkProvider } from '@toeverything/infra';
 
 import { getCurrentWorkspace, isAiEnabled } from './utils';
@@ -91,22 +91,22 @@ function getAttachmentName(status: RecordingImportStatus) {
 }
 
 function ensureNoteId(docStore: Store) {
-  const [existingNote] = docStore.getModelsByFlavour('affine:note');
+  const [existingNote] = docStore.getModelsByFlavour('polymind:note');
   if (existingNote) {
     return existingNote.id;
   }
 
-  const [page] = docStore.getModelsByFlavour('affine:page');
+  const [page] = docStore.getModelsByFlavour('polymind:page');
   if (!page) {
     throw new Error('Recording doc is missing the page block');
   }
 
-  return docStore.addBlock('affine:note', {}, page.id);
+  return docStore.addBlock('polymind:note', {}, page.id);
 }
 
 function findExistingAttachment(docStore: Store, attachmentName: string) {
   return (
-    docStore.getModelsByFlavour('affine:attachment') as AttachmentBlockModel[]
+    docStore.getModelsByFlavour('polymind:attachment') as AttachmentBlockModel[]
   ).find(
     model =>
       model.props.name === attachmentName &&
@@ -166,7 +166,7 @@ async function createRecordingDoc(
       );
 
       const attachmentId = doc.blockSuiteDoc.addBlock(
-        'affine:attachment',
+        'polymind:attachment',
         {
           name: attachmentName,
           type: NATIVE_RECORDING_MIME_TYPE,

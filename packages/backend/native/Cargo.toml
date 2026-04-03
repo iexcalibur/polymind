@@ -1,7 +1,7 @@
 [package]
 edition      = "2024"
 license-file = "LICENSE"
-name         = "affine_server_native"
+name         = "polymind_server_native"
 publish      = false
 version      = "1.0.0"
 
@@ -9,7 +9,7 @@ version      = "1.0.0"
 crate-type = ["cdylib"]
 
 [dependencies]
-affine_common = { workspace = true, features = [
+polymind_common = { workspace = true, features = [
   "doc-loader",
   "hashcash",
   "napi",

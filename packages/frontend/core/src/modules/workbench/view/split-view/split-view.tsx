@@ -1,6 +1,6 @@
 import { Checkbox, notify, useDndMonitor } from '@polymind/component';
-import { useAppSettingHelper } from '@polymind/core/components/hooks/affine/use-app-setting-helper';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import { useAppSettingHelper } from '@polymind/core/components/hooks/polymind/use-app-setting-helper';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { useI18n } from '@polymind/i18n';
 import { useService } from '@toeverything/infra';
 import clsx from 'clsx';
@@ -88,7 +88,7 @@ export const SplitView = ({
   const t = useI18n();
   const hideFolderWarningRef = useRef(false);
 
-  useDndMonitor<AffineDNDData>(() => {
+  useDndMonitor<PolymindDNDData>(() => {
     return {
       canMonitor(data) {
         if (!BUILD_CONFIG.isElectron) {
@@ -164,7 +164,7 @@ export const SplitView = ({
           return;
         }
 
-        const dropTarget = candidate.data as AffineDNDData['draggable']['from'];
+        const dropTarget = candidate.data as PolymindDNDData['draggable']['from'];
         const entity = data.source.data.entity;
         const from = data.source.data.from;
 

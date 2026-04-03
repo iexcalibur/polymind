@@ -5,7 +5,7 @@ import {
   SettingRow,
   SettingWrapper,
 } from '@polymind/component/setting-components';
-import { LanguageMenu } from '@polymind/core/components/affine/language-menu';
+import { LanguageMenu } from '@polymind/core/components/polymind/language-menu';
 import { TraySettingService } from '@polymind/core/modules/editor-setting/services/tray-settings';
 import { FeatureFlagService } from '@polymind/core/modules/feature-flag';
 import { useI18n } from '@polymind/i18n';
@@ -13,7 +13,7 @@ import { useLiveData, useService } from '@toeverything/infra';
 import { useTheme } from 'next-themes';
 import { useCallback, useMemo } from 'react';
 
-import { useAppSettingHelper } from '../../../../../components/hooks/affine/use-app-setting-helper';
+import { useAppSettingHelper } from '../../../../../components/hooks/polymind/use-app-setting-helper';
 import { OpenInAppLinksMenu } from './links';
 import { settingWrapper } from './style.css';
 import { ThemeEditorSetting } from './theme-editor-setting';

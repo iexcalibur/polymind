@@ -1,29 +1,29 @@
 import { z } from 'zod';
 
 export const appSchemes = z.enum([
-  'affine',
-  'affine-canary',
-  'affine-beta',
-  'affine-internal',
-  'affine-dev',
+  'polymind',
+  'polymind-canary',
+  'polymind-beta',
+  'polymind-internal',
+  'polymind-dev',
 ]);
 
 export type Scheme = z.infer<typeof appSchemes>;
 export type Channel = 'stable' | 'canary' | 'beta' | 'internal';
 
 export const schemeToChannel = {
-  affine: 'stable',
-  'affine-canary': 'canary',
-  'affine-beta': 'beta',
-  'affine-internal': 'internal',
-  'affine-dev': 'canary', // dev does not have a dedicated app. use canary as the placeholder.
+  polymind: 'stable',
+  'polymind-canary': 'canary',
+  'polymind-beta': 'beta',
+  'polymind-internal': 'internal',
+  'polymind-dev': 'canary', // dev does not have a dedicated app. use canary as the placeholder.
 } as Record<Scheme, Channel>;
 
 export const channelToScheme = {
-  stable: 'affine',
-  canary: BUILD_CONFIG.debug ? 'affine-dev' : 'affine-canary',
-  beta: 'affine-beta',
-  internal: 'affine-internal',
+  stable: 'polymind',
+  canary: BUILD_CONFIG.debug ? 'polymind-dev' : 'polymind-canary',
+  beta: 'polymind-beta',
+  internal: 'polymind-internal',
 } as Record<Channel, Scheme>;
 
 export const appIconMap = {

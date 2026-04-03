@@ -4,7 +4,7 @@ import { pressEnter, type } from './keyboard.js';
 
 export function getLinkedDocPopover(page: Page) {
   const REFERENCE_NODE = ' ' as const;
-  const refNode = page.locator('affine-reference');
+  const refNode = page.locator('polymind-reference');
   const linkedDocPopover = page.locator('.linked-doc-popover');
   const pageBtn = linkedDocPopover.locator('.group > icon-button');
 

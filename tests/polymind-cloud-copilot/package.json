@@ -1,0 +1,13 @@
+{
+  "name": "@polymind-test/polymind-cloud-copilot",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "e2e": "yarn playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "=1.58.2",
+    "@polymind-test/kit": "workspace:*"
+  },
+  "version": "0.26.3"
+}

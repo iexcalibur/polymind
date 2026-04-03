@@ -7,13 +7,13 @@ import {
   pasteMiddleware,
   PlainTextAdapter,
   titleMiddleware,
-} from '@blocksuite/affine/shared/adapters';
+} from '@blocksuite/polymind/shared/adapters';
 import {
   BlockStdScope,
   type EditorHost,
   type TextRangePoint,
   TextSelection,
-} from '@blocksuite/affine/std';
+} from '@blocksuite/polymind/std';
 import type {
   BlockModel,
   BlockSnapshot,
@@ -22,8 +22,8 @@ import type {
   SliceSnapshot,
   Store,
   TransformerMiddleware,
-} from '@blocksuite/affine/store';
-import { toDraftModel, Transformer } from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/store';
+import { toDraftModel, Transformer } from '@blocksuite/polymind/store';
 import { Doc as YDoc } from 'yjs';
 
 import { getStoreManager } from '../manager/store';
@@ -162,7 +162,7 @@ export const markdownToSnapshot = async (
         type: 'slice',
         content: [
           pageSnapshot.blocks.children.find(
-            b => b.flavour === 'affine:note'
+            b => b.flavour === 'polymind:note'
           ) as BlockSnapshot,
         ],
         workspaceId: payload.workspaceId,

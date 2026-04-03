@@ -1,8 +1,8 @@
 import { UserFriendlyError } from '@polymind/error';
 import {
-  type AffineUserInfo,
+  type PolymindUserInfo,
   UserServiceExtension,
-} from '@blocksuite/affine/shared/services';
+} from '@blocksuite/polymind/shared/services';
 
 interface AccountInfo {
   id: string;
@@ -13,7 +13,7 @@ interface AccountInfo {
 
 interface AuthServiceLike {
   session: {
-    account$: { map: (fn: (a: AccountInfo | null) => AffineUserInfo | null) => { signal: unknown } };
+    account$: { map: (fn: (a: AccountInfo | null) => PolymindUserInfo | null) => { signal: unknown } };
   };
 }
 
@@ -39,7 +39,7 @@ export function patchUserExtensions(
         name: account.label,
         avatar: account.avatar,
         removed: false,
-      } as AffineUserInfo;
+      } as PolymindUserInfo;
     }).signal,
     // eslint-disable-next-line rxjs/finnish
     userInfo$(id) {

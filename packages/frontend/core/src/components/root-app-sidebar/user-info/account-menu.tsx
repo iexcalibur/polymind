@@ -5,7 +5,7 @@ import { AccountIcon, SignOutIcon } from '@blocksuite/icons/rc';
 import { useService } from '@toeverything/infra';
 import { useCallback } from 'react';
 
-import { useSignOut } from '../../hooks/affine/use-sign-out';
+import { useSignOut } from '../../hooks/polymind/use-sign-out';
 
 export const AccountMenu = () => {
   const workspaceDialogService = useService(WorkspaceDialogService);

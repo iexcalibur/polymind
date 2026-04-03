@@ -10,7 +10,7 @@ import type { DocRecord } from '@polymind/core/modules/doc';
 import { WorkbenchLink } from '@polymind/core/modules/workbench';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { useI18n } from '@polymind/i18n';
-import type { DocMode } from '@blocksuite/affine/model';
+import type { DocMode } from '@blocksuite/polymind/model';
 import { ViewLayersIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useServices } from '@toeverything/infra';
 import { useCallback } from 'react';

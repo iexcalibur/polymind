@@ -1,4 +1,4 @@
-import { toggleGeneralAIOnboarding } from '@polymind/core/components/affine/ai-onboarding/apis';
+import { toggleGeneralAIOnboarding } from '@polymind/core/components/polymind/ai-onboarding/apis';
 import type { GlobalDialogService } from '@polymind/core/modules/dialogs';
 import {
   type AddContextFileInput,

@@ -60,7 +60,7 @@ export const OpenInAppCard = () => {
           <Trans i18nKey="com.polymind.open-in-app.card.subtitle">
             Don&apos;t have the app?
             <a
-              href="https://affine.pro/download"
+              href="https://polymind.pro/download"
               target="_blank"
               rel="noreferrer"
               className={styles.link}

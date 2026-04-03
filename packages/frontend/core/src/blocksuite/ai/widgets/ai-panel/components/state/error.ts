@@ -1,5 +1,5 @@
-import { WithDisposable } from '@blocksuite/affine/global/lit';
-import type { EditorHost } from '@blocksuite/affine/std';
+import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import type { EditorHost } from '@blocksuite/polymind/std';
 import { baseTheme } from '@toeverything/theme';
 import { css, html, LitElement, nothing, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
@@ -182,9 +182,9 @@ export class AIPanelError extends WithDisposable(LitElement) {
         const error = tip
           ? html`<span class="error-tip">
               An error occurred
-              <affine-tooltip tip-position="bottom-start">
+              <polymind-tooltip tip-position="bottom-start">
                 ${tip}
-              </affine-tooltip>
+              </polymind-tooltip>
             </span>`
           : 'An error occurred';
         return html`

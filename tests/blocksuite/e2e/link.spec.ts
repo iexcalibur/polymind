@@ -48,13 +48,13 @@ test('basic link', async ({ page }, testInfo) => {
   await pressEnter(page);
   await expect(createLinkPopoverLocator).not.toBeVisible();
 
-  const linkLocator = page.locator('affine-link a');
+  const linkLocator = page.locator('polymind-link a');
   await expect(linkLocator).toHaveAttribute('href', link);
 
   // clear text selection
   await page.keyboard.press('ArrowLeft');
 
-  const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
+  const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
   // Hover link
   await expect(toolbar).not.toBeVisible();
   await linkLocator.hover();
@@ -80,7 +80,7 @@ test('basic link', async ({ page }, testInfo) => {
   await type(page, link2);
   await page.keyboard.press('Tab');
   await pressEnter(page);
-  const link2Locator = page.locator('affine-link a');
+  const link2Locator = page.locator('polymind-link a');
 
   await expect(link2Locator).toHaveAttribute('href', link2);
   expect(await getPageSnapshot(page, true)).toMatchSnapshot(
@@ -112,7 +112,7 @@ test('add link when dragging from empty line', async ({ page }) => {
   await pressEnter(page);
   await expect(createLinkPopoverLocator).not.toBeVisible();
 
-  const linkLocator = page.locator('affine-link a');
+  const linkLocator = page.locator('polymind-link a');
   await expect(linkLocator).toHaveAttribute('href', link);
 });
 
@@ -120,17 +120,17 @@ async function createLinkBlock(page: Page, str: string, link: string) {
   const id = await page.evaluate(
     ([str, link]) => {
       const { doc } = window;
-      const rootId = doc.addBlock('affine:page', {
+      const rootId = doc.addBlock('polymind:page', {
         title: new window.$blocksuite.store.Text('title'),
       });
-      const noteId = doc.addBlock('affine:note', {}, rootId);
+      const noteId = doc.addBlock('polymind:note', {}, rootId);
 
       const text = new window.$blocksuite.store.Text([
         { insert: 'Hello' },
         { insert: str, attributes: { link } },
       ]);
       const id = doc.addBlock(
-        'affine:paragraph',
+        'polymind:paragraph',
         { type: 'text', text: text },
         noteId
       );
@@ -174,7 +174,7 @@ test('readonly mode should not trigger toolbar', async ({ page }) => {
   const linkLocator = page.locator(`text="${linkText}"`);
 
   // Hover link
-  const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
+  const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
   await linkLocator.hover();
   await expect(toolbar).toBeVisible();
 
@@ -238,7 +238,7 @@ test('should keyboard work in link popover', async ({ page }) => {
   await assertKeyboardWorkInInput(page, linkPopoverInput);
   await page.mouse.click(500, 500);
 
-  const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
+  const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
   const linkLocator = page.locator(`text="${linkText}"`);
 
   await focusRichText(page);
@@ -351,7 +351,7 @@ test('convert link to card', async ({ page }, testInfo) => {
   await setSelection(page, 3, 1, 3, 9);
   await pressCreateLinkShortCut(page);
   await waitNextFrame(page);
-  const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
+  const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
   await expect(toolbar).toBeVisible();
   const linkPopoverInput = page.locator('.affine-link-popover-input');
   await expect(linkPopoverInput).toBeVisible();
@@ -363,7 +363,7 @@ test('convert link to card', async ({ page }, testInfo) => {
     `${testInfo.title}.json`
   );
 
-  const linkLocator = page.locator('affine-link a');
+  const linkLocator = page.locator('polymind-link a');
 
   await linkLocator.hover();
   await waitNextFrame(page);
@@ -403,7 +403,7 @@ test('convert link to embed', async ({ page }, testInfo) => {
   await setSelection(page, 3, 1, 3, 9);
   await pressCreateLinkShortCut(page);
   await waitNextFrame(page);
-  const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
+  const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
   await expect(toolbar).toBeVisible();
   const linkPopoverInput = page.locator('.affine-link-popover-input');
   await expect(linkPopoverInput).toBeVisible();
@@ -415,7 +415,7 @@ test('convert link to embed', async ({ page }, testInfo) => {
     `${testInfo.title}.json`
   );
 
-  const linkLocator = page.locator('affine-link a');
+  const linkLocator = page.locator('polymind-link a');
 
   await linkLocator.hover();
   await waitNextFrame(page);

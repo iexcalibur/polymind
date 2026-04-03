@@ -5,10 +5,10 @@ import {
   menu,
   popMenu,
   popupTargetFromElement,
-} from '@blocksuite/affine/components/context-menu';
-import { SignalWatcher, WithDisposable } from '@blocksuite/affine/global/lit';
-import { unsafeCSSVarV2 } from '@blocksuite/affine/shared/theme';
-import type { NotificationService } from '@blocksuite/affine-shared/services';
+} from '@blocksuite/polymind/components/context-menu';
+import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
+import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
+import type { NotificationService } from '@blocksuite/polymind-shared/services';
 import {
   AiOutlineIcon,
   ArrowDownSmallIcon,

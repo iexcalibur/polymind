@@ -1,0 +1,71 @@
+global:
+  app:
+    buildType: 'stable'
+  ingress:
+    enabled: false
+    className: ''
+    # hosts for ingress rules
+    # e.g.
+    # hosts:
+    #  - polymind.pro
+    #  - www.polymind.pro
+    hosts:
+      - polymind.pro
+    tls: []
+  secret:
+    secretName: 'server-private-key'
+    privateKey: ''
+  database:
+    user: 'postgres'
+    host: 'pg-postgresql'
+    port: '5432'
+    name: 'polymind'
+    password: ''
+  redis:
+    host: 'redis-master'
+    port: '6379'
+    username: ''
+    password: ''
+    database: 0
+  indexer:
+    provider: ''
+    endpoint: ''
+    username: ''
+    password: ''
+  docService:
+    name: 'polymind-doc'
+    port: 3020
+  deployment:
+    # change to 'selfhosted' and 'unknown' if this chart is ready to be used for selfhosted deployment
+    type: 'polymind'
+    platform: 'gcp'
+
+graphql:
+  service:
+    type: ClusterIP
+    port: 3000
+    annotations:
+      cloud.google.com/backend-config: '{"default": "polymind-api-backendconfig"}'
+
+front:
+  services:
+    sync:
+      name: polymind-sync
+      type: ClusterIP
+      port: 3010
+      annotations:
+        cloud.google.com/backend-config: '{"default": "polymind-api-backendconfig"}'
+    renderer:
+      name: polymind-renderer
+      type: ClusterIP
+      port: 3000
+      annotations:
+        cloud.google.com/backend-config: '{"default": "polymind-api-backendconfig"}'
+    web:
+      name: polymind-web
+      type: ClusterIP
+      port: 8080
+    doc:
+      type: ClusterIP
+      annotations:
+        cloud.google.com/backend-config: '{"default": "polymind-api-backendconfig"}'

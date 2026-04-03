@@ -50,7 +50,7 @@ test('edit database block title and create new rows', async ({ page }) => {
   await enterPlaygroundRoom(page);
   await initEmptyDatabaseState(page);
 
-  const locator = page.locator('affine-database');
+  const locator = page.locator('polymind-database');
   await expect(locator).toBeVisible();
   const dbTitle = 'Database 1';
   await assertBlockProps(page, '2', {
@@ -487,7 +487,7 @@ test.describe('readonly mode', () => {
     await enterPlaygroundRoom(page);
     await initEmptyDatabaseState(page);
 
-    const locator = page.locator('affine-database');
+    const locator = page.locator('polymind-database');
     await expect(locator).toBeVisible();
 
     const dbTitle = 'Database 1';
@@ -550,7 +550,7 @@ test.describe('readonly mode', () => {
     await switchColumnType(page, 'Text');
     await initDatabaseDynamicRowWithData(page, '', true);
 
-    const database = page.locator('affine-database');
+    const database = page.locator('polymind-database');
     await expect(database).toBeVisible();
 
     const databaseMenu = database.getByTestId('database-ops');
@@ -559,7 +559,7 @@ test.describe('readonly mode', () => {
     const addViewButton = database.getByTestId('database-add-view-button');
     await expect(addViewButton).toBeVisible();
 
-    const titleHeader = page.locator('affine-database-header-column').filter({
+    const titleHeader = page.locator('polymind-database-header-column').filter({
       hasText: 'Title',
     });
     await titleHeader.hover();
@@ -623,7 +623,7 @@ test.describe('readonly mode', () => {
     await switchColumnType(page, 'Text');
     await initDatabaseDynamicRowWithData(page, '', true);
 
-    const database = page.locator('affine-database');
+    const database = page.locator('polymind-database');
     await expect(database).toBeVisible();
 
     const cell = getDatabaseCell(page, {
@@ -651,7 +651,7 @@ test.describe('readonly mode', () => {
     await switchColumnType(page, 'Text');
     await initDatabaseDynamicRowWithData(page, '', true);
 
-    const database = page.locator('affine-database');
+    const database = page.locator('polymind-database');
     await expect(database).toBeVisible();
 
     const startCell = getDatabaseCell(page, {

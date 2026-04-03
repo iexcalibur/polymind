@@ -1,5 +1,5 @@
-import { WithDisposable } from '@blocksuite/affine/global/lit';
-import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/affine/shared/theme';
+import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
 import { CloseIcon, DoneIcon } from '@blocksuite/icons/lit';
 import { css, html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';

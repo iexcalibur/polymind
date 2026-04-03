@@ -13,7 +13,7 @@ export const getDocIconComponentLit = (icon: IconData) => {
     if (icon.type === IconType.Emoji) {
       return html`<div class="icon">${icon.unicode}</div>`;
     }
-    if (icon.type === IconType.AffineIcon) {
+    if (icon.type === IconType.PolymindIcon) {
       return html`<div
         style="color: ${icon.color}; display: flex; align-items: center; justify-content: center;"
       >

@@ -16,16 +16,16 @@ import '@shoelace-style/shoelace/dist/themes/light.css';
 import '@shoelace-style/shoelace/dist/themes/dark.css';
 import './left-side-panel.js';
 
-import { PresentTool } from '@blocksuite/affine/blocks/frame';
-import { ExportManager } from '@blocksuite/affine/blocks/surface';
-import { toast } from '@blocksuite/affine/components/toast';
-import { StoreExtensionManagerIdentifier } from '@blocksuite/affine/ext-loader';
+import { PresentTool } from '@blocksuite/polymind/blocks/frame';
+import { ExportManager } from '@blocksuite/polymind/blocks/surface';
+import { toast } from '@blocksuite/polymind/components/toast';
+import { StoreExtensionManagerIdentifier } from '@blocksuite/polymind/ext-loader';
 import {
   BlockSuiteError,
   ErrorCode,
-} from '@blocksuite/affine/global/exceptions';
-import type { SerializedXYWH } from '@blocksuite/affine/global/gfx';
-import { ColorScheme, type DocMode } from '@blocksuite/affine/model';
+} from '@blocksuite/polymind/global/exceptions';
+import type { SerializedXYWH } from '@blocksuite/polymind/global/gfx';
+import { ColorScheme, type DocMode } from '@blocksuite/polymind/model';
 import {
   defaultImageProxyMiddleware,
   docLinkBaseURLMiddleware,
@@ -33,26 +33,26 @@ import {
   MarkdownAdapterFactoryIdentifier,
   PlainTextAdapterFactoryIdentifier,
   titleMiddleware,
-} from '@blocksuite/affine/shared/adapters';
-import { DocModeProvider } from '@blocksuite/affine/shared/services';
+} from '@blocksuite/polymind/shared/adapters';
+import { DocModeProvider } from '@blocksuite/polymind/shared/services';
 import {
   ColorVariables,
   FontFamilyVariables,
   SizeVariables,
   StyleVariables,
-} from '@blocksuite/affine/shared/theme';
+} from '@blocksuite/polymind/shared/theme';
 import {
   openFilesWith,
   openSingleFileWith,
   printToPdf,
-} from '@blocksuite/affine/shared/utils';
-import { ShadowlessElement } from '@blocksuite/affine/std';
-import { GfxControllerIdentifier } from '@blocksuite/affine/std/gfx';
+} from '@blocksuite/polymind/shared/utils';
+import { ShadowlessElement } from '@blocksuite/polymind/std';
+import { GfxControllerIdentifier } from '@blocksuite/polymind/std/gfx';
 import {
   type DeltaInsert,
   Text,
   type Workspace,
-} from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/store';
 import {
   createAssetsArchive,
   download,
@@ -60,10 +60,10 @@ import {
   MarkdownTransformer,
   NotionHtmlTransformer,
   ZipTransformer,
-} from '@blocksuite/affine/widgets/linked-doc';
-import { NotionHtmlAdapter } from '@blocksuite/affine-shared/adapters';
-import type { AffineTextAttributes } from '@blocksuite/affine-shared/types';
-import { TestAffineEditorContainer } from '@blocksuite/integration-test';
+} from '@blocksuite/polymind/widgets/linked-doc';
+import { NotionHtmlAdapter } from '@blocksuite/polymind-shared/adapters';
+import type { PolymindTextAttributes } from '@blocksuite/polymind-shared/types';
+import { TestPolymindEditorContainer } from '@blocksuite/integration-test';
 import type { SlDropdown } from '@shoelace-style/shoelace';
 import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
 import { css, html } from 'lit';
@@ -236,8 +236,8 @@ export class StarterDebugMenu extends ShadowlessElement {
     const count = rootModel.children.length;
     const xywh: SerializedXYWH = `[0,${count * 60},800,95]`;
 
-    const noteId = this.doc.addBlock('affine:note', { xywh }, rootId);
-    this.doc.addBlock('affine:paragraph', {}, noteId);
+    const noteId = this.doc.addBlock('polymind:note', { xywh }, rootId);
+    this.doc.addBlock('polymind:paragraph', {}, noteId);
   }
 
   private async _clearSiteData() {
@@ -498,9 +498,9 @@ export class StarterDebugMenu extends ShadowlessElement {
         );
         for (const doc of docs) {
           if (doc) {
-            const noteBlock = window.doc.getModelsByFlavour('affine:note');
+            const noteBlock = window.doc.getModelsByFlavour('polymind:note');
             window.doc.addBlock(
-              'affine:paragraph',
+              'polymind:paragraph',
               {
                 type: 'text',
                 text: new Text([
@@ -512,7 +512,7 @@ export class StarterDebugMenu extends ShadowlessElement {
                         pageId: doc.id,
                       },
                     },
-                  } as DeltaInsert<AffineTextAttributes>,
+                  } as DeltaInsert<PolymindTextAttributes>,
                 ]),
               },
               noteBlock[0].id
@@ -632,21 +632,21 @@ export class StarterDebugMenu extends ShadowlessElement {
     const app = document.querySelector('#app');
     if (app) {
       const currentEditorCount = app.querySelectorAll(
-        'affine-editor-container'
+        'polymind-editor-container'
       ).length;
       if (currentEditorCount === 1) {
         // Add a second editor
         const newEditor = createTestEditor(this.doc, this.collection);
         app.append(newEditor);
         app.childNodes.forEach(child => {
-          if (child instanceof TestAffineEditorContainer) {
+          if (child instanceof TestPolymindEditorContainer) {
             child.style.flex = '1';
           }
         });
         (app as HTMLElement).style.display = 'flex';
       } else {
         // Remove the second editor
-        const secondEditor = app.querySelectorAll('affine-editor-container')[1];
+        const secondEditor = app.querySelectorAll('polymind-editor-container')[1];
         if (secondEditor) {
           secondEditor.remove();
         }
@@ -1006,7 +1006,7 @@ export class StarterDebugMenu extends ShadowlessElement {
   accessor docsPanel!: DocsPanel;
 
   @property({ attribute: false })
-  accessor editor!: TestAffineEditorContainer;
+  accessor editor!: TestPolymindEditorContainer;
 
   @property({ attribute: false })
   accessor framePanel!: CustomFramePanel;

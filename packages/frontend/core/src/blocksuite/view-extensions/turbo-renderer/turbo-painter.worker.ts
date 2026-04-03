@@ -1,9 +1,9 @@
-import { CodeLayoutPainterExtension } from '@blocksuite/affine/blocks/code';
-import { ImageLayoutPainterExtension } from '@blocksuite/affine/blocks/image';
-import { ListLayoutPainterExtension } from '@blocksuite/affine/blocks/list';
-import { NoteLayoutPainterExtension } from '@blocksuite/affine/blocks/note';
-import { ParagraphLayoutPainterExtension } from '@blocksuite/affine/blocks/paragraph';
-import { ViewportLayoutPainter } from '@blocksuite/affine/gfx/turbo-renderer';
+import { CodeLayoutPainterExtension } from '@blocksuite/polymind/blocks/code';
+import { ImageLayoutPainterExtension } from '@blocksuite/polymind/blocks/image';
+import { ListLayoutPainterExtension } from '@blocksuite/polymind/blocks/list';
+import { NoteLayoutPainterExtension } from '@blocksuite/polymind/blocks/note';
+import { ParagraphLayoutPainterExtension } from '@blocksuite/polymind/blocks/paragraph';
+import { ViewportLayoutPainter } from '@blocksuite/polymind/gfx/turbo-renderer';
 
 new ViewportLayoutPainter([
   ParagraphLayoutPainterExtension,

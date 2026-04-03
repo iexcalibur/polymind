@@ -2,15 +2,15 @@ import { notify } from '@polymind/component';
 import {
   generateUrl,
   type UseSharingUrl,
-} from '@polymind/core/components/hooks/affine/use-share-url';
+} from '@polymind/core/components/hooks/polymind/use-share-url';
 import { EditorService } from '@polymind/core/modules/editor';
 import { copyLinkToBlockStdScopeClipboard } from '@polymind/core/utils/clipboard';
 import { I18n } from '@polymind/i18n';
 import {
   menu,
   type MenuOptions,
-} from '@blocksuite/affine/components/context-menu';
-import type { DatabaseBlockModel } from '@blocksuite/affine/model';
+} from '@blocksuite/polymind/components/context-menu';
+import type { DatabaseBlockModel } from '@blocksuite/polymind/model';
 import { LinkIcon } from '@blocksuite/icons/lit';
 import type { FrameworkProvider } from '@toeverything/infra';
 

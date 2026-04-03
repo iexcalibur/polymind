@@ -14,14 +14,14 @@ import type {
   CopilotContextDoc,
   CopilotContextFile,
 } from '@polymind/graphql';
-import { SignalWatcher, WithDisposable } from '@blocksuite/affine/global/lit';
-import type { EditorHost } from '@blocksuite/affine/std';
-import { ShadowlessElement } from '@blocksuite/affine/std';
-import { uuidv4 } from '@blocksuite/affine/store';
+import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
+import type { EditorHost } from '@blocksuite/polymind/std';
+import { ShadowlessElement } from '@blocksuite/polymind/std';
+import { uuidv4 } from '@blocksuite/polymind/store';
 import type {
   FeatureFlagService,
   NotificationService,
-} from '@blocksuite/affine-shared/services';
+} from '@blocksuite/polymind-shared/services';
 import { css, html, type PropertyValues } from 'lit';
 import { property, state } from 'lit/decorators.js';
 
@@ -121,7 +121,7 @@ export class AIChatComposer extends SignalWatcher(
   accessor portalContainer: HTMLElement | null = null;
 
   @property({ attribute: false })
-  accessor affineWorkspaceDialogService!: WorkspaceDialogService;
+  accessor polymindWorkspaceDialogService!: WorkspaceDialogService;
 
   @property({ attribute: false })
   accessor notificationService!: NotificationService;

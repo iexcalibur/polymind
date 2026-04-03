@@ -2687,7 +2687,7 @@ export interface ServerConfigType {
 }
 
 export enum ServerDeploymentType {
-  Affine = 'Affine',
+  Polymind = 'Polymind',
   Selfhosted = 'Selfhosted',
 }
 

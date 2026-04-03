@@ -2,14 +2,14 @@ import type { AIToolsConfigService } from '@polymind/core/modules/ai-button';
 import type { PeekViewService } from '@polymind/core/modules/peek-view';
 import type { AppThemeService } from '@polymind/core/modules/theme';
 import type { CopilotChatHistoryFragment } from '@polymind/graphql';
-import { WithDisposable } from '@blocksuite/affine/global/lit';
+import { WithDisposable } from '@blocksuite/polymind/global/lit';
 import {
   DocModeProvider,
   type FeatureFlagService,
   type NotificationService,
-} from '@blocksuite/affine/shared/services';
-import { type EditorHost, ShadowlessElement } from '@blocksuite/affine/std';
-import type { BaseSelection, ExtensionType } from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/shared/services';
+import { type EditorHost, ShadowlessElement } from '@blocksuite/polymind/std';
+import type { BaseSelection, ExtensionType } from '@blocksuite/polymind/store';
 import { ArrowDownBigIcon as ArrowDownIcon } from '@blocksuite/icons/lit';
 import type { Signal } from '@preact/signals-core';
 import { css, html, nothing, type PropertyValues } from 'lit';
@@ -18,7 +18,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import { repeat } from 'lit/directives/repeat.js';
 import { debounce } from 'lodash-es';
 
-import { AffineIcon } from '../../_common/icons';
+import { PolymindIcon } from '../../_common/icons';
 import { type AIError, AIProvider, UnauthorizedError } from '../../provider';
 import { mergeStreamObjects } from '../../utils/stream-objects';
 import type { DocDisplayConfig } from '../ai-chat-chips';
@@ -278,7 +278,7 @@ export class AIChatMessages extends WithDisposable(ShadowlessElement) {
               class="messages-placeholder"
               data-testid="chat-panel-messages-placeholder"
             >
-              ${AffineIcon(
+              ${PolymindIcon(
                 isHistoryLoading
                   ? 'var(--affine-icon-secondary)'
                   : 'var(--affine-primary-color)'

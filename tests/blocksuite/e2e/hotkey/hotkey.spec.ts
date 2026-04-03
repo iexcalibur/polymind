@@ -264,10 +264,10 @@ test('format list to h1', async ({ page }) => {
   await initEmptyParagraphState(page);
 
   await focusRichText(page, 0);
-  await updateBlockType(page, 'affine:list', 'bulleted');
+  await updateBlockType(page, 'polymind:list', 'bulleted');
   await type(page, 'aa');
   await focusRichText(page, 0);
-  await updateBlockType(page, 'affine:paragraph', 'h1');
+  await updateBlockType(page, 'polymind:paragraph', 'h1');
   await waitNextFrame(page, 200);
   await assertRichTextModelType(page, 'h1');
   await undoByClick(page);
@@ -375,7 +375,7 @@ test('should support ctrl/cmd+shift+l convert to linked doc', async ({
   await waitNextFrame(page);
   await page.keyboard.press(`${SHORT_KEY}+${SHIFT_KEY}+l`);
 
-  const linkedDocCard = page.locator('affine-embed-linked-doc-block');
+  const linkedDocCard = page.locator('polymind-embed-linked-doc-block');
   await expect(linkedDocCard).toBeVisible();
 
   const title = page.locator('.affine-embed-linked-doc-content-title-text');

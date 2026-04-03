@@ -1,5 +1,5 @@
 import type { BlobStorage, DocStorage } from '@polymind/nbstore';
-import type { Workspace } from '@blocksuite/affine/store';
+import type { Workspace } from '@blocksuite/polymind/store';
 import { Service } from '@toeverything/infra';
 
 import type { WorkspaceFlavoursService } from './flavours';

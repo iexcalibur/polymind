@@ -1,4 +1,4 @@
-import type { Package } from '@affine-tools/utils/workspace';
+import type { Package } from '@polymind-tools/utils/workspace';
 
 import { PackageToDistribution } from './distribution';
 
@@ -41,14 +41,14 @@ export function getBuildConfig(
 
         appBuildType: 'stable' as const,
         appVersion: pkg.version,
-        // editorVersion: pkg.dependencies['@blocksuite/affine'],
+        // editorVersion: pkg.dependencies['@blocksuite/polymind'],
         editorVersion: pkg.version,
-        githubUrl: 'https://github.com/toeverything/AFFiNE',
-        changelogUrl: 'https://affine.pro/what-is-new',
-        downloadUrl: 'https://affine.pro/download',
-        pricingUrl: 'https://affine.pro/pricing',
-        discordUrl: 'https://affine.pro/redirect/discord',
-        requestLicenseUrl: 'https://affine.pro/redirect/license',
+        githubUrl: 'https://github.com/toeverything/polymind',
+        changelogUrl: 'https://polymind.pro/what-is-new',
+        downloadUrl: 'https://polymind.pro/download',
+        pricingUrl: 'https://polymind.pro/pricing',
+        discordUrl: 'https://polymind.pro/redirect/discord',
+        requestLicenseUrl: 'https://polymind.pro/redirect/license',
         imageProxyUrl: '/api/worker/image-proxy',
         linkPreviewUrl: '/api/worker/link-preview',
         CAPTCHA_SITE_KEY: process.env.CAPTCHA_SITE_KEY ?? '',
@@ -59,14 +59,14 @@ export function getBuildConfig(
       return {
         ...this.stable,
         appBuildType: 'beta' as const,
-        changelogUrl: 'https://github.com/toeverything/AFFiNE/releases',
+        changelogUrl: 'https://github.com/toeverything/polymind/releases',
       };
     },
     get internal() {
       return {
         ...this.stable,
         appBuildType: 'internal' as const,
-        changelogUrl: 'https://github.com/toeverything/AFFiNE/releases',
+        changelogUrl: 'https://github.com/toeverything/polymind/releases',
       };
     },
     // canary will be aggressive and enable all features
@@ -74,7 +74,7 @@ export function getBuildConfig(
       return {
         ...this.stable,
         appBuildType: 'canary' as const,
-        changelogUrl: 'https://github.com/toeverything/AFFiNE/releases',
+        changelogUrl: 'https://github.com/toeverything/polymind/releases',
       };
     },
   };

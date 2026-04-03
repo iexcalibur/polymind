@@ -9,7 +9,7 @@ import {
   type PageEditor,
 } from '@polymind/core/blocksuite/editors';
 import { getViewManager } from '@polymind/core/blocksuite/manager/view';
-import { useEnableAI } from '@polymind/core/components/hooks/affine/use-enable-ai';
+import { useEnableAI } from '@polymind/core/components/hooks/polymind/use-enable-ai';
 import type { DocCustomPropertyInfo } from '@polymind/core/modules/db';
 import type {
   DatabaseRow,
@@ -21,9 +21,9 @@ import { JournalService } from '@polymind/core/modules/journal';
 import { useInsidePeekView } from '@polymind/core/modules/peek-view';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { ServerFeature } from '@polymind/graphql';
-import type { DocTitle } from '@blocksuite/affine/fragments/doc-title';
-import type { DocMode } from '@blocksuite/affine/model';
-import type { Store } from '@blocksuite/affine/store';
+import type { DocTitle } from '@blocksuite/polymind/fragments/doc-title';
+import type { DocMode } from '@blocksuite/polymind/model';
+import type { Store } from '@blocksuite/polymind/store';
 import {
   useFramework,
   useLiveData,
@@ -307,7 +307,7 @@ export const BlocksuiteEdgelessEditor = forwardRef<
         .then(() => {
           // make sure editor can get keyboard events on showing up
           editorRef.current
-            ?.querySelector<HTMLElement>('affine-edgeless-root')
+            ?.querySelector<HTMLElement>('polymind-edgeless-root')
             ?.click();
         })
         .catch(console.error);

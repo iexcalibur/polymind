@@ -11,7 +11,7 @@ import {
 } from '@polymind/core/components/explorer/context';
 import { DocListItemComponent } from '@polymind/core/components/explorer/docs-view/docs-list';
 import { Filters } from '@polymind/core/components/filter';
-import { AffineShapeIcon } from '@polymind/core/components/page-list';
+import { PolymindShapeIcon } from '@polymind/core/components/page-list';
 import type { CollectionInfo } from '@polymind/core/modules/collection';
 import { CollectionRulesService } from '@polymind/core/modules/collection-rules';
 import { DocsService } from '@polymind/core/modules/doc';
@@ -327,7 +327,7 @@ const RulesEmpty = ({
         padding: '48px 0',
       }}
     >
-      <AffineShapeIcon />
+      <PolymindShapeIcon />
       <strong style={{ fontSize: 20, lineHeight: '28px' }}>
         {noRules
           ? t['com.polymind.editCollection.rules.empty.noRules']()

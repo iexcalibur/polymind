@@ -1,23 +1,23 @@
 import {
   type ViewExtensionContext,
   ViewExtensionProvider,
-} from '@blocksuite/affine/ext-loader';
+} from '@blocksuite/polymind/ext-loader';
 import { z } from 'zod';
 
 import { patchDatabaseBlockConfigService } from './database-block-config-service';
 
 const optionsSchema = z.object({});
 
-export type AffineDatabaseViewOptions = z.infer<typeof optionsSchema>;
+export type PolymindDatabaseViewOptions = z.infer<typeof optionsSchema>;
 
-export class AffineDatabaseViewExtension extends ViewExtensionProvider<AffineDatabaseViewOptions> {
-  override name = 'affine-database-view';
+export class PolymindDatabaseViewExtension extends ViewExtensionProvider<PolymindDatabaseViewOptions> {
+  override name = 'polymind-database-view';
 
   override schema = optionsSchema;
 
   override setup(
     context: ViewExtensionContext,
-    options?: AffineDatabaseViewOptions
+    options?: PolymindDatabaseViewOptions
   ) {
     super.setup(context, options);
 

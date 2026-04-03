@@ -10,22 +10,22 @@ import { Doc as YDoc } from 'yjs';
 import type { WorkspaceService } from '../../workspace';
 import { WorkspaceDB, type WorkspaceDBWithTables } from '../entities/db';
 import {
-  AFFiNE_WORKSPACE_DB_SCHEMA,
-  AFFiNE_WORKSPACE_USERDATA_DB_SCHEMA,
-  type AFFiNEWorkspaceDbSchema,
-  type AFFiNEWorkspaceUserdataDbSchema,
+  PolyMind_WORKSPACE_DB_SCHEMA,
+  PolyMind_WORKSPACE_USERDATA_DB_SCHEMA,
+  type PolyMindWorkspaceDbSchema,
+  type PolyMindWorkspaceUserdataDbSchema,
 } from '../schema';
 
-const WorkspaceDBClient = createORMClient(AFFiNE_WORKSPACE_DB_SCHEMA);
+const WorkspaceDBClient = createORMClient(PolyMind_WORKSPACE_DB_SCHEMA);
 const WorkspaceUserdataDBClient = createORMClient(
-  AFFiNE_WORKSPACE_USERDATA_DB_SCHEMA
+  PolyMind_WORKSPACE_USERDATA_DB_SCHEMA
 );
 
 export class WorkspaceDBService extends Service {
-  db: WorkspaceDBWithTables<AFFiNEWorkspaceDbSchema>;
+  db: WorkspaceDBWithTables<PolyMindWorkspaceDbSchema>;
   userdataDBPool = new ObjectPool<
     string,
-    WorkspaceDB<AFFiNEWorkspaceUserdataDbSchema>
+    WorkspaceDB<PolyMindWorkspaceUserdataDbSchema>
   >({
     onDangling() {
       return false; // never release
@@ -35,10 +35,10 @@ export class WorkspaceDBService extends Service {
   constructor(private readonly workspaceService: WorkspaceService) {
     super();
     this.db = this.framework.createEntity(
-      WorkspaceDB<AFFiNEWorkspaceDbSchema>,
+      WorkspaceDB<PolyMindWorkspaceDbSchema>,
       {
         db: new WorkspaceDBClient(
-          new YjsDBAdapter(AFFiNE_WORKSPACE_DB_SCHEMA, {
+          new YjsDBAdapter(PolyMind_WORKSPACE_DB_SCHEMA, {
             getDoc: guid => {
               const ydoc = new YDoc({
                 // guid format: db${guid}
@@ -53,24 +53,24 @@ export class WorkspaceDBService extends Service {
             },
           })
         ),
-        schema: AFFiNE_WORKSPACE_DB_SCHEMA,
+        schema: PolyMind_WORKSPACE_DB_SCHEMA,
         storageDocId: tableName => `db$${tableName}`,
       }
-    ) as WorkspaceDBWithTables<AFFiNEWorkspaceDbSchema>;
+    ) as WorkspaceDBWithTables<PolyMindWorkspaceDbSchema>;
   }
 
   userdataDB(userId: (string & {}) | '__local__') {
     // __local__ for local workspace
     const userdataDb = this.userdataDBPool.get(userId);
     if (userdataDb) {
-      return userdataDb.obj as WorkspaceDBWithTables<AFFiNEWorkspaceUserdataDbSchema>;
+      return userdataDb.obj as WorkspaceDBWithTables<PolyMindWorkspaceUserdataDbSchema>;
     }
 
     const newDB = this.framework.createEntity(
-      WorkspaceDB<AFFiNEWorkspaceUserdataDbSchema>,
+      WorkspaceDB<PolyMindWorkspaceUserdataDbSchema>,
       {
         db: new WorkspaceUserdataDBClient(
-          new YjsDBAdapter(AFFiNE_WORKSPACE_USERDATA_DB_SCHEMA, {
+          new YjsDBAdapter(PolyMind_WORKSPACE_USERDATA_DB_SCHEMA, {
             getDoc: guid => {
               const ydoc = new YDoc({
                 // guid format: userdata${userId}${guid}
@@ -85,13 +85,13 @@ export class WorkspaceDBService extends Service {
             },
           })
         ),
-        schema: AFFiNE_WORKSPACE_USERDATA_DB_SCHEMA,
+        schema: PolyMind_WORKSPACE_USERDATA_DB_SCHEMA,
         storageDocId: tableName => `userdata$${userId}$${tableName}`,
       }
     );
 
     this.userdataDBPool.put(userId, newDB);
-    return newDB as WorkspaceDBWithTables<AFFiNEWorkspaceUserdataDbSchema>;
+    return newDB as WorkspaceDBWithTables<PolyMindWorkspaceUserdataDbSchema>;
   }
 
   public get userdataDB$() {

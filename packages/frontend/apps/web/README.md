@@ -1,3 +1,3 @@
 # web
 
-AFFiNE Desktop Edition Web app.
+PolyMind Desktop Edition Web app.

@@ -13,14 +13,14 @@ import {
   CanvasElementType,
   EdgelessCRUDIdentifier,
   getSurfaceBlock,
-} from '@blocksuite/affine/blocks/surface';
-import { ViewExtensionManagerIdentifier } from '@blocksuite/affine/ext-loader';
-import { ConnectorMode } from '@blocksuite/affine/model';
+} from '@blocksuite/polymind/blocks/surface';
+import { ViewExtensionManagerIdentifier } from '@blocksuite/polymind/ext-loader';
+import { ConnectorMode } from '@blocksuite/polymind/model';
 import {
   DocModeProvider,
   NotificationProvider,
-} from '@blocksuite/affine/shared/services';
-import type { EditorHost } from '@blocksuite/affine/std';
+} from '@blocksuite/polymind/shared/services';
+import type { EditorHost } from '@blocksuite/polymind/std';
 import { html, LitElement, nothing, type PropertyValues } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -220,7 +220,7 @@ export class AIChatBlockPeekView extends LitElement {
     // create a new AI chat block
     const surfaceBlock = store
       .getAllModels()
-      .find(block => block.flavour === 'affine:surface');
+      .find(block => block.flavour === 'polymind:surface');
     if (!surfaceBlock) {
       return;
     }
@@ -240,7 +240,7 @@ export class AIChatBlockPeekView extends LitElement {
 
     const crud = this.host.std.get(EdgelessCRUDIdentifier);
     const forkBlockId = crud.addBlock(
-      'affine:embed-ai-chat',
+      'polymind:embed-ai-chat',
       {
         xywh: bound.serialize(),
         messages: JSON.stringify(messages),
@@ -584,7 +584,7 @@ export class AIChatBlockPeekView extends LitElement {
         .onEmbeddingProgressChange=${this.onEmbeddingProgressChange}
         .docDisplayConfig=${this.docDisplayConfig}
         .searchMenuConfig=${this.searchMenuConfig}
-        .affineWorkspaceDialogService=${this.affineWorkspaceDialogService}
+        .polymindWorkspaceDialogService=${this.polymindWorkspaceDialogService}
         .notificationService=${notificationService}
         .aiToolsConfigService=${this.aiToolsConfigService}
         .affineFeatureFlagService=${this.affineFeatureFlagService}
@@ -623,7 +623,7 @@ export class AIChatBlockPeekView extends LitElement {
   accessor affineFeatureFlagService!: FeatureFlagService;
 
   @property({ attribute: false })
-  accessor affineWorkspaceDialogService!: WorkspaceDialogService;
+  accessor polymindWorkspaceDialogService!: WorkspaceDialogService;
 
   @property({ attribute: false })
   accessor aiDraftService!: AIDraftService;
@@ -672,7 +672,7 @@ export const AIChatBlockPeekViewTemplate = (
   searchMenuConfig: SearchMenuConfig,
   reasoningConfig: AIReasoningConfig,
   affineFeatureFlagService: FeatureFlagService,
-  affineWorkspaceDialogService: WorkspaceDialogService,
+  polymindWorkspaceDialogService: WorkspaceDialogService,
   aiDraftService: AIDraftService,
   aiToolsConfigService: AIToolsConfigService,
   aiModelService: AIModelService,
@@ -685,7 +685,7 @@ export const AIChatBlockPeekViewTemplate = (
     .searchMenuConfig=${searchMenuConfig}
     .reasoningConfig=${reasoningConfig}
     .affineFeatureFlagService=${affineFeatureFlagService}
-    .affineWorkspaceDialogService=${affineWorkspaceDialogService}
+    .polymindWorkspaceDialogService=${polymindWorkspaceDialogService}
     .aiDraftService=${aiDraftService}
     .aiToolsConfigService=${aiToolsConfigService}
     .aiModelService=${aiModelService}

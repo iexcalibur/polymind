@@ -1,5 +1,5 @@
 import type { CopilotChatHistoryFragment } from '@polymind/graphql';
-import type { NotificationService } from '@blocksuite/affine/shared/services';
+import type { NotificationService } from '@blocksuite/polymind/shared/services';
 
 import type { DocDisplayConfig } from '../ai-chat-chips';
 import type { ChatStatus } from '../ai-chat-messages';

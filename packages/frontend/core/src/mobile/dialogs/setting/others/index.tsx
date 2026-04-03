@@ -21,22 +21,22 @@ export const OthersGroup = () => {
       />
       <RowLayout
         label={t['com.polymind.mobile.setting.others.github']()}
-        href="https://github.com/toeverything/AFFiNE"
+        href="https://github.com/toeverything/PolyMind"
       />
 
       <RowLayout
         label={t['com.polymind.mobile.setting.others.website']()}
-        href="https://affine.pro/"
+        href="https://polymind.pro/"
       />
 
       <RowLayout
         label={t['com.polymind.mobile.setting.others.privacy']()}
-        href="https://affine.pro/privacy"
+        href="https://polymind.pro/privacy"
       />
 
       <RowLayout
         label={t['com.polymind.mobile.setting.others.terms']()}
-        href="https://affine.pro/terms"
+        href="https://polymind.pro/terms"
       />
       <DeleteAccount />
     </SettingGroup>

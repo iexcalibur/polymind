@@ -1,5 +1,5 @@
-import { AIStarIcon } from '@blocksuite/affine/components/icons';
-import { WithDisposable } from '@blocksuite/affine/global/lit';
+import { AIStarIcon } from '@blocksuite/polymind/components/icons';
+import { WithDisposable } from '@blocksuite/polymind/global/lit';
 import { css, html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
 

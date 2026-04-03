@@ -461,7 +461,7 @@ export class IndexerService {
           {
             type: SearchQueryType.match,
             field: 'flavour',
-            match: 'affine:attachment',
+            match: 'polymind:attachment',
           },
           {
             type: SearchQueryType.boolean,
@@ -536,7 +536,7 @@ export class IndexerService {
                     query: {
                       type: SearchQueryType.match,
                       field: 'flavour',
-                      match: 'affine:page',
+                      match: 'polymind:page',
                     },
                   },
                 ],
@@ -592,7 +592,7 @@ export class IndexerService {
       let title = '';
 
       // hit title block
-      if (flavour === 'affine:page') {
+      if (flavour === 'polymind:page') {
         title = content;
       } else {
         // hit content block, missing title
@@ -980,14 +980,14 @@ export class IndexerService {
       //   query: {
       //     type: 'match',
       //     field: 'flavour',
-      //     match: 'affine:page',
+      //     match: 'polymind:page',
       //   },
       // }
       // to
       // {
       //   "match": {
       //     "flavour": {
-      //       "query": "affine:page",
+      //       "query": "polymind:page",
       //       "boost": 1.5
       //     }
       //   }

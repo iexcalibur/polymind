@@ -1,10 +1,10 @@
 import type { CommentChangeAction, PublicUserType } from '@polymind/graphql';
-import type { DocMode } from '@blocksuite/affine/model';
+import type { DocMode } from '@blocksuite/polymind/model';
 import type {
   BaseSelection,
   DocSnapshot,
   Store,
-} from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/store';
 
 export type CommentId = string;
 

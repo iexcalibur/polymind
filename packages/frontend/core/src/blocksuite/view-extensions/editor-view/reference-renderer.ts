@@ -1,17 +1,17 @@
 import type { ReactToLit } from '@polymind/component';
-import type { AffineReference } from '@blocksuite/affine/inlines/reference';
-import { ReferenceNodeConfigExtension } from '@blocksuite/affine/inlines/reference';
-import type { ExtensionType } from '@blocksuite/affine/store';
+import type { PolymindReference } from '@blocksuite/polymind/inlines/reference';
+import { ReferenceNodeConfigExtension } from '@blocksuite/polymind/inlines/reference';
+import type { ExtensionType } from '@blocksuite/polymind/store';
 
 export type ReferenceReactRenderer = (
-  reference: AffineReference
+  reference: PolymindReference
 ) => React.ReactElement;
 
 export function patchReferenceRenderer(
   reactToLit: ReactToLit,
   reactRenderer: ReferenceReactRenderer
 ): ExtensionType {
-  const customContent = (reference: AffineReference) => {
+  const customContent = (reference: PolymindReference) => {
     const node = reactRenderer(reference);
     return reactToLit(node, true);
   };

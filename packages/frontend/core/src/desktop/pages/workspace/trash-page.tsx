@@ -4,7 +4,7 @@ import {
   DocExplorerContext,
 } from '@polymind/core/components/explorer/context';
 import { DocsExplorer } from '@polymind/core/components/explorer/docs-view/docs-list';
-import { useBlockSuiteMetaHelper } from '@polymind/core/components/hooks/affine/use-block-suite-meta-helper';
+import { useBlockSuiteMetaHelper } from '@polymind/core/components/hooks/polymind/use-block-suite-meta-helper';
 import { Header } from '@polymind/core/components/pure/header';
 import { CollectionRulesService } from '@polymind/core/modules/collection-rules';
 import { GlobalContextService } from '@polymind/core/modules/global-context';

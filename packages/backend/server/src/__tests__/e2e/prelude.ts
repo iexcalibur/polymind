@@ -1,5 +1,5 @@
-import { getBuildConfig } from '@affine-tools/utils/build-config';
-import { Package } from '@affine-tools/utils/workspace';
+import { getBuildConfig } from '@polymind-tools/utils/build-config';
+import { Package } from '@polymind-tools/utils/workspace';
 
 import { createApp } from './create-app';
 

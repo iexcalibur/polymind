@@ -48,9 +48,9 @@ const FILE_PATH = path.resolve(
 );
 
 function getAttachment(page: Page) {
-  const attachment = page.locator('affine-attachment');
+  const attachment = page.locator('polymind-attachment');
   const loading = attachment.locator('.affine-attachment-card.loading');
-  const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
+  const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
   const switchViewButton = toolbar.getByRole('button', { name: 'Switch view' });
   const renameBtn = toolbar.getByRole('button', { name: 'Rename' });
   const renameInput = page.locator('.affine-attachment-rename-container input');
@@ -168,7 +168,7 @@ test('should undo/redo works for attachment', async ({ page }, testInfo) => {
   );
 
   await undoByKeyboard(page);
-  await page.locator('affine-attachment').waitFor({ state: 'detached' });
+  await page.locator('polymind-attachment').waitFor({ state: 'detached' });
 
   // The loading/error state should not be restored after undo
   expect(await getPageSnapshot(page, true)).toMatchSnapshot(
@@ -292,7 +292,7 @@ test(`support dragging attachment block directly`, async ({
     `${testInfo.title}_1.json`
   );
 
-  const attachmentBlock = page.locator('affine-attachment');
+  const attachmentBlock = page.locator('polymind-attachment');
   const rect = await attachmentBlock.boundingBox();
   if (!rect) {
     throw new Error('image not found');
@@ -398,9 +398,9 @@ test('indent attachment block to paragraph', async ({ page }) => {
   await waitLoading();
 
   await assertBlockChildrenIds(page, '1', ['2', '4']);
-  await assertBlockFlavour(page, '1', 'affine:note');
-  await assertBlockFlavour(page, '2', 'affine:paragraph');
-  await assertBlockFlavour(page, '4', 'affine:attachment');
+  await assertBlockFlavour(page, '1', 'polymind:note');
+  await assertBlockFlavour(page, '2', 'polymind:paragraph');
+  await assertBlockFlavour(page, '4', 'polymind:attachment');
 
   await focusRichText(page);
   await pressArrowDown(page);
@@ -426,9 +426,9 @@ test('indent attachment block to list', async ({ page }) => {
   await waitLoading();
 
   await assertBlockChildrenIds(page, '1', ['3', '5']);
-  await assertBlockFlavour(page, '1', 'affine:note');
-  await assertBlockFlavour(page, '3', 'affine:list');
-  await assertBlockFlavour(page, '5', 'affine:attachment');
+  await assertBlockFlavour(page, '1', 'polymind:note');
+  await assertBlockFlavour(page, '3', 'polymind:list');
+  await assertBlockFlavour(page, '5', 'polymind:attachment');
 
   await focusRichText(page);
   await pressArrowDown(page);
@@ -460,5 +460,5 @@ test('attachment can be dragged from note to surface top level block', async ({
   await dragBlockToPoint(page, '4', { x: 200, y: 200 });
 
   await waitNextFrame(page);
-  await assertParentBlockFlavour(page, '4', 'affine:surface');
+  await assertParentBlockFlavour(page, '4', 'polymind:surface');
 });

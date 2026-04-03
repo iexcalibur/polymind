@@ -1,13 +1,13 @@
 import { createRequire } from 'node:module';
 
-import { openHomePage } from '@affine-test/kit/utils/load-page';
+import { openHomePage } from '@polymind-test/kit/utils/load-page';
 import {
   clickNewPageButton,
   waitForAllPagesLoad,
   waitForEditorLoad,
-} from '@affine-test/kit/utils/page-logic';
-import { clickSideBarSettingButton } from '@affine-test/kit/utils/sidebar';
-import { Package } from '@affine-tools/utils/workspace';
+} from '@polymind-test/kit/utils/page-logic';
+import { clickSideBarSettingButton } from '@polymind-test/kit/utils/sidebar';
+import { Package } from '@polymind-tools/utils/workspace';
 import { faker } from '@faker-js/faker';
 import { hash } from '@node-rs/argon2';
 import type { BrowserContext, Cookie, Page } from '@playwright/test';
@@ -54,7 +54,7 @@ const cloudUserSchema = z.object({
   password: z.string(),
 });
 
-const server = new Package('@affine/server');
+const server = new Package('@polymind/server');
 const require = createRequire(server.srcPath.join('index.ts').toFileUrl());
 
 export const runPrisma = async <T>(
@@ -64,7 +64,7 @@ export const runPrisma = async <T>(
   const client = new PrismaClient({
     datasourceUrl:
       process.env.DATABASE_URL ||
-      'postgresql://affine:affine@localhost:5432/affine',
+      'postgresql://polymind:polymind@localhost:5432/polymind',
   });
   await client.$connect();
   try {
@@ -156,7 +156,7 @@ export async function switchDefaultChatModel(model: string) {
   await runPrisma(async client => {
     const promptId = await client.aiPrompt
       .findFirst({
-        where: { name: 'Chat With AFFiNE AI' },
+        where: { name: 'Chat With PolyMind AI' },
         select: { id: true },
       })
       .then(f => f!.id);

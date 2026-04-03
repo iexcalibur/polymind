@@ -1,5 +1,5 @@
 import { WorkbenchService } from '@polymind/core/modules/workbench';
-import { SidebarExtension } from '@blocksuite/affine/shared/services';
+import { SidebarExtension } from '@blocksuite/polymind/shared/services';
 import type { FrameworkProvider } from '@toeverything/infra';
 
 export function patchSideBarService(framework: FrameworkProvider) {

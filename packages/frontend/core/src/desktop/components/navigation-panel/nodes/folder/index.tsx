@@ -19,7 +19,7 @@ import {
   OrganizeService,
 } from '@polymind/core/modules/organize';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { Unreachable } from '@polymind/env/constant';
 import { useI18n } from '@polymind/i18n';
 import {
@@ -61,7 +61,7 @@ export const NavigationPanelFolderNode = ({
 }: {
   defaultRenaming?: boolean;
   nodeId: string;
-  onDrop?: (data: DropTargetDropEvent<AffineDNDData>, node: FolderNode) => void;
+  onDrop?: (data: DropTargetDropEvent<PolymindDNDData>, node: FolderNode) => void;
   operations?:
     | NodeOperation[]
     | ((type: string, node: FolderNode) => NodeOperation[]);
@@ -73,7 +73,7 @@ export const NavigationPanelFolderNode = ({
   const type = useLiveData(node?.type$);
   const data = useLiveData(node?.data$);
   const handleDrop = useCallback(
-    (data: DropTargetDropEvent<AffineDNDData>) => {
+    (data: DropTargetDropEvent<PolymindDNDData>) => {
       if (!node) {
         return;
       }
@@ -243,7 +243,7 @@ const NavigationPanelFolderNodeFolder = ({
       dropTarget: {
         at: 'navigation-panel:organize:folder',
       },
-    } satisfies AffineDNDData;
+    } satisfies PolymindDNDData;
   }, [location, node.id]);
 
   const handleRename = useCallback(
@@ -254,7 +254,7 @@ const NavigationPanelFolderNodeFolder = ({
   );
 
   const handleDropOnFolder = useCallback(
-    (data: DropTargetDropEvent<AffineDNDData>) => {
+    (data: DropTargetDropEvent<PolymindDNDData>) => {
       if (data.treeInstruction?.type === 'make-child') {
         if (data.source.data.entity?.type === 'folder') {
           if (
@@ -320,7 +320,7 @@ const NavigationPanelFolderNodeFolder = ({
   );
 
   const handleDropOnPlaceholder = useCallback(
-    (data: DropTargetDropEvent<AffineDNDData>) => {
+    (data: DropTargetDropEvent<PolymindDNDData>) => {
       if (data.source.data.entity?.type === 'folder') {
         if (
           node.id === data.source.data.entity.id ||
@@ -351,7 +351,7 @@ const NavigationPanelFolderNodeFolder = ({
   );
 
   const handleDropOnChildren = useCallback(
-    (data: DropTargetDropEvent<AffineDNDData>, dropAtNode?: FolderNode) => {
+    (data: DropTargetDropEvent<PolymindDNDData>, dropAtNode?: FolderNode) => {
       if (!dropAtNode || !dropAtNode.id) {
         return;
       }
@@ -475,7 +475,7 @@ const NavigationPanelFolderNodeFolder = ({
       [dropEffect, node]
     );
 
-  const handleCanDrop = useMemo<DropTargetOptions<AffineDNDData>['canDrop']>(
+  const handleCanDrop = useMemo<DropTargetOptions<PolymindDNDData>['canDrop']>(
     () => args => {
       const entityType = args.source.data.entity?.type;
       if (args.treeInstruction && args.treeInstruction?.type !== 'make-child') {
@@ -509,7 +509,7 @@ const NavigationPanelFolderNodeFolder = ({
   );
 
   const handleChildrenCanDrop = useMemo<
-    DropTargetOptions<AffineDNDData>['canDrop']
+    DropTargetOptions<PolymindDNDData>['canDrop']
   >(
     () => args => {
       const entityType = args.source.data.entity?.type;

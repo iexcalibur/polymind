@@ -1,9 +1,9 @@
 import { type DropTargetGetFeedback, Skeleton } from '@polymind/component';
 import { ResizePanel } from '@polymind/component/resize-panel';
-import { useAppSettingHelper } from '@polymind/core/components/hooks/affine/use-app-setting-helper';
+import { useAppSettingHelper } from '@polymind/core/components/hooks/polymind/use-app-setting-helper';
 import { NavigateContext } from '@polymind/core/components/hooks/use-navigate-helper';
 import { WorkspaceNavigator } from '@polymind/core/components/workspace-selector';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { useI18n } from '@polymind/i18n';
 import {
   useLiveData,
@@ -128,7 +128,7 @@ export function AppSidebar({ children }: PropsWithChildren) {
           viewId: firstView.id,
         };
       },
-      canDrop: (data: DropTargetGetFeedback<AffineDNDData>) => {
+      canDrop: (data: DropTargetGetFeedback<PolymindDNDData>) => {
         return (
           (!!data.source.data.entity?.type &&
             allowedSplitViewEntityTypes.has(data.source.data.entity?.type)) ||

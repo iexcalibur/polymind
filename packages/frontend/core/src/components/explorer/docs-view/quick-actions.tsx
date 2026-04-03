@@ -20,7 +20,7 @@ import {
 import { useLiveData, useService } from '@toeverything/infra';
 import { memo, useCallback, useContext } from 'react';
 
-import { useBlockSuiteMetaHelper } from '../../hooks/affine/use-block-suite-meta-helper';
+import { useBlockSuiteMetaHelper } from '../../hooks/polymind/use-block-suite-meta-helper';
 import { IsFavoriteIcon } from '../../pure/icons';
 import { DocExplorerContext } from '../context';
 

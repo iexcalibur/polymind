@@ -13,9 +13,9 @@ import { edgelessCopilotWidget } from '@polymind/core/blocksuite/ai/widgets/edge
 import {
   type ViewExtensionContext,
   ViewExtensionProvider,
-} from '@blocksuite/affine/ext-loader';
-import { ToolbarModuleExtension } from '@blocksuite/affine/shared/services';
-import { BlockFlavourIdentifier } from '@blocksuite/affine/std';
+} from '@blocksuite/polymind/ext-loader';
+import { ToolbarModuleExtension } from '@blocksuite/polymind/shared/services';
+import { BlockFlavourIdentifier } from '@blocksuite/polymind/std';
 import { FrameworkProvider } from '@toeverything/infra';
 import { z } from 'zod';
 
@@ -36,7 +36,7 @@ const optionsSchema = z.object({
 type AIViewOptions = z.infer<typeof optionsSchema>;
 
 export class AIViewExtension extends ViewExtensionProvider<AIViewOptions> {
-  override name = 'affine-ai-view-extension';
+  override name = 'polymind-ai-view-extension';
 
   override schema = optionsSchema;
 

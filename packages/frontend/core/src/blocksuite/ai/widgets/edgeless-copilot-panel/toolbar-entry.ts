@@ -1,11 +1,11 @@
-import { sortEdgelessElements } from '@blocksuite/affine/blocks/root';
-import { AIStarIcon } from '@blocksuite/affine/components/icons';
-import { WithDisposable } from '@blocksuite/affine/global/lit';
-import type { EditorHost } from '@blocksuite/affine/std';
+import { sortEdgelessElements } from '@blocksuite/polymind/blocks/root';
+import { AIStarIcon } from '@blocksuite/polymind/components/icons';
+import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import type { EditorHost } from '@blocksuite/polymind/std';
 import {
   GfxControllerIdentifier,
   isGfxGroupCompatibleModel,
-} from '@blocksuite/affine/std/gfx';
+} from '@blocksuite/polymind/std/gfx';
 import { css, html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
 

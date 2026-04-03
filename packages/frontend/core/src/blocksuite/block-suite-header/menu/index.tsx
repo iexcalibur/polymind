@@ -5,11 +5,11 @@ import {
   MenuSeparator,
   MenuSub,
 } from '@polymind/component/ui/menu';
-import { PageHistoryModal } from '@polymind/core/components/affine/page-history-modal';
+import { PageHistoryModal } from '@polymind/core/components/polymind/page-history-modal';
 import { useGuard } from '@polymind/core/components/guard';
-import { useBlockSuiteMetaHelper } from '@polymind/core/components/hooks/affine/use-block-suite-meta-helper';
-import { useEnableCloud } from '@polymind/core/components/hooks/affine/use-enable-cloud';
-import { useExportPage } from '@polymind/core/components/hooks/affine/use-export-page';
+import { useBlockSuiteMetaHelper } from '@polymind/core/components/hooks/polymind/use-block-suite-meta-helper';
+import { useEnableCloud } from '@polymind/core/components/hooks/polymind/use-enable-cloud';
+import { useExportPage } from '@polymind/core/components/hooks/polymind/use-export-page';
 import { Export, MoveToTrash } from '@polymind/core/components/page-list';
 import { IsFavoriteIcon } from '@polymind/core/components/pure/icons';
 import { useDetailPageHeaderResponsive } from '@polymind/core/desktop/pages/workspace/detail-page/use-header-responsive';
@@ -22,7 +22,7 @@ import { WorkbenchService } from '@polymind/core/modules/workbench';
 import { ViewService } from '@polymind/core/modules/workbench/services/view';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { useI18n } from '@polymind/i18n';
-import type { Store } from '@blocksuite/affine/store';
+import type { Store } from '@blocksuite/polymind/store';
 import {
   DuplicateIcon,
   EdgelessIcon,
@@ -297,7 +297,7 @@ const PageHeaderMenuItem = ({
               <ShareMenuContent
                 workspaceMetadata={workspace.meta}
                 currentPage={page}
-                onEnableAffineCloud={() =>
+                onEnablePolymindCloud={() =>
                   confirmEnableCloud(workspace, {
                     openPageId: page.id,
                   })

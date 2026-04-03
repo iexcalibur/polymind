@@ -6,9 +6,9 @@ const isMobile = BUILD_CONFIG.isMobileEdition;
 const isIOS = BUILD_CONFIG.isIOS;
 const isAndroid = BUILD_CONFIG.isAndroid;
 
-export const AFFINE_FLAGS = {
+export const POLYMIND_FLAGS = {
   enable_ai: {
-    category: 'affine',
+    category: 'polymind',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-ai.name',
     description:
@@ -18,7 +18,7 @@ export const AFFINE_FLAGS = {
     defaultState: true,
   },
   enable_ai_network_search: {
-    category: 'affine',
+    category: 'polymind',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-ai-network-search.name',
     description:
@@ -28,7 +28,7 @@ export const AFFINE_FLAGS = {
     defaultState: true,
   },
   enable_ai_playground: {
-    category: 'affine',
+    category: 'polymind',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-ai-model-switch.name',
     description:
@@ -98,7 +98,7 @@ export const AFFINE_FLAGS = {
   },
 
   enable_emoji_folder_icon: {
-    category: 'affine',
+    category: 'polymind',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-emoji-folder-icon.name',
     description:
@@ -111,7 +111,7 @@ export const AFFINE_FLAGS = {
     defaultState: true,
   },
   enable_emoji_doc_icon: {
-    category: 'affine',
+    category: 'polymind',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-emoji-doc-icon.name',
     description:
@@ -123,7 +123,7 @@ export const AFFINE_FLAGS = {
     defaultState: true,
   },
   enable_editor_settings: {
-    category: 'affine',
+    category: 'polymind',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-editor-settings.name',
     description:
@@ -132,7 +132,7 @@ export const AFFINE_FLAGS = {
     defaultState: true,
   },
   enable_theme_editor: {
-    category: 'affine',
+    category: 'polymind',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-theme-editor.name',
     description:
@@ -171,7 +171,7 @@ export const AFFINE_FLAGS = {
     defaultState: isMobile,
   },
   enable_mobile_edgeless_editing: {
-    category: 'affine',
+    category: 'polymind',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-mobile-edgeless-editing.name',
     description:
@@ -180,7 +180,7 @@ export const AFFINE_FLAGS = {
     defaultState: false,
   },
   enable_pdf_embed_preview: {
-    category: 'affine',
+    category: 'polymind',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-pdf-embed-preview.name',
     description:
@@ -189,7 +189,7 @@ export const AFFINE_FLAGS = {
     defaultState: true,
   },
   enable_editor_rtl: {
-    category: 'affine',
+    category: 'polymind',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-editor-rtl.name',
     description:
@@ -198,14 +198,14 @@ export const AFFINE_FLAGS = {
     defaultState: false,
   },
   enable_mobile_ai_button: {
-    category: 'affine',
+    category: 'polymind',
     displayName: 'Enable AI Button',
     description: 'Enable AI Button on mobile',
     configurable: isMobile && isIOS,
     defaultState: isMobile && isIOS,
   },
   enable_mermaid_wasm_native_renderer: {
-    category: 'affine',
+    category: 'polymind',
     displayName: 'Enable Native Mermaid Renderer',
     description:
       'Use the new Mermaid renderer backend. Web uses WASM, desktop uses native, and mobile always uses native. The native renderer is more than 10x faster, but its styling/aesthetic quality and the types of graphics it supports are not as good as the JS version.',
@@ -249,14 +249,14 @@ export const AFFINE_FLAGS = {
     defaultState: false,
   },
   enable_setting_subpage_animation: {
-    category: 'affine',
+    category: 'polymind',
     displayName: 'Enable Setting Subpage Animation',
     description: 'Apply animation for setting subpage open/close',
     configurable: isCanaryBuild,
     defaultState: false,
   },
   enable_adapter_panel: {
-    category: 'affine',
+    category: 'polymind',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-adapter-panel.name',
     description:
@@ -265,14 +265,14 @@ export const AFFINE_FLAGS = {
     defaultState: false,
   },
   enable_view_analytics_panel: {
-    category: 'affine',
+    category: 'polymind',
     displayName: 'Enable View Analytics Panel',
     description: 'Show the View analytics tab in the right sidebar.',
     configurable: true,
     defaultState: false,
   },
   enable_two_step_journal_confirmation: {
-    category: 'affine',
+    category: 'polymind',
     displayName: 'Enable Two Step Journal Confirmation',
     description:
       'When enabled, you must confirm the journal before you can create a new journal.',
@@ -280,7 +280,7 @@ export const AFFINE_FLAGS = {
     defaultState: isCanaryBuild,
   },
   enable_send_detailed_object_to_ai: {
-    category: 'affine',
+    category: 'polymind',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-ai-send-detailed-object.name',
     description:
@@ -289,7 +289,7 @@ export const AFFINE_FLAGS = {
     defaultState: true,
   },
   enable_battery_save_mode: {
-    category: 'affine',
+    category: 'polymind',
     displayName: 'Enable Battery Save Mode (Require Restart)',
     description:
       'Limit indexing and other compute-intensive tasks on this device, may experience longer loading time and latency in search and other features, in exchange for quietness.',
@@ -316,4 +316,4 @@ export const AFFINE_FLAGS = {
 } satisfies { [key in string]: FlagInfo };
 
 // oxlint-disable-next-line no-redeclare
-export type AFFINE_FLAGS = typeof AFFINE_FLAGS;
+export type POLYMIND_FLAGS = typeof POLYMIND_FLAGS;

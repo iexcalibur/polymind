@@ -22,8 +22,8 @@ import {
 } from '@node-rs/argon2';
 
 import {
-  AFFINE_PRO_LICENSE_AES_KEY,
-  AFFINE_PRO_PUBLIC_KEY,
+  POLYMIND_PRO_LICENSE_AES_KEY,
+  POLYMIND_PRO_PUBLIC_KEY,
 } from '../../native';
 import { Config } from '../config';
 import { OnEvent } from '../event';
@@ -78,13 +78,13 @@ export class CryptoHelper implements OnModuleInit {
 
   private previousPublicKeys: KeyObject[] = [];
 
-  AFFiNEProPublicKey: Buffer | null = null;
-  AFFiNEProLicenseAESKey: Buffer | null = null;
+  PolyMindProPublicKey: Buffer | null = null;
+  PolyMindProLicenseAESKey: Buffer | null = null;
 
   onModuleInit() {
     if (env.selfhosted) {
-      this.AFFiNEProPublicKey = this.loadAFFiNEProPublicKey();
-      this.AFFiNEProLicenseAESKey = this.loadAFFiNEProLicenseAESKey();
+      this.PolyMindProPublicKey = this.loadPolyMindProPublicKey();
+      this.PolyMindProLicenseAESKey = this.loadPolyMindProLicenseAESKey();
     }
   }
 
@@ -306,31 +306,31 @@ export class CryptoHelper implements OnModuleInit {
     return createHash('sha256').update(data).digest();
   }
 
-  private loadAFFiNEProPublicKey() {
-    if (AFFINE_PRO_PUBLIC_KEY) {
-      return Buffer.from(AFFINE_PRO_PUBLIC_KEY);
+  private loadPolyMindProPublicKey() {
+    if (POLYMIND_PRO_PUBLIC_KEY) {
+      return Buffer.from(POLYMIND_PRO_PUBLIC_KEY);
     } else {
-      this.logger.warn('AFFINE_PRO_PUBLIC_KEY is not set at compile time.');
+      this.logger.warn('POLYMIND_PRO_PUBLIC_KEY is not set at compile time.');
     }
 
-    if (!env.prod && process.env.AFFiNE_PRO_PUBLIC_KEY) {
-      return Buffer.from(process.env.AFFiNE_PRO_PUBLIC_KEY);
+    if (!env.prod && process.env.POLYMIND_PRO_PUBLIC_KEY) {
+      return Buffer.from(process.env.POLYMIND_PRO_PUBLIC_KEY);
     }
 
     return null;
   }
 
-  private loadAFFiNEProLicenseAESKey() {
-    if (AFFINE_PRO_LICENSE_AES_KEY) {
-      return this.sha256(AFFINE_PRO_LICENSE_AES_KEY);
+  private loadPolyMindProLicenseAESKey() {
+    if (POLYMIND_PRO_LICENSE_AES_KEY) {
+      return this.sha256(POLYMIND_PRO_LICENSE_AES_KEY);
     } else {
       this.logger.warn(
-        'AFFINE_PRO_LICENSE_AES_KEY is not set at compile time.'
+        'POLYMIND_PRO_LICENSE_AES_KEY is not set at compile time.'
       );
     }
 
-    if (!env.prod && process.env.AFFiNE_PRO_LICENSE_AES_KEY) {
-      return this.sha256(process.env.AFFiNE_PRO_LICENSE_AES_KEY);
+    if (!env.prod && process.env.POLYMIND_PRO_LICENSE_AES_KEY) {
+      return this.sha256(process.env.POLYMIND_PRO_LICENSE_AES_KEY);
     }
 
     return null;

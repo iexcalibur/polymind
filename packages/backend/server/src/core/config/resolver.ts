@@ -75,12 +75,12 @@ export class ServerConfigResolver {
       name:
         this.config.server.name ??
         (env.selfhosted
-          ? 'AFFiNE SelfHosted Cloud'
+          ? 'PolyMind SelfHosted Cloud'
           : env.namespaces.canary
-            ? 'AFFiNE Canary Cloud'
+            ? 'PolyMind Canary Cloud'
             : env.namespaces.beta
-              ? 'AFFiNE Beta Cloud'
-              : 'AFFiNE Cloud'),
+              ? 'PolyMind Beta Cloud'
+              : 'PolyMind Cloud'),
       version: env.version,
       baseUrl: this.url.requestBaseUrl,
       type: env.DEPLOYMENT_TYPE,
@@ -117,7 +117,7 @@ export class ServerConfigResolver {
     }
 
     const channel = RELEASE_CHANNEL_MAP.get(env.NAMESPACE) ?? 'stable';
-    const url = `https://affine.pro/api/worker/releases?channel=${channel}`;
+    const url = `https://polymind.pro/api/worker/releases?channel=${channel}`;
 
     try {
       const response = await fetch(url, {

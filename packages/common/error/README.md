@@ -1,3 +1,3 @@
-# @affine/error
+# @polymind/error
 
-AFFiNE error handler utilities
+PolyMind error handler utilities

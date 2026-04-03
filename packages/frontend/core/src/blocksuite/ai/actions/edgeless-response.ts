@@ -1,11 +1,11 @@
-import { CodeBlockPreviewIdentifier } from '@blocksuite/affine/blocks/code';
-import { addImages } from '@blocksuite/affine/blocks/image';
-import { getSurfaceBlock } from '@blocksuite/affine/blocks/surface';
-import { LoadingIcon } from '@blocksuite/affine/components/icons';
-import { addTree } from '@blocksuite/affine/gfx/mindmap';
-import { fitContent } from '@blocksuite/affine/gfx/shape';
-import { createTemplateJob } from '@blocksuite/affine/gfx/template';
-import { Bound } from '@blocksuite/affine/global/gfx';
+import { CodeBlockPreviewIdentifier } from '@blocksuite/polymind/blocks/code';
+import { addImages } from '@blocksuite/polymind/blocks/image';
+import { getSurfaceBlock } from '@blocksuite/polymind/blocks/surface';
+import { LoadingIcon } from '@blocksuite/polymind/components/icons';
+import { addTree } from '@blocksuite/polymind/gfx/mindmap';
+import { fitContent } from '@blocksuite/polymind/gfx/shape';
+import { createTemplateJob } from '@blocksuite/polymind/gfx/template';
+import { Bound } from '@blocksuite/polymind/global/gfx';
 import {
   EDGELESS_TEXT_BLOCK_MIN_HEIGHT,
   EDGELESS_TEXT_BLOCK_MIN_WIDTH,
@@ -14,14 +14,14 @@ import {
   type MindmapElementModel,
   NoteDisplayMode,
   type ShapeElementModel,
-} from '@blocksuite/affine/model';
-import type { EditorHost } from '@blocksuite/affine/std';
-import { GfxControllerIdentifier } from '@blocksuite/affine/std/gfx';
-import { Text } from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/model';
+import type { EditorHost } from '@blocksuite/polymind/std';
+import { GfxControllerIdentifier } from '@blocksuite/polymind/std/gfx';
+import { Text } from '@blocksuite/polymind/store';
 import {
   AFFINE_TOOLBAR_WIDGET,
-  type AffineToolbarWidget,
-} from '@blocksuite/affine/widgets/toolbar';
+  type PolymindToolbarWidget,
+} from '@blocksuite/polymind/widgets/toolbar';
 import {
   ChatWithAiIcon,
   DeleteIcon,
@@ -46,17 +46,17 @@ import {
   getCopilotSelectedElems,
   getSurfaceElementFromEditor,
 } from '../utils/selection-utils';
-import type { AffineAIPanelWidget } from '../widgets/ai-panel/ai-panel';
+import type { PolymindAIPanelWidget } from '../widgets/ai-panel/ai-panel';
 import type { EdgelessCopilotWidget } from '../widgets/edgeless-copilot';
 import { EXCLUDING_INSERT_ACTIONS, generatingStages } from './consts';
 
 type FinishConfig = Exclude<
-  AffineAIPanelWidget['config'],
+  PolymindAIPanelWidget['config'],
   null
 >['finishStateConfig'];
 
 type ErrorConfig = Exclude<
-  AffineAIPanelWidget['config'],
+  PolymindAIPanelWidget['config'],
   null
 >['errorStateConfig'];
 
@@ -65,7 +65,7 @@ export function getToolbar(host: EditorHost) {
   const toolbar = host.view.getWidget(
     AFFINE_TOOLBAR_WIDGET,
     rootBlockId
-  ) as AffineToolbarWidget;
+  ) as PolymindToolbarWidget;
 
   return toolbar.querySelector('editor-toolbar');
 }
@@ -77,7 +77,7 @@ export function getTriggerEntry(host: EditorHost) {
 }
 
 export function discard(
-  panel: AffineAIPanelWidget,
+  panel: PolymindAIPanelWidget,
   _: EdgelessCopilotWidget
 ): AIItemConfig {
   return {
@@ -91,7 +91,7 @@ export function discard(
   };
 }
 
-export function retry(panel: AffineAIPanelWidget): AIItemConfig {
+export function retry(panel: PolymindAIPanelWidget): AIItemConfig {
   return {
     name: 'Retry',
     icon: ResetIcon(),
@@ -251,10 +251,10 @@ function createBlockAndInsert(
       EDGELESS_TEXT_BLOCK_MIN_WIDTH,
       EDGELESS_TEXT_BLOCK_MIN_HEIGHT
     );
-    const surfaceBlock = doc.getBlocksByFlavour('affine:surface')[0];
+    const surfaceBlock = doc.getBlocksByFlavour('polymind:surface')[0];
     if (type === 'edgelessText') {
       blockId = doc.addBlock(
-        'affine:edgeless-text',
+        'polymind:edgeless-text',
         {
           xywh: bounds.serialize(),
         },
@@ -263,7 +263,7 @@ function createBlockAndInsert(
     } else {
       const bounds = edgelessCopilot.determineInsertionBounds(800, 95);
       blockId = doc.addBlock(
-        'affine:note',
+        'polymind:note',
         {
           xywh: bounds.serialize(),
           displayMode: NoteDisplayMode.EdgelessOnly,
@@ -494,20 +494,20 @@ function responseToMakeItReal(host: EditorHost, ctx: AIContext) {
 
     if (ifUseCodeBlock) {
       const note = host.store.addBlock(
-        'affine:note',
+        'polymind:note',
         {
           xywh: bounds.serialize(),
         },
         host.store.root
       );
       host.store.addBlock(
-        'affine:code',
+        'polymind:code',
         { text: new Text(html), language: 'html', preview: true },
         note
       );
     } else {
       host.store.addBlock(
-        'affine:embed-html',
+        'polymind:embed-html',
         {
           html,
           design: 'ai:makeItReal', // as tag
@@ -711,7 +711,7 @@ export function actionToGenerating<T extends keyof BlockSuitePresets.AIActions>(
 export function actionToErrorResponse<
   T extends keyof BlockSuitePresets.AIActions,
 >(
-  panel: AffineAIPanelWidget,
+  panel: PolymindAIPanelWidget,
   id: T,
   host: EditorHost,
   ctx: AIContext,

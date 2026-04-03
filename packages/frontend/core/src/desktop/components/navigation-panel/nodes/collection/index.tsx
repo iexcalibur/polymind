@@ -12,7 +12,7 @@ import {
 import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
 import { GlobalContextService } from '@polymind/core/modules/global-context';
 import { NavigationPanelService } from '@polymind/core/modules/navigation-panel';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { useI18n } from '@polymind/i18n';
 import { FilterMinusIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService, useServices } from '@toeverything/infra';
@@ -88,7 +88,7 @@ export const NavigationPanelCollectionNode = ({
       dropTarget: {
         at: 'navigation-panel:doc',
       },
-    } satisfies AffineDNDData;
+    } satisfies PolymindDNDData;
   }, [collectionId, location]);
 
   const handleRename = useCallback(
@@ -118,7 +118,7 @@ export const NavigationPanelCollectionNode = ({
   );
 
   const handleDropOnCollection = useCallback(
-    (data: DropTargetDropEvent<AffineDNDData>) => {
+    (data: DropTargetDropEvent<PolymindDNDData>) => {
       if (collection && data.treeInstruction?.type === 'make-child') {
         if (data.source.data.entity?.type === 'doc') {
           handleAddDocToCollection(data.source.data.entity.id);
@@ -146,7 +146,7 @@ export const NavigationPanelCollectionNode = ({
     );
 
   const handleDropOnPlaceholder = useCallback(
-    (data: DropTargetDropEvent<AffineDNDData>) => {
+    (data: DropTargetDropEvent<PolymindDNDData>) => {
       if (collection && data.source.data.entity?.type === 'doc') {
         handleAddDocToCollection(data.source.data.entity.id);
       }
@@ -180,7 +180,7 @@ export const NavigationPanelCollectionNode = ({
     return collectionOperations;
   }, [collectionOperations, additionalOperations]);
 
-  const handleCanDrop = useMemo<DropTargetOptions<AffineDNDData>['canDrop']>(
+  const handleCanDrop = useMemo<DropTargetOptions<PolymindDNDData>['canDrop']>(
     () => args => {
       const entityType = args.source.data.entity?.type;
       return args.treeInstruction?.type !== 'make-child'

@@ -1,10 +1,10 @@
-import { WithDisposable } from '@blocksuite/affine/global/lit';
-import { GenerateDocUrlProvider } from '@blocksuite/affine/shared/services';
-import { createDefaultDoc } from '@blocksuite/affine/shared/utils';
-import { ShadowlessElement } from '@blocksuite/affine/std';
-import type { Doc, Workspace } from '@blocksuite/affine/store';
+import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import { GenerateDocUrlProvider } from '@blocksuite/polymind/shared/services';
+import { createDefaultDoc } from '@blocksuite/polymind/shared/utils';
+import { ShadowlessElement } from '@blocksuite/polymind/std';
+import type { Doc, Workspace } from '@blocksuite/polymind/store';
 import { CloseIcon } from '@blocksuite/icons/lit';
-import type { TestAffineEditorContainer } from '@blocksuite/integration-test';
+import type { TestPolymindEditorContainer } from '@blocksuite/integration-test';
 import { css, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
@@ -161,7 +161,7 @@ export class DocsPanel extends WithDisposable(ShadowlessElement) {
   }
 
   @property({ attribute: false })
-  accessor editor!: TestAffineEditorContainer;
+  accessor editor!: TestPolymindEditorContainer;
 
   @property({ attribute: false })
   accessor onClose!: () => void;

@@ -5,7 +5,7 @@ import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
 import { WorkspacePermissionService } from '@polymind/core/modules/permissions';
 import type { WorkspaceMetadata } from '@polymind/core/modules/workspace';
 import { useI18n } from '@polymind/i18n';
-import type { Store } from '@blocksuite/affine/store';
+import type { Store } from '@blocksuite/polymind/store';
 import { LockIcon, PublishIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import {
@@ -25,7 +25,7 @@ import { SharePage } from './share-page';
 export interface ShareMenuProps extends PropsWithChildren {
   workspaceMetadata: WorkspaceMetadata;
   currentPage: Store;
-  onEnableAffineCloud: () => void;
+  onEnablePolymindCloud: () => void;
   onOpenShareModal?: (open: boolean) => void;
   openPaywallModal?: () => void;
   hittingPaywall?: boolean;

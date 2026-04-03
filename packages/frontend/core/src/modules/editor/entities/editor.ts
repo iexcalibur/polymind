@@ -1,17 +1,17 @@
-import type { AffineEditorContainer } from '@polymind/core/blocksuite/block-suite-editor';
+import type { PolymindEditorContainer } from '@polymind/core/blocksuite/block-suite-editor';
 import type { DefaultOpenProperty } from '@polymind/core/components/properties';
-import { PresentTool } from '@blocksuite/affine/blocks/frame';
-import { DefaultTool } from '@blocksuite/affine/blocks/surface';
-import type { DocTitle } from '@blocksuite/affine/fragments/doc-title';
-import { findCommentedTexts } from '@blocksuite/affine/inlines/comment';
-import type { DocMode, ReferenceParams } from '@blocksuite/affine/model';
-import { HighlightSelection } from '@blocksuite/affine/shared/selection';
+import { PresentTool } from '@blocksuite/polymind/blocks/frame';
+import { DefaultTool } from '@blocksuite/polymind/blocks/surface';
+import type { DocTitle } from '@blocksuite/polymind/fragments/doc-title';
+import { findCommentedTexts } from '@blocksuite/polymind/inlines/comment';
+import type { DocMode, ReferenceParams } from '@blocksuite/polymind/model';
+import { HighlightSelection } from '@blocksuite/polymind/shared/selection';
 import {
   DocModeProvider,
   findCommentedBlocks,
   findCommentedElements,
-} from '@blocksuite/affine/shared/services';
-import { GfxControllerIdentifier } from '@blocksuite/affine/std/gfx';
+} from '@blocksuite/polymind/shared/services';
+import { GfxControllerIdentifier } from '@blocksuite/polymind/std/gfx';
 import type { InlineEditor } from '@blocksuite/std/inline';
 import { effect } from '@preact/signals-core';
 import { Entity, LiveData } from '@toeverything/infra';
@@ -37,7 +37,7 @@ export class Editor extends Entity {
   readonly doc = this.docService.doc;
   readonly isSharedMode =
     this.workspaceService.workspace.openOptions.isSharedMode;
-  readonly editorContainer$ = new LiveData<AffineEditorContainer | null>(null);
+  readonly editorContainer$ = new LiveData<PolymindEditorContainer | null>(null);
   readonly defaultOpenProperty$ = new LiveData<DefaultOpenProperty | undefined>(
     undefined
   );
@@ -269,7 +269,7 @@ export class Editor extends Entity {
   }
 
   bindEditorContainer(
-    editorContainer: AffineEditorContainer,
+    editorContainer: PolymindEditorContainer,
     docTitle?: DocTitle | null,
     scrollViewport?: HTMLElement | null
   ) {

@@ -1,7 +1,7 @@
 import '@polymind/env/constant';
-import '@blocksuite/affine/global/types'
+import '@blocksuite/polymind/global/types'
 
-declare module '@blocksuite/affine/store' {
+declare module '@blocksuite/polymind/store' {
   interface DocMeta {
     /**
      * @deprecated
@@ -44,5 +44,5 @@ declare type Environment = {
     env: Record<string, string>;
   };
   var environment: Environment;
-  var $AFFINE_SETUP: boolean | undefined;
+  var $POLYMIND_SETUP: boolean | undefined;
 }

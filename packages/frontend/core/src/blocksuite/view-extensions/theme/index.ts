@@ -3,7 +3,7 @@ import { getThemeExtension } from '@polymind/core/blocksuite/view-extensions/the
 import {
   type ViewExtensionContext,
   ViewExtensionProvider,
-} from '@blocksuite/affine/ext-loader';
+} from '@blocksuite/polymind/ext-loader';
 import { FrameworkProvider } from '@toeverything/infra';
 import { z } from 'zod';
 
@@ -11,16 +11,16 @@ const optionsSchema = z.object({
   framework: z.instanceof(FrameworkProvider).optional(),
 });
 
-type AffineThemeViewOptions = z.infer<typeof optionsSchema>;
+type PolymindThemeViewOptions = z.infer<typeof optionsSchema>;
 
-export class AffineThemeViewExtension extends ViewExtensionProvider<AffineThemeViewOptions> {
-  override name = 'affine-view-theme';
+export class PolymindThemeViewExtension extends ViewExtensionProvider<PolymindThemeViewOptions> {
+  override name = 'polymind-view-theme';
 
   override schema = optionsSchema;
 
   override setup(
     context: ViewExtensionContext,
-    options?: AffineThemeViewOptions
+    options?: PolymindThemeViewOptions
   ) {
     super.setup(context, options);
     const framework = options?.framework;

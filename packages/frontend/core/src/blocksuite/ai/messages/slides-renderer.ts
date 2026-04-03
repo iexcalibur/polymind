@@ -1,8 +1,8 @@
 import { WorkspaceImpl } from '@polymind/core/modules/workspace/impls/workspace';
-import { ViewExtensionManagerIdentifier } from '@blocksuite/affine/ext-loader';
-import { WithDisposable } from '@blocksuite/affine/global/lit';
-import { BlockStdScope, type EditorHost } from '@blocksuite/affine/std';
-import type { Store } from '@blocksuite/affine/store';
+import { ViewExtensionManagerIdentifier } from '@blocksuite/polymind/ext-loader';
+import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import { BlockStdScope, type EditorHost } from '@blocksuite/polymind/std';
+import type { Store } from '@blocksuite/polymind/store';
 import { css, html, LitElement, nothing } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { createRef, type Ref, ref } from 'lit/directives/ref.js';
@@ -11,12 +11,12 @@ import { Doc as YDoc } from 'yjs';
 import { PPTBuilder } from '../slides/index';
 import { getAIPanelWidget } from '../utils/ai-widgets';
 import type { AIContext } from '../utils/context';
-import type { AffineAIPanelWidgetConfig } from '../widgets/ai-panel/type';
+import type { PolymindAIPanelWidgetConfig } from '../widgets/ai-panel/type';
 
 export const createSlidesRenderer: (
   host: EditorHost,
   ctx: AIContext
-) => AffineAIPanelWidgetConfig['answerRenderer'] = (host, ctx) => {
+) => PolymindAIPanelWidgetConfig['answerRenderer'] = (host, ctx) => {
   return (answer, state) => {
     if (state === 'generating') {
       const panel = getAIPanelWidget(host);
@@ -230,8 +230,8 @@ export class AISlidesRenderer extends WithDisposable(LitElement) {
     const doc = collection.createDoc().getStore();
 
     doc.load(() => {
-      const pageBlockId = doc.addBlock('affine:page', {});
-      doc.addBlock('affine:surface', {}, pageBlockId);
+      const pageBlockId = doc.addBlock('polymind:page', {});
+      doc.addBlock('polymind:surface', {}, pageBlockId);
     });
 
     doc.resetHistory();

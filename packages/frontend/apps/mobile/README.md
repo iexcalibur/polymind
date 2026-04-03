@@ -1,3 +1,3 @@
 # mobile
 
-AFFiNE Mobile Edition Web app.
+PolyMind Mobile Edition Web app.

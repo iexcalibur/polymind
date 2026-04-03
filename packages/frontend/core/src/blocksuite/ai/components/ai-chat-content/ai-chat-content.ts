@@ -12,10 +12,10 @@ import type {
   ContextEmbedStatus,
   CopilotChatHistoryFragment,
 } from '@polymind/graphql';
-import { SignalWatcher, WithDisposable } from '@blocksuite/affine/global/lit';
-import { type EditorHost, ShadowlessElement } from '@blocksuite/affine/std';
-import type { ExtensionType } from '@blocksuite/affine/store';
-import type { NotificationService } from '@blocksuite/affine-shared/services';
+import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
+import { type EditorHost, ShadowlessElement } from '@blocksuite/polymind/std';
+import type { ExtensionType } from '@blocksuite/polymind/store';
+import type { NotificationService } from '@blocksuite/polymind-shared/services';
 import { type Signal } from '@preact/signals-core';
 import { css, html, type PropertyValues, type TemplateResult } from 'lit';
 import { property, state } from 'lit/decorators.js';
@@ -148,7 +148,7 @@ export class AIChatContent extends SignalWatcher(
   accessor affineFeatureFlagService!: FeatureFlagService;
 
   @property({ attribute: false })
-  accessor affineWorkspaceDialogService!: WorkspaceDialogService;
+  accessor polymindWorkspaceDialogService!: WorkspaceDialogService;
 
   @property({ attribute: false })
   accessor affineThemeService!: AppThemeService;
@@ -457,7 +457,7 @@ export class AIChatContent extends SignalWatcher(
         .reasoningConfig=${this.reasoningConfig}
         .docDisplayConfig=${this.docDisplayConfig}
         .searchMenuConfig=${this.searchMenuConfig}
-        .affineWorkspaceDialogService=${this.affineWorkspaceDialogService}
+        .polymindWorkspaceDialogService=${this.polymindWorkspaceDialogService}
         .notificationService=${this.notificationService}
         .aiDraftService=${this.aiDraftService}
         .aiToolsConfigService=${this.aiToolsConfigService}

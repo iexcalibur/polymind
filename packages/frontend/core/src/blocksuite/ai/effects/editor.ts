@@ -19,7 +19,7 @@ import { AskAIPanel } from '../components/ask-ai-panel';
 import { AskAIToolbarButton } from '../components/ask-ai-toolbar';
 import {
   AFFINE_AI_PANEL_WIDGET,
-  AffineAIPanelWidget,
+  PolymindAIPanelWidget,
 } from '../widgets/ai-panel/ai-panel';
 import {
   AIPanelAnswer,
@@ -32,12 +32,12 @@ import { AIFinishTip } from '../widgets/ai-panel/components/finish-tip';
 import { GeneratingPlaceholder } from '../widgets/ai-panel/components/generating-placeholder';
 import {
   AFFINE_BLOCK_DIFF_WIDGET_FOR_BLOCK,
-  AffineBlockDiffWidgetForBlock,
+  PolymindBlockDiffWidgetForBlock,
 } from '../widgets/block-diff/block';
 import { BlockDiffOptions } from '../widgets/block-diff/options';
 import {
   AFFINE_BLOCK_DIFF_WIDGET_FOR_PAGE,
-  AffineBlockDiffWidgetForPage,
+  PolymindBlockDiffWidgetForPage,
 } from '../widgets/block-diff/page';
 import {
   AFFINE_BLOCK_DIFF_PLAYGROUND,
@@ -63,8 +63,8 @@ const editorElements = {
   'ask-ai-button': AskAIButton,
   'ask-ai-toolbar-button': AskAIToolbarButton,
   'ask-ai-panel': AskAIPanel,
-  'affine-edgeless-ai-chat': EdgelessAIChatBlockComponent,
-  'affine-ai-chat': AIChatBlockComponent,
+  'polymind-edgeless-ai-chat': EdgelessAIChatBlockComponent,
+  'polymind-ai-chat': AIChatBlockComponent,
   'ai-chat-block-message': AIChatBlockMessage,
   'ai-chat-block-messages': AIChatBlockMessages,
   'ai-scrollable-text-renderer': AIScrollableTextRenderer,
@@ -82,10 +82,10 @@ const editorElements = {
   'ai-block-diff-options': BlockDiffOptions,
   [AFFINE_BLOCK_DIFF_PLAYGROUND]: BlockDiffPlayground,
   [AFFINE_BLOCK_DIFF_PLAYGROUND_MODAL]: BlockDiffPlaygroundModal,
-  [AFFINE_AI_PANEL_WIDGET]: AffineAIPanelWidget,
+  [AFFINE_AI_PANEL_WIDGET]: PolymindAIPanelWidget,
   [AFFINE_EDGELESS_COPILOT_WIDGET]: EdgelessCopilotWidget,
-  [AFFINE_BLOCK_DIFF_WIDGET_FOR_BLOCK]: AffineBlockDiffWidgetForBlock,
-  [AFFINE_BLOCK_DIFF_WIDGET_FOR_PAGE]: AffineBlockDiffWidgetForPage,
+  [AFFINE_BLOCK_DIFF_WIDGET_FOR_BLOCK]: PolymindBlockDiffWidgetForBlock,
+  [AFFINE_BLOCK_DIFF_WIDGET_FOR_PAGE]: PolymindBlockDiffWidgetForPage,
   'edgeless-copilot-panel': EdgelessCopilotPanel,
   'edgeless-copilot-toolbar-entry': EdgelessCopilotToolbarEntry,
   'transcription-block': LitTranscriptionBlock,

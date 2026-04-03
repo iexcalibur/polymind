@@ -2,7 +2,7 @@ import { Wrapper } from '@polymind/component';
 import {
   EmptyCollectionDetail,
   EmptyDocs,
-} from '@polymind/core/components/affine/empty';
+} from '@polymind/core/components/polymind/empty';
 import {
   createDocExplorerContext,
   DocExplorerContext,

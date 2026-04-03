@@ -1,6 +1,6 @@
 import type { DropTargetOptions } from '@polymind/component';
 import { isOrganizeSupportType } from '@polymind/core/modules/organize/constants';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 
 import type { NavigationPanelTreeNodeDropEffect } from '../../tree';
 
@@ -31,7 +31,7 @@ export const organizeEmptyDropEffect: NavigationPanelTreeNodeDropEffect =
 /**
  * Check whether the data can be dropped on the empty state of the organize section
  */
-export const organizeEmptyRootCanDrop: DropTargetOptions<AffineDNDData>['canDrop'] =
+export const organizeEmptyRootCanDrop: DropTargetOptions<PolymindDNDData>['canDrop'] =
   data => {
     const type = data.source.data.entity?.type;
     return !!type && isOrganizeSupportType(type);

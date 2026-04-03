@@ -1,6 +1,6 @@
-import { Path } from '@affine-tools/utils/path';
-import { execAsync } from '@affine-tools/utils/process';
-import type { Package, PackageName } from '@affine-tools/utils/workspace';
+import { Path } from '@polymind-tools/utils/path';
+import { execAsync } from '@polymind-tools/utils/process';
+import type { Package, PackageName } from '@polymind-tools/utils/workspace';
 
 import { Option, PackageCommand } from './command';
 
@@ -36,19 +36,19 @@ export class RunCommand extends PackageCommand {
   static override paths = [[], ['run'], ['r']];
 
   static override usage = PackageCommand.Usage({
-    description: 'AFFiNE Monorepo scripts',
+    description: 'PolyMind Monorepo scripts',
     details: `
-      \`affine web <script>\`    Run any script defined in package's package.json
+      \`polymind web <script>\`    Run any script defined in package's package.json
 
-      \`affine init\`            Generate the required files if there are any package added or removed
+      \`polymind init\`            Generate the required files if there are any package added or removed
 
-      \`affine clean\`           Clean the output files of ts, cargo, bundler outputs, etc.
+      \`polymind clean\`           Clean the output files of ts, cargo, bundler outputs, etc.
 
-      \`affine bundle\`          Bundle the packages
+      \`polymind bundle\`          Bundle the packages
 
-      \`affine build\`           A proxy for <-p package>'s \`build\` script
+      \`polymind build\`           A proxy for <-p package>'s \`build\` script
 
-      \`affine dev\`             A proxy for <-p package>'s \`dev\` script
+      \`polymind dev\`             A proxy for <-p package>'s \`dev\` script
     `,
     examples: [
       [`See detail of each command`, '$0 -h'],
@@ -148,9 +148,9 @@ export class RunCommand extends PackageCommand {
       }
     }
 
-    const isAFFiNECommand = args[0] === 'affine';
-    if (isAFFiNECommand) {
-      // remove 'affine' from 'affine xxx' command
+    const isPolyMindCommand = args[0] === 'polymind';
+    if (isPolyMindCommand) {
+      // remove 'polymind' from 'polymind xxx' command
       args.shift();
       args.push('-p', pkg.name);
 

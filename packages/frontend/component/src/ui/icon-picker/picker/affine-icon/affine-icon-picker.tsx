@@ -7,7 +7,7 @@ import { IconButton } from '../../../button';
 import Input from '../../../input';
 import { Menu } from '../../../menu';
 import { Scrollable } from '../../../scrollbar';
-import { AffineIconRenderer } from '../../renderer/affine-icon';
+import { PolymindIconRenderer } from '../../renderer/affine-icon';
 import * as pickerStyles from '../picker.css';
 import * as styles from './affine-icon-picker.css';
 
@@ -55,7 +55,7 @@ const useRecentIcons = () => {
   };
 };
 
-export const AffineIconPicker = ({
+export const PolymindIconPicker = ({
   onSelect,
 }: {
   onSelect?: (icon: string, color: string) => void;
@@ -163,7 +163,7 @@ export const AffineIconPicker = ({
                     style={{ padding: 4 }}
                     key={iconName}
                     icon={
-                      <AffineIconRenderer style={{ color }} name={iconName} />
+                      <PolymindIconRenderer style={{ color }} name={iconName} />
                     }
                     onClick={() => handleIconSelect(iconName)}
                   />
@@ -185,7 +185,7 @@ export const AffineIconPicker = ({
                     style={{ padding: 4 }}
                     key={icon.name}
                     icon={
-                      <AffineIconRenderer style={{ color }} name={icon.name} />
+                      <PolymindIconRenderer style={{ color }} name={icon.name} />
                     }
                     onClick={() => handleIconSelect(icon.name)}
                   />

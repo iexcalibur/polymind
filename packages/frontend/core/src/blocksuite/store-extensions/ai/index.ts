@@ -3,10 +3,10 @@ import { TranscriptionBlockSchemaExtension } from '@polymind/core/blocksuite/ai/
 import {
   type StoreExtensionContext,
   StoreExtensionProvider,
-} from '@blocksuite/affine/ext-loader';
+} from '@blocksuite/polymind/ext-loader';
 
 export class AIStoreExtension extends StoreExtensionProvider {
-  override name = 'affine-store-extensions';
+  override name = 'polymind-store-extensions';
 
   override setup(context: StoreExtensionContext) {
     super.setup(context);

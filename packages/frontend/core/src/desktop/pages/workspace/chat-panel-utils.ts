@@ -1,5 +1,5 @@
 import type { I18nInstance } from '@polymind/i18n';
-import type { NotificationService } from '@blocksuite/affine/shared/services';
+import type { NotificationService } from '@blocksuite/polymind/shared/services';
 
 export type SessionDeleteCleanupFn = (
   session: BlockSuitePresets.AIRecentSession

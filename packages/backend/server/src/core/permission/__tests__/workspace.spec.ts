@@ -31,7 +31,7 @@ test.before(async () => {
 
 test.beforeEach(async () => {
   await module.initTestingDB();
-  user = await models.user.create({ email: `${randomUUID()}@affine.pro` });
+  user = await models.user.create({ email: `${randomUUID()}@polymind.pro` });
   ws = await models.workspace.create(user.id);
 });
 
@@ -49,7 +49,7 @@ test('should get null role', async t => {
 });
 
 test('should return null if role is not accepted', async t => {
-  const u2 = await models.user.create({ email: `${randomUUID()}@affine.pro` });
+  const u2 = await models.user.create({ email: `${randomUUID()}@polymind.pro` });
   await models.workspaceUser.set(ws.id, u2.id, WorkspaceRole.Collaborator, {
     status: WorkspaceMemberStatus.UnderReview,
   });
@@ -171,7 +171,7 @@ test('should assert action', async t => {
     )
   );
 
-  const u2 = await models.user.create({ email: 'u2@affine.pro' });
+  const u2 = await models.user.create({ email: 'u2@polymind.pro' });
 
   await t.throwsAsync(
     ac.assert({ workspaceId: ws.id, userId: u2.id }, 'Workspace.Sync')
@@ -192,7 +192,7 @@ test('should assert action', async t => {
 test('should apply readonly workspace restrictions while keeping cleanup actions', async t => {
   for (let index = 0; index < 10; index++) {
     const member = await models.user.create({
-      email: `${randomUUID()}@affine.pro`,
+      email: `${randomUUID()}@polymind.pro`,
     });
     await models.workspaceUser.set(
       ws.id,

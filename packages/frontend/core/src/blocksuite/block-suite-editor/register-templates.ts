@@ -3,7 +3,7 @@ import { builtInTemplates as builtInStickersTemplates } from '@polymind/template
 import {
   EdgelessTemplatePanel,
   type TemplateManager,
-} from '@blocksuite/affine/gfx/template';
+} from '@blocksuite/polymind/gfx/template';
 
 export function registerTemplates() {
   EdgelessTemplatePanel.templates.extend(

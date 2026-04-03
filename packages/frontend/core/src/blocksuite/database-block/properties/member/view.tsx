@@ -5,13 +5,13 @@ import {
   createIcon,
   type DataViewCellLifeCycle,
   EditorHostKey,
-} from '@blocksuite/affine/blocks/database';
+} from '@blocksuite/polymind/blocks/database';
 import {
   UserListProvider,
   type UserListService,
   UserProvider,
   type UserService,
-} from '@blocksuite/affine/shared/services';
+} from '@blocksuite/polymind/shared/services';
 import { computed, type ReadonlySignal } from '@preact/signals-core';
 import {
   forwardRef,

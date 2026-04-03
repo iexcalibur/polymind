@@ -1,5 +1,5 @@
 import { useThemeColorV2, Wrapper } from '@polymind/component';
-import { EmptyDocs } from '@polymind/core/components/affine/empty';
+import { EmptyDocs } from '@polymind/core/components/polymind/empty';
 import {
   createDocExplorerContext,
   DocExplorerContext,

@@ -1,5 +1,5 @@
 import { FlexWrapper } from '@polymind/component';
-import { EmptyCollectionDetail } from '@polymind/core/components/affine/empty/collection-detail';
+import { EmptyCollectionDetail } from '@polymind/core/components/polymind/empty/collection-detail';
 import {
   createDocExplorerContext,
   DocExplorerContext,

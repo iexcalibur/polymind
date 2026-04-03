@@ -1,16 +1,16 @@
 import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
-import type { Container } from '@blocksuite/affine/global/di';
+import type { Container } from '@blocksuite/polymind/global/di';
 import {
   FileSizeLimitProvider,
   type IFileSizeLimitService,
-} from '@blocksuite/affine/shared/services';
-import { Extension } from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/shared/services';
+import { Extension } from '@blocksuite/polymind/store';
 import type { FrameworkProvider } from '@toeverything/infra';
 
 export function patchFileSizeLimitExtension(framework: FrameworkProvider) {
   const workspaceDialogService = framework.get(WorkspaceDialogService);
 
-  class AffineFileSizeLimitService
+  class PolymindFileSizeLimitService
     extends Extension
     implements IFileSizeLimitService
   {
@@ -25,9 +25,9 @@ export function patchFileSizeLimitExtension(framework: FrameworkProvider) {
     }
 
     static override setup(di: Container) {
-      di.override(FileSizeLimitProvider, AffineFileSizeLimitService);
+      di.override(FileSizeLimitProvider, PolymindFileSizeLimitService);
     }
   }
 
-  return AffineFileSizeLimitService;
+  return PolymindFileSizeLimitService;
 }

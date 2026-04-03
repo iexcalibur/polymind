@@ -130,8 +130,8 @@ afterEach(() => {
 describe('dialog export', () => {
   test('saveDBFileAs exports a vacuumed backup instead of copying the live db', async () => {
     const dbPath = '/tmp/workspace/storage.db';
-    const exportPath = '/tmp/export.affine';
-    const tempExportPath = '/tmp/export.affine.workspace-1.tmp';
+    const exportPath = '/tmp/export.polymind';
+    const tempExportPath = '/tmp/export.polymind.workspace-1.tmp';
     const id = '@peer(local);@type(workspace);@id(workspace-1);';
 
     pathExists.mockImplementation(async path => path === dbPath);

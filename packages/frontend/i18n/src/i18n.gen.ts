@@ -34,7 +34,7 @@ function createProxy(initValue: (key: string) => any) {
         },
     });
 }
-export function useAFFiNEI18N(): {
+export function usePolyMindI18N(): {
     /**
       * `Back to my Content`
       */
@@ -48,9 +48,9 @@ export function useAFFiNEI18N(): {
       */
     ["404.signOut"](): string;
     /**
-      * `AFFiNE Cloud`
+      * `PolyMind Cloud`
       */
-    ["AFFiNE Cloud"](): string;
+    ["PolyMind Cloud"](): string;
     /**
       * `All docs`
       */
@@ -184,15 +184,15 @@ export function useAFFiNEI18N(): {
       */
     Enable(): string;
     /**
-      * `Enable AFFiNE Cloud`
+      * `Enable PolyMind Cloud`
       */
-    ["Enable AFFiNE Cloud"](): string;
+    ["Enable PolyMind Cloud"](): string;
     /**
-      * `If enabled, the data in this workspace will be backed up and synchronised via AFFiNE Cloud.`
+      * `If enabled, the data in this workspace will be backed up and synchronised via PolyMind Cloud.`
       */
-    ["Enable AFFiNE Cloud Description"](): string;
+    ["Enable PolyMind Cloud Description"](): string;
     /**
-      * `The following functions rely on AFFiNE Cloud. All data is stored on the current device. You can enable AFFiNE Cloud for this workspace to keep data in sync with the cloud.`
+      * `The following functions rely on PolyMind Cloud. All data is stored on the current device. You can enable PolyMind Cloud for this workspace to keep data in sync with the cloud.`
       */
     ["Enable cloud hint"](): string;
     /**
@@ -482,9 +482,9 @@ export function useAFFiNEI18N(): {
       */
     Sync(): string;
     /**
-      * `Synced with AFFiNE Cloud`
+      * `Synced with PolyMind Cloud`
       */
-    ["Synced with AFFiNE Cloud"](): string;
+    ["Synced with PolyMind Cloud"](): string;
     /**
       * `Tags`
       */
@@ -612,129 +612,129 @@ export function useAFFiNEI18N(): {
     /**
       * `Automatically check for new updates periodically.`
       */
-    ["com.polymind.aboutAFFiNE.autoCheckUpdate.description"](): string;
+    ["com.polymind.aboutPolymind.autoCheckUpdate.description"](): string;
     /**
       * `Check for updates automatically`
       */
-    ["com.polymind.aboutAFFiNE.autoCheckUpdate.title"](): string;
+    ["com.polymind.aboutPolymind.autoCheckUpdate.title"](): string;
     /**
       * `Automatically download updates (to this device).`
       */
-    ["com.polymind.aboutAFFiNE.autoDownloadUpdate.description"](): string;
+    ["com.polymind.aboutPolymind.autoDownloadUpdate.description"](): string;
     /**
       * `Download updates automatically`
       */
-    ["com.polymind.aboutAFFiNE.autoDownloadUpdate.title"](): string;
+    ["com.polymind.aboutPolymind.autoDownloadUpdate.title"](): string;
     /**
-      * `View the AFFiNE Changelog.`
+      * `View the PolyMind Changelog.`
       */
-    ["com.polymind.aboutAFFiNE.changelog.description"](): string;
+    ["com.polymind.aboutPolymind.changelog.description"](): string;
     /**
       * `Discover what's new`
       */
-    ["com.polymind.aboutAFFiNE.changelog.title"](): string;
+    ["com.polymind.aboutPolymind.changelog.title"](): string;
     /**
       * `Check for update`
       */
-    ["com.polymind.aboutAFFiNE.checkUpdate.button.check"](): string;
+    ["com.polymind.aboutPolymind.checkUpdate.button.check"](): string;
     /**
       * `Download update`
       */
-    ["com.polymind.aboutAFFiNE.checkUpdate.button.download"](): string;
+    ["com.polymind.aboutPolymind.checkUpdate.button.download"](): string;
     /**
       * `Restart to update`
       */
-    ["com.polymind.aboutAFFiNE.checkUpdate.button.restart"](): string;
+    ["com.polymind.aboutPolymind.checkUpdate.button.restart"](): string;
     /**
       * `Retry`
       */
-    ["com.polymind.aboutAFFiNE.checkUpdate.button.retry"](): string;
+    ["com.polymind.aboutPolymind.checkUpdate.button.retry"](): string;
     /**
       * `New version is ready`
       */
-    ["com.polymind.aboutAFFiNE.checkUpdate.description"](): string;
+    ["com.polymind.aboutPolymind.checkUpdate.description"](): string;
     /**
       * `Manually check for updates.`
       */
-    ["com.polymind.aboutAFFiNE.checkUpdate.subtitle.check"](): string;
+    ["com.polymind.aboutPolymind.checkUpdate.subtitle.check"](): string;
     /**
       * `Checking for updates...`
       */
-    ["com.polymind.aboutAFFiNE.checkUpdate.subtitle.checking"](): string;
+    ["com.polymind.aboutPolymind.checkUpdate.subtitle.checking"](): string;
     /**
       * `Downloading the latest version...`
       */
-    ["com.polymind.aboutAFFiNE.checkUpdate.subtitle.downloading"](): string;
+    ["com.polymind.aboutPolymind.checkUpdate.subtitle.downloading"](): string;
     /**
       * `Unable to connect to the update server.`
       */
-    ["com.polymind.aboutAFFiNE.checkUpdate.subtitle.error"](): string;
+    ["com.polymind.aboutPolymind.checkUpdate.subtitle.error"](): string;
     /**
-      * `You've got the latest version of AFFiNE.`
+      * `You've got the latest version of PolyMind.`
       */
-    ["com.polymind.aboutAFFiNE.checkUpdate.subtitle.latest"](): string;
+    ["com.polymind.aboutPolymind.checkUpdate.subtitle.latest"](): string;
     /**
       * `Restart to apply update.`
       */
-    ["com.polymind.aboutAFFiNE.checkUpdate.subtitle.restart"](): string;
+    ["com.polymind.aboutPolymind.checkUpdate.subtitle.restart"](): string;
     /**
       * `New update available ({{version}})`
       */
-    ["com.polymind.aboutAFFiNE.checkUpdate.subtitle.update-available"](options: {
+    ["com.polymind.aboutPolymind.checkUpdate.subtitle.update-available"](options: {
         readonly version: string;
     }): string;
     /**
       * `Check for updates`
       */
-    ["com.polymind.aboutAFFiNE.checkUpdate.title"](): string;
+    ["com.polymind.aboutPolymind.checkUpdate.title"](): string;
     /**
       * `Communities`
       */
-    ["com.polymind.aboutAFFiNE.community.title"](): string;
+    ["com.polymind.aboutPolymind.community.title"](): string;
     /**
-      * `AFFiNE community`
+      * `PolyMind community`
       */
-    ["com.polymind.aboutAFFiNE.contact.community"](): string;
+    ["com.polymind.aboutPolymind.contact.community"](): string;
     /**
       * `Contact us`
       */
-    ["com.polymind.aboutAFFiNE.contact.title"](): string;
+    ["com.polymind.aboutPolymind.contact.title"](): string;
     /**
       * `Official website`
       */
-    ["com.polymind.aboutAFFiNE.contact.website"](): string;
+    ["com.polymind.aboutPolymind.contact.website"](): string;
     /**
       * `Privacy`
       */
-    ["com.polymind.aboutAFFiNE.legal.privacy"](): string;
+    ["com.polymind.aboutPolymind.legal.privacy"](): string;
     /**
       * `Legal Info`
       */
-    ["com.polymind.aboutAFFiNE.legal.title"](): string;
+    ["com.polymind.aboutPolymind.legal.title"](): string;
     /**
       * `Terms of use`
       */
-    ["com.polymind.aboutAFFiNE.legal.tos"](): string;
+    ["com.polymind.aboutPolymind.legal.tos"](): string;
     /**
-      * `Information about AFFiNE`
+      * `Information about PolyMind`
       */
-    ["com.polymind.aboutAFFiNE.subtitle"](): string;
+    ["com.polymind.aboutPolymind.subtitle"](): string;
     /**
-      * `About AFFiNE`
+      * `About PolyMind`
       */
-    ["com.polymind.aboutAFFiNE.title"](): string;
+    ["com.polymind.aboutPolymind.title"](): string;
     /**
       * `App version`
       */
-    ["com.polymind.aboutAFFiNE.version.app"](): string;
+    ["com.polymind.aboutPolymind.version.app"](): string;
     /**
       * `Editor version`
       */
-    ["com.polymind.aboutAFFiNE.version.editor.title"](): string;
+    ["com.polymind.aboutPolymind.version.editor.title"](): string;
     /**
       * `Version`
       */
-    ["com.polymind.aboutAFFiNE.version.title"](): string;
+    ["com.polymind.aboutPolymind.version.title"](): string;
     /**
       * `Get started`
       */
@@ -756,15 +756,15 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.ai-onboarding.general.1.description"](): string;
     /**
-      * `Meet AFFiNE AI`
+      * `Meet PolyMind AI`
       */
     ["com.polymind.ai-onboarding.general.1.title"](): string;
     /**
-      * `Answer questions, draft docs, visualize ideas - AFFiNE AI can save you time at every possible step. Powered by GPT's most powerful model.`
+      * `Answer questions, draft docs, visualize ideas - PolyMind AI can save you time at every possible step. Powered by GPT's most powerful model.`
       */
     ["com.polymind.ai-onboarding.general.2.description"](): string;
     /**
-      * `Chat with AFFiNE AI`
+      * `Chat with PolyMind AI`
       */
     ["com.polymind.ai-onboarding.general.2.title"](): string;
     /**
@@ -772,7 +772,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.ai-onboarding.general.3.description"](): string;
     /**
-      * `Edit inline with AFFiNE AI`
+      * `Edit inline with PolyMind AI`
       */
     ["com.polymind.ai-onboarding.general.3.title"](): string;
     /**
@@ -784,7 +784,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.ai-onboarding.general.4.title"](): string;
     /**
-      * `AFFiNE AI is ready`
+      * `PolyMind AI is ready`
       */
     ["com.polymind.ai-onboarding.general.5.title"](): string;
     /**
@@ -828,7 +828,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.ai-onboarding.local.message"](): string;
     /**
-      * `Meet AFFiNE AI`
+      * `Meet PolyMind AI`
       */
     ["com.polymind.ai-onboarding.local.title"](): string;
     /**
@@ -836,7 +836,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.ai-scroll-tip.tag"](): string;
     /**
-      * `Meet AFFiNE AI`
+      * `Meet PolyMind AI`
       */
     ["com.polymind.ai-scroll-tip.title"](): string;
     /**
@@ -856,7 +856,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.ai.login-required.dialog-confirm"](): string;
     /**
-      * `To use AFFiNE AI, please sign in to your AFFiNE Cloud account.`
+      * `To use PolyMind AI, please sign in to your PolyMind Cloud account.`
       */
     ["com.polymind.ai.login-required.dialog-content"](): string;
     /**
@@ -868,11 +868,11 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.ai.template-insert.failed"](): string;
     /**
-      * `AFFiNE AI`
+      * `PolyMind AI`
       */
     ["com.polymind.ai.chat-panel.title"](): string;
     /**
-      * `AFFiNE AI is loading history...`
+      * `PolyMind AI is loading history...`
       */
     ["com.polymind.ai.chat-panel.loading-history"](): string;
     /**
@@ -951,7 +951,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.appearanceSettings.color.title"](): string;
     /**
-      * `Edit all AFFiNE theme variables here`
+      * `Edit all PolyMind theme variables here`
       */
     ["com.polymind.appearanceSettings.customize-theme.description"](): string;
     /**
@@ -1019,7 +1019,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.appearanceSettings.sidebar.title"](): string;
     /**
-      * `Customize your AFFiNE appearance`
+      * `Customize your PolyMind appearance`
       */
     ["com.polymind.appearanceSettings.subtitle"](): string;
     /**
@@ -1031,7 +1031,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.appearanceSettings.menubar.toggle"](): string;
     /**
-      * `Display the menubar app in the tray for quick access to AFFiNE or meeting recordings.`
+      * `Display the menubar app in the tray for quick access to PolyMind or meeting recordings.`
       */
     ["com.polymind.appearanceSettings.menubar.description"](): string;
     /**
@@ -1043,7 +1043,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.appearanceSettings.menubar.windowBehavior.openOnLeftClick.toggle"](): string;
     /**
-      * `Open AFFiNE when left‑clicking the tray icon.`
+      * `Open PolyMind when left‑clicking the tray icon.`
       */
     ["com.polymind.appearanceSettings.menubar.windowBehavior.openOnLeftClick.description"](): string;
     /**
@@ -1051,7 +1051,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.appearanceSettings.menubar.windowBehavior.minimizeToTray.toggle"](): string;
     /**
-      * `Minimize AFFiNE to the system tray.`
+      * `Minimize PolyMind to the system tray.`
       */
     ["com.polymind.appearanceSettings.menubar.windowBehavior.minimizeToTray.description"](): string;
     /**
@@ -1059,7 +1059,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.appearanceSettings.menubar.windowBehavior.closeToTray.toggle"](): string;
     /**
-      * `Close AFFiNE to the system tray.`
+      * `Close PolyMind to the system tray.`
       */
     ["com.polymind.appearanceSettings.menubar.windowBehavior.closeToTray.description"](): string;
     /**
@@ -1067,7 +1067,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.appearanceSettings.menubar.windowBehavior.startMinimized.toggle"](): string;
     /**
-      * `Start AFFiNE minimized to the system tray.`
+      * `Start PolyMind minimized to the system tray.`
       */
     ["com.polymind.appearanceSettings.menubar.windowBehavior.startMinimized.description"](): string;
     /**
@@ -1105,7 +1105,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.auth.change.email.page.subtitle"](): string;
     /**
-      * `Congratulations! You have successfully updated the email address associated with your AFFiNE Cloud account.`
+      * `Congratulations! You have successfully updated the email address associated with your PolyMind Cloud account.`
       */
     ["com.polymind.auth.change.email.page.success.subtitle"](): string;
     /**
@@ -1125,41 +1125,41 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.auth.later"](): string;
     /**
-      * `Open AFFiNE`
+      * `Open PolyMind`
       */
-    ["com.polymind.auth.open.affine"](): string;
+    ["com.polymind.auth.open.polymind"](): string;
     /**
       * `Download app`
       */
-    ["com.polymind.auth.open.affine.download-app"](): string;
+    ["com.polymind.auth.open.polymind.download-app"](): string;
     /**
       * `Try again`
       */
-    ["com.polymind.auth.open.affine.try-again"](): string;
+    ["com.polymind.auth.open.polymind.try-again"](): string;
     /**
       * `Still have problems?`
       */
-    ["com.polymind.auth.open.affine.still-have-problems"](): string;
+    ["com.polymind.auth.open.polymind.still-have-problems"](): string;
     /**
       * `Continue with Browser`
       */
-    ["com.polymind.auth.open.affine.continue-with-browser"](): string;
+    ["com.polymind.auth.open.polymind.continue-with-browser"](): string;
     /**
       * `Download Latest Client`
       */
-    ["com.polymind.auth.open.affine.download-latest-client"](): string;
+    ["com.polymind.auth.open.polymind.download-latest-client"](): string;
     /**
       * `Open here instead`
       */
-    ["com.polymind.auth.open.affine.doc.open-here"](): string;
+    ["com.polymind.auth.open.polymind.doc.open-here"](): string;
     /**
       * `Edit settings`
       */
-    ["com.polymind.auth.open.affine.doc.edit-settings"](): string;
+    ["com.polymind.auth.open.polymind.doc.edit-settings"](): string;
     /**
-      * `Requires AFFiNE desktop app version 0.18 or later.`
+      * `Requires PolyMind desktop app version 0.18 or later.`
       */
-    ["com.polymind.auth.open.affine.doc.footer-text"](): string;
+    ["com.polymind.auth.open.polymind.doc.footer-text"](): string;
     /**
       * `Please set a password of {{min}}-{{max}} characters with both letters and numbers to continue signing up with `
       */
@@ -1168,7 +1168,7 @@ export function useAFFiNEI18N(): {
         max: string;
     }>): string;
     /**
-      * `Welcome to AFFiNE Cloud, you are almost there!`
+      * `Welcome to PolyMind Cloud, you are almost there!`
       */
     ["com.polymind.auth.page.sent.email.title"](): string;
     /**
@@ -1196,7 +1196,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.auth.reset.password.page.success"](): string;
     /**
-      * `Reset your AFFiNE Cloud password`
+      * `Reset your PolyMind Cloud password`
       */
     ["com.polymind.auth.reset.password.page.title"](): string;
     /**
@@ -1250,7 +1250,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.auth.sent.change.password.hint"](): string;
     /**
-      * `Your password has been updated! You can sign in AFFiNE Cloud with new password!`
+      * `Your password has been updated! You can sign in PolyMind Cloud with new password!`
       */
     ["com.polymind.auth.sent.reset.password.success.message"](): string;
     /**
@@ -1258,7 +1258,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.auth.sent.set.password.hint"](): string;
     /**
-      * `Your password has saved! You can sign in AFFiNE Cloud with email and password!`
+      * `Your password has saved! You can sign in PolyMind Cloud with email and password!`
       */
     ["com.polymind.auth.sent.set.password.success.message"](): string;
     /**
@@ -1297,7 +1297,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.auth.set.password.page.success"](): string;
     /**
-      * `Set your AFFiNE Cloud password`
+      * `Set your PolyMind Cloud password`
       */
     ["com.polymind.auth.set.password.page.title"](): string;
     /**
@@ -1395,7 +1395,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.auth.sign.up.sent.email.subtitle"](): string;
     /**
-      * `The app will automatically open or redirect to the web version. If you encounter any issues, you can also click the button below to manually open the AFFiNE app.`
+      * `The app will automatically open or redirect to the web version. If you encounter any issues, you can also click the button below to manually open the PolyMind app.`
       */
     ["com.polymind.auth.sign.up.success.subtitle"](): string;
     /**
@@ -1403,7 +1403,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.auth.sign.up.success.title"](): string;
     /**
-      * `You have successfully signed in. The app will automatically open or redirect to the web version. if you encounter any issues, you can also click the button below to  manually open the AFFiNE app.`
+      * `You have successfully signed in. The app will automatically open or redirect to the web version. if you encounter any issues, you can also click the button below to  manually open the PolyMind app.`
       */
     ["com.polymind.auth.signed.success.subtitle"](): string;
     /**
@@ -1415,7 +1415,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.auth.toast.message.failed"](): string;
     /**
-      * `You have been signed in, start to sync your data with AFFiNE Cloud!`
+      * `You have been signed in, start to sync your data with PolyMind Cloud!`
       */
     ["com.polymind.auth.toast.message.signed-in"](): string;
     /**
@@ -1441,9 +1441,9 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.banner.local-warning"](): string;
     /**
-      * `AFFiNE Cloud`
+      * `PolyMind Cloud`
       */
-    ["com.polymind.brand.affineCloud"](): string;
+    ["com.polymind.brand.polymindCloud"](): string;
     /**
       * `Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec`
       */
@@ -1457,243 +1457,243 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.calendar-date-picker.week-days"](): string;
     /**
-      * `Host by AFFiNE.Pro, Save, sync, and backup all your data.`
+      * `Host by PolyMind.Pro, Save, sync, and backup all your data.`
       */
     ["com.polymind.cloud-scroll-tip.caption"](): string;
     /**
-      * `AFFiNE Cloud`
+      * `PolyMind Cloud`
       */
     ["com.polymind.cloud-scroll-tip.title"](): string;
     /**
       * `Collections`
       */
-    ["com.polymind.cmdk.affine.category.affine.collections"](): string;
+    ["com.polymind.cmdk.polymind.category.polymind.collections"](): string;
     /**
       * `Create`
       */
-    ["com.polymind.cmdk.affine.category.affine.creation"](): string;
+    ["com.polymind.cmdk.polymind.category.polymind.creation"](): string;
     /**
       * `Edgeless`
       */
-    ["com.polymind.cmdk.affine.category.affine.edgeless"](): string;
+    ["com.polymind.cmdk.polymind.category.polymind.edgeless"](): string;
     /**
       * `General`
       */
-    ["com.polymind.cmdk.affine.category.affine.general"](): string;
+    ["com.polymind.cmdk.polymind.category.polymind.general"](): string;
     /**
       * `Help`
       */
-    ["com.polymind.cmdk.affine.category.affine.help"](): string;
+    ["com.polymind.cmdk.polymind.category.polymind.help"](): string;
     /**
       * `Layout controls`
       */
-    ["com.polymind.cmdk.affine.category.affine.layout"](): string;
+    ["com.polymind.cmdk.polymind.category.polymind.layout"](): string;
     /**
       * `Navigation`
       */
-    ["com.polymind.cmdk.affine.category.affine.navigation"](): string;
+    ["com.polymind.cmdk.polymind.category.polymind.navigation"](): string;
     /**
       * `Docs`
       */
-    ["com.polymind.cmdk.affine.category.affine.pages"](): string;
+    ["com.polymind.cmdk.polymind.category.polymind.pages"](): string;
     /**
       * `Recent`
       */
-    ["com.polymind.cmdk.affine.category.affine.recent"](): string;
+    ["com.polymind.cmdk.polymind.category.polymind.recent"](): string;
     /**
       * `Settings`
       */
-    ["com.polymind.cmdk.affine.category.affine.settings"](): string;
+    ["com.polymind.cmdk.polymind.category.polymind.settings"](): string;
     /**
       * `Tags`
       */
-    ["com.polymind.cmdk.affine.category.affine.tags"](): string;
+    ["com.polymind.cmdk.polymind.category.polymind.tags"](): string;
     /**
       * `Updates`
       */
-    ["com.polymind.cmdk.affine.category.affine.updates"](): string;
+    ["com.polymind.cmdk.polymind.category.polymind.updates"](): string;
     /**
       * `Edgeless commands`
       */
-    ["com.polymind.cmdk.affine.category.editor.edgeless"](): string;
+    ["com.polymind.cmdk.polymind.category.editor.edgeless"](): string;
     /**
       * `Insert object`
       */
-    ["com.polymind.cmdk.affine.category.editor.insert-object"](): string;
+    ["com.polymind.cmdk.polymind.category.editor.insert-object"](): string;
     /**
       * `Doc Commands`
       */
-    ["com.polymind.cmdk.affine.category.editor.page"](): string;
+    ["com.polymind.cmdk.polymind.category.editor.page"](): string;
     /**
       * `Results`
       */
-    ["com.polymind.cmdk.affine.category.results"](): string;
+    ["com.polymind.cmdk.polymind.category.results"](): string;
     /**
       * `Change client border style to`
       */
-    ["com.polymind.cmdk.affine.client-border-style.to"](): string;
+    ["com.polymind.cmdk.polymind.client-border-style.to"](): string;
     /**
       * `Change colour mode to`
       */
-    ["com.polymind.cmdk.affine.color-mode.to"](): string;
+    ["com.polymind.cmdk.polymind.color-mode.to"](): string;
     /**
       * `Contact us`
       */
-    ["com.polymind.cmdk.affine.contact-us"](): string;
+    ["com.polymind.cmdk.polymind.contact-us"](): string;
     /**
       * `Create "{{keyWord}}" doc and insert`
       */
-    ["com.polymind.cmdk.affine.create-new-doc-and-insert"](options: {
+    ["com.polymind.cmdk.polymind.create-new-doc-and-insert"](options: {
         readonly keyWord: string;
     }): string;
     /**
       * `New "{{keyWord}}" edgeless`
       */
-    ["com.polymind.cmdk.affine.create-new-edgeless-as"](options: {
+    ["com.polymind.cmdk.polymind.create-new-edgeless-as"](options: {
         readonly keyWord: string;
     }): string;
     /**
       * `New "{{keyWord}}" page`
       */
-    ["com.polymind.cmdk.affine.create-new-page-as"](options: {
+    ["com.polymind.cmdk.polymind.create-new-page-as"](options: {
         readonly keyWord: string;
     }): string;
     /**
       * `Change display language to`
       */
-    ["com.polymind.cmdk.affine.display-language.to"](): string;
+    ["com.polymind.cmdk.polymind.display-language.to"](): string;
     /**
       * `Add to favourites`
       */
-    ["com.polymind.cmdk.affine.editor.add-to-favourites"](): string;
+    ["com.polymind.cmdk.polymind.editor.add-to-favourites"](): string;
     /**
       * `Start presentation`
       */
-    ["com.polymind.cmdk.affine.editor.edgeless.presentation-start"](): string;
+    ["com.polymind.cmdk.polymind.editor.edgeless.presentation-start"](): string;
     /**
       * `Remove from favourites`
       */
-    ["com.polymind.cmdk.affine.editor.remove-from-favourites"](): string;
+    ["com.polymind.cmdk.polymind.editor.remove-from-favourites"](): string;
     /**
       * `Restore from trash`
       */
-    ["com.polymind.cmdk.affine.editor.restore-from-trash"](): string;
+    ["com.polymind.cmdk.polymind.editor.restore-from-trash"](): string;
     /**
       * `Reveal doc history modal`
       */
-    ["com.polymind.cmdk.affine.editor.reveal-page-history-modal"](): string;
+    ["com.polymind.cmdk.polymind.editor.reveal-page-history-modal"](): string;
     /**
       * `This doc has been moved to the trash, you can either restore or permanently delete it.`
       */
-    ["com.polymind.cmdk.affine.editor.trash-footer-hint"](): string;
+    ["com.polymind.cmdk.polymind.editor.trash-footer-hint"](): string;
     /**
       * `Change font style to`
       */
-    ["com.polymind.cmdk.affine.font-style.to"](): string;
+    ["com.polymind.cmdk.polymind.font-style.to"](): string;
     /**
       * `Change full width layout to`
       */
-    ["com.polymind.cmdk.affine.full-width-layout.to"](): string;
+    ["com.polymind.cmdk.polymind.full-width-layout.to"](): string;
     /**
       * `Change default width for new pages in to standard`
       */
-    ["com.polymind.cmdk.affine.default-page-width-layout.standard"](): string;
+    ["com.polymind.cmdk.polymind.default-page-width-layout.standard"](): string;
     /**
       * `Change default width for new pages in to full width`
       */
-    ["com.polymind.cmdk.affine.default-page-width-layout.full-width"](): string;
+    ["com.polymind.cmdk.polymind.default-page-width-layout.full-width"](): string;
     /**
       * `Change current page width to standard`
       */
-    ["com.polymind.cmdk.affine.current-page-width-layout.standard"](): string;
+    ["com.polymind.cmdk.polymind.current-page-width-layout.standard"](): string;
     /**
       * `Change current page width to full width`
       */
-    ["com.polymind.cmdk.affine.current-page-width-layout.full-width"](): string;
+    ["com.polymind.cmdk.polymind.current-page-width-layout.full-width"](): string;
     /**
       * `Getting started`
       */
-    ["com.polymind.cmdk.affine.getting-started"](): string;
+    ["com.polymind.cmdk.polymind.getting-started"](): string;
     /**
       * `Import workspace`
       */
-    ["com.polymind.cmdk.affine.import-workspace"](): string;
+    ["com.polymind.cmdk.polymind.import-workspace"](): string;
     /**
       * `Insert this link to the current doc`
       */
-    ["com.polymind.cmdk.affine.insert-link"](): string;
+    ["com.polymind.cmdk.polymind.insert-link"](): string;
     /**
       * `Collapse left sidebar`
       */
-    ["com.polymind.cmdk.affine.left-sidebar.collapse"](): string;
+    ["com.polymind.cmdk.polymind.left-sidebar.collapse"](): string;
     /**
       * `Expand left sidebar`
       */
-    ["com.polymind.cmdk.affine.left-sidebar.expand"](): string;
+    ["com.polymind.cmdk.polymind.left-sidebar.expand"](): string;
     /**
       * `Go to all docs`
       */
-    ["com.polymind.cmdk.affine.navigation.goto-all-pages"](): string;
+    ["com.polymind.cmdk.polymind.navigation.goto-all-pages"](): string;
     /**
       * `Go to edgeless list`
       */
-    ["com.polymind.cmdk.affine.navigation.goto-edgeless-list"](): string;
+    ["com.polymind.cmdk.polymind.navigation.goto-edgeless-list"](): string;
     /**
       * `Go to page list`
       */
-    ["com.polymind.cmdk.affine.navigation.goto-page-list"](): string;
+    ["com.polymind.cmdk.polymind.navigation.goto-page-list"](): string;
     /**
       * `Go to trash`
       */
-    ["com.polymind.cmdk.affine.navigation.goto-trash"](): string;
+    ["com.polymind.cmdk.polymind.navigation.goto-trash"](): string;
     /**
       * `Go to workspace`
       */
-    ["com.polymind.cmdk.affine.navigation.goto-workspace"](): string;
+    ["com.polymind.cmdk.polymind.navigation.goto-workspace"](): string;
     /**
       * `Go to account settings`
       */
-    ["com.polymind.cmdk.affine.navigation.open-account-settings"](): string;
+    ["com.polymind.cmdk.polymind.navigation.open-account-settings"](): string;
     /**
       * `Go to Settings`
       */
-    ["com.polymind.cmdk.affine.navigation.open-settings"](): string;
+    ["com.polymind.cmdk.polymind.navigation.open-settings"](): string;
     /**
       * `New edgeless`
       */
-    ["com.polymind.cmdk.affine.new-edgeless-page"](): string;
+    ["com.polymind.cmdk.polymind.new-edgeless-page"](): string;
     /**
       * `New page`
       */
-    ["com.polymind.cmdk.affine.new-page"](): string;
+    ["com.polymind.cmdk.polymind.new-page"](): string;
     /**
       * `New workspace`
       */
-    ["com.polymind.cmdk.affine.new-workspace"](): string;
+    ["com.polymind.cmdk.polymind.new-workspace"](): string;
     /**
       * `Change noise background on the sidebar to`
       */
-    ["com.polymind.cmdk.affine.noise-background-on-the-sidebar.to"](): string;
+    ["com.polymind.cmdk.polymind.noise-background-on-the-sidebar.to"](): string;
     /**
       * `Restart to upgrade`
       */
-    ["com.polymind.cmdk.affine.restart-to-upgrade"](): string;
+    ["com.polymind.cmdk.polymind.restart-to-upgrade"](): string;
     /**
       * `OFF`
       */
-    ["com.polymind.cmdk.affine.switch-state.off"](): string;
+    ["com.polymind.cmdk.polymind.switch-state.off"](): string;
     /**
       * `ON`
       */
-    ["com.polymind.cmdk.affine.switch-state.on"](): string;
+    ["com.polymind.cmdk.polymind.switch-state.on"](): string;
     /**
       * `Change translucent UI on the sidebar to`
       */
-    ["com.polymind.cmdk.affine.translucent-ui-on-the-sidebar.to"](): string;
+    ["com.polymind.cmdk.polymind.translucent-ui-on-the-sidebar.to"](): string;
     /**
       * `What's new`
       */
-    ["com.polymind.cmdk.affine.whats-new"](): string;
+    ["com.polymind.cmdk.polymind.whats-new"](): string;
     /**
       * `Search docs or paste link...`
       */
@@ -2077,21 +2077,21 @@ export function useAFFiNEI18N(): {
     /**
       * `Cancel`
       */
-    ["com.polymind.enableAffineCloudModal.button.cancel"](): string;
+    ["com.polymind.enablePolymindCloudModal.button.cancel"](): string;
     /**
       * `Enable Cloud for {{workspaceName}}`
       */
-    ["com.polymind.enableAffineCloudModal.custom-server.title"](options: {
+    ["com.polymind.enablePolymindCloudModal.custom-server.title"](options: {
         readonly workspaceName: string;
     }): string;
     /**
       * `Choose an instance.`
       */
-    ["com.polymind.enableAffineCloudModal.custom-server.description"](): string;
+    ["com.polymind.enablePolymindCloudModal.custom-server.description"](): string;
     /**
       * `Enable Cloud`
       */
-    ["com.polymind.enableAffineCloudModal.custom-server.enable"](): string;
+    ["com.polymind.enablePolymindCloudModal.custom-server.enable"](): string;
     /**
       * `Hide error`
       */
@@ -2109,7 +2109,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.error.refetch"](): string;
     /**
-      * `Reload AFFiNE`
+      * `Reload PolyMind`
       */
     ["com.polymind.error.reload"](): string;
     /**
@@ -2341,15 +2341,15 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.history-vision.tips-modal.cancel"](): string;
     /**
-      * `Enable AFFiNE Cloud`
+      * `Enable PolyMind Cloud`
       */
     ["com.polymind.history-vision.tips-modal.confirm"](): string;
     /**
-      * `The current workspace is a local workspace, and we do not support version history for it at the moment. You can enable AFFiNE Cloud. This will sync the workspace with the Cloud, allowing you to use this feature.`
+      * `The current workspace is a local workspace, and we do not support version history for it at the moment. You can enable PolyMind Cloud. This will sync the workspace with the Cloud, allowing you to use this feature.`
       */
     ["com.polymind.history-vision.tips-modal.description"](): string;
     /**
-      * `History vision needs AFFiNE Cloud`
+      * `History vision needs PolyMind Cloud`
       */
     ["com.polymind.history-vision.tips-modal.title"](): string;
     /**
@@ -2451,9 +2451,9 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.import_file"](): string;
     /**
-      * `AFFiNE workspace data`
+      * `PolyMind workspace data`
       */
-    ["com.polymind.import.affine-workspace-data"](): string;
+    ["com.polymind.import.polymind-workspace-data"](): string;
     /**
       * `Docx`
       */
@@ -2507,15 +2507,15 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.import.snapshot"](): string;
     /**
-      * `Import your AFFiNE workspace and page snapshot file.`
+      * `Import your PolyMind workspace and page snapshot file.`
       */
     ["com.polymind.import.snapshot.tooltip"](): string;
     /**
-      * `.affine file`
+      * `.polymind file`
       */
     ["com.polymind.import.dotaffinefile"](): string;
     /**
-      * `Import your AFFiNE db file (.affine)`
+      * `Import your PolyMind db file (.polymind)`
       */
     ["com.polymind.import.dotaffinefile.tooltip"](): string;
     /**
@@ -2539,7 +2539,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.import.status.importing.title"](): string;
     /**
-      * `Your document has been imported successfully, thank you for choosing AFFiNE. Any questions please feel free to feedback to us`
+      * `Your document has been imported successfully, thank you for choosing PolyMind. Any questions please feel free to feedback to us`
       */
     ["com.polymind.import.status.success.message"](): string;
     /**
@@ -2895,7 +2895,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.mobile.sign-in.skip.hint"](): string;
     /**
-      * `Start AFFiNE without an account`
+      * `Start PolyMind without an account`
       */
     ["com.polymind.mobile.sign-in.skip.link"](): string;
     /**
@@ -2941,17 +2941,17 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.multi-tab.new-tab"](): string;
     /**
-      * `Enabling AFFiNE Cloud allows you to synchronise and backup data, as well as support multi-user collaboration and content publishing.`
+      * `Enabling PolyMind Cloud allows you to synchronise and backup data, as well as support multi-user collaboration and content publishing.`
       */
-    ["com.polymind.nameWorkspace.affine-cloud.description"](): string;
+    ["com.polymind.nameWorkspace.polymind-cloud.description"](): string;
     /**
-      * `Sync across devices with AFFiNE Cloud`
+      * `Sync across devices with PolyMind Cloud`
       */
-    ["com.polymind.nameWorkspace.affine-cloud.title"](): string;
+    ["com.polymind.nameWorkspace.polymind-cloud.title"](): string;
     /**
       * `If you want the workspace to be stored locally, you can download the desktop client.`
       */
-    ["com.polymind.nameWorkspace.affine-cloud.web-tips"](): string;
+    ["com.polymind.nameWorkspace.polymind-cloud.web-tips"](): string;
     /**
       * `Cancel`
       */
@@ -3005,9 +3005,9 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.notFoundPage.title"](): string;
     /**
-      * `AFFiNE Community`
+      * `PolyMind Community`
       */
-    ["com.polymind.other-page.nav.affine-community"](): string;
+    ["com.polymind.other-page.nav.polymind-community"](): string;
     /**
       * `Blog`
       */
@@ -3025,7 +3025,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.other-page.nav.official-website"](): string;
     /**
-      * `Open AFFiNE`
+      * `Open PolyMind`
       */
     ["com.polymind.other-page.nav.open-affine"](): string;
     /**
@@ -3253,7 +3253,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.page-properties.property.select.tooltips"](): string;
     /**
-      * `Enter a link to websites or AFFiNE docs. Useful for connecting to external resources and referencing internal docs.`
+      * `Enter a link to websites or PolyMind docs. Useful for connecting to external resources and referencing internal docs.`
       */
     ["com.polymind.page-properties.property.link.tooltips"](): string;
     /**
@@ -3399,7 +3399,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.pageMode.page"](): string;
     /**
-      * `Congratulations on your successful purchase of AFFiNE AI! You're now empowered to refine your content, generate images, and craft comprehensive mindmaps directly within AFFiNE AI, dramatically enhancing your productivity.`
+      * `Congratulations on your successful purchase of PolyMind AI! You're now empowered to refine your content, generate images, and craft comprehensive mindmaps directly within PolyMind AI, dramatically enhancing your productivity.`
       */
     ["com.polymind.payment.ai-upgrade-success-page.text"](): string;
     /**
@@ -3411,7 +3411,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.payment.ai.action.cancel.button-label"](): string;
     /**
-      * `Keep AFFiNE AI`
+      * `Keep PolyMind AI`
       */
     ["com.polymind.payment.ai.action.cancel.confirm.cancel-text"](): string;
     /**
@@ -3419,7 +3419,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.payment.ai.action.cancel.confirm.confirm-text"](): string;
     /**
-      * `If you end your subscription now, you can still use AFFiNE AI until the end of this billing period.`
+      * `If you end your subscription now, you can still use PolyMind AI until the end of this billing period.`
       */
     ["com.polymind.payment.ai.action.cancel.confirm.description"](): string;
     /**
@@ -3443,7 +3443,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.payment.ai.action.resume.confirm.confirm-text"](): string;
     /**
-      * `Are you sure you want to resume the subscription for AFFiNE AI? This means your payment method will be charged automatically at the end of each billing cycle, starting from the next billing cycle.`
+      * `Are you sure you want to resume the subscription for PolyMind AI? This means your payment method will be charged automatically at the end of each billing cycle, starting from the next billing cycle.`
       */
     ["com.polymind.payment.ai.action.resume.confirm.description"](): string;
     /**
@@ -3507,13 +3507,13 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.payment.ai.benefit.g3-3"](): string;
     /**
-      * `You have purchased AFFiNE AI. The expiration date is {{end}}.`
+      * `You have purchased PolyMind AI. The expiration date is {{end}}.`
       */
     ["com.polymind.payment.ai.billing-tip.end-at"](options: {
         readonly end: string;
     }): string;
     /**
-      * `You have purchased AFFiNE AI. The next payment date is {{due}}.`
+      * `You have purchased PolyMind AI. The next payment date is {{due}}.`
       */
     ["com.polymind.payment.ai.billing-tip.next-bill-at"](options: {
         readonly due: string;
@@ -3529,15 +3529,15 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.payment.ai.pricing-plan.caption-free"](): string;
     /**
-      * `You have purchased AFFiNE AI`
+      * `You have purchased PolyMind AI`
       */
     ["com.polymind.payment.ai.pricing-plan.caption-purchased"](): string;
     /**
-      * `Learn about AFFiNE AI`
+      * `Learn about PolyMind AI`
       */
     ["com.polymind.payment.ai.pricing-plan.learn"](): string;
     /**
-      * `AFFiNE AI`
+      * `PolyMind AI`
       */
     ["com.polymind.payment.ai.pricing-plan.title"](): string;
     /**
@@ -3553,11 +3553,11 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.payment.ai.subscribe.billed-annually"](): string;
     /**
-      * `You have purchased AFFiNE AI.`
+      * `You have purchased PolyMind AI.`
       */
     ["com.polymind.payment.ai.usage-description-purchased"](): string;
     /**
-      * `AFFiNE AI usage`
+      * `PolyMind AI usage`
       */
     ["com.polymind.payment.ai.usage-title"](): string;
     /**
@@ -3628,7 +3628,7 @@ export function useAFFiNEI18N(): {
         readonly capacity: string;
     }): string;
     /**
-      * `AFFiNE AI`
+      * `PolyMind AI`
       */
     ["com.polymind.payment.billing-setting.ai-plan"](): string;
     /**
@@ -3644,7 +3644,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.payment.billing-setting.believer.price-caption"](): string;
     /**
-      * `AFFiNE Cloud`
+      * `PolyMind Cloud`
       */
     ["com.polymind.payment.billing-setting.believer.title"](): string;
     /**
@@ -3660,7 +3660,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.payment.billing-setting.change-plan"](): string;
     /**
-      * `AFFiNE Cloud`
+      * `PolyMind Cloud`
       */
     ["com.polymind.payment.billing-setting.current-plan"](): string;
     /**
@@ -3754,7 +3754,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.payment.billing-setting.year"](): string;
     /**
-      * `Please tell us more about your use case, to make AFFiNE better.`
+      * `Please tell us more about your use case, to make PolyMind better.`
       */
     ["com.polymind.payment.billing-type-form.description"](): string;
     /**
@@ -3848,7 +3848,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.payment.cloud.pricing-plan.select.caption"](): string;
     /**
-      * `Hosted by AFFiNE.Pro`
+      * `Hosted by PolyMind.Pro`
       */
     ["com.polymind.payment.cloud.pricing-plan.select.title"](): string;
     /**
@@ -3870,7 +3870,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.payment.cloud.pro.benefit.g1"](): string;
     /**
-      * `Everything in AFFiNE FOSS & Basic.`
+      * `Everything in PolyMind FOSS & Basic.`
       */
     ["com.polymind.payment.cloud.pro.benefit.g1-1"](): string;
     /**
@@ -3928,7 +3928,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.payment.cloud.team-workspace.benefit.g1"](): string;
     /**
-      * `Everything in AFFiNE Pro.`
+      * `Everything in PolyMind Pro.`
       */
     ["com.polymind.payment.cloud.team-workspace.benefit.g1-1"](): string;
     /**
@@ -3992,7 +3992,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.payment.downgrade"](): string;
     /**
-      * `We'd like to hear more about where we fall short, so that we can make AFFiNE better.`
+      * `We'd like to hear more about where we fall short, so that we can make PolyMind better.`
       */
     ["com.polymind.payment.downgraded-notify.content"](): string;
     /**
@@ -4036,7 +4036,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.payment.dynamic-benefit-5"](): string;
     /**
-      * `Everything in AFFiNE Pro`
+      * `Everything in PolyMind Pro`
       */
     ["com.polymind.payment.lifetime.benefit-1"](): string;
     /**
@@ -4050,7 +4050,7 @@ export function useAFFiNEI18N(): {
         readonly capacity: string;
     }): string;
     /**
-      * `Dedicated Discord support with AFFiNE makers`
+      * `Dedicated Discord support with PolyMind makers`
       */
     ["com.polymind.payment.lifetime.benefit-4"](): string;
     /**
@@ -4081,7 +4081,7 @@ export function useAFFiNEI18N(): {
         quota: string;
     }>): string;
     /**
-      * `Upgrade to AFFiNE Pro for expanded member capacity`
+      * `Upgrade to PolyMind Pro for expanded member capacity`
       */
     ["com.polymind.payment.member-limit.description.tips-for-free-plan"](): string;
     /**
@@ -4395,11 +4395,11 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.payment.modal.downgrade.cancel"](): string;
     /**
-      * `You can still use AFFiNE Cloud Pro until the end of this billing period :)`
+      * `You can still use PolyMind Cloud Pro until the end of this billing period :)`
       */
     ["com.polymind.payment.modal.downgrade.caption"](): string;
     /**
-      * `Keep AFFiNE Cloud Pro`
+      * `Keep PolyMind Cloud Pro`
       */
     ["com.polymind.payment.modal.downgrade.confirm"](): string;
     /**
@@ -4497,7 +4497,7 @@ export function useAFFiNEI18N(): {
         readonly plan: string;
     }): string;
     /**
-      * `This is the pricing plans of AFFiNE Cloud. You can sign up or sign in to your account first.`
+      * `This is the pricing plans of PolyMind Cloud. You can sign up or sign in to your account first.`
       */
     ["com.polymind.payment.subtitle-not-signed-in"](): string;
     /**
@@ -4531,7 +4531,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.payment.redeem-code"](): string;
     /**
-      * `We'd like to hear more about your use case, so that we can make AFFiNE better.`
+      * `We'd like to hear more about your use case, so that we can make PolyMind better.`
       */
     ["com.polymind.payment.upgrade-success-notify.content"](): string;
     /**
@@ -4551,7 +4551,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.payment.upgrade-success-notify.title"](): string;
     /**
-      * `Congratulations! Your AFFiNE account has been successfully upgraded to a Pro account.`
+      * `Congratulations! Your PolyMind account has been successfully upgraded to a Pro account.`
       */
     ["com.polymind.payment.upgrade-success-page.text"](): string;
     /**
@@ -4567,7 +4567,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.payment.license-success.title"](): string;
     /**
-      * `Thank you for purchasing the AFFiNE self-hosted license.`
+      * `Thank you for purchasing the PolyMind self-hosted license.`
       */
     ["com.polymind.payment.license-success.text-1"](): string;
     /**
@@ -4575,7 +4575,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.payment.license-success.hint"](): string;
     /**
-      * `Open AFFiNE`
+      * `Open PolyMind`
       */
     ["com.polymind.payment.license-success.open-affine"](): string;
     /**
@@ -4647,7 +4647,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.doc.analytics.paywall.open-pricing"](): string;
     /**
-      * `Doc analytics over 7 days require an AFFiNE Team subscription.`
+      * `Doc analytics over 7 days require an PolyMind Team subscription.`
       */
     ["com.polymind.doc.analytics.paywall.toast"](): string;
     /**
@@ -5075,7 +5075,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.setting.account.message"](): string;
     /**
-      * `Sync with AFFiNE Cloud`
+      * `Sync with PolyMind Cloud`
       */
     ["com.polymind.setting.sign.message"](): string;
     /**
@@ -5127,7 +5127,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.setting.appearance.links"](): string;
     /**
-      * `Open AFFiNE links`
+      * `Open PolyMind links`
       */
     ["com.polymind.setting.appearance.open-in-app"](): string;
     /**
@@ -5147,11 +5147,11 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.setting.appearance.open-in-app.open-in-web"](): string;
     /**
-      * `Open AFFiNE links`
+      * `Open PolyMind links`
       */
     ["com.polymind.setting.appearance.open-in-app.title"](): string;
     /**
-      * `Open this doc in AFFiNE app`
+      * `Open this doc in PolyMind app`
       */
     ["com.polymind.open-in-app.card.title"](): string;
     /**
@@ -5435,7 +5435,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.settings.editorSettings.general"](): string;
     /**
-      * `Enable the powerful AI assistant, AFFiNE AI.`
+      * `Enable the powerful AI assistant, PolyMind AI.`
       */
     ["com.polymind.settings.editorSettings.general.ai.description"](): string;
     /**
@@ -5463,7 +5463,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.settings.editorSettings.general.ai.enable.title"](): string;
     /**
-      * `AFFiNE AI`
+      * `PolyMind AI`
       */
     ["com.polymind.settings.editorSettings.general.ai.title"](): string;
     /**
@@ -5643,7 +5643,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.settings.email.action.verify"](): string;
     /**
-      * `Enable AFFiNE Cloud to collaborate with others`
+      * `Enable PolyMind Cloud to collaborate with others`
       */
     ["com.polymind.settings.member-tooltip"](): string;
     /**
@@ -5832,7 +5832,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.settings.meetings.record.permission-modal.title"](): string;
     /**
-      * `AFFiNE will generate meeting notes by recording your meetings. Authorization to "Screen & System Audio Recording" is necessary.`
+      * `PolyMind will generate meeting notes by recording your meetings. Authorization to "Screen & System Audio Recording" is necessary.`
       */
     ["com.polymind.settings.meetings.record.permission-modal.description"](): string;
     /**
@@ -6112,7 +6112,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.settings.workspace.experimental-features.enable-meetings.name"](): string;
     /**
-      * `Meetings allows you to record and transcribe meetings. Don't forget to enable it in AFFiNE settings.`
+      * `Meetings allows you to record and transcribe meetings. Don't forget to enable it in PolyMind settings.`
       */
     ["com.polymind.settings.workspace.experimental-features.enable-meetings.description"](): string;
     /**
@@ -6374,7 +6374,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.settings.workspace.state.local"](): string;
     /**
-      * `Sync with AFFiNE Cloud`
+      * `Sync with PolyMind Cloud`
       */
     ["com.polymind.settings.workspace.state.sync-affine-cloud"](): string;
     /**
@@ -6450,7 +6450,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.settings.workspace.storage.subtitle"](): string;
     /**
-      * `Enable AFFiNE Cloud to publish this workspace`
+      * `Enable PolyMind Cloud to publish this workspace`
       */
     ["com.polymind.settings.workspace.publish-tooltip"](): string;
     /**
@@ -6474,17 +6474,17 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.settings.workspace.sharing.workspace-sharing.title"](): string;
     /**
-      * `AFFiNE AI`
+      * `PolyMind AI`
       */
-    ["com.polymind.settings.workspace.affine-ai.title"](): string;
+    ["com.polymind.settings.workspace.polymind-ai.title"](): string;
     /**
-      * `Allow AFFiNE AI Assistant`
+      * `Allow PolyMind AI Assistant`
       */
-    ["com.polymind.settings.workspace.affine-ai.label"](): string;
+    ["com.polymind.settings.workspace.polymind-ai.label"](): string;
     /**
-      * `Allow workspace members to use AFFiNE AI features. This setting doesn't affect billing. Workspace members use AFFiNE AI through their personal accounts.`
+      * `Allow workspace members to use PolyMind AI features. This setting doesn't affect billing. Workspace members use PolyMind AI through their personal accounts.`
       */
-    ["com.polymind.settings.workspace.affine-ai.description"](): string;
+    ["com.polymind.settings.workspace.polymind-ai.description"](): string;
     /**
       * `Archived workspaces`
       */
@@ -6533,7 +6533,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.settings.workspace.indexer-embedding.title"](): string;
     /**
-      * `Manage AFFiNE indexing and AFFiNE AI Embedding for local content processing`
+      * `Manage PolyMind indexing and PolyMind AI Embedding for local content processing`
       */
     ["com.polymind.settings.workspace.indexer-embedding.description"](): string;
     /**
@@ -6621,7 +6621,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.settings.workspace.indexer-embedding.embedding.additional-attachments.remove-attachment.tooltip"](): string;
     /**
-      * `Sharing doc requires AFFiNE Cloud.`
+      * `Sharing doc requires PolyMind Cloud.`
       */
     ["com.polymind.share-menu.EnableCloudDescription"](): string;
     /**
@@ -6890,7 +6890,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.share-page.footer.create-with"](): string;
     /**
-      * `Empower your sharing with AFFiNE Cloud: One-click doc sharing`
+      * `Empower your sharing with PolyMind Cloud: One-click doc sharing`
       */
     ["com.polymind.share-page.footer.description"](): string;
     /**
@@ -6974,7 +6974,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.storage.plan"](): string;
     /**
-      * `AFFiNE Cloud storage`
+      * `PolyMind Cloud storage`
       */
     ["com.polymind.storage.title"](): string;
     /**
@@ -7210,7 +7210,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.upgrade.tips.error"](): string;
     /**
-      * `To ensure compatibility with the updated AFFiNE client, please upgrade your data by clicking the "Upgrade workspace data" button below.`
+      * `To ensure compatibility with the updated PolyMind client, please upgrade your data by clicking the "Upgrade workspace data" button below.`
       */
     ["com.polymind.upgrade.tips.normal"](): string;
     /**
@@ -7294,7 +7294,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.workspace.cloud.auth"](): string;
     /**
-      * `Sync with AFFiNE Cloud`
+      * `Sync with PolyMind Cloud`
       */
     ["com.polymind.workspace.cloud.description"](): string;
     /**
@@ -7882,11 +7882,11 @@ export function useAFFiNEI18N(): {
     /**
       * `Journal`
       */
-    ["com.polymind.cmdk.affine.category.affine.journal"](): string;
+    ["com.polymind.cmdk.polymind.category.polymind.journal"](): string;
     /**
       * `Select a specific date`
       */
-    ["com.polymind.cmdk.affine.category.affine.date-picker"](): string;
+    ["com.polymind.cmdk.polymind.category.polymind.date-picker"](): string;
     /**
       * `Workspace sync paused`
       */
@@ -8112,15 +8112,15 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.integration.web-clipper.name"](): string;
     /**
-      * `Import web pages to AFFiNE`
+      * `Import web pages to PolyMind`
       */
     ["com.polymind.integration.web-clipper.desc"](): string;
     /**
-      * `Elevate your AFFiNE experience with diverse add-ons and seamless integrations.`
+      * `Elevate your PolyMind experience with diverse add-ons and seamless integrations.`
       */
     ["com.polymind.integration.setting.description"](): string;
     /**
-      * `Learn how to develop a integration for AFFiNE`
+      * `Learn how to develop a integration for PolyMind`
       */
     ["com.polymind.integration.setting.learn"](): string;
     /**
@@ -8128,7 +8128,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.integration.readwise.name"](): string;
     /**
-      * `Manually import your content to AFFiNE from Readwise`
+      * `Manually import your content to PolyMind from Readwise`
       */
     ["com.polymind.integration.readwise.desc"](): string;
     /**
@@ -8168,7 +8168,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.integration.readwise.disconnect.title"](): string;
     /**
-      * `Once disconnected, content will no longer be imported. Do you want to keep your existing highlights in AFFiNE?`
+      * `Once disconnected, content will no longer be imported. Do you want to keep your existing highlights in PolyMind?`
       */
     ["com.polymind.integration.readwise.disconnect.desc"](): string;
     /**
@@ -8242,11 +8242,11 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.integration.readwise.setting.caption"](): string;
     /**
-      * `New Readwise highlights will be imported to AFFiNE `
+      * `New Readwise highlights will be imported to PolyMind `
       */
     ["com.polymind.integration.readwise.setting.sync-new-name"](): string;
     /**
-      * `New highlights in Readwise will be synced to AFFiNE `
+      * `New highlights in Readwise will be synced to PolyMind `
       */
     ["com.polymind.integration.readwise.setting.sync-new-desc"](): string;
     /**
@@ -8322,7 +8322,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.integration.calendar.name"](): string;
     /**
-      * `New events will be scheduled in AFFiNE’s journal`
+      * `New events will be scheduled in PolyMind’s journal`
       */
     ["com.polymind.integration.calendar.desc"](): string;
     /**
@@ -8466,7 +8466,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.integration.calendar.show-events"](): string;
     /**
-      * `Enabling this setting allows you to connect your calendar events to your Journal in AFFiNE`
+      * `Enabling this setting allows you to connect your calendar events to your Journal in PolyMind`
       */
     ["com.polymind.integration.calendar.show-events-desc"](): string;
     /**
@@ -8494,7 +8494,7 @@ export function useAFFiNEI18N(): {
       */
     ["com.polymind.integration.mcp-server.name"](): string;
     /**
-      * `Enable other MCP Client to search and read the doc of AFFiNE.`
+      * `Enable other MCP Client to search and read the doc of PolyMind.`
       */
     ["com.polymind.integration.mcp-server.desc"](): string;
     /**
@@ -9385,7 +9385,7 @@ function createComponent(i18nKey: string) {
 }
 export const TypedTrans: {
     /**
-      * `Go to <a>{{link}}</a> for learn more details about AFFiNE AI.`
+      * `Go to <a>{{link}}</a> for learn more details about PolyMind AI.`
       */
     ["com.polymind.ai-onboarding.general.5.description"]: ComponentType<TypedTransProps<{
         readonly link: string;
@@ -9399,15 +9399,15 @@ export const TypedTrans: {
         a: JSX.Element;
     }>>;
     /**
-      * `Opening <1>AFFiNE</1> app now`
+      * `Opening <1>PolyMind</1> app now`
       */
-    ["com.polymind.auth.open.affine.prompt"]: ComponentType<TypedTransProps<Readonly<{}>, {
+    ["com.polymind.auth.open.polymind.prompt"]: ComponentType<TypedTransProps<Readonly<{}>, {
         ["1"]: JSX.Element;
     }>>;
     /**
-      * `This doc is now opened in <1>AFFiNE</1> app`
+      * `This doc is now opened in <1>PolyMind</1> app`
       */
-    ["com.polymind.auth.open.affine.open-doc-prompt"]: ComponentType<TypedTransProps<Readonly<{}>, {
+    ["com.polymind.auth.open.polymind.open-doc-prompt"]: ComponentType<TypedTransProps<Readonly<{}>, {
         ["1"]: JSX.Element;
     }>>;
     /**
@@ -9425,20 +9425,20 @@ export const TypedTrans: {
         ["1"]: JSX.Element;
     }>>;
     /**
-      * `The Self-Hosted instance is not hosted or deployed by AFFiNE. Your data will be stored on these instances.  <1>Learn more about Self-Host details.</1>`
+      * `The Self-Hosted instance is not hosted or deployed by PolyMind. Your data will be stored on these instances.  <1>Learn more about Self-Host details.</1>`
       */
     ["com.polymind.auth.sign.add-selfhosted.description"]: ComponentType<TypedTransProps<Readonly<{}>, {
         ["1"]: JSX.Element;
     }>>;
     /**
-      * `By clicking “Continue with Google/Email” above, you acknowledge that you agree to AFFiNE's <1>Terms of Conditions</1> and <3>Privacy Policy</3>.`
+      * `By clicking “Continue with Google/Email” above, you acknowledge that you agree to PolyMind's <1>Terms of Conditions</1> and <3>Privacy Policy</3>.`
       */
     ["com.polymind.auth.sign.message"]: ComponentType<TypedTransProps<Readonly<{}>, {
         ["1"]: JSX.Element;
         ["3"]: JSX.Element;
     }>>;
     /**
-      * `This demo is limited. <1>Download the AFFiNE Client</1> for the latest features and Performance.`
+      * `This demo is limited. <1>Download the PolyMind Client</1> for the latest features and Performance.`
       */
     ["com.polymind.banner.content"]: ComponentType<TypedTransProps<Readonly<{}>, {
         ["1"]: JSX.Element;
@@ -9735,7 +9735,7 @@ export const TypedTrans: {
         li: JSX.Element;
     }>>;
     /**
-      * `Utilize the meeting notes and AI summarization features provided by AFFiNE. <1>Discuss more in the community</1>.`
+      * `Utilize the meeting notes and AI summarization features provided by PolyMind. <1>Discuss more in the community</1>.`
       */
     ["com.polymind.settings.meetings.enable.description"]: ComponentType<TypedTransProps<Readonly<{}>, {
         ["1"]: JSX.Element;
@@ -9980,7 +9980,7 @@ export const TypedTrans: {
         ["3"]: JSX.Element;
     }>>;
     /**
-      * `Import your Readwise highlights to AFFiNE. Please visit Readwise, <br />click <a>"Get Access Token"</a>, and paste the token below.`
+      * `Import your Readwise highlights to PolyMind. Please visit Readwise, <br />click <a>"Get Access Token"</a>, and paste the token below.`
       */
     ["com.polymind.integration.readwise.connect.desc"]: ComponentType<TypedTransProps<Readonly<{}>, {
         br: JSX.Element;

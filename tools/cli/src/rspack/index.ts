@@ -1,9 +1,9 @@
 import { createRequire } from 'node:module';
 import path from 'node:path';
 
-import { getBuildConfig } from '@affine-tools/utils/build-config';
-import { Path, ProjectRoot } from '@affine-tools/utils/path';
-import { Package } from '@affine-tools/utils/workspace';
+import { getBuildConfig } from '@polymind-tools/utils/build-config';
+import { Path, ProjectRoot } from '@polymind-tools/utils/path';
+import { Package } from '@polymind-tools/utils/workspace';
 import rspack, {
   type Configuration as RspackConfiguration,
 } from '@rspack/core';

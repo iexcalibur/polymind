@@ -1,5 +1,5 @@
 import { useDropTarget } from '@polymind/component';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { useLiveData, useService } from '@toeverything/infra';
 import { useAtomValue } from 'jotai';
 import type { HTMLAttributes } from 'react';
@@ -40,7 +40,7 @@ export const ResizeHandle = ({
   const isLast = index === views.length - 1;
   const isFirst = index === 0;
 
-  const { dropTargetRef } = useDropTarget<AffineDNDData>(() => {
+  const { dropTargetRef } = useDropTarget<PolymindDNDData>(() => {
     return {
       data: {
         at: 'workbench:resize-handle',

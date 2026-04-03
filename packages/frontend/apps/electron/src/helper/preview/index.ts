@@ -10,7 +10,7 @@ import {
   type TypstRenderResult,
 } from '@polymind/native';
 
-const TYPST_FONT_DIRS_ENV = 'AFFINE_TYPST_FONT_DIRS';
+const TYPST_FONT_DIRS_ENV = 'POLYMIND_TYPST_FONT_DIRS';
 
 function parseTypstFontDirsFromEnv() {
   const value = process.env[TYPST_FONT_DIRS_ENV];

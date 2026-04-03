@@ -68,7 +68,7 @@ export const downloadProgressAtom = atomWithObservable(() => {
 });
 
 export const changelogCheckedAtom = atomWithStorage<Record<string, boolean>>(
-  'affine:client-changelog-checked',
+  'polymind:client-changelog-checked',
   {}
 );
 

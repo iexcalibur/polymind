@@ -1,15 +1,15 @@
 {
-  "name": "@affine-test/blocksuite",
+  "name": "@polymind-test/blocksuite",
   "private": true,
   "type": "module",
   "scripts": {
     "test": "yarn playwright test"
   },
   "dependencies": {
-    "@affine-test/kit": "workspace:*",
-    "@blocksuite/affine": "workspace:*",
     "@blocksuite/integration-test": "workspace:*",
+    "@blocksuite/polymind": "workspace:*",
     "@playwright/test": "=1.58.2",
+    "@polymind-test/kit": "workspace:*",
     "@toeverything/theme": "^1.1.23",
     "json-stable-stringify": "^1.2.1",
     "rxjs": "^7.8.2"

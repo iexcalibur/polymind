@@ -1,6 +1,6 @@
-import { useEnableCloud } from '@polymind/core/components/hooks/affine/use-enable-cloud';
+import { useEnableCloud } from '@polymind/core/components/hooks/polymind/use-enable-cloud';
 import type { Workspace } from '@polymind/core/modules/workspace';
-import type { Store } from '@blocksuite/affine/store';
+import type { Store } from '@blocksuite/polymind/store';
 import { useCallback } from 'react';
 
 import { ShareMenu } from './share-menu';
@@ -21,7 +21,7 @@ export const SharePageButton = ({ workspace, page }: SharePageModalProps) => {
     <ShareMenu
       workspaceMetadata={workspace.meta}
       currentPage={page}
-      onEnableAffineCloud={() =>
+      onEnablePolymindCloud={() =>
         confirmEnableCloud(workspace, {
           openPageId: page.id,
         })

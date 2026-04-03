@@ -10,7 +10,7 @@ import { Pagination } from '@polymind/component/setting-components';
 import { BlobManagementService } from '@polymind/core/modules/blob-management/services';
 import { useI18n } from '@polymind/i18n';
 import type { ListedBlobRecord } from '@polymind/nbstore';
-import { getAttachmentFileIcon } from '@blocksuite/affine/components/icons';
+import { getAttachmentFileIcon } from '@blocksuite/polymind/components/icons';
 import { DeleteIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import bytes from 'bytes';

@@ -9,7 +9,7 @@ import {
   type FolderNode,
   OrganizeService,
 } from '@polymind/core/modules/organize';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { useI18n } from '@polymind/i18n';
 import { AddOrganizeIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useServices } from '@toeverything/infra';
@@ -48,7 +48,7 @@ export const NavigationPanelOrganize = () => {
   }, [navigationPanelService, path, rootFolder]);
 
   const handleOnChildrenDrop = useCallback(
-    (data: DropTargetDropEvent<AffineDNDData>, node?: FolderNode) => {
+    (data: DropTargetDropEvent<PolymindDNDData>, node?: FolderNode) => {
       if (!node || !node.id) {
         return; // never happens
       }
@@ -74,7 +74,7 @@ export const NavigationPanelOrganize = () => {
   );
 
   const createFolderAndDrop = useCallback(
-    (data: DropTargetDropEvent<AffineDNDData>) => {
+    (data: DropTargetDropEvent<PolymindDNDData>) => {
       const newFolderId = handleCreateFolder();
       setNewFolderId(null);
       const newFolder$ = folderTree.folderNode$(newFolderId);
@@ -92,7 +92,7 @@ export const NavigationPanelOrganize = () => {
   );
 
   const handleChildrenCanDrop = useMemo<
-    DropTargetOptions<AffineDNDData>['canDrop']
+    DropTargetOptions<PolymindDNDData>['canDrop']
   >(() => args => args.source.data.entity?.type === 'folder', []);
 
   useEffect(() => {

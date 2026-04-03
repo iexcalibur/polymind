@@ -9,8 +9,6 @@ export const PackageToDistribution = new Map<
   ['@polymind/electron-renderer', 'desktop'],
   ['@polymind/electron', 'desktop'],
   ['@polymind/mobile', 'mobile'],
-  ['@polymind/ios', 'ios'],
-  ['@polymind/android', 'android'],
 ]);
 
 export const AliasToPackage = new Map<string, PackageName>([
@@ -20,8 +18,6 @@ export const AliasToPackage = new Map<string, PackageName>([
   ['desktop', '@polymind/electron-renderer'],
   ['renderer', '@polymind/electron-renderer'],
   ['mobile', '@polymind/mobile'],
-  ['ios', '@polymind/ios'],
-  ['android', '@polymind/android'],
   ['server', '@polymind/server'],
   ['gql', '@polymind/graphql'],
   ...PackageList.map(

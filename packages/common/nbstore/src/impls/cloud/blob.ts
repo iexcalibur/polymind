@@ -79,7 +79,7 @@ export class CloudBlobStorage extends BlobStorageBase {
       {
         cache: 'default',
         headers: {
-          'x-affine-version': BUILD_CONFIG.appVersion,
+          'x-polymind-version': BUILD_CONFIG.appVersion,
         },
         signal,
       }
@@ -103,7 +103,7 @@ export class CloudBlobStorage extends BlobStorageBase {
           const res = await this.connection.fetch(json.url, {
             cache: 'default',
             headers: {
-              'x-affine-version': BUILD_CONFIG.appVersion,
+              'x-polymind-version': BUILD_CONFIG.appVersion,
             },
             signal,
           });

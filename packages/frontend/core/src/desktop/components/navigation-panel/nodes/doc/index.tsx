@@ -6,7 +6,7 @@ import {
   Tooltip,
 } from '@polymind/component';
 import { Guard } from '@polymind/core/components/guard';
-import { useAppSettingHelper } from '@polymind/core/components/hooks/affine/use-app-setting-helper';
+import { useAppSettingHelper } from '@polymind/core/components/hooks/polymind/use-app-setting-helper';
 import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
 import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
 import { DocsService } from '@polymind/core/modules/doc';
@@ -17,7 +17,7 @@ import { GlobalContextService } from '@polymind/core/modules/global-context';
 import { NavigationPanelService } from '@polymind/core/modules/navigation-panel';
 import { GuardService } from '@polymind/core/modules/permissions';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { useI18n } from '@polymind/i18n';
 import {
   LiveData,
@@ -160,7 +160,7 @@ export const NavigationPanelDocNode = ({
       dropTarget: {
         at: 'navigation-panel:doc',
       },
-    } satisfies AffineDNDData;
+    } satisfies PolymindDNDData;
   }, [docId, location]);
 
   const handleRename = useAsyncCallback(
@@ -171,7 +171,7 @@ export const NavigationPanelDocNode = ({
   );
 
   const handleDropOnDoc = useAsyncCallback(
-    async (data: DropTargetDropEvent<AffineDNDData>) => {
+    async (data: DropTargetDropEvent<PolymindDNDData>) => {
       if (data.treeInstruction?.type === 'make-child') {
         if (data.source.data.entity?.type === 'doc') {
           const canEdit = await guardService.can('Doc_Update', docId);
@@ -205,7 +205,7 @@ export const NavigationPanelDocNode = ({
   );
 
   const handleDropOnPlaceholder = useAsyncCallback(
-    async (data: DropTargetDropEvent<AffineDNDData>) => {
+    async (data: DropTargetDropEvent<PolymindDNDData>) => {
       if (data.source.data.entity?.type === 'doc') {
         const canEdit = await guardService.can('Doc_Update', docId);
         if (!canEdit) {
@@ -221,7 +221,7 @@ export const NavigationPanelDocNode = ({
     [docId, docsService, guardService, t]
   );
 
-  const handleCanDrop = useMemo<DropTargetOptions<AffineDNDData>['canDrop']>(
+  const handleCanDrop = useMemo<DropTargetOptions<PolymindDNDData>['canDrop']>(
     () => args => {
       const entityType = args.source.data.entity?.type;
       return args.treeInstruction?.type !== 'make-child'

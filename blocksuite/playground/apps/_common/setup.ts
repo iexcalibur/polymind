@@ -2,8 +2,8 @@ import type {
   Template,
   TemplateCategory,
   TemplateManager,
-} from '@blocksuite/affine/gfx/template';
-import { EdgelessTemplatePanel } from '@blocksuite/affine/gfx/template';
+} from '@blocksuite/polymind/gfx/template';
+import { EdgelessTemplatePanel } from '@blocksuite/polymind/gfx/template';
 
 export function setupEdgelessTemplate() {
   const playgroundTemplates = [

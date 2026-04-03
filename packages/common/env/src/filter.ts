@@ -1,4 +1,4 @@
-import type { DocsPropertiesMeta } from '@blocksuite/affine/store';
+import type { DocsPropertiesMeta } from '@blocksuite/polymind/store';
 import { z } from 'zod';
 
 export const literalValueSchema: z.ZodType<LiteralValue, z.ZodTypeDef> =

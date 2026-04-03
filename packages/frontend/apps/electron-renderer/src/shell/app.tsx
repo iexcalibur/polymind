@@ -1,4 +1,4 @@
-import { useAppSettingHelper } from '@polymind/core/components/hooks/affine/use-app-setting-helper';
+import { useAppSettingHelper } from '@polymind/core/components/hooks/polymind/use-app-setting-helper';
 import { WindowsAppControls } from '@polymind/core/components/pure/header/windows-app-controls';
 import { ThemeProvider } from '@polymind/core/components/theme-provider';
 import { configureElectronStateStorageImpls } from '@polymind/core/desktop/storage';

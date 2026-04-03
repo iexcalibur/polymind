@@ -10,7 +10,7 @@ import graphqlUploadExpress from 'graphql-upload/graphqlUploadExpress.mjs';
 import supertest from 'supertest';
 
 import {
-  AFFiNELogger,
+  PolyMindLogger,
   CacheInterceptor,
   CloudThrottlerGuard,
   EventBus,
@@ -79,7 +79,7 @@ export class TestingApp extends NestApplication {
       .set('Cookie', cookies);
 
     if (this.csrfCookie) {
-      req.set('x-affine-csrf-token', this.csrfCookie);
+      req.set('x-polymind-csrf-token', this.csrfCookie);
     }
 
     return req;
@@ -244,7 +244,7 @@ export async function createApp(
     rawBody: true,
   });
 
-  const logger = new AFFiNELogger();
+  const logger = new PolyMindLogger();
   logger.setLogLevels([TEST_LOG_LEVEL]);
   app.useLogger(logger);
   app.use(cookieParser());

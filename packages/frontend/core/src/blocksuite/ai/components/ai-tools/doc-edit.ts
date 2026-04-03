@@ -1,8 +1,8 @@
-import { WithDisposable } from '@blocksuite/affine/global/lit';
-import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/affine/shared/theme';
-import { type EditorHost, ShadowlessElement } from '@blocksuite/affine/std';
-import { LoadingIcon } from '@blocksuite/affine-components/icons';
-import type { NotificationService } from '@blocksuite/affine-shared/services';
+import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
+import { type EditorHost, ShadowlessElement } from '@blocksuite/polymind/std';
+import { LoadingIcon } from '@blocksuite/polymind-components/icons';
+import type { NotificationService } from '@blocksuite/polymind-shared/services';
 import {
   CloseIcon,
   CopyIcon,
@@ -420,13 +420,13 @@ export class DocEditTool extends WithDisposable(ShadowlessElement) {
                   <div class="doc-edit-tool-result-card-header-operations">
                     <button @click=${() => this._toggleCollapse()}>
                       ${this.isCollapsed ? ExpandFullIcon() : ExpandCloseIcon()}
-                      <affine-tooltip>
+                      <polymind-tooltip>
                         ${this.isCollapsed ? 'Expand' : 'Collapse'}
-                      </affine-tooltip>
+                      </polymind-tooltip>
                     </button>
                     <button @click=${() => this._handleCopy(changedContent)}>
                       ${CopyIcon()}
-                      <affine-tooltip>Copy</affine-tooltip>
+                      <polymind-tooltip>Copy</polymind-tooltip>
                     </button>
                     <button
                       @click=${() => this._handleApply(op, updates)}

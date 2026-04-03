@@ -1,11 +1,11 @@
 {
-  "name": "@types/affine__env",
+  "name": "@types/polymind__env",
   "private": true,
   "types": "./__all.d.ts",
   "type": "module",
   "dependencies": {
-    "@polymind/env": "workspace:*",
-    "@blocksuite/affine": "workspace:*"
+    "@blocksuite/polymind": "workspace:*",
+    "@polymind/env": "workspace:*"
   },
   "version": "0.26.3"
 }

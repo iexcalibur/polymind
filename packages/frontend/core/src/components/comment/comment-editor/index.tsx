@@ -5,11 +5,11 @@ import type { CommentAttachment } from '@polymind/core/modules/comment/types';
 import { PeekViewService } from '@polymind/core/modules/peek-view';
 import { downloadResourceWithUrl } from '@polymind/core/utils/resource';
 import { DebugLogger } from '@polymind/debug';
-import { getAttachmentFileIconRC } from '@blocksuite/affine/components/icons';
-import { type RichText, selectTextModel } from '@blocksuite/affine/rich-text';
-import { ViewportElementExtension } from '@blocksuite/affine/shared/services';
-import { openFilesWith } from '@blocksuite/affine/shared/utils';
-import { type DocSnapshot, nanoid, Store } from '@blocksuite/affine/store';
+import { getAttachmentFileIconRC } from '@blocksuite/polymind/components/icons';
+import { type RichText, selectTextModel } from '@blocksuite/polymind/rich-text';
+import { ViewportElementExtension } from '@blocksuite/polymind/shared/services';
+import { openFilesWith } from '@blocksuite/polymind/shared/utils';
+import { type DocSnapshot, nanoid, Store } from '@blocksuite/polymind/store';
 import {
   ArrowUpBigIcon,
   AttachmentIcon,

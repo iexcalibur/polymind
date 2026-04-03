@@ -46,9 +46,9 @@ async function resolveWhitelistedLocalPath(filepath: string) {
 }
 
 const apiBaseByBuildType: Record<typeof buildType, string> = {
-  stable: 'https://app.affine.pro',
-  beta: 'https://insider.affine.pro',
-  internal: 'https://insider.affine.pro',
+  stable: 'https://app.polymind.pro',
+  beta: 'https://insider.polymind.pro',
+  internal: 'https://insider.polymind.pro',
   canary: 'https://affine.fail',
 };
 
@@ -147,7 +147,7 @@ const needRefererDomains = [
   /^(?:[a-zA-Z0-9-]+\.)*youtube-nocookie\.com$/,
   /^(?:[a-zA-Z0-9-]+\.)*googlevideo\.com$/,
 ];
-const defaultReferer = 'https://client.affine.local/';
+const defaultReferer = 'https://client.polymind.local/';
 const affineDomains = [
   /^(?:[a-z0-9-]+\.)*usercontent\.affine\.pro$/i,
   /^(?:[a-z0-9-]+\.)*affine\.pro$/i,
@@ -197,7 +197,7 @@ function allowCors(
   headers: Record<string, string[]>,
   origin: string = 'assets://.'
 ) {
-  // Signed blob URLs redirect to *.usercontent.affine.pro without CORS headers.
+  // Signed blob URLs redirect to *.usercontent.polymind.pro without CORS headers.
   setHeader(headers, 'Access-Control-Allow-Origin', origin);
   setHeader(headers, 'Access-Control-Allow-Credentials', 'true');
   setHeader(headers, 'Access-Control-Allow-Methods', 'GET, HEAD, PUT, OPTIONS');

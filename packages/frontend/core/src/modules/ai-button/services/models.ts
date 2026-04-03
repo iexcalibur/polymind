@@ -1,7 +1,7 @@
 import {
   createSignalFromObservable,
   type Signal,
-} from '@blocksuite/affine/shared/utils';
+} from '@blocksuite/polymind/shared/utils';
 import { signal } from '@preact/signals-core';
 import { LiveData, Service } from '@toeverything/infra';
 

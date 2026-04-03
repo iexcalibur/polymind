@@ -16,7 +16,7 @@ import {
   WorkspacesService,
 } from '@polymind/core/modules/workspace';
 import { useI18n } from '@polymind/i18n';
-import type { DocMode } from '@blocksuite/affine/model';
+import type { DocMode } from '@blocksuite/polymind/model';
 import { AllDocsIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import { cssVar } from '@toeverything/theme';
@@ -139,7 +139,7 @@ const Dialog = ({
       const { workspaceId, docId } =
         await importTemplateService.importToNewWorkspace(
           // TODO: support selfhosted
-          'affine-cloud',
+          'polymind-cloud',
           'Workspace',
           templateDownloader.data$.value
         );

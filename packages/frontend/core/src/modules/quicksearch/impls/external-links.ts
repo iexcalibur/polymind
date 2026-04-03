@@ -42,7 +42,7 @@ export class ExternalLinksQuickSearchSession
         source: 'external-link',
         icon: LinkIcon,
         label: {
-          i18nKey: 'com.polymind.cmdk.affine.insert-link',
+          i18nKey: 'com.polymind.cmdk.polymind.insert-link',
         },
         payload: { url: query },
       } as QuickSearchItem<'external-link', ExternalLinkPayload>,

@@ -1,4 +1,4 @@
-import type { AttachmentBlockModel } from '@blocksuite/affine/model';
+import type { AttachmentBlockModel } from '@blocksuite/polymind/model';
 import { filesize } from 'filesize';
 
 import { downloadBlob } from '../../utils/resource';

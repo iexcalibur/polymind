@@ -33,10 +33,10 @@ export type AIActionAnswer = {
   streamObjects?: StreamObject[];
 };
 
-export interface AffineAIPanelWidgetConfig {
+export interface PolymindAIPanelWidgetConfig {
   answerRenderer: (
     answer: string,
-    state?: AffineAIPanelState
+    state?: PolymindAIPanelState
   ) => TemplateResult<1> | typeof nothing;
   generateAnswer?: (props: {
     input: string;
@@ -55,7 +55,7 @@ export interface AffineAIPanelWidgetConfig {
   copy?: CopyConfig;
 }
 
-export type AffineAIPanelState =
+export type PolymindAIPanelState =
   | 'hidden'
   | 'input'
   | 'generating'

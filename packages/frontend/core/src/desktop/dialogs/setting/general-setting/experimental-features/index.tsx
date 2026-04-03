@@ -1,7 +1,7 @@
 import { Loading, Switch, Tooltip } from '@polymind/component';
 import { SettingHeader } from '@polymind/component/setting-components';
 import {
-  AFFINE_FLAGS,
+  POLYMIND_FLAGS,
   FeatureFlagService,
   type Flag,
 } from '@polymind/core/modules/feature-flag';
@@ -173,11 +173,11 @@ const ExperimentalFeaturesMain = () => {
         className={styles.settingsContainer}
         data-testid="experimental-settings"
       >
-        {Object.keys(AFFINE_FLAGS).map(key => (
+        {Object.keys(POLYMIND_FLAGS).map(key => (
           <ExperimentalFeaturesItem
             key={key}
             flagKey={key}
-            flag={featureFlagService.flags[key as keyof AFFINE_FLAGS]}
+            flag={featureFlagService.flags[key as keyof POLYMIND_FLAGS]}
           />
         ))}
       </div>

@@ -32,7 +32,7 @@ export const LocalSharePage = (props: ShareMenuProps) => {
           </div>
           <div>
             <Button
-              onClick={props.onEnableAffineCloud}
+              onClick={props.onEnablePolymindCloud}
               variant="primary"
               data-testid="share-menu-enable-affine-cloud-button"
             >
@@ -49,7 +49,7 @@ export const LocalSharePage = (props: ShareMenuProps) => {
   );
 };
 
-export const AFFiNESharePage = (
+export const PolyMindSharePage = (
   props: ShareMenuProps & {
     onClickInvite: () => void;
     onClickMembers: () => void;
@@ -102,7 +102,7 @@ export const SharePage = (
       // TODO(@eyhn): refactor this part
       <ErrorBoundary fallback={null}>
         <Suspense>
-          <AFFiNESharePage {...props} />
+          <PolyMindSharePage {...props} />
         </Suspense>
       </ErrorBoundary>
     );

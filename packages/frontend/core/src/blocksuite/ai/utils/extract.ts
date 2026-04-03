@@ -1,5 +1,5 @@
 import { WorkspaceImpl } from '@polymind/core/modules/workspace/impls/workspace';
-import { getSurfaceBlock } from '@blocksuite/affine/blocks/surface';
+import { getSurfaceBlock } from '@blocksuite/polymind/blocks/surface';
 import {
   DatabaseBlockModel,
   EmbedLinkedDocModel,
@@ -7,30 +7,30 @@ import {
   ImageBlockModel,
   NoteBlockModel,
   NoteDisplayMode,
-} from '@blocksuite/affine/model';
+} from '@blocksuite/polymind/model';
 import {
   embedSyncedDocMiddleware,
   MarkdownAdapter,
   titleMiddleware,
-} from '@blocksuite/affine/shared/adapters';
+} from '@blocksuite/polymind/shared/adapters';
 import {
   getImageSelectionsCommand,
   getSelectedBlocksCommand,
-} from '@blocksuite/affine/shared/commands';
-import { DocModeProvider } from '@blocksuite/affine/shared/services';
+} from '@blocksuite/polymind/shared/commands';
+import { DocModeProvider } from '@blocksuite/polymind/shared/services';
 import {
   getBlockProps,
   isInsideEdgelessEditor,
   matchModels,
-} from '@blocksuite/affine/shared/utils';
-import { BlockStdScope, type EditorHost } from '@blocksuite/affine/std';
+} from '@blocksuite/polymind/shared/utils';
+import { BlockStdScope, type EditorHost } from '@blocksuite/polymind/std';
 import {
   GfxControllerIdentifier,
   GfxPrimitiveElementModel,
-} from '@blocksuite/affine/std/gfx';
-import type { BlockModel, DocSnapshot, Store } from '@blocksuite/affine/store';
-import { Slice, toDraftModel } from '@blocksuite/affine/store';
-import { getElementProps } from '@blocksuite/affine-block-root';
+} from '@blocksuite/polymind/std/gfx';
+import type { BlockModel, DocSnapshot, Store } from '@blocksuite/polymind/store';
+import { Slice, toDraftModel } from '@blocksuite/polymind/store';
+import { getElementProps } from '@blocksuite/polymind-block-root';
 import { Doc as YDoc } from 'yjs';
 
 import { getStoreManager } from '../../manager/store';
@@ -88,9 +88,9 @@ async function extractEdgelessSelected(
       const fragment = fragmentDoc.getStore();
       fragmentDoc.load();
 
-      const rootId = fragment.addBlock('affine:page');
-      fragment.addBlock('affine:surface', {}, rootId);
-      const noteId = fragment.addBlock('affine:note', {}, rootId);
+      const rootId = fragment.addBlock('polymind:page');
+      fragment.addBlock('polymind:surface', {}, rootId);
+      const noteId = fragment.addBlock('polymind:note', {}, rootId);
       const surface = getSurfaceBlock(fragment);
       if (!surface) {
         throw new Error('Failed to get surface block');
@@ -224,7 +224,7 @@ export async function extractMarkdownFromDoc(doc: Store): Promise<string> {
 
 function getNoteBlockModels(doc: Store) {
   const notes = doc
-    .getBlocksByFlavour('affine:note')
+    .getBlocksByFlavour('polymind:note')
     .filter(
       note =>
         (note.model as NoteBlockModel).props.displayMode !==

@@ -8,11 +8,11 @@ import { useMemo } from 'react';
 
 import { useImageAntialiasing } from '../hooks/use-image-antialiasing';
 
-export type AffineContextProps = PropsWithChildren<{
+export type PolymindContextProps = PropsWithChildren<{
   store?: ReturnType<typeof createStore>;
 }>;
 
-export function AffineContext(props: AffineContextProps) {
+export function PolymindContext(props: PolymindContextProps) {
   useImageAntialiasing();
   return (
     <ProviderComposer

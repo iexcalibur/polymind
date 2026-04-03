@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This tutorial will walk you through the codebase of AFFiNE. It is intended for new contributors to AFFiNE.
+This tutorial will walk you through the codebase of PolyMind. It is intended for new contributors to PolyMind.
 
 ## Building the project
 
@@ -21,9 +21,9 @@ The codebase is organized as follows:
 - `tools/` contains tools to help developing or CI, not used in production.
 - `tests/` contains testings across different libraries, including e2e testings and integration testings.
 
-### `@affine/env`
+### `@polymind/env`
 
-Environment setup for AFFiNE client side.
+Environment setup for PolyMind client side.
 
 It includes the global constants, browser and system check.
 
@@ -36,20 +36,20 @@ This package should be imported at the very beginning of the entry point.
 
 For the workspace API, see [types.ts](../../packages/frontend/workspace/src/type.ts).
 
-### `@affine/component`
+### `@polymind/component`
 
-The UI component library for AFFiNE.
+The UI component library for PolyMind.
 
 Each component should be a standalone component which can be used in any context, like the Storybook.
 
 ## Debugging Environments
 
-### `@affine/env`
+### `@polymind/env`
 
 ```shell
 yarn dev
 ```
 
-### `@affine/electron`
+### `@polymind/electron`
 
 See [building desktop client app](../building-desktop-client-app.md).

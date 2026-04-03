@@ -11,7 +11,7 @@ import {
 } from '@polymind/core/modules/favorite';
 import { NavigationPanelService } from '@polymind/core/modules/navigation-panel';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { inferOpenMode } from '@polymind/core/utils';
 import { useI18n } from '@polymind/i18n';
 import { PlusIcon } from '@blocksuite/icons/rc';
@@ -53,7 +53,7 @@ export const NavigationPanelFavorites = () => {
   );
 
   const handleDrop = useCallback(
-    (data: DropTargetDropEvent<AffineDNDData>) => {
+    (data: DropTargetDropEvent<PolymindDNDData>) => {
       if (
         data.source.data.entity?.type &&
         isFavoriteSupportType(data.source.data.entity.type)
@@ -85,7 +85,7 @@ export const NavigationPanelFavorites = () => {
   const handleOnChildrenDrop = useCallback(
     (
       favorite: { id: string; type: FavoriteSupportTypeUnion },
-      data: DropTargetDropEvent<AffineDNDData>
+      data: DropTargetDropEvent<PolymindDNDData>
     ) => {
       if (
         data.treeInstruction?.type === 'reorder-above' ||
@@ -130,7 +130,7 @@ export const NavigationPanelFavorites = () => {
   );
 
   const { dropTargetRef, draggedOverDraggable, draggedOverPosition } =
-    useDropTarget<AffineDNDData>(
+    useDropTarget<PolymindDNDData>(
       () => ({
         data: {
           at: 'navigation-panel:favorite:root',
@@ -208,11 +208,11 @@ const NavigationPanelFavoriteNode = ({
       id: string;
       type: FavoriteSupportTypeUnion;
     },
-    data: DropTargetDropEvent<AffineDNDData>
+    data: DropTargetDropEvent<PolymindDNDData>
   ) => void;
 }) => {
   const handleOnChildrenDrop = useCallback(
-    (data: DropTargetDropEvent<AffineDNDData>) => {
+    (data: DropTargetDropEvent<PolymindDNDData>) => {
       onDrop(favorite, data);
     },
     [favorite, onDrop]

@@ -1,8 +1,8 @@
 import { rmSync } from 'node:fs';
 import { cpus } from 'node:os';
 
-import { Logger } from '@affine-tools/utils/logger';
-import { Package } from '@affine-tools/utils/workspace';
+import { Logger } from '@polymind-tools/utils/logger';
+import { Package } from '@polymind-tools/utils/workspace';
 import rspack, { type MultiRspackOptions } from '@rspack/core';
 import {
   type Configuration as RspackDevServerConfiguration,
@@ -102,30 +102,6 @@ function getRspackBundleConfigs(pkg: Package): MultiRspackOptions {
       const workerConfigs = getBaseWorkerConfigs(
         pkg,
         createRspackWorkerTargetConfig
-      );
-      workerConfigs.push(
-        createRspackWorkerTargetConfig(
-          pkg,
-          pkg.srcPath.join('nbstore.worker.ts').value
-        )
-      );
-
-      return [
-        createRspackHTMLTargetConfig(
-          pkg,
-          pkg.srcPath.join('index.tsx').value,
-          {},
-          workerConfigs.map(config => config.name)
-        ),
-        ...workerConfigs,
-      ] as MultiRspackOptions;
-    }
-    case '@polymind/ios':
-    case '@polymind/android': {
-      const workerConfigs = getBaseWorkerConfigs(
-        pkg,
-        createRspackWorkerTargetConfig,
-        { includeMermaidAndTypst: false }
       );
       workerConfigs.push(
         createRspackWorkerTargetConfig(

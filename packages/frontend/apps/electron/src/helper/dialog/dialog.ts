@@ -39,7 +39,7 @@ export interface SelectDBFileLocationResult {
   canceled?: boolean;
 }
 
-const extension = 'affine';
+const extension = 'polymind';
 
 function getDefaultDBFileName(name: string, id: string) {
   const fileName = `${name}_${id}.${extension}`;
@@ -214,10 +214,10 @@ export async function loadDBFile(): Promise<LoadDBFileResult> {
         {
           name: 'SQLite Database',
           // do we want to support other file format?
-          extensions: ['db', 'affine'],
+          extensions: ['db', 'polymind'],
         },
       ],
-      message: 'Load Workspace from a AFFiNE file',
+      message: 'Load Workspace from a PolyMind file',
     });
     const selectedPath = ret.filePaths?.[0];
     if (ret.canceled || !selectedPath) {

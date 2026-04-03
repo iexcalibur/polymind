@@ -10,18 +10,18 @@
     "./dist": "./dist/index.js"
   },
   "scripts": {
-    "build": "affine bundle -p @polymind/reader",
-    "bundle": "affine bundle -p @polymind/reader"
+    "build": "polymind bundle -p @polymind/reader",
+    "bundle": "polymind bundle -p @polymind/reader"
   },
   "dependencies": {
     "lodash-es": "^4.17.23",
     "yjs": "^13.6.27"
   },
   "devDependencies": {
-    "@blocksuite/affine": "workspace:*",
+    "@blocksuite/polymind": "workspace:*",
     "vitest": "^4.0.18"
   },
   "peerDependencies": {
-    "@blocksuite/affine": "workspace:*"
+    "@blocksuite/polymind": "workspace:*"
   }
 }

@@ -1,17 +1,17 @@
-import type { EditorHost } from '@blocksuite/affine/std';
+import type { EditorHost } from '@blocksuite/polymind/std';
 
 import {
   AFFINE_AI_PANEL_WIDGET,
-  AffineAIPanelWidget,
+  PolymindAIPanelWidget,
 } from '../widgets/ai-panel/ai-panel';
 
-export const getAIPanelWidget = (host: EditorHost): AffineAIPanelWidget => {
+export const getAIPanelWidget = (host: EditorHost): PolymindAIPanelWidget => {
   const rootBlockId = host.store.root?.id;
   if (!rootBlockId) {
     throw new Error('rootBlockId is not found');
   }
   const aiPanel = host.view.getWidget(AFFINE_AI_PANEL_WIDGET, rootBlockId);
-  if (!(aiPanel instanceof AffineAIPanelWidget)) {
+  if (!(aiPanel instanceof PolymindAIPanelWidget)) {
     throw new Error('AI panel not found');
   }
   return aiPanel;

@@ -1,6 +1,6 @@
-import type { DocModeProvider } from '@blocksuite/affine/shared/services';
-import type { Doc, Store, Workspace } from '@blocksuite/affine/store';
-import type { TestAffineEditorContainer } from '@blocksuite/integration-test';
+import type { DocModeProvider } from '@blocksuite/polymind/shared/services';
+import type { Doc, Store, Workspace } from '@blocksuite/polymind/store';
+import type { TestPolymindEditorContainer } from '@blocksuite/integration-test';
 
 export function getDocFromUrlParams(collection: Workspace, url: URL) {
   let doc: Store | null = null;
@@ -43,7 +43,7 @@ export function setDocModeFromUrlParams(
 
 export function listenHashChange(
   collection: Workspace,
-  editor: TestAffineEditorContainer
+  editor: TestPolymindEditorContainer
 ) {
   const panel = document.querySelector('docs-panel');
   window.addEventListener('hashchange', () => {

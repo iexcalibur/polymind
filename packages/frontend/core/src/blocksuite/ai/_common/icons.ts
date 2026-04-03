@@ -1,13 +1,13 @@
 import { html } from 'lit';
 
-export { AIStarIconWithAnimation } from '@blocksuite/affine/components/icons';
+export { AIStarIconWithAnimation } from '@blocksuite/polymind/components/icons';
 
 // dotlottie-wc can only be used in the browser
 if (typeof window !== 'undefined') {
   import('@lottiefiles/dotlottie-wc').catch(console.error);
 }
 
-export const AffineIcon = (color: string) =>
+export const PolymindIcon = (color: string) =>
   html`<svg
     width="63"
     height="62"

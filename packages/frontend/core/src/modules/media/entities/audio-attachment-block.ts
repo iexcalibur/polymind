@@ -7,9 +7,9 @@ import { toArrayBuffer } from '@polymind/core/utils/array-buffer';
 import { encodeAudioBlobToOpusSlices } from '@polymind/core/utils/opus-encoding';
 import { DebugLogger } from '@polymind/debug';
 import { AiJobStatus } from '@polymind/graphql';
-import type { AttachmentBlockModel } from '@blocksuite/affine/model';
-import type { AffineTextAttributes } from '@blocksuite/affine/shared/types';
-import { type DeltaInsert, Text } from '@blocksuite/affine/store';
+import type { AttachmentBlockModel } from '@blocksuite/polymind/model';
+import type { PolymindTextAttributes } from '@blocksuite/polymind/shared/types';
+import { type DeltaInsert, Text } from '@blocksuite/polymind/store';
 import { computed } from '@preact/signals-core';
 import { Entity, LiveData } from '@toeverything/infra';
 import { cssVarV2 } from '@toeverything/theme/v2';
@@ -114,7 +114,7 @@ export class AudioAttachmentBlock extends Entity<AttachmentBlockModel> {
     if (!transcriptionBlockProps) {
       // transcription block is not created yet, we need to create it
       this.props.store.addBlock(
-        'affine:transcription',
+        'polymind:transcription',
         {
           transcription: {},
         },
@@ -176,14 +176,14 @@ export class AudioAttachmentBlock extends Entity<AttachmentBlockModel> {
       collapsed: boolean = false
     ) => {
       const calloutId = this.props.store.addBlock(
-        'affine:callout',
+        'polymind:callout',
         {
           emoji,
         },
         this.transcriptionBlock$.value?.id
       );
       this.props.store.addBlock(
-        'affine:paragraph',
+        'polymind:paragraph',
         {
           type: 'h6',
           collapsed,
@@ -207,7 +207,7 @@ export class AudioAttachmentBlock extends Entity<AttachmentBlockModel> {
           color = colorOptions[speakerToColors.size % colorOptions.length];
           speakerToColors.set(segment.speaker, color);
         }
-        const deltaInserts: DeltaInsert<AffineTextAttributes>[] = [
+        const deltaInserts: DeltaInsert<PolymindTextAttributes>[] = [
           {
             insert: sanitizeText(segment.start + ' ' + segment.speaker),
             attributes: {
@@ -220,7 +220,7 @@ export class AudioAttachmentBlock extends Entity<AttachmentBlockModel> {
           },
         ];
         this.props.store.addBlock(
-          'affine:paragraph',
+          'polymind:paragraph',
           {
             text: new Text(deltaInserts),
           },

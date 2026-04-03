@@ -499,7 +499,7 @@ test('select text in the same line with dragging leftward and move outside the a
   await assertRichTexts(page, ['123', '456', '789']);
 
   const noteLeft = await page.evaluate(() => {
-    const note = document.querySelector('affine-note');
+    const note = document.querySelector('polymind-note');
     if (!note) {
       throw new Error();
     }
@@ -545,7 +545,7 @@ test('select text in the same line with dragging leftward and move outside the a
   await assertRichTexts(page, ['123', '456', '789']);
 
   const noteLeft = await page.evaluate(() => {
-    const note = document.querySelector('affine-note');
+    const note = document.querySelector('polymind-note');
     if (!note) {
       throw new Error();
     }
@@ -591,7 +591,7 @@ test('select text in the same line with dragging rightward and move outside the 
   await assertRichTexts(page, ['123', '456', '789']);
 
   const noteRight = await page.evaluate(() => {
-    const note = document.querySelector('affine-note');
+    const note = document.querySelector('polymind-note');
     if (!note) {
       throw new Error();
     }
@@ -638,7 +638,7 @@ test('select text in the same line with dragging rightward and move outside the 
   await assertRichTexts(page, ['123', '456', '789']);
 
   const noteRight = await page.evaluate(() => {
-    const note = document.querySelector('affine-note');
+    const note = document.querySelector('polymind-note');
     if (!note) {
       throw new Error();
     }
@@ -1076,7 +1076,7 @@ test('should add a new line when clicking the bottom of the last non-text block'
   await type(page, '```');
   await pressEnter(page);
 
-  const locator = page.locator('affine-code');
+  const locator = page.locator('polymind-code');
   await expect(locator).toBeVisible();
 
   await type(page, 'ABC');
@@ -1208,7 +1208,7 @@ test('should clear native selection before block selection', async ({
 
   expect(text0).toBe('456');
   expect(textCount).toBe(0);
-  const rects = page.locator('affine-block-selection').locator('visible=true');
+  const rects = page.locator('polymind-block-selection').locator('visible=true');
   await expect(rects).toHaveCount(1);
 });
 
@@ -1244,7 +1244,7 @@ test('should keep native range selection when scrolling backward with the scroll
     const distance = viewport.scrollHeight - viewport.clientHeight;
     viewport.scrollTo(0, distance);
     const container = viewport.querySelector(
-      'affine-note .affine-block-children-container'
+      'polymind-note .affine-block-children-container'
     );
     if (!container) {
       throw new Error();
@@ -1314,7 +1314,7 @@ test('should keep native range selection when scrolling forward with the scroll 
       throw new Error();
     }
     const container = viewport.querySelector(
-      'affine-note .affine-block-children-container'
+      'polymind-note .affine-block-children-container'
     );
     if (!container) {
       throw new Error();
@@ -1364,7 +1364,7 @@ test('should not show toolbar of image on native selection', async ({
   await initImageState(page);
   await activeEmbed(page);
 
-  const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
+  const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
 
   await expect(toolbar).toBeVisible();
 
@@ -1582,9 +1582,9 @@ test('click to select divided', async ({ page }) => {
   await type(page, '--- ');
   await assertDivider(page, 1);
 
-  await page.click('affine-divider');
+  await page.click('polymind-divider');
   const selectedBlocks = page
-    .locator('affine-block-selection')
+    .locator('polymind-block-selection')
     .locator('visible=true');
   await expect(selectedBlocks).toHaveCount(1);
 
@@ -1744,14 +1744,14 @@ test('abnormal cursor jumping', async ({ page }) => {
   await initImageState(page);
 
   await pressEnter(page);
-  await page.locator('affine-image block-zero-width .block-zero-width').click();
+  await page.locator('polymind-image block-zero-width .block-zero-width').click();
   await pressArrowUp(page);
   await pressTab(page);
   await pressArrowDown(page);
   await pressTab(page);
   await pressEnter(page, 12);
 
-  const image = page.locator('affine-image');
+  const image = page.locator('polymind-image');
   const rect = await image.boundingBox();
   // make sure the image is out of view
   expect(rect?.y).toBeLessThan(0);
@@ -1792,7 +1792,7 @@ test('unexpected scroll when clicking padding area', async ({ page }) => {
 
   await pressArrowUp(page, 4);
   await type(page, '/tableview\n');
-  const database = page.locator('affine-database');
+  const database = page.locator('polymind-database');
   const databaseRect = await database.boundingBox();
   if (!databaseRect) {
     throw new Error('databaseRect is not found');

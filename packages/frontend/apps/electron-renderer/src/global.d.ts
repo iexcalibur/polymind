@@ -1,7 +1,7 @@
 import type { apis, events } from '@polymind/electron-api';
 
 /**
- * Extends the global Window interface to include AFFiNE's 
+ * Extends the global Window interface to include PolyMind's
  * Electron bridge APIs and event emitters.
  */
 declare global {

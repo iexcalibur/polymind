@@ -1,4 +1,4 @@
-import { useAppSettingHelper } from '@polymind/core/components/hooks/affine/use-app-setting-helper';
+import { useAppSettingHelper } from '@polymind/core/components/hooks/polymind/use-app-setting-helper';
 import { RootAppSidebar } from '@polymind/core/components/root-app-sidebar';
 import { AppSidebarService } from '@polymind/core/modules/app-sidebar';
 import {

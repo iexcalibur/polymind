@@ -1,13 +1,13 @@
 import { channelToScheme } from '@polymind/core/utils';
-import type { ReferenceParams } from '@blocksuite/affine/model';
+import type { ReferenceParams } from '@blocksuite/polymind/model';
 import { isNil, pick, pickBy } from 'lodash-es';
 import type { ParsedQuery, ParseOptions } from 'query-string';
 import queryString from 'query-string';
 
-function maybeAffineOrigin(origin: string, baseUrl: string) {
+function maybePolymindOrigin(origin: string, baseUrl: string) {
   return (
     origin.startsWith('assets://') ||
-    origin.endsWith('affine.pro') || // stable/beta
+    origin.endsWith('polymind.pro') || // stable/beta
     origin.endsWith('apple.getaffineapp.com') || // stable/beta
     origin.endsWith('affine.fail') || // canary
     origin === baseUrl // localhost or self-hosted
@@ -31,7 +31,7 @@ export const resolveRouteLinkMeta = (
     // check if origin is one of affine's origins
     // check if origin is localhost or self-hosted
 
-    if (!maybeAffineOrigin(url.origin, baseUrl)) {
+    if (!maybePolymindOrigin(url.origin, baseUrl)) {
       return null;
     }
 

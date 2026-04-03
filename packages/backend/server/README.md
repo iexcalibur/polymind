@@ -11,7 +11,7 @@ yarn
 ### Build Native binding
 
 ```bash
-yarn affine @affine/server-native build
+yarn polymind @polymind/server-native build
 ```
 
 ### Run server

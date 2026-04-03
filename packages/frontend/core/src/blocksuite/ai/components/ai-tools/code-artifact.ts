@@ -1,15 +1,15 @@
-import { CodeBlockHighlighter } from '@blocksuite/affine/blocks/code';
-import { SignalWatcher, WithDisposable } from '@blocksuite/affine/global/lit';
-import { ColorScheme } from '@blocksuite/affine/model';
-import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/affine/shared/theme';
-import { type BlockStdScope } from '@blocksuite/affine/std';
+import { CodeBlockHighlighter } from '@blocksuite/polymind/blocks/code';
+import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
+import { ColorScheme } from '@blocksuite/polymind/model';
+import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
+import { type BlockStdScope } from '@blocksuite/polymind/std';
 import {
   type BlockSnapshot,
   nanoid,
   type SliceSnapshot,
   Text,
-} from '@blocksuite/affine/store';
-import type { NotificationService } from '@blocksuite/affine-shared/services';
+} from '@blocksuite/polymind/store';
+import type { NotificationService } from '@blocksuite/polymind-shared/services';
 import {
   CodeBlockIcon,
   CopyIcon,
@@ -514,7 +514,7 @@ export class CodeArtifactTool extends ArtifactTool<
       const codeBlock: BlockSnapshot = {
         type: 'block',
         id: nanoid(),
-        flavour: 'affine:code',
+        flavour: 'polymind:code',
         version: 1,
         props: {
           language: 'html',
@@ -567,12 +567,12 @@ export class CodeArtifactTool extends ArtifactTool<
       try {
         const store = this.std?.store;
         if (!store) return;
-        const notes = store.getBlocksByFlavour('affine:note');
+        const notes = store.getBlocksByFlavour('polymind:note');
         const parentId = notes.length > 0 ? notes[0].id : store.root?.id;
         if (!parentId) return;
         const html = preprocessHtml(htmlContent);
         store.addBlock(
-          'affine:code',
+          'polymind:code',
           { text: new Text(html), language: 'html', preview: true },
           parentId
         );

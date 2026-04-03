@@ -2,8 +2,8 @@ import { MenuItem, MenuTrigger } from '@polymind/component';
 import { SettingRow } from '@polymind/component/setting-components';
 import { EditorSettingService } from '@polymind/core/modules/editor-setting';
 import { useI18n } from '@polymind/i18n';
-import { DefaultTheme } from '@blocksuite/affine/model';
-import type { Store } from '@blocksuite/affine/store';
+import { DefaultTheme } from '@blocksuite/polymind/model';
+import type { Store } from '@blocksuite/polymind/store';
 import { useFramework, useLiveData } from '@toeverything/infra';
 import { isEqual } from 'lodash-es';
 import { useCallback, useMemo } from 'react';
@@ -27,7 +27,7 @@ export const FrameSettings = () => {
     DefaultTheme.transparent
   );
 
-  const { background } = settings['affine:frame'];
+  const { background } = settings['polymind:frame'];
   const currentColor = useMemo(() => {
     return getCurrentColor(background);
   }, [getCurrentColor, background]);
@@ -35,7 +35,7 @@ export const FrameSettings = () => {
   const colorItems = useMemo(() => {
     return palettes.map(({ key, value, resolvedValue }) => {
       const handler = () => {
-        editorSetting.set('affine:frame', { background: value });
+        editorSetting.set('polymind:frame', { background: value });
       };
       const isSelected = isEqual(background, value);
       return (
@@ -52,7 +52,7 @@ export const FrameSettings = () => {
   }, [editorSetting, background, palettes]);
 
   const getElements = useCallback((doc: Store) => {
-    return doc.getBlocksByFlavour('affine:frame') || [];
+    return doc.getBlocksByFlavour('polymind:frame') || [];
   }, []);
 
   return (
@@ -60,7 +60,7 @@ export const FrameSettings = () => {
       <EdgelessSnapshot
         title={t['com.polymind.settings.editorSettings.edgeless.frame']()}
         docName="frame"
-        keyName="affine:frame"
+        keyName="polymind:frame"
         getElements={getElements}
       />
       <SettingRow

@@ -1,5 +1,5 @@
 import { PropertyCollapsibleSection } from '@polymind/component';
-import { AffinePageReference } from '@polymind/core/components/affine/reference-link';
+import { PolymindPageReference } from '@polymind/core/components/polymind/reference-link';
 import type { Backlink, Link } from '@polymind/core/modules/doc-link';
 import type { MouseEvent, ReactNode } from 'react';
 
@@ -25,7 +25,7 @@ export const LinksRow = ({
     >
       {Array.isArray(references)
         ? references.map(link => (
-            <AffinePageReference
+            <PolymindPageReference
               key={link.docId}
               pageId={link.docId}
               params={'params' in link ? link.params : undefined}

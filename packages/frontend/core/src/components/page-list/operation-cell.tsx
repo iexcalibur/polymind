@@ -6,7 +6,7 @@ import {
   useConfirmModal,
   usePromptModal,
 } from '@polymind/component';
-import { useBlockSuiteMetaHelper } from '@polymind/core/components/hooks/affine/use-block-suite-meta-helper';
+import { useBlockSuiteMetaHelper } from '@polymind/core/components/hooks/polymind/use-block-suite-meta-helper';
 import { useCatchEventCallback } from '@polymind/core/components/hooks/use-catch-event-hook';
 import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
 import { DocsService } from '@polymind/core/modules/doc';
@@ -17,7 +17,7 @@ import {
 import { WorkbenchService } from '@polymind/core/modules/workbench';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { useI18n } from '@polymind/i18n';
-import type { DocMeta } from '@blocksuite/affine/store';
+import type { DocMeta } from '@blocksuite/polymind/store';
 import {
   DeleteIcon,
   DeletePermanentlyIcon,

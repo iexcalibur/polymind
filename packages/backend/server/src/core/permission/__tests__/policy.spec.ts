@@ -41,7 +41,7 @@ async function addAcceptedMembers(
 ) {
   for (let index = 0; index < count; index++) {
     const member = await models.user.create({
-      email: `${randomUUID()}@affine.pro`,
+      email: `${randomUUID()}@polymind.pro`,
     });
     await models.workspaceUser.set(
       workspaceId,
@@ -68,7 +68,7 @@ test.beforeEach(async t => {
   Sinon.restore();
   await t.context.module.initTestingDB();
   owner = await t.context.models.user.create({
-    email: `${randomUUID()}@affine.pro`,
+    email: `${randomUUID()}@polymind.pro`,
   });
   workspace = await t.context.models.workspace.create(owner.id);
 });
@@ -130,7 +130,7 @@ test('should enter readonly mode when fallback owner member quota overflows', as
 
 test('should deny blob uploads when user no longer has write access', async t => {
   const external = await t.context.models.user.create({
-    email: `${randomUUID()}@affine.pro`,
+    email: `${randomUUID()}@polymind.pro`,
   });
   await t.context.models.workspaceUser.set(
     workspace.id,
@@ -237,10 +237,10 @@ test('should leave readonly mode after workspace usage recovers', async t => {
 
 test('should roll back team cancellation cleanup when cleanup fails', async t => {
   const pending = await t.context.models.user.create({
-    email: `${randomUUID()}@affine.pro`,
+    email: `${randomUUID()}@polymind.pro`,
   });
   const admin = await t.context.models.user.create({
-    email: `${randomUUID()}@affine.pro`,
+    email: `${randomUUID()}@polymind.pro`,
   });
   await t.context.models.workspaceUser.set(
     workspace.id,

@@ -21,7 +21,7 @@ import { toDocSearchParams } from '@polymind/core/modules/navigation';
 import { WorkbenchService } from '@polymind/core/modules/workbench';
 import { copyTextToClipboard } from '@polymind/core/utils/clipboard';
 import { i18nTime, useI18n } from '@polymind/i18n';
-import type { DocSnapshot, Store } from '@blocksuite/affine/store';
+import type { DocSnapshot, Store } from '@blocksuite/polymind/store';
 import { DoneIcon, FilterIcon, MoreHorizontalIcon } from '@blocksuite/icons/rc';
 import {
   useLiveData,

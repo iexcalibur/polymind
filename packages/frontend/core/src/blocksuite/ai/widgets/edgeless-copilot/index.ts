@@ -1,16 +1,16 @@
 import { CopilotTool } from '@polymind/core/blocksuite/ai/tool/copilot-tool';
-import { EdgelessLegacySlotIdentifier } from '@blocksuite/affine/blocks/surface';
+import { EdgelessLegacySlotIdentifier } from '@blocksuite/polymind/blocks/surface';
 import {
   Bound,
   getCommonBoundWithRotation,
-} from '@blocksuite/affine/global/gfx';
-import type { RootBlockModel } from '@blocksuite/affine/model';
+} from '@blocksuite/polymind/global/gfx';
+import type { RootBlockModel } from '@blocksuite/polymind/model';
 import {
   MOUSE_BUTTON,
   requestConnectedFrame,
-} from '@blocksuite/affine/shared/utils';
-import { WidgetComponent, WidgetViewExtension } from '@blocksuite/affine/std';
-import { GfxControllerIdentifier } from '@blocksuite/affine/std/gfx';
+} from '@blocksuite/polymind/shared/utils';
+import { WidgetComponent, WidgetViewExtension } from '@blocksuite/polymind/std';
+import { GfxControllerIdentifier } from '@blocksuite/polymind/std/gfx';
 import {
   autoPlacement,
   autoUpdate,
@@ -31,7 +31,7 @@ import { AIProvider } from '../../provider/index.js';
 import { extractSelectedContent } from '../../utils/extract.js';
 import {
   AFFINE_AI_PANEL_WIDGET,
-  AffineAIPanelWidget,
+  PolymindAIPanelWidget,
 } from '../ai-panel/ai-panel.js';
 import { EdgelessCopilotPanel } from '../edgeless-copilot-panel/index.js';
 import { AFFINE_EDGELESS_COPILOT_WIDGET } from './constant.js';
@@ -96,7 +96,7 @@ export class EdgelessCopilotWidget extends WidgetComponent<RootBlockModel> {
         rootBlockId
       );
 
-      if (input instanceof AffineAIPanelWidget) {
+      if (input instanceof PolymindAIPanelWidget) {
         input.setState('input', referenceElement);
         const aiPanel = input;
         // TODO: @xiaojun refactor these scattered config overrides
@@ -335,7 +335,7 @@ export class EdgelessCopilotWidget extends WidgetComponent<RootBlockModel> {
 }
 
 export const edgelessCopilotWidget = WidgetViewExtension(
-  'affine:page',
+  'polymind:page',
   AFFINE_EDGELESS_COPILOT_WIDGET,
   literal`${unsafeStatic(AFFINE_EDGELESS_COPILOT_WIDGET)}`
 );

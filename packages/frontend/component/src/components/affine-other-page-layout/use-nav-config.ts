@@ -7,15 +7,15 @@ export const useNavConfig = () => {
     () => [
       {
         title: t['com.polymind.other-page.nav.official-website'](),
-        path: 'https://affine.pro',
+        path: 'https://polymind.pro',
       },
       {
         title: t['com.polymind.other-page.nav.blog'](),
-        path: 'https://affine.pro/blog',
+        path: 'https://polymind.pro/blog',
       },
       {
         title: t['com.polymind.other-page.nav.contact-us'](),
-        path: 'https://affine.pro/about-us',
+        path: 'https://polymind.pro/about-us',
       },
     ],
     [t]

@@ -1,5 +1,5 @@
 import { ResizePanel } from '@polymind/component/resize-panel';
-import { AffineErrorComponent } from '@polymind/core/components/affine/affine-error-boundary/affine-error-fallback';
+import { PolymindErrorComponent } from '@polymind/core/components/polymind/polymind-error-boundary/affine-error-fallback';
 import { workbenchRoutes } from '@polymind/core/desktop/workbench-router';
 import {
   appSettingAtom,
@@ -29,7 +29,7 @@ const useAdapter = BUILD_CONFIG.isElectron
 const routes: RouteObject[] = [
   {
     element: <RouteContainer />,
-    errorElement: <AffineErrorComponent />,
+    errorElement: <PolymindErrorComponent />,
     children: workbenchRoutes,
   },
 ];

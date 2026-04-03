@@ -3,14 +3,14 @@ import { useI18n } from '@polymind/i18n';
 import { Button } from '../../ui/button';
 import { AuthPageContainer } from '../auth-components';
 
-export const ExpiredPage = ({ onOpenAffine }: { onOpenAffine: () => void }) => {
+export const ExpiredPage = ({ onOpenPolymind }: { onOpenPolymind: () => void }) => {
   const t = useI18n();
   return (
     <AuthPageContainer
       title={t['com.polymind.expired.page.title']()}
       subtitle={t['com.polymind.expired.page.new-subtitle']()}
     >
-      <Button variant="primary" size="large" onClick={onOpenAffine}>
+      <Button variant="primary" size="large" onClick={onOpenPolymind}>
         {t['com.polymind.auth.open.affine']()}
       </Button>
     </AuthPageContainer>

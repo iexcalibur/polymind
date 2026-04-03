@@ -1,28 +1,28 @@
 import { AppThemeService } from '@polymind/core/modules/theme';
-import { ColorScheme } from '@blocksuite/affine/model';
+import { ColorScheme } from '@blocksuite/polymind/model';
 import {
   type ThemeExtension,
   ThemeExtensionIdentifier,
-} from '@blocksuite/affine/shared/services';
+} from '@blocksuite/polymind/shared/services';
 import {
   createSignalFromObservable,
   type Signal,
-} from '@blocksuite/affine/shared/utils';
+} from '@blocksuite/polymind/shared/utils';
 import {
   type BlockStdScope,
   LifeCycleWatcher,
   StdIdentifier,
-} from '@blocksuite/affine/std';
+} from '@blocksuite/polymind/std';
 import type { Container } from '@blocksuite/global/di';
 import type { FrameworkProvider } from '@toeverything/infra';
 import type { Observable } from 'rxjs';
 
 export function getPreviewThemeExtension(framework: FrameworkProvider) {
-  class AffinePagePreviewThemeExtension
+  class PolymindPagePreviewThemeExtension
     extends LifeCycleWatcher
     implements ThemeExtension
   {
-    static override readonly key = 'affine-page-preview-theme';
+    static override readonly key = 'polymind-page-preview-theme';
 
     readonly theme: Signal<ColorScheme>;
 
@@ -30,7 +30,7 @@ export function getPreviewThemeExtension(framework: FrameworkProvider) {
 
     static override setup(di: Container) {
       super.setup(di);
-      di.override(ThemeExtensionIdentifier, AffinePagePreviewThemeExtension, [
+      di.override(ThemeExtensionIdentifier, PolymindPagePreviewThemeExtension, [
         StdIdentifier,
       ]);
     }
@@ -69,5 +69,5 @@ export function getPreviewThemeExtension(framework: FrameworkProvider) {
     }
   }
 
-  return AffinePagePreviewThemeExtension;
+  return PolymindPagePreviewThemeExtension;
 }

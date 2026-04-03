@@ -131,13 +131,13 @@ function createWorkspaceRef() {
 
   const blockSuiteDoc = {
     getModelsByFlavour: vi.fn((flavour: string) => {
-      if (flavour === 'affine:page') {
+      if (flavour === 'polymind:page') {
         return [{ id: 'page-1' }];
       }
-      if (flavour === 'affine:note') {
+      if (flavour === 'polymind:note') {
         return [{ id: 'note-1' }];
       }
-      if (flavour === 'affine:attachment') {
+      if (flavour === 'polymind:attachment') {
         return attachments;
       }
       return [];
@@ -148,7 +148,7 @@ function createWorkspaceRef() {
         props: { name?: string; type?: string },
         _parentId?: string
       ) => {
-        if (flavour === 'affine:attachment') {
+        if (flavour === 'polymind:attachment') {
           const id = `attachment-${attachments.length + 1}`;
           attachments.push({
             id,

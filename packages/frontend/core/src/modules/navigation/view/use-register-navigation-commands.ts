@@ -1,6 +1,6 @@
 import {
   PreconditionStrategy,
-  registerAffineCommand,
+  registerPolymindCommand,
 } from '@polymind/core/commands';
 import { useService } from '@toeverything/infra';
 import { useEffect } from 'react';
@@ -13,9 +13,9 @@ export function useRegisterNavigationCommands() {
     const unsubs: Array<() => void> = [];
 
     unsubs.push(
-      registerAffineCommand({
-        id: 'affine:shortcut-history-go-back',
-        category: 'affine:general',
+      registerPolymindCommand({
+        id: 'polymind:shortcut-history-go-back',
+        category: 'polymind:general',
         preconditionStrategy: PreconditionStrategy.Never,
         icon: 'none',
         label: 'go back',
@@ -28,9 +28,9 @@ export function useRegisterNavigationCommands() {
       })
     );
     unsubs.push(
-      registerAffineCommand({
-        id: 'affine:shortcut-history-go-forward',
-        category: 'affine:general',
+      registerPolymindCommand({
+        id: 'polymind:shortcut-history-go-forward',
+        category: 'polymind:general',
         preconditionStrategy: PreconditionStrategy.Never,
         icon: 'none',
         label: 'go forward',

@@ -12,7 +12,7 @@ import {
 import { TagService } from '@polymind/core/modules/tag';
 import { UserFriendlyError } from '@polymind/error';
 import { useI18n } from '@polymind/i18n';
-import { sleep } from '@blocksuite/affine/global/utils';
+import { sleep } from '@blocksuite/polymind/global/utils';
 import { ViewLayersIcon } from '@blocksuite/icons/rc';
 import {
   LiveData,

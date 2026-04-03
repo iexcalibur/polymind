@@ -11,8 +11,8 @@ import { useI18n } from '@polymind/i18n';
 import {
   EdgelessCRUDIdentifier,
   getSurfaceBlock,
-} from '@blocksuite/affine/blocks/surface';
-import type { ShapeElementModel, ShapeName } from '@blocksuite/affine/model';
+} from '@blocksuite/polymind/blocks/surface';
+import type { ShapeElementModel, ShapeName } from '@blocksuite/polymind/model';
 import {
   DefaultTheme,
   FontFamily,
@@ -24,9 +24,9 @@ import {
   ShapeType,
   StrokeStyle,
   TextAlign,
-} from '@blocksuite/affine/model';
-import type { EditorHost } from '@blocksuite/affine/std';
-import type { Store } from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/model';
+import type { EditorHost } from '@blocksuite/polymind/std';
+import type { Store } from '@blocksuite/polymind/store';
 import { useFramework, useLiveData } from '@toeverything/infra';
 import { isEqual } from 'lodash-es';
 import { useCallback, useMemo, useState } from 'react';

@@ -9,7 +9,7 @@ import graphqlUploadExpress from 'graphql-upload/graphqlUploadExpress.mjs';
 import supertest from 'supertest';
 
 import {
-  AFFiNELogger,
+  PolyMindLogger,
   ApplyType,
   GlobalExceptionFilter,
   JobQueue,
@@ -42,7 +42,7 @@ export async function createTestingApp(
   moduleDef: TestingAppMetadata = {}
 ): Promise<TestingApp> {
   const module = await createTestingModule(moduleDef, false);
-  const logger = new AFFiNELogger();
+  const logger = new PolyMindLogger();
   logger.setLogLevels([TEST_LOG_LEVEL]);
 
   const app = module.createNestApplication<NestExpressApplication>({
@@ -135,7 +135,7 @@ export class TestingApp extends ApplyType<INestApplication>() {
       .set('Cookie', cookies);
 
     if (this.csrfCookie) {
-      req.set('x-affine-csrf-token', this.csrfCookie);
+      req.set('x-polymind-csrf-token', this.csrfCookie);
     }
 
     return req;
@@ -218,7 +218,7 @@ export class TestingApp extends ApplyType<INestApplication>() {
   }
 
   private randomEmail() {
-    return `test-${randomUUID()}@affine.pro`;
+    return `test-${randomUUID()}@polymind.pro`;
   }
 
   /**

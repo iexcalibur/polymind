@@ -1,5 +1,5 @@
 import { useAutoFocus } from '@polymind/component';
-import { getFigmaSquircleSvgPath } from '@blocksuite/affine/shared/utils';
+import { getFigmaSquircleSvgPath } from '@blocksuite/polymind/shared/utils';
 import { SearchIcon } from '@blocksuite/icons/rc';
 import clsx from 'clsx';
 import { debounce } from 'lodash-es';

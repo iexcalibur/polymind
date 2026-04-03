@@ -1,10 +1,10 @@
 import { type CommentChangeAction, DocMode } from '@polymind/graphql';
-import { InlineCommentManager } from '@blocksuite/affine/inlines/comment';
+import { InlineCommentManager } from '@blocksuite/polymind/inlines/comment';
 import type {
   BaseSelection,
   DocSnapshot,
   Store,
-} from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/store';
 import type { BlockStdScope } from '@blocksuite/std';
 import {
   effect,
@@ -134,7 +134,7 @@ export class DocCommentEntity extends Entity<{
     const mention: string | undefined = reply?.user.id;
     if (mention) {
       // insert mention at the end of the paragraph
-      const paragraph = doc.getModelsByFlavour('affine:paragraph').at(-1);
+      const paragraph = doc.getModelsByFlavour('polymind:paragraph').at(-1);
       if (paragraph) {
         paragraph.text?.insert(' ', paragraph.text.length, {
           mention: {

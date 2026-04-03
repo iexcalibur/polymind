@@ -11,8 +11,8 @@ import { SetPassword } from './set-password';
 export const SetPasswordPage: FC<{
   passwordLimits: PasswordLimitsFragment;
   onSetPassword: (password: string) => Promise<void>;
-  onOpenAffine: () => void;
-}> = ({ passwordLimits, onSetPassword: propsOnSetPassword, onOpenAffine }) => {
+  onOpenPolymind: () => void;
+}> = ({ passwordLimits, onSetPassword: propsOnSetPassword, onOpenPolymind }) => {
   const t = useI18n();
   const [hasSetUp, setHasSetUp] = useState(false);
 
@@ -47,7 +47,7 @@ export const SetPasswordPage: FC<{
       }
     >
       {hasSetUp ? (
-        <Button variant="primary" size="large" onClick={onOpenAffine}>
+        <Button variant="primary" size="large" onClick={onOpenPolymind}>
           {t['com.polymind.auth.open.affine']()}
         </Button>
       ) : (

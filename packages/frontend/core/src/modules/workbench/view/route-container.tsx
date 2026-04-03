@@ -1,5 +1,5 @@
 import { IconButton } from '@polymind/component';
-import { AffineErrorBoundary } from '@polymind/core/components/affine/affine-error-boundary';
+import { PolymindErrorBoundary } from '@polymind/core/components/polymind/polymind-error-boundary';
 import { RightSidebarIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import { Suspense, useCallback } from 'react';
@@ -79,11 +79,11 @@ export const RouteContainer = () => {
         )}
       </div>
 
-      <AffineErrorBoundary>
+      <PolymindErrorBoundary>
         <Suspense>
           <Outlet />
         </Suspense>
-      </AffineErrorBoundary>
+      </PolymindErrorBoundary>
       <ViewBodyTarget viewId={view.id} className={styles.viewBodyContainer} />
     </div>
   );

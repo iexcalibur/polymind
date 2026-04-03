@@ -4,11 +4,11 @@ import {
   PropertyCollapsibleSection,
   PropertyName,
 } from '@polymind/component';
-import { AffinePageReference } from '@polymind/core/components/affine/reference-link';
+import { PolymindPageReference } from '@polymind/core/components/polymind/reference-link';
 import { DocService } from '@polymind/core/modules/doc';
 import { TemplateDocService } from '@polymind/core/modules/template-doc';
 import { useI18n } from '@polymind/i18n';
-import type { DatabaseBlockDataSource } from '@blocksuite/affine/blocks/database';
+import type { DatabaseBlockDataSource } from '@blocksuite/polymind/blocks/database';
 import { DatabaseTableViewIcon, PageIcon } from '@blocksuite/icons/rc';
 import { LiveData, useLiveData, useService } from '@toeverything/infra';
 import { useMemo } from 'react';
@@ -142,7 +142,7 @@ const DatabaseBacklinkRow = ({
         defaultCollapsed={!defaultOpen}
         icon={<DatabaseTableViewIcon />}
         suffix={
-          <AffinePageReference
+          <PolymindPageReference
             className={
               BUILD_CONFIG.isMobileEdition
                 ? styles.mobileDocRefLink

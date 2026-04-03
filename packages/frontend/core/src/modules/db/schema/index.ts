@@ -1,7 +1,7 @@
 export type { DocCustomPropertyInfo, DocProperties } from './schema';
 export {
-  AFFiNE_WORKSPACE_DB_SCHEMA,
-  AFFiNE_WORKSPACE_USERDATA_DB_SCHEMA,
-  type AFFiNEWorkspaceDbSchema,
-  type AFFiNEWorkspaceUserdataDbSchema,
+  PolyMind_WORKSPACE_DB_SCHEMA,
+  PolyMind_WORKSPACE_USERDATA_DB_SCHEMA,
+  type PolyMindWorkspaceDbSchema,
+  type PolyMindWorkspaceUserdataDbSchema,
 } from './schema';

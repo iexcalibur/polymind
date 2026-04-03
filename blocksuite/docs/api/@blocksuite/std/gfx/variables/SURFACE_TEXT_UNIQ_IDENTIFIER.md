@@ -6,6 +6,6 @@
 
 # Variable: SURFACE\_TEXT\_UNIQ\_IDENTIFIER
 
-> `const` **SURFACE\_TEXT\_UNIQ\_IDENTIFIER**: `"affine:surface:text"` = `'affine:surface:text'`
+> `const` **SURFACE\_TEXT\_UNIQ\_IDENTIFIER**: `"polymind:surface:text"` = `'polymind:surface:text'`
 
 Used for text field

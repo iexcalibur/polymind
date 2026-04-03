@@ -1,5 +1,5 @@
 import type { MemberSearchService } from '@polymind/core/modules/permissions';
-import { UserListServiceExtension } from '@blocksuite/affine/shared/services';
+import { UserListServiceExtension } from '@blocksuite/polymind/shared/services';
 
 export function patchUserListExtensions(memberSearch: MemberSearchService) {
   return UserListServiceExtension({

@@ -19,7 +19,7 @@ const webDir = path.join(
   'electron-renderer'
 );
 const affineWebOutDir = path.join(webDir, 'dist');
-const publicAffineOutDir = path.join(publicDistDir, `web-static`);
+const publicPolymindOutDir = path.join(publicDistDir, `web-static`);
 const releaseVersionEnv = process.env.RELEASE_VERSION || '';
 
 console.log('build with following variables', {
@@ -28,7 +28,7 @@ console.log('build with following variables', {
   publicDistDir,
   affineSrcDir: webDir,
   affineSrcOutDir: affineWebOutDir,
-  publicAffineOutDir,
+  publicPolymindOutDir,
   releaseVersionEnv,
 });
 
@@ -45,21 +45,21 @@ const cwd = repoRootDir;
 
 // step 1: build web dist
 if (!process.env.SKIP_WEB_BUILD) {
-  spawnSync('yarn', ['affine', '@polymind/electron-renderer', 'build'], {
+  spawnSync('yarn', ['polymind', '@polymind/electron-renderer', 'build'], {
     stdio: 'inherit',
     env: process.env,
     cwd,
     shell: true,
   });
 
-  spawnSync('yarn', ['affine', '@polymind/electron', 'build'], {
+  spawnSync('yarn', ['polymind', '@polymind/electron', 'build'], {
     stdio: 'inherit',
     env: process.env,
     cwd,
     shell: true,
   });
 
-  await fs.move(affineWebOutDir, publicAffineOutDir, { overwrite: true });
+  await fs.move(affineWebOutDir, publicPolymindOutDir, { overwrite: true });
 }
 
 // step 2: update app-updater.yml content with build type in resources folder
@@ -67,8 +67,8 @@ if (process.env.BUILD_TYPE === 'internal') {
   const appUpdaterYml = path.join(publicDistDir, 'app-update.yml');
   const appUpdaterYmlContent = await fs.readFile(appUpdaterYml, 'utf-8');
   const newAppUpdaterYmlContent = appUpdaterYmlContent.replace(
-    'AFFiNE',
-    'AFFiNE-Releases'
+    'PolyMind',
+    'PolyMind-Releases'
   );
   await fs.writeFile(appUpdaterYml, newAppUpdaterYmlContent);
 }

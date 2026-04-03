@@ -13,12 +13,12 @@ export const SignUpPage: FC<{
   user: { email?: string };
   onSetPassword: (password: string) => Promise<void>;
   openButtonText?: string;
-  onOpenAffine: () => void;
+  onOpenPolymind: () => void;
 }> = ({
   passwordLimits,
   user: { email },
   onSetPassword: propsOnSetPassword,
-  onOpenAffine,
+  onOpenPolymind,
   openButtonText,
 }) => {
   const t = useI18n();
@@ -63,7 +63,7 @@ export const SignUpPage: FC<{
       }
     >
       {hasSetUp ? (
-        <Button variant="primary" size="large" onClick={onOpenAffine}>
+        <Button variant="primary" size="large" onClick={onOpenPolymind}>
           {openButtonText ?? t['com.polymind.auth.open.affine']()}
         </Button>
       ) : (

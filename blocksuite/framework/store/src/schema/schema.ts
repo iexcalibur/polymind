@@ -15,6 +15,31 @@ export class Schema {
   readonly flavourSchemaMap = new Map<string, BlockSchemaType>();
 
   /**
+   * A map of legacy flavour aliases for backward compatibility.
+   * Maps old flavour names (e.g., 'affine:page') to current ones (e.g., 'polymind:page').
+   */
+  private readonly _flavourAliasMap = new Map<string, string>();
+
+  /**
+   * Resolves a flavour string through the alias map.
+   * Returns the canonical flavour name, or the input if no alias exists.
+   */
+  resolveFlavour(flavour: string): string {
+    return this._flavourAliasMap.get(flavour) ?? flavour;
+  }
+
+  /**
+   * Registers legacy flavour aliases for backward compatibility.
+   * When a document contains blocks with old flavour names, they will be
+   * resolved to the current flavour names via the alias map.
+   */
+  registerAliases(aliases: Record<string, string>) {
+    for (const [oldFlavour, newFlavour] of Object.entries(aliases)) {
+      this._flavourAliasMap.set(oldFlavour, newFlavour);
+    }
+  }
+
+  /**
    * Safely validates the schema relationship for a given flavour, parent, and children.
    * Returns true if valid, false otherwise (does not throw).
    *
@@ -43,7 +68,10 @@ export class Schema {
    * @returns The corresponding BlockSchemaType or undefined if not found.
    */
   get(flavour: string) {
-    return this.flavourSchemaMap.get(flavour);
+    return (
+      this.flavourSchemaMap.get(flavour) ??
+      this.flavourSchemaMap.get(this.resolveFlavour(flavour))
+    );
   }
 
   /**

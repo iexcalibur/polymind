@@ -1,6 +1,6 @@
 import { Checkbox, useDraggable } from '@polymind/component';
 import { WorkbenchLink } from '@polymind/core/modules/workbench';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { stopPropagation } from '@polymind/core/utils';
 import { useI18n } from '@polymind/i18n';
 import type { ForwardedRef, PropsWithChildren } from 'react';
@@ -81,7 +81,7 @@ const TagListOperationsCell = ({
 };
 
 export const TagListItem = (props: TagListItemProps) => {
-  const { dragRef, CustomDragPreview, dragging } = useDraggable<AffineDNDData>(
+  const { dragRef, CustomDragPreview, dragging } = useDraggable<PolymindDNDData>(
     () => ({
       canDrag: props.draggable,
       data: {

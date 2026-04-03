@@ -9,7 +9,7 @@ import {
 import type { DocCustomPropertyInfo } from '@polymind/core/modules/db';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { WorkspacePropertyService } from '@polymind/core/modules/workspace-property';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { useI18n } from '@polymind/i18n';
 import { MoreHorizontalIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
@@ -51,7 +51,7 @@ const PropertyItem = ({
     setMoreMenuOpen(true);
   }, []);
 
-  const { dragRef } = useDraggable<AffineDNDData>(
+  const { dragRef } = useDraggable<PolymindDNDData>(
     () => ({
       canDrag: canEditPropertyInfo,
       data: {
@@ -68,7 +68,7 @@ const PropertyItem = ({
     [propertyInfo, workspaceService, canEditPropertyInfo]
   );
 
-  const { dropTargetRef, closestEdge } = useDropTarget<AffineDNDData>(
+  const { dropTargetRef, closestEdge } = useDropTarget<PolymindDNDData>(
     () => ({
       canDrop(data) {
         return (

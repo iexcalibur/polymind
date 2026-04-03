@@ -4,12 +4,12 @@ import { DndService } from '@polymind/core/modules/dnd/services';
 import { GlobalContextService } from '@polymind/core/modules/global-context';
 import { OpenInAppGuard } from '@polymind/core/modules/open-in-app';
 import {
-  getAFFiNEWorkspaceSchema,
+  getPolyMindWorkspaceSchema,
   type Workspace,
   type WorkspaceMetadata,
   WorkspacesService,
 } from '@polymind/core/modules/workspace';
-import { ZipTransformer } from '@blocksuite/affine/widgets/linked-doc';
+import { ZipTransformer } from '@blocksuite/polymind/widgets/linked-doc';
 import {
   FrameworkScope,
   LiveData,
@@ -23,7 +23,7 @@ import { useParams } from 'react-router-dom';
 import { map } from 'rxjs';
 import * as _Y from 'yjs';
 
-import { AffineErrorBoundary } from '../../../components/affine/affine-error-boundary';
+import { PolymindErrorBoundary } from '../../../components/polymind/polymind-error-boundary';
 import { useNavigateHelper } from '../../../components/hooks/use-navigate-helper';
 import { WorkbenchRoot } from '../../../modules/workbench';
 import { AppContainer } from '../../components/app-container';
@@ -42,7 +42,7 @@ declare global {
   // oxlint-disable-next-line no-var
   var Y: typeof _Y;
   interface WindowEventMap {
-    'affine:workspace:change': CustomEvent<{ id: string }>;
+    'polymind:workspace:change': CustomEvent<{ id: string }>;
   }
 }
 
@@ -157,7 +157,7 @@ const WorkspacePage = ({ meta }: { meta: WorkspaceMetadata }) => {
       // for debug purpose
       window.currentWorkspace = workspace ?? undefined;
       window.dispatchEvent(
-        new CustomEvent('affine:workspace:change', {
+        new CustomEvent('polymind:workspace:change', {
           detail: {
             id: workspace.id,
           },
@@ -166,7 +166,7 @@ const WorkspacePage = ({ meta }: { meta: WorkspaceMetadata }) => {
       window.exportWorkspaceSnapshot = async (docs?: string[]) => {
         await ZipTransformer.exportDocs(
           workspace.docCollection,
-          getAFFiNEWorkspaceSchema(),
+          getPolyMindWorkspaceSchema(),
           Array.from(workspace.docCollection.docs.values())
             .filter(doc => (docs ? docs.includes(doc.id) : true))
             .map(doc => doc.getStore())
@@ -182,7 +182,7 @@ const WorkspacePage = ({ meta }: { meta: WorkspaceMetadata }) => {
             const blob = new Blob([file], { type: 'application/zip' });
             const newDocs = await ZipTransformer.importDocs(
               workspace.docCollection,
-              getAFFiNEWorkspaceSchema(),
+              getPolyMindWorkspaceSchema(),
               blob
             );
             console.log(
@@ -231,11 +231,11 @@ const WorkspacePage = ({ meta }: { meta: WorkspaceMetadata }) => {
     <FrameworkScope scope={workspace.scope}>
       <DNDContextProvider>
         <OpenInAppGuard>
-          <AffineErrorBoundary height="100vh">
+          <PolymindErrorBoundary height="100vh">
             <WorkspaceLayout>
               <WorkbenchRoot />
             </WorkspaceLayout>
-          </AffineErrorBoundary>
+          </PolymindErrorBoundary>
         </OpenInAppGuard>
       </DNDContextProvider>
     </FrameworkScope>

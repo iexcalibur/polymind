@@ -9,7 +9,7 @@ import type { QuickSearchItem } from '../types/item';
 const group = {
   id: 'recent-docs',
   label: {
-    i18nKey: 'com.polymind.cmdk.affine.category.affine.recent',
+    i18nKey: 'com.polymind.cmdk.polymind.category.polymind.recent',
   },
   score: 15,
 } as QuickSearchGroup;

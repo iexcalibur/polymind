@@ -586,6 +586,15 @@ export class Store {
     this._provider.getAll(BlockSchemaIdentifier).forEach(schema => {
       this._schema.register([schema]);
     });
+
+    // Register legacy 'affine:*' flavour aliases for backward compatibility
+    // so that documents created with old flavour names can still be loaded.
+    for (const [flavour] of this._schema.flavourSchemaMap) {
+      if (flavour.startsWith('polymind:')) {
+        const legacyFlavour = 'affine:' + flavour.slice('polymind:'.length);
+        this._schema.registerAliases({ [legacyFlavour]: flavour });
+      }
+    }
     this._doc = this._provider.get(DocIdentifier);
     this._crud = new DocCRUD(this._yBlocks, this._schema);
     if (readonly !== undefined) {

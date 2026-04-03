@@ -3,7 +3,7 @@ import type {
   SearchDocMenuAction,
   SearchTagMenuAction,
 } from '@polymind/core/modules/search-menu/services';
-import type { LinkedMenuGroup } from '@blocksuite/affine/widgets/linked-doc';
+import type { LinkedMenuGroup } from '@blocksuite/polymind/widgets/linked-doc';
 
 export interface SearchMenuConfig {
   getDocMenuGroup: (

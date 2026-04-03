@@ -8,7 +8,7 @@ import {
   CopilotClient,
   setupAIProvider,
 } from '@polymind/core/blocksuite/ai';
-import { useRegisterFindInPageCommands } from '@polymind/core/components/hooks/affine/use-register-find-in-page-commands';
+import { useRegisterFindInPageCommands } from '@polymind/core/components/hooks/polymind/use-register-find-in-page-commands';
 import { useRegisterWorkspaceCommands } from '@polymind/core/components/hooks/use-register-workspace-commands';
 import { OverCapacityNotification } from '@polymind/core/components/over-capacity';
 import {
@@ -21,13 +21,13 @@ import { useRegisterNavigationCommands } from '@polymind/core/modules/navigation
 import { QuickSearchContainer } from '@polymind/core/modules/quicksearch';
 import { WorkbenchService } from '@polymind/core/modules/workbench';
 import {
-  getAFFiNEWorkspaceSchema,
+  getPolyMindWorkspaceSchema,
   WorkspaceService,
 } from '@polymind/core/modules/workspace';
 import { gqlFetcherFactory } from '@polymind/graphql';
 import { useI18n } from '@polymind/i18n';
-import type { DocMode } from '@blocksuite/affine/model';
-import { ZipTransformer } from '@blocksuite/affine/widgets/linked-doc';
+import type { DocMode } from '@blocksuite/polymind/model';
+import { ZipTransformer } from '@blocksuite/polymind/widgets/linked-doc';
 import {
   effect,
   fromPromise,
@@ -79,7 +79,7 @@ export const WorkspaceSideEffects = () => {
           throwIfAborted(abort);
           const [doc] = await ZipTransformer.importDocs(
             currentWorkspace.docCollection,
-            getAFFiNEWorkspaceSchema(),
+            getPolyMindWorkspaceSchema(),
             templateBlob
           );
           if (doc) {

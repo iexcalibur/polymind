@@ -1,1 +1,1 @@
-A temporary crate to share the schema between AFFiNE native and `build.rs` in the AFFiNE native.
+A temporary crate to share the schema between PolyMind native and `build.rs` in the PolyMind native.

@@ -1,12 +1,12 @@
-import { BlockViewExtension } from '@blocksuite/affine/std';
-import type { ExtensionType } from '@blocksuite/affine/store';
+import { BlockViewExtension } from '@blocksuite/polymind/std';
+import type { ExtensionType } from '@blocksuite/polymind/store';
 import { literal } from 'lit/static-html.js';
 
 export const AIChatBlockSpec: ExtensionType[] = [
-  BlockViewExtension('affine:embed-ai-chat', model => {
+  BlockViewExtension('polymind:embed-ai-chat', model => {
     const parent = model.store.getParent(model.id);
 
-    if (parent?.flavour === 'affine:surface') {
+    if (parent?.flavour === 'polymind:surface') {
       return literal`affine-edgeless-ai-chat`;
     }
 

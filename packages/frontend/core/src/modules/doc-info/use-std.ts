@@ -1,7 +1,7 @@
 import { getViewManager } from '@polymind/core/blocksuite/manager/view';
 import { DebugLogger } from '@polymind/debug';
-import { BlockStdScope } from '@blocksuite/affine/std';
-import type { Store } from '@blocksuite/affine/store';
+import { BlockStdScope } from '@blocksuite/polymind/std';
+import type { Store } from '@blocksuite/polymind/store';
 import { useMemo } from 'react';
 
 const logger = new DebugLogger('doc-info');

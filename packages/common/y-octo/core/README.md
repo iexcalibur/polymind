@@ -15,9 +15,9 @@ Y-Octo also has interoperability and binary compatibility with [yjs]. Developers
 
 ## Who are using
 
-<a href="https://affine.pro"><img src="./assets/affine.svg" /></a>
+<a href="https://polymind.pro"><img src="./assets/polymind.svg" /></a>
 
-[AFFiNE](https://affine.pro) is using y-octo in production. There are [Electron](https://affine.pro/download) app and [Node.js server](https://github.com/toeverything/AFFiNE/tree/canary/packages/backend/native) using y-octo in production.
+[PolyMind](https://polymind.pro) is using y-octo in production. There are [Electron](https://polymind.pro/download) app and [Node.js server](https://github.com/toeverything/PolyMind/tree/canary/packages/backend/native) using y-octo in production.
 
 <a href="https://www.mysc.app/"><img src="https://www.mysc.app/images/logo_blk.webp" width="120px" /></a>
 
@@ -96,5 +96,5 @@ Y-Octo are [MIT licensed].
 [Memory Leak Detect]: https://github.com/toeverything/y-octo/actions/workflows/y-octo-memory-test.yml/badge.svg
 [OctoBase]: https://github.com/toeverything/octobase
 [BlockSuite]: https://github.com/toeverything/blocksuite
-[AFFiNE]: https://github.com/toeverything/affine
+[PolyMind]: https://github.com/toeverything/polymind
 [MIT licensed]: ./LICENSE

@@ -1,10 +1,10 @@
 import { getStoreManager } from '@polymind/core/blocksuite/manager/store';
 import { toArrayBuffer } from '@polymind/core/utils/array-buffer';
-import { Container } from '@blocksuite/affine/global/di';
+import { Container } from '@blocksuite/polymind/global/di';
 import {
   customImageProxyMiddleware,
   MarkdownAdapter,
-} from '@blocksuite/affine/shared/adapters';
+} from '@blocksuite/polymind/shared/adapters';
 import {
   type BlockModel,
   type DocSnapshot,
@@ -12,12 +12,12 @@ import {
   type Store,
   Text,
   Transformer,
-} from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/store';
 import { Service } from '@toeverything/infra';
 import { Doc as YDoc } from 'yjs';
 
 import {
-  getAFFiNEWorkspaceSchema,
+  getPolyMindWorkspaceSchema,
   type WorkspaceService,
 } from '../../workspace';
 import { WorkspaceImpl } from '../../workspace/impls/workspace';
@@ -58,7 +58,7 @@ export class SnapshotHelper extends Service {
   // todo: cache the transformer?
   getTransformer() {
     const collection = this.getTempWorkspace();
-    const schema = getAFFiNEWorkspaceSchema();
+    const schema = getPolyMindWorkspaceSchema();
     const imageProxyUrl = new URL(
       BUILD_CONFIG.imageProxyUrl,
       location.origin
@@ -119,15 +119,15 @@ export class SnapshotHelper extends Service {
       const store = doc.getStore();
       store.load(() => {
         // Add root page block with empty title
-        const rootId = store.addBlock('affine:page', {
+        const rootId = store.addBlock('polymind:page', {
           title: new Text(''),
         });
 
         // Add note block
-        const noteId = store.addBlock('affine:note', {}, rootId);
+        const noteId = store.addBlock('polymind:note', {}, rootId);
 
         // Add default paragraph block
-        store.addBlock('affine:paragraph', {}, noteId);
+        store.addBlock('polymind:paragraph', {}, noteId);
       });
 
       // Reset history to prevent initial creation operations from being undone

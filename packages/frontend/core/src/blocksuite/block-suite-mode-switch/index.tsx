@@ -1,9 +1,9 @@
 import { RadioGroup, type RadioItem } from '@polymind/component';
-import { registerAffineCommand } from '@polymind/core/commands';
+import { registerPolymindCommand } from '@polymind/core/commands';
 import { EditorService } from '@polymind/core/modules/editor';
 import { ViewService, WorkbenchService } from '@polymind/core/modules/workbench';
 import { useI18n } from '@polymind/i18n';
-import type { DocMode } from '@blocksuite/affine/model';
+import type { DocMode } from '@blocksuite/polymind/model';
 import { EdgelessIcon, PageIcon } from '@blocksuite/icons/rc';
 import {
   useLiveData,
@@ -72,8 +72,8 @@ export const EditorModeSwitch = () => {
   useEffect(() => {
     if (trash || isSharedMode || currentMode === undefined || !isActiveView)
       return;
-    return registerAffineCommand({
-      id: 'affine:doc-mode-switch',
+    return registerPolymindCommand({
+      id: 'polymind:doc-mode-switch',
       category: 'editor:page',
       label:
         currentMode === 'page'

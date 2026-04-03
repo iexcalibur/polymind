@@ -1,0 +1,18 @@
+import {
+  type StoreExtensionContext,
+  StoreExtensionProvider,
+} from '@blocksuite/polymind-ext-loader';
+import { ImageBlockSchemaExtension } from '@blocksuite/polymind-model';
+import { ImageSelectionExtension } from '@blocksuite/polymind-shared/selection';
+
+import { ImageBlockAdapterExtensions } from './adapters/extension';
+
+export class ImageStoreExtension extends StoreExtensionProvider {
+  override name = 'polymind-image-block';
+
+  override setup(context: StoreExtensionContext) {
+    super.setup(context);
+    context.register([ImageBlockSchemaExtension, ImageSelectionExtension]);
+    context.register(ImageBlockAdapterExtensions);
+  }
+}

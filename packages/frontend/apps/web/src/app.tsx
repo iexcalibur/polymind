@@ -1,4 +1,4 @@
-import { AffineContext } from '@polymind/core/components/context';
+import { PolymindContext } from '@polymind/core/components/context';
 import { AppContainer } from '@polymind/core/desktop/components/app-container';
 import { router } from '@polymind/core/desktop/router';
 import { configureCommonModules } from '@polymind/core/modules';
@@ -31,7 +31,7 @@ if (
   localStorage.getItem('disableSharedWorker') !== 'true'
 ) {
   const worker = new SharedWorker(workerUrl, {
-    name: 'affine-shared-worker',
+    name: 'polymind-shared-worker',
   });
   storeManagerClient = new StoreManagerClient(new OpClient(worker.port));
 } else {
@@ -98,13 +98,13 @@ export function App() {
       <FrameworkRoot framework={frameworkProvider}>
         <CacheProvider value={cache}>
           <I18nProvider>
-            <AffineContext store={getCurrentStore()}>
+            <PolymindContext store={getCurrentStore()}>
               <RouterProvider
                 fallbackElement={<AppContainer fallback />}
                 router={router}
                 future={future}
               />
-            </AffineContext>
+            </PolymindContext>
           </I18nProvider>
         </CacheProvider>
       </FrameworkRoot>

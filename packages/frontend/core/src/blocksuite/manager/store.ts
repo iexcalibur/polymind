@@ -1,7 +1,7 @@
 import { AIStoreExtension } from '@polymind/core/blocksuite/store-extensions/ai';
 import type { FeatureFlagService } from '@polymind/core/modules/feature-flag';
-import { StoreExtensionManager } from '@blocksuite/affine/ext-loader';
-import { getInternalStoreExtensions } from '@blocksuite/affine/extensions/store';
+import { StoreExtensionManager } from '@blocksuite/polymind/ext-loader';
+import { getInternalStoreExtensions } from '@blocksuite/polymind/extensions/store';
 
 import { FeatureFlagStoreExtension } from '../store-extensions/feature-flag';
 

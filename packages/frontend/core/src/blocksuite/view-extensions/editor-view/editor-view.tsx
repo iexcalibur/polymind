@@ -1,8 +1,8 @@
 import type { ConfirmModalProps, ElementOrFactory } from '@polymind/component';
 import {
-  AffinePageReference,
-  AffineSharedPageReference,
-} from '@polymind/core/components/affine/reference-link';
+  PolymindPageReference,
+  PolymindSharedPageReference,
+} from '@polymind/core/components/polymind/reference-link';
 import { DocService, DocsService } from '@polymind/core/modules/doc';
 import { EditorService } from '@polymind/core/modules/editor';
 import { toDocSearchParams } from '@polymind/core/modules/navigation';
@@ -10,7 +10,7 @@ import { WorkspaceService } from '@polymind/core/modules/workspace';
 import {
   type ViewExtensionContext,
   ViewExtensionProvider,
-} from '@blocksuite/affine/ext-loader';
+} from '@blocksuite/polymind/ext-loader';
 import { FrameworkProvider } from '@toeverything/infra';
 import type { TemplateResult } from 'lit';
 import { z } from 'zod';
@@ -48,10 +48,10 @@ const optionsSchema = z.object({
   scope: z.enum(['doc', 'workspace']).optional(),
 });
 
-export type AffineEditorViewOptions = z.infer<typeof optionsSchema>;
+export type PolymindEditorViewOptions = z.infer<typeof optionsSchema>;
 
-export class AffineEditorViewExtension extends ViewExtensionProvider<AffineEditorViewOptions> {
-  override name = 'affine-editor-view';
+export class PolymindEditorViewExtension extends ViewExtensionProvider<PolymindEditorViewOptions> {
+  override name = 'polymind-editor-view';
 
   override schema = optionsSchema;
 
@@ -72,7 +72,7 @@ export class AffineEditorViewExtension extends ViewExtensionProvider<AffineEdito
 
       if (workspaceService.workspace.openOptions.isSharedMode) {
         return (
-          <AffineSharedPageReference
+          <PolymindSharedPageReference
             docCollection={workspaceService.workspace.docCollection}
             pageId={pageId}
             params={params}
@@ -82,14 +82,14 @@ export class AffineEditorViewExtension extends ViewExtensionProvider<AffineEdito
       }
 
       return (
-        <AffinePageReference pageId={pageId} params={params} title={title} />
+        <PolymindPageReference pageId={pageId} params={params} title={title} />
       );
     };
   };
 
   override setup(
     context: ViewExtensionContext,
-    options?: AffineEditorViewOptions
+    options?: PolymindEditorViewOptions
   ) {
     super.setup(context, options);
     if (!options) {

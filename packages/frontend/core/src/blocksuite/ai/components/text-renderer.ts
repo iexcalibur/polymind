@@ -1,26 +1,26 @@
 import { createReactComponentFromLit } from '@polymind/component';
 import type { FeatureFlagService } from '@polymind/core/modules/feature-flag';
-import { PeekViewProvider } from '@blocksuite/affine/components/peek';
-import { SignalWatcher, WithDisposable } from '@blocksuite/affine/global/lit';
-import { RefNodeSlotsProvider } from '@blocksuite/affine/inlines/reference';
-import type { ColorScheme } from '@blocksuite/affine/model';
+import { PeekViewProvider } from '@blocksuite/polymind/components/peek';
+import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
+import { RefNodeSlotsProvider } from '@blocksuite/polymind/inlines/reference';
+import type { ColorScheme } from '@blocksuite/polymind/model';
 import {
   codeBlockWrapMiddleware,
   defaultImageProxyMiddleware,
   ImageProxyService,
-} from '@blocksuite/affine/shared/adapters';
-import { unsafeCSSVarV2 } from '@blocksuite/affine/shared/theme';
+} from '@blocksuite/polymind/shared/adapters';
+import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
 import {
   BlockStdScope,
   type EditorHost,
   ShadowlessElement,
-} from '@blocksuite/affine/std';
+} from '@blocksuite/polymind/std';
 import type {
   ExtensionType,
   Query,
   Store,
   TransformerMiddleware,
-} from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/store';
 import type { Signal } from '@preact/signals-core';
 import {
   darkCssVariablesV2,
@@ -34,7 +34,7 @@ import React from 'react';
 import { filter } from 'rxjs/operators';
 
 import { markDownToDoc } from '../../utils';
-import type { AffineAIPanelState } from '../widgets/ai-panel/type';
+import type { PolymindAIPanelState } from '../widgets/ai-panel/type';
 import { getCustomPageEditorBlockSpecs } from './page-editor-block-specs';
 
 const customHeadingStyles = css`
@@ -212,19 +212,19 @@ export class TextRenderer extends SignalWatcher(
   private readonly _query: Query = {
     mode: 'strict',
     match: [
-      'affine:page',
-      'affine:note',
-      'affine:table',
-      'affine:surface',
-      'affine:paragraph',
-      'affine:callout',
-      'affine:code',
-      'affine:list',
-      'affine:divider',
-      'affine:latex',
-      'affine:bookmark',
-      'affine:attachment',
-      'affine:embed-linked-doc',
+      'polymind:page',
+      'polymind:note',
+      'polymind:table',
+      'polymind:surface',
+      'polymind:paragraph',
+      'polymind:callout',
+      'polymind:code',
+      'polymind:list',
+      'polymind:divider',
+      'polymind:latex',
+      'polymind:bookmark',
+      'polymind:attachment',
+      'polymind:embed-linked-doc',
     ].map(flavour => ({ flavour, viewType: 'display' })),
   };
 
@@ -391,11 +391,11 @@ export class TextRenderer extends SignalWatcher(
   accessor options!: TextRendererOptions;
 
   @property({ attribute: false })
-  accessor state: AffineAIPanelState | undefined = undefined;
+  accessor state: PolymindAIPanelState | undefined = undefined;
 }
 
 export const createTextRenderer = (options: TextRendererOptions) => {
-  return (answer: string, state?: AffineAIPanelState) => {
+  return (answer: string, state?: PolymindAIPanelState) => {
     return html`<text-renderer
       contenteditable="false"
       .answer=${answer}

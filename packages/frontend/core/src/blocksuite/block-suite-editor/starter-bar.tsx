@@ -3,7 +3,7 @@ import {
   handleInlineAskAIAction,
   pageAIGroups,
 } from '@polymind/core/blocksuite/ai';
-import { useEnableAI } from '@polymind/core/components/hooks/affine/use-enable-ai';
+import { useEnableAI } from '@polymind/core/components/hooks/polymind/use-enable-ai';
 import { DocsService } from '@polymind/core/modules/doc';
 import { EditorService } from '@polymind/core/modules/editor';
 import { TemplateDocService } from '@polymind/core/modules/template-doc';
@@ -12,8 +12,8 @@ import {
   TemplateListMenuAdd,
 } from '@polymind/core/modules/template-doc/view/template-list-menu';
 import { useI18n } from '@polymind/i18n';
-import { PageRootBlockComponent } from '@blocksuite/affine/blocks/root';
-import type { Store } from '@blocksuite/affine/store';
+import { PageRootBlockComponent } from '@blocksuite/polymind/blocks/root';
+import type { Store } from '@blocksuite/polymind/store';
 import {
   AiIcon,
   EdgelessIcon,

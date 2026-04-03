@@ -3,9 +3,9 @@ import { getStoreManager } from '@polymind/core/blocksuite/manager/store';
 import { AppSidebarService } from '@polymind/core/modules/app-sidebar';
 import { DocsService } from '@polymind/core/modules/doc';
 import { WorkbenchService } from '@polymind/core/modules/workbench';
-import { getAFFiNEWorkspaceSchema } from '@polymind/core/modules/workspace';
-import { type DocMode } from '@blocksuite/affine/model';
-import type { Workspace } from '@blocksuite/affine/store';
+import { getPolyMindWorkspaceSchema } from '@polymind/core/modules/workspace';
+import { type DocMode } from '@blocksuite/polymind/model';
+import type { Workspace } from '@blocksuite/polymind/store';
 import { useServices } from '@toeverything/infra';
 import { useCallback, useMemo } from 'react';
 
@@ -66,7 +66,7 @@ export const usePageHelper = (docCollection: Workspace) => {
   const importFileAndOpen = useMemo(
     () => async () => {
       const { showImportModal } =
-        await import('@blocksuite/affine/widgets/linked-doc');
+        await import('@blocksuite/polymind/widgets/linked-doc');
       const { promise, resolve, reject } =
         Promise.withResolvers<
           Parameters<
@@ -96,7 +96,7 @@ export const usePageHelper = (docCollection: Workspace) => {
       };
       showImportModal({
         collection: docCollection,
-        schema: getAFFiNEWorkspaceSchema(),
+        schema: getPolyMindWorkspaceSchema(),
         extensions: getStoreManager().config.init().value.get('store'),
         onSuccess,
         onFail: message => {

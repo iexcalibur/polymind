@@ -13,11 +13,11 @@ import {
 } from '@polymind/core/blocksuite/ai/components/ai-chat-toolbar';
 import { createPlaygroundModal } from '@polymind/core/blocksuite/ai/components/playground/modal';
 import { registerAIAppEffects } from '@polymind/core/blocksuite/ai/effects/app';
-import type { AffineEditorContainer } from '@polymind/core/blocksuite/block-suite-editor';
+import type { PolymindEditorContainer } from '@polymind/core/blocksuite/block-suite-editor';
 import { NotificationServiceImpl } from '@polymind/core/blocksuite/view-extensions/editor-view/notification-service';
-import { useAIChatConfig } from '@polymind/core/components/hooks/affine/use-ai-chat-config';
-import { useAISpecs } from '@polymind/core/components/hooks/affine/use-ai-specs';
-import { useAISubscribe } from '@polymind/core/components/hooks/affine/use-ai-subscribe';
+import { useAIChatConfig } from '@polymind/core/components/hooks/polymind/use-ai-chat-config';
+import { useAISpecs } from '@polymind/core/components/hooks/polymind/use-ai-specs';
+import { useAISubscribe } from '@polymind/core/components/hooks/polymind/use-ai-subscribe';
 import {
   AIDraftService,
   AIToolsConfigService,
@@ -35,9 +35,9 @@ import type {
   UpdateChatSessionInput,
 } from '@polymind/graphql';
 import { useI18n } from '@polymind/i18n';
-import { RefNodeSlotsProvider } from '@blocksuite/affine/inlines/reference';
-import { DocModeProvider } from '@blocksuite/affine/shared/services';
-import { createSignalFromObservable } from '@blocksuite/affine/shared/utils';
+import { RefNodeSlotsProvider } from '@blocksuite/polymind/inlines/reference';
+import { DocModeProvider } from '@blocksuite/polymind/shared/services';
+import { createSignalFromObservable } from '@blocksuite/polymind/shared/utils';
 import { CenterPeekIcon, Logo1Icon } from '@blocksuite/icons/rc';
 import type { Signal } from '@preact/signals-core';
 import { useFramework, useService } from '@toeverything/infra';
@@ -54,7 +54,7 @@ import {
 registerAIAppEffects();
 
 export interface SidebarTabProps {
-  editor: AffineEditorContainer | null;
+  editor: PolymindEditorContainer | null;
   onLoad?: ((component: HTMLElement) => void) | null;
 }
 
@@ -435,7 +435,7 @@ export const EditorChatPanel = ({ editor, onLoad }: SidebarTabProps) => {
     content.docDisplayConfig = docDisplayConfig;
     content.extensions = specs;
     content.affineFeatureFlagService = framework.get(FeatureFlagService);
-    content.affineWorkspaceDialogService = framework.get(
+    content.polymindWorkspaceDialogService = framework.get(
       WorkspaceDialogService
     );
     content.affineThemeService = framework.get(AppThemeService);
@@ -591,7 +591,7 @@ export const EditorChatPanel = ({ editor, onLoad }: SidebarTabProps) => {
         .affineFeatureFlagService=${framework.get(FeatureFlagService)}
         .affineThemeService=${framework.get(AppThemeService)}
         .notificationService=${notificationService}
-        .affineWorkspaceDialogService=${framework.get(WorkspaceDialogService)}
+        .polymindWorkspaceDialogService=${framework.get(WorkspaceDialogService)}
         .aiToolsConfigService=${framework.get(AIToolsConfigService)}
         .aiModelService=${framework.get(AIModelService)}
       ></playground-content>

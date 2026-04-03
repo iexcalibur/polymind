@@ -1,19 +1,19 @@
-import { SignalWatcher, WithDisposable } from '@blocksuite/affine/global/lit';
-import type { DocMode } from '@blocksuite/affine/model';
-import { ThemeProvider } from '@blocksuite/affine/shared/services';
-import { BlockStdScope, ShadowlessElement } from '@blocksuite/affine/std';
+import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
+import type { DocMode } from '@blocksuite/polymind/model';
+import { ThemeProvider } from '@blocksuite/polymind/shared/services';
+import { BlockStdScope, ShadowlessElement } from '@blocksuite/polymind/std';
 import {
   type BlockModel,
   type ExtensionType,
   type Store,
-} from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/store';
 import { computed, signal } from '@preact/signals-core';
 import { css, html } from 'lit';
 import { property } from 'lit/decorators.js';
 import { keyed } from 'lit/directives/keyed.js';
 import { when } from 'lit/directives/when.js';
 
-export class TestAffineEditorContainer extends SignalWatcher(
+export class TestPolymindEditorContainer extends SignalWatcher(
   WithDisposable(ShadowlessElement)
 ) {
   static override styles = css`
@@ -187,8 +187,8 @@ export class TestAffineEditorContainer extends SignalWatcher(
         <div
           data-theme=${mode === 'page' ? appTheme : edgelessTheme}
           class=${mode === 'page'
-            ? 'affine-page-viewport'
-            : 'affine-edgeless-viewport'}
+            ? 'polymind-page-viewport'
+            : 'polymind-edgeless-viewport'}
         >
           ${when(
             mode === 'page',
@@ -216,6 +216,6 @@ export class TestAffineEditorContainer extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'affine-editor-container': TestAffineEditorContainer;
+    'polymind-editor-container': TestPolymindEditorContainer;
   }
 }

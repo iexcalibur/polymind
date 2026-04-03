@@ -1,7 +1,7 @@
-import { ViewExtensionManager } from '@blocksuite/affine/ext-loader';
-import { getInternalViewExtensions } from '@blocksuite/affine/extensions/view';
-import { BlockViewIdentifier } from '@blocksuite/affine/std';
-import type { ExtensionType } from '@blocksuite/affine/store';
+import { ViewExtensionManager } from '@blocksuite/polymind/ext-loader';
+import { getInternalViewExtensions } from '@blocksuite/polymind/extensions/view';
+import { BlockViewIdentifier } from '@blocksuite/polymind/std';
+import type { ExtensionType } from '@blocksuite/polymind/store';
 import { literal } from 'lit/static-html.js';
 
 const manager = new ViewExtensionManager([...getInternalViewExtensions()]);
@@ -10,7 +10,7 @@ const customPageEditorBlockSpecs: ExtensionType[] = [
   {
     setup: di => {
       di.override(
-        BlockViewIdentifier('affine:page'),
+        BlockViewIdentifier('polymind:page'),
         () => literal`affine-page-root`
       );
     },

@@ -1,15 +1,15 @@
-import type { EdgelessRootBlockComponent } from '@blocksuite/affine/blocks/root';
+import type { EdgelessRootBlockComponent } from '@blocksuite/polymind/blocks/root';
 import type {
   CanvasRenderer,
   SurfaceElementModel,
-} from '@blocksuite/affine/blocks/surface';
-import { ungroupCommand } from '@blocksuite/affine/gfx/group';
+} from '@blocksuite/polymind/blocks/surface';
+import { ungroupCommand } from '@blocksuite/polymind/gfx/group';
 import type {
   GroupElementModel,
   MindmapElementModel,
   NoteBlockModel,
-} from '@blocksuite/affine/model';
-import { generateKeyBetween } from '@blocksuite/affine/std/gfx';
+} from '@blocksuite/polymind/model';
+import { generateKeyBetween } from '@blocksuite/polymind/std/gfx';
 import type { BlockComponent } from '@blocksuite/std';
 import type { BlockModel, Store } from '@blocksuite/store';
 import { beforeEach, describe, expect, test } from 'vitest';
@@ -228,7 +228,7 @@ test('blocks should rerender when their z-index changed', async () => {
   const assertBlocksContent = () => {
     const blocks = Array.from(
       document.querySelectorAll(
-        'affine-edgeless-root gfx-viewport > [data-block-id]'
+        'polymind-edgeless-root gfx-viewport > [data-block-id]'
       )
     );
 
@@ -509,7 +509,7 @@ describe('group related functionality', () => {
     ).toBe(0);
 
     const topCanvas = edgeless.querySelector(
-      'affine-surface canvas'
+      'polymind-surface canvas'
     ) as HTMLCanvasElement;
 
     expect(
@@ -915,7 +915,7 @@ test('the actual rendering z-index should satisfy the logic order of their index
   expect(blocks.length).toBe(indexes.length + 1);
 
   blocks
-    .filter(block => block.flavour !== 'affine:surface')
+    .filter(block => block.flavour !== 'polymind:surface')
     .forEach((block, index) => {
       if (index === blocks.length - 1) return;
 

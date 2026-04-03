@@ -1,16 +1,16 @@
 import type { FeatureFlagService } from '@polymind/core/modules/feature-flag';
-import { WithDisposable } from '@blocksuite/affine/global/lit';
-import type { ColorScheme } from '@blocksuite/affine/model';
-import { unsafeCSSVarV2 } from '@blocksuite/affine/shared/theme';
+import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import type { ColorScheme } from '@blocksuite/polymind/model';
+import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
 import {
   type BlockSelection,
   type EditorHost,
   ShadowlessElement,
   type TextSelection,
-} from '@blocksuite/affine/std';
-import type { ExtensionType } from '@blocksuite/affine/store';
-import type { NotificationService } from '@blocksuite/affine-shared/services';
-import { isInsidePageEditor } from '@blocksuite/affine-shared/utils';
+} from '@blocksuite/polymind/std';
+import type { ExtensionType } from '@blocksuite/polymind/store';
+import type { NotificationService } from '@blocksuite/polymind-shared/services';
+import { isInsidePageEditor } from '@blocksuite/polymind-shared/utils';
 import {
   CopyIcon,
   InsertBleowIcon,
@@ -171,7 +171,7 @@ export class SectionEditTool extends WithDisposable(ShadowlessElement) {
                 }}
               >
                 ${CopyIcon()}
-                <affine-tooltip>Copy</affine-tooltip>
+                <polymind-tooltip>Copy</polymind-tooltip>
               </div>
               ${this.independentMode
                 ? nothing
@@ -203,7 +203,7 @@ export class SectionEditTool extends WithDisposable(ShadowlessElement) {
                     }}
                   >
                     ${InsertBleowIcon()}
-                    <affine-tooltip>Insert below</affine-tooltip>
+                    <polymind-tooltip>Insert below</polymind-tooltip>
                   </div>`}
               ${this.independentMode
                 ? nothing
@@ -215,7 +215,7 @@ export class SectionEditTool extends WithDisposable(ShadowlessElement) {
                     }}
                   >
                     ${LinkedPageIcon()}
-                    <affine-tooltip>Create new doc</affine-tooltip>
+                    <polymind-tooltip>Create new doc</polymind-tooltip>
                   </div>`}
             </div>
           </div>

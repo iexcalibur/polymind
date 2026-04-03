@@ -1,4 +1,4 @@
-import type { DocMode } from '@blocksuite/affine/model';
+import type { DocMode } from '@blocksuite/polymind/model';
 import { NewXxxEdgelessIcon, NewXxxPageIcon } from '@blocksuite/icons/rc';
 import { Entity, LiveData } from '@toeverything/infra';
 
@@ -30,7 +30,7 @@ export class CreationQuickSearchSession
         id: 'creation:create-page',
         source: 'creation',
         label: {
-          i18nKey: 'com.polymind.cmdk.affine.create-new-page-as',
+          i18nKey: 'com.polymind.cmdk.polymind.create-new-page-as',
           options: { keyWord: query },
         },
         group,
@@ -41,7 +41,7 @@ export class CreationQuickSearchSession
         id: 'creation:create-edgeless',
         source: 'creation',
         label: {
-          i18nKey: 'com.polymind.cmdk.affine.create-new-edgeless-as',
+          i18nKey: 'com.polymind.cmdk.polymind.create-new-edgeless-as',
           options: { keyWord: query },
         },
         group,

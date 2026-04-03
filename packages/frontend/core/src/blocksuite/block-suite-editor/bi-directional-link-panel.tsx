@@ -11,7 +11,7 @@ import {
   type ReferenceReactRenderer,
 } from '@polymind/core/blocksuite/view-extensions/editor-view/reference-renderer';
 import { useGuard } from '@polymind/core/components/guard';
-import { useEnableAI } from '@polymind/core/components/hooks/affine/use-enable-ai';
+import { useEnableAI } from '@polymind/core/components/hooks/polymind/use-enable-ai';
 import { DocService } from '@polymind/core/modules/doc';
 import {
   type Backlink,
@@ -26,7 +26,7 @@ import { useI18n } from '@polymind/i18n';
 import type {
   ExtensionType,
   TransformerMiddleware,
-} from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/store';
 import { ToggleDownIcon } from '@blocksuite/icons/rc';
 import * as Collapsible from '@radix-ui/react-collapsible';
 import {
@@ -47,9 +47,9 @@ import {
 } from 'react';
 
 import {
-  AffinePageReference,
-  AffineSharedPageReference,
-} from '../../components/affine/reference-link';
+  PolymindPageReference,
+  PolymindSharedPageReference,
+} from '../../components/polymind/reference-link';
 import { LitTextRenderer } from '../ai/components/text-renderer';
 import * as styles from './bi-directional-link-panel.css';
 
@@ -150,7 +150,7 @@ const usePreviewExtensions = () => {
 
       if (workspaceService.workspace.openOptions.isSharedMode) {
         return (
-          <AffineSharedPageReference
+          <PolymindSharedPageReference
             docCollection={workspaceService.workspace.docCollection}
             pageId={pageId}
             params={params}
@@ -158,7 +158,7 @@ const usePreviewExtensions = () => {
         );
       }
 
-      return <AffinePageReference pageId={pageId} params={params} />;
+      return <PolymindPageReference pageId={pageId} params={params} />;
     };
   }, [workspaceService]);
 
@@ -247,7 +247,7 @@ export const BacklinkGroups = () => {
           <CollapsibleSection
             key={linkGroup.docId}
             title={
-              <AffinePageReference
+              <PolymindPageReference
                 pageId={linkGroup.docId}
                 onClick={() => {}}
               />
@@ -347,8 +347,8 @@ export const LinkPreview = ({
         searchParams.set('mode', displayMode);
 
         let blockId = link.blockId;
-        if (link.parentFlavour === 'affine:database' && link.parentBlockId) {
-          // if parentBlockFlavour is 'affine:database',
+        if (link.parentFlavour === 'polymind:database' && link.parentBlockId) {
+          // if parentBlockFlavour is 'polymind:database',
           // we will fallback to the database block instead
           blockId = link.parentBlockId;
         } else if (displayMode === 'edgeless' && link.noteBlockId) {
@@ -379,7 +379,7 @@ export const LinkPreview = ({
             {edgelessLink ? (
               <>
                 [Edgeless]
-                <AffinePageReference
+                <PolymindPageReference
                   key={link.blockId}
                   pageId={linkGroup.docId}
                   params={searchParams}
@@ -447,7 +447,7 @@ export const BiDirectionalLinkPanel = () => {
                 key={`${link.docId}-${link.params?.toString()}-${i}`}
                 className={styles.link}
               >
-                <AffinePageReference pageId={link.docId} params={link.params} />
+                <PolymindPageReference pageId={link.docId} params={link.params} />
               </div>
             ))}
           </div>

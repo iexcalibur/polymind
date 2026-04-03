@@ -79,7 +79,7 @@ class NativeRerankProtocolProvider extends OpenAIProvider {
 
 function createProvider(profileMiddleware?: ProviderMiddlewareConfig) {
   const provider = new TestOpenAIProvider();
-  (provider as any).AFFiNEConfig = {
+  (provider as any).PolymindConfig = {
     copilot: {
       providers: {
         profiles: [

@@ -1,5 +1,5 @@
-import { AffineErrorBoundary } from '@polymind/core/components/affine/affine-error-boundary';
-import { AffineErrorComponent } from '@polymind/core/components/affine/affine-error-boundary/affine-error-fallback';
+import { PolymindErrorBoundary } from '@polymind/core/components/polymind/polymind-error-boundary';
+import { PolymindErrorComponent } from '@polymind/core/components/polymind/polymind-error-boundary/affine-error-fallback';
 import { PageNotFound } from '@polymind/core/desktop/pages/404';
 import { workbenchRoutes } from '@polymind/core/mobile/workbench-router';
 import { WorkspacesService } from '@polymind/core/modules/workspace';
@@ -23,11 +23,11 @@ type Route = { Component: React.ComponentType };
  **/
 const MobileRouteContainer = ({ route }: { route: Route }) => {
   return (
-    <AffineErrorBoundary>
+    <PolymindErrorBoundary>
       <Suspense>
         <route.Component />
       </Suspense>
-    </AffineErrorBoundary>
+    </PolymindErrorBoundary>
   );
 };
 
@@ -52,7 +52,7 @@ const warpedRoutes = workbenchRoutes.map((originalRoute: RouteObject) => {
     Component: () => {
       return <MobileRouteContainer route={route} />;
     },
-    errorElement: <AffineErrorComponent />,
+    errorElement: <PolymindErrorComponent />,
   };
 });
 

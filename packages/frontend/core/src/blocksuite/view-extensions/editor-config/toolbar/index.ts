@@ -2,12 +2,12 @@ import { notify } from '@polymind/component';
 import {
   generateUrl,
   type UseSharingUrl,
-} from '@polymind/core/components/hooks/affine/use-share-url';
+} from '@polymind/core/components/hooks/polymind/use-share-url';
 import { EditorService } from '@polymind/core/modules/editor';
 import type { EditorSettingExt } from '@polymind/core/modules/editor-setting/entities/editor-setting';
 import { copyLinkToBlockStdScopeClipboard } from '@polymind/core/utils/clipboard';
 import { I18n, i18nTime } from '@polymind/i18n';
-import { BookmarkBlockComponent } from '@blocksuite/affine/blocks/bookmark';
+import { BookmarkBlockComponent } from '@blocksuite/polymind/blocks/bookmark';
 import {
   EmbedFigmaBlockComponent,
   EmbedGithubBlockComponent,
@@ -15,35 +15,35 @@ import {
   EmbedLoomBlockComponent,
   EmbedYoutubeBlockComponent,
   getDocContentWithMaxLength,
-} from '@blocksuite/affine/blocks/embed';
+} from '@blocksuite/polymind/blocks/embed';
 import {
   EmbedLinkedDocBlockComponent,
   EmbedSyncedDocBlockComponent,
-} from '@blocksuite/affine/blocks/embed-doc';
-import { SurfaceRefBlockComponent } from '@blocksuite/affine/blocks/surface-ref';
-import { toggleEmbedCardEditModal } from '@blocksuite/affine/components/embed-card-modal';
-import { notifyLinkedDocClearedAliases } from '@blocksuite/affine/components/notification';
-import { isPeekable, peek } from '@blocksuite/affine/components/peek';
-import { toast } from '@blocksuite/affine/components/toast';
+} from '@blocksuite/polymind/blocks/embed-doc';
+import { SurfaceRefBlockComponent } from '@blocksuite/polymind/blocks/surface-ref';
+import { toggleEmbedCardEditModal } from '@blocksuite/polymind/components/embed-card-modal';
+import { notifyLinkedDocClearedAliases } from '@blocksuite/polymind/components/notification';
+import { isPeekable, peek } from '@blocksuite/polymind/components/peek';
+import { toast } from '@blocksuite/polymind/components/toast';
 import {
   EditorChevronDown,
   type MenuContext,
   type MenuItemGroup,
-} from '@blocksuite/affine/components/toolbar';
-import { watch } from '@blocksuite/affine/global/lit';
+} from '@blocksuite/polymind/components/toolbar';
+import { watch } from '@blocksuite/polymind/global/lit';
 import {
-  AffineReference,
+  PolymindReference,
   toggleReferencePopup,
-} from '@blocksuite/affine/inlines/reference';
+} from '@blocksuite/polymind/inlines/reference';
 import {
   BookmarkBlockModel,
   EmbedIframeBlockModel,
   EmbedLinkedDocModel,
   EmbedSyncedDocModel,
   SurfaceRefBlockSchema,
-} from '@blocksuite/affine/model';
-import { getSelectedModelsCommand } from '@blocksuite/affine/shared/commands';
-import { ImageSelection } from '@blocksuite/affine/shared/selection';
+} from '@blocksuite/polymind/model';
+import { getSelectedModelsCommand } from '@blocksuite/polymind/shared/commands';
+import { ImageSelection } from '@blocksuite/polymind/shared/selection';
 import {
   ActionPlacement,
   CitationProvider,
@@ -58,18 +58,18 @@ import {
   type ToolbarModuleConfig,
   ToolbarModuleExtension,
   UserProvider,
-} from '@blocksuite/affine/shared/services';
-import { matchModels } from '@blocksuite/affine/shared/utils';
+} from '@blocksuite/polymind/shared/services';
+import { matchModels } from '@blocksuite/polymind/shared/utils';
 import {
   BlockFlavourIdentifier,
   BlockSelection,
   TextSelection,
-} from '@blocksuite/affine/std';
+} from '@blocksuite/polymind/std';
 import {
   GfxBlockElementModel,
   GfxPrimitiveElementModel,
-} from '@blocksuite/affine/std/gfx';
-import type { ExtensionType } from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/std/gfx';
+import type { ExtensionType } from '@blocksuite/polymind/store';
 import {
   CopyAsImgaeIcon,
   CopyIcon,
@@ -479,7 +479,7 @@ function createOpenDocActions(
   target:
     | EmbedLinkedDocBlockComponent
     | EmbedSyncedDocBlockComponent
-    | AffineReference
+    | PolymindReference
     | SurfaceRefBlockComponent,
   isSameDoc: boolean,
   actions = openDocActions.map(
@@ -702,7 +702,7 @@ function renderOpenDocMenu(
   target:
     | EmbedLinkedDocBlockComponent
     | EmbedSyncedDocBlockComponent
-    | AffineReference,
+    | PolymindReference,
   isSameDoc: boolean
 ) {
   const actions = createOpenDocActions(ctx, target, isSameDoc).map(action => ({
@@ -720,13 +720,13 @@ function renderOpenDocMenu(
   return html`${keyed(
     target,
     html`
-      <affine-open-doc-dropdown-menu
+      <polymind-open-doc-dropdown-menu
         .actions=${actions}
         .context=${ctx}
         .openDocMode$=${openDocMode}
         .updateOpenDocMode=${updateOpenDocMode}
       >
-      </affine-open-doc-dropdown-menu>
+      </polymind-open-doc-dropdown-menu>
     `
   )}`;
 }
@@ -864,7 +864,7 @@ const inlineReferenceToolbarConfig = {
           icon: CopyIcon(),
           run(ctx) {
             const target = ctx.message$.peek()?.element;
-            if (!(target instanceof AffineReference)) return;
+            if (!(target instanceof PolymindReference)) return;
 
             const { pageId, params } = target.referenceInfo;
 
@@ -893,7 +893,7 @@ const inlineReferenceToolbarConfig = {
           icon: EditIcon(),
           run(ctx) {
             const target = ctx.message$.peek()?.element;
-            if (!(target instanceof AffineReference)) return;
+            if (!(target instanceof PolymindReference)) return;
 
             // Clears
             ctx.reset();
@@ -1080,7 +1080,7 @@ export const createCustomToolbarExtension = (
             id: 'A.open-doc',
             content(ctx) {
               const target = ctx.message$.peek()?.element;
-              if (!(target instanceof AffineReference)) return null;
+              if (!(target instanceof PolymindReference)) return null;
 
               return renderOpenDocMenu(
                 settings,

@@ -1,4 +1,4 @@
-import { EmptyCollections } from '@polymind/core/components/affine/empty';
+import { EmptyCollections } from '@polymind/core/components/polymind/empty';
 import { CollectionService } from '@polymind/core/modules/collection';
 import { useLiveData, useService } from '@toeverything/infra';
 

@@ -1,5 +1,5 @@
-import { StoreExtensionManager } from '@blocksuite/affine/ext-loader';
-import { getInternalStoreExtensions } from '@blocksuite/affine/extensions/store';
+import { StoreExtensionManager } from '@blocksuite/polymind/ext-loader';
+import { getInternalStoreExtensions } from '@blocksuite/polymind/extensions/store';
 
 const manager = new StoreExtensionManager(getInternalStoreExtensions());
 

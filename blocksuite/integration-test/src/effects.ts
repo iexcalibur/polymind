@@ -1,7 +1,7 @@
-import '@blocksuite/affine/effects';
+import '@blocksuite/polymind/effects';
 
-import { TestAffineEditorContainer } from './editors/index.js';
+import { TestPolymindEditorContainer } from './editors/index.js';
 
 export function effects() {
-  customElements.define('affine-editor-container', TestAffineEditorContainer);
+  customElements.define('polymind-editor-container', TestPolymindEditorContainer);
 }

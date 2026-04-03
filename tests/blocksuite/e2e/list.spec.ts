@@ -61,7 +61,7 @@ test('add new bulleted list', async ({ page }) => {
   await initEmptyParagraphState(page);
 
   await focusRichText(page, 0);
-  await updateBlockType(page, 'affine:list', 'bulleted');
+  await updateBlockType(page, 'polymind:list', 'bulleted');
   await focusRichText(page, 0);
   await type(page, 'aa');
   await pressEnter(page);
@@ -77,7 +77,7 @@ test('add new todo list', async ({ page }) => {
   await initEmptyParagraphState(page);
 
   await focusRichText(page, 0);
-  await updateBlockType(page, 'affine:list', 'todo');
+  await updateBlockType(page, 'polymind:list', 'todo');
   await focusRichText(page, 0);
 
   await type(page, 'aa');
@@ -96,7 +96,7 @@ test('add new toggle list', async ({ page }) => {
   await initEmptyParagraphState(page);
 
   await focusRichText(page, 0);
-  await updateBlockType(page, 'affine:list', 'toggle');
+  await updateBlockType(page, 'polymind:list', 'toggle');
   await focusRichText(page, 0);
   await type(page, 'top');
   await pressTab(page);
@@ -135,9 +135,9 @@ test('convert to numbered list block', async ({ page }) => {
   await initEmptyParagraphState(page);
 
   await focusRichText(page, 0); // created 0, 1, 2
-  await updateBlockType(page, 'affine:list', 'bulleted'); // replaced 2 to 3
+  await updateBlockType(page, 'polymind:list', 'bulleted'); // replaced 2 to 3
   await waitNextFrame(page);
-  await updateBlockType(page, 'affine:list', 'numbered');
+  await updateBlockType(page, 'polymind:list', 'numbered');
   await focusRichText(page, 0);
 
   const listSelector = '.affine-list-rich-text-wrapper';
@@ -223,10 +223,10 @@ test('insert new list block by enter', async ({ page }) => {
   await type(page, 'world');
   await assertRichTexts(page, ['', 'hello', 'world', '']);
   await assertBlockChildrenFlavours(page, '1', [
-    'affine:list',
-    'affine:list',
-    'affine:list',
-    'affine:list',
+    'polymind:list',
+    'polymind:list',
+    'polymind:list',
+    'polymind:list',
   ]);
 });
 
@@ -236,18 +236,18 @@ test('delete at start of list block', async ({ page }) => {
   await page.keyboard.press('Backspace');
   await waitNextFrame(page, 200);
   await assertBlockChildrenFlavours(page, '1', [
-    'affine:list',
-    'affine:paragraph',
-    'affine:list',
+    'polymind:list',
+    'polymind:paragraph',
+    'polymind:list',
   ]);
   await waitNextFrame(page, 200);
   await assertRichTextInlineRange(page, 1, 0, 0);
 
   await undoByClick(page);
   await assertBlockChildrenFlavours(page, '1', [
-    'affine:list',
-    'affine:list',
-    'affine:list',
+    'polymind:list',
+    'polymind:list',
+    'polymind:list',
   ]);
   await waitNextFrame(page);
   //FIXME: it just failed in playwright

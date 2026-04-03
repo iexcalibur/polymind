@@ -7,7 +7,7 @@ import {
 } from '@polymind/component';
 import { usePageHelper } from '@polymind/core/blocksuite/block-suite-page-list/utils';
 import { Guard } from '@polymind/core/components/guard';
-import { useBlockSuiteMetaHelper } from '@polymind/core/components/hooks/affine/use-block-suite-meta-helper';
+import { useBlockSuiteMetaHelper } from '@polymind/core/components/hooks/polymind/use-block-suite-meta-helper';
 import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
 import { IsFavoriteIcon } from '@polymind/core/components/pure/icons';
 import type { NodeOperation } from '@polymind/core/desktop/components/navigation-panel';

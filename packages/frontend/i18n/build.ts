@@ -2,8 +2,8 @@ import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { parse } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { ProjectRoot } from '@affine-tools/utils/path';
-import { Package } from '@affine-tools/utils/workspace';
+import { ProjectRoot } from '@polymind-tools/utils/path';
+import { Package } from '@polymind-tools/utils/workspace';
 import { runCli } from '@magic-works/i18n-codegen';
 import { glob } from 'glob';
 

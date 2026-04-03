@@ -1,4 +1,4 @@
-import { AffineContext } from '@polymind/core/components/context';
+import { PolymindContext } from '@polymind/core/components/context';
 import { WindowsAppControls } from '@polymind/core/components/pure/header/windows-app-controls';
 import { AppContainer } from '@polymind/core/desktop/components/app-container';
 import { router } from '@polymind/core/desktop/router';
@@ -54,7 +54,7 @@ export function App() {
       <FrameworkRoot framework={frameworkProvider}>
         <CacheProvider value={cache}>
           <I18nProvider>
-            <AffineContext store={getCurrentStore()}>
+            <PolymindContext store={getCurrentStore()}>
               <DesktopThemeSync />
               <DesktopLanguageSync />
               <RouterProvider
@@ -67,7 +67,7 @@ export function App() {
                   <WindowsAppControls />
                 </div>
               )}
-            </AffineContext>
+            </PolymindContext>
           </I18nProvider>
         </CacheProvider>
       </FrameworkRoot>

@@ -17,14 +17,14 @@ import { ExplorerIconService } from '@polymind/core/modules/explorer-icon/servic
 import { OrganizeService } from '@polymind/core/modules/organize';
 import { UrlService } from '@polymind/core/modules/url';
 import {
-  getAFFiNEWorkspaceSchema,
+  getPolyMindWorkspaceSchema,
   type WorkspaceMetadata,
   WorkspaceService,
 } from '@polymind/core/modules/workspace';
 import { DebugLogger } from '@polymind/debug';
 import { useI18n } from '@polymind/i18n';
-import { openDirectory, openFilesWith } from '@blocksuite/affine/shared/utils';
-import type { Workspace } from '@blocksuite/affine/store';
+import { openDirectory, openFilesWith } from '@blocksuite/polymind/shared/utils';
+import type { Workspace } from '@blocksuite/polymind/store';
 import {
   DocxTransformer,
   HtmlTransformer,
@@ -32,7 +32,7 @@ import {
   NotionHtmlTransformer,
   ObsidianTransformer,
   ZipTransformer,
-} from '@blocksuite/affine/widgets/linked-doc';
+} from '@blocksuite/polymind/widgets/linked-doc';
 import {
   ExportToHtmlIcon,
   ExportToMarkdownIcon,
@@ -215,7 +215,7 @@ type ImportConfig = {
   importFunction: (
     docCollection: Workspace,
     files: File[],
-    handleImportAffineFile: () => Promise<WorkspaceMetadata | undefined>,
+    handleImportPolymindFile: () => Promise<WorkspaceMetadata | undefined>,
     organizeService?: OrganizeService,
     explorerIconService?: ExplorerIconService
   ) => Promise<ImportResult>;
@@ -336,7 +336,7 @@ const importConfigs: Record<ImportType, ImportConfig> = {
     importFunction: async (
       docCollection,
       files,
-      _handleImportAffineFile,
+      _handleImportPolymindFile,
       _organizeService,
       _explorerIconService
     ) => {
@@ -346,7 +346,7 @@ const importConfigs: Record<ImportType, ImportConfig> = {
         const fileName = file.name.split('.').slice(0, -1).join('.');
         const docId = await MarkdownTransformer.importMarkdownToDoc({
           collection: docCollection,
-          schema: getAFFiNEWorkspaceSchema(),
+          schema: getPolyMindWorkspaceSchema(),
           markdown: text,
           fileName,
           extensions: getStoreManager().config.init().value.get('store'),
@@ -363,7 +363,7 @@ const importConfigs: Record<ImportType, ImportConfig> = {
     importFunction: async (
       docCollection,
       files,
-      _handleImportAffineFile,
+      _handleImportPolymindFile,
       _organizeService,
       _explorerIconService
     ) => {
@@ -373,7 +373,7 @@ const importConfigs: Record<ImportType, ImportConfig> = {
       }
       const docIds = await MarkdownTransformer.importMarkdownZip({
         collection: docCollection,
-        schema: getAFFiNEWorkspaceSchema(),
+        schema: getPolyMindWorkspaceSchema(),
         imported: file,
         extensions: getStoreManager().config.init().value.get('store'),
       });
@@ -387,7 +387,7 @@ const importConfigs: Record<ImportType, ImportConfig> = {
     importFunction: async (
       docCollection,
       files,
-      _handleImportAffineFile,
+      _handleImportPolymindFile,
       _organizeService,
       _explorerIconService
     ) => {
@@ -397,7 +397,7 @@ const importConfigs: Record<ImportType, ImportConfig> = {
         const fileName = file.name.split('.').slice(0, -1).join('.');
         const docId = await HtmlTransformer.importHTMLToDoc({
           collection: docCollection,
-          schema: getAFFiNEWorkspaceSchema(),
+          schema: getPolyMindWorkspaceSchema(),
           extensions: getStoreManager().config.init().value.get('store'),
           html: text,
           fileName,
@@ -414,7 +414,7 @@ const importConfigs: Record<ImportType, ImportConfig> = {
     importFunction: async (
       docCollection,
       files,
-      _handleImportAffineFile,
+      _handleImportPolymindFile,
       organizeService,
       explorerIconService
     ) => {
@@ -425,7 +425,7 @@ const importConfigs: Record<ImportType, ImportConfig> = {
       const { entryId, pageIds, isWorkspaceFile, folderHierarchy } =
         await NotionHtmlTransformer.importNotionZip({
           collection: docCollection,
-          schema: getAFFiNEWorkspaceSchema(),
+          schema: getPolyMindWorkspaceSchema(),
           imported: file,
           extensions: getStoreManager().config.init().value.get('store'),
         });
@@ -475,14 +475,14 @@ const importConfigs: Record<ImportType, ImportConfig> = {
     importFunction: async (
       docCollection,
       files,
-      _handleImportAffineFile,
+      _handleImportPolymindFile,
       _organizeService,
       explorerIconService
     ) => {
       const { docIds, docEmojis } =
         await ObsidianTransformer.importObsidianVault({
           collection: docCollection,
-          schema: getAFFiNEWorkspaceSchema(),
+          schema: getPolyMindWorkspaceSchema(),
           importedFiles: files,
           extensions: getStoreManager().config.init().value.get('store'),
         });
@@ -508,7 +508,7 @@ const importConfigs: Record<ImportType, ImportConfig> = {
       for (const file of files) {
         const docId = await DocxTransformer.importDocx({
           collection: docCollection,
-          schema: getAFFiNEWorkspaceSchema(),
+          schema: getPolyMindWorkspaceSchema(),
           imported: file,
           extensions: getStoreManager().config.init().value.get('store'),
         });
@@ -522,7 +522,7 @@ const importConfigs: Record<ImportType, ImportConfig> = {
     importFunction: async (
       docCollection,
       files,
-      _handleImportAffineFile,
+      _handleImportPolymindFile,
       _organizeService,
       _explorerIconService
     ) => {
@@ -533,7 +533,7 @@ const importConfigs: Record<ImportType, ImportConfig> = {
       const docIds = (
         await ZipTransformer.importDocs(
           docCollection,
-          getAFFiNEWorkspaceSchema(),
+          getPolyMindWorkspaceSchema(),
           file
         )
       )
@@ -550,11 +550,11 @@ const importConfigs: Record<ImportType, ImportConfig> = {
     importFunction: async (
       _,
       __,
-      handleImportAffineFile,
+      handleImportPolymindFile,
       _organizeService,
       _explorerIconService
     ) => {
-      const workspace = await handleImportAffineFile();
+      const workspace = await handleImportPolymindFile();
       return {
         docIds: [],
         entryId: undefined,
@@ -762,7 +762,7 @@ export const ImportDialog = ({
     [jumpToPage]
   );
 
-  const handleImportAffineFile = useMemo(() => {
+  const handleImportPolymindFile = useMemo(() => {
     return async () => {
       return new Promise<WorkspaceMetadata | undefined>((resolve, reject) => {
         globalDialogService.open(
@@ -813,7 +813,7 @@ export const ImportDialog = ({
         } = await importConfig.importFunction(
           docCollection,
           files,
-          handleImportAffineFile,
+          handleImportPolymindFile,
           organizeService,
           explorerIconService
         );
@@ -837,7 +837,7 @@ export const ImportDialog = ({
     [
       docCollection,
       explorerIconService,
-      handleImportAffineFile,
+      handleImportPolymindFile,
       organizeService,
       t,
     ]

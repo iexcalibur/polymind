@@ -2,15 +2,15 @@ import type { FeatureFlagService } from '@polymind/core/modules/feature-flag';
 import type { PeekViewService } from '@polymind/core/modules/peek-view';
 import type { AppThemeService } from '@polymind/core/modules/theme';
 import type { CopilotChatHistoryFragment } from '@polymind/graphql';
-import { WithDisposable } from '@blocksuite/affine/global/lit';
-import { isInsidePageEditor } from '@blocksuite/affine/shared/utils';
+import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import { isInsidePageEditor } from '@blocksuite/polymind/shared/utils';
 import {
   type BlockStdScope,
   type EditorHost,
   ShadowlessElement,
-} from '@blocksuite/affine/std';
-import type { ExtensionType } from '@blocksuite/affine/store';
-import type { NotificationService } from '@blocksuite/affine-shared/services';
+} from '@blocksuite/polymind/std';
+import type { ExtensionType } from '@blocksuite/polymind/store';
+import type { NotificationService } from '@blocksuite/polymind-shared/services';
 import type { Signal } from '@preact/signals-core';
 import { css, html, nothing } from 'lit';
 import { property } from 'lit/decorators.js';

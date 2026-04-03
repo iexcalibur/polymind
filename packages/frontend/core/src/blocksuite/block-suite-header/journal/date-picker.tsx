@@ -5,7 +5,7 @@ import {
   JournalService,
 } from '@polymind/core/modules/journal';
 import { WorkbenchService } from '@polymind/core/modules/workbench';
-import type { Store } from '@blocksuite/affine/store';
+import type { Store } from '@blocksuite/polymind/store';
 import { useLiveData, useService } from '@toeverything/infra';
 import dayjs from 'dayjs';
 import { useCallback, useEffect, useRef, useState } from 'react';

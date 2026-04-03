@@ -1,8 +1,8 @@
-import { LoadingIcon } from '@blocksuite/affine/components/icons';
-import { SignalWatcher, WithDisposable } from '@blocksuite/affine/global/lit';
-import type { ColorScheme } from '@blocksuite/affine/model';
-import { ShadowlessElement } from '@blocksuite/affine/std';
-import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/affine-shared/theme';
+import { LoadingIcon } from '@blocksuite/polymind/components/icons';
+import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
+import type { ColorScheme } from '@blocksuite/polymind/model';
+import { ShadowlessElement } from '@blocksuite/polymind/std';
+import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/polymind-shared/theme';
 import type { Signal } from '@preact/signals-core';
 import {
   css,

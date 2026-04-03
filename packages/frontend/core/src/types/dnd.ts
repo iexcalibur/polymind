@@ -1,6 +1,6 @@
 import type { DNDData } from '@polymind/component';
 
-export type AffineDNDEntity =
+export type PolymindDNDEntity =
   | {
       type: 'doc';
       id: string;
@@ -22,9 +22,9 @@ export type AffineDNDEntity =
       id: string;
     };
 
-export interface AffineDNDData extends DNDData {
+export interface PolymindDNDData extends DNDData {
   draggable: {
-    entity?: AffineDNDEntity;
+    entity?: PolymindDNDEntity;
     from?:
       | {
           at: 'navigation-panel:organize:folder-node';

@@ -3,7 +3,7 @@ import type {
   NoteBlockModel,
   ParagraphProps,
   RootBlockProps,
-} from '@blocksuite/affine-model';
+} from '@blocksuite/polymind-model';
 import type { Store } from '@blocksuite/store';
 import type { Page } from '@playwright/test';
 /**
@@ -41,15 +41,15 @@ export async function initEmbedSyncedDocState(
         ).getStore();
         store.load();
 
-        const rootId = store.addBlock('affine:page', {
+        const rootId = store.addBlock('polymind:page', {
           title: new Text(title),
         } satisfies Partial<RootBlockProps>);
 
-        store.addBlock('affine:surface', {}, rootId);
+        store.addBlock('polymind:surface', {}, rootId);
 
-        const noteId = store.addBlock('affine:note', {}, rootId);
+        const noteId = store.addBlock('polymind:note', {}, rootId);
         store.addBlock(
-          'affine:paragraph',
+          'polymind:paragraph',
           {
             text: new Text(content),
           } satisfies Partial<ParagraphProps>,
@@ -59,7 +59,7 @@ export async function initEmbedSyncedDocState(
 
       const getVisibleNote = (store: Store) => {
         const note = store
-          .getModelsByFlavour('affine:note')
+          .getModelsByFlavour('polymind:note')
           .find((note): note is NoteBlockModel => {
             return (
               note instanceof NoteBlockModel &&
@@ -96,13 +96,13 @@ export async function initEmbedSyncedDocState(
           throw new Error(`Note not found in ${docId}`);
         }
 
-        const surface = store.getModelsByFlavour('affine:surface')[0];
+        const surface = store.getModelsByFlavour('polymind:surface')[0];
         if (!surface) {
           throw new Error(`Surface not found in ${docId}`);
         }
 
         store.addBlock(
-          'affine:embed-synced-doc',
+          'polymind:embed-synced-doc',
           {
             pageId: docId,
             xywh: '[0, 100, 370, 100]',

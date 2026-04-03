@@ -1,17 +1,17 @@
 import { Scrollable } from '@polymind/component';
 import { PageDetailLoading } from '@polymind/component/page-detail-skeleton';
 import { type AIChatParams, AIProvider } from '@polymind/core/blocksuite/ai';
-import type { AffineEditorContainer } from '@polymind/core/blocksuite/block-suite-editor';
+import type { PolymindEditorContainer } from '@polymind/core/blocksuite/block-suite-editor';
 import { EditorOutlineViewer } from '@polymind/core/blocksuite/outline-viewer';
-import { AffineErrorBoundary } from '@polymind/core/components/affine/affine-error-boundary';
+import { PolymindErrorBoundary } from '@polymind/core/components/polymind/polymind-error-boundary';
 import { useGuard } from '@polymind/core/components/guard';
 import { PageNotFound } from '@polymind/core/desktop/pages/404';
 import { EditorService } from '@polymind/core/modules/editor';
 import { DebugLogger } from '@polymind/debug';
-import { DisposableGroup } from '@blocksuite/affine/global/disposable';
-import { Bound } from '@blocksuite/affine/global/gfx';
-import { RefNodeSlotsProvider } from '@blocksuite/affine/inlines/reference';
-import { GfxControllerIdentifier } from '@blocksuite/affine/std/gfx';
+import { DisposableGroup } from '@blocksuite/polymind/global/disposable';
+import { Bound } from '@blocksuite/polymind/global/gfx';
+import { RefNodeSlotsProvider } from '@blocksuite/polymind/inlines/reference';
+import { GfxControllerIdentifier } from '@blocksuite/polymind/std/gfx';
 import {
   FrameworkScope,
   useLiveData,
@@ -38,7 +38,7 @@ const BlockSuiteEditor = lazy(() =>
 );
 
 function fitViewport(
-  editor: AffineEditorContainer,
+  editor: PolymindEditorContainer,
   xywh?: `[${number},${number},${number},${number}]`
 ) {
   try {
@@ -90,7 +90,7 @@ function DocPeekPreviewEditor({
   const isInTrash = useLiveData(doc.record.trash$);
 
   const handleOnEditorReady = useCallback(
-    (editorContainer: AffineEditorContainer) => {
+    (editorContainer: PolymindEditorContainer) => {
       const disposableGroup = new DisposableGroup();
       const refNodeSlots =
         editorContainer.std.getOptional(RefNodeSlotsProvider);
@@ -158,10 +158,10 @@ function DocPeekPreviewEditor({
   const readonly = !canEdit || isInTrash;
 
   return (
-    <AffineErrorBoundary>
+    <PolymindErrorBoundary>
       <Scrollable.Root>
         <Scrollable.Viewport
-          className={clsx('affine-page-viewport', styles.affineDocViewport)}
+          className={clsx('polymind-page-viewport', styles.affineDocViewport)}
         >
           <Suspense fallback={<PageDetailLoading />}>
             <BlockSuiteEditor
@@ -183,7 +183,7 @@ function DocPeekPreviewEditor({
           openOutlinePanel={openOutlinePanel}
         />
       ) : null}
-    </AffineErrorBoundary>
+    </PolymindErrorBoundary>
   );
 }
 

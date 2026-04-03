@@ -1,12 +1,12 @@
 import { toast } from '@polymind/component';
 import type { TagMeta } from '@polymind/core/components/page-list';
 import type { CollectionMeta } from '@polymind/core/modules/collection';
-import { SignalWatcher, WithDisposable } from '@blocksuite/affine/global/lit';
-import { scrollbarStyle } from '@blocksuite/affine/shared/styles';
-import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/affine/shared/theme';
-import { openFilesWith } from '@blocksuite/affine/shared/utils';
-import { ShadowlessElement } from '@blocksuite/affine/std';
-import type { DocMeta } from '@blocksuite/affine/store';
+import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
+import { scrollbarStyle } from '@blocksuite/polymind/shared/styles';
+import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
+import { openFilesWith } from '@blocksuite/polymind/shared/utils';
+import { ShadowlessElement } from '@blocksuite/polymind/std';
+import type { DocMeta } from '@blocksuite/polymind/store';
 import {
   CollectionsIcon,
   ImageIcon,

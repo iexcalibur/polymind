@@ -7,7 +7,7 @@ import {
 import type { FilterParams } from '@polymind/core/modules/collection-rules';
 import { DocService } from '@polymind/core/modules/doc';
 import { useI18n } from '@polymind/i18n';
-import type { DocMode } from '@blocksuite/affine/model';
+import type { DocMode } from '@blocksuite/polymind/model';
 import { EdgelessIcon, PageIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import { useCallback, useMemo } from 'react';

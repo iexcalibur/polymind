@@ -4,12 +4,12 @@ import '../blocksuite/block-suite-editor';
 import { DebugLogger } from '@polymind/debug';
 import { DEFAULT_WORKSPACE_NAME } from '@polymind/env/constant';
 import onboardingUrl from '@polymind/templates/onboarding.zip';
-import { ZipTransformer } from '@blocksuite/affine/widgets/linked-doc';
+import { ZipTransformer } from '@blocksuite/polymind/widgets/linked-doc';
 
 import { DocsService } from '../modules/doc';
 import { OrganizeService } from '../modules/organize';
 import {
-  getAFFiNEWorkspaceSchema,
+  getPolyMindWorkspaceSchema,
   type WorkspacesService,
 } from '../modules/workspace';
 
@@ -25,7 +25,7 @@ export async function buildShowcaseWorkspace(
 
     await ZipTransformer.importDocs(
       docCollection,
-      getAFFiNEWorkspaceSchema(),
+      getPolyMindWorkspaceSchema(),
       blob
     );
   });

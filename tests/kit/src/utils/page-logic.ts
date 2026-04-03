@@ -228,20 +228,20 @@ export const focusInlineEditor = async (page: Page) => {
 
 export const addDatabase = async (page: Page, title?: string) => {
   await page.keyboard.press('/');
-  await expect(page.locator('affine-slash-menu .slash-menu')).toBeVisible();
+  await expect(page.locator('polymind-slash-menu .slash-menu')).toBeVisible();
   await page.keyboard.type('database');
   await page.getByTestId('Table View').click();
 
   if (title) {
-    await page.locator('affine-database-title').click();
+    await page.locator('polymind-database-title').click();
     await page
       .locator(
-        'affine-database-title textarea[data-block-is-database-title="true"]'
+        'polymind-database-title textarea[data-block-is-database-title="true"]'
       )
       .fill(title);
     await page
       .locator(
-        'affine-database-title textarea[data-block-is-database-title="true"]'
+        'polymind-database-title textarea[data-block-is-database-title="true"]'
       )
       .blur();
   }
@@ -249,7 +249,7 @@ export const addDatabase = async (page: Page, title?: string) => {
 
 export const addCodeBlock = async (page: Page) => {
   await page.keyboard.press('/');
-  await expect(page.locator('affine-slash-menu .slash-menu')).toBeVisible();
+  await expect(page.locator('polymind-slash-menu .slash-menu')).toBeVisible();
   await page.keyboard.type('code');
   await page.getByTestId('Code Block').click();
 };

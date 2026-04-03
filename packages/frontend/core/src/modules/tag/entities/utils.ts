@@ -47,7 +47,7 @@ const paletteLineToChipMap: Record<string, string> = Object.fromEntries(
 );
 
 // hack: map var(--affine-tag-xxx)/var(--affine-chip-label-xxx) colors to var(--affine-palette-line-xxx)
-export const databaseTagColorToAffineLabel = (color: string) => {
+export const databaseTagColorToPolymindLabel = (color: string) => {
   return chipToPaletteLineMap[color] || tagToPaletteLineMap[color] || color;
 };
 

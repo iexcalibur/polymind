@@ -7,6 +7,12 @@
   },
   "include": ["./src", "src/**/*.json"],
   "references": [
+    { "path": "../../../blocksuite/framework/global" },
+    { "path": "../../../blocksuite/polymind/all" },
+    { "path": "../../../blocksuite/polymind/blocks/root" },
+    { "path": "../../../blocksuite/polymind/components" },
+    { "path": "../../../blocksuite/polymind/shared" },
+    { "path": "../../../blocksuite/framework/std" },
     { "path": "../component" },
     { "path": "../../common/debug" },
     { "path": "../electron-api" },
@@ -16,13 +22,7 @@
     { "path": "../i18n" },
     { "path": "../../common/nbstore" },
     { "path": "../../common/reader" },
-    { "path": "../../../blocksuite/affine/all" },
-    { "path": "../../../blocksuite/affine/blocks/root" },
-    { "path": "../../../blocksuite/affine/components" },
-    { "path": "../../../blocksuite/affine/shared" },
-    { "path": "../../../blocksuite/framework/global" },
-    { "path": "../../../blocksuite/framework/std" },
     { "path": "../../common/infra" },
-    { "path": "../../../blocksuite/affine/ext-loader" }
+    { "path": "../../../blocksuite/polymind/ext-loader" }
   ]
 }

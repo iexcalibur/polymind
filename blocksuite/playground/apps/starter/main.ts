@@ -1,12 +1,12 @@
 import '../../style.css';
 
-import * as databaseBlocks from '@blocksuite/affine/blocks/database';
-import * as noteBlocks from '@blocksuite/affine/blocks/note';
-import * as globalUtils from '@blocksuite/affine/global/utils';
-import * as services from '@blocksuite/affine/shared/services';
-import * as blockStd from '@blocksuite/affine/std';
-import * as store from '@blocksuite/affine/store';
-import * as affineModel from '@blocksuite/affine-model';
+import * as databaseBlocks from '@blocksuite/polymind/blocks/database';
+import * as noteBlocks from '@blocksuite/polymind/blocks/note';
+import * as globalUtils from '@blocksuite/polymind/global/utils';
+import * as services from '@blocksuite/polymind/shared/services';
+import * as blockStd from '@blocksuite/polymind/std';
+import * as store from '@blocksuite/polymind/store';
+import * as affineModel from '@blocksuite/polymind-model';
 import * as editor from '@blocksuite/integration-test';
 import { effects as itEffects } from '@blocksuite/integration-test/effects';
 import { getTestStoreManager } from '@blocksuite/integration-test/store';

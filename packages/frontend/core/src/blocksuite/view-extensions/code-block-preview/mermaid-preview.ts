@@ -1,8 +1,8 @@
 import { renderMermaidSvg } from '@polymind/core/modules/code-block-preview-renderer/bridge';
-import { CodeBlockPreviewExtension } from '@blocksuite/affine/blocks/code';
-import { SignalWatcher, WithDisposable } from '@blocksuite/affine/global/lit';
-import type { CodeBlockModel } from '@blocksuite/affine/model';
-import { unsafeCSSVarV2 } from '@blocksuite/affine/shared/theme';
+import { CodeBlockPreviewExtension } from '@blocksuite/polymind/blocks/code';
+import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
+import type { CodeBlockModel } from '@blocksuite/polymind/model';
+import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
 import { ShadowlessElement } from '@blocksuite/std';
 import { css, html, nothing, type PropertyValues } from 'lit';
 import { property, query, state } from 'lit/decorators.js';

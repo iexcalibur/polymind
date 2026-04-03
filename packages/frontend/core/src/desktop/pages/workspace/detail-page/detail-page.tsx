@@ -2,16 +2,16 @@ import { Scrollable } from '@polymind/component';
 import { PageDetailLoading } from '@polymind/component/page-detail-skeleton';
 import type { AIChatParams } from '@polymind/core/blocksuite/ai';
 import { AIProvider } from '@polymind/core/blocksuite/ai';
-import type { AffineEditorContainer } from '@polymind/core/blocksuite/block-suite-editor';
+import type { PolymindEditorContainer } from '@polymind/core/blocksuite/block-suite-editor';
 import { EditorOutlineViewer } from '@polymind/core/blocksuite/outline-viewer';
-import { AffineErrorBoundary } from '@polymind/core/components/affine/affine-error-boundary';
-// import { PageAIOnboarding } from '@polymind/core/components/affine/ai-onboarding';
-import { GlobalPageHistoryModal } from '@polymind/core/components/affine/page-history-modal';
+import { PolymindErrorBoundary } from '@polymind/core/components/polymind/polymind-error-boundary';
+// import { PageAIOnboarding } from '@polymind/core/components/polymind/ai-onboarding';
+import { GlobalPageHistoryModal } from '@polymind/core/components/polymind/page-history-modal';
 import { CommentSidebar } from '@polymind/core/components/comment/sidebar';
 import { useGuard } from '@polymind/core/components/guard';
-import { useAppSettingHelper } from '@polymind/core/components/hooks/affine/use-app-setting-helper';
-import { useEnableAI } from '@polymind/core/components/hooks/affine/use-enable-ai';
-import { useRegisterBlocksuiteEditorCommands } from '@polymind/core/components/hooks/affine/use-register-blocksuite-editor-commands';
+import { useAppSettingHelper } from '@polymind/core/components/hooks/polymind/use-app-setting-helper';
+import { useEnableAI } from '@polymind/core/components/hooks/polymind/use-enable-ai';
+import { useRegisterBlocksuiteEditorCommands } from '@polymind/core/components/hooks/polymind/use-register-blocksuite-editor-commands';
 import { useActiveBlocksuiteEditor } from '@polymind/core/components/hooks/use-block-suite-editor';
 import { PageDetailEditor } from '@polymind/core/components/page-detail-editor';
 import { WorkspacePropertySidebar } from '@polymind/core/components/properties/sidebar';
@@ -34,10 +34,10 @@ import {
 } from '@polymind/core/modules/workbench';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { isNewTabTrigger } from '@polymind/core/utils';
-import { DisposableGroup } from '@blocksuite/affine/global/disposable';
-import { RefNodeSlotsProvider } from '@blocksuite/affine/inlines/reference';
-import { focusBlockEnd } from '@blocksuite/affine/shared/commands';
-import { getLastNoteBlock } from '@blocksuite/affine/shared/utils';
+import { DisposableGroup } from '@blocksuite/polymind/global/disposable';
+import { RefNodeSlotsProvider } from '@blocksuite/polymind/inlines/reference';
+import { focusBlockEnd } from '@blocksuite/polymind/shared/commands';
+import { getLastNoteBlock } from '@blocksuite/polymind/shared/utils';
 import {
   AiIcon,
   CommentIcon,
@@ -181,7 +181,7 @@ const DetailPageImpl = memo(function DetailPageImpl() {
   const isJournal = !!useLiveData(journalService.journalDate$(doc.id));
 
   const onLoad = useCallback(
-    (editorContainer: AffineEditorContainer) => {
+    (editorContainer: PolymindEditorContainer) => {
       const std = editorContainer.std;
       const disposable = new DisposableGroup();
 
@@ -212,7 +212,7 @@ const DetailPageImpl = memo(function DetailPageImpl() {
         const refNodeSlots = std.getOptional(RefNodeSlotsProvider);
         if (refNodeSlots) {
           disposable.add(
-            // the event should not be emitted by AffineReference
+            // the event should not be emitted by PolymindReference
             refNodeSlots.docLinkClicked.subscribe(
               ({ pageId, params, openMode, event, host }) => {
                 if (host !== editorContainer.host) {
@@ -318,7 +318,7 @@ const DetailPageImpl = memo(function DetailPageImpl() {
           data-has-scroll-top={hasScrollTop}
         >
           {/* Add a key to force rerender when page changed, to avoid error boundary persisting. */}
-          <AffineErrorBoundary key={doc.id}>
+          <PolymindErrorBoundary key={doc.id}>
             <TopTip pageId={doc.id} workspace={workspace} />
             <Scrollable.Root>
               <Scrollable.Viewport
@@ -326,7 +326,7 @@ const DetailPageImpl = memo(function DetailPageImpl() {
                 ref={scrollViewportRef}
                 data-dragging={dragging}
                 className={clsx(
-                  'affine-page-viewport',
+                  'polymind-page-viewport',
                   styles.affineDocViewport,
                   styles.editorContainer,
                   { [styles.pageModeViewportContentBox]: mode === 'page' }
@@ -345,7 +345,7 @@ const DetailPageImpl = memo(function DetailPageImpl() {
               show={mode === 'page' && !isSideBarOpen}
               openOutlinePanel={openOutlinePanel}
             />
-          </AffineErrorBoundary>
+          </PolymindErrorBoundary>
           {isInTrash ? <TrashPageFooter /> : null}
         </div>
       </ViewBody>

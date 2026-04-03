@@ -22,8 +22,8 @@ export class DocIDBConnection extends AutoReconnectConnection<IDBPDatabase<DocDB
 
   override async doConnect() {
     const dbs = await indexedDB.databases();
-    if (dbs.some(d => d.name === 'affine-local')) {
-      return openDB<DocDBSchema>('affine-local', 1, {
+    if (dbs.some(d => d.name === 'polymind-local')) {
+      return openDB<DocDBSchema>('polymind-local', 1, {
         upgrade: db => {
           db.createObjectStore('workspace', { keyPath: 'id' });
         },

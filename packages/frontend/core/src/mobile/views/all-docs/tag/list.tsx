@@ -1,4 +1,4 @@
-import { EmptyTags } from '@polymind/core/components/affine/empty';
+import { EmptyTags } from '@polymind/core/components/polymind/empty';
 import { TagService } from '@polymind/core/modules/tag';
 import { useLiveData, useService } from '@toeverything/infra';
 

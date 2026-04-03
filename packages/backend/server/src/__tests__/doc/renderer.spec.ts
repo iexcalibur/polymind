@@ -1,7 +1,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
-import { Package } from '@affine-tools/utils/workspace';
+import { Package } from '@polymind-tools/utils/workspace';
 import type { INestApplication } from '@nestjs/common';
 import type { TestFn } from 'ava';
 import ava from 'ava';
@@ -18,20 +18,20 @@ const mobileUAString =
 
 function initTestStaticFiles(staticPath: string) {
   const files = {
-    'main.a.js': `const name = 'affine'`,
+    'main.a.js': `const name = 'polymind'`,
     'assets-manifest.json': JSON.stringify({
       js: ['main.a.js'],
       css: [],
-      publicPath: 'https://app.affine.pro/',
+      publicPath: 'https://app.polymind.pro/',
       gitHash: '',
       description: '',
     }),
-    'admin/main.b.js': `const name = 'affine-admin'`,
-    'mobile/main.c.js': `const name = 'affine-mobile'`,
+    'admin/main.b.js': `const name = 'polymind-admin'`,
+    'mobile/main.c.js': `const name = 'polymind-mobile'`,
     'mobile/assets-manifest.json': JSON.stringify({
       js: ['main.c.js'],
       css: [],
-      publicPath: 'https://app.affine.pro/',
+      publicPath: 'https://app.polymind.pro/',
       gitHash: '',
       description: '',
     }),
@@ -64,7 +64,7 @@ test('should render correct html', async t => {
 
   t.true(
     res.text.includes(
-      `<script src="https://app.affine.pro/main.a.js" crossorigin></script>`
+      `<script src="https://app.polymind.pro/main.a.js" crossorigin></script>`
     )
   );
 });
@@ -78,7 +78,7 @@ test.skip('should render correct mobile html', async t => {
 
   t.true(
     res.text.includes(
-      `<script src="https://app.affine.pro/main.c.js" crossorigin></script>`
+      `<script src="https://app.polymind.pro/main.c.js" crossorigin></script>`
     )
   );
 });

@@ -2,8 +2,8 @@ import { DebugLogger } from '@polymind/debug';
 // @ts-expect-error upstream type is wrong
 import { createKeybindingsHandler } from 'tinykeys';
 
-import type { AffineCommand, AffineCommandOptions } from './command';
-import { createAffineCommand } from './command';
+import type { PolymindCommand, PolymindCommandOptions } from './command';
+import { createPolymindCommand } from './command';
 
 const commandLogger = new DebugLogger('command:registry');
 
@@ -45,15 +45,15 @@ const bindKeys = (
   };
 };
 
-export const AffineCommandRegistry = new (class {
-  readonly commands: Map<string, AffineCommand> = new Map();
+export const PolymindCommandRegistry = new (class {
+  readonly commands: Map<string, PolymindCommand> = new Map();
 
-  register(options: AffineCommandOptions) {
+  register(options: PolymindCommandOptions) {
     if (this.commands.has(options.id)) {
       commandLogger.warn(`Command ${options.id} already registered.`);
       return () => {};
     }
-    const command = createAffineCommand(options);
+    const command = createPolymindCommand(options);
     this.commands.set(command.id, command);
 
     let unsubKb: (() => void) | undefined;
@@ -88,7 +88,7 @@ export const AffineCommandRegistry = new (class {
     };
   }
 
-  get(id: string): AffineCommand | undefined {
+  get(id: string): PolymindCommand | undefined {
     if (!this.commands.has(id)) {
       commandLogger.warn(`Command ${id} not registered.`);
       return undefined;
@@ -96,11 +96,11 @@ export const AffineCommandRegistry = new (class {
     return this.commands.get(id);
   }
 
-  getAll(): AffineCommand[] {
+  getAll(): PolymindCommand[] {
     return Array.from(this.commands.values());
   }
 })();
 
-export function registerAffineCommand(options: AffineCommandOptions) {
-  return AffineCommandRegistry.register(options);
+export function registerPolymindCommand(options: PolymindCommandOptions) {
+  return PolymindCommandRegistry.register(options);
 }

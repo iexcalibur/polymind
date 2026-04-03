@@ -1,0 +1,70 @@
+import { BlockSelection } from '@blocksuite/polymind-components/block-selection';
+import { BlockZeroWidth } from '@blocksuite/polymind-components/block-zero-width';
+import { effects as componentCaptionEffects } from '@blocksuite/polymind-components/caption';
+import { effects as componentCardStyleDropdownMenuEffects } from '@blocksuite/polymind-components/card-style-dropdown-menu';
+import { effects as componentCitationEffects } from '@blocksuite/polymind-components/citation';
+import { effects as componentColorPickerEffects } from '@blocksuite/polymind-components/color-picker';
+import { effects as componentContextMenuEffects } from '@blocksuite/polymind-components/context-menu';
+import { effects as componentDatePickerEffects } from '@blocksuite/polymind-components/date-picker';
+import { effects as componentDropIndicatorEffects } from '@blocksuite/polymind-components/drop-indicator';
+import { effects as componentEdgelessLineStylesEffects } from '@blocksuite/polymind-components/edgeless-line-styles-panel';
+import { effects as componentEdgelessLineWidthEffects } from '@blocksuite/polymind-components/edgeless-line-width-panel';
+import { effects as componentEdgelessShapeColorPickerEffects } from '@blocksuite/polymind-components/edgeless-shape-color-picker';
+import { effects as componentEmbedCardModalEffects } from '@blocksuite/polymind-components/embed-card-modal';
+import { FilterableListComponent } from '@blocksuite/polymind-components/filterable-list';
+import { effects as componentHighlightDropdownMenuEffects } from '@blocksuite/polymind-components/highlight-dropdown-menu';
+import { IconButton } from '@blocksuite/polymind-components/icon-button';
+import { effects as componentLinkPreviewEffects } from '@blocksuite/polymind-components/link-preview';
+import { effects as componentLinkedDocTitleEffects } from '@blocksuite/polymind-components/linked-doc-title';
+import { effects as componentOpenDocDropdownMenuEffects } from '@blocksuite/polymind-components/open-doc-dropdown-menu';
+import { effects as componentPortalEffects } from '@blocksuite/polymind-components/portal';
+import { effects as componentResourceEffects } from '@blocksuite/polymind-components/resource';
+import { effects as componentSizeDropdownMenuEffects } from '@blocksuite/polymind-components/size-dropdown-menu';
+import { effects as componentSliderEffects } from '@blocksuite/polymind-components/slider';
+import { SmoothCorner } from '@blocksuite/polymind-components/smooth-corner';
+import { effects as componentToggleButtonEffects } from '@blocksuite/polymind-components/toggle-button';
+import { ToggleSwitch } from '@blocksuite/polymind-components/toggle-switch';
+import { effects as componentToolbarEffects } from '@blocksuite/polymind-components/toolbar';
+import { effects as componentTooltipContentWithShortcutEffects } from '@blocksuite/polymind-components/tooltip-content-with-shortcut';
+import { effects as componentViewDropdownMenuEffects } from '@blocksuite/polymind-components/view-dropdown-menu';
+import { effects as richTextEffects } from '@blocksuite/polymind-rich-text/effects';
+import { effects as dataViewEffects } from '@blocksuite/data-view/effects';
+import { effects as stdEffects } from '@blocksuite/std/effects';
+
+export function effects() {
+  stdEffects();
+
+  dataViewEffects();
+  richTextEffects();
+
+  componentCaptionEffects();
+  componentContextMenuEffects();
+  componentDatePickerEffects();
+  componentPortalEffects();
+  componentToolbarEffects();
+  componentDropIndicatorEffects();
+  componentToggleButtonEffects();
+  componentColorPickerEffects();
+  componentEmbedCardModalEffects();
+  componentLinkPreviewEffects();
+  componentLinkedDocTitleEffects();
+  componentCardStyleDropdownMenuEffects();
+  componentCitationEffects();
+  componentHighlightDropdownMenuEffects();
+  componentViewDropdownMenuEffects();
+  componentTooltipContentWithShortcutEffects();
+  componentSizeDropdownMenuEffects();
+  componentSliderEffects();
+  componentEdgelessLineWidthEffects();
+  componentEdgelessLineStylesEffects();
+  componentEdgelessShapeColorPickerEffects();
+  componentOpenDocDropdownMenuEffects();
+  componentResourceEffects();
+
+  customElements.define('icon-button', IconButton);
+  customElements.define('smooth-corner', SmoothCorner);
+  customElements.define('toggle-switch', ToggleSwitch);
+  customElements.define('polymind-filterable-list', FilterableListComponent);
+  customElements.define('block-zero-width', BlockZeroWidth);
+  customElements.define('polymind-block-selection', BlockSelection);
+}

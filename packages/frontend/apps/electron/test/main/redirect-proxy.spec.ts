@@ -44,11 +44,11 @@ describe('redirect proxy allowlist', () => {
       await import('../../src/main/security/redirect-proxy');
     expect(
       validateRedirectProxyUrl(
-        'assets://./redirect-proxy?redirect_uri=https%3A%2F%2Fgithub.com%2Ftoeverything%2FAFFiNE'
+        'assets://./redirect-proxy?redirect_uri=https%3A%2F%2Fgithub.com%2Ftoeverything%2FPolyMind'
       )
     ).toEqual({
       allow: true,
-      redirectTarget: 'https://github.com/toeverything/AFFiNE',
+      redirectTarget: 'https://github.com/toeverything/PolyMind',
     });
   });
 

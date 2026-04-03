@@ -1,12 +1,12 @@
-import { AIStarIcon } from '@blocksuite/affine/components/icons';
-import { DocModeProvider } from '@blocksuite/affine/shared/services';
+import { AIStarIcon } from '@blocksuite/polymind/components/icons';
+import { DocModeProvider } from '@blocksuite/polymind/shared/services';
 import {
   type SlashMenuActionItem,
   SlashMenuConfigExtension,
   type SlashMenuContext,
   type SlashMenuItem,
   type SlashMenuSubMenu,
-} from '@blocksuite/affine/widgets/slash-menu';
+} from '@blocksuite/polymind/widgets/slash-menu';
 import { MoreHorizontalIcon } from '@blocksuite/icons/lit';
 import { html } from 'lit';
 
@@ -15,7 +15,7 @@ import { handleInlineAskAIAction } from '../actions/doc-handler';
 import type { AIItemConfig } from '../components/ai-item/types';
 import {
   AFFINE_AI_PANEL_WIDGET,
-  type AffineAIPanelWidget,
+  type PolymindAIPanelWidget,
 } from '../widgets/ai-panel/ai-panel';
 
 export function AiSlashMenuConfigExtension() {
@@ -85,7 +85,7 @@ export function AiSlashMenuConfigExtension() {
         const affineAIPanelWidget = std.view.getWidget(
           AFFINE_AI_PANEL_WIDGET,
           root.id
-        ) as AffineAIPanelWidget;
+        ) as PolymindAIPanelWidget;
         handleInlineAskAIAction(affineAIPanelWidget.host);
       },
     },

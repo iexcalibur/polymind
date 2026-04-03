@@ -1,6 +1,6 @@
 import type { DropTargetOptions } from '@polymind/component';
 import { isFavoriteSupportType } from '@polymind/core/modules/favorite';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 
 import type { NavigationPanelTreeNodeDropEffect } from '../../tree';
 
@@ -35,13 +35,13 @@ export const favoriteRootDropEffect: NavigationPanelTreeNodeDropEffect =
     return;
   };
 
-export const favoriteRootCanDrop: DropTargetOptions<AffineDNDData>['canDrop'] =
+export const favoriteRootCanDrop: DropTargetOptions<PolymindDNDData>['canDrop'] =
   data => {
     return data.source.data.entity?.type
       ? isFavoriteSupportType(data.source.data.entity.type)
       : false;
   };
 
-export const favoriteChildrenCanDrop: DropTargetOptions<AffineDNDData>['canDrop'] =
+export const favoriteChildrenCanDrop: DropTargetOptions<PolymindDNDData>['canDrop'] =
   // Same as favoriteRootCanDrop
   data => favoriteRootCanDrop(data);

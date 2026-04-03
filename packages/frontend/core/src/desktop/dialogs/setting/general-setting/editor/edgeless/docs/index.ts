@@ -1,7 +1,7 @@
-import { getAFFiNEWorkspaceSchema } from '@polymind/core/modules/workspace';
+import { getPolyMindWorkspaceSchema } from '@polymind/core/modules/workspace';
 import { WorkspaceImpl } from '@polymind/core/modules/workspace/impls/workspace';
-import type { DocSnapshot, Store } from '@blocksuite/affine/store';
-import { Transformer } from '@blocksuite/affine/store';
+import type { DocSnapshot, Store } from '@blocksuite/polymind/store';
+import { Transformer } from '@blocksuite/polymind/store';
 import { Doc as YDoc } from 'yjs';
 export const getCollection = (() => {
   let collection: WorkspaceImpl | null = null;
@@ -87,7 +87,7 @@ async function initDoc(name: DocName) {
   const snapshot = (await loaders[name]()) as DocSnapshot;
   const collection = getCollection();
   const transformer = new Transformer({
-    schema: getAFFiNEWorkspaceSchema(),
+    schema: getPolyMindWorkspaceSchema(),
     blobCRUD: collection.blobSync,
     docCRUD: {
       create: (id: string) => collection.createDoc(id).getStore({ id }),

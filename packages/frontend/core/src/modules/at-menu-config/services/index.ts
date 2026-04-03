@@ -1,16 +1,16 @@
 import { I18n, i18nTime } from '@polymind/i18n';
-import type { DocMode } from '@blocksuite/affine/model';
-import type { AffineInlineEditor } from '@blocksuite/affine/shared/types';
+import type { DocMode } from '@blocksuite/polymind/model';
+import type { PolymindInlineEditor } from '@blocksuite/polymind/shared/types';
 import {
   type EditorHost,
-} from '@blocksuite/affine/std';
-import type { DocMeta } from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/std';
+import type { DocMeta } from '@blocksuite/polymind/store';
 import {
   type LinkedMenuGroup,
   type LinkedMenuItem,
   type LinkedWidgetConfig,
   LinkedWidgetUtils,
-} from '@blocksuite/affine/widgets/linked-doc';
+} from '@blocksuite/polymind/widgets/linked-doc';
 import {
   DateTimeIcon,
   NewXxxEdgelessIcon,
@@ -69,7 +69,7 @@ export class AtMenuConfigService extends Service {
     };
   }
 
-  private insertDoc(inlineEditor: AffineInlineEditor, id: string) {
+  private insertDoc(inlineEditor: PolymindInlineEditor, id: string) {
     LinkedWidgetUtils.insertLinkedNode({
       inlineEditor,
       docId: id,
@@ -102,7 +102,7 @@ export class AtMenuConfigService extends Service {
     query: string,
     close: () => void,
     editorHost: EditorHost,
-    inlineEditor: AffineInlineEditor
+    inlineEditor: PolymindInlineEditor
   ): LinkedMenuGroup {
     const originalNewDocMenuGroup = LinkedWidgetUtils.createNewDocMenuGroup(
       query,
@@ -192,7 +192,7 @@ export class AtMenuConfigService extends Service {
   private journalGroup(
     query: string,
     close: () => void,
-    inlineEditor: AffineInlineEditor
+    inlineEditor: PolymindInlineEditor
   ): LinkedMenuGroup {
     const suggestedDate = suggestJournalDate(query);
 
@@ -272,7 +272,7 @@ export class AtMenuConfigService extends Service {
   private linkToDocGroup(
     query: string,
     close: () => void,
-    inlineEditor: AffineInlineEditor,
+    inlineEditor: PolymindInlineEditor,
     abortSignal: AbortSignal
   ): LinkedMenuGroup {
     const action = (meta: DocMeta) => {
@@ -326,7 +326,7 @@ export class AtMenuConfigService extends Service {
   private memberGroup(
     query: string,
     close: () => void,
-    inlineEditor: AffineInlineEditor,
+    inlineEditor: PolymindInlineEditor,
     _: AbortSignal
   ): LinkedMenuGroup {
     const getMenuItem = (

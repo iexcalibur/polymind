@@ -1,8 +1,8 @@
 import { Loading, Tooltip, useConfirmModal } from '@polymind/component';
 import { Pagination } from '@polymind/component/setting-components';
 import { useI18n } from '@polymind/i18n';
-import { getAttachmentFileIconRC } from '@blocksuite/affine/components/icons';
-import { cssVarV2 } from '@blocksuite/affine/shared/theme';
+import { getAttachmentFileIconRC } from '@blocksuite/polymind/components/icons';
+import { cssVarV2 } from '@blocksuite/polymind/shared/theme';
 import { CloseIcon, WarningIcon } from '@blocksuite/icons/rc';
 import clsx from 'clsx';
 import { useCallback } from 'react';

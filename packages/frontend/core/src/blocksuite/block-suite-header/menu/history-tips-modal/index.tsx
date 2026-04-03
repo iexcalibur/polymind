@@ -1,5 +1,5 @@
 import { OverlayModal } from '@polymind/component';
-import { useEnableCloud } from '@polymind/core/components/hooks/affine/use-enable-cloud';
+import { useEnableCloud } from '@polymind/core/components/hooks/polymind/use-enable-cloud';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { useI18n } from '@polymind/i18n';
 import { useService } from '@toeverything/infra';

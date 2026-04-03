@@ -2,7 +2,7 @@ import type { ElementOrFactory } from '@polymind/component';
 import {
   type ViewExtensionContext,
   ViewExtensionProvider,
-} from '@blocksuite/affine/ext-loader';
+} from '@blocksuite/polymind/ext-loader';
 import type { TemplateResult } from 'lit';
 import { z } from 'zod';
 
@@ -21,7 +21,7 @@ const optionsSchema = z.object({
 type PdfViewOptions = z.infer<typeof optionsSchema>;
 
 export class PdfViewExtension extends ViewExtensionProvider<PdfViewOptions> {
-  override name = 'affine-view-pdf';
+  override name = 'polymind-view-pdf';
 
   override schema = optionsSchema;
 

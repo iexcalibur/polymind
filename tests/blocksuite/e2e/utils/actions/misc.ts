@@ -1,14 +1,14 @@
 import '../declare-test-window.js';
 
-import type { DatabaseBlockModel, ListType } from '@blocksuite/affine/model';
-import type { RichText } from '@blocksuite/affine/rich-text';
+import type { DatabaseBlockModel, ListType } from '@blocksuite/polymind/model';
+import type { RichText } from '@blocksuite/polymind/rich-text';
 import type {
   InlineRange,
   InlineRootElement,
-} from '@blocksuite/affine/std/inline';
-import type { BlockModel } from '@blocksuite/affine/store';
-import { uuidv4 } from '@blocksuite/affine/store';
-import type { TestAffineEditorContainer } from '@blocksuite/integration-test';
+} from '@blocksuite/polymind/std/inline';
+import type { BlockModel } from '@blocksuite/polymind/store';
+import { uuidv4 } from '@blocksuite/polymind/store';
+import type { TestPolymindEditorContainer } from '@blocksuite/integration-test';
 import type { ConsoleMessage, Locator, Page } from '@playwright/test';
 import { expect } from '@playwright/test';
 import stringify from 'json-stable-stringify';
@@ -50,7 +50,7 @@ export const getSelectionRect = async (page: Page): Promise<DOMRect> => {
 };
 
 export const getEditorLocator = (page: Page) => {
-  return page.locator('affine-editor-container').nth(currentEditorIndex);
+  return page.locator('polymind-editor-container').nth(currentEditorIndex);
 };
 
 export const getEditorHostLocator = (page: Page) => {
@@ -173,11 +173,11 @@ export async function enterPlaygroundRoom(
     throw new Error(`Uncaught exception: "${exception}"\n${exception.stack}`);
   });
 
-  const locator = page.locator('affine-editor-container');
+  const locator = page.locator('polymind-editor-container');
   await locator.isVisible();
   await page.evaluate(async () => {
-    const dom = document.querySelector<TestAffineEditorContainer>(
-      'affine-editor-container'
+    const dom = document.querySelector<TestPolymindEditorContainer>(
+      'polymind-editor-container'
     );
     if (dom) {
       await dom.updateComplete;
@@ -193,7 +193,7 @@ export async function enterPlaygroundRoom(
 }
 
 export async function waitDefaultPageLoaded(page: Page) {
-  await page.waitForSelector('affine-page-root[data-block-id="0"]');
+  await page.waitForSelector('polymind-page-root[data-block-id="0"]');
 }
 
 export async function waitEmbedLoaded(page: Page) {
@@ -236,14 +236,14 @@ export async function enterPlaygroundWithList(
   await page.evaluate(
     ({ contents, type }: { contents: string[]; type: ListType }) => {
       const { doc } = window;
-      const rootId = doc.addBlock('affine:page', {
+      const rootId = doc.addBlock('polymind:page', {
         title: new window.$blocksuite.store.Text(),
       });
-      const noteId = doc.addBlock('affine:note', {}, rootId);
+      const noteId = doc.addBlock('polymind:note', {}, rootId);
       // eslint-disable-next-line @typescript-eslint/prefer-for-of
       for (let i = 0; i < contents.length; i++) {
         doc.addBlock(
-          'affine:list',
+          'polymind:list',
           contents.length > 0
             ? { text: new window.$blocksuite.store.Text(contents[i]), type }
             : { type },
@@ -262,14 +262,14 @@ export async function initEmptyParagraphState(page: Page, rootId?: string) {
     const { doc } = window;
     doc.captureSync();
     if (!rootId) {
-      rootId = doc.addBlock('affine:page', {
+      rootId = doc.addBlock('polymind:page', {
         title: new window.$blocksuite.store.Text(),
       });
     }
 
-    const noteId = doc.addBlock('affine:note', {}, rootId);
-    const paragraphId = doc.addBlock('affine:paragraph', {}, noteId);
-    // doc.addBlock('affine:surface', {}, rootId);
+    const noteId = doc.addBlock('polymind:note', {}, rootId);
+    const paragraphId = doc.addBlock('polymind:paragraph', {}, noteId);
+    // doc.addBlock('polymind:surface', {}, rootId);
     doc.captureSync();
 
     return { rootId, noteId, paragraphId };
@@ -287,7 +287,7 @@ export async function initMultipleNoteWithParagraphState(
       const { doc } = window;
       doc.captureSync();
       if (!rootId) {
-        rootId = doc.addBlock('affine:page', {
+        rootId = doc.addBlock('polymind:page', {
           title: new window.$blocksuite.store.Text(),
         });
       }
@@ -295,12 +295,12 @@ export async function initMultipleNoteWithParagraphState(
       const ids = Array.from({ length: count })
         .fill(0)
         .map(() => {
-          const noteId = doc.addBlock('affine:note', {}, rootId);
-          const paragraphId = doc.addBlock('affine:paragraph', {}, noteId);
+          const noteId = doc.addBlock('polymind:note', {}, rootId);
+          const paragraphId = doc.addBlock('polymind:paragraph', {}, noteId);
           return { noteId, paragraphId };
         });
 
-      // doc.addBlock('affine:surface', {}, rootId);
+      // doc.addBlock('polymind:surface', {}, rootId);
       doc.captureSync();
 
       return { rootId, ids };
@@ -313,12 +313,12 @@ export async function initMultipleNoteWithParagraphState(
 export async function initEmptyEdgelessState(page: Page) {
   const ids = await page.evaluate(() => {
     const { doc } = window;
-    const rootId = doc.addBlock('affine:page', {
+    const rootId = doc.addBlock('polymind:page', {
       title: new window.$blocksuite.store.Text(),
     });
-    doc.addBlock('affine:surface', {}, rootId);
-    const noteId = doc.addBlock('affine:note', {}, rootId);
-    const paragraphId = doc.addBlock('affine:paragraph', {}, noteId);
+    doc.addBlock('polymind:surface', {}, rootId);
+    const noteId = doc.addBlock('polymind:note', {}, rootId);
+    const paragraphId = doc.addBlock('polymind:paragraph', {}, noteId);
 
     doc.resetHistory();
 
@@ -332,13 +332,13 @@ export async function initEmptyDatabaseState(page: Page, rootId?: string) {
     const { doc } = window;
     doc.captureSync();
     if (!rootId) {
-      rootId = doc.addBlock('affine:page', {
+      rootId = doc.addBlock('polymind:page', {
         title: new window.$blocksuite.store.Text(),
       });
     }
-    const noteId = doc.addBlock('affine:note', {}, rootId);
+    const noteId = doc.addBlock('polymind:note', {}, rootId);
     const databaseId = doc.addBlock(
-      'affine:database',
+      'polymind:database',
       {
         title: new window.$blocksuite.store.Text('Database 1'),
       },
@@ -368,13 +368,13 @@ export async function initKanbanViewState(
 
       doc.captureSync();
       if (!rootId) {
-        rootId = doc.addBlock('affine:page', {
+        rootId = doc.addBlock('polymind:page', {
           title: new window.$blocksuite.store.Text(),
         });
       }
-      const noteId = doc.addBlock('affine:note', {}, rootId);
+      const noteId = doc.addBlock('polymind:note', {}, rootId);
       const databaseId = doc.addBlock(
-        'affine:database',
+        'polymind:database',
         {
           title: new window.$blocksuite.store.Text('Database 1'),
         },
@@ -385,7 +385,7 @@ export async function initKanbanViewState(
         new window.$blocksuite.blocks.database.DatabaseBlockDataSource(model);
       const rowIds = config.rows.map(rowText => {
         const rowId = doc.addBlock(
-          'affine:paragraph',
+          'polymind:paragraph',
           { type: 'text', text: new window.$blocksuite.store.Text(rowText) },
           databaseId
         );
@@ -429,13 +429,13 @@ export async function initEmptyDatabaseWithParagraphState(
     const { doc } = window;
     doc.captureSync();
     if (!rootId) {
-      rootId = doc.addBlock('affine:page', {
+      rootId = doc.addBlock('polymind:page', {
         title: new window.$blocksuite.store.Text(),
       });
     }
-    const noteId = doc.addBlock('affine:note', {}, rootId);
+    const noteId = doc.addBlock('polymind:note', {}, rootId);
     const databaseId = doc.addBlock(
-      'affine:database',
+      'polymind:database',
       {
         title: new window.$blocksuite.store.Text('Database 1'),
       },
@@ -445,7 +445,7 @@ export async function initEmptyDatabaseWithParagraphState(
     const datasource =
       new window.$blocksuite.blocks.database.DatabaseBlockDataSource(model);
     datasource.viewManager.viewAdd('table');
-    doc.addBlock('affine:paragraph', {}, noteId);
+    doc.addBlock('polymind:paragraph', {}, noteId);
     doc.captureSync();
     return { rootId, noteId, databaseId };
   }, rootId);
@@ -496,7 +496,7 @@ export async function focusDatabaseTitle(page: Page) {
 
   await page.evaluate(() => {
     const dbTitle = document.querySelector(
-      'affine-database-title textarea'
+      'polymind-database-title textarea'
     ) as HTMLTextAreaElement | null;
     if (!dbTitle) {
       throw new Error('Cannot find database title');
@@ -511,8 +511,8 @@ export async function focusDatabaseTitle(page: Page) {
 
 export async function assertDatabaseColumnOrder(page: Page, order: string[]) {
   const columns = await page
-    .locator('affine-database-column-header')
-    .locator('affine-database-header-column')
+    .locator('polymind-database-column-header')
+    .locator('polymind-database-header-column')
     .all();
   expect(await Promise.all(columns.slice(1).map(v => v.innerText()))).toEqual(
     order
@@ -526,9 +526,9 @@ export async function initEmptyCodeBlockState(
   const ids = await page.evaluate(codeBlockProps => {
     const { doc } = window;
     doc.captureSync();
-    const rootId = doc.addBlock('affine:page');
-    const noteId = doc.addBlock('affine:note', {}, rootId);
-    const codeBlockId = doc.addBlock('affine:code', codeBlockProps, noteId);
+    const rootId = doc.addBlock('polymind:page');
+    const noteId = doc.addBlock('polymind:note', {}, rootId);
+    const codeBlockId = doc.addBlock('polymind:code', codeBlockProps, noteId);
     doc.captureSync();
 
     return { rootId, noteId, codeBlockId };
@@ -1150,14 +1150,14 @@ export async function waitForInlineEditorStateUpdated(page: Page) {
 export async function initImageState(page: Page, prependParagraph = false) {
   await page.evaluate(async prepend => {
     const { doc } = window;
-    const rootId = doc.addBlock('affine:page', {
+    const rootId = doc.addBlock('polymind:page', {
       title: new window.$blocksuite.store.Text(),
     });
-    const noteId = doc.addBlock('affine:note', {}, rootId);
+    const noteId = doc.addBlock('polymind:note', {}, rootId);
 
     await new Promise(res => setTimeout(res, 200));
 
-    const pageRoot = document.querySelector('affine-page-root');
+    const pageRoot = document.querySelector('polymind-page-root');
     if (!pageRoot) throw new Error('Cannot find doc page');
     const imageBlob = await fetch(`${location.origin}/test-card-1.png`).then(
       response => response.blob()
@@ -1165,10 +1165,10 @@ export async function initImageState(page: Page, prependParagraph = false) {
     const storage = pageRoot.store.blobSync;
     const sourceId = await storage.set(imageBlob);
     if (prepend) {
-      doc.addBlock('affine:paragraph', {}, noteId);
+      doc.addBlock('polymind:paragraph', {}, noteId);
     }
     const imageId = doc.addBlock(
-      'affine:image',
+      'polymind:image',
       {
         sourceId,
       },
@@ -1186,7 +1186,7 @@ export async function initImageState(page: Page, prependParagraph = false) {
 
 export async function getCurrentEditorDocId(page: Page) {
   return page.evaluate(index => {
-    const editor = document.querySelectorAll('affine-editor-container')[index];
+    const editor = document.querySelectorAll('polymind-editor-container')[index];
     if (!editor) throw new Error("Can't find affine-editor-container");
     const docId = editor.doc.id;
     return docId;
@@ -1201,7 +1201,7 @@ export async function getCurrentHTMLTheme(page: Page) {
 
 export async function getCurrentEditorTheme(page: Page) {
   const mode = await page
-    .locator('affine-editor-container')
+    .locator('polymind-editor-container')
     .first()
     .evaluate(() =>
       window
@@ -1217,7 +1217,7 @@ export async function getCurrentThemeCSSPropertyValue(
   property: string
 ) {
   const value = await page
-    .locator('affine-editor-container')
+    .locator('polymind-editor-container')
     .evaluate(
       (_, property) =>
         window

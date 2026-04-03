@@ -3,8 +3,6 @@ import type { Configuration as RspackDevServerConfiguration } from '@rspack/dev-
 export const RSPACK_SUPPORTED_PACKAGES = [
   '@polymind/web',
   '@polymind/mobile',
-  '@polymind/ios',
-  '@polymind/android',
   '@polymind/electron-renderer',
   '@polymind/server',
   '@polymind/reader',

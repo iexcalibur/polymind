@@ -1,11 +1,11 @@
 import { getStoreManager } from '@polymind/core/blocksuite/manager/store';
-import { getAFFiNEWorkspaceSchema } from '@polymind/core/modules/workspace';
-import { getEmbedLinkedDocIcons } from '@blocksuite/affine/blocks/embed-doc';
-import { RefNodeSlotsProvider } from '@blocksuite/affine/inlines/reference';
-import type { ColorScheme } from '@blocksuite/affine/model';
-import { unsafeCSSVarV2 } from '@blocksuite/affine/shared/theme';
-import { MarkdownTransformer } from '@blocksuite/affine/widgets/linked-doc';
-import type { NotificationService } from '@blocksuite/affine-shared/services';
+import { getPolyMindWorkspaceSchema } from '@polymind/core/modules/workspace';
+import { getEmbedLinkedDocIcons } from '@blocksuite/polymind/blocks/embed-doc';
+import { RefNodeSlotsProvider } from '@blocksuite/polymind/inlines/reference';
+import type { ColorScheme } from '@blocksuite/polymind/model';
+import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
+import { MarkdownTransformer } from '@blocksuite/polymind/widgets/linked-doc';
+import type { NotificationService } from '@blocksuite/polymind-shared/services';
 import { CopyIcon, PageIcon, ToolIcon } from '@blocksuite/icons/lit';
 import type { BlockStdScope } from '@blocksuite/std';
 import { css, html } from 'lit';
@@ -161,7 +161,7 @@ export class DocComposeTool extends ArtifactTool<
         const refNodeSlots = std.getOptional(RefNodeSlotsProvider);
         const docId = await MarkdownTransformer.importMarkdownToDoc({
           collection: workspace,
-          schema: getAFFiNEWorkspaceSchema(),
+          schema: getPolyMindWorkspaceSchema(),
           markdown: successResult.markdown,
           fileName: title,
           extensions: getStoreManager().config.init().value.get('store'),

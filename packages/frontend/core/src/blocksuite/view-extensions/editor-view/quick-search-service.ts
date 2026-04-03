@@ -11,18 +11,18 @@ import { JournalsQuickSearchSession } from '@polymind/core/modules/quicksearch/i
 import {
   BookmarkSlashMenuConfigIdentifier,
   insertLinkByQuickSearchCommand,
-} from '@blocksuite/affine/blocks/bookmark';
-import { LinkedDocSlashMenuConfigIdentifier } from '@blocksuite/affine/blocks/embed-doc';
-import type { ServiceIdentifier } from '@blocksuite/affine/global/di';
+} from '@blocksuite/polymind/blocks/bookmark';
+import { LinkedDocSlashMenuConfigIdentifier } from '@blocksuite/polymind/blocks/embed-doc';
+import type { ServiceIdentifier } from '@blocksuite/polymind/global/di';
 import {
   QuickSearchExtension,
   type QuickSearchResult,
-} from '@blocksuite/affine/shared/services';
-import { type ExtensionType } from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/shared/services';
+import { type ExtensionType } from '@blocksuite/polymind/store';
 import type {
   SlashMenuConfig,
   SlashMenuItem,
-} from '@blocksuite/affine/widgets/slash-menu';
+} from '@blocksuite/polymind/widgets/slash-menu';
 import type { FrameworkProvider } from '@toeverything/infra';
 import { pick } from 'lodash-es';
 
@@ -156,11 +156,11 @@ export function patchQuickSearchService(framework: FrameworkProvider) {
                 const flavour = type?.flavour;
                 if (!flavour) return;
 
-                if (flavour === 'affine:bookmark') {
+                if (flavour === 'polymind:bookmark') {
                   return;
                 }
 
-                if (flavour === 'affine:embed-linked-doc') {
+                if (flavour === 'polymind:embed-linked-doc') {
                   return;
                 }
               })

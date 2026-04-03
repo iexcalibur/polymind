@@ -1,7 +1,7 @@
 import * as allIcons from '@blocksuite/icons/rc';
 import type { SVGProps } from 'react';
 
-export const AffineIconRenderer = ({
+export const PolymindIconRenderer = ({
   name,
   ...props
 }: {

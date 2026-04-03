@@ -5,7 +5,7 @@
   "description": "Affine Node.js server",
   "type": "module",
   "scripts": {
-    "build": "affine bundle -p @polymind/server",
+    "build": "polymind bundle -p @polymind/server",
     "dev": "nodemon ./src/index.ts",
     "dev:mail": "email dev -d src/mails",
     "test": "ava --concurrency 1 --serial",
@@ -23,8 +23,6 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@polymind/s3-compat": "workspace:*",
-    "@polymind/server-native": "workspace:*",
     "@apollo/server": "^4.13.0",
     "@fal-ai/serverless-client": "^0.15.0",
     "@nestjs-cls/transactional": "^3.2.0",
@@ -41,6 +39,8 @@
     "@nestjs/websockets": "^11.1.17",
     "@node-rs/argon2": "^2.0.2",
     "@node-rs/crc32": "^1.10.6",
+    "@polymind/s3-compat": "workspace:*",
+    "@polymind/server-native": "workspace:*",
     "@prisma/client": "^6.6.0",
     "@queuedash/api": "^3.16.0",
     "@react-email/components": "^0.5.7",
@@ -90,12 +90,12 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@affine-tools/cli": "workspace:*",
-    "@affine-tools/utils": "workspace:*",
-    "@polymind/graphql": "workspace:*",
     "@faker-js/faker": "^10.1.0",
     "@nestjs/swagger": "^11.2.0",
     "@nestjs/testing": "patch:@nestjs/testing@npm%3A10.4.15#~/.yarn/patches/@nestjs-testing-npm-10.4.15-d591a1705a.patch",
+    "@polymind-tools/cli": "workspace:*",
+    "@polymind-tools/utils": "workspace:*",
+    "@polymind/graphql": "workspace:*",
     "@types/cookie-parser": "^1.4.8",
     "@types/express": "^5.0.1",
     "@types/express-serve-static-core": "^5.0.6",
@@ -131,9 +131,9 @@
     ],
     "env": {
       "NODE_ENV": "development",
-      "AFFINE_ENV": "dev",
-      "AFFINE_SERVER_EXTERNAL_URL": "http://localhost:8080",
-      "DEBUG": "affine:*",
+      "POLYMIND_ENV": "dev",
+      "POLYMIND_SERVER_EXTERNAL_URL": "http://localhost:8080",
+      "DEBUG": "polymind:*",
       "FORCE_COLOR": true,
       "DEBUG_COLORS": true
     },

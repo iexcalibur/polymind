@@ -19,7 +19,7 @@ interface OpenAppProps {
 }
 const channel = BUILD_CONFIG.appBuildType;
 const url =
-  'https://affine.pro/download' + (channel !== 'stable' ? '/beta-canary' : '');
+  'https://polymind.pro/download' + (channel !== 'stable' ? '/beta-canary' : '');
 
 export const OpenInAppPage = ({
   urlToOpen,
@@ -66,7 +66,7 @@ export const OpenInAppPage = ({
 
         <div className={styles.topNavLinks}>
           <a
-            href="https://affine.pro"
+            href="https://polymind.pro"
             target="_blank"
             rel="noreferrer"
             className={styles.topNavLink}
@@ -74,7 +74,7 @@ export const OpenInAppPage = ({
             Official Website
           </a>
           <a
-            href="https://affine.pro/blog"
+            href="https://polymind.pro/blog"
             target="_blank"
             rel="noreferrer"
             className={styles.topNavLink}
@@ -82,7 +82,7 @@ export const OpenInAppPage = ({
             Blog
           </a>
           <a
-            href="https://affine.pro/about-us"
+            href="https://polymind.pro/about-us"
             target="_blank"
             rel="noreferrer"
             className={styles.topNavLink}
@@ -92,7 +92,7 @@ export const OpenInAppPage = ({
         </div>
 
         <Button onClick={openDownloadLink}>
-          {t['com.polymind.auth.open.affine.download-app']()}
+          {t['com.polymind.auth.open.polymind.download-app']()}
         </Button>
       </div>
 
@@ -101,11 +101,11 @@ export const OpenInAppPage = ({
 
         <div className={styles.prompt}>
           {mode === 'open-doc' ? (
-            <Trans i18nKey="com.polymind.auth.open.affine.open-doc-prompt">
+            <Trans i18nKey="com.polymind.auth.open.polymind.open-doc-prompt">
               This doc is now opened in {appName}
             </Trans>
           ) : (
-            <Trans i18nKey="com.polymind.auth.open.affine.prompt">
+            <Trans i18nKey="com.polymind.auth.open.polymind.prompt">
               Open {appName} app now
             </Trans>
           )}
@@ -119,7 +119,7 @@ export const OpenInAppPage = ({
               target="_blank"
               rel="noreferrer"
             >
-              {t['com.polymind.auth.open.affine.doc.open-here']()}
+              {t['com.polymind.auth.open.polymind.doc.open-here']()}
             </a>
           )}
           <a
@@ -128,7 +128,7 @@ export const OpenInAppPage = ({
             target="_blank"
             rel="noreferrer"
           >
-            {t['com.polymind.auth.open.affine.try-again']()}
+            {t['com.polymind.auth.open.polymind.try-again']()}
           </a>
         </div>
       </div>
@@ -139,12 +139,12 @@ export const OpenInAppPage = ({
             className={styles.editSettingsLink}
             onClick={goToAppearanceSetting}
           >
-            {t['com.polymind.auth.open.affine.doc.edit-settings']()}
+            {t['com.polymind.auth.open.polymind.doc.edit-settings']()}
           </button>
 
           <div className={styles.docFooterText}>
             <LocalWorkspaceIcon width={16} height={16} />
-            {t['com.polymind.auth.open.affine.doc.footer-text']()}
+            {t['com.polymind.auth.open.polymind.doc.footer-text']()}
           </div>
         </div>
       ) : null}

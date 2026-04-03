@@ -31,18 +31,18 @@
     "yjs": "^13.6.27"
   },
   "devDependencies": {
+    "@blocksuite/polymind": "workspace:*",
     "@polymind/error": "workspace:*",
     "@polymind/graphql": "workspace:*",
-    "@blocksuite/affine": "workspace:*",
     "fake-indexeddb": "^6.0.0",
     "idb": "^8.0.0",
     "socket.io-client": "^4.8.3",
     "vitest": "^4.0.18"
   },
   "peerDependencies": {
+    "@blocksuite/polymind": "workspace:*",
     "@polymind/error": "workspace:*",
     "@polymind/graphql": "workspace:*",
-    "@blocksuite/affine": "workspace:*",
     "idb": "^8.0.0",
     "socket.io-client": "^4.8.3"
   }

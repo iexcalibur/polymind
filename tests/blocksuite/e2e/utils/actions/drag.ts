@@ -200,12 +200,12 @@ export async function dragBlockToPoint(
 }
 
 export async function moveToImage(page: Page) {
-  await page.locator('affine-image').hover({ timeout: 500 });
+  await page.locator('polymind-image').hover({ timeout: 500 });
 }
 
 export async function popImageMoreMenu(page: Page) {
   await moveToImage(page);
-  const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
+  const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
   const menu = toolbar.getByLabel('More menu');
   await menu.click();
 

@@ -5,7 +5,7 @@ import {
   useConfirmModal,
 } from '@polymind/component';
 import { AudioPlayer } from '@polymind/component/ui/audio-player';
-import { useEnableAI } from '@polymind/core/components/hooks/affine/use-enable-ai';
+import { useEnableAI } from '@polymind/core/components/hooks/polymind/use-enable-ai';
 import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
 import { useSeekTime } from '@polymind/core/components/hooks/use-seek-time';
 import { CurrentServerScopeProvider } from '@polymind/core/components/providers/current-server-scope';
@@ -13,7 +13,7 @@ import { GlobalDialogService } from '@polymind/core/modules/dialogs';
 import type { AudioAttachmentBlock } from '@polymind/core/modules/media/entities/audio-attachment-block';
 import { AudioAttachmentService } from '@polymind/core/modules/media/services/audio-attachment';
 import { Trans, useI18n } from '@polymind/i18n';
-import type { AttachmentBlockModel } from '@blocksuite/affine/model';
+import type { AttachmentBlockModel } from '@blocksuite/polymind/model';
 import { ResetIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import bytes from 'bytes';

@@ -4,9 +4,9 @@ import { EditorService } from '@polymind/core/modules/editor';
 import { useInsidePeekView } from '@polymind/core/modules/peek-view/view/modal-container';
 import { extractEmojiIcon } from '@polymind/core/utils';
 import { useI18n } from '@polymind/i18n';
-import { Bound } from '@blocksuite/affine/global/gfx';
-import { type NoteBlockModel } from '@blocksuite/affine/model';
-import { GfxControllerIdentifier } from '@blocksuite/affine/std/gfx';
+import { Bound } from '@blocksuite/polymind/global/gfx';
+import { type NoteBlockModel } from '@blocksuite/polymind/model';
+import { GfxControllerIdentifier } from '@blocksuite/polymind/std/gfx';
 import {
   ExpandFullIcon,
   ToggleDownIcon,

@@ -1,5 +1,5 @@
 import { DesktopApiService } from '@polymind/core/modules/desktop-api';
-import { NativeClipboardExtension } from '@blocksuite/affine/shared/services';
+import { NativeClipboardExtension } from '@blocksuite/polymind/shared/services';
 import type { FrameworkProvider } from '@toeverything/infra';
 
 export function patchForClipboardInElectron(framework: FrameworkProvider) {

@@ -144,11 +144,9 @@ fi
 
 echo "iOS MARKETING_VERSION: $ios_new_version (app version: $new_version)"
 
-update_app_version_in_helm_charts ".github/helm/affine/Chart.yaml" "$new_version"
-update_app_version_in_helm_charts ".github/helm/affine/charts/graphql/Chart.yaml" "$new_version"
-update_app_version_in_helm_charts ".github/helm/affine/charts/front/Chart.yaml" "$new_version"
-update_app_version_in_helm_charts ".github/helm/affine/charts/doc/Chart.yaml" "$new_version"
+update_app_version_in_helm_charts ".github/helm/polymind/Chart.yaml" "$new_version"
+update_app_version_in_helm_charts ".github/helm/polymind/charts/graphql/Chart.yaml" "$new_version"
+update_app_version_in_helm_charts ".github/helm/polymind/charts/front/Chart.yaml" "$new_version"
+update_app_version_in_helm_charts ".github/helm/polymind/charts/doc/Chart.yaml" "$new_version"
 
-update_app_stream_version "packages/frontend/apps/electron/resources/affine.metainfo.xml" "$new_version"
-
-update_ios_marketing_version "packages/frontend/apps/ios/App/App.xcodeproj/project.pbxproj" "$ios_new_version"
+update_app_stream_version "packages/frontend/apps/electron/resources/polymind.metainfo.xml" "$new_version"

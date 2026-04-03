@@ -7,12 +7,12 @@ import type {
   ContextEmbedStatus,
   CopilotChatHistoryFragment,
 } from '@polymind/graphql';
-import { SignalWatcher, WithDisposable } from '@blocksuite/affine/global/lit';
-import { type NotificationService } from '@blocksuite/affine/shared/services';
-import { unsafeCSSVarV2 } from '@blocksuite/affine/shared/theme';
-import type { EditorHost } from '@blocksuite/affine/std';
-import { ShadowlessElement } from '@blocksuite/affine/std';
-import type { ExtensionType, Store } from '@blocksuite/affine/store';
+import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
+import { type NotificationService } from '@blocksuite/polymind/shared/services';
+import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
+import type { EditorHost } from '@blocksuite/polymind/std';
+import { ShadowlessElement } from '@blocksuite/polymind/std';
+import type { ExtensionType, Store } from '@blocksuite/polymind/store';
 import { DeleteIcon, NewPageIcon } from '@blocksuite/icons/lit';
 import { css, html, type PropertyValues } from 'lit';
 import { property, state } from 'lit/decorators.js';
@@ -168,7 +168,7 @@ export class PlaygroundChat extends SignalWatcher(
   accessor affineThemeService!: AppThemeService;
 
   @property({ attribute: false })
-  accessor affineWorkspaceDialogService!: WorkspaceDialogService;
+  accessor polymindWorkspaceDialogService!: WorkspaceDialogService;
 
   @property({ attribute: false })
   accessor notificationService!: NotificationService;
@@ -326,7 +326,7 @@ export class PlaygroundChat extends SignalWatcher(
         </div>
         <div class="chat-panel-add" @click=${this.addChat}>
           ${NewPageIcon()}
-          <affine-tooltip>Add chat</affine-tooltip>
+          <polymind-tooltip>Add chat</polymind-tooltip>
         </div>
         <ai-history-clear
           .doc=${this.doc}
@@ -370,7 +370,7 @@ export class PlaygroundChat extends SignalWatcher(
         .searchMenuConfig=${this.searchMenuConfig}
         .notificationService=${this.notificationService}
         .aiToolsConfigService=${this.aiToolsConfigService}
-        .affineWorkspaceDialogService=${this.affineWorkspaceDialogService}
+        .polymindWorkspaceDialogService=${this.polymindWorkspaceDialogService}
         .affineFeatureFlagService=${this.affineFeatureFlagService}
         .aiModelService=${this.aiModelService}
         .onAISubscribe=${this.onAISubscribe}

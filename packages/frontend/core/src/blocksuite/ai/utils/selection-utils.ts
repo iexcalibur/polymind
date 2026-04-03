@@ -1,31 +1,31 @@
 import {
   EdgelessClipboardController,
   splitElements,
-} from '@blocksuite/affine/blocks/root';
+} from '@blocksuite/polymind/blocks/root';
 import {
   getSurfaceBlock,
   type SurfaceBlockComponent,
-} from '@blocksuite/affine/blocks/surface';
-import { DatabaseBlockModel, ImageBlockModel } from '@blocksuite/affine/model';
+} from '@blocksuite/polymind/blocks/surface';
+import { DatabaseBlockModel, ImageBlockModel } from '@blocksuite/polymind/model';
 import {
   getBlockSelectionsCommand,
   getImageSelectionsCommand,
   getSelectedBlocksCommand,
   getSelectedModelsCommand,
   getTextSelectionCommand,
-} from '@blocksuite/affine/shared/commands';
-import { matchModels } from '@blocksuite/affine/shared/utils';
-import { type EditorHost, TextSelection } from '@blocksuite/affine/std';
+} from '@blocksuite/polymind/shared/commands';
+import { matchModels } from '@blocksuite/polymind/shared/utils';
+import { type EditorHost, TextSelection } from '@blocksuite/polymind/std';
 import {
   GfxControllerIdentifier,
   type GfxModel,
-} from '@blocksuite/affine/std/gfx';
+} from '@blocksuite/polymind/std/gfx';
 import {
   type BlockModel,
   type DraftModel,
   Slice,
   toDraftModel,
-} from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/store';
 
 import { getContentFromSlice } from '../../utils';
 import type { CopilotTool } from '../tool/copilot-tool';
@@ -82,7 +82,7 @@ export function getSelectedModels(editorHost: EditorHost) {
 }
 
 export function traverse(model: DraftModel, drafts: DraftModel[]) {
-  const isDatabase = model.flavour === 'affine:database';
+  const isDatabase = model.flavour === 'polymind:database';
   const children = isDatabase
     ? model.children
     : model.children.filter(child => {
@@ -132,7 +132,7 @@ export async function selectAboveBlocks(editorHost: EditorHost, num = 10) {
 
   let noteModel: BlockModel | null = lastLeafModel;
   let lastRootModel: BlockModel | null = null;
-  while (noteModel && noteModel.flavour !== 'affine:note') {
+  while (noteModel && noteModel.flavour !== 'polymind:note') {
     lastRootModel = noteModel;
     noteModel = editorHost.store.getParent(noteModel);
   }

@@ -1,5 +1,5 @@
-import { WithDisposable } from '@blocksuite/affine/global/lit';
-import { ShadowlessElement } from '@blocksuite/affine/std';
+import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import { ShadowlessElement } from '@blocksuite/polymind/std';
 import { WebIcon } from '@blocksuite/icons/lit';
 import type { Signal } from '@preact/signals-core';
 import { html, nothing } from 'lit';

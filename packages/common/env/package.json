@@ -15,8 +15,8 @@
     "./worker": "./src/worker.ts"
   },
   "peerDependencies": {
-    "@polymind/templates": "workspace:*",
-    "@blocksuite/affine": "workspace:*"
+    "@blocksuite/polymind": "workspace:*",
+    "@polymind/templates": "workspace:*"
   },
   "dependencies": {
     "zod": "^3.25.76"

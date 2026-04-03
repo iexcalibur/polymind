@@ -1,5 +1,5 @@
 import { IconButton, MobileMenu } from '@polymind/component';
-import { useEnableCloud } from '@polymind/core/components/hooks/affine/use-enable-cloud';
+import { useEnableCloud } from '@polymind/core/components/hooks/polymind/use-enable-cloud';
 import { DocService } from '@polymind/core/modules/doc';
 import { ShareMenuContent } from '@polymind/core/modules/share-menu';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
@@ -28,7 +28,7 @@ export const PageHeaderShareButton = () => {
           <ShareMenuContent
             workspaceMetadata={workspace.meta}
             currentPage={doc}
-            onEnableAffineCloud={() =>
+            onEnablePolymindCloud={() =>
               confirmEnableCloud(workspace, {
                 openPageId: doc.id,
               })

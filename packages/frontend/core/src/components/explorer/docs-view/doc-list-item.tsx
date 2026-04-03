@@ -8,7 +8,7 @@ import {
 import { DocsService } from '@polymind/core/modules/doc';
 import { DocDisplayMetaService } from '@polymind/core/modules/doc-display-meta';
 import { WorkbenchLink } from '@polymind/core/modules/workbench';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { useI18n } from '@polymind/i18n';
 import {
   AutoTidyUpIcon,
@@ -146,7 +146,7 @@ export const DocListItem = ({ ...props }: DocListItemProps) => {
     [contextValue, handleMultiSelect, prevCheckAnchorId, props, selectMode]
   );
 
-  const { dragRef, CustomDragPreview } = useDraggable<AffineDNDData>(
+  const { dragRef, CustomDragPreview } = useDraggable<PolymindDNDData>(
     () => ({
       canDrag: true,
       data: {

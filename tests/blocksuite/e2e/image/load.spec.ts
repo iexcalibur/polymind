@@ -16,10 +16,10 @@ async function initMockImage(page: Page) {
   await page.evaluate(sourceId => {
     const { doc } = window;
     doc.captureSync();
-    const rootId = doc.addBlock('affine:page');
-    const noteId = doc.addBlock('affine:note', {}, rootId);
+    const rootId = doc.addBlock('polymind:page');
+    const noteId = doc.addBlock('polymind:note', {}, rootId);
     doc.addBlock(
-      'affine:image',
+      'polymind:image',
       {
         sourceId,
         width: 200,

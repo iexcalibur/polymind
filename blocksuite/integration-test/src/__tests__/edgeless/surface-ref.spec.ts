@@ -1,7 +1,7 @@
 import {
   type EdgelessRootBlockComponent,
   EdgelessRootService,
-} from '@blocksuite/affine/blocks/root';
+} from '@blocksuite/polymind/blocks/root';
 import type { DocSnapshot } from '@blocksuite/store';
 import { beforeEach, describe, expect, test } from 'vitest';
 
@@ -42,7 +42,7 @@ describe('basic', () => {
     })!;
     await wait(0); // wait next frame
     frameId = service.crud.addBlock(
-      'affine:frame',
+      'polymind:frame',
       {
         xywh: '[0, 0, 800, 200]',
         index: service.generateIndex(),
@@ -55,10 +55,10 @@ describe('basic', () => {
 
   test('surface-ref should be rendered in page mode', async () => {
     const surfaceRefId = doc.addBlock(
-      'affine:surface-ref',
+      'polymind:surface-ref',
       {
         reference: frameId,
-        refFlavour: 'affine:frame',
+        refFlavour: 'polymind:frame',
       },
       noteAId
     );
@@ -75,10 +75,10 @@ describe('basic', () => {
 
   test('content in frame should be rendered in the correct order', async () => {
     const surfaceRefId = doc.addBlock(
-      'affine:surface-ref',
+      'polymind:surface-ref',
       {
         reference: frameId,
-        refFlavour: 'affine:frame',
+        refFlavour: 'polymind:frame',
       },
       noteAId
     );
@@ -90,7 +90,7 @@ describe('basic', () => {
       `affine-surface-ref[data-block-id="${surfaceRefId}"]`
     ) as HTMLElement;
     const refBlocks = Array.from(
-      surfaceRef.querySelectorAll('affine-edgeless-note')
+      surfaceRef.querySelectorAll('polymind-edgeless-note')
     ) as HTMLElement[];
     const stackingCanvas = Array.from(
       surfaceRef.querySelectorAll('.indexable-canvas')!
@@ -113,7 +113,7 @@ describe('basic', () => {
       },
     });
     const surfaceRefId = doc.addBlock(
-      'affine:surface-ref',
+      'polymind:surface-ref',
       {
         reference: groupId,
         refFlavour: 'group',
@@ -128,7 +128,7 @@ describe('basic', () => {
       `affine-surface-ref[data-block-id="${surfaceRefId}"]`
     ) as HTMLElement;
     const refBlocks = Array.from(
-      surfaceRef.querySelectorAll('affine-edgeless-note')
+      surfaceRef.querySelectorAll('polymind-edgeless-note')
     ) as HTMLElement[];
     const stackingCanvas = Array.from(
       surfaceRef.querySelectorAll('.indexable-canvas')
@@ -143,10 +143,10 @@ describe('basic', () => {
 
   test('frame should be rendered in surface-ref viewport', async () => {
     const surfaceRefId = doc.addBlock(
-      'affine:surface-ref',
+      'polymind:surface-ref',
       {
         reference: frameId,
-        refFlavour: 'affine:frame',
+        refFlavour: 'polymind:frame',
       },
       noteAId
     );
@@ -161,7 +161,7 @@ describe('basic', () => {
     const edgeless = surfaceRef.previewEditor!.std.get(EdgelessRootService);
 
     const frame = surfaceRef.querySelector(
-      'affine-frame'
+      'polymind-frame'
     ) as FrameBlockComponent;
 
     expect(
@@ -179,7 +179,7 @@ describe('basic', () => {
       },
     })!;
     const surfaceRefId = doc.addBlock(
-      'affine:surface-ref',
+      'polymind:surface-ref',
       {
         reference: groupId,
         refFlavour: 'group',
@@ -203,10 +203,10 @@ describe('basic', () => {
 
   test('viewport of surface-ref should be updated when the reference xywh updated', async () => {
     const surfaceRefId = doc.addBlock(
-      'affine:surface-ref',
+      'polymind:surface-ref',
       {
         reference: frameId,
-        refFlavour: 'affine:frame',
+        refFlavour: 'polymind:frame',
       },
       noteAId
     );
@@ -221,7 +221,7 @@ describe('basic', () => {
     const edgeless = surfaceRef.previewEditor!.std.get(EdgelessRootService);
 
     const frame = surfaceRef.querySelector(
-      'affine-frame'
+      'polymind-frame'
     ) as FrameBlockComponent;
 
     const oldViewport = edgeless.viewport.viewportBounds;
@@ -242,7 +242,7 @@ describe('basic', () => {
       },
     });
     const surfaceRefId = doc.addBlock(
-      'affine:surface-ref',
+      'polymind:surface-ref',
       {
         reference: groupId,
         refFlavour: 'group',
@@ -263,8 +263,8 @@ describe('basic', () => {
   });
 });
 
-import type { FrameBlockComponent } from '@blocksuite/affine/blocks/frame';
-import type { SurfaceRefBlockComponent } from '@blocksuite/affine/blocks/surface-ref';
+import type { FrameBlockComponent } from '@blocksuite/polymind/blocks/frame';
+import type { SurfaceRefBlockComponent } from '@blocksuite/polymind/blocks/surface-ref';
 
 import snapshot from '../snapshots/edgeless/surface-ref.spec.ts/surface-ref.json' assert { type: 'json' };
 
@@ -280,7 +280,7 @@ describe('clipboard', () => {
     editor.doc = newDoc!;
     await wait();
 
-    const surfaceRefs = newDoc!.getBlocksByFlavour('affine:surface-ref');
+    const surfaceRefs = newDoc!.getBlocksByFlavour('polymind:surface-ref');
     expect(surfaceRefs).toHaveLength(2);
 
     const surfaceRefBlocks = surfaceRefs.map(({ id }) =>

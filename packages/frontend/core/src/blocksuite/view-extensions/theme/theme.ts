@@ -1,16 +1,16 @@
 import { DocService, DocsService } from '@polymind/core/modules/doc';
 import { AppThemeService } from '@polymind/core/modules/theme';
-import type { Container } from '@blocksuite/affine/global/di';
-import { ColorScheme } from '@blocksuite/affine/model';
+import type { Container } from '@blocksuite/polymind/global/di';
+import { ColorScheme } from '@blocksuite/polymind/model';
 import {
   type ThemeExtension,
   ThemeExtensionIdentifier,
-} from '@blocksuite/affine/shared/services';
+} from '@blocksuite/polymind/shared/services';
 import {
   createSignalFromObservable,
   type Signal,
-} from '@blocksuite/affine/shared/utils';
-import { LifeCycleWatcher, StdIdentifier } from '@blocksuite/affine/std';
+} from '@blocksuite/polymind/shared/utils';
+import { LifeCycleWatcher, StdIdentifier } from '@blocksuite/polymind/std';
 import { type FrameworkProvider } from '@toeverything/infra';
 import type { Observable } from 'rxjs';
 import { combineLatest, map } from 'rxjs';
@@ -18,11 +18,11 @@ import { combineLatest, map } from 'rxjs';
 export function getThemeExtension(
   framework: FrameworkProvider
 ): typeof LifeCycleWatcher {
-  class AffineThemeExtension
+  class PolymindThemeExtension
     extends LifeCycleWatcher
     implements ThemeExtension
   {
-    static override readonly key = 'affine-theme';
+    static override readonly key = 'polymind-theme';
 
     private readonly themes: Map<string, Signal<ColorScheme>> = new Map();
 
@@ -30,7 +30,7 @@ export function getThemeExtension(
 
     static override setup(di: Container) {
       super.setup(di);
-      di.override(ThemeExtensionIdentifier, AffineThemeExtension, [
+      di.override(ThemeExtensionIdentifier, PolymindThemeExtension, [
         StdIdentifier,
       ]);
     }
@@ -93,5 +93,5 @@ export function getThemeExtension(
     }
   }
 
-  return AffineThemeExtension;
+  return PolymindThemeExtension;
 }

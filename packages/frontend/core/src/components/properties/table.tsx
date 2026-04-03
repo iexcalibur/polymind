@@ -17,7 +17,7 @@ import type {
 } from '@polymind/core/modules/doc-info/types';
 import { ViewService, WorkbenchService } from '@polymind/core/modules/workbench';
 import { WorkspacePropertyService } from '@polymind/core/modules/workspace-property';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { useI18n } from '@polymind/i18n';
 import { PlusIcon, PropertyIcon, ToggleDownIcon } from '@blocksuite/icons/rc';
 import * as Collapsible from '@radix-ui/react-collapsible';
@@ -161,7 +161,7 @@ export const WorkspacePropertyRow = ({
   );
 
   const docId = docService.doc.id;
-  const { dragRef } = useDraggable<AffineDNDData>(
+  const { dragRef } = useDraggable<PolymindDNDData>(
     () => ({
       canDrag: !propertyInfoReadonly,
       data: {
@@ -177,7 +177,7 @@ export const WorkspacePropertyRow = ({
     }),
     [docId, propertyInfo.id, propertyInfoReadonly]
   );
-  const { dropTargetRef, closestEdge } = useDropTarget<AffineDNDData>(
+  const { dropTargetRef, closestEdge } = useDropTarget<PolymindDNDData>(
     () => ({
       closestEdge: {
         allowedEdges: ['bottom', 'top'],

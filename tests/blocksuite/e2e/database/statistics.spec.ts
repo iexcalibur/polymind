@@ -26,7 +26,7 @@ const addRow = async (page: Page, count: number = 1) => {
 };
 const insertRightColumn = async (page: Page, index = 0) => {
   await waitNextFrame(page);
-  await page.locator('affine-database-header-column').nth(index).click();
+  await page.locator('polymind-database-header-column').nth(index).click();
   await waitNextFrame(page, 200);
   await pressKey(page, 'Escape');
   const menu = page.locator('.affine-menu-button', {
@@ -50,7 +50,7 @@ test.describe('title', () => {
     await enterPlaygroundRoom(page);
     await initEmptyDatabaseState(page);
     await addRow(page, 3);
-    const statCell = page.locator('affine-database-column-stats-cell').nth(0);
+    const statCell = page.locator('polymind-database-column-stats-cell').nth(0);
     await moveToCenterOf(page, statCell);
     await statCell.click();
     await menuSelect(page, ['Count', 'Count Empty']);
@@ -71,7 +71,7 @@ test.describe('rich-text', () => {
     await addRow(page, 3);
     await insertRightColumn(page);
     await changeColumnType(page, 1, 'text');
-    const statCell = page.locator('affine-database-column-stats-cell').nth(1);
+    const statCell = page.locator('polymind-database-column-stats-cell').nth(1);
     await moveToCenterOf(page, statCell);
     await statCell.click();
     await menuSelect(page, ['Count', 'Count Empty']);
@@ -92,7 +92,7 @@ test.describe('select', () => {
     await addRow(page, 3);
     await insertRightColumn(page);
     await changeColumnType(page, 1, 'select');
-    const statCell = page.locator('affine-database-column-stats-cell').nth(1);
+    const statCell = page.locator('polymind-database-column-stats-cell').nth(1);
     await moveToCenterOf(page, statCell);
     await statCell.click();
     await menuSelect(page, ['Count', 'Count Empty']);

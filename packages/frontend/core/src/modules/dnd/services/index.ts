@@ -6,14 +6,14 @@ import {
   type MonitorGetFeedback,
   type toExternalData,
 } from '@polymind/component';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import {
   DNDAPIExtension,
   DndApiExtensionIdentifier,
-} from '@blocksuite/affine/shared/services';
-import { BlockStdScope } from '@blocksuite/affine/std';
-import type { SliceSnapshot } from '@blocksuite/affine/store';
-import type { DragBlockPayload } from '@blocksuite/affine/widgets/drag-handle';
+} from '@blocksuite/polymind/shared/services';
+import { BlockStdScope } from '@blocksuite/polymind/std';
+import type { SliceSnapshot } from '@blocksuite/polymind/store';
+import type { DragBlockPayload } from '@blocksuite/polymind/widgets/drag-handle';
 import { Service } from '@toeverything/infra';
 
 import type { DocsService } from '../../doc';
@@ -21,12 +21,12 @@ import type { EditorSettingService } from '../../editor-setting';
 import { resolveLinkToDoc } from '../../navigation';
 import type { WorkspaceService } from '../../workspace';
 
-type Entity = AffineDNDData['draggable']['entity'];
+type Entity = PolymindDNDData['draggable']['entity'];
 type EntityResolver = (data: string) => Entity | null;
 
 type ExternalDragPayload = ExternalGetDataFeedbackArgs['source'];
 
-type MixedDNDData = AffineDNDData & {
+type MixedDNDData = PolymindDNDData & {
   draggable: DragBlockPayload;
 };
 
@@ -86,7 +86,7 @@ export class DndService extends Service {
         }
         const snapshotSlice = dndAPI.fromEntity({
           docId: data.entity.id,
-          flavour: 'affine:embed-linked-doc',
+          flavour: 'polymind:embed-linked-doc',
         });
         if (!snapshotSlice) {
           return;
@@ -102,7 +102,7 @@ export class DndService extends Service {
     /**
      * Migrate from blocksuite to affine
      */
-    const blocksuiteToAffine = (args: MonitorGetFeedback<MixedDNDData>) => {
+    const blocksuiteToPolymind = (args: MonitorGetFeedback<MixedDNDData>) => {
       const data = args.source.data;
       if (!data.entity && data.bsEntity) {
         if (data.bsEntity.type !== 'blocks' || !data.bsEntity.snapshot) {
@@ -122,7 +122,7 @@ export class DndService extends Service {
 
     function adaptDragEvent(args: MonitorGetFeedback<MixedDNDData>) {
       affineToBlocksuite(args);
-      blocksuiteToAffine(args);
+      blocksuiteToPolymind(args);
     }
 
     function canMonitor(args: MonitorGetFeedback<MixedDNDData>) {
@@ -152,7 +152,7 @@ export class DndService extends Service {
       const flavour =
         dropTarget === 'canvas'
           ? this.editorSettingService.editorSetting.docCanvasPreferView.value
-          : 'affine:embed-linked-doc';
+          : 'polymind:embed-linked-doc';
 
       const { entity, bsEntity } = args.source.data;
       if (!entity || !bsEntity) return;
@@ -192,7 +192,7 @@ export class DndService extends Service {
 
   private readonly resolvers: ((
     source: ExternalDragPayload
-  ) => AffineDNDData['draggable'] | null)[] = [];
+  ) => PolymindDNDData['draggable'] | null)[] = [];
 
   getBlocksuiteDndAPI(sourceDocId?: string) {
     const collection = this.workspaceService.workspace.docCollection;
@@ -211,7 +211,7 @@ export class DndService extends Service {
     return dndAPI;
   }
 
-  fromExternalData: fromExternalData<AffineDNDData> = (
+  fromExternalData: fromExternalData<PolymindDNDData> = (
     args: ExternalGetDataFeedbackArgs,
     isDropEvent?: boolean
   ) => {
@@ -219,7 +219,7 @@ export class DndService extends Service {
       return {};
     }
 
-    let resolved: AffineDNDData['draggable'] | null = null;
+    let resolved: PolymindDNDData['draggable'] | null = null;
 
     // in the order of the resolvers instead of the order of the types
     for (const resolver of this.resolvers) {
@@ -237,7 +237,7 @@ export class DndService extends Service {
     return resolved;
   };
 
-  toExternalData: toExternalData<AffineDNDData> = (args, data) => {
+  toExternalData: toExternalData<PolymindDNDData> = (args, data) => {
     const normalData = typeof data === 'function' ? data(args) : data;
 
     if (
@@ -257,7 +257,7 @@ export class DndService extends Service {
 
     const snapshotSlice = dndAPI.fromEntity({
       docId: normalData.entity.id,
-      flavour: 'affine:embed-linked-doc',
+      flavour: 'polymind:embed-linked-doc',
     });
 
     if (!snapshotSlice) {
@@ -301,7 +301,7 @@ export class DndService extends Service {
    */
   private readonly resolveBlocksuiteExternalData = (
     source: ExternalDragPayload
-  ): AffineDNDData['draggable'] | null => {
+  ): PolymindDNDData['draggable'] | null => {
     const dndAPI = this.getBlocksuiteDndAPI();
     if (!dndAPI) {
       return null;
@@ -347,7 +347,7 @@ export class DndService extends Service {
   ): Entity | null => {
     for (const block of snapshot.content) {
       if (
-        ['affine:embed-linked-doc', 'affine:embed-synced-doc'].includes(
+        ['polymind:embed-linked-doc', 'polymind:embed-synced-doc'].includes(
           block.flavour
         )
       ) {

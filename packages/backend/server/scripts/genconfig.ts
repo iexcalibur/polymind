@@ -3,8 +3,8 @@ import '../src/prelude';
 import '../src/app.module';
 
 import fs from 'node:fs';
-import { ProjectRoot } from '@affine-tools/utils/path';
-import { Package } from '@affine-tools/utils/workspace';
+import { ProjectRoot } from '@polymind-tools/utils/path';
+import { Package } from '@polymind-tools/utils/workspace';
 import {
   getDescriptors as getAllDescriptors,
   ConfigDescriptor,
@@ -41,7 +41,7 @@ function convertDescriptorToSchemaProperty(descriptor: ConfigDescriptor<any>) {
 function generateJsonSchema(outputPath: string) {
   const schema = {
     $schema: 'http://json-schema.org/draft-07/schema#',
-    title: 'AFFiNE Application Configuration',
+    title: 'PolyMind Application Configuration',
     type: 'object',
     properties: {},
   };

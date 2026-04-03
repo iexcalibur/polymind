@@ -7,20 +7,20 @@ runs:
     - name: Initialize database
       shell: bash
       run: |
-        psql -h localhost -U postgres -c "CREATE DATABASE affine;"
-        psql -h localhost -U postgres -c "CREATE USER affine WITH PASSWORD 'affine';"
-        psql -h localhost -U postgres -c "ALTER USER affine WITH SUPERUSER;"
+        psql -h localhost -U postgres -c "CREATE DATABASE polymind;"
+        psql -h localhost -U postgres -c "CREATE USER polymind WITH PASSWORD 'polymind';"
+        psql -h localhost -U postgres -c "ALTER USER polymind WITH SUPERUSER;"
       env:
-        PGPASSWORD: affine
+        PGPASSWORD: polymind
 
     - name: Run init-db script
       shell: bash
       env:
         NODE_ENV: test
       run: |
-        yarn affine @affine/server prisma generate
-        yarn affine @affine/server prisma migrate deploy
-        yarn affine @affine/server data-migration run
+        yarn polymind @polymind/server prisma generate
+        yarn polymind @polymind/server prisma migrate deploy
+        yarn polymind @polymind/server data-migration run
 
     - name: Import config
       shell: bash

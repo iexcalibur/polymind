@@ -47,13 +47,13 @@ test('only have one drag handle in screen', async ({ page }) => {
 
   await page.mouse.move(topLeft.x, topLeft.y);
   const length1 = await page.evaluate(() => {
-    const handles = document.querySelectorAll('affine-drag-handle-widget');
+    const handles = document.querySelectorAll('polymind-drag-handle-widget');
     return handles.length;
   }, []);
   expect(length1).toBe(1);
   await page.mouse.move(bottomRight.x, bottomRight.y);
   const length2 = await page.evaluate(() => {
-    const handles = document.querySelectorAll('affine-drag-handle-widget');
+    const handles = document.querySelectorAll('polymind-drag-handle-widget');
     return handles.length;
   }, []);
   expect(length2).toBe(1);
@@ -271,7 +271,7 @@ test.fixme('should be able to drag & drop multiple blocks', async ({
   );
 
   const blockSelections = page
-    .locator('affine-block-selection')
+    .locator('polymind-block-selection')
     .locator('visible=true');
   await expect(blockSelections).toHaveCount(2);
 
@@ -325,7 +325,7 @@ test.fixme('should be able to drag & drop multiple blocks to nested block', asyn
   );
 
   const blockSelections = page
-    .locator('affine-block-selection')
+    .locator('polymind-block-selection')
     .locator('visible=true');
   await expect(blockSelections).toHaveCount(2);
 
@@ -382,7 +382,7 @@ test.fixme('should create preview when dragging', async ({ page }) => {
   await initThreeParagraphs(page);
   await assertRichTexts(page, ['123', '456', '789']);
 
-  const dragPreview = page.locator('affine-drag-preview');
+  const dragPreview = page.locator('polymind-drag-preview');
 
   await dragBetweenIndices(
     page,
@@ -396,7 +396,7 @@ test.fixme('should create preview when dragging', async ({ page }) => {
   );
 
   const blockSelections = page
-    .locator('affine-block-selection')
+    .locator('polymind-block-selection')
     .locator('visible=true');
   await expect(blockSelections).toHaveCount(2);
 
@@ -433,7 +433,7 @@ test.fixme('should drag and drop blocks under block-level selection', async ({
   );
 
   const blockSelections = page
-    .locator('affine-block-selection')
+    .locator('polymind-block-selection')
     .locator('visible=true');
   await expect(blockSelections).toHaveCount(2);
 
@@ -484,7 +484,7 @@ test('should trigger click event on editor container when clicking on blocks und
   );
 
   const blockSelections = page
-    .locator('affine-block-selection')
+    .locator('polymind-block-selection')
     .locator('visible=true');
   await expect(blockSelections).toHaveCount(2);
   await expect(page.locator('[contenteditable="true"]:focus')).toHaveCount(0);
@@ -531,7 +531,7 @@ test('should get to selected block when dragging unselected block', async ({
   await page.mouse.up();
 
   const blockSelections = page
-    .locator('affine-block-selection')
+    .locator('polymind-block-selection')
     .locator('visible=true');
   await expect(blockSelections).toHaveCount(1);
 
@@ -585,7 +585,7 @@ test.fixme('should clear the currently selected block when clicked again', async
   await page.mouse.up();
 
   const blockSelections = page
-    .locator('affine-block-selection')
+    .locator('polymind-block-selection')
     .locator('visible=true');
   await expect(blockSelections).toHaveCount(1);
 
@@ -622,15 +622,15 @@ test.fixme('should support moving blocks from multiple notes', async ({
   await page.evaluate(() => {
     const { doc } = window;
 
-    const rootId = doc.addBlock('affine:page', {
+    const rootId = doc.addBlock('polymind:page', {
       title: new window.$blocksuite.store.Text(),
     });
-    doc.addBlock('affine:surface', {}, rootId);
+    doc.addBlock('polymind:surface', {}, rootId);
 
     ['123', '456', '789', '987', '654', '321'].forEach(text => {
-      const noteId = doc.addBlock('affine:note', {}, rootId);
+      const noteId = doc.addBlock('polymind:note', {}, rootId);
       doc.addBlock(
-        'affine:paragraph',
+        'polymind:paragraph',
         {
           text: new window.$blocksuite.store.Text(text),
         },
@@ -653,7 +653,7 @@ test.fixme('should support moving blocks from multiple notes', async ({
   );
 
   const blockSelections = page
-    .locator('affine-block-selection')
+    .locator('polymind-block-selection')
     .locator('visible=true');
   await expect(blockSelections).toHaveCount(2);
 
@@ -747,7 +747,7 @@ test('drag handle should show on right block when scroll viewport', async ({
   await page.mouse.up();
 
   const blockSelections = page
-    .locator('affine-block-selection')
+    .locator('polymind-block-selection')
     .locator('visible=true');
   await expect(blockSelections).toHaveCount(1);
 

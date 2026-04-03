@@ -9,7 +9,7 @@ import {
 } from '@polymind/component';
 import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
 import { useCatchEventCallback } from '@polymind/core/components/hooks/use-catch-event-hook';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { useI18n } from '@polymind/i18n';
 import { CloseIcon, PlusIcon, RightSidebarIcon } from '@blocksuite/icons/rc';
 import {
@@ -43,7 +43,7 @@ import * as styles from './styles.css';
 const TabSupportType = new Set(['collection', 'tag', 'doc']);
 
 const tabCanDrop =
-  (tab?: TabStatus): NonNullable<DropTargetOptions<AffineDNDData>['canDrop']> =>
+  (tab?: TabStatus): NonNullable<DropTargetOptions<PolymindDNDData>['canDrop']> =>
   ctx => {
     if (
       ctx.source.data.from?.at === 'app-header:tabs' &&
@@ -167,7 +167,7 @@ const WorkbenchTab = ({
   active: boolean;
   tabsLength: number;
   dnd?: boolean;
-  onDrop?: (data: DropTargetDropEvent<AffineDNDData>) => void;
+  onDrop?: (data: DropTargetDropEvent<PolymindDNDData>) => void;
 }) => {
   useServiceOptional(DesktopStateSynchronizer);
   const tabsHeaderService = useService(AppTabsHeaderService);
@@ -177,7 +177,7 @@ const WorkbenchTab = ({
     await tabsHeaderService.closeTab?.(workbench.id);
   }, [tabsHeaderService, workbench.id]);
 
-  const { dropTargetRef, closestEdge } = useDropTarget<AffineDNDData>(
+  const { dropTargetRef, closestEdge } = useDropTarget<PolymindDNDData>(
     () => ({
       closestEdge: {
         allowedEdges: ['left', 'right'],
@@ -191,7 +191,7 @@ const WorkbenchTab = ({
     [dnd, onDrop, workbench]
   );
 
-  const { dragRef } = useDraggable<AffineDNDData>(() => {
+  const { dragRef } = useDraggable<PolymindDNDData>(() => {
     const urls = workbench.views.map(view => {
       const url = new URL(
         workbench.basename + (view.path?.pathname ?? ''),
@@ -201,7 +201,7 @@ const WorkbenchTab = ({
       return url.toString();
     });
 
-    let entity: AffineDNDData['draggable']['entity'];
+    let entity: PolymindDNDData['draggable']['entity'];
 
     for (const url of urls) {
       const maybeDocLink = resolveLinkToDoc(url);
@@ -348,7 +348,7 @@ export const AppTabsHeader = ({
   }, [mode, desktopApi]);
 
   const onDrop = useAsyncCallback(
-    async (data: DropTargetDropEvent<AffineDNDData>, targetId?: string) => {
+    async (data: DropTargetDropEvent<PolymindDNDData>, targetId?: string) => {
       const edge = data.closestEdge ?? 'right';
       targetId = targetId ?? tabs.at(-1)?.id;
 
@@ -395,7 +395,7 @@ export const AppTabsHeader = ({
   );
 
   const { dropTargetRef: spacerDropTargetRef, draggedOver } =
-    useDropTarget<AffineDNDData>(
+    useDropTarget<PolymindDNDData>(
       () => ({
         onDrop,
         dropEffect: 'move',

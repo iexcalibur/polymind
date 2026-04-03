@@ -8,13 +8,13 @@
   },
   "include": ["./src"],
   "references": [
+    { "path": "../../../../blocksuite/polymind/all" },
     { "path": "../../component" },
     { "path": "../../core" },
     { "path": "../../../common/debug" },
     { "path": "../../electron-api" },
     { "path": "../../i18n" },
     { "path": "../../../common/nbstore" },
-    { "path": "../../../../blocksuite/affine/all" },
     { "path": "../../../common/infra" },
     { "path": "../../../../tools/utils" }
   ]

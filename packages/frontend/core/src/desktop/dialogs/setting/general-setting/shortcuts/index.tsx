@@ -4,13 +4,13 @@ import {
 } from '@polymind/component/setting-components';
 import { useI18n } from '@polymind/i18n';
 
-import type { ShortcutsInfo } from '../../../../../components/hooks/affine/use-shortcuts';
+import type { ShortcutsInfo } from '../../../../../components/hooks/polymind/use-shortcuts';
 import {
   useEdgelessShortcuts,
   useGeneralShortcuts,
   useMarkdownShortcuts,
   usePageShortcuts,
-} from '../../../../../components/hooks/affine/use-shortcuts';
+} from '../../../../../components/hooks/polymind/use-shortcuts';
 import { shortcutKey, shortcutKeyContainer, shortcutRow } from './style.css';
 
 const ShortcutsPanel = ({

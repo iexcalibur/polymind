@@ -12,7 +12,7 @@ import type { WorkspacePropertyType } from '../../workspace-property';
 
 const integrationType = f.enum('readwise');
 
-export const AFFiNE_WORKSPACE_DB_SCHEMA = {
+export const PolyMind_WORKSPACE_DB_SCHEMA = {
   folders: {
     id: f.string().primaryKey().optional().default(nanoid),
     parentId: f.string().optional(),
@@ -55,14 +55,14 @@ export const AFFiNE_WORKSPACE_DB_SCHEMA = {
     icon: f.json<IconData>(),
   },
 } as const satisfies DBSchemaBuilder;
-export type AFFiNEWorkspaceDbSchema = typeof AFFiNE_WORKSPACE_DB_SCHEMA;
+export type PolyMindWorkspaceDbSchema = typeof PolyMind_WORKSPACE_DB_SCHEMA;
 
-export type DocProperties = ORMEntity<AFFiNEWorkspaceDbSchema['docProperties']>;
+export type DocProperties = ORMEntity<PolyMindWorkspaceDbSchema['docProperties']>;
 export type DocCustomPropertyInfo = ORMEntity<
-  AFFiNEWorkspaceDbSchema['docCustomPropertyInfo']
+  PolyMindWorkspaceDbSchema['docCustomPropertyInfo']
 >;
 
-export const AFFiNE_WORKSPACE_USERDATA_DB_SCHEMA = {
+export const PolyMind_WORKSPACE_USERDATA_DB_SCHEMA = {
   settings: {
     key: f.string().primaryKey(),
     value: f.json(),
@@ -79,8 +79,8 @@ export const AFFiNE_WORKSPACE_USERDATA_DB_SCHEMA = {
     refMeta: f.json(),
   },
 } as const satisfies DBSchemaBuilder;
-export type AFFiNEWorkspaceUserdataDbSchema =
-  typeof AFFiNE_WORKSPACE_USERDATA_DB_SCHEMA;
+export type PolyMindWorkspaceUserdataDbSchema =
+  typeof PolyMind_WORKSPACE_USERDATA_DB_SCHEMA;
 export type DocIntegrationRef = ORMEntity<
-  AFFiNEWorkspaceUserdataDbSchema['docIntegrationRef']
+  PolyMindWorkspaceUserdataDbSchema['docIntegrationRef']
 >;

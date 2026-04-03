@@ -6,7 +6,7 @@ import {
 
 import * as styles from './style.css';
 
-export const AboutAffine = () => {
+export const AboutPolymind = () => {
   return (
     <>
       <SettingHeader

@@ -4,8 +4,8 @@ import {
   type GroupRenderProps,
   t,
   ungroups,
-} from '@blocksuite/affine/blocks/database';
-import type { UserService } from '@blocksuite/affine-shared/services';
+} from '@blocksuite/polymind/blocks/database';
+import type { UserService } from '@blocksuite/polymind-shared/services';
 
 import { useMemberInfo } from '../hooks/use-member-info';
 import {

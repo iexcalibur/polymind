@@ -1,6 +1,6 @@
-import { Peekable } from '@blocksuite/affine/components/peek';
-import { ViewExtensionManagerIdentifier } from '@blocksuite/affine/ext-loader';
-import { BlockComponent } from '@blocksuite/affine/std';
+import { Peekable } from '@blocksuite/polymind/components/peek';
+import { ViewExtensionManagerIdentifier } from '@blocksuite/polymind/ext-loader';
+import { BlockComponent } from '@blocksuite/polymind/std';
 import { computed } from '@preact/signals-core';
 import { html } from 'lit';
 
@@ -69,6 +69,6 @@ export class AIChatBlockComponent extends BlockComponent<AIChatBlockModel> {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'affine-ai-chat': AIChatBlockComponent;
+    'polymind-ai-chat': AIChatBlockComponent;
   }
 }

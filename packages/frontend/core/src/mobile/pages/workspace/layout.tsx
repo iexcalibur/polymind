@@ -1,5 +1,5 @@
 import { uniReactRoot } from '@polymind/component';
-import { AffineErrorBoundary } from '@polymind/core/components/affine/affine-error-boundary';
+import { PolymindErrorBoundary } from '@polymind/core/components/polymind/polymind-error-boundary';
 import { SWRConfigProvider } from '@polymind/core/components/providers/swr-config-provider';
 import { WorkspaceSideEffects } from '@polymind/core/components/providers/workspace-side-effects';
 import { GlobalContextService } from '@polymind/core/modules/global-context';
@@ -39,7 +39,7 @@ declare global {
   // oxlint-disable-next-line no-var
   var importWorkspaceSnapshot: () => Promise<void>;
   interface WindowEventMap {
-    'affine:workspace:change': CustomEvent<{ id: string }>;
+    'polymind:workspace:change': CustomEvent<{ id: string }>;
   }
 }
 
@@ -68,7 +68,7 @@ export const WorkspaceLayout = ({
       // for debug purpose
       window.currentWorkspace = workspace ?? undefined;
       window.dispatchEvent(
-        new CustomEvent('affine:workspace:change', {
+        new CustomEvent('polymind:workspace:change', {
           detail: {
             id: workspace.id,
           },
@@ -114,7 +114,7 @@ export const WorkspaceLayout = ({
 
   return (
     <FrameworkScope scope={workspace.scope}>
-      <AffineErrorBoundary height="100dvh">
+      <PolymindErrorBoundary height="100dvh">
         <SWRConfigProvider>
           <WorkspaceDialogs />
 
@@ -124,7 +124,7 @@ export const WorkspaceLayout = ({
           <WorkspaceSideEffects />
           {children}
         </SWRConfigProvider>
-      </AffineErrorBoundary>
+      </PolymindErrorBoundary>
     </FrameworkScope>
   );
 };

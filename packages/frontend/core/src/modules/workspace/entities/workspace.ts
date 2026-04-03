@@ -1,6 +1,6 @@
 import type { FeatureFlagService } from '@polymind/core/modules/feature-flag';
 import { toArrayBuffer } from '@polymind/core/utils/array-buffer';
-import type { Workspace as WorkspaceInterface } from '@blocksuite/affine/store';
+import type { Workspace as WorkspaceInterface } from '@blocksuite/polymind/store';
 import { Entity, LiveData, yjsGetPath } from '@toeverything/infra';
 import type { Observable } from 'rxjs';
 import { Doc as YDoc, transact } from 'yjs';

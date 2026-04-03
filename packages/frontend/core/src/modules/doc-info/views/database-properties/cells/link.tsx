@@ -1,5 +1,5 @@
 import { PropertyValue } from '@polymind/component';
-import { AffinePageReference } from '@polymind/core/components/affine/reference-link';
+import { PolymindPageReference } from '@polymind/core/components/polymind/reference-link';
 import { ConfigModal } from '@polymind/core/components/mobile';
 import { resolveLinkToDoc } from '@polymind/core/modules/navigation';
 import { useI18n } from '@polymind/i18n';
@@ -143,7 +143,7 @@ export const LinkCell = ({
       >
         {!editing ? (
           resolvedDocLink ? (
-            <AffinePageReference
+            <PolymindPageReference
               pageId={resolvedDocLink.docId}
               params={resolvedDocLink.params}
             />

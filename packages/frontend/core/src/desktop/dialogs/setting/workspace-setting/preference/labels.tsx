@@ -47,7 +47,7 @@ const getConditions = (
     { condition: !isOwner, label: 'joinedWorkspace' },
     { condition: flavour === 'local', label: 'local' },
     {
-      condition: flavour === 'affine-cloud',
+      condition: flavour === 'polymind-cloud',
       label: 'syncCloud',
     },
     {
@@ -55,7 +55,7 @@ const getConditions = (
       label: 'teamWorkspace',
     },
     {
-      condition: flavour !== 'affine-cloud' && flavour !== 'local',
+      condition: flavour !== 'polymind-cloud' && flavour !== 'local',
       label: 'selfHosted',
     },
   ];

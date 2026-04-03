@@ -134,13 +134,13 @@ export class ChatPrompt {
       currentDocId,
     } = params;
     return {
-      'affine::date': new Date().toLocaleDateString(),
-      'affine::language': language || 'same language as the user query',
-      'affine::timezone': timezone || 'no preference',
-      'affine::hasDocsRef': Array.isArray(docs) && docs.length > 0,
-      'affine::hasFilesRef': Array.isArray(files) && files.length > 0,
-      'affine::hasSelected': !!selectedMarkdown || !!selectedSnapshot || !!html,
-      'affine::hasCurrentDoc':
+      'polymind::date': new Date().toLocaleDateString(),
+      'polymind::language': language || 'same language as the user query',
+      'polymind::timezone': timezone || 'no preference',
+      'polymind::hasDocsRef': Array.isArray(docs) && docs.length > 0,
+      'polymind::hasFilesRef': Array.isArray(files) && files.length > 0,
+      'polymind::hasSelected': !!selectedMarkdown || !!selectedSnapshot || !!html,
+      'polymind::hasCurrentDoc':
         typeof currentDocId === 'string' && currentDocId.trim().length > 0,
     };
   }
@@ -154,7 +154,7 @@ export class ChatPrompt {
     this.checkParams(params, sessionId);
 
     const { attachments: attach, ...restParams } = Object.fromEntries(
-      Object.entries(params).filter(([k]) => !k.startsWith('affine::'))
+      Object.entries(params).filter(([k]) => !k.startsWith('polymind::'))
     );
     const paramsAttach = Array.isArray(attach) ? attach : [];
 

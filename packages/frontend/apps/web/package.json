@@ -5,16 +5,16 @@
   "private": true,
   "browser": "src/index.tsx",
   "scripts": {
-    "build": "affine bundle",
-    "dev": "affine bundle --dev"
+    "build": "polymind bundle",
+    "dev": "polymind bundle --dev"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
     "@polymind/component": "workspace:*",
     "@polymind/core": "workspace:*",
     "@polymind/env": "workspace:*",
     "@polymind/i18n": "workspace:*",
     "@polymind/nbstore": "workspace:*",
-    "@emotion/react": "^11.14.0",
     "@toeverything/infra": "workspace:*",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",

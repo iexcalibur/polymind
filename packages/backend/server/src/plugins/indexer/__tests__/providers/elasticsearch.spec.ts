@@ -18,7 +18,7 @@ import { AggregateQueryDSL, ElasticsearchProvider } from '../../providers';
 import { blockMapping, docMapping, SearchTable } from '../../tables';
 
 const test =
-  process.env.AFFINE_INDEXER_SEARCH_PROVIDER === 'elasticsearch'
+  process.env.POLYMIND_INDEXER_SEARCH_PROVIDER === 'elasticsearch'
     ? _test
     : _test.skip;
 
@@ -38,7 +38,7 @@ _test.before(async () => {
             type: SearchProviderType.Elasticsearch,
             endpoint: 'http://localhost:9200',
             username: 'elastic',
-            password: 'affine',
+            password: 'polymind',
           },
         },
       }),
@@ -63,7 +63,7 @@ _test.before(async () => {
         doc_id: randomUUID(),
         block_id: randomUUID(),
         content: `hello world on search title, ${randomUUID()}`,
-        flavour: 'affine:page',
+        flavour: 'polymind:page',
         created_by_user_id: user.id,
         updated_by_user_id: user.id,
         created_at: new Date(),
@@ -130,7 +130,7 @@ _test.before(async () => {
         workspace_id: 'workspaceId1',
         doc_id: 'docId2-affine',
         block_id: 'blockId8',
-        content: 'AFFiNE 是一个基于云端的笔记应用',
+        content: 'PolyMind 是一个基于云端的笔记应用',
         flavour: 'flavour8',
         ref_doc_id: 'docId1',
         ref: [
@@ -218,7 +218,7 @@ test('should write document work', async t => {
         workspace_id: workspace.id,
         doc_id: docId,
         content: 'hello world',
-        flavour: 'affine:page',
+        flavour: 'polymind:page',
         created_by_user_id: user.id,
         updated_by_user_id: user.id,
         created_at: new Date(),
@@ -238,7 +238,7 @@ test('should write document work', async t => {
   });
   t.is(result.nodes.length, 1);
   t.deepEqual(result.nodes[0].fields, {
-    flavour: ['affine:page'],
+    flavour: ['polymind:page'],
     content: ['hello world'],
   });
   t.deepEqual(result.nodes[0]._source, {
@@ -254,7 +254,7 @@ test('should write document work', async t => {
         workspace_id: workspace.id,
         doc_id: docId,
         content: 'hello world',
-        flavour: 'affine:page',
+        flavour: 'polymind:page',
         ref_doc_id: 'docId2',
         created_by_user_id: user.id,
         updated_by_user_id: user.id,
@@ -276,7 +276,7 @@ test('should write document work', async t => {
 
   t.is(result.nodes.length, 1);
   t.deepEqual(result.nodes[0].fields, {
-    flavour: ['affine:page'],
+    flavour: ['polymind:page'],
     content: ['hello world'],
     ref_doc_id: ['docId2'],
   });
@@ -289,7 +289,7 @@ test('should write document work', async t => {
         workspace_id: workspace.id,
         doc_id: docId,
         content: 'hello world',
-        flavour: 'affine:page',
+        flavour: 'polymind:page',
         // ref_doc_id: 'docId2',
         created_by_user_id: user.id,
         updated_by_user_id: user.id,
@@ -311,7 +311,7 @@ test('should write document work', async t => {
 
   t.is(result.nodes.length, 1);
   t.deepEqual(result.nodes[0].fields, {
-    flavour: ['affine:page'],
+    flavour: ['polymind:page'],
     content: ['hello world'],
   });
 });
@@ -326,7 +326,7 @@ test('should handle ref_doc_id as string[]', async t => {
         workspace_id: workspace.id,
         doc_id: docId,
         content: 'hello world',
-        flavour: 'affine:page',
+        flavour: 'polymind:page',
         ref_doc_id: 'docId2',
         ref: '{"foo": "bar"}',
         created_by_user_id: user.id,
@@ -349,7 +349,7 @@ test('should handle ref_doc_id as string[]', async t => {
 
   t.is(result.nodes.length, 1);
   t.deepEqual(result.nodes[0].fields, {
-    flavour: ['affine:page'],
+    flavour: ['polymind:page'],
     content: ['hello world'],
     ref_doc_id: ['docId2'],
     ref: ['{"foo": "bar"}'],
@@ -370,7 +370,7 @@ test('should handle ref_doc_id as string[]', async t => {
         workspace_id: workspace.id,
         doc_id: docId,
         content: 'hello world',
-        flavour: 'affine:page',
+        flavour: 'polymind:page',
         ref_doc_id: ['docId2', 'docId3'],
         ref: ['{"foo": "bar"}', '{"foo": "baz"}'],
         created_by_user_id: user.id,
@@ -393,7 +393,7 @@ test('should handle ref_doc_id as string[]', async t => {
 
   t.is(result.nodes.length, 1);
   t.deepEqual(result.nodes[0].fields, {
-    flavour: ['affine:page'],
+    flavour: ['polymind:page'],
     content: ['hello world'],
     ref_doc_id: ['docId2', 'docId3'],
     ref: ['{"foo": "bar"}', '{"foo": "baz"}'],
@@ -416,7 +416,7 @@ test('should handle content as string[]', async t => {
         workspace_id: workspace.id,
         doc_id: docId,
         content: 'hello world',
-        flavour: 'affine:page',
+        flavour: 'polymind:page',
         ref_doc_id: 'docId2',
         ref: '{"foo": "bar"}',
         created_by_user_id: user.id,
@@ -439,7 +439,7 @@ test('should handle content as string[]', async t => {
 
   t.is(result.nodes.length, 1);
   t.deepEqual(result.nodes[0].fields, {
-    flavour: ['affine:page'],
+    flavour: ['polymind:page'],
     content: ['hello world'],
     ref_doc_id: ['docId2'],
     ref: ['{"foo": "bar"}'],
@@ -459,7 +459,7 @@ test('should handle content as string[]', async t => {
         workspace_id: workspace.id,
         doc_id: docId,
         content: ['hello', 'world 2'],
-        flavour: 'affine:page',
+        flavour: 'polymind:page',
         ref_doc_id: 'docId2',
         ref: '{"foo": "bar"}',
         created_by_user_id: user.id,
@@ -482,7 +482,7 @@ test('should handle content as string[]', async t => {
 
   t.is(result.nodes.length, 1);
   t.deepEqual(result.nodes[0].fields, {
-    flavour: ['affine:page'],
+    flavour: ['polymind:page'],
     content: ['hello', 'world 2'],
     ref_doc_id: ['docId2'],
     ref: ['{"foo": "bar"}'],
@@ -507,7 +507,7 @@ test('should handle blob as string[]', async t => {
         doc_id: docId,
         block_id: blockId,
         content: '',
-        flavour: 'affine:page',
+        flavour: 'polymind:page',
         blob: 'blob1',
         created_by_user_id: user.id,
         updated_by_user_id: user.id,
@@ -529,7 +529,7 @@ test('should handle blob as string[]', async t => {
 
   t.is(result.nodes.length, 1);
   t.deepEqual(result.nodes[0].fields, {
-    flavour: ['affine:page'],
+    flavour: ['polymind:page'],
     blob: ['blob1'],
     content: [''],
   });
@@ -548,7 +548,7 @@ test('should handle blob as string[]', async t => {
         doc_id: docId,
         block_id: blockId,
         content: '',
-        flavour: 'affine:page',
+        flavour: 'polymind:page',
         blob: ['blob1', 'blob2'],
         created_by_user_id: user.id,
         updated_by_user_id: user.id,
@@ -570,7 +570,7 @@ test('should handle blob as string[]', async t => {
 
   t.is(result.nodes.length, 1);
   t.deepEqual(result.nodes[0].fields, {
-    flavour: ['affine:page'],
+    flavour: ['polymind:page'],
     blob: ['blob1', 'blob2'],
     content: [''],
   });
@@ -588,7 +588,7 @@ test('should handle blob as string[]', async t => {
         doc_id: docId,
         block_id: blockId,
         content: '',
-        flavour: 'affine:page',
+        flavour: 'polymind:page',
         blob: ['blob3'],
         created_by_user_id: user.id,
         updated_by_user_id: user.id,
@@ -608,7 +608,7 @@ test('should handle blob as string[]', async t => {
   });
   t.is(result.nodes.length, 1);
   t.deepEqual(result.nodes[0].fields, {
-    flavour: ['affine:page'],
+    flavour: ['polymind:page'],
     blob: ['blob3'],
     content: [''],
   });
@@ -630,29 +630,29 @@ test('should batch write bugfix', async t => {
         doc_id: 'a',
         block_id: 'b1',
         content: '2025-05-26',
-        flavour: 'affine:page',
+        flavour: 'polymind:page',
         additional: '{"displayMode":"edgeless"}',
         created_by_user_id: '46ce597c-098a-4c61-a106-ce79827ec1de',
         updated_by_user_id: '46ce597c-098a-4c61-a106-ce79827ec1de',
         created_at: '2025-05-26T05:16:23.128Z',
         updated_at: '2025-05-26T05:15:53.091Z',
-        flavour_indexed: 'affine:page',
+        flavour_indexed: 'polymind:page',
       },
       {
         workspace_id: workspaceId,
         doc_id: 'a',
         block_id: 'b2',
         content: '',
-        flavour: 'affine:surface',
-        parent_flavour: 'affine:page',
+        flavour: 'polymind:surface',
+        parent_flavour: 'polymind:page',
         parent_block_id: 'TcOGF6HSa7',
         additional: '',
         created_by_user_id: '46ce597c-098a-4c61-a106-ce79827ec1de',
         updated_by_user_id: '46ce597c-098a-4c61-a106-ce79827ec1de',
         created_at: '2025-05-26T05:16:23.128Z',
         updated_at: '2025-05-26T05:15:53.091Z',
-        flavour_indexed: 'affine:surface',
-        parent_flavour_indexed: 'affine:page',
+        flavour_indexed: 'polymind:surface',
+        parent_flavour_indexed: 'polymind:page',
         parent_block_id_indexed: 'TcOGF6HSa7',
       },
     ],
@@ -892,7 +892,7 @@ test('should search doc table query title match cjk work', async t => {
       {
         workspace_id: workspaceId,
         doc_id: 'doc-0',
-        title: 'AFFiNE 是一个基于云端的笔记应用',
+        title: 'PolyMind 是一个基于云端的笔记应用',
       },
     ],
     {
@@ -961,7 +961,7 @@ test('should search doc table query title.autocomplete work', async t => {
       {
         workspace_id: workspaceId,
         doc_id: docId,
-        title: 'AFFiNE 是一个基于云端的笔记应用',
+        title: 'PolyMind 是一个基于云端的笔记应用',
       },
     ],
     {
@@ -1015,8 +1015,8 @@ test('should search query match ref_doc_id work', async t => {
         doc_id: docId,
         block_id: 'blockId1',
         content: 'hello world on search title blockId1',
-        flavour: 'affine:page',
-        parent_flavour: 'affine:database',
+        flavour: 'polymind:page',
+        parent_flavour: 'polymind:database',
         parent_block_id: 'parentBlockId1',
         ref_doc_id: refDocId1,
         ref: '{"docId":"docId1","mode":"page"}',
@@ -1031,8 +1031,8 @@ test('should search query match ref_doc_id work', async t => {
         doc_id: docId,
         block_id: 'blockId1-not-matched',
         content: 'hello world on search title blockId1-not-matched',
-        flavour: 'affine:page',
-        parent_flavour: 'affine:database1',
+        flavour: 'polymind:page',
+        parent_flavour: 'polymind:database1',
         parent_block_id: 'parentBlockId1',
         ref_doc_id: refDocId1,
         ref: '{"docId":"docId1","mode":"page"}',
@@ -1047,8 +1047,8 @@ test('should search query match ref_doc_id work', async t => {
         doc_id: docId,
         block_id: 'blockId-all',
         content: 'hello world on search title blockId-all',
-        flavour: 'affine:page',
-        parent_flavour: 'affine:database',
+        flavour: 'polymind:page',
+        parent_flavour: 'polymind:database',
         parent_block_id: 'parentBlockId2',
         ref_doc_id: [
           refDocId2,
@@ -1077,8 +1077,8 @@ test('should search query match ref_doc_id work', async t => {
         doc_id: docId,
         block_id: 'blockId1-2',
         content: 'hello world on search title blockId1-2',
-        flavour: 'affine:page',
-        parent_flavour: 'affine:database',
+        flavour: 'polymind:page',
+        parent_flavour: 'polymind:database',
         parent_block_id: 'parentBlockId2',
         ref_doc_id: [refDocId1, refDocId2],
         ref: [
@@ -1096,8 +1096,8 @@ test('should search query match ref_doc_id work', async t => {
         doc_id: docId,
         block_id: 'blockId2-1',
         content: 'hello world on search title blockId2-1',
-        flavour: 'affine:page',
-        parent_flavour: 'affine:database',
+        flavour: 'polymind:page',
+        parent_flavour: 'polymind:database',
         parent_block_id: 'parentBlockId2',
         ref_doc_id: [refDocId2, refDocId1],
         ref: [
@@ -1115,8 +1115,8 @@ test('should search query match ref_doc_id work', async t => {
         doc_id: docId,
         block_id: 'blockId3-2-1-4',
         content: 'hello world on search title blockId3-2-1-4',
-        flavour: 'affine:page',
-        parent_flavour: 'affine:database',
+        flavour: 'polymind:page',
+        parent_flavour: 'polymind:database',
         parent_block_id: 'parentBlockId2',
         ref_doc_id: [refDocId3, refDocId2, refDocId1, refDocId4],
         ref: [
@@ -1135,8 +1135,8 @@ test('should search query match ref_doc_id work', async t => {
         doc_id: refDocId1,
         block_id: 'blockId3',
         content: 'hello world on search title blockId3',
-        flavour: 'affine:page',
-        parent_flavour: 'affine:database',
+        flavour: 'polymind:page',
+        parent_flavour: 'polymind:database',
         parent_block_id: 'parentBlockId3',
         ref_doc_id: refDocId1,
         ref: '{"docId":"docId1","mode":"page"}',
@@ -1151,8 +1151,8 @@ test('should search query match ref_doc_id work', async t => {
         doc_id: docId,
         block_id: 'blockId4',
         content: 'hello world on search title blockId4',
-        flavour: 'affine:page',
-        parent_flavour: 'affine:database',
+        flavour: 'polymind:page',
+        parent_flavour: 'polymind:database',
         parent_block_id: 'parentBlockId4',
         ref_doc_id: refDocId10,
         ref: '{"docId":"docId2","mode":"page"}',
@@ -1167,8 +1167,8 @@ test('should search query match ref_doc_id work', async t => {
         doc_id: docId,
         block_id: 'blockId1-text',
         content: 'hello world on search title blockId1-text',
-        flavour: 'affine:text',
-        parent_flavour: 'affine:text',
+        flavour: 'polymind:text',
+        parent_flavour: 'polymind:text',
         parent_block_id: 'parentBlockId1',
         ref_doc_id: refDocId1,
         ref: '{"docId":"docId1","mode":"page"}',
@@ -1196,7 +1196,7 @@ test('should search query match ref_doc_id work', async t => {
             bool: {
               must: [
                 {
-                  term: { parent_flavour: { value: 'affine:database' } },
+                  term: { parent_flavour: { value: 'polymind:database' } },
                 },
                 {
                   // https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/array
@@ -1243,7 +1243,7 @@ test('should search query match ref_doc_id work', async t => {
             bool: {
               must: [
                 {
-                  term: { parent_flavour: { value: 'affine:database' } },
+                  term: { parent_flavour: { value: 'polymind:database' } },
                 },
                 {
                   term: { ref_doc_id: { value: refDocId10 } },
@@ -1433,7 +1433,7 @@ test('should not return not exists field:ref_doc_id', async t => {
         doc_id: docId,
         block_id: blockId,
         content: 'hello world on search title blockId1-text',
-        flavour: 'affine:text',
+        flavour: 'polymind:text',
         created_by_user_id: user.id,
         updated_by_user_id: user.id,
         created_at: new Date(),
@@ -1557,7 +1557,7 @@ test('should aggregate query work', async t => {
                       {
                         term: {
                           flavour: {
-                            value: 'affine:page',
+                            value: 'polymind:page',
                             boost: 1.5,
                           },
                         },
@@ -1643,7 +1643,7 @@ test('should aggregate query return top score first', async t => {
         doc_id: 'doc-0',
         block_id: 'block-0',
         content: `0.15 - week.1进度`,
-        flavour: 'affine:page',
+        flavour: 'polymind:page',
         additional: '{"displayMode":"edgeless"}',
         created_by_user_id: user.id,
         updated_by_user_id: user.id,
@@ -1655,7 +1655,7 @@ test('should aggregate query return top score first', async t => {
         doc_id: 'doc-10',
         block_id: 'block-10-1',
         content: 'Example 1',
-        flavour: 'affine:paragraph',
+        flavour: 'polymind:paragraph',
         created_by_user_id: user.id,
         updated_by_user_id: user.id,
         created_at: new Date(),
@@ -1666,7 +1666,7 @@ test('should aggregate query return top score first', async t => {
         doc_id: 'doc-10',
         block_id: 'block-10-2',
         content: 'Single substitution format 1',
-        flavour: 'affine:paragraph',
+        flavour: 'polymind:paragraph',
         created_by_user_id: user.id,
         updated_by_user_id: user.id,
         created_at: new Date(),
@@ -1711,7 +1711,7 @@ test('should aggregate query return top score first', async t => {
                       {
                         term: {
                           flavour: {
-                            value: 'affine:page',
+                            value: 'polymind:page',
                             boost: 1.5,
                           },
                         },
@@ -1811,7 +1811,7 @@ test('should delete by query work', async t => {
         doc_id: docId,
         block_id: 'block-0',
         content: `hello world on search title block-0`,
-        flavour: 'affine:page',
+        flavour: 'polymind:page',
         created_by_user_id: user.id,
         updated_by_user_id: user.id,
         created_at: new Date(),

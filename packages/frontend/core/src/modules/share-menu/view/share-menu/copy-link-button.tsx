@@ -2,10 +2,10 @@ import { Button, Menu, MenuItem, MenuTrigger } from '@polymind/component';
 import {
   getSelectedNodes,
   useSharingUrl,
-} from '@polymind/core/components/hooks/affine/use-share-url';
+} from '@polymind/core/components/hooks/polymind/use-share-url';
 import { EditorService } from '@polymind/core/modules/editor';
 import { useI18n } from '@polymind/i18n';
-import type { DocMode } from '@blocksuite/affine/model';
+import type { DocMode } from '@blocksuite/polymind/model';
 import { BlockIcon, EdgelessIcon, PageIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import clsx from 'clsx';

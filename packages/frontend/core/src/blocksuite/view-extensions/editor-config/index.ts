@@ -2,7 +2,7 @@ import { getEditorConfigExtension } from '@polymind/core/blocksuite/view-extensi
 import {
   type ViewExtensionContext,
   ViewExtensionProvider,
-} from '@blocksuite/affine/ext-loader';
+} from '@blocksuite/polymind/ext-loader';
 import { FrameworkProvider } from '@toeverything/infra';
 import { z } from 'zod';
 
@@ -10,16 +10,16 @@ const optionsSchema = z.object({
   framework: z.instanceof(FrameworkProvider).optional(),
 });
 
-type AffineEditorConfigViewOptions = z.infer<typeof optionsSchema>;
+type PolymindEditorConfigViewOptions = z.infer<typeof optionsSchema>;
 
-export class AffineEditorConfigViewExtension extends ViewExtensionProvider<AffineEditorConfigViewOptions> {
-  override name = 'affine-view-editor-config';
+export class PolymindEditorConfigViewExtension extends ViewExtensionProvider<PolymindEditorConfigViewOptions> {
+  override name = 'polymind-view-editor-config';
 
   override schema = optionsSchema;
 
   override setup(
     context: ViewExtensionContext,
-    options?: AffineEditorConfigViewOptions
+    options?: PolymindEditorConfigViewOptions
   ) {
     super.setup(context, options);
     const framework = options?.framework;

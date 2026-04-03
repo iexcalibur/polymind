@@ -1,6 +1,6 @@
-import { WithDisposable } from '@blocksuite/affine/global/lit';
-import { ShadowlessElement, TextSelection } from '@blocksuite/affine/std';
-import type { TestAffineEditorContainer } from '@blocksuite/integration-test';
+import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import { ShadowlessElement, TextSelection } from '@blocksuite/polymind/std';
+import type { TestPolymindEditorContainer } from '@blocksuite/integration-test';
 import { css, html } from 'lit';
 import { property, query } from 'lit/decorators.js';
 
@@ -106,7 +106,7 @@ export class CommentPanel extends WithDisposable(ShadowlessElement) {
   private accessor _container!: HTMLDivElement;
 
   @property({ attribute: false })
-  accessor editor!: TestAffineEditorContainer;
+  accessor editor!: TestPolymindEditorContainer;
 }
 
 declare global {

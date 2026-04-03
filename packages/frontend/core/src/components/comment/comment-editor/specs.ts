@@ -1,30 +1,30 @@
 import { CloudViewExtension } from '@polymind/core/blocksuite/view-extensions/cloud';
-import { AffineEditorViewExtension } from '@polymind/core/blocksuite/view-extensions/editor-view/editor-view';
-import { AffineThemeViewExtension } from '@polymind/core/blocksuite/view-extensions/theme';
+import { PolymindEditorViewExtension } from '@polymind/core/blocksuite/view-extensions/editor-view/editor-view';
+import { PolymindThemeViewExtension } from '@polymind/core/blocksuite/view-extensions/theme';
 import { I18n } from '@polymind/i18n';
-import { CodeBlockViewExtension } from '@blocksuite/affine/blocks/code/view';
-import { DividerViewExtension } from '@blocksuite/affine/blocks/divider/view';
-import { LatexViewExtension as LatexBlockViewExtension } from '@blocksuite/affine/blocks/latex/view';
-import { ListViewExtension } from '@blocksuite/affine/blocks/list/view';
-import { NoteViewExtension } from '@blocksuite/affine/blocks/note/view';
-import { ParagraphViewExtension } from '@blocksuite/affine/blocks/paragraph/view';
-import { RootViewExtension } from '@blocksuite/affine/blocks/root/view';
+import { CodeBlockViewExtension } from '@blocksuite/polymind/blocks/code/view';
+import { DividerViewExtension } from '@blocksuite/polymind/blocks/divider/view';
+import { LatexViewExtension as LatexBlockViewExtension } from '@blocksuite/polymind/blocks/latex/view';
+import { ListViewExtension } from '@blocksuite/polymind/blocks/list/view';
+import { NoteViewExtension } from '@blocksuite/polymind/blocks/note/view';
+import { ParagraphViewExtension } from '@blocksuite/polymind/blocks/paragraph/view';
+import { RootViewExtension } from '@blocksuite/polymind/blocks/root/view';
 import {
   PeekViewExtension,
   type PeekViewService,
-} from '@blocksuite/affine/components/peek';
+} from '@blocksuite/polymind/components/peek';
 import {
   type ViewExtensionContext,
   ViewExtensionManager,
   ViewExtensionProvider,
-} from '@blocksuite/affine/ext-loader';
-import { PlainTextClipboardConfig } from '@blocksuite/affine/foundation/clipboard';
-import { LatexInlineSpecExtension } from '@blocksuite/affine/inlines/latex';
-import { LatexViewExtension as LatexInlineViewExtension } from '@blocksuite/affine/inlines/latex/view';
-import { LinkInlineSpecExtension } from '@blocksuite/affine/inlines/link';
-import { LinkViewExtension } from '@blocksuite/affine/inlines/link/view';
-import { MentionInlineSpecExtension } from '@blocksuite/affine/inlines/mention';
-import { MentionViewExtension } from '@blocksuite/affine/inlines/mention/view';
+} from '@blocksuite/polymind/ext-loader';
+import { PlainTextClipboardConfig } from '@blocksuite/polymind/foundation/clipboard';
+import { LatexInlineSpecExtension } from '@blocksuite/polymind/inlines/latex';
+import { LatexViewExtension as LatexInlineViewExtension } from '@blocksuite/polymind/inlines/latex/view';
+import { LinkInlineSpecExtension } from '@blocksuite/polymind/inlines/link';
+import { LinkViewExtension } from '@blocksuite/polymind/inlines/link/view';
+import { MentionInlineSpecExtension } from '@blocksuite/polymind/inlines/mention';
+import { MentionViewExtension } from '@blocksuite/polymind/inlines/mention/view';
 import {
   BackgroundInlineSpecExtension,
   BoldInlineSpecExtension,
@@ -34,9 +34,9 @@ import {
   ItalicInlineSpecExtension,
   StrikeInlineSpecExtension,
   UnderlineInlineSpecExtension,
-} from '@blocksuite/affine/inlines/preset';
-import { ReferenceInlineSpecExtension } from '@blocksuite/affine/inlines/reference';
-import { ReferenceViewExtension } from '@blocksuite/affine/inlines/reference/view';
+} from '@blocksuite/polymind/inlines/preset';
+import { ReferenceInlineSpecExtension } from '@blocksuite/polymind/inlines/reference';
+import { ReferenceViewExtension } from '@blocksuite/polymind/inlines/reference/view';
 import {
   DefaultOpenDocExtension,
   DocDisplayMetaService,
@@ -48,12 +48,12 @@ import {
   PageViewportServiceExtension,
   ThemeService,
   ToolbarRegistryExtension,
-} from '@blocksuite/affine/shared/services';
-import type { AffineTextAttributes } from '@blocksuite/affine/shared/types';
-import { InlineManagerExtension } from '@blocksuite/affine/std/inline';
-import { LinkedDocViewExtension } from '@blocksuite/affine/widgets/linked-doc/view';
-import { ToolbarViewExtension } from '@blocksuite/affine/widgets/toolbar/view';
-import { ViewportOverlayViewExtension } from '@blocksuite/affine/widgets/viewport-overlay/view';
+} from '@blocksuite/polymind/shared/services';
+import type { PolymindTextAttributes } from '@blocksuite/polymind/shared/types';
+import { InlineManagerExtension } from '@blocksuite/polymind/std/inline';
+import { LinkedDocViewExtension } from '@blocksuite/polymind/widgets/linked-doc/view';
+import { ToolbarViewExtension } from '@blocksuite/polymind/widgets/toolbar/view';
+import { ViewportOverlayViewExtension } from '@blocksuite/polymind/widgets/viewport-overlay/view';
 import type { FrameworkProvider } from '@toeverything/infra';
 import { z } from 'zod';
 
@@ -89,7 +89,7 @@ class CommentEditorViewExtensionProvider extends ViewExtensionProvider<CommentEd
       FileSizeLimitService,
 
       ...InlineSpecExtensions,
-      InlineManagerExtension<AffineTextAttributes>({
+      InlineManagerExtension<PolymindTextAttributes>({
         id: 'DefaultInlineManager',
         specs: [
           BoldInlineSpecExtension.identifier,
@@ -145,9 +145,9 @@ export function getCommentEditorViewManager(framework: FrameworkProvider) {
       ViewportOverlayViewExtension,
       LinkedDocViewExtension,
 
-      // Affine side
-      AffineThemeViewExtension,
-      AffineEditorViewExtension,
+      // Polymind side
+      PolymindThemeViewExtension,
+      PolymindEditorViewExtension,
 
       // for rendering mentions
       CloudViewExtension,

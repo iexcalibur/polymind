@@ -1,7 +1,7 @@
-import { SignalWatcher, WithDisposable } from '@blocksuite/affine/global/lit';
-import { scrollbarStyle } from '@blocksuite/affine/shared/styles';
-import { unsafeCSSVarV2 } from '@blocksuite/affine/shared/theme';
-import { type EditorHost } from '@blocksuite/affine/std';
+import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
+import { scrollbarStyle } from '@blocksuite/polymind/shared/styles';
+import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
+import { type EditorHost } from '@blocksuite/polymind/std';
 import { InformationIcon, ToggleDownIcon } from '@blocksuite/icons/lit';
 import { signal } from '@preact/signals-core';
 import { baseTheme } from '@toeverything/theme';
@@ -155,9 +155,9 @@ export class AIErrorWrapper extends SignalWatcher(WithDisposable(LitElement)) {
         >
           ${this.actionText}
           ${this.actionTooltip
-            ? html`<affine-tooltip tip-position="top">
+            ? html`<polymind-tooltip tip-position="top">
                 ${this.actionTooltip}
-              </affine-tooltip>`
+              </polymind-tooltip>`
             : nothing}
         </span>
       </div>

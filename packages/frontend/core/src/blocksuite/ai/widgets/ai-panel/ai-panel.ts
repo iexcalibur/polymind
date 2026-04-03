@@ -1,24 +1,24 @@
-import { ColorScheme } from '@blocksuite/affine/model';
+import { ColorScheme } from '@blocksuite/polymind/model';
 import {
   DocModeProvider,
   NotificationProvider,
   ThemeProvider,
   ToolbarFlag,
   ToolbarRegistryIdentifier,
-} from '@blocksuite/affine/shared/services';
-import { unsafeCSSVar } from '@blocksuite/affine/shared/theme';
+} from '@blocksuite/polymind/shared/services';
+import { unsafeCSSVar } from '@blocksuite/polymind/shared/theme';
 import {
   getPageRootByElement,
   stopPropagation,
-} from '@blocksuite/affine/shared/utils';
-import { WidgetComponent, WidgetViewExtension } from '@blocksuite/affine/std';
-import { GfxControllerIdentifier } from '@blocksuite/affine/std/gfx';
-import { RANGE_SYNC_EXCLUDE_ATTR } from '@blocksuite/affine/std/inline';
-import type { BaseSelection } from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/shared/utils';
+import { WidgetComponent, WidgetViewExtension } from '@blocksuite/polymind/std';
+import { GfxControllerIdentifier } from '@blocksuite/polymind/std/gfx';
+import { RANGE_SYNC_EXCLUDE_ATTR } from '@blocksuite/polymind/std/inline';
+import type { BaseSelection } from '@blocksuite/polymind/store';
 import {
   AFFINE_VIEWPORT_OVERLAY_WIDGET,
-  type AffineViewportOverlayWidget,
-} from '@blocksuite/affine/widgets/viewport-overlay';
+  type PolymindViewportOverlayWidget,
+} from '@blocksuite/polymind/widgets/viewport-overlay';
 import {
   autoPlacement,
   autoUpdate,
@@ -38,14 +38,14 @@ import { literal, unsafeStatic } from 'lit/static-html.js';
 import { type AIError } from '../../provider';
 import type { AIPanelGenerating } from './components/index.js';
 import type {
-  AffineAIPanelState,
-  AffineAIPanelWidgetConfig,
+  PolymindAIPanelState,
+  PolymindAIPanelWidgetConfig,
   AIActionAnswer,
 } from './type.js';
 import { mergeAIActionAnswer } from './utils';
-export const AFFINE_AI_PANEL_WIDGET = 'affine-ai-panel-widget';
+export const AFFINE_AI_PANEL_WIDGET = 'polymind-ai-panel-widget';
 
-export class AffineAIPanelWidget extends WidgetComponent {
+export class PolymindAIPanelWidget extends WidgetComponent {
   static override styles = css`
     :host {
       display: flex;
@@ -286,7 +286,7 @@ export class AffineAIPanelWidget extends WidgetComponent {
     }
   };
 
-  setState = (state: AffineAIPanelState, reference: Element) => {
+  setState = (state: PolymindAIPanelState, reference: Element) => {
     this.state = state;
     this._autoUpdatePosition(reference);
   };
@@ -360,7 +360,7 @@ export class AffineAIPanelWidget extends WidgetComponent {
       ? (this.host.view.getWidget(
           AFFINE_VIEWPORT_OVERLAY_WIDGET,
           rootId
-        ) as AffineViewportOverlayWidget)
+        ) as PolymindViewportOverlayWidget)
       : null;
   }
 
@@ -611,20 +611,20 @@ export class AffineAIPanelWidget extends WidgetComponent {
   }
 
   @property({ attribute: false })
-  accessor config: AffineAIPanelWidgetConfig | null = null;
+  accessor config: PolymindAIPanelWidgetConfig | null = null;
 
   @query('ai-panel-generating')
   accessor generatingElement: AIPanelGenerating | null = null;
 
   @property()
-  accessor state: AffineAIPanelState = 'hidden';
+  accessor state: PolymindAIPanelState = 'hidden';
 
   @property({ attribute: 'data-app-theme', reflect: true })
   accessor appTheme: ColorScheme = ColorScheme.Light;
 }
 
 export const aiPanelWidget = WidgetViewExtension(
-  'affine:page',
+  'polymind:page',
   AFFINE_AI_PANEL_WIDGET,
   literal`${unsafeStatic(AFFINE_AI_PANEL_WIDGET)}`
 );

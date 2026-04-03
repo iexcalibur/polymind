@@ -15,7 +15,7 @@ import {
   ROOT,
 } from './make-env.js';
 
-const log = debug('affine:make-squirrel');
+const log = debug('polymind:make-squirrel');
 
 // taking from https://github.com/electron/forge/blob/main/packages/maker/squirrel/src/MakerSquirrel.ts
 // it was for forge's maker, but can be used standalone as well

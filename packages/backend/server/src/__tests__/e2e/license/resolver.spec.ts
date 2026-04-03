@@ -39,8 +39,8 @@ let owner: MockedUser;
 
 e2e.before(async () => {
   process.env.DEPLOYMENT_TYPE = 'selfhosted';
-  process.env.AFFiNE_PRO_PUBLIC_KEY = testPublicKey;
-  process.env.AFFiNE_PRO_LICENSE_AES_KEY = testTestLicenseAESKey;
+  process.env.PolyMind_PRO_PUBLIC_KEY = testPublicKey;
+  process.env.PolyMind_PRO_LICENSE_AES_KEY = testTestLicenseAESKey;
   refreshEnv();
 
   app = await createApp();
@@ -126,7 +126,7 @@ e2e('should not install expired license', async t => {
     }),
     {
       message:
-        'Invalid license to activate. License file has expired. Please contact with Affine support to fetch a latest one.',
+        'Invalid license to activate. License file has expired. Please contact with Polymind support to fetch a latest one.',
     }
   );
 });

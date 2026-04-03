@@ -7,6 +7,6 @@ pub mod preview;
 static ALLOC: mimalloc::MiMalloc = mimalloc::MiMalloc;
 
 #[allow(unused_imports)]
-pub use affine_media_capture::*;
-pub use affine_nbstore::*;
-pub use affine_sqlite_v1::*;
+pub use polymind_media_capture::*;
+pub use polymind_nbstore::*;
+pub use polymind_sqlite_v1::*;

@@ -4,7 +4,7 @@ import {
   useMobileMenuController,
 } from '@polymind/component';
 import { EditorService } from '@polymind/core/modules/editor';
-import type { DocMode } from '@blocksuite/affine/model';
+import type { DocMode } from '@blocksuite/polymind/model';
 import { useLiveData, useService } from '@toeverything/infra';
 import { useCallback } from 'react';
 

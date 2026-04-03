@@ -1,7 +1,7 @@
 import { useThemeColorV2 } from '@polymind/component';
 import { PageDetailLoading } from '@polymind/component/page-detail-skeleton';
-import type { AffineEditorContainer } from '@polymind/core/blocksuite/block-suite-editor';
-import { AffineErrorBoundary } from '@polymind/core/components/affine/affine-error-boundary';
+import type { PolymindEditorContainer } from '@polymind/core/blocksuite/block-suite-editor';
+import { PolymindErrorBoundary } from '@polymind/core/components/polymind/polymind-error-boundary';
 import { useGuard } from '@polymind/core/components/guard';
 import { useActiveBlocksuiteEditor } from '@polymind/core/components/hooks/use-block-suite-editor';
 import { useNavigateHelper } from '@polymind/core/components/hooks/use-navigate-helper';
@@ -20,12 +20,12 @@ import { WorkbenchService } from '@polymind/core/modules/workbench';
 import { ViewService } from '@polymind/core/modules/workbench/services/view';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { i18nTime } from '@polymind/i18n';
-import { DisposableGroup } from '@blocksuite/affine/global/disposable';
-import { RefNodeSlotsProvider } from '@blocksuite/affine/inlines/reference';
+import { DisposableGroup } from '@blocksuite/polymind/global/disposable';
+import { RefNodeSlotsProvider } from '@blocksuite/polymind/inlines/reference';
 import {
   customImageProxyMiddleware,
   ImageProxyService,
-} from '@blocksuite/affine/shared/adapters';
+} from '@blocksuite/polymind/shared/adapters';
 import {
   FrameworkScope,
   useLiveData,
@@ -128,7 +128,7 @@ const DetailPageImpl = () => {
   }, [globalContext, isInTrash]);
 
   const onLoad = useCallback(
-    (editorContainer: AffineEditorContainer) => {
+    (editorContainer: PolymindEditorContainer) => {
       // provide image proxy endpoint to blocksuite
       const imageProxyUrl = new URL(
         BUILD_CONFIG.imageProxyUrl,
@@ -193,15 +193,15 @@ const DetailPageImpl = () => {
           data-mode={mode}
           ref={scrollViewportRef}
           className={clsx(
-            'affine-page-viewport',
+            'polymind-page-viewport',
             styles.affineDocViewport,
             styles.editorContainer
           )}
         >
           {/* Add a key to force rerender when page changed, to avoid error boundary persisting. */}
-          <AffineErrorBoundary key={doc.id} className={styles.errorBoundary}>
+          <PolymindErrorBoundary key={doc.id} className={styles.errorBoundary}>
             <PageDetailEditor onLoad={onLoad} readonly={readonly} />
-          </AffineErrorBoundary>
+          </PolymindErrorBoundary>
         </div>
       </div>
     </FrameworkScope>

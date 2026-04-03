@@ -14,9 +14,9 @@ import {
 import type { PromptKey } from '@polymind/core/blocksuite/ai/provider/prompt';
 import { getViewManager } from '@polymind/core/blocksuite/manager/view';
 import { NotificationServiceImpl } from '@polymind/core/blocksuite/view-extensions/editor-view/notification-service';
-import { useAIChatConfig } from '@polymind/core/components/hooks/affine/use-ai-chat-config';
-import { useAISpecs } from '@polymind/core/components/hooks/affine/use-ai-specs';
-import { useAISubscribe } from '@polymind/core/components/hooks/affine/use-ai-subscribe';
+import { useAIChatConfig } from '@polymind/core/components/hooks/polymind/use-ai-chat-config';
+import { useAISpecs } from '@polymind/core/components/hooks/polymind/use-ai-specs';
+import { useAISubscribe } from '@polymind/core/components/hooks/polymind/use-ai-subscribe';
 import {
   AIDraftService,
   AIToolsConfigService,
@@ -36,9 +36,9 @@ import {
 } from '@polymind/core/modules/workbench';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { useI18n } from '@polymind/i18n';
-import { RefNodeSlotsProvider } from '@blocksuite/affine/inlines/reference';
-import { BlockStdScope } from '@blocksuite/affine/std';
-import type { Workspace } from '@blocksuite/affine/store';
+import { RefNodeSlotsProvider } from '@blocksuite/polymind/inlines/reference';
+import { BlockStdScope } from '@blocksuite/polymind/std';
+import type { Workspace } from '@blocksuite/polymind/store';
 import { type Signal, signal } from '@preact/signals-core';
 import { useFramework, useService } from '@toeverything/infra';
 import { nanoid } from 'nanoid';
@@ -289,7 +289,7 @@ export const Component = () => {
     content.reasoningConfig = reasoningConfig;
     content.onContextChange = onContextChange;
     content.affineFeatureFlagService = framework.get(FeatureFlagService);
-    content.affineWorkspaceDialogService = framework.get(
+    content.polymindWorkspaceDialogService = framework.get(
       WorkspaceDialogService
     );
     content.peekViewService = framework.get(PeekViewService);

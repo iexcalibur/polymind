@@ -1,12 +1,12 @@
-import { LinkExtension } from '@blocksuite/affine-inline-link';
-import { textKeymap } from '@blocksuite/affine-inline-preset';
+import { LinkExtension } from '@blocksuite/polymind-inline-link';
+import { textKeymap } from '@blocksuite/polymind-inline-preset';
 import type {
   ListBlockModel,
   ParagraphBlockModel,
-} from '@blocksuite/affine-model';
-import { insertContent } from '@blocksuite/affine-rich-text';
-import { REFERENCE_NODE } from '@blocksuite/affine-shared/consts';
-import { createDefaultDoc } from '@blocksuite/affine-shared/utils';
+} from '@blocksuite/polymind-model';
+import { insertContent } from '@blocksuite/polymind-rich-text';
+import { REFERENCE_NODE } from '@blocksuite/polymind-shared/consts';
+import { createDefaultDoc } from '@blocksuite/polymind-shared/utils';
 import { TextSelection } from '@blocksuite/std';
 import type { InlineMarkdownMatch } from '@blocksuite/std/inline';
 import { Text } from '@blocksuite/store';
@@ -169,7 +169,7 @@ describe('markdown/list/paragraph/quote/code/link', () => {
       throw new Error('Cannot find note model');
     }
     const model = note.children[0] as ListBlockModel;
-    expect(model.flavour).toBe('affine:list');
+    expect(model.flavour).toBe('polymind:list');
     expect(model.props.type).toBe('todo');
     expect(model.props.checked).toBe(true);
   });
@@ -183,7 +183,7 @@ describe('markdown/list/paragraph/quote/code/link', () => {
       throw new Error('Cannot find heading note model');
     }
     const headingModel = headingNote.children[0] as ParagraphBlockModel;
-    expect(headingModel.flavour).toBe('affine:paragraph');
+    expect(headingModel.flavour).toBe('polymind:paragraph');
     expect(headingModel.props.type).toBe('h1');
 
     const { noteId: quoteNoteId, paragraphId: quoteParagraphId } =
@@ -194,7 +194,7 @@ describe('markdown/list/paragraph/quote/code/link', () => {
       throw new Error('Cannot find quote note model');
     }
     const quoteModel = quoteNote.children[0] as ParagraphBlockModel;
-    expect(quoteModel.flavour).toBe('affine:paragraph');
+    expect(quoteModel.flavour).toBe('polymind:paragraph');
     expect(quoteModel.props.type).toBe('quote');
   });
 
@@ -207,7 +207,7 @@ describe('markdown/list/paragraph/quote/code/link', () => {
       throw new Error('Cannot find note model');
     }
     const model = note.children[0];
-    expect(model.flavour).toBe('affine:code');
+    expect(model.flavour).toBe('polymind:code');
     expect((model as any).props.language).toBe('typescript');
   });
 
@@ -235,11 +235,11 @@ describe('markdown/list/paragraph/quote/code/link', () => {
     const { paragraphId: linkParagraphId } = await createParagraph();
     await triggerMarkdown(
       linkParagraphId,
-      '[AFFiNE](https://affine.pro) ',
+      '[PolyMind](https://affine.pro) ',
       'link'
     );
     const linkRichText = getRichTextByBlockId(linkParagraphId);
-    expect(linkRichText.inlineEditor.yTextString).toBe('AFFiNE');
+    expect(linkRichText.inlineEditor.yTextString).toBe('PolyMind');
     expect(
       linkRichText.inlineEditor.getFormat({ index: 1, length: 0 })
     ).toMatchObject({
@@ -310,7 +310,7 @@ describe('hotkey/bracket/linked-page', () => {
     expect(collection.docs.has(linkedDoc.id)).toBe(true);
 
     const richText = getRichTextByBlockId(paragraphId);
-    expect(richText.querySelectorAll('affine-reference').length).toBe(2);
+    expect(richText.querySelectorAll('polymind-reference').length).toBe(2);
     expect(richText.inlineEditor.yTextString.length).toBe(2);
   });
 });
@@ -324,7 +324,7 @@ describe('slash-menu action semantics', () => {
     }
     const first = note.children[0] as ParagraphBlockModel;
     const secondId = doc.addBlock(
-      'affine:paragraph',
+      'polymind:paragraph',
       { text: new Text('second') },
       noteId
     );

@@ -7,8 +7,8 @@ import { DeleteIcon, ResetIcon } from '@blocksuite/icons/rc';
 import { useService } from '@toeverything/infra';
 import { useCallback, useState } from 'react';
 
-import { useAppSettingHelper } from '../../../components/hooks/affine/use-app-setting-helper';
-import { useBlockSuiteMetaHelper } from '../../../components/hooks/affine/use-block-suite-meta-helper';
+import { useAppSettingHelper } from '../../../components/hooks/polymind/use-app-setting-helper';
+import { useBlockSuiteMetaHelper } from '../../../components/hooks/polymind/use-block-suite-meta-helper';
 import { useNavigateHelper } from '../../../components/hooks/use-navigate-helper';
 import { toast } from '../../../utils';
 import * as styles from './styles.css';
@@ -22,7 +22,7 @@ export const TrashPageFooter = () => {
   const { jumpToPage } = useNavigateHelper();
   const { restoreFromTrash } = useBlockSuiteMetaHelper();
   const [open, setOpen] = useState(false);
-  const hintText = t['com.polymind.cmdk.affine.editor.trash-footer-hint']();
+  const hintText = t['com.polymind.cmdk.polymind.editor.trash-footer-hint']();
 
   const onRestore = useCallback(() => {
     restoreFromTrash(doc.id);

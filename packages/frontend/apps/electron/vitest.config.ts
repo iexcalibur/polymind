@@ -1,4 +1,4 @@
-// TODO(@forehalo): reuse '@affine-tools/utils' once it's ready to switch to esm module
+// TODO(@forehalo): reuse '@polymind-tools/utils' once it's ready to switch to esm module
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 

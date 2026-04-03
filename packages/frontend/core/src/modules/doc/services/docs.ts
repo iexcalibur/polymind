@@ -1,14 +1,14 @@
 import { DebugLogger } from '@polymind/debug';
 import { Unreachable } from '@polymind/env/constant';
-import { replaceIdMiddleware } from '@blocksuite/affine/shared/adapters';
-import type { AffineTextAttributes } from '@blocksuite/affine/shared/types';
-import type { DeltaInsert } from '@blocksuite/affine/store';
-import { Slice, Text, Transformer } from '@blocksuite/affine/store';
+import { replaceIdMiddleware } from '@blocksuite/polymind/shared/adapters';
+import type { PolymindTextAttributes } from '@blocksuite/polymind/shared/types';
+import type { DeltaInsert } from '@blocksuite/polymind/store';
+import { Slice, Text, Transformer } from '@blocksuite/polymind/store';
 import { ObjectPool, Service } from '@toeverything/infra';
 import { combineLatest, map } from 'rxjs';
 
 import { initDocFromProps } from '../../../blocksuite/initialization';
-import { getAFFiNEWorkspaceSchema } from '../../workspace/global-schema';
+import { getPolyMindWorkspaceSchema } from '../../workspace/global-schema';
 import type { Doc } from '../entities/doc';
 import { DocRecordList } from '../entities/record-list';
 import { DocCreated, DocInitialized } from '../events';
@@ -192,11 +192,11 @@ export class DocsService extends Service {
           },
         },
       },
-    ] as DeltaInsert<AffineTextAttributes>[]);
-    const [frame] = doc.blockSuiteDoc.getBlocksByFlavour('affine:note');
+    ] as DeltaInsert<PolymindTextAttributes>[]);
+    const [frame] = doc.blockSuiteDoc.getBlocksByFlavour('polymind:note');
     frame &&
       doc.blockSuiteDoc.addBlock(
-        'affine:paragraph' as never, // TODO(eyhn): fix type
+        'polymind:paragraph' as never, // TODO(eyhn): fix type
         { text },
         frame.id
       );
@@ -241,7 +241,7 @@ export class DocsService extends Service {
 
       const collection = this.store.getBlocksuiteCollection();
       const transformer = new Transformer({
-        schema: getAFFiNEWorkspaceSchema(),
+        schema: getPolyMindWorkspaceSchema(),
         blobCRUD: collection.blobSync,
         docCRUD: {
           create: (id: string) => {
@@ -335,7 +335,7 @@ export class DocsService extends Service {
 
       const collection = this.store.getBlocksuiteCollection();
       const transformer = new Transformer({
-        schema: getAFFiNEWorkspaceSchema(),
+        schema: getPolyMindWorkspaceSchema(),
         blobCRUD: collection.blobSync,
         docCRUD: {
           create: (id: string) => {

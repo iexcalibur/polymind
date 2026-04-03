@@ -1,7 +1,7 @@
-import { getAttachmentFileIcon } from '@blocksuite/affine/components/icons';
-import { SignalWatcher, WithDisposable } from '@blocksuite/affine/global/lit';
-import type { AttachmentBlockModel } from '@blocksuite/affine-model';
-import { formatSize } from '@blocksuite/affine-shared/utils';
+import { getAttachmentFileIcon } from '@blocksuite/polymind/components/icons';
+import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
+import type { AttachmentBlockModel } from '@blocksuite/polymind-model';
+import { formatSize } from '@blocksuite/polymind-shared/utils';
 import {
   ArrowDownBigIcon,
   ArrowUpBigIcon,

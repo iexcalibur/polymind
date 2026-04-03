@@ -1,4 +1,4 @@
-import type { PackageName } from '@affine-tools/utils/workspace';
+import type { PackageName } from '@polymind-tools/utils/workspace';
 
 import { Option, PackageSelectorCommand } from './command';
 
@@ -11,8 +11,6 @@ export class DevCommand extends PackageSelectorCommand {
     '@polymind/electron',
     '@polymind/electron-renderer',
     '@polymind/mobile',
-    '@polymind/ios',
-    '@polymind/android',
   ];
 
   protected deps = Option.Boolean('--deps', {

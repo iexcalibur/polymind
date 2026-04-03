@@ -9,19 +9,19 @@ import {
 } from '@polymind/core/modules/editor-setting';
 import { FeatureFlagService } from '@polymind/core/modules/feature-flag';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
-import { appendParagraphCommand } from '@blocksuite/affine/blocks/paragraph';
-import type { DocTitle } from '@blocksuite/affine/fragments/doc-title';
-import { DisposableGroup } from '@blocksuite/affine/global/disposable';
-import { IS_LINUX } from '@blocksuite/affine/global/env';
-import type { DocMode, RootBlockModel } from '@blocksuite/affine/model';
+import { appendParagraphCommand } from '@blocksuite/polymind/blocks/paragraph';
+import type { DocTitle } from '@blocksuite/polymind/fragments/doc-title';
+import { DisposableGroup } from '@blocksuite/polymind/global/disposable';
+import { IS_LINUX } from '@blocksuite/polymind/global/env';
+import type { DocMode, RootBlockModel } from '@blocksuite/polymind/model';
 import {
   customImageProxyMiddleware,
   ImageProxyService,
-} from '@blocksuite/affine/shared/adapters';
-import { focusBlockEnd } from '@blocksuite/affine/shared/commands';
-import { getLastNoteBlock } from '@blocksuite/affine/shared/utils';
-import type { BlockStdScope, EditorHost } from '@blocksuite/affine/std';
-import type { Store } from '@blocksuite/affine/store';
+} from '@blocksuite/polymind/shared/adapters';
+import { focusBlockEnd } from '@blocksuite/polymind/shared/commands';
+import { getLastNoteBlock } from '@blocksuite/polymind/shared/utils';
+import type { BlockStdScope, EditorHost } from '@blocksuite/polymind/std';
+import type { Store } from '@blocksuite/polymind/store';
 import { Slot } from '@radix-ui/react-slot';
 import { useLiveData, useService } from '@toeverything/infra';
 import { cssVar } from '@toeverything/theme';
@@ -33,7 +33,7 @@ import type { DefaultOpenProperty } from '../../components/properties';
 import { BlocksuiteDocEditor, BlocksuiteEdgelessEditor } from './lit-adaper';
 import * as styles from './styles.css';
 
-export interface AffineEditorContainer extends HTMLElement {
+export interface PolymindEditorContainer extends HTMLElement {
   page: Store;
   doc: Store;
   docTitle: DocTitle;
@@ -52,7 +52,7 @@ export interface EditorProps extends HTMLAttributes<HTMLDivElement> {
   readonly?: boolean;
   defaultOpenProperty?: DefaultOpenProperty;
   // on Editor ready
-  onEditorReady?: (editor: AffineEditorContainer) => (() => void) | void;
+  onEditorReady?: (editor: PolymindEditorContainer) => (() => void) | void;
 }
 
 const BlockSuiteEditorImpl = ({
@@ -80,7 +80,7 @@ const BlockSuiteEditorImpl = ({
   );
 
   /**
-   * mimic an AffineEditorContainer using proxy
+   * mimic an PolymindEditorContainer using proxy
    */
   const affineEditorContainerProxy = useMemo(() => {
     const api = {
@@ -140,7 +140,7 @@ const BlockSuiteEditorImpl = ({
         }
         return undefined;
       },
-    }) as AffineEditorContainer;
+    }) as PolymindEditorContainer;
 
     return proxy;
   }, [mode, page]);
@@ -156,7 +156,7 @@ const BlockSuiteEditorImpl = ({
       const lastBlock = note.lastChild();
       if (
         lastBlock &&
-        lastBlock.flavour === 'affine:paragraph' &&
+        lastBlock.flavour === 'polymind:paragraph' &&
         lastBlock.text?.length === 0
       ) {
         const focusBlock = std.view.getBlock(lastBlock.id) ?? undefined;
@@ -177,8 +177,8 @@ const BlockSuiteEditorImpl = ({
       const handleMiddleClick = (e: MouseEvent) => {
         if (
           e.target instanceof HTMLElement &&
-          (e.target.closest('affine-reference') ||
-            e.target.closest('affine-link'))
+          (e.target.closest('polymind-reference') ||
+            e.target.closest('polymind-link'))
         ) {
           return;
         }

@@ -5,7 +5,7 @@ import {
   useDraggable,
   useDropTarget,
 } from '@polymind/component';
-import type { AffineDNDData } from '@polymind/core/types/dnd';
+import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { useI18n } from '@polymind/i18n';
 import {
   CloseIcon,
@@ -134,8 +134,8 @@ export const SplitViewPanel = memo(function SplitViewPanel({
     };
   }, [size, order]);
 
-  const { dropTargetRef } = useDropTarget<AffineDNDData>(() => {
-    const handleDrag = (data: DropTargetDragEvent<AffineDNDData>) => {
+  const { dropTargetRef } = useDropTarget<PolymindDNDData>(() => {
+    const handleDrag = (data: DropTargetDragEvent<PolymindDNDData>) => {
       // only the first view has left edge
       const edge = data.closestEdge as 'left' | 'right';
       const switchEdge = edge === 'left' && !isFirst;
@@ -168,7 +168,7 @@ export const SplitViewPanel = memo(function SplitViewPanel({
     };
   }, [index, isFirst, order, setDraggingOverView, view, views]);
 
-  const { dragRef } = useDraggable<AffineDNDData>(() => {
+  const { dragRef } = useDraggable<PolymindDNDData>(() => {
     return {
       data: () => {
         return {

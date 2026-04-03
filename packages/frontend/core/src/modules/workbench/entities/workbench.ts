@@ -1,6 +1,6 @@
 import { toDocSearchParams } from '@polymind/core/modules/navigation/utils';
 import { Unreachable } from '@polymind/env/constant';
-import type { ReferenceParams } from '@blocksuite/affine/model';
+import type { ReferenceParams } from '@blocksuite/polymind/model';
 import { Entity, LiveData } from '@toeverything/infra';
 import { type To } from 'history';
 import { omit } from 'lodash-es';

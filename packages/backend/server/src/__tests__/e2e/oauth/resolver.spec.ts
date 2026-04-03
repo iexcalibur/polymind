@@ -41,7 +41,7 @@ e2e('should return apple oauth provider in version >= 0.22.0', async t => {
     query: oauthProvidersQuery,
     context: {
       headers: {
-        'x-affine-version': '0.22.0',
+        'x-polymind-version': '0.22.0',
       },
     },
   });
@@ -51,7 +51,7 @@ e2e('should return apple oauth provider in version >= 0.22.0', async t => {
     query: oauthProvidersQuery,
     context: {
       headers: {
-        'x-affine-version': '0.23.0-beta.1',
+        'x-polymind-version': '0.23.0-beta.1',
       },
     },
   });
@@ -62,7 +62,7 @@ e2e('should return apple oauth provider in version >= 0.22.0', async t => {
     query: oauthProvidersQuery,
     context: {
       headers: {
-        'x-affine-version': '2025.6.29-canary.93',
+        'x-polymind-version': '2025.6.29-canary.93',
       },
     },
   });
