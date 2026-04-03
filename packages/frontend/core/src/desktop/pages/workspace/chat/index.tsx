@@ -117,7 +117,7 @@ export const Component = () => {
       }
       const session = await client.createSessionWithHistory({
         workspaceId,
-        promptName: 'Chat With AFFiNE AI' satisfies PromptKey,
+        promptName: 'Chat With PolyMind AI' satisfies PromptKey,
         reuseLatestChat: false,
         ...options,
       });
@@ -170,7 +170,7 @@ export const Component = () => {
       reMountChatContent();
       const session = await client.createSessionWithHistory({
         workspaceId,
-        promptName: 'Chat With AFFiNE AI' satisfies PromptKey,
+        promptName: 'Chat With PolyMind AI' satisfies PromptKey,
         reuseLatestChat: false,
       });
       setCurrentSession(session);

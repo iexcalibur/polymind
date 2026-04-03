@@ -122,7 +122,7 @@ export class PlaygroundContent extends SignalWatcher(
       const rootSessionId = await AIProvider.session?.createSession({
         docId: this.doc.id,
         workspaceId: this.doc.workspace.id,
-        promptName: 'Chat With AFFiNE AI',
+        promptName: 'Chat With PolyMind AI',
       });
       if (rootSessionId) {
         this.rootSessionId = rootSessionId;

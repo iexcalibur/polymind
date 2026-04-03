@@ -45,7 +45,7 @@ const LocalWorkspaces = ({
   );
 };
 
-export const AFFiNEWorkspaceList = ({
+export const AllWorkspaceList = ({
   onEventEnd,
   onClickWorkspace,
 }: {
