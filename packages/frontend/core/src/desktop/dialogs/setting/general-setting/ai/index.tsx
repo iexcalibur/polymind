@@ -1,9 +1,10 @@
-import { Button, Input, notify } from '@affine/component';
+import { Button, IconButton, Input, notify } from '@affine/component';
 import {
   SettingHeader,
   SettingRow,
   SettingWrapper,
 } from '@affine/component/setting-components';
+import { PasteIcon } from '@blocksuite/icons/rc';
 import { useCallback, useState } from 'react';
 
 const PROVIDERS = [
@@ -12,11 +13,30 @@ const PROVIDERS = [
   { value: 'gemini', label: 'Google Gemini' },
 ];
 
+const maskKey = (key: string) => {
+  if (key.length <= 8) return '*'.repeat(key.length);
+  return key.slice(0, 4) + '*'.repeat(key.length - 8) + key.slice(-4);
+};
+
 export const AISettings = () => {
   const [provider, setProvider] = useState('openai');
   const [apiKey, setApiKey] = useState('');
+  const [maskedKey, setMaskedKey] = useState('');
   const [baseURL, setBaseURL] = useState('');
   const [saving, setSaving] = useState(false);
+
+  const handlePaste = useCallback(async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      const trimmed = text.trim();
+      if (trimmed) {
+        setApiKey(trimmed);
+        setMaskedKey(maskKey(trimmed));
+      }
+    } catch {
+      notify.error({ title: 'Could not read clipboard' });
+    }
+  }, []);
 
   const handleSave = useCallback(async () => {
     if (!apiKey.trim()) {
@@ -52,6 +72,7 @@ export const AISettings = () => {
     (e: React.ChangeEvent<HTMLSelectElement>) => {
       setProvider(e.target.value);
       setApiKey('');
+      setMaskedKey('');
       setBaseURL('');
     },
     []
@@ -77,17 +98,18 @@ export const AISettings = () => {
             ))}
           </select>
         </SettingRow>
-        <SettingRow
-          name="API Key"
-          desc="Your API key for the selected provider"
-        >
-          <Input
-            type="password"
-            value={apiKey}
-            onChange={setApiKey}
-            placeholder="sk-..."
-            width={280}
-          />
+        <SettingRow name="API Key" desc="Paste your API key for the selected provider">
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <Input
+              value={maskedKey}
+              placeholder="Click paste to add key"
+              width={240}
+              disabled
+            />
+            <IconButton onClick={() => void handlePaste()} size="20">
+              <PasteIcon />
+            </IconButton>
+          </div>
         </SettingRow>
         <SettingRow
           name="Base URL (optional)"
@@ -104,9 +126,9 @@ export const AISettings = () => {
           <Button
             variant="primary"
             onClick={() => void handleSave()}
-            disabled={saving}
+            disabled={saving || !apiKey}
           >
-            {saving ? 'Saving…' : 'Save'}
+            {saving ? 'Saving...' : 'Save'}
           </Button>
         </SettingRow>
       </SettingWrapper>
