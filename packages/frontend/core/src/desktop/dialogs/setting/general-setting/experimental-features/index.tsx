@@ -1,6 +1,5 @@
-import { Button, Checkbox, Loading, Switch, Tooltip } from '@affine/component';
+import { Loading, Switch, Tooltip } from '@affine/component';
 import { SettingHeader } from '@affine/component/setting-components';
-import { useAsyncCallback } from '@affine/core/components/hooks/affine-async-hooks';
 import {
   AFFINE_FLAGS,
   FeatureFlagService,
@@ -14,11 +13,7 @@ import {
   GithubIcon,
 } from '@blocksuite/icons/rc';
 import { useLiveData, useServices } from '@toeverything/infra';
-import { useAtom } from 'jotai';
-import { atomWithStorage } from 'jotai/utils';
-import { Suspense, useCallback, useState } from 'react';
-
-import { ExperimentalFeatureArts } from './arts';
+import { Suspense, useCallback } from 'react';
 import * as styles from './index.css';
 
 const ExperimentalFeaturesPrompt = ({
@@ -190,24 +185,10 @@ const ExperimentalFeaturesMain = () => {
   );
 };
 
-// TODO(@Peng): save to workspace meta instead?
-const experimentalFeaturesDisclaimerAtom = atomWithStorage(
-  'affine:experimental-features-disclaimer',
-  false
-);
-
 export const ExperimentalFeatures = () => {
-  const [enabled, setEnabled] = useAtom(experimentalFeaturesDisclaimerAtom);
-  const handleConfirm = useAsyncCallback(async () => {
-    setEnabled(true);
-  }, [setEnabled]);
-  if (!enabled) {
-    return <ExperimentalFeaturesPrompt onConfirm={handleConfirm} />;
-  } else {
-    return (
-      <Suspense fallback={<Loading />}>
-        <ExperimentalFeaturesMain />
-      </Suspense>
-    );
-  }
+  return (
+    <Suspense fallback={<Loading />}>
+      <ExperimentalFeaturesMain />
+    </Suspense>
+  );
 };
