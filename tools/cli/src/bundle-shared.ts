@@ -53,6 +53,12 @@ export const DEFAULT_DEV_SERVER_CONFIG: RspackDevServerConfiguration = {
       },
     ],
   },
-  // No backend proxy — local-first only
-  proxy: [],
+  proxy: [
+    {
+      context: ['/api', '/graphql', '/socket.io'],
+      target: 'http://localhost:3010',
+      changeOrigin: true,
+      ws: true,
+    },
+  ],
 };
