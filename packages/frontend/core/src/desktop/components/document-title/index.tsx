@@ -8,10 +8,10 @@ export const DocumentTitle = () => {
   const viewTitle = useLiveData(workbenchView.title$);
 
   useEffect(() => {
-    document.title = viewTitle ? `${viewTitle} · AFFiNE` : 'AFFiNE';
+    document.title = viewTitle ? `${viewTitle} · PolyMind` : 'PolyMind';
 
     return () => {
-      document.title = 'AFFiNE';
+      document.title = 'PolyMind';
     };
   }, [viewTitle]);
 

@@ -101,7 +101,7 @@ export const useGeneralSettingList = (): GeneralSettingList => {
       },
       {
         key: 'about',
-        title: t['com.affine.aboutAFFiNE.title'](),
+        title: 'About PolyMind',
         icon: <InformationIcon />,
         testId: 'about-panel-trigger',
       }
