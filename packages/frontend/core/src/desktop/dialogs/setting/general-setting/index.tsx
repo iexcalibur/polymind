@@ -3,6 +3,7 @@ import { FeatureFlagService } from '@affine/core/modules/feature-flag';
 import { MeetingSettingsService } from '@affine/core/modules/media/services/meeting-settings';
 import { useI18n } from '@affine/i18n';
 import {
+  AiIcon,
   AppearanceIcon,
   ExperimentIcon,
   FolderIcon,
@@ -54,8 +55,8 @@ export const useGeneralSettingList = (): GeneralSettingList => {
       },
       {
         key: 'ai',
-        title: 'AI',
-        icon: <ExperimentIcon />,
+        title: 'AI Settings',
+        icon: <AiIcon />,
         testId: 'ai-panel-trigger',
       },
     ];
