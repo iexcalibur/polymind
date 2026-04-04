@@ -7,4 +7,4 @@ editorEffects();
 registerAIEditorEffects();
 registerTemplates();
 
-export * from './blocksuite-editor';
+export * from './blockmind-editor';
