@@ -1,4 +1,4 @@
-import type { Store } from '@blocksuite/polymind/store';
+import type { Store } from '@blockmind/polymind/store';
 import type { Atom } from 'jotai';
 import { atom } from 'jotai';
 

@@ -1,5 +1,5 @@
 import { toReactNode } from '@polymind/component';
-import { BlockComponent } from '@blocksuite/polymind/std';
+import { BlockComponent } from '@blockmind/polymind/std';
 import { useLiveData, useService } from '@toeverything/infra';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 

@@ -5,10 +5,10 @@ import {
   menu,
   popMenu,
   popupTargetFromElement,
-} from '@blocksuite/polymind/components/context-menu';
-import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
-import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
-import type { NotificationService } from '@blocksuite/polymind-shared/services';
+} from '@blockmind/polymind/components/context-menu';
+import { SignalWatcher, WithDisposable } from '@blockmind/polymind/global/lit';
+import { unsafeCSSVarV2 } from '@blockmind/polymind/shared/theme';
+import type { NotificationService } from '@blockmind/polymind-shared/services';
 import {
   AiOutlineIcon,
   ArrowDownSmallIcon,
@@ -16,7 +16,7 @@ import {
   DoneIcon,
   ThinkingIcon,
 } from '@blocksuite/icons/lit';
-import { ShadowlessElement } from '@blocksuite/std';
+import { ShadowlessElement } from '@blockmind/std';
 import { autoPlacement, offset, shift } from '@floating-ui/dom';
 import { computed } from '@preact/signals-core';
 import { css, html } from 'lit';

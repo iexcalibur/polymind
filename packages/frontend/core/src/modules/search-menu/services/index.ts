@@ -1,12 +1,12 @@
 import type { TagMeta } from '@polymind/core/components/page-list';
 import { UserFriendlyError } from '@polymind/error';
 import { I18n } from '@polymind/i18n';
-import { createSignalFromObservable } from '@blocksuite/polymind/shared/utils';
-import type { DocMeta } from '@blocksuite/polymind/store';
+import { createSignalFromObservable } from '@blockmind/polymind/shared/utils';
+import type { DocMeta } from '@blockmind/polymind/store';
 import type {
   LinkedMenuGroup,
   LinkedMenuItem,
-} from '@blocksuite/polymind/widgets/linked-doc';
+} from '@blockmind/polymind/widgets/linked-doc';
 import { CollectionsIcon, WarningIcon } from '@blocksuite/icons/lit';
 import { computed, signal } from '@preact/signals-core';
 import { Service } from '@toeverything/infra';

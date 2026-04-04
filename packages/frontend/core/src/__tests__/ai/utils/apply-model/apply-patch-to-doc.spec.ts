@@ -2,10 +2,10 @@
  * @vitest-environment happy-dom
  */
 
-import { getInternalStoreExtensions } from '@blocksuite/polymind/extensions/store';
-import { StoreExtensionManager } from '@blocksuite/polymind-ext-loader';
-import { createPolymindTemplate } from '@blocksuite/polymind-shared/test-utils';
-import type { Store } from '@blocksuite/store';
+import { getInternalStoreExtensions } from '@blockmind/polymind/extensions/store';
+import { StoreExtensionManager } from '@blockmind/polymind-ext-loader';
+import { createPolymindTemplate } from '@blockmind/polymind-shared/test-utils';
+import type { Store } from '@blockmind/store';
 import { describe, expect, it } from 'vitest';
 
 import { applyPatchToDoc } from '../../../../blocksuite/ai/utils/apply-model/apply-patch-to-doc';

@@ -1,13 +1,13 @@
 // eslint-disable-next-line import-x/no-extraneous-dependencies
-import { PanTool } from '@blocksuite/polymind-gfx-pointer';
-import { on } from '@blocksuite/polymind-shared/utils';
-import type { PointerEventState } from '@blocksuite/std';
+import { PanTool } from '@blockmind/polymind-gfx-pointer';
+import { on } from '@blockmind/polymind-shared/utils';
+import type { PointerEventState } from '@blockmind/std';
 import {
   type BaseTool,
   MouseButton,
   type ToolOptionWithType,
   type ToolType,
-} from '@blocksuite/std/gfx';
+} from '@blockmind/std/gfx';
 import { beforeEach, describe, expect, test, vi } from 'vitest';
 
 type SelectionEntry = {
@@ -20,8 +20,8 @@ type SelectionEntry = {
 const pointerUpHandlers: unknown[] = [];
 const pointerUpDisposers: Array<ReturnType<typeof vi.fn>> = [];
 
-vi.mock('@blocksuite/polymind-shared/utils', async () => {
-  const actual = await vi.importActual('@blocksuite/polymind-shared/utils');
+vi.mock('@blockmind/polymind-shared/utils', async () => {
+  const actual = await vi.importActual('@blockmind/polymind-shared/utils');
 
   return {
     ...actual,

@@ -1,16 +1,16 @@
-import { Bound } from '@blocksuite/polymind/global/gfx';
+import { Bound } from '@blockmind/polymind/global/gfx';
 import {
   ImageBlockModel,
   NoteBlockModel,
   NoteDisplayMode,
-} from '@blocksuite/polymind/model';
+} from '@blockmind/polymind/model';
 import {
   isInsideEdgelessEditor,
   matchModels,
-} from '@blocksuite/polymind/shared/utils';
-import type { EditorHost } from '@blocksuite/polymind/std';
-import { GfxControllerIdentifier } from '@blocksuite/polymind/std/gfx';
-import { ThemeProvider } from '@blocksuite/polymind-shared/services';
+} from '@blockmind/polymind/shared/utils';
+import type { EditorHost } from '@blockmind/polymind/std';
+import { GfxControllerIdentifier } from '@blockmind/polymind/std/gfx';
+import { ThemeProvider } from '@blockmind/polymind-shared/services';
 import {
   ChatWithAiIcon,
   DeleteIcon,

@@ -10,7 +10,7 @@ import { DebugLogger } from '@polymind/debug';
 import type { ListHistoryQuery } from '@polymind/graphql';
 import { listHistoryQuery, recoverDocMutation } from '@polymind/graphql';
 import { i18nTime } from '@polymind/i18n';
-import type { Workspace } from '@blocksuite/polymind/store';
+import type { Workspace } from '@blockmind/polymind/store';
 import { useService } from '@toeverything/infra';
 import { useEffect, useMemo } from 'react';
 import useSWRImmutable from 'swr/immutable';

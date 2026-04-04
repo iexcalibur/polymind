@@ -1,7 +1,7 @@
 import { AIChatBlockSchema } from '@polymind/core/blocksuite/ai/blocks/ai-chat-block/model';
 import { TranscriptionBlockSchema } from '@polymind/core/blocksuite/ai/blocks/transcription-block/model';
-import { PolymindSchemas } from '@blocksuite/polymind/schemas';
-import { Schema } from '@blocksuite/polymind/store';
+import { PolymindSchemas } from '@blockmind/polymind/schemas';
+import { Schema } from '@blockmind/polymind/store';
 
 let _schema: Schema | null = null;
 export function getPolyMindWorkspaceSchema() {

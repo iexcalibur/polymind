@@ -16,9 +16,9 @@ import type {
   StreamObject,
   UpdateChatSessionInput,
 } from '@polymind/graphql';
-import type { EditorHost } from '@blocksuite/polymind/std';
-import type { GfxModel } from '@blocksuite/polymind/std/gfx';
-import type { BlockModel } from '@blocksuite/polymind/store';
+import type { EditorHost } from '@blockmind/polymind/std';
+import type { GfxModel } from '@blockmind/polymind/std/gfx';
+import type { BlockModel } from '@blockmind/polymind/store';
 
 import type { AIEmbeddingStatus } from '../provider';
 import type { PromptKey } from '../provider/prompt';

@@ -1,4 +1,4 @@
-import { GeneralSettingSchema } from '@blocksuite/polymind/shared/services';
+import { GeneralSettingSchema } from '@blockmind/polymind/shared/services';
 import { z } from 'zod';
 
 export const BSEditorSettingSchema = GeneralSettingSchema;

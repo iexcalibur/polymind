@@ -1,4 +1,4 @@
-import { scrollbarStyle } from '@blocksuite/polymind/shared/styles';
+import { scrollbarStyle } from '@blockmind/polymind/shared/styles';
 import { CloseIcon } from '@blocksuite/icons/lit';
 import { css, html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';

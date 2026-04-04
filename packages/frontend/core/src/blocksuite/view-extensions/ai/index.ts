@@ -13,9 +13,9 @@ import { edgelessCopilotWidget } from '@polymind/core/blocksuite/ai/widgets/edge
 import {
   type ViewExtensionContext,
   ViewExtensionProvider,
-} from '@blocksuite/polymind/ext-loader';
-import { ToolbarModuleExtension } from '@blocksuite/polymind/shared/services';
-import { BlockFlavourIdentifier } from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/ext-loader';
+import { ToolbarModuleExtension } from '@blockmind/polymind/shared/services';
+import { BlockFlavourIdentifier } from '@blockmind/polymind/std';
 import { FrameworkProvider } from '@toeverything/infra';
 import { z } from 'zod';
 

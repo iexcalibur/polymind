@@ -1,6 +1,6 @@
-import { LoadingIcon } from '@blocksuite/polymind/components/icons';
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import { unsafeCSSVar } from '@blocksuite/polymind/shared/theme';
+import { LoadingIcon } from '@blockmind/polymind/components/icons';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import { unsafeCSSVar } from '@blockmind/polymind/shared/theme';
 import { baseTheme } from '@toeverything/theme';
 import {
   css,

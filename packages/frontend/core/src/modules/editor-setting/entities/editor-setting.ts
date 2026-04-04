@@ -1,8 +1,8 @@
-import type { DeepPartial } from '@blocksuite/polymind/global/utils';
+import type { DeepPartial } from '@blockmind/polymind/global/utils';
 import {
   createSignalFromObservable,
   type Signal,
-} from '@blocksuite/polymind/shared/utils';
+} from '@blockmind/polymind/shared/utils';
 import { Entity, LiveData } from '@toeverything/infra';
 import { isObject, merge } from 'lodash-es';
 import type { Observable } from 'rxjs';

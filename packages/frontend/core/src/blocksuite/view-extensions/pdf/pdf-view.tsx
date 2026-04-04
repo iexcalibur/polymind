@@ -1,12 +1,12 @@
 import type { ReactToLit } from '@polymind/component';
 import { AttachmentEmbedPreview } from '@polymind/core/blocksuite/attachment-viewer/attachment-embed-preview';
-import { AttachmentEmbedConfigIdentifier } from '@blocksuite/polymind/blocks/attachment';
-import { Bound } from '@blocksuite/polymind/global/gfx';
+import { AttachmentEmbedConfigIdentifier } from '@blockmind/polymind/blocks/attachment';
+import { Bound } from '@blockmind/polymind/global/gfx';
 import {
   EMBED_CARD_HEIGHT,
   EMBED_CARD_WIDTH,
-} from '@blocksuite/polymind/shared/consts';
-import type { ExtensionType } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/shared/consts';
+import type { ExtensionType } from '@blockmind/polymind/store';
 
 export function patchForPDFEmbedView(reactToLit: ReactToLit): ExtensionType {
   return {

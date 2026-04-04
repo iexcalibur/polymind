@@ -1,5 +1,5 @@
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import { ShadowlessElement } from '@blocksuite/polymind/std';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import { ShadowlessElement } from '@blockmind/polymind/std';
 import { css, html, nothing } from 'lit';
 import { property } from 'lit/decorators.js';
 

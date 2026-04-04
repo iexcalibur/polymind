@@ -1,5 +1,5 @@
 import { useI18n } from '@polymind/i18n';
-import type { Workspace } from '@blocksuite/polymind/store';
+import type { Workspace } from '@blockmind/polymind/store';
 import { useCallback } from 'react';
 
 import {

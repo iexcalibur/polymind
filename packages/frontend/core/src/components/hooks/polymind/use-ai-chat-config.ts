@@ -13,7 +13,7 @@ import {
 } from '@polymind/core/modules/search-menu/services';
 import { TagService } from '@polymind/core/modules/tag';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
-import { createSignalFromObservable } from '@blocksuite/polymind/shared/utils';
+import { createSignalFromObservable } from '@blockmind/polymind/shared/utils';
 import { useFramework } from '@toeverything/infra';
 
 export function useAIChatConfig() {

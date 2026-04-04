@@ -1,5 +1,5 @@
 import { DocsService } from '@polymind/core/modules/doc';
-import type { DocMeta, Workspace } from '@blocksuite/polymind/store';
+import type { DocMeta, Workspace } from '@blockmind/polymind/store';
 import { useService } from '@toeverything/infra';
 import { useCallback, useMemo } from 'react';
 

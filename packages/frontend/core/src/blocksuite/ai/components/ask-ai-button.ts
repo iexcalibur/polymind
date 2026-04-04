@@ -1,9 +1,9 @@
 import './ask-ai-panel';
 
-import { HoverController } from '@blocksuite/polymind/components/hover';
-import { createLitPortal } from '@blocksuite/polymind/components/portal';
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import { type EditorHost } from '@blocksuite/polymind/std';
+import { HoverController } from '@blockmind/polymind/components/hover';
+import { createLitPortal } from '@blockmind/polymind/components/portal';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import { type EditorHost } from '@blockmind/polymind/std';
 import { flip, offset } from '@floating-ui/dom';
 import { css, html, LitElement, nothing } from 'lit';
 import { property, query } from 'lit/decorators.js';

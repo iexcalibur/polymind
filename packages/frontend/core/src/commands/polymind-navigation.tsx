@@ -1,5 +1,5 @@
 import type { useI18n } from '@polymind/i18n';
-import type { Workspace } from '@blocksuite/polymind/store';
+import type { Workspace } from '@blockmind/polymind/store';
 import { ArrowRightBigIcon } from '@blocksuite/icons/rc';
 
 import type { useNavigateHelper } from '../components/hooks/use-navigate-helper';

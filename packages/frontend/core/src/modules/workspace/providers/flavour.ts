@@ -4,7 +4,7 @@ import type {
   ListedBlobRecord,
 } from '@polymind/nbstore';
 import type { WorkerInitOptions } from '@polymind/nbstore/worker/client';
-import type { Workspace as BSWorkspace } from '@blocksuite/polymind/store';
+import type { Workspace as BSWorkspace } from '@blockmind/polymind/store';
 import { createIdentifier, type LiveData } from '@toeverything/infra';
 
 import type { WorkspaceProfileInfo } from '../entities/profile';

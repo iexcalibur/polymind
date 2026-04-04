@@ -1,15 +1,15 @@
 import type { CopilotChatHistoryFragment } from '@polymind/graphql';
-import { Tooltip } from '@blocksuite/polymind/components/tooltip';
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import { noop } from '@blocksuite/polymind/global/utils';
-import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
-import { createButtonPopper } from '@blocksuite/polymind/shared/utils';
+import { Tooltip } from '@blockmind/polymind/components/tooltip';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import { noop } from '@blockmind/polymind/global/utils';
+import { unsafeCSSVarV2 } from '@blockmind/polymind/shared/theme';
+import { createButtonPopper } from '@blockmind/polymind/shared/utils';
 import type {
   BlockSelection,
   EditorHost,
   TextSelection,
-} from '@blocksuite/polymind/std';
-import type { NotificationService } from '@blocksuite/polymind-shared/services';
+} from '@blockmind/polymind/std';
+import type { NotificationService } from '@blockmind/polymind-shared/services';
 import { CopyIcon, MoreHorizontalIcon, ResetIcon } from '@blocksuite/icons/lit';
 import { css, html, LitElement, nothing, type PropertyValues } from 'lit';
 import { property, query, state } from 'lit/decorators.js';

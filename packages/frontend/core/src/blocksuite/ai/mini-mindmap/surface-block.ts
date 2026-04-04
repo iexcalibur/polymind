@@ -2,13 +2,13 @@
 import {
   CanvasRenderer,
   type SurfaceBlockModel,
-} from '@blocksuite/polymind/blocks/surface';
-import { fitContent } from '@blocksuite/polymind/gfx/shape';
-import type { Bound } from '@blocksuite/polymind/global/gfx';
-import type { Color, ShapeElementModel } from '@blocksuite/polymind/model';
-import { ThemeProvider } from '@blocksuite/polymind/shared/services';
-import { BlockComponent } from '@blocksuite/polymind/std';
-import { GfxControllerIdentifier } from '@blocksuite/polymind/std/gfx';
+} from '@blockmind/polymind/blocks/surface';
+import { fitContent } from '@blockmind/polymind/gfx/shape';
+import type { Bound } from '@blockmind/polymind/global/gfx';
+import type { Color, ShapeElementModel } from '@blockmind/polymind/model';
+import { ThemeProvider } from '@blockmind/polymind/shared/services';
+import { BlockComponent } from '@blockmind/polymind/std';
+import { GfxControllerIdentifier } from '@blockmind/polymind/std/gfx';
 import { html } from 'lit';
 import { query } from 'lit/decorators.js';
 

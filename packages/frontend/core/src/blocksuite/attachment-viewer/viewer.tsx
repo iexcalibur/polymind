@@ -1,5 +1,5 @@
 import { IconButton, Menu, MenuItem } from '@polymind/component';
-import type { AttachmentBlockModel } from '@blocksuite/polymind/model';
+import type { AttachmentBlockModel } from '@blockmind/polymind/model';
 import {
   //EditIcon,
   LocalDataIcon,

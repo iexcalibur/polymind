@@ -1,13 +1,13 @@
 import { VirtualKeyboardProvider } from '@polymind/core/mobile/modules/virtual-keyboard';
 import { globalVars } from '@polymind/core/mobile/styles/variables.css';
-import type { Container } from '@blocksuite/polymind/global/di';
-import { DisposableGroup } from '@blocksuite/polymind/global/disposable';
+import type { Container } from '@blockmind/polymind/global/di';
+import { DisposableGroup } from '@blockmind/polymind/global/disposable';
 import {
   VirtualKeyboardProvider as BSVirtualKeyboardProvider,
   type VirtualKeyboardProviderWithAction,
-} from '@blocksuite/polymind/shared/services';
-import { LifeCycleWatcher } from '@blocksuite/polymind/std';
-import type { ExtensionType } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/shared/services';
+import { LifeCycleWatcher } from '@blockmind/polymind/std';
+import type { ExtensionType } from '@blockmind/polymind/store';
 import { batch, signal } from '@preact/signals-core';
 import type { FrameworkProvider } from '@toeverything/infra';
 

@@ -1,22 +1,22 @@
 import { WorkbenchService } from '@polymind/core/modules/workbench';
-import { getSelectedBlocksCommand } from '@blocksuite/polymind/shared/commands';
-import type { CommentProvider } from '@blocksuite/polymind/shared/services';
-import { CommentProviderIdentifier } from '@blocksuite/polymind/shared/services';
-import type { BlockStdScope } from '@blocksuite/polymind/std';
-import { StdIdentifier } from '@blocksuite/polymind/std';
-import type { BaseSelection, ExtensionType } from '@blocksuite/polymind/store';
-import { ImageSelection } from '@blocksuite/polymind-shared/selection';
-import { type Container } from '@blocksuite/global/di';
+import { getSelectedBlocksCommand } from '@blockmind/polymind/shared/commands';
+import type { CommentProvider } from '@blockmind/polymind/shared/services';
+import { CommentProviderIdentifier } from '@blockmind/polymind/shared/services';
+import type { BlockStdScope } from '@blockmind/polymind/std';
+import { StdIdentifier } from '@blockmind/polymind/std';
+import type { BaseSelection, ExtensionType } from '@blockmind/polymind/store';
+import { ImageSelection } from '@blockmind/polymind-shared/selection';
+import { type Container } from '@blockmind/global/di';
 import {
   BlockSelection,
   SurfaceSelection,
   TextSelection,
-} from '@blocksuite/std';
+} from '@blockmind/std';
 import {
   GfxBlockElementModel,
   GfxControllerIdentifier,
   GfxPrimitiveElementModel,
-} from '@blocksuite/std/gfx';
+} from '@blockmind/std/gfx';
 import type { FrameworkProvider } from '@toeverything/infra';
 
 import { DocCommentManagerService } from '../../../modules/comment/services/doc-comment-manager';

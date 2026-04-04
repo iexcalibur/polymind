@@ -1,15 +1,15 @@
 import { DocDisplayMetaService } from '@polymind/core/modules/doc-display-meta';
-import type { Container } from '@blocksuite/polymind/global/di';
+import type { Container } from '@blockmind/polymind/global/di';
 import type {
   DocDisplayMetaExtension,
   DocDisplayMetaParams,
-} from '@blocksuite/polymind/shared/services';
-import { DocDisplayMetaProvider } from '@blocksuite/polymind/shared/services';
+} from '@blockmind/polymind/shared/services';
+import { DocDisplayMetaProvider } from '@blockmind/polymind/shared/services';
 import {
   createSignalFromObservable,
   referenceToNode,
-} from '@blocksuite/polymind/shared/utils';
-import { LifeCycleWatcher, StdIdentifier } from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/shared/utils';
+import { LifeCycleWatcher, StdIdentifier } from '@blockmind/polymind/std';
 import { LinkedPageIcon, PageIcon } from '@blocksuite/icons/lit';
 import { computed, type ReadonlySignal } from '@preact/signals-core';
 import { type FrameworkProvider } from '@toeverything/infra';

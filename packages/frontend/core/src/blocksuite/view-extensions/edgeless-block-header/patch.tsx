@@ -1,14 +1,14 @@
 import type { ReactToLit } from '@polymind/component';
 import { JournalService } from '@polymind/core/modules/journal';
-import { EmbedSyncedDocConfigExtension } from '@blocksuite/polymind/blocks/embed-doc';
-import { NoteConfigExtension } from '@blocksuite/polymind/blocks/note';
-import { EDGELESS_BLOCK_CHILD_PADDING } from '@blocksuite/polymind/blocks/root';
-import { Bound, Vec } from '@blocksuite/polymind/global/gfx';
+import { EmbedSyncedDocConfigExtension } from '@blockmind/polymind/blocks/embed-doc';
+import { NoteConfigExtension } from '@blockmind/polymind/blocks/note';
+import { EDGELESS_BLOCK_CHILD_PADDING } from '@blockmind/polymind/blocks/root';
+import { Bound, Vec } from '@blockmind/polymind/global/gfx';
 import {
   DocModeProvider,
   EditPropsStore,
-} from '@blocksuite/polymind/shared/services';
-import { GfxControllerIdentifier } from '@blocksuite/polymind/std/gfx';
+} from '@blockmind/polymind/shared/services';
+import { GfxControllerIdentifier } from '@blockmind/polymind/std/gfx';
 import type { FrameworkProvider } from '@toeverything/infra';
 import { html } from 'lit';
 

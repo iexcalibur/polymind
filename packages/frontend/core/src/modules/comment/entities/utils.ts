@@ -2,7 +2,7 @@ import type {
   BaseTextAttributes,
   BlockSnapshot,
   DeltaInsert,
-} from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/store';
 
 const MentionAttribute = 'mention';
 type ExtendedTextAttributes = BaseTextAttributes & {

@@ -1,16 +1,16 @@
 import type { FeatureFlagService } from '@polymind/core/modules/feature-flag';
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import type { ColorScheme } from '@blocksuite/polymind/model';
-import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import type { ColorScheme } from '@blockmind/polymind/model';
+import { unsafeCSSVarV2 } from '@blockmind/polymind/shared/theme';
 import {
   type BlockSelection,
   type EditorHost,
   ShadowlessElement,
   type TextSelection,
-} from '@blocksuite/polymind/std';
-import type { ExtensionType } from '@blocksuite/polymind/store';
-import type { NotificationService } from '@blocksuite/polymind-shared/services';
-import { isInsidePageEditor } from '@blocksuite/polymind-shared/utils';
+} from '@blockmind/polymind/std';
+import type { ExtensionType } from '@blockmind/polymind/store';
+import type { NotificationService } from '@blockmind/polymind-shared/services';
+import { isInsidePageEditor } from '@blockmind/polymind-shared/utils';
 import {
   CopyIcon,
   InsertBleowIcon,

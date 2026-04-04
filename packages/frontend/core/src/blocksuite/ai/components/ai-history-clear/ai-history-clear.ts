@@ -1,9 +1,9 @@
 import type { CopilotChatHistoryFragment } from '@polymind/graphql';
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import { type NotificationService } from '@blocksuite/polymind/shared/services';
-import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
-import { ShadowlessElement } from '@blocksuite/polymind/std';
-import type { Store } from '@blocksuite/polymind/store';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import { type NotificationService } from '@blockmind/polymind/shared/services';
+import { unsafeCSSVarV2 } from '@blockmind/polymind/shared/theme';
+import { ShadowlessElement } from '@blockmind/polymind/std';
+import type { Store } from '@blockmind/polymind/store';
 import { css, html } from 'lit';
 import { property } from 'lit/decorators.js';
 

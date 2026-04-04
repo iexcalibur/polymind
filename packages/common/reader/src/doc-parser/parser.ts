@@ -1,4 +1,4 @@
-import type { ColumnDataType } from '@blocksuite/polymind/model';
+import type { ColumnDataType } from '@blockmind/polymind/model';
 import { Array as YArray, type Map as YMap, type Text as YText } from 'yjs';
 
 import { deltaToMd, getConverters } from './delta-to-md';

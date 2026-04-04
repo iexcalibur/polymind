@@ -1,6 +1,6 @@
 import { Button } from '@polymind/component';
 import { useI18n } from '@polymind/i18n';
-import type { AttachmentBlockModel } from '@blocksuite/polymind/model';
+import type { AttachmentBlockModel } from '@blockmind/polymind/model';
 import { ArrowDownBigIcon } from '@blocksuite/icons/rc';
 import clsx from 'clsx';
 import type { PropsWithChildren, ReactElement } from 'react';

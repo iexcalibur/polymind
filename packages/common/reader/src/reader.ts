@@ -1,14 +1,14 @@
-import { Container } from '@blocksuite/polymind/global/di';
+import { Container } from '@blockmind/polymind/global/di';
 import type {
   AttachmentBlockModel,
   BookmarkBlockModel,
   EmbedBlockModel,
   ImageBlockModel,
   TableBlockModel,
-} from '@blocksuite/polymind/model';
-import { PolymindSchemas } from '@blocksuite/polymind/schemas';
-import { MarkdownAdapter } from '@blocksuite/polymind/shared/adapters';
-import type { PolymindTextAttributes } from '@blocksuite/polymind/shared/types';
+} from '@blockmind/polymind/model';
+import { PolymindSchemas } from '@blockmind/polymind/schemas';
+import { MarkdownAdapter } from '@blockmind/polymind/shared/adapters';
+import type { PolymindTextAttributes } from '@blockmind/polymind/shared/types';
 import {
   createYProxy,
   type DeltaInsert,
@@ -17,7 +17,7 @@ import {
   Transformer,
   type TransformerMiddleware,
   type YBlock,
-} from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/store';
 import { uniqBy } from 'lodash-es';
 import {
   Array as YArray,

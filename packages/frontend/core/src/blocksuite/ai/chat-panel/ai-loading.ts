@@ -1,4 +1,4 @@
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
 import { css, html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
 

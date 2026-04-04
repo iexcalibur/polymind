@@ -1,6 +1,6 @@
-import { Bound, clamp } from '@blocksuite/polymind/global/gfx';
-import { toGfxBlockComponent } from '@blocksuite/polymind/std';
-import { GfxViewInteractionExtension } from '@blocksuite/std/gfx';
+import { Bound, clamp } from '@blockmind/polymind/global/gfx';
+import { toGfxBlockComponent } from '@blockmind/polymind/std';
+import { GfxViewInteractionExtension } from '@blockmind/std/gfx';
 import { html } from 'lit';
 import { styleMap } from 'lit/directives/style-map.js';
 

@@ -8,7 +8,7 @@ import {
   WorkbenchLink,
   type WorkbenchLinkProps,
 } from '@polymind/core/modules/workbench';
-import type { DocMeta } from '@blocksuite/polymind/store';
+import type { DocMeta } from '@blockmind/polymind/store';
 import { useLiveData, useService } from '@toeverything/infra';
 import clsx from 'clsx';
 import { forwardRef, type ReactNode, useMemo, useRef } from 'react';

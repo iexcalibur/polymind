@@ -1,4 +1,4 @@
-import type { DocMode } from '@blocksuite/polymind/model';
+import type { DocMode } from '@blockmind/polymind/model';
 import { NewXxxEdgelessIcon, NewXxxPageIcon } from '@blocksuite/icons/rc';
 import { Entity, LiveData } from '@toeverything/infra';
 

@@ -1,6 +1,6 @@
 import { toDocSearchParams } from '@polymind/core/modules/navigation';
 import type { IndexerPreferOptions, IndexerSyncState } from '@polymind/nbstore';
-import type { ReferenceParams } from '@blocksuite/polymind/model';
+import type { ReferenceParams } from '@blockmind/polymind/model';
 import { fromPromise, LiveData, Service } from '@toeverything/infra';
 import { isEmpty, omit } from 'lodash-es';
 import { map, type Observable, of, switchMap } from 'rxjs';

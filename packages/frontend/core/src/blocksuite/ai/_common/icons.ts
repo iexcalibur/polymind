@@ -1,6 +1,6 @@
 import { html } from 'lit';
 
-export { AIStarIconWithAnimation } from '@blocksuite/polymind/components/icons';
+export { AIStarIconWithAnimation } from '@blockmind/polymind/components/icons';
 
 // dotlottie-wc can only be used in the browser
 if (typeof window !== 'undefined') {

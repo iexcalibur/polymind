@@ -1,4 +1,4 @@
-import type { DocMode, RootBlockModel } from '@blocksuite/polymind/model';
+import type { DocMode, RootBlockModel } from '@blockmind/polymind/model';
 import { Entity } from '@toeverything/infra';
 import { throttle } from 'lodash-es';
 import type { Transaction } from 'yjs';

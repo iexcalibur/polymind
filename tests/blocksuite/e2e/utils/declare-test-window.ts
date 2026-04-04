@@ -1,7 +1,7 @@
-import type * as Effect from '@blocksuite/polymind/effects';
-import type { EditorHost } from '@blocksuite/polymind/std';
-import type { Store, Transformer, Workspace } from '@blocksuite/polymind/store';
-import type { TestPolymindEditorContainer } from '@blocksuite/integration-test';
+import type * as Effect from '@blockmind/polymind/effects';
+import type { EditorHost } from '@blockmind/polymind/std';
+import type { Store, Transformer, Workspace } from '@blockmind/polymind/store';
+import type { TestPolymindEditorContainer } from '@blockmind/integration-test';
 
 declare type _GLOBAL_ = typeof Effect;
 
@@ -11,18 +11,18 @@ declare global {
      * the following instance are initialized in `packages/playground/apps/starter/main.ts`
      */
     $blocksuite: {
-      store: typeof import('@blocksuite/polymind/store');
+      store: typeof import('@blockmind/polymind/store');
       blocks: {
-        database: typeof import('@blocksuite/polymind/blocks/database');
-        note: typeof import('@blocksuite/polymind/blocks/note');
+        database: typeof import('@blockmind/polymind/blocks/database');
+        note: typeof import('@blockmind/polymind/blocks/note');
       };
       global: {
-        utils: typeof import('@blocksuite/polymind/global/utils');
+        utils: typeof import('@blockmind/polymind/global/utils');
       };
-      services: typeof import('@blocksuite/polymind/shared/services');
-      editor: typeof import('@blocksuite/integration-test');
-      blockStd: typeof import('@blocksuite/polymind/std');
-      affineModel: typeof import('@blocksuite/polymind-model');
+      services: typeof import('@blockmind/polymind/shared/services');
+      editor: typeof import('@blockmind/integration-test');
+      blockStd: typeof import('@blockmind/polymind/std');
+      affineModel: typeof import('@blockmind/polymind-model');
     };
     collection: Workspace;
     doc: Store;

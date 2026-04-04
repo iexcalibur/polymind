@@ -1,5 +1,5 @@
 import { AttachmentViewer } from '@polymind/core/blocksuite/attachment-viewer';
-import type { AttachmentBlockModel } from '@blocksuite/polymind/model';
+import type { AttachmentBlockModel } from '@blockmind/polymind/model';
 import { useMemo } from 'react';
 
 import { useEditor } from '../utils';

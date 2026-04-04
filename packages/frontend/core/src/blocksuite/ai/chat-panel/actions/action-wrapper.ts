@@ -1,7 +1,7 @@
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
-import type { EditorHost } from '@blocksuite/polymind/std';
-import { ThemeProvider } from '@blocksuite/polymind-shared/services';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import { unsafeCSSVar, unsafeCSSVarV2 } from '@blockmind/polymind/shared/theme';
+import type { EditorHost } from '@blockmind/polymind/std';
+import { ThemeProvider } from '@blockmind/polymind-shared/services';
 import {
   ArrowDownBigIcon as ArrowDownIcon,
   ArrowUpBigIcon as ArrowUpIcon,

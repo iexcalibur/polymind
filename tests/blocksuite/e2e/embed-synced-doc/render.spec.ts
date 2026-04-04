@@ -1,4 +1,4 @@
-import type { DatabaseBlockModel } from '@blocksuite/polymind/model';
+import type { DatabaseBlockModel } from '@blockmind/polymind/model';
 import { expect } from '@playwright/test';
 
 import { enterPlaygroundRoom } from '../utils/actions';

@@ -1,5 +1,5 @@
 import { GlobalDialogService } from '@polymind/core/modules/dialogs';
-import type { DocMode } from '@blocksuite/polymind/model';
+import type { DocMode } from '@blockmind/polymind/model';
 import { useService } from '@toeverything/infra';
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';

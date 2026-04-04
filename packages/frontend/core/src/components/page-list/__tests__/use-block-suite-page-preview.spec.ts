@@ -4,8 +4,8 @@
 import 'fake-indexeddb/auto';
 
 import { getStoreManager } from '@polymind/core/blocksuite/manager/store';
-import { type Store, Text } from '@blocksuite/polymind/store';
-import { TestWorkspace } from '@blocksuite/polymind/store/test';
+import { type Store, Text } from '@blockmind/polymind/store';
+import { TestWorkspace } from '@blockmind/polymind/store/test';
 import { renderHook } from '@testing-library/react';
 import { useAtomValue } from 'jotai';
 import { beforeEach, describe, expect, test, vi } from 'vitest';

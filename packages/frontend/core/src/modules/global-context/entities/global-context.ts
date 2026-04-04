@@ -1,4 +1,4 @@
-import type { DocMode } from '@blocksuite/polymind/model';
+import type { DocMode } from '@blockmind/polymind/model';
 import { Entity, LiveData, MemoryMemento } from '@toeverything/infra';
 
 export class GlobalContext extends Entity {

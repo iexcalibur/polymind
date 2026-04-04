@@ -1,6 +1,6 @@
 import { JournalService } from '@polymind/core/modules/journal';
 import { i18nTime, useI18n } from '@polymind/i18n';
-import type { Store } from '@blocksuite/polymind/store';
+import type { Store } from '@blockmind/polymind/store';
 import { useLiveData, useService } from '@toeverything/infra';
 import dayjs from 'dayjs';
 

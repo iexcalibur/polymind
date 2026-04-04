@@ -1,5 +1,5 @@
 import { generateUrl } from '@polymind/core/components/hooks/polymind/use-share-url';
-import { AttachmentBlockModel } from '@blocksuite/polymind/model';
+import { AttachmentBlockModel } from '@blockmind/polymind/model';
 import {
   attachmentBlockAudioMediaKey,
   type AudioMediaDescriptor,

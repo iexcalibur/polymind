@@ -1,7 +1,7 @@
 import type { SettingTab } from '@polymind/core/modules/dialogs/constant';
 import { toDocSearchParams } from '@polymind/core/modules/navigation';
 import { getOpenUrlInDesktopAppLink } from '@polymind/core/modules/open-in-app';
-import type { DocMode } from '@blocksuite/polymind/model';
+import type { DocMode } from '@blockmind/polymind/model';
 import { nanoid } from 'nanoid';
 import { createContext, useCallback, useContext, useMemo } from 'react';
 import type { NavigateFunction, NavigateOptions } from 'react-router-dom';

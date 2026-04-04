@@ -1,9 +1,9 @@
-import { noop } from '@blocksuite/polymind/global/utils';
-import type { DocMode } from '@blocksuite/polymind/model';
+import { noop } from '@blockmind/polymind/global/utils';
+import type { DocMode } from '@blockmind/polymind/model';
 import {
   ActionPlacement,
   type ToolbarModuleConfig,
-} from '@blocksuite/polymind/shared/services';
+} from '@blockmind/polymind/shared/services';
 import { html } from 'lit';
 
 import type { AIItemGroupConfig } from '../../components/ai-item/types';

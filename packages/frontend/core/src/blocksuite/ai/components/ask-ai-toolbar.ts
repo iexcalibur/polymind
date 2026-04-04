@@ -1,10 +1,10 @@
-import { createLitPortal } from '@blocksuite/polymind/components/portal';
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import { createLitPortal } from '@blockmind/polymind/components/portal';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
 import {
   BlockSelection,
   type EditorHost,
   TextSelection,
-} from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/std';
 import { flip, offset } from '@floating-ui/dom';
 import { css, html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';

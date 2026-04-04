@@ -2,7 +2,7 @@ import { getEditorConfigExtension } from '@polymind/core/blocksuite/view-extensi
 import {
   type ViewExtensionContext,
   ViewExtensionProvider,
-} from '@blocksuite/polymind/ext-loader';
+} from '@blockmind/polymind/ext-loader';
 import { FrameworkProvider } from '@toeverything/infra';
 import { z } from 'zod';
 

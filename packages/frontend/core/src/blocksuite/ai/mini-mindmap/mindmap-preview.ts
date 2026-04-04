@@ -1,20 +1,20 @@
 import { WorkspaceImpl } from '@polymind/core/modules/workspace/impls/workspace.js';
-import type { SurfaceBlockModel } from '@blocksuite/polymind/blocks/surface';
+import type { SurfaceBlockModel } from '@blockmind/polymind/blocks/surface';
 import {
   MindmapStyleFour,
   MindmapStyleOne,
   MindmapStyleThree,
   MindmapStyleTwo,
-} from '@blocksuite/polymind/gfx/mindmap';
-import type { ServiceProvider } from '@blocksuite/polymind/global/di';
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
+} from '@blockmind/polymind/gfx/mindmap';
+import type { ServiceProvider } from '@blockmind/polymind/global/di';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
 import {
   type MindmapElementModel,
   MindmapStyle,
-} from '@blocksuite/polymind/model';
-import { MarkdownAdapter } from '@blocksuite/polymind/shared/adapters';
-import { BlockStdScope, type EditorHost } from '@blocksuite/polymind/std';
-import { Schema, type Store } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/model';
+import { MarkdownAdapter } from '@blockmind/polymind/shared/adapters';
+import { BlockStdScope, type EditorHost } from '@blockmind/polymind/std';
+import { Schema, type Store } from '@blockmind/polymind/store';
 import { css, html, LitElement, nothing } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';

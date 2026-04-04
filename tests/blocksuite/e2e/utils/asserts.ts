@@ -1,16 +1,16 @@
 import './declare-test-window.js';
 
-import type { EdgelessNoteBackground } from '@blocksuite/polymind/blocks/note';
-import type { NoteBlockModel, RootBlockModel } from '@blocksuite/polymind/model';
-import type { RichText } from '@blocksuite/polymind/rich-text';
-import type { PolymindInlineEditor } from '@blocksuite/polymind/shared/types';
+import type { EdgelessNoteBackground } from '@blockmind/polymind/blocks/note';
+import type { NoteBlockModel, RootBlockModel } from '@blockmind/polymind/model';
+import type { RichText } from '@blockmind/polymind/rich-text';
+import type { PolymindInlineEditor } from '@blockmind/polymind/shared/types';
 import type {
   BlockComponent,
   EditorHost,
   TextSelection,
-} from '@blocksuite/polymind/std';
-import type { InlineRootElement } from '@blocksuite/polymind/std/inline';
-import type { BlockModel } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/std';
+import type { InlineRootElement } from '@blockmind/polymind/std/inline';
+import type { BlockModel } from '@blockmind/polymind/store';
 import { expect, type Locator, type Page } from '@playwright/test';
 
 import {

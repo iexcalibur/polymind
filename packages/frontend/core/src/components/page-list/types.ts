@@ -1,5 +1,5 @@
 import type { CollectionMeta } from '@polymind/core/modules/collection';
-import type { DocMeta, Workspace } from '@blocksuite/polymind/store';
+import type { DocMeta, Workspace } from '@blockmind/polymind/store';
 import type { JSX, PropsWithChildren, ReactNode } from 'react';
 import type { To } from 'react-router-dom';
 

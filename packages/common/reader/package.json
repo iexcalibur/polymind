@@ -18,10 +18,10 @@
     "yjs": "^13.6.27"
   },
   "devDependencies": {
-    "@blocksuite/polymind": "workspace:*",
+    "@blockmind/polymind": "workspace:*",
     "vitest": "^4.0.18"
   },
   "peerDependencies": {
-    "@blocksuite/polymind": "workspace:*"
+    "@blockmind/polymind": "workspace:*"
   }
 }

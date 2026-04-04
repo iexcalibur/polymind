@@ -1,12 +1,12 @@
 import {
   type GfxCommonBlockProps,
   GfxCompatible,
-} from '@blocksuite/polymind/std/gfx';
+} from '@blockmind/polymind/std/gfx';
 import {
   BlockModel,
   BlockSchemaExtension,
   defineBlockSchema,
-} from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/store';
 
 type AIChatProps = {
   messages: string; // JSON string of ChatMessage[]

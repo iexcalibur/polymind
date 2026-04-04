@@ -1,9 +1,9 @@
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import { ThemeProvider } from '@blocksuite/polymind/shared/services';
-import { scrollbarStyle } from '@blocksuite/polymind/shared/styles';
-import { unsafeCSSVar } from '@blocksuite/polymind/shared/theme';
-import { on, stopPropagation } from '@blocksuite/polymind/shared/utils';
-import type { EditorHost } from '@blocksuite/polymind/std';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import { ThemeProvider } from '@blockmind/polymind/shared/services';
+import { scrollbarStyle } from '@blockmind/polymind/shared/styles';
+import { unsafeCSSVar } from '@blockmind/polymind/shared/theme';
+import { on, stopPropagation } from '@blockmind/polymind/shared/utils';
+import type { EditorHost } from '@blockmind/polymind/std';
 import { darkCssVariables, lightCssVariables } from '@toeverything/theme';
 import { css, html, LitElement, nothing, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';

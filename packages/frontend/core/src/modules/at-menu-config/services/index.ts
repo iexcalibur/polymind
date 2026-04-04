@@ -1,16 +1,16 @@
 import { I18n, i18nTime } from '@polymind/i18n';
-import type { DocMode } from '@blocksuite/polymind/model';
-import type { PolymindInlineEditor } from '@blocksuite/polymind/shared/types';
+import type { DocMode } from '@blockmind/polymind/model';
+import type { PolymindInlineEditor } from '@blockmind/polymind/shared/types';
 import {
   type EditorHost,
-} from '@blocksuite/polymind/std';
-import type { DocMeta } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/std';
+import type { DocMeta } from '@blockmind/polymind/store';
 import {
   type LinkedMenuGroup,
   type LinkedMenuItem,
   type LinkedWidgetConfig,
   LinkedWidgetUtils,
-} from '@blocksuite/polymind/widgets/linked-doc';
+} from '@blockmind/polymind/widgets/linked-doc';
 import {
   DateTimeIcon,
   NewXxxEdgelessIcon,

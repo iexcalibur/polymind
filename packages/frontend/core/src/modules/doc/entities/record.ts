@@ -1,5 +1,5 @@
-import type { DocMode } from '@blocksuite/polymind/model';
-import type { DocMeta } from '@blocksuite/polymind/store';
+import type { DocMode } from '@blockmind/polymind/model';
+import type { DocMeta } from '@blockmind/polymind/store';
 import { Entity, LiveData } from '@toeverything/infra';
 
 import type { DocProperties } from '../../db';

@@ -1,12 +1,12 @@
-import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
-import { noop } from '@blocksuite/polymind/global/utils';
-import { ThemeProvider } from '@blocksuite/polymind/shared/services';
+import { SignalWatcher, WithDisposable } from '@blockmind/polymind/global/lit';
+import { noop } from '@blockmind/polymind/global/utils';
+import { ThemeProvider } from '@blockmind/polymind/shared/services';
 import {
   BlockStdScope,
   EditorHost,
   ShadowlessElement,
-} from '@blocksuite/polymind/std';
-import type { ExtensionType, Store } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/std';
+import type { ExtensionType, Store } from '@blockmind/polymind/store';
 import { css, html, nothing } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { guard } from 'lit/directives/guard.js';

@@ -3,7 +3,7 @@ import { useSharingUrl } from '@polymind/core/components/hooks/polymind/use-shar
 import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { useI18n } from '@polymind/i18n';
-import { type DocMode } from '@blocksuite/polymind/model';
+import { type DocMode } from '@blockmind/polymind/model';
 import { InformationIcon, LinkIcon } from '@blocksuite/icons/rc';
 import { useService } from '@toeverything/infra';
 import { useCallback } from 'react';

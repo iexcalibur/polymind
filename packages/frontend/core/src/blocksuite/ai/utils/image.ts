@@ -1,7 +1,7 @@
-import { ImageBlockModel } from '@blocksuite/polymind/model';
-import { FetchUtils } from '@blocksuite/polymind/shared/adapters';
-import type { BlockModel } from '@blocksuite/polymind/store';
-import type { GfxModel } from '@blocksuite/std/gfx';
+import { ImageBlockModel } from '@blockmind/polymind/model';
+import { FetchUtils } from '@blockmind/polymind/shared/adapters';
+import type { BlockModel } from '@blockmind/polymind/store';
+import type { GfxModel } from '@blockmind/std/gfx';
 
 export async function fetchImageToFile(
   url: string,

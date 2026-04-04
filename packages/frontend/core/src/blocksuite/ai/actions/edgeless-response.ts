@@ -1,11 +1,11 @@
-import { CodeBlockPreviewIdentifier } from '@blocksuite/polymind/blocks/code';
-import { addImages } from '@blocksuite/polymind/blocks/image';
-import { getSurfaceBlock } from '@blocksuite/polymind/blocks/surface';
-import { LoadingIcon } from '@blocksuite/polymind/components/icons';
-import { addTree } from '@blocksuite/polymind/gfx/mindmap';
-import { fitContent } from '@blocksuite/polymind/gfx/shape';
-import { createTemplateJob } from '@blocksuite/polymind/gfx/template';
-import { Bound } from '@blocksuite/polymind/global/gfx';
+import { CodeBlockPreviewIdentifier } from '@blockmind/polymind/blocks/code';
+import { addImages } from '@blockmind/polymind/blocks/image';
+import { getSurfaceBlock } from '@blockmind/polymind/blocks/surface';
+import { LoadingIcon } from '@blockmind/polymind/components/icons';
+import { addTree } from '@blockmind/polymind/gfx/mindmap';
+import { fitContent } from '@blockmind/polymind/gfx/shape';
+import { createTemplateJob } from '@blockmind/polymind/gfx/template';
+import { Bound } from '@blockmind/polymind/global/gfx';
 import {
   EDGELESS_TEXT_BLOCK_MIN_HEIGHT,
   EDGELESS_TEXT_BLOCK_MIN_WIDTH,
@@ -14,14 +14,14 @@ import {
   type MindmapElementModel,
   NoteDisplayMode,
   type ShapeElementModel,
-} from '@blocksuite/polymind/model';
-import type { EditorHost } from '@blocksuite/polymind/std';
-import { GfxControllerIdentifier } from '@blocksuite/polymind/std/gfx';
-import { Text } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/model';
+import type { EditorHost } from '@blockmind/polymind/std';
+import { GfxControllerIdentifier } from '@blockmind/polymind/std/gfx';
+import { Text } from '@blockmind/polymind/store';
 import {
   AFFINE_TOOLBAR_WIDGET,
   type PolymindToolbarWidget,
-} from '@blocksuite/polymind/widgets/toolbar';
+} from '@blockmind/polymind/widgets/toolbar';
 import {
   ChatWithAiIcon,
   DeleteIcon,

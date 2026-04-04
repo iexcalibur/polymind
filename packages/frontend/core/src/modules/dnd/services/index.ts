@@ -10,10 +10,10 @@ import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import {
   DNDAPIExtension,
   DndApiExtensionIdentifier,
-} from '@blocksuite/polymind/shared/services';
-import { BlockStdScope } from '@blocksuite/polymind/std';
-import type { SliceSnapshot } from '@blocksuite/polymind/store';
-import type { DragBlockPayload } from '@blocksuite/polymind/widgets/drag-handle';
+} from '@blockmind/polymind/shared/services';
+import { BlockStdScope } from '@blockmind/polymind/std';
+import type { SliceSnapshot } from '@blockmind/polymind/store';
+import type { DragBlockPayload } from '@blockmind/polymind/widgets/drag-handle';
 import { Service } from '@toeverything/infra';
 
 import type { DocsService } from '../../doc';

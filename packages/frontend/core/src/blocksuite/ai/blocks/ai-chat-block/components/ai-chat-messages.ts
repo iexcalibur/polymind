@@ -1,9 +1,9 @@
 import type { TextRendererOptions } from '@polymind/core/blocksuite/ai/components/text-renderer';
-import type { EditorHost } from '@blocksuite/polymind/std';
+import type { EditorHost } from '@blockmind/polymind/std';
 import {
   NotificationProvider,
   ThemeProvider,
-} from '@blocksuite/polymind-shared/services';
+} from '@blockmind/polymind-shared/services';
 import { css, html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';

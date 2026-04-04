@@ -1,5 +1,5 @@
-import type { FrameBlockModel } from '@blocksuite/polymind/model';
-import type { Store } from '@blocksuite/polymind/store';
+import type { FrameBlockModel } from '@blockmind/polymind/model';
+import type { Store } from '@blockmind/polymind/store';
 
 export function getFrameBlock(doc: Store) {
   const blocks = doc.getBlocksByFlavour('polymind:frame');

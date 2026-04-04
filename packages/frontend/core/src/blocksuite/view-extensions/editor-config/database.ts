@@ -9,8 +9,8 @@ import { I18n } from '@polymind/i18n';
 import {
   menu,
   type MenuOptions,
-} from '@blocksuite/polymind/components/context-menu';
-import type { DatabaseBlockModel } from '@blocksuite/polymind/model';
+} from '@blockmind/polymind/components/context-menu';
+import type { DatabaseBlockModel } from '@blockmind/polymind/model';
 import { LinkIcon } from '@blocksuite/icons/lit';
 import type { FrameworkProvider } from '@toeverything/infra';
 

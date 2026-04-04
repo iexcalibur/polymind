@@ -1,12 +1,12 @@
-import { AIStarIcon } from '@blocksuite/polymind/components/icons';
-import { DocModeProvider } from '@blocksuite/polymind/shared/services';
+import { AIStarIcon } from '@blockmind/polymind/components/icons';
+import { DocModeProvider } from '@blockmind/polymind/shared/services';
 import {
   type SlashMenuActionItem,
   SlashMenuConfigExtension,
   type SlashMenuContext,
   type SlashMenuItem,
   type SlashMenuSubMenu,
-} from '@blocksuite/polymind/widgets/slash-menu';
+} from '@blockmind/polymind/widgets/slash-menu';
 import { MoreHorizontalIcon } from '@blocksuite/icons/lit';
 import { html } from 'lit';
 

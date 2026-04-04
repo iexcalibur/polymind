@@ -1,4 +1,4 @@
-import type { EditorHost } from '@blocksuite/polymind/std';
+import type { EditorHost } from '@blockmind/polymind/std';
 
 import {
   AFFINE_AI_PANEL_WIDGET,

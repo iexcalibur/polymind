@@ -6,7 +6,7 @@
   "license": "MIT",
   "workspaces": [
     ".",
-    "blocksuite/**/*",
+    "blockmind/**/*",
     "packages/*/*",
     "packages/frontend/apps/*",
     "tools/*",

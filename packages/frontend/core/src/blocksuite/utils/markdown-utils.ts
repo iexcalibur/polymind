@@ -7,13 +7,13 @@ import {
   pasteMiddleware,
   PlainTextAdapter,
   titleMiddleware,
-} from '@blocksuite/polymind/shared/adapters';
+} from '@blockmind/polymind/shared/adapters';
 import {
   BlockStdScope,
   type EditorHost,
   type TextRangePoint,
   TextSelection,
-} from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/std';
 import type {
   BlockModel,
   BlockSnapshot,
@@ -22,8 +22,8 @@ import type {
   SliceSnapshot,
   Store,
   TransformerMiddleware,
-} from '@blocksuite/polymind/store';
-import { toDraftModel, Transformer } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/store';
+import { toDraftModel, Transformer } from '@blockmind/polymind/store';
 import { Doc as YDoc } from 'yjs';
 
 import { getStoreManager } from '../manager/store';

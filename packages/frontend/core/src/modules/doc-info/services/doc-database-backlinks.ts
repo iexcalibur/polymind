@@ -1,5 +1,5 @@
-import { DatabaseBlockDataSource } from '@blocksuite/polymind/blocks/database';
-import type { DatabaseBlockModel } from '@blocksuite/polymind/model';
+import { DatabaseBlockDataSource } from '@blockmind/polymind/blocks/database';
+import type { DatabaseBlockModel } from '@blockmind/polymind/model';
 import { LiveData, Service } from '@toeverything/infra';
 import { isEqual } from 'lodash-es';
 import { combineLatest, distinctUntilChanged, map, Observable } from 'rxjs';

@@ -9,7 +9,7 @@ import {
   type WorkspaceMetadata,
   WorkspacesService,
 } from '@polymind/core/modules/workspace';
-import { ZipTransformer } from '@blocksuite/polymind/widgets/linked-doc';
+import { ZipTransformer } from '@blockmind/polymind/widgets/linked-doc';
 import {
   FrameworkScope,
   LiveData,

@@ -1,31 +1,31 @@
 import {
   EdgelessClipboardController,
   splitElements,
-} from '@blocksuite/polymind/blocks/root';
+} from '@blockmind/polymind/blocks/root';
 import {
   getSurfaceBlock,
   type SurfaceBlockComponent,
-} from '@blocksuite/polymind/blocks/surface';
-import { DatabaseBlockModel, ImageBlockModel } from '@blocksuite/polymind/model';
+} from '@blockmind/polymind/blocks/surface';
+import { DatabaseBlockModel, ImageBlockModel } from '@blockmind/polymind/model';
 import {
   getBlockSelectionsCommand,
   getImageSelectionsCommand,
   getSelectedBlocksCommand,
   getSelectedModelsCommand,
   getTextSelectionCommand,
-} from '@blocksuite/polymind/shared/commands';
-import { matchModels } from '@blocksuite/polymind/shared/utils';
-import { type EditorHost, TextSelection } from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/shared/commands';
+import { matchModels } from '@blockmind/polymind/shared/utils';
+import { type EditorHost, TextSelection } from '@blockmind/polymind/std';
 import {
   GfxControllerIdentifier,
   type GfxModel,
-} from '@blocksuite/polymind/std/gfx';
+} from '@blockmind/polymind/std/gfx';
 import {
   type BlockModel,
   type DraftModel,
   Slice,
   toDraftModel,
-} from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/store';
 
 import { getContentFromSlice } from '../../utils';
 import type { CopilotTool } from '../tool/copilot-tool';

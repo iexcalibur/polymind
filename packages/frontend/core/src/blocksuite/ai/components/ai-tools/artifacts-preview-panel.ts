@@ -1,6 +1,6 @@
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
-import { ShadowlessElement } from '@blocksuite/polymind/std';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import { unsafeCSSVar, unsafeCSSVarV2 } from '@blockmind/polymind/shared/theme';
+import { ShadowlessElement } from '@blockmind/polymind/std';
 import { EmptyIcon } from '@blocksuite/icons/lit';
 import { css, html, nothing, type TemplateResult } from 'lit';
 import { property } from 'lit/decorators.js';

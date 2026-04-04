@@ -21,9 +21,9 @@ import { JournalService } from '@polymind/core/modules/journal';
 import { useInsidePeekView } from '@polymind/core/modules/peek-view';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { ServerFeature } from '@polymind/graphql';
-import type { DocTitle } from '@blocksuite/polymind/fragments/doc-title';
-import type { DocMode } from '@blocksuite/polymind/model';
-import type { Store } from '@blocksuite/polymind/store';
+import type { DocTitle } from '@blockmind/polymind/fragments/doc-title';
+import type { DocMode } from '@blockmind/polymind/model';
+import type { Store } from '@blockmind/polymind/store';
 import {
   useFramework,
   useLiveData,

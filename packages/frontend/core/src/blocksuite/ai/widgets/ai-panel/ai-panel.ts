@@ -1,24 +1,24 @@
-import { ColorScheme } from '@blocksuite/polymind/model';
+import { ColorScheme } from '@blockmind/polymind/model';
 import {
   DocModeProvider,
   NotificationProvider,
   ThemeProvider,
   ToolbarFlag,
   ToolbarRegistryIdentifier,
-} from '@blocksuite/polymind/shared/services';
-import { unsafeCSSVar } from '@blocksuite/polymind/shared/theme';
+} from '@blockmind/polymind/shared/services';
+import { unsafeCSSVar } from '@blockmind/polymind/shared/theme';
 import {
   getPageRootByElement,
   stopPropagation,
-} from '@blocksuite/polymind/shared/utils';
-import { WidgetComponent, WidgetViewExtension } from '@blocksuite/polymind/std';
-import { GfxControllerIdentifier } from '@blocksuite/polymind/std/gfx';
-import { RANGE_SYNC_EXCLUDE_ATTR } from '@blocksuite/polymind/std/inline';
-import type { BaseSelection } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/shared/utils';
+import { WidgetComponent, WidgetViewExtension } from '@blockmind/polymind/std';
+import { GfxControllerIdentifier } from '@blockmind/polymind/std/gfx';
+import { RANGE_SYNC_EXCLUDE_ATTR } from '@blockmind/polymind/std/inline';
+import type { BaseSelection } from '@blockmind/polymind/store';
 import {
   AFFINE_VIEWPORT_OVERLAY_WIDGET,
   type PolymindViewportOverlayWidget,
-} from '@blocksuite/polymind/widgets/viewport-overlay';
+} from '@blockmind/polymind/widgets/viewport-overlay';
 import {
   autoPlacement,
   autoUpdate,

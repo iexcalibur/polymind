@@ -1,4 +1,4 @@
-import type { Store } from '@blocksuite/polymind/store';
+import type { Store } from '@blockmind/polymind/store';
 import { Scope } from '@toeverything/infra';
 
 import type { DocRecord } from '../entities/record';

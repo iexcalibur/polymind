@@ -11,7 +11,7 @@ import {
 import { AIModelService } from '@polymind/core/modules/ai-button/services/models';
 import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
 import { FeatureFlagService } from '@polymind/core/modules/feature-flag';
-import type { EditorHost } from '@blocksuite/polymind/std';
+import type { EditorHost } from '@blockmind/polymind/std';
 import { useFramework } from '@toeverything/infra';
 import { useMemo } from 'react';
 

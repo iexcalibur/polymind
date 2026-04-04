@@ -1,5 +1,5 @@
-import type { SurfaceRefBlockComponent } from '@blocksuite/polymind/blocks/surface-ref';
-import { PolymindReference } from '@blocksuite/polymind/inlines/reference';
+import type { SurfaceRefBlockComponent } from '@blockmind/polymind/blocks/surface-ref';
+import { PolymindReference } from '@blockmind/polymind/inlines/reference';
 import type {
   AttachmentBlockModel,
   DocMode,
@@ -7,9 +7,9 @@ import type {
   EmbedSyncedDocModel,
   ImageBlockModel,
   SurfaceRefBlockModel,
-} from '@blocksuite/polymind/model';
-import type { BlockComponent, EditorHost } from '@blocksuite/polymind/std';
-import type { Block, BlockModel } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/model';
+import type { BlockComponent, EditorHost } from '@blockmind/polymind/std';
+import type { Block, BlockModel } from '@blockmind/polymind/store';
 import { Entity, LiveData } from '@toeverything/infra';
 import type { TemplateResult } from 'lit';
 import { firstValueFrom, map, race } from 'rxjs';

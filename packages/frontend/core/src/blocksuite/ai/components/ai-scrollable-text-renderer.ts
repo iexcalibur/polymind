@@ -1,6 +1,6 @@
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import { scrollbarStyle } from '@blocksuite/polymind/shared/styles';
-import { ShadowlessElement } from '@blocksuite/polymind/std';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import { scrollbarStyle } from '@blockmind/polymind/shared/styles';
+import { ShadowlessElement } from '@blockmind/polymind/std';
 import type { PropertyValues } from 'lit';
 import { css, html } from 'lit';
 import { property, query } from 'lit/decorators.js';

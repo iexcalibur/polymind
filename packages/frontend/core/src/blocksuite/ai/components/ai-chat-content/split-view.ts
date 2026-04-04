@@ -1,5 +1,5 @@
-import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
-import { ShadowlessElement } from '@blocksuite/std';
+import { SignalWatcher, WithDisposable } from '@blockmind/polymind/global/lit';
+import { ShadowlessElement } from '@blockmind/std';
 import {
   css,
   html,

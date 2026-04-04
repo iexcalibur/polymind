@@ -1,5 +1,5 @@
 import type { DefaultOpenProperty } from '@polymind/core/components/properties';
-import type { DocMode } from '@blocksuite/polymind/model';
+import type { DocMode } from '@blockmind/polymind/model';
 import { useLiveData, useService } from '@toeverything/infra';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 

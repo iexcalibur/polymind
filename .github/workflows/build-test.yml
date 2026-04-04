@@ -232,14 +232,14 @@ jobs:
       - name: Setup Node.js
         uses: ./.github/actions/setup-node
         with:
-          extra-flags: workspaces focus @polymind/monorepo @polymind-test/blocksuite @blocksuite/playground @blocksuite/integration-test
+          extra-flags: workspaces focus @polymind/monorepo @polymind-test/blocksuite @blockmind/playground @blockmind/integration-test
           playwright-install: true
           playwright-platform: 'chromium'
           electron-install: false
           full-cache: true
 
       - name: Run playground build
-        run: yarn workspace @blocksuite/playground build
+        run: yarn workspace @blockmind/playground build
 
       - name: Run playwright tests
         run: yarn workspace @polymind-test/blocksuite test --forbid-only --shard=${{ matrix.shard }}/${{ strategy.job-total }}
@@ -260,18 +260,18 @@ jobs:
       - name: Setup Node.js
         uses: ./.github/actions/setup-node
         with:
-          extra-flags: workspaces focus @polymind/monorepo @polymind-test/blocksuite @blocksuite/playground @blocksuite/integration-test
+          extra-flags: workspaces focus @polymind/monorepo @polymind-test/blocksuite @blockmind/playground @blockmind/integration-test
           playwright-install: true
           playwright-platform: 'chromium,firefox,webkit'
           electron-install: false
           full-cache: true
 
       - name: Run playground build
-        run: yarn workspace @blocksuite/playground build
+        run: yarn workspace @blockmind/playground build
 
       - name: Run integration browser tests
         timeout-minutes: 10
-        run: yarn workspace @blocksuite/integration-test test:unit
+        run: yarn workspace @blockmind/integration-test test:unit
 
       - name: Run cross-platform playwright tests
         timeout-minutes: 10
@@ -1289,7 +1289,7 @@ jobs:
           SKIP_WEB_BUILD: true
           HOIST_NODE_MODULES: 1
         run: |
-          rm -rf packages/frontend/apps/electron/node_modules/@polymind/nbstore/node_modules/@blocksuite/polymind/node_modules
+          rm -rf packages/frontend/apps/electron/node_modules/@polymind/nbstore/node_modules/@blockmind/polymind/node_modules
           rm -rf packages/frontend/apps/electron/node_modules/@polymind/native/node_modules
           yarn polymind @polymind/electron package --platform=win32 --arch=x64
 

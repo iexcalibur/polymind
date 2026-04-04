@@ -17,7 +17,7 @@ import {
 import { WorkbenchService } from '@polymind/core/modules/workbench';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { useI18n } from '@polymind/i18n';
-import type { DocMeta } from '@blocksuite/polymind/store';
+import type { DocMeta } from '@blockmind/polymind/store';
 import {
   DeleteIcon,
   DeletePermanentlyIcon,

@@ -1,5 +1,5 @@
-import type { IPoint } from '@blocksuite/global/gfx';
-import type { Store } from '@blocksuite/store';
+import type { IPoint } from '@blockmind/global/gfx';
+import type { Store } from '@blockmind/store';
 import type { Page } from '@playwright/test';
 
 import { toViewCoord } from './edgeless.js';

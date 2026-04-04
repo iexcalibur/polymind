@@ -1,7 +1,7 @@
 import { getPolyMindWorkspaceSchema } from '@polymind/core/modules/workspace';
 import { WorkspaceImpl } from '@polymind/core/modules/workspace/impls/workspace';
-import type { DocSnapshot, Store } from '@blocksuite/polymind/store';
-import { Transformer } from '@blocksuite/polymind/store';
+import type { DocSnapshot, Store } from '@blockmind/polymind/store';
+import { Transformer } from '@blockmind/polymind/store';
 import { Doc as YDoc } from 'yjs';
 export const getCollection = (() => {
   let collection: WorkspaceImpl | null = null;

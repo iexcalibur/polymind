@@ -1,15 +1,15 @@
 import '../declare-test-window.js';
 
-import { ConnectorTool } from '@blocksuite/polymind/gfx/connector';
-import { ShapeTool } from '@blocksuite/polymind/gfx/shape';
-import type { IPoint, IVec } from '@blocksuite/polymind/global/gfx';
-import { sleep } from '@blocksuite/polymind/global/utils';
+import { ConnectorTool } from '@blockmind/polymind/gfx/connector';
+import { ShapeTool } from '@blockmind/polymind/gfx/shape';
+import type { IPoint, IVec } from '@blockmind/polymind/global/gfx';
+import { sleep } from '@blockmind/polymind/global/utils';
 import type {
   ConnectorElementModel,
   NoteBlockModel,
   NoteDisplayMode,
-} from '@blocksuite/polymind/model';
-import type { ToolOptions } from '@blocksuite/polymind/std/gfx';
+} from '@blockmind/polymind/model';
+import type { ToolOptions } from '@blockmind/polymind/std/gfx';
 import type { Locator, Page } from '@playwright/test';
 import { expect } from '@playwright/test';
 

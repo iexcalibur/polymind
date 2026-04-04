@@ -2,7 +2,7 @@ import { UserFriendlyError } from '@polymind/error';
 import {
   type PolymindUserInfo,
   UserServiceExtension,
-} from '@blocksuite/polymind/shared/services';
+} from '@blockmind/polymind/shared/services';
 
 interface AccountInfo {
   id: string;

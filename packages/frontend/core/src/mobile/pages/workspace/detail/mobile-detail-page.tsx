@@ -20,12 +20,12 @@ import { WorkbenchService } from '@polymind/core/modules/workbench';
 import { ViewService } from '@polymind/core/modules/workbench/services/view';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { i18nTime } from '@polymind/i18n';
-import { DisposableGroup } from '@blocksuite/polymind/global/disposable';
-import { RefNodeSlotsProvider } from '@blocksuite/polymind/inlines/reference';
+import { DisposableGroup } from '@blockmind/polymind/global/disposable';
+import { RefNodeSlotsProvider } from '@blockmind/polymind/inlines/reference';
 import {
   customImageProxyMiddleware,
   ImageProxyService,
-} from '@blocksuite/polymind/shared/adapters';
+} from '@blockmind/polymind/shared/adapters';
 import {
   FrameworkScope,
   useLiveData,

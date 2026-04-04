@@ -9,7 +9,7 @@ import { WorkbenchService } from '@polymind/core/modules/workbench';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { inferOpenMode } from '@polymind/core/utils';
 import { useI18n } from '@polymind/i18n';
-import type { DocMode } from '@blocksuite/polymind/model';
+import type { DocMode } from '@blockmind/polymind/model';
 import {
   ArrowDownSmallIcon,
   EdgelessIcon,

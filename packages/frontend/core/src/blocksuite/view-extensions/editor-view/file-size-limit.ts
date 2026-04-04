@@ -1,10 +1,10 @@
 import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
-import type { Container } from '@blocksuite/polymind/global/di';
+import type { Container } from '@blockmind/polymind/global/di';
 import {
   FileSizeLimitProvider,
   type IFileSizeLimitService,
-} from '@blocksuite/polymind/shared/services';
-import { Extension } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/shared/services';
+import { Extension } from '@blockmind/polymind/store';
 import type { FrameworkProvider } from '@toeverything/infra';
 
 export function patchFileSizeLimitExtension(framework: FrameworkProvider) {

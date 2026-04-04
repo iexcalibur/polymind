@@ -3,7 +3,7 @@ import '../../components/ask-ai-button';
 import {
   ActionPlacement,
   type ToolbarModuleConfig,
-} from '@blocksuite/polymind/shared/services';
+} from '@blockmind/polymind/shared/services';
 import { html } from 'lit';
 
 import { pageAIGroups } from '../../_common/config';

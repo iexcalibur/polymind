@@ -12,8 +12,8 @@ import {
   TemplateListMenuAdd,
 } from '@polymind/core/modules/template-doc/view/template-list-menu';
 import { useI18n } from '@polymind/i18n';
-import { PageRootBlockComponent } from '@blocksuite/polymind/blocks/root';
-import type { Store } from '@blocksuite/polymind/store';
+import { PageRootBlockComponent } from '@blockmind/polymind/blocks/root';
+import type { Store } from '@blockmind/polymind/store';
 import {
   AiIcon,
   EdgelessIcon,

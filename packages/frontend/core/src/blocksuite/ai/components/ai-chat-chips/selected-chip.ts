@@ -1,5 +1,5 @@
-import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
-import { ShadowlessElement } from '@blocksuite/polymind/std';
+import { SignalWatcher, WithDisposable } from '@blockmind/polymind/global/lit';
+import { ShadowlessElement } from '@blockmind/polymind/std';
 import { UngroupIcon } from '@blocksuite/icons/lit';
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';

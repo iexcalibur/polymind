@@ -4,7 +4,7 @@ import { describe, expect, test, vi } from 'vitest';
 
 // mock context-menu utilities
 const popFilterableSimpleMenu = vi.fn();
-vi.mock('@blocksuite/polymind-components/context-menu', () => ({
+vi.mock('@blockmind/polymind-components/context-menu', () => ({
   menu: {
     action: (opts: any) => opts,
     group: (opts: any) => opts,

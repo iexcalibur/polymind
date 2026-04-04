@@ -1,9 +1,9 @@
-import type { PolymindTextAttributes } from '@blocksuite/polymind/shared/types';
+import type { PolymindTextAttributes } from '@blockmind/polymind/shared/types';
 import {
   type DeltaInsert,
   Text,
   type Workspace,
-} from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/store';
 import { useCallback } from 'react';
 
 export function useReferenceLinkHelper(docCollection: Workspace) {

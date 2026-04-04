@@ -1,11 +1,11 @@
-import { createLitPortal } from '@blocksuite/polymind/components/portal';
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import { ThemeProvider } from '@blocksuite/polymind/shared/services';
+import { createLitPortal } from '@blockmind/polymind/components/portal';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import { ThemeProvider } from '@blockmind/polymind/shared/services';
 import {
   EditorHost,
   PropTypes,
   requiredProperties,
-} from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/std';
 import { flip, offset } from '@floating-ui/dom';
 import { baseTheme } from '@toeverything/theme';
 import { css, html, LitElement, nothing, unsafeCSS } from 'lit';

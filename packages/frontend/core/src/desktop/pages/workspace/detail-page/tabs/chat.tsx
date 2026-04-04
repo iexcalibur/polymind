@@ -35,9 +35,9 @@ import type {
   UpdateChatSessionInput,
 } from '@polymind/graphql';
 import { useI18n } from '@polymind/i18n';
-import { RefNodeSlotsProvider } from '@blocksuite/polymind/inlines/reference';
-import { DocModeProvider } from '@blocksuite/polymind/shared/services';
-import { createSignalFromObservable } from '@blocksuite/polymind/shared/utils';
+import { RefNodeSlotsProvider } from '@blockmind/polymind/inlines/reference';
+import { DocModeProvider } from '@blockmind/polymind/shared/services';
+import { createSignalFromObservable } from '@blockmind/polymind/shared/utils';
 import { CenterPeekIcon, Logo1Icon } from '@blocksuite/icons/rc';
 import type { Signal } from '@preact/signals-core';
 import { useFramework, useService } from '@toeverything/infra';

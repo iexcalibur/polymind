@@ -30,9 +30,9 @@ import {
   waitForEditorLoad,
 } from '@polymind-test/kit/utils/page-logic';
 import { clickLocatorByRatio } from '@polymind-test/kit/utils/utils';
-import type { EdgelessRootBlockComponent } from '@blocksuite/polymind/blocks/root';
-import type { IVec } from '@blocksuite/polymind/global/gfx';
-import type { NoteBlockModel } from '@blocksuite/polymind/model';
+import type { EdgelessRootBlockComponent } from '@blockmind/polymind/blocks/root';
+import type { IVec } from '@blockmind/polymind/global/gfx';
+import type { NoteBlockModel } from '@blockmind/polymind/model';
 import { expect, type Page } from '@playwright/test';
 
 const title = 'Edgeless Note Header Test';

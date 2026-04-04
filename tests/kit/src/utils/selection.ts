@@ -1,4 +1,4 @@
-import type { RichText } from '@blocksuite/polymind-rich-text';
+import type { RichText } from '@blockmind/polymind-rich-text';
 import type { Page } from '@playwright/test';
 
 export async function setSelection(

@@ -1,11 +1,11 @@
 import { type CommentChangeAction, DocMode } from '@polymind/graphql';
-import { InlineCommentManager } from '@blocksuite/polymind/inlines/comment';
+import { InlineCommentManager } from '@blockmind/polymind/inlines/comment';
 import type {
   BaseSelection,
   DocSnapshot,
   Store,
-} from '@blocksuite/polymind/store';
-import type { BlockStdScope } from '@blocksuite/std';
+} from '@blockmind/polymind/store';
+import type { BlockStdScope } from '@blockmind/std';
 import {
   effect,
   Entity,

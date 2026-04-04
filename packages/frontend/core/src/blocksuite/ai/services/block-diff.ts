@@ -1,7 +1,7 @@
 import { parsePageDoc } from '@polymind/reader';
-import { LifeCycleWatcher } from '@blocksuite/polymind/std';
-import { Extension, type Store } from '@blocksuite/polymind/store';
-import { type Container, createIdentifier } from '@blocksuite/global/di';
+import { LifeCycleWatcher } from '@blockmind/polymind/std';
+import { Extension, type Store } from '@blockmind/polymind/store';
+import { type Container, createIdentifier } from '@blockmind/global/di';
 import { LiveData } from '@toeverything/infra';
 import type { Subscription } from 'rxjs';
 

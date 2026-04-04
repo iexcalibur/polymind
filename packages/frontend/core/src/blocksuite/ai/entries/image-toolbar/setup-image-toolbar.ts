@@ -1,11 +1,11 @@
 import '../../components/ask-ai-button';
 
-import { ImageBlockComponent } from '@blocksuite/polymind/blocks/image';
+import { ImageBlockComponent } from '@blockmind/polymind/blocks/image';
 import {
   ActionPlacement,
   type ToolbarModuleConfig,
-} from '@blocksuite/polymind/shared/services';
-import { BlockSelection } from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/shared/services';
+import { BlockSelection } from '@blockmind/polymind/std';
 import { html } from 'lit';
 
 import { buildAIImageItemGroups } from '../../_common/config';

@@ -1,4 +1,4 @@
-import type { Workspace } from '@blocksuite/polymind/store';
+import type { Workspace } from '@blockmind/polymind/store';
 import { nanoid } from 'nanoid';
 import type { Map as YMap } from 'yjs';
 import { Doc as YDoc } from 'yjs';

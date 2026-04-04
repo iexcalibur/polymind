@@ -1,5 +1,5 @@
-import { AIStarIconWithAnimation } from '@blocksuite/polymind/components/icons';
-import { ShadowlessElement } from '@blocksuite/polymind/std';
+import { AIStarIconWithAnimation } from '@blockmind/polymind/components/icons';
+import { ShadowlessElement } from '@blockmind/polymind/std';
 import { AiIcon } from '@blocksuite/icons/lit';
 import { css, html } from 'lit';
 import { property } from 'lit/decorators.js';

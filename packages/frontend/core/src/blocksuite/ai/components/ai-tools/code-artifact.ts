@@ -1,15 +1,15 @@
-import { CodeBlockHighlighter } from '@blocksuite/polymind/blocks/code';
-import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
-import { ColorScheme } from '@blocksuite/polymind/model';
-import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
-import { type BlockStdScope } from '@blocksuite/polymind/std';
+import { CodeBlockHighlighter } from '@blockmind/polymind/blocks/code';
+import { SignalWatcher, WithDisposable } from '@blockmind/polymind/global/lit';
+import { ColorScheme } from '@blockmind/polymind/model';
+import { unsafeCSSVar, unsafeCSSVarV2 } from '@blockmind/polymind/shared/theme';
+import { type BlockStdScope } from '@blockmind/polymind/std';
 import {
   type BlockSnapshot,
   nanoid,
   type SliceSnapshot,
   Text,
-} from '@blocksuite/polymind/store';
-import type { NotificationService } from '@blocksuite/polymind-shared/services';
+} from '@blockmind/polymind/store';
+import type { NotificationService } from '@blockmind/polymind-shared/services';
 import {
   CodeBlockIcon,
   CopyIcon,

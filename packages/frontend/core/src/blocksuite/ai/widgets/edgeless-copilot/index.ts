@@ -1,16 +1,16 @@
 import { CopilotTool } from '@polymind/core/blocksuite/ai/tool/copilot-tool';
-import { EdgelessLegacySlotIdentifier } from '@blocksuite/polymind/blocks/surface';
+import { EdgelessLegacySlotIdentifier } from '@blockmind/polymind/blocks/surface';
 import {
   Bound,
   getCommonBoundWithRotation,
-} from '@blocksuite/polymind/global/gfx';
-import type { RootBlockModel } from '@blocksuite/polymind/model';
+} from '@blockmind/polymind/global/gfx';
+import type { RootBlockModel } from '@blockmind/polymind/model';
 import {
   MOUSE_BUTTON,
   requestConnectedFrame,
-} from '@blocksuite/polymind/shared/utils';
-import { WidgetComponent, WidgetViewExtension } from '@blocksuite/polymind/std';
-import { GfxControllerIdentifier } from '@blocksuite/polymind/std/gfx';
+} from '@blockmind/polymind/shared/utils';
+import { WidgetComponent, WidgetViewExtension } from '@blockmind/polymind/std';
+import { GfxControllerIdentifier } from '@blockmind/polymind/std/gfx';
 import {
   autoPlacement,
   autoUpdate,

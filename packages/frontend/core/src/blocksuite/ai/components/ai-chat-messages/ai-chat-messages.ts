@@ -2,14 +2,14 @@ import type { AIToolsConfigService } from '@polymind/core/modules/ai-button';
 import type { PeekViewService } from '@polymind/core/modules/peek-view';
 import type { AppThemeService } from '@polymind/core/modules/theme';
 import type { CopilotChatHistoryFragment } from '@polymind/graphql';
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
 import {
   DocModeProvider,
   type FeatureFlagService,
   type NotificationService,
-} from '@blocksuite/polymind/shared/services';
-import { type EditorHost, ShadowlessElement } from '@blocksuite/polymind/std';
-import type { BaseSelection, ExtensionType } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/shared/services';
+import { type EditorHost, ShadowlessElement } from '@blockmind/polymind/std';
+import type { BaseSelection, ExtensionType } from '@blockmind/polymind/store';
 import { ArrowDownBigIcon as ArrowDownIcon } from '@blocksuite/icons/lit';
 import type { Signal } from '@preact/signals-core';
 import { css, html, nothing, type PropertyValues } from 'lit';

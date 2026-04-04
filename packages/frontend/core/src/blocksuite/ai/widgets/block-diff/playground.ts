@@ -1,7 +1,7 @@
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import { WidgetComponent, WidgetViewExtension } from '@blocksuite/polymind/std';
-import type { Store } from '@blocksuite/polymind/store';
-import { createLitPortal } from '@blocksuite/polymind-components/portal';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import { WidgetComponent, WidgetViewExtension } from '@blockmind/polymind/std';
+import type { Store } from '@blockmind/polymind/store';
+import { createLitPortal } from '@blockmind/polymind-components/portal';
 import { css, html, LitElement } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { literal, unsafeStatic } from 'lit/static-html.js';

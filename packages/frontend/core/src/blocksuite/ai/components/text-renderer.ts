@@ -1,26 +1,26 @@
 import { createReactComponentFromLit } from '@polymind/component';
 import type { FeatureFlagService } from '@polymind/core/modules/feature-flag';
-import { PeekViewProvider } from '@blocksuite/polymind/components/peek';
-import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
-import { RefNodeSlotsProvider } from '@blocksuite/polymind/inlines/reference';
-import type { ColorScheme } from '@blocksuite/polymind/model';
+import { PeekViewProvider } from '@blockmind/polymind/components/peek';
+import { SignalWatcher, WithDisposable } from '@blockmind/polymind/global/lit';
+import { RefNodeSlotsProvider } from '@blockmind/polymind/inlines/reference';
+import type { ColorScheme } from '@blockmind/polymind/model';
 import {
   codeBlockWrapMiddleware,
   defaultImageProxyMiddleware,
   ImageProxyService,
-} from '@blocksuite/polymind/shared/adapters';
-import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
+} from '@blockmind/polymind/shared/adapters';
+import { unsafeCSSVarV2 } from '@blockmind/polymind/shared/theme';
 import {
   BlockStdScope,
   type EditorHost,
   ShadowlessElement,
-} from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/std';
 import type {
   ExtensionType,
   Query,
   Store,
   TransformerMiddleware,
-} from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/store';
 import type { Signal } from '@preact/signals-core';
 import {
   darkCssVariablesV2,

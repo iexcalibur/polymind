@@ -1,10 +1,10 @@
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
 import {
   DocModeProvider,
   ThemeProvider,
-} from '@blocksuite/polymind/shared/services';
-import { scrollbarStyle } from '@blocksuite/polymind/shared/styles';
-import { type EditorHost } from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/shared/services';
+import { scrollbarStyle } from '@blockmind/polymind/shared/styles';
+import { type EditorHost } from '@blockmind/polymind/std';
 import { cssVar } from '@toeverything/theme';
 import { css, html, LitElement, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';

@@ -3,8 +3,8 @@ import type {
   NoteBlockModel,
   ParagraphProps,
   RootBlockProps,
-} from '@blocksuite/polymind-model';
-import type { Store } from '@blocksuite/store';
+} from '@blockmind/polymind-model';
+import type { Store } from '@blockmind/store';
 import type { Page } from '@playwright/test';
 /**
  * using page.evaluate to init the embed synced doc state

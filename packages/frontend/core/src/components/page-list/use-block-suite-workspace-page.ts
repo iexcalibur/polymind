@@ -1,6 +1,6 @@
 import { DebugLogger } from '@polymind/debug';
-import { DisposableGroup } from '@blocksuite/polymind/global/disposable';
-import type { Store, Workspace } from '@blocksuite/polymind/store';
+import { DisposableGroup } from '@blockmind/polymind/global/disposable';
+import type { Store, Workspace } from '@blockmind/polymind/store';
 import { useEffect, useState } from 'react';
 
 const logger = new DebugLogger('useBlockSuiteWorkspacePage');

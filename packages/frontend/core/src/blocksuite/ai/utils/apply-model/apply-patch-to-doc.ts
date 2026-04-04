@@ -1,4 +1,4 @@
-import type { Store } from '@blocksuite/store';
+import type { Store } from '@blockmind/store';
 
 import { insertFromMarkdown, replaceFromMarkdown } from '../../../utils';
 import type { PatchOp } from './markdown-diff';

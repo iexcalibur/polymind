@@ -1,5 +1,5 @@
 import { createReactComponentFromLit } from '@polymind/component';
-import { DocTitle } from '@blocksuite/polymind/fragments/doc-title';
+import { DocTitle } from '@blockmind/polymind/fragments/doc-title';
 import React from 'react';
 
 import { EdgelessEditor } from './edgeless-editor';

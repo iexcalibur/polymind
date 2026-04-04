@@ -1,7 +1,7 @@
 import type { TagMeta } from '@polymind/core/components/page-list';
-import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
-import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
-import { ShadowlessElement } from '@blocksuite/polymind/std';
+import { SignalWatcher, WithDisposable } from '@blockmind/polymind/global/lit';
+import { unsafeCSSVarV2 } from '@blockmind/polymind/shared/theme';
+import { ShadowlessElement } from '@blockmind/polymind/std';
 import { css, html } from 'lit';
 import { property } from 'lit/decorators.js';
 

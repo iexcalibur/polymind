@@ -26,7 +26,7 @@ import { useI18n } from '@polymind/i18n';
 import type {
   ExtensionType,
   TransformerMiddleware,
-} from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/store';
 import { ToggleDownIcon } from '@blocksuite/icons/rc';
 import * as Collapsible from '@radix-ui/react-collapsible';
 import {

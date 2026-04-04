@@ -1,5 +1,5 @@
-import type { InlineEditor, InlineRange } from '@blocksuite/polymind/std/inline';
-import type { DeltaInsert } from '@blocksuite/polymind/store';
+import type { InlineEditor, InlineRange } from '@blockmind/polymind/std/inline';
+import type { DeltaInsert } from '@blockmind/polymind/store';
 import { expect, type Page, test } from '@playwright/test';
 
 import { press } from '../../database/actions.js';

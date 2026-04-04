@@ -1,5 +1,5 @@
-import { FeatureFlagService } from '@blocksuite/polymind/shared/services';
-import { type BlockStdScope, LifeCycleWatcher } from '@blocksuite/polymind/std';
+import { FeatureFlagService } from '@blockmind/polymind/shared/services';
+import { type BlockStdScope, LifeCycleWatcher } from '@blockmind/polymind/std';
 
 export class MobileFeatureFlagControl extends LifeCycleWatcher {
   static override key = 'mobile-patches';

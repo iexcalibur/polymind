@@ -1,8 +1,8 @@
 import { WorkspaceImpl } from '@polymind/core/modules/workspace/impls/workspace';
-import { clipboardConfigs } from '@blocksuite/polymind/foundation/clipboard';
-import { defaultImageProxyMiddleware } from '@blocksuite/polymind/shared/adapters';
-import { replaceSelectedTextWithBlocksCommand } from '@blocksuite/polymind/shared/commands';
-import { isInsideEdgelessEditor } from '@blocksuite/polymind/shared/utils';
+import { clipboardConfigs } from '@blockmind/polymind/foundation/clipboard';
+import { defaultImageProxyMiddleware } from '@blockmind/polymind/shared/adapters';
+import { replaceSelectedTextWithBlocksCommand } from '@blockmind/polymind/shared/commands';
+import { isInsideEdgelessEditor } from '@blockmind/polymind/shared/utils';
 import {
   type BlockComponent,
   BlockSelection,
@@ -11,12 +11,12 @@ import {
   type EditorHost,
   SurfaceSelection,
   type TextSelection,
-} from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/std';
 import {
   type BlockModel,
   type BlockSnapshot,
   Slice,
-} from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/store';
 import { Doc as YDoc } from 'yjs';
 
 import {

@@ -1,5 +1,5 @@
-import { ColorScheme } from '@blocksuite/polymind/model';
-import { createSignalFromObservable } from '@blocksuite/polymind-shared/utils';
+import { ColorScheme } from '@blockmind/polymind/model';
+import { createSignalFromObservable } from '@blockmind/polymind-shared/utils';
 import type { Signal } from '@preact/signals-core';
 import { Entity, LiveData } from '@toeverything/infra';
 

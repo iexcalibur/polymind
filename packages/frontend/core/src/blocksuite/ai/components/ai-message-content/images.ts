@@ -1,6 +1,6 @@
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import { unsafeCSSVar } from '@blocksuite/polymind/shared/theme';
-import { ShadowlessElement } from '@blocksuite/polymind/std';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import { unsafeCSSVar } from '@blockmind/polymind/shared/theme';
+import { ShadowlessElement } from '@blockmind/polymind/std';
 import { css, html, nothing } from 'lit';
 import { property } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';

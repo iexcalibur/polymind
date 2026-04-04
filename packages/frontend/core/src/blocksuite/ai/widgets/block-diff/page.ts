@@ -1,5 +1,5 @@
-import { WidgetComponent, WidgetViewExtension } from '@blocksuite/polymind/std';
-import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/polymind-shared/theme';
+import { WidgetComponent, WidgetViewExtension } from '@blockmind/polymind/std';
+import { unsafeCSSVar, unsafeCSSVarV2 } from '@blockmind/polymind-shared/theme';
 import {
   ArrowDownSmallIcon,
   ArrowUpSmallIcon,

@@ -1,6 +1,6 @@
-import { getAttachmentFileIcon } from '@blocksuite/polymind/components/icons';
-import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
-import { ShadowlessElement } from '@blocksuite/polymind/std';
+import { getAttachmentFileIcon } from '@blockmind/polymind/components/icons';
+import { SignalWatcher, WithDisposable } from '@blockmind/polymind/global/lit';
+import { ShadowlessElement } from '@blockmind/polymind/std';
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';
 

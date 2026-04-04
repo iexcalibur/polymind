@@ -26,8 +26,8 @@ import {
 } from '@polymind/core/modules/workspace';
 import { gqlFetcherFactory } from '@polymind/graphql';
 import { useI18n } from '@polymind/i18n';
-import type { DocMode } from '@blocksuite/polymind/model';
-import { ZipTransformer } from '@blocksuite/polymind/widgets/linked-doc';
+import type { DocMode } from '@blockmind/polymind/model';
+import { ZipTransformer } from '@blockmind/polymind/widgets/linked-doc';
 import {
   effect,
   fromPromise,

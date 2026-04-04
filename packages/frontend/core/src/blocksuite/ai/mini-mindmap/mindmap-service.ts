@@ -1,5 +1,5 @@
-import { RootBlockSchema } from '@blocksuite/polymind/model';
-import { BlockService } from '@blocksuite/polymind/std';
+import { RootBlockSchema } from '@blockmind/polymind/model';
+import { BlockService } from '@blockmind/polymind/std';
 import { Subject } from 'rxjs';
 
 export class MindmapService extends BlockService {

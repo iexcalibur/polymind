@@ -1,4 +1,4 @@
-import type { Store, Workspace } from '@blocksuite/polymind/store';
+import type { Store, Workspace } from '@blockmind/polymind/store';
 import { useMemo } from 'react';
 
 export function useDocCollectionHelper(docCollection: Workspace) {

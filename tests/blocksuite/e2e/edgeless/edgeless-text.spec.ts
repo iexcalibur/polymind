@@ -1,5 +1,5 @@
-import type { EdgelessTextBlockComponent } from '@blocksuite/polymind/blocks/edgeless-text';
-import { Bound } from '@blocksuite/polymind/global/gfx';
+import type { EdgelessTextBlockComponent } from '@blockmind/polymind/blocks/edgeless-text';
+import { Bound } from '@blockmind/polymind/global/gfx';
 import { expect, type Page } from '@playwright/test';
 
 import {

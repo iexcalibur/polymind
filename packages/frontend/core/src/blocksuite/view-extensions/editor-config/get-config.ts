@@ -3,9 +3,9 @@ import {
   createToolbarMoreMenuConfig,
 } from '@polymind/core/blocksuite/view-extensions/editor-config/toolbar';
 import { EditorSettingService } from '@polymind/core/modules/editor-setting';
-import { ToolbarMoreMenuConfigExtension } from '@blocksuite/polymind/components/toolbar';
-import { EditorSettingExtension } from '@blocksuite/polymind/shared/services';
-import type { ExtensionType } from '@blocksuite/store';
+import { ToolbarMoreMenuConfigExtension } from '@blockmind/polymind/components/toolbar';
+import { EditorSettingExtension } from '@blockmind/polymind/shared/services';
+import type { ExtensionType } from '@blockmind/store';
 import type { FrameworkProvider } from '@toeverything/infra';
 
 export function getEditorConfigExtension(

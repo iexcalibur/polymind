@@ -36,9 +36,9 @@ import {
 } from '@polymind/core/modules/workbench';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { useI18n } from '@polymind/i18n';
-import { RefNodeSlotsProvider } from '@blocksuite/polymind/inlines/reference';
-import { BlockStdScope } from '@blocksuite/polymind/std';
-import type { Workspace } from '@blocksuite/polymind/store';
+import { RefNodeSlotsProvider } from '@blockmind/polymind/inlines/reference';
+import { BlockStdScope } from '@blockmind/polymind/std';
+import type { Workspace } from '@blockmind/polymind/store';
 import { type Signal, signal } from '@preact/signals-core';
 import { useFramework, useService } from '@toeverything/infra';
 import { nanoid } from 'nanoid';

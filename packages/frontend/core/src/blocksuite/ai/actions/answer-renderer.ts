@@ -1,6 +1,6 @@
-import type { MindmapElementModel } from '@blocksuite/polymind/model';
-import type { EditorHost } from '@blocksuite/polymind/std';
-import { ThemeProvider } from '@blocksuite/polymind-shared/services';
+import type { MindmapElementModel } from '@blockmind/polymind/model';
+import type { EditorHost } from '@blockmind/polymind/std';
+import { ThemeProvider } from '@blockmind/polymind-shared/services';
 
 import { createAIScrollableTextRenderer } from '../components/ai-scrollable-text-renderer';
 import {

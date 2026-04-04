@@ -1,5 +1,5 @@
-import { BlockViewExtension } from '@blocksuite/polymind/std';
-import type { ExtensionType } from '@blocksuite/polymind/store';
+import { BlockViewExtension } from '@blockmind/polymind/std';
+import type { ExtensionType } from '@blockmind/polymind/store';
 import { literal } from 'lit/static-html.js';
 
 export const AIChatBlockSpec: ExtensionType[] = [

@@ -1,7 +1,7 @@
 import {
   type ViewExtensionContext,
   ViewExtensionProvider,
-} from '@blocksuite/polymind/ext-loader';
+} from '@blockmind/polymind/ext-loader';
 import { z } from 'zod';
 
 import { patchDatabaseBlockConfigService } from './database-block-config-service';

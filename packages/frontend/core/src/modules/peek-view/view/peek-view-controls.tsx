@@ -1,7 +1,7 @@
 import { IconButton, notify } from '@polymind/component';
 import { copyTextToClipboard } from '@polymind/core/utils/clipboard';
 import { useI18n } from '@polymind/i18n';
-import type { DocMode } from '@blocksuite/polymind/model';
+import type { DocMode } from '@blockmind/polymind/model';
 import {
   CloseIcon,
   ExpandFullIcon,

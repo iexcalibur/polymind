@@ -1,13 +1,13 @@
 import {
   EdgelessClipboardController,
   splitElements,
-} from '@blocksuite/polymind/blocks/root';
-import { AIStarIconWithAnimation } from '@blocksuite/polymind/components/icons';
+} from '@blockmind/polymind/blocks/root';
+import { AIStarIconWithAnimation } from '@blockmind/polymind/components/icons';
 import {
   MindmapElementModel,
   ShapeElementModel,
   TextElementModel,
-} from '@blocksuite/polymind/model';
+} from '@blockmind/polymind/model';
 import {
   CommentIcon,
   ExplainIcon,

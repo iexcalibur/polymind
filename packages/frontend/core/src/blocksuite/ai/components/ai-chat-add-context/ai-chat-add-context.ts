@@ -1,6 +1,6 @@
-import { createLitPortal } from '@blocksuite/polymind/components/portal';
-import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
-import { ShadowlessElement } from '@blocksuite/polymind/std';
+import { createLitPortal } from '@blockmind/polymind/components/portal';
+import { SignalWatcher, WithDisposable } from '@blockmind/polymind/global/lit';
+import { ShadowlessElement } from '@blockmind/polymind/std';
 import { PlusIcon } from '@blocksuite/icons/lit';
 import { flip, offset } from '@floating-ui/dom';
 import { css, html } from 'lit';

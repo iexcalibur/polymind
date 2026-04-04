@@ -1,7 +1,7 @@
 import type { PeekViewService } from '@polymind/core/modules/peek-view';
-import { WithDisposable } from '@blocksuite/global/lit';
+import { WithDisposable } from '@blockmind/global/lit';
 import { AiEmbeddingIcon, PageIcon } from '@blocksuite/icons/lit';
-import { ShadowlessElement } from '@blocksuite/std';
+import { ShadowlessElement } from '@blockmind/std';
 import type { Signal } from '@preact/signals-core';
 import { html, nothing } from 'lit';
 import { property } from 'lit/decorators.js';

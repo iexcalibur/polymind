@@ -4,7 +4,7 @@ import {
   type OpenDocConfig,
   type OpenDocConfigItem,
   OpenDocExtension,
-} from '@blocksuite/polymind/shared/services';
+} from '@blockmind/polymind/shared/services';
 import {
   CenterPeekIcon,
   ExpandFullIcon,

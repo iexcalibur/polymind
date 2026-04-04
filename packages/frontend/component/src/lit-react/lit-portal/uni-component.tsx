@@ -2,7 +2,7 @@ import type {
   ExposeWrapper,
   UniComponent,
   UniComponentReturn,
-} from '@blocksuite/polymind-shared/types';
+} from '@blockmind/polymind-shared/types';
 import { nanoid } from 'nanoid';
 import {
   type ComponentType,

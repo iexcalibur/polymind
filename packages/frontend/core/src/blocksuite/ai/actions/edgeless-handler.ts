@@ -1,5 +1,5 @@
-import { splitElements } from '@blocksuite/polymind/blocks/root';
-import { DefaultTool } from '@blocksuite/polymind/blocks/surface';
+import { splitElements } from '@blockmind/polymind/blocks/root';
+import { DefaultTool } from '@blockmind/polymind/blocks/surface';
 import {
   CodeBlockModel,
   EdgelessTextBlockModel,
@@ -9,14 +9,14 @@ import {
   NoteBlockModel,
   ShapeElementModel,
   TextElementModel,
-} from '@blocksuite/polymind/model';
-import { matchModels } from '@blocksuite/polymind/shared/utils';
-import type { EditorHost } from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/model';
+import { matchModels } from '@blockmind/polymind/shared/utils';
+import type { EditorHost } from '@blockmind/polymind/std';
 import {
   GfxControllerIdentifier,
   type GfxModel,
-} from '@blocksuite/polymind/std/gfx';
-import { type BlockModel, Slice } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/std/gfx';
+import { type BlockModel, Slice } from '@blockmind/polymind/store';
 import type { TemplateResult } from 'lit';
 
 import { getContentFromSlice } from '../../utils';

@@ -7,12 +7,12 @@ import type {
   ContextEmbedStatus,
   CopilotChatHistoryFragment,
 } from '@polymind/graphql';
-import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
-import { type NotificationService } from '@blocksuite/polymind/shared/services';
-import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
-import type { EditorHost } from '@blocksuite/polymind/std';
-import { ShadowlessElement } from '@blocksuite/polymind/std';
-import type { ExtensionType, Store } from '@blocksuite/polymind/store';
+import { SignalWatcher, WithDisposable } from '@blockmind/polymind/global/lit';
+import { type NotificationService } from '@blockmind/polymind/shared/services';
+import { unsafeCSSVarV2 } from '@blockmind/polymind/shared/theme';
+import type { EditorHost } from '@blockmind/polymind/std';
+import { ShadowlessElement } from '@blockmind/polymind/std';
+import type { ExtensionType, Store } from '@blockmind/polymind/store';
 import { DeleteIcon, NewPageIcon } from '@blocksuite/icons/lit';
 import { css, html, type PropertyValues } from 'lit';
 import { property, state } from 'lit/decorators.js';

@@ -24,18 +24,18 @@ import { PolymindThemeViewExtension } from '@polymind/core/blocksuite/view-exten
 import { TurboRendererViewExtension } from '@polymind/core/blocksuite/view-extensions/turbo-renderer';
 import { PeekViewService } from '@polymind/core/modules/peek-view';
 import { DebugLogger } from '@polymind/debug';
-import { DatabaseViewExtension } from '@blocksuite/polymind/blocks/database/view';
-import { ParagraphViewExtension } from '@blocksuite/polymind/blocks/paragraph/view';
+import { DatabaseViewExtension } from '@blockmind/polymind/blocks/database/view';
+import { ParagraphViewExtension } from '@blockmind/polymind/blocks/paragraph/view';
 import type {
   PeekOptions,
   PeekViewService as BSPeekViewService,
-} from '@blocksuite/polymind/components/peek';
-import { ViewExtensionManager } from '@blocksuite/polymind/ext-loader';
-import { getInternalViewExtensions } from '@blocksuite/polymind/extensions/view';
-import { FoundationViewExtension } from '@blocksuite/polymind/foundation/view';
-import { InlineCommentViewExtension } from '@blocksuite/polymind/inlines/comment';
-import { PolymindCanvasTextFonts } from '@blocksuite/polymind/shared/services';
-import { LinkedDocViewExtension } from '@blocksuite/polymind/widgets/linked-doc/view';
+} from '@blockmind/polymind/components/peek';
+import { ViewExtensionManager } from '@blockmind/polymind/ext-loader';
+import { getInternalViewExtensions } from '@blockmind/polymind/extensions/view';
+import { FoundationViewExtension } from '@blockmind/polymind/foundation/view';
+import { InlineCommentViewExtension } from '@blockmind/polymind/inlines/comment';
+import { PolymindCanvasTextFonts } from '@blockmind/polymind/shared/services';
+import { LinkedDocViewExtension } from '@blockmind/polymind/widgets/linked-doc/view';
 import type { FrameworkProvider } from '@toeverything/infra';
 import type { TemplateResult } from 'lit';
 

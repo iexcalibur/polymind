@@ -1,5 +1,5 @@
 import { AtMenuConfigService } from '@polymind/core/modules/at-menu-config/services';
-import type { LinkedWidgetConfig } from '@blocksuite/polymind/widgets/linked-doc';
+import type { LinkedWidgetConfig } from '@blockmind/polymind/widgets/linked-doc';
 import { type FrameworkProvider } from '@toeverything/infra';
 
 export function createLinkedWidgetConfig(

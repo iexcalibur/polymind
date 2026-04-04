@@ -12,10 +12,10 @@ import type {
   ContextEmbedStatus,
   CopilotChatHistoryFragment,
 } from '@polymind/graphql';
-import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
-import { type EditorHost, ShadowlessElement } from '@blocksuite/polymind/std';
-import type { ExtensionType } from '@blocksuite/polymind/store';
-import type { NotificationService } from '@blocksuite/polymind-shared/services';
+import { SignalWatcher, WithDisposable } from '@blockmind/polymind/global/lit';
+import { type EditorHost, ShadowlessElement } from '@blockmind/polymind/std';
+import type { ExtensionType } from '@blockmind/polymind/store';
+import type { NotificationService } from '@blockmind/polymind-shared/services';
 import { type Signal } from '@preact/signals-core';
 import { css, html, type PropertyValues, type TemplateResult } from 'lit';
 import { property, state } from 'lit/decorators.js';

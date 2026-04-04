@@ -1,8 +1,8 @@
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
-import { type EditorHost, ShadowlessElement } from '@blocksuite/polymind/std';
-import { LoadingIcon } from '@blocksuite/polymind-components/icons';
-import type { NotificationService } from '@blocksuite/polymind-shared/services';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import { unsafeCSSVar, unsafeCSSVarV2 } from '@blockmind/polymind/shared/theme';
+import { type EditorHost, ShadowlessElement } from '@blockmind/polymind/std';
+import { LoadingIcon } from '@blockmind/polymind-components/icons';
+import type { NotificationService } from '@blockmind/polymind-shared/services';
 import {
   CloseIcon,
   CopyIcon,

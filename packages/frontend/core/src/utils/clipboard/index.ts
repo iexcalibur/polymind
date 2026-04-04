@@ -1,4 +1,4 @@
-import { type Clipboard as BlockStdScopeClipboard } from '@blocksuite/polymind/std';
+import { type Clipboard as BlockStdScopeClipboard } from '@blockmind/polymind/std';
 
 import { fakeCopyAction } from './fake';
 

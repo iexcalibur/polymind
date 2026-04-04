@@ -13,14 +13,14 @@ import {
   CanvasElementType,
   EdgelessCRUDIdentifier,
   getSurfaceBlock,
-} from '@blocksuite/polymind/blocks/surface';
-import { ViewExtensionManagerIdentifier } from '@blocksuite/polymind/ext-loader';
-import { ConnectorMode } from '@blocksuite/polymind/model';
+} from '@blockmind/polymind/blocks/surface';
+import { ViewExtensionManagerIdentifier } from '@blockmind/polymind/ext-loader';
+import { ConnectorMode } from '@blockmind/polymind/model';
 import {
   DocModeProvider,
   NotificationProvider,
-} from '@blocksuite/polymind/shared/services';
-import type { EditorHost } from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/shared/services';
+import type { EditorHost } from '@blockmind/polymind/std';
 import { html, LitElement, nothing, type PropertyValues } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';

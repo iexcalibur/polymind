@@ -1,7 +1,7 @@
-import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
-import { ThemeProvider } from '@blocksuite/polymind/shared/services';
-import { BlockStdScope, ShadowlessElement } from '@blocksuite/polymind/std';
-import type { ExtensionType, Store } from '@blocksuite/polymind/store';
+import { SignalWatcher, WithDisposable } from '@blockmind/polymind/global/lit';
+import { ThemeProvider } from '@blockmind/polymind/shared/services';
+import { BlockStdScope, ShadowlessElement } from '@blockmind/polymind/std';
+import type { ExtensionType, Store } from '@blockmind/polymind/store';
 import { css, html, nothing, type TemplateResult } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { guard } from 'lit/directives/guard.js';

@@ -1,6 +1,6 @@
 import type { TranscriptionBlockModel } from '@polymind/core/blocksuite/ai/blocks/transcription-block/model';
-import { BlockComponent, BlockViewExtension } from '@blocksuite/polymind/std';
-import type { ExtensionType } from '@blocksuite/polymind/store';
+import { BlockComponent, BlockViewExtension } from '@blockmind/polymind/std';
+import type { ExtensionType } from '@blockmind/polymind/store';
 import { css, type PropertyValues } from 'lit';
 import { property } from 'lit/decorators.js';
 import { literal } from 'lit/static-html.js';

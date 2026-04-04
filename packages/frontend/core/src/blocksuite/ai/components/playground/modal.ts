@@ -1,4 +1,4 @@
-import { ShadowlessElement } from '@blocksuite/polymind/std';
+import { ShadowlessElement } from '@blockmind/polymind/std';
 import { CloseIcon } from '@blocksuite/icons/lit';
 import { css, html, type TemplateResult } from 'lit';
 import { property } from 'lit/decorators.js';

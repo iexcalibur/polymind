@@ -2,7 +2,7 @@ import { CompatibleFavoriteItemsAdapter } from '@polymind/core/modules/favorite'
 import type { Tag } from '@polymind/core/modules/tag';
 import { TagService } from '@polymind/core/modules/tag';
 import { useI18n } from '@polymind/i18n';
-import type { DocMeta } from '@blocksuite/polymind/store';
+import type { DocMeta } from '@blockmind/polymind/store';
 import { FavoritedIcon, FavoriteIcon } from '@blocksuite/icons/rc';
 import { LiveData, useLiveData, useService } from '@toeverything/infra';
 import { type ReactNode, useMemo } from 'react';

@@ -1,5 +1,5 @@
-import type { RootBlockModel } from '@blocksuite/polymind/model';
-import { BlockComponent } from '@blocksuite/polymind/std';
+import type { RootBlockModel } from '@blockmind/polymind/model';
+import { BlockComponent } from '@blockmind/polymind/std';
 import { html } from 'lit';
 
 export class MindmapRootBlock extends BlockComponent<RootBlockModel> {

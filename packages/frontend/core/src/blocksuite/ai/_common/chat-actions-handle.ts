@@ -1,35 +1,35 @@
-import { EdgelessCRUDIdentifier } from '@blocksuite/polymind/blocks/surface';
+import { EdgelessCRUDIdentifier } from '@blockmind/polymind/blocks/surface';
 import {
   Bound,
   getCommonBoundWithRotation,
   type SerializedXYWH,
-} from '@blocksuite/polymind/global/gfx';
-import { RefNodeSlotsProvider } from '@blocksuite/polymind/inlines/reference';
+} from '@blockmind/polymind/global/gfx';
+import { RefNodeSlotsProvider } from '@blockmind/polymind/inlines/reference';
 import {
   type DocMode,
   NoteBlockModel,
   NoteDisplayMode,
-} from '@blocksuite/polymind/model';
+} from '@blockmind/polymind/model';
 import {
   getFirstBlockCommand,
   getLastBlockCommand,
   getSelectedBlocksCommand,
-} from '@blocksuite/polymind/shared/commands';
-import type { ImageSelection } from '@blocksuite/polymind/shared/selection';
+} from '@blockmind/polymind/shared/commands';
+import type { ImageSelection } from '@blockmind/polymind/shared/selection';
 import {
   DocModeProvider,
   EditPropsStore,
   NotificationProvider,
-} from '@blocksuite/polymind/shared/services';
+} from '@blockmind/polymind/shared/services';
 import {
   type BlockComponent,
   type BlockSelection,
   type BlockStdScope,
   type EditorHost,
   type TextSelection,
-} from '@blocksuite/polymind/std';
-import { GfxControllerIdentifier } from '@blocksuite/polymind/std/gfx';
-import type { Store } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/std';
+import { GfxControllerIdentifier } from '@blockmind/polymind/std/gfx';
+import type { Store } from '@blockmind/polymind/store';
 import {
   BlockIcon,
   EdgelessIcon,

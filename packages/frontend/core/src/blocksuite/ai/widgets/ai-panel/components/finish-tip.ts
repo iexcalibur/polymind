@@ -2,10 +2,10 @@ import {
   AIDoneIcon,
   CopyIcon,
   WarningIcon,
-} from '@blocksuite/polymind/components/icons';
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import { NotificationProvider } from '@blocksuite/polymind/shared/services';
-import type { EditorHost } from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/components/icons';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import { NotificationProvider } from '@blockmind/polymind/shared/services';
+import type { EditorHost } from '@blockmind/polymind/std';
 import { baseTheme } from '@toeverything/theme';
 import { css, html, LitElement, nothing, unsafeCSS } from 'lit';
 import { property, state } from 'lit/decorators.js';

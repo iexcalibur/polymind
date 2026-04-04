@@ -3,9 +3,9 @@ import { DocDisplayMetaService } from '@polymind/core/modules/doc-display-meta';
 import { WorkbenchService } from '@polymind/core/modules/workbench';
 import { stopPropagation } from '@polymind/core/utils';
 import { useI18n } from '@polymind/i18n';
-import { EmbedSyncedDocBlockComponent } from '@blocksuite/polymind/blocks/embed-doc';
-import { isPeekable, peek } from '@blocksuite/polymind/components/peek';
-import type { EmbedSyncedDocModel } from '@blocksuite/polymind-model';
+import { EmbedSyncedDocBlockComponent } from '@blockmind/polymind/blocks/embed-doc';
+import { isPeekable, peek } from '@blockmind/polymind/components/peek';
+import type { EmbedSyncedDocModel } from '@blockmind/polymind-model';
 import {
   ArrowDownSmallIcon,
   CenterPeekIcon,
@@ -16,7 +16,7 @@ import {
   ToggleDownIcon,
   ToggleRightIcon,
 } from '@blocksuite/icons/rc';
-import type { BlockStdScope } from '@blocksuite/std';
+import type { BlockStdScope } from '@blockmind/std';
 import { batch } from '@preact/signals-core';
 import { useLiveData, useService } from '@toeverything/infra';
 import { useCallback, useEffect, useMemo, useState } from 'react';

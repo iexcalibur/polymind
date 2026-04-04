@@ -34,10 +34,10 @@ import {
 } from '@polymind/core/modules/workbench';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { isNewTabTrigger } from '@polymind/core/utils';
-import { DisposableGroup } from '@blocksuite/polymind/global/disposable';
-import { RefNodeSlotsProvider } from '@blocksuite/polymind/inlines/reference';
-import { focusBlockEnd } from '@blocksuite/polymind/shared/commands';
-import { getLastNoteBlock } from '@blocksuite/polymind/shared/utils';
+import { DisposableGroup } from '@blockmind/polymind/global/disposable';
+import { RefNodeSlotsProvider } from '@blockmind/polymind/inlines/reference';
+import { focusBlockEnd } from '@blockmind/polymind/shared/commands';
+import { getLastNoteBlock } from '@blockmind/polymind/shared/utils';
 import {
   AiIcon,
   CommentIcon,

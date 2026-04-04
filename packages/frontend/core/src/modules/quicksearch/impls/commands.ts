@@ -4,7 +4,7 @@ import {
   type CommandCategory,
   PreconditionStrategy,
 } from '@polymind/core/commands';
-import type { DocMode } from '@blocksuite/polymind/model';
+import type { DocMode } from '@blockmind/polymind/model';
 import { Entity, LiveData } from '@toeverything/infra';
 import Fuse from 'fuse.js';
 

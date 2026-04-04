@@ -1,7 +1,7 @@
-import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
-import { scrollbarStyle } from '@blocksuite/polymind/shared/styles';
-import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
-import { ShadowlessElement } from '@blocksuite/polymind/std';
+import { SignalWatcher, WithDisposable } from '@blockmind/polymind/global/lit';
+import { scrollbarStyle } from '@blockmind/polymind/shared/styles';
+import { unsafeCSSVar, unsafeCSSVarV2 } from '@blockmind/polymind/shared/theme';
+import { ShadowlessElement } from '@blockmind/polymind/std';
 import { PlusIcon } from '@blocksuite/icons/lit';
 import { type Signal, signal } from '@preact/signals-core';
 import { css, html } from 'lit';

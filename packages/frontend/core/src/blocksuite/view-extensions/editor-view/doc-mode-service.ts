@@ -1,11 +1,11 @@
 import type { DocService, DocsService } from '@polymind/core/modules/doc';
 import type { EditorService } from '@polymind/core/modules/editor';
-import type { DocMode } from '@blocksuite/polymind/model';
+import type { DocMode } from '@blockmind/polymind/model';
 import {
   DocModeExtension,
   type DocModeProvider,
-} from '@blocksuite/polymind/shared/services';
-import type { ExtensionType } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/shared/services';
+import type { ExtensionType } from '@blockmind/polymind/store';
 
 export function patchDocModeService(
   docService: DocService,

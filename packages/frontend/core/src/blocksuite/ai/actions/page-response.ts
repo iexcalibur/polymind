@@ -1,27 +1,27 @@
-import { CodeBlockPreviewIdentifier } from '@blocksuite/polymind/blocks/code';
-import { addSiblingImageBlocks } from '@blocksuite/polymind/blocks/image';
+import { CodeBlockPreviewIdentifier } from '@blockmind/polymind/blocks/code';
+import { addSiblingImageBlocks } from '@blockmind/polymind/blocks/image';
 import {
   getSurfaceBlock,
   SurfaceBlockModel,
-} from '@blocksuite/polymind/blocks/surface';
-import { fitContent } from '@blocksuite/polymind/gfx/shape';
-import { createTemplateJob } from '@blocksuite/polymind/gfx/template';
+} from '@blockmind/polymind/blocks/surface';
+import { fitContent } from '@blockmind/polymind/gfx/shape';
+import { createTemplateJob } from '@blockmind/polymind/gfx/template';
 import {
   Bound,
   getCommonBound,
   type XYWH,
-} from '@blocksuite/polymind/global/gfx';
+} from '@blockmind/polymind/global/gfx';
 import type {
   MindmapElementModel,
   ShapeElementModel,
-} from '@blocksuite/polymind/model';
-import { type EditorHost, TextSelection } from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/model';
+import { type EditorHost, TextSelection } from '@blockmind/polymind/std';
 import {
   GfxBlockElementModel,
   type GfxModel,
   LayerManager,
-} from '@blocksuite/polymind/std/gfx';
-import { type BlockProps, Text } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/std/gfx';
+import { type BlockProps, Text } from '@blockmind/polymind/store';
 import * as Y from 'yjs';
 
 import { getAIPanelWidget } from '../utils/ai-widgets';

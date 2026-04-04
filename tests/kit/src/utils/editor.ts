@@ -1,9 +1,9 @@
-import '@blocksuite/polymind/effects';
+import '@blockmind/polymind/effects';
 
-import type { IVec, XYWH } from '@blocksuite/polymind/global/gfx';
-import type { CodeBlockComponent } from '@blocksuite/polymind-block-code';
-import type { ParagraphBlockComponent } from '@blocksuite/polymind-block-paragraph';
-import type { BlockComponent } from '@blocksuite/std';
+import type { IVec, XYWH } from '@blockmind/polymind/global/gfx';
+import type { CodeBlockComponent } from '@blockmind/polymind-block-code';
+import type { ParagraphBlockComponent } from '@blockmind/polymind-block-paragraph';
+import type { BlockComponent } from '@blockmind/std';
 import { expect, type Locator, type Page } from '@playwright/test';
 
 import { dblclickLocatorByRatio } from './utils';

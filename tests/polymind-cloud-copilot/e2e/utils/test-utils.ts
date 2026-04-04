@@ -9,7 +9,7 @@ import {
   waitForEditorLoad,
 } from '@polymind-test/kit/utils/page-logic';
 import { createLocalWorkspace } from '@polymind-test/kit/utils/workspace';
-import type { Store } from '@blocksuite/polymind/store';
+import type { Store } from '@blockmind/polymind/store';
 import type { Page } from '@playwright/test';
 
 declare global {

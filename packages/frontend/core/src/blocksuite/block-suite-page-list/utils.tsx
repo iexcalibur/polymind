@@ -4,8 +4,8 @@ import { AppSidebarService } from '@polymind/core/modules/app-sidebar';
 import { DocsService } from '@polymind/core/modules/doc';
 import { WorkbenchService } from '@polymind/core/modules/workbench';
 import { getPolyMindWorkspaceSchema } from '@polymind/core/modules/workspace';
-import { type DocMode } from '@blocksuite/polymind/model';
-import type { Workspace } from '@blocksuite/polymind/store';
+import { type DocMode } from '@blockmind/polymind/model';
+import type { Workspace } from '@blockmind/polymind/store';
 import { useServices } from '@toeverything/infra';
 import { useCallback, useMemo } from 'react';
 
@@ -66,7 +66,7 @@ export const usePageHelper = (docCollection: Workspace) => {
   const importFileAndOpen = useMemo(
     () => async () => {
       const { showImportModal } =
-        await import('@blocksuite/polymind/widgets/linked-doc');
+        await import('@blockmind/polymind/widgets/linked-doc');
       const { promise, resolve, reject } =
         Promise.withResolvers<
           Parameters<

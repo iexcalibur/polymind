@@ -1,4 +1,4 @@
-import type { AttachmentBlockModel } from '@blocksuite/polymind/model';
+import type { AttachmentBlockModel } from '@blockmind/polymind/model';
 import {
   attachmentBlockAudioMediaKey,
   type AudioMediaKey,

@@ -1,9 +1,9 @@
 import { PropertyValue } from '@polymind/component';
 import { ConfigModal } from '@polymind/core/components/mobile';
-import { DefaultInlineManagerExtension } from '@blocksuite/polymind/inlines/preset';
-import { RichText } from '@blocksuite/polymind/rich-text';
-import type { BlockStdScope } from '@blocksuite/polymind/std';
-import type { Store } from '@blocksuite/polymind/store';
+import { DefaultInlineManagerExtension } from '@blockmind/polymind/inlines/preset';
+import { RichText } from '@blockmind/polymind/rich-text';
+import type { BlockStdScope } from '@blockmind/polymind/std';
+import type { Store } from '@blockmind/polymind/store';
 import { TextIcon } from '@blocksuite/icons/rc';
 import { type LiveData, useLiveData } from '@toeverything/infra';
 import { type CSSProperties, useEffect, useRef, useState } from 'react';

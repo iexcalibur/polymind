@@ -2,19 +2,19 @@ import { notify } from '@polymind/component';
 import { toDocSearchParams } from '@polymind/core/modules/navigation';
 import { copyTextToClipboard } from '@polymind/core/utils/clipboard';
 import { useI18n } from '@polymind/i18n';
-import type { SerializedXYWH } from '@blocksuite/polymind/global/gfx';
-import { type DocMode } from '@blocksuite/polymind/model';
+import type { SerializedXYWH } from '@blockmind/polymind/global/gfx';
+import { type DocMode } from '@blockmind/polymind/model';
 import {
   getBlockSelectionsCommand,
   getImageSelectionsCommand,
   getSelectedModelsCommand,
   getTextSelectionCommand,
-} from '@blocksuite/polymind/shared/commands';
-import { type EditorHost } from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/shared/commands';
+import { type EditorHost } from '@blockmind/polymind/std';
 import {
   GfxBlockElementModel,
   GfxControllerIdentifier,
-} from '@blocksuite/polymind/std/gfx';
+} from '@blockmind/polymind/std/gfx';
 import { useCallback } from 'react';
 
 export type UseSharingUrl = {

@@ -2,11 +2,11 @@ import {
   EditorHostKey,
   propertyType,
   t,
-} from '@blocksuite/polymind/blocks/database';
+} from '@blockmind/polymind/blocks/database';
 import {
   UserListProvider,
   UserProvider,
-} from '@blocksuite/polymind/shared/services';
+} from '@blockmind/polymind/shared/services';
 import zod from 'zod';
 
 export const createdByColumnType = propertyType('created-by');

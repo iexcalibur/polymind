@@ -24,10 +24,10 @@ import {
   waitForEditorLoad,
 } from '@polymind-test/kit/utils/page-logic';
 import { setSelection } from '@polymind-test/kit/utils/selection';
-import type { CodeBlockComponent } from '@blocksuite/polymind-block-code';
-import type { ParagraphBlockComponent } from '@blocksuite/polymind-block-paragraph';
-import type { PageRootBlockComponent } from '@blocksuite/polymind-block-root';
-import type { BlockComponent } from '@blocksuite/std';
+import type { CodeBlockComponent } from '@blockmind/polymind-block-code';
+import type { ParagraphBlockComponent } from '@blockmind/polymind-block-paragraph';
+import type { PageRootBlockComponent } from '@blockmind/polymind-block-root';
+import type { BlockComponent } from '@blockmind/std';
 import { expect, type Page } from '@playwright/test';
 
 const paragraphLocator = 'affine-note affine-paragraph';

@@ -1,5 +1,5 @@
-import { isInsidePageEditor } from '@blocksuite/polymind/shared/utils';
-import type { EditorHost } from '@blocksuite/polymind/std';
+import { isInsidePageEditor } from '@blockmind/polymind/shared/utils';
+import type { EditorHost } from '@blockmind/polymind/std';
 
 import type { AIItemGroupConfig } from '../../components/ai-item/types';
 import { mergeStreamContent } from '../../utils/stream-objects';

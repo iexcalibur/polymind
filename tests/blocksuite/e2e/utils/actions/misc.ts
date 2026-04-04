@@ -1,14 +1,14 @@
 import '../declare-test-window.js';
 
-import type { DatabaseBlockModel, ListType } from '@blocksuite/polymind/model';
-import type { RichText } from '@blocksuite/polymind/rich-text';
+import type { DatabaseBlockModel, ListType } from '@blockmind/polymind/model';
+import type { RichText } from '@blockmind/polymind/rich-text';
 import type {
   InlineRange,
   InlineRootElement,
-} from '@blocksuite/polymind/std/inline';
-import type { BlockModel } from '@blocksuite/polymind/store';
-import { uuidv4 } from '@blocksuite/polymind/store';
-import type { TestPolymindEditorContainer } from '@blocksuite/integration-test';
+} from '@blockmind/polymind/std/inline';
+import type { BlockModel } from '@blockmind/polymind/store';
+import { uuidv4 } from '@blockmind/polymind/store';
+import type { TestPolymindEditorContainer } from '@blockmind/integration-test';
 import type { ConsoleMessage, Locator, Page } from '@playwright/test';
 import { expect } from '@playwright/test';
 import stringify from 'json-stable-stringify';

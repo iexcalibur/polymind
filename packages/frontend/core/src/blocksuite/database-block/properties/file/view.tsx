@@ -8,9 +8,9 @@ import {
   createIcon,
   type DataViewCellLifeCycle,
   EditorHostKey,
-} from '@blocksuite/polymind/blocks/database';
-import { openFilesWith } from '@blocksuite/polymind/shared/utils';
-import type { BlobEngine } from '@blocksuite/polymind/sync';
+} from '@blockmind/polymind/blocks/database';
+import { openFilesWith } from '@blockmind/polymind/shared/utils';
+import type { BlobEngine } from '@blockmind/polymind/sync';
 import {
   DeleteIcon,
   DownloadIcon,

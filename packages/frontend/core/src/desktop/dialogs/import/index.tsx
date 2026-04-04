@@ -23,8 +23,8 @@ import {
 } from '@polymind/core/modules/workspace';
 import { DebugLogger } from '@polymind/debug';
 import { useI18n } from '@polymind/i18n';
-import { openDirectory, openFilesWith } from '@blocksuite/polymind/shared/utils';
-import type { Workspace } from '@blocksuite/polymind/store';
+import { openDirectory, openFilesWith } from '@blockmind/polymind/shared/utils';
+import type { Workspace } from '@blockmind/polymind/store';
 import {
   DocxTransformer,
   HtmlTransformer,
@@ -32,7 +32,7 @@ import {
   NotionHtmlTransformer,
   ObsidianTransformer,
   ZipTransformer,
-} from '@blocksuite/polymind/widgets/linked-doc';
+} from '@blockmind/polymind/widgets/linked-doc';
 import {
   ExportToHtmlIcon,
   ExportToMarkdownIcon,

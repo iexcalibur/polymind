@@ -1,4 +1,4 @@
-import type { BlockSuiteFlags } from '@blocksuite/polymind/shared/services';
+import type { BlockSuiteFlags } from '@blockmind/polymind/shared/services';
 
 type FeedbackType = 'discord' | 'email' | 'github';
 

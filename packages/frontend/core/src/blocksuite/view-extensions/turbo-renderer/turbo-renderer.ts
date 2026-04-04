@@ -1,13 +1,13 @@
 import { getWorkerUrl } from '@polymind/env/worker';
-import { CodeLayoutHandlerExtension } from '@blocksuite/polymind/blocks/code';
-import { ImageLayoutHandlerExtension } from '@blocksuite/polymind/blocks/image';
-import { ListLayoutHandlerExtension } from '@blocksuite/polymind/blocks/list';
-import { NoteLayoutHandlerExtension } from '@blocksuite/polymind/blocks/note';
-import { ParagraphLayoutHandlerExtension } from '@blocksuite/polymind/blocks/paragraph';
+import { CodeLayoutHandlerExtension } from '@blockmind/polymind/blocks/code';
+import { ImageLayoutHandlerExtension } from '@blockmind/polymind/blocks/image';
+import { ListLayoutHandlerExtension } from '@blockmind/polymind/blocks/list';
+import { NoteLayoutHandlerExtension } from '@blockmind/polymind/blocks/note';
+import { ParagraphLayoutHandlerExtension } from '@blockmind/polymind/blocks/paragraph';
 import {
   TurboRendererConfigFactory,
   ViewportTurboRendererExtension,
-} from '@blocksuite/polymind/gfx/turbo-renderer';
+} from '@blockmind/polymind/gfx/turbo-renderer';
 
 function createPainterWorker() {
   const worker = new Worker(getWorkerUrl('turbo-painter'));

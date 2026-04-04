@@ -1,4 +1,4 @@
-import { LoadingIcon } from '@blocksuite/polymind/components/icons';
+import { LoadingIcon } from '@blockmind/polymind/components/icons';
 import { WarningIcon } from '@blocksuite/icons/lit';
 import { type TemplateResult } from 'lit';
 

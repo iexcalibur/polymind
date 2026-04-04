@@ -1,6 +1,6 @@
 import { toArrayBuffer } from '@polymind/core/utils/array-buffer';
-import type { DocMode } from '@blocksuite/polymind/model';
-import { ZipTransformer } from '@blocksuite/polymind/widgets/linked-doc';
+import type { DocMode } from '@blockmind/polymind/model';
+import { ZipTransformer } from '@blockmind/polymind/widgets/linked-doc';
 import { Service } from '@toeverything/infra';
 
 import { DocsService } from '../../doc';

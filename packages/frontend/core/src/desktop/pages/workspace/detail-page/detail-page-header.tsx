@@ -24,7 +24,7 @@ import { ViewIcon, ViewTitle } from '@polymind/core/modules/workbench';
 import type { Workspace } from '@polymind/core/modules/workspace';
 import type { PolymindDNDData } from '@polymind/core/types/dnd';
 import { useI18n } from '@polymind/i18n';
-import type { Store } from '@blocksuite/polymind/store';
+import type { Store } from '@blockmind/polymind/store';
 import { useLiveData, useService } from '@toeverything/infra';
 import clsx from 'clsx';
 import {

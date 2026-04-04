@@ -1,6 +1,6 @@
-import { AttachmentBlockModel } from '@blocksuite/polymind/model';
-import type { BlockModel } from '@blocksuite/polymind/store';
-import type { GfxModel } from '@blocksuite/std/gfx';
+import { AttachmentBlockModel } from '@blockmind/polymind/model';
+import type { BlockModel } from '@blockmind/polymind/store';
+import type { GfxModel } from '@blockmind/std/gfx';
 
 export function isAttachment(
   model: GfxModel | BlockModel

@@ -11,18 +11,18 @@ import { JournalsQuickSearchSession } from '@polymind/core/modules/quicksearch/i
 import {
   BookmarkSlashMenuConfigIdentifier,
   insertLinkByQuickSearchCommand,
-} from '@blocksuite/polymind/blocks/bookmark';
-import { LinkedDocSlashMenuConfigIdentifier } from '@blocksuite/polymind/blocks/embed-doc';
-import type { ServiceIdentifier } from '@blocksuite/polymind/global/di';
+} from '@blockmind/polymind/blocks/bookmark';
+import { LinkedDocSlashMenuConfigIdentifier } from '@blockmind/polymind/blocks/embed-doc';
+import type { ServiceIdentifier } from '@blockmind/polymind/global/di';
 import {
   QuickSearchExtension,
   type QuickSearchResult,
-} from '@blocksuite/polymind/shared/services';
-import { type ExtensionType } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/shared/services';
+import { type ExtensionType } from '@blockmind/polymind/store';
 import type {
   SlashMenuConfig,
   SlashMenuItem,
-} from '@blocksuite/polymind/widgets/slash-menu';
+} from '@blockmind/polymind/widgets/slash-menu';
 import type { FrameworkProvider } from '@toeverything/infra';
 import { pick } from 'lodash-es';
 

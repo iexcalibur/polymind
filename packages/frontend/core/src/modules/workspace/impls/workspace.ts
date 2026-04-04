@@ -1,20 +1,20 @@
 import {
   BlockSuiteError,
   ErrorCode,
-} from '@blocksuite/polymind/global/exceptions';
-import { NoopLogger } from '@blocksuite/polymind/global/utils';
+} from '@blockmind/polymind/global/exceptions';
+import { NoopLogger } from '@blockmind/polymind/global/utils';
 import {
   type Doc,
   type IdGenerator,
   nanoid,
   type Workspace,
   type WorkspaceMeta,
-} from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/store';
 import {
   BlobEngine,
   type BlobSource,
   MemoryBlobSource,
-} from '@blocksuite/polymind/sync';
+} from '@blockmind/polymind/sync';
 import { Subject } from 'rxjs';
 import type { Awareness } from 'y-protocols/awareness.js';
 import type { Doc as YDoc } from 'yjs';

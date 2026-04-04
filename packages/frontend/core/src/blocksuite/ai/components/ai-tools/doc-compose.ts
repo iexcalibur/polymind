@@ -1,13 +1,13 @@
 import { getStoreManager } from '@polymind/core/blocksuite/manager/store';
 import { getPolyMindWorkspaceSchema } from '@polymind/core/modules/workspace';
-import { getEmbedLinkedDocIcons } from '@blocksuite/polymind/blocks/embed-doc';
-import { RefNodeSlotsProvider } from '@blocksuite/polymind/inlines/reference';
-import type { ColorScheme } from '@blocksuite/polymind/model';
-import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
-import { MarkdownTransformer } from '@blocksuite/polymind/widgets/linked-doc';
-import type { NotificationService } from '@blocksuite/polymind-shared/services';
+import { getEmbedLinkedDocIcons } from '@blockmind/polymind/blocks/embed-doc';
+import { RefNodeSlotsProvider } from '@blockmind/polymind/inlines/reference';
+import type { ColorScheme } from '@blockmind/polymind/model';
+import { unsafeCSSVarV2 } from '@blockmind/polymind/shared/theme';
+import { MarkdownTransformer } from '@blockmind/polymind/widgets/linked-doc';
+import type { NotificationService } from '@blockmind/polymind-shared/services';
 import { CopyIcon, PageIcon, ToolIcon } from '@blocksuite/icons/lit';
-import type { BlockStdScope } from '@blocksuite/std';
+import type { BlockStdScope } from '@blockmind/std';
 import { css, html } from 'lit';
 import { property } from 'lit/decorators.js';
 

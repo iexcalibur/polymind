@@ -1,12 +1,12 @@
-import { DEFAULT_LINK_PREVIEW_ENDPOINT } from '@blocksuite/polymind/shared/consts';
+import { DEFAULT_LINK_PREVIEW_ENDPOINT } from '@blockmind/polymind/shared/consts';
 import {
   LinkPreviewCacheIdentifier,
   type LinkPreviewCacheProvider,
   LinkPreviewService,
   LinkPreviewServiceIdentifier,
-} from '@blocksuite/polymind/shared/services';
-import { type ExtensionType } from '@blocksuite/polymind/store';
-import type { Container } from '@blocksuite/global/di';
+} from '@blockmind/polymind/shared/services';
+import { type ExtensionType } from '@blockmind/polymind/store';
+import type { Container } from '@blockmind/global/di';
 import type { FrameworkProvider } from '@toeverything/infra';
 
 class PolymindLinkPreviewService extends LinkPreviewService {

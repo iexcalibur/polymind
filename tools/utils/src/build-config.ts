@@ -41,7 +41,7 @@ export function getBuildConfig(
 
         appBuildType: 'stable' as const,
         appVersion: pkg.version,
-        // editorVersion: pkg.dependencies['@blocksuite/polymind'],
+        // editorVersion: pkg.dependencies['@blockmind/polymind'],
         editorVersion: pkg.version,
         githubUrl: 'https://github.com/toeverything/polymind',
         changelogUrl: 'https://polymind.pro/what-is-new',

@@ -1,6 +1,6 @@
-import { AIStarIconWithAnimation } from '@blocksuite/polymind/components/icons';
-import { createLitPortal } from '@blocksuite/polymind/components/portal';
-import { type EditorHost, TextSelection } from '@blocksuite/polymind/std';
+import { AIStarIconWithAnimation } from '@blockmind/polymind/components/icons';
+import { createLitPortal } from '@blockmind/polymind/components/portal';
+import { type EditorHost, TextSelection } from '@blockmind/polymind/std';
 import { flip, offset } from '@floating-ui/dom';
 import { html, type TemplateResult } from 'lit';
 

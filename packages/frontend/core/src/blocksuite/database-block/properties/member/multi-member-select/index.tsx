@@ -3,7 +3,7 @@ import {
   type ExistedUserInfo,
   type UserListService,
   type UserService,
-} from '@blocksuite/polymind/shared/services';
+} from '@blockmind/polymind/shared/services';
 import { computed, type ReadonlySignal, signal } from '@preact/signals-core';
 import clsx from 'clsx';
 import {

@@ -1,5 +1,5 @@
 import { channelToScheme } from '@polymind/core/utils';
-import type { ReferenceParams } from '@blocksuite/polymind/model';
+import type { ReferenceParams } from '@blockmind/polymind/model';
 import { isNil, pick, pickBy } from 'lodash-es';
 import type { ParsedQuery, ParseOptions } from 'query-string';
 import queryString from 'query-string';

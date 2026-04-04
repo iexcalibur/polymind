@@ -1,4 +1,4 @@
-import type { EditorHost } from '@blocksuite/polymind/std';
+import type { EditorHost } from '@blockmind/polymind/std';
 import { css, html, LitElement, nothing } from 'lit';
 import { property } from 'lit/decorators.js';
 

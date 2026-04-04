@@ -1,7 +1,7 @@
 import {
   BlockMarkdownAdapterExtension,
   type BlockMarkdownAdapterMatcher,
-} from '@blocksuite/polymind-shared/adapters';
+} from '@blockmind/polymind-shared/adapters';
 
 export const blockTagMarkdownAdapterMatcher: BlockMarkdownAdapterMatcher = {
   flavour: 'polymind:page/affine:note/*',

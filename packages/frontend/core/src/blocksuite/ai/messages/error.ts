@@ -1,7 +1,7 @@
-import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
-import { scrollbarStyle } from '@blocksuite/polymind/shared/styles';
-import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
-import { type EditorHost } from '@blocksuite/polymind/std';
+import { SignalWatcher, WithDisposable } from '@blockmind/polymind/global/lit';
+import { scrollbarStyle } from '@blockmind/polymind/shared/styles';
+import { unsafeCSSVarV2 } from '@blockmind/polymind/shared/theme';
+import { type EditorHost } from '@blockmind/polymind/std';
 import { InformationIcon, ToggleDownIcon } from '@blocksuite/icons/lit';
 import { signal } from '@preact/signals-core';
 import { baseTheme } from '@toeverything/theme';

@@ -1,6 +1,6 @@
 import type { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
-import { SignalWatcher } from '@blocksuite/polymind/global/lit';
-import { unsafeCSSVar } from '@blocksuite/polymind/shared/theme';
+import { SignalWatcher } from '@blockmind/polymind/global/lit';
+import { unsafeCSSVar } from '@blockmind/polymind/shared/theme';
 import { css, html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
 import { debounce } from 'lodash-es';

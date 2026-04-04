@@ -4,7 +4,7 @@
   "types": "./__all.d.ts",
   "type": "module",
   "dependencies": {
-    "@blocksuite/polymind": "workspace:*",
+    "@blockmind/polymind": "workspace:*",
     "@polymind/env": "workspace:*"
   },
   "version": "0.26.3"

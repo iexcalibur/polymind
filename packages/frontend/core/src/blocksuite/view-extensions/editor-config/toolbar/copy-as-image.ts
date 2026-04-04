@@ -3,16 +3,16 @@ import { isMindmapChild, isMindMapRoot } from '@polymind/core/blocksuite/ai';
 import { EditorService } from '@polymind/core/modules/editor';
 import { apis } from '@polymind/electron-api';
 import { I18n } from '@polymind/i18n';
-import type { MenuContext } from '@blocksuite/polymind/components/toolbar';
-import { Bound, getCommonBound } from '@blocksuite/polymind/global/gfx';
-import type { BlockStdScope } from '@blocksuite/polymind/std';
+import type { MenuContext } from '@blockmind/polymind/components/toolbar';
+import { Bound, getCommonBound } from '@blockmind/polymind/global/gfx';
+import type { BlockStdScope } from '@blockmind/polymind/std';
 import {
   type GfxBlockElementModel,
   GfxControllerIdentifier,
   type GfxModel,
   GfxPrimitiveElementModel,
   isGfxGroupCompatibleModel,
-} from '@blocksuite/polymind/std/gfx';
+} from '@blockmind/polymind/std/gfx';
 import { CopyAsImgaeIcon } from '@blocksuite/icons/lit';
 import type { FrameworkProvider } from '@toeverything/infra';
 

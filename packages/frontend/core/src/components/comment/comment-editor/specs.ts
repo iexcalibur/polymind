@@ -2,29 +2,29 @@ import { CloudViewExtension } from '@polymind/core/blocksuite/view-extensions/cl
 import { PolymindEditorViewExtension } from '@polymind/core/blocksuite/view-extensions/editor-view/editor-view';
 import { PolymindThemeViewExtension } from '@polymind/core/blocksuite/view-extensions/theme';
 import { I18n } from '@polymind/i18n';
-import { CodeBlockViewExtension } from '@blocksuite/polymind/blocks/code/view';
-import { DividerViewExtension } from '@blocksuite/polymind/blocks/divider/view';
-import { LatexViewExtension as LatexBlockViewExtension } from '@blocksuite/polymind/blocks/latex/view';
-import { ListViewExtension } from '@blocksuite/polymind/blocks/list/view';
-import { NoteViewExtension } from '@blocksuite/polymind/blocks/note/view';
-import { ParagraphViewExtension } from '@blocksuite/polymind/blocks/paragraph/view';
-import { RootViewExtension } from '@blocksuite/polymind/blocks/root/view';
+import { CodeBlockViewExtension } from '@blockmind/polymind/blocks/code/view';
+import { DividerViewExtension } from '@blockmind/polymind/blocks/divider/view';
+import { LatexViewExtension as LatexBlockViewExtension } from '@blockmind/polymind/blocks/latex/view';
+import { ListViewExtension } from '@blockmind/polymind/blocks/list/view';
+import { NoteViewExtension } from '@blockmind/polymind/blocks/note/view';
+import { ParagraphViewExtension } from '@blockmind/polymind/blocks/paragraph/view';
+import { RootViewExtension } from '@blockmind/polymind/blocks/root/view';
 import {
   PeekViewExtension,
   type PeekViewService,
-} from '@blocksuite/polymind/components/peek';
+} from '@blockmind/polymind/components/peek';
 import {
   type ViewExtensionContext,
   ViewExtensionManager,
   ViewExtensionProvider,
-} from '@blocksuite/polymind/ext-loader';
-import { PlainTextClipboardConfig } from '@blocksuite/polymind/foundation/clipboard';
-import { LatexInlineSpecExtension } from '@blocksuite/polymind/inlines/latex';
-import { LatexViewExtension as LatexInlineViewExtension } from '@blocksuite/polymind/inlines/latex/view';
-import { LinkInlineSpecExtension } from '@blocksuite/polymind/inlines/link';
-import { LinkViewExtension } from '@blocksuite/polymind/inlines/link/view';
-import { MentionInlineSpecExtension } from '@blocksuite/polymind/inlines/mention';
-import { MentionViewExtension } from '@blocksuite/polymind/inlines/mention/view';
+} from '@blockmind/polymind/ext-loader';
+import { PlainTextClipboardConfig } from '@blockmind/polymind/foundation/clipboard';
+import { LatexInlineSpecExtension } from '@blockmind/polymind/inlines/latex';
+import { LatexViewExtension as LatexInlineViewExtension } from '@blockmind/polymind/inlines/latex/view';
+import { LinkInlineSpecExtension } from '@blockmind/polymind/inlines/link';
+import { LinkViewExtension } from '@blockmind/polymind/inlines/link/view';
+import { MentionInlineSpecExtension } from '@blockmind/polymind/inlines/mention';
+import { MentionViewExtension } from '@blockmind/polymind/inlines/mention/view';
 import {
   BackgroundInlineSpecExtension,
   BoldInlineSpecExtension,
@@ -34,9 +34,9 @@ import {
   ItalicInlineSpecExtension,
   StrikeInlineSpecExtension,
   UnderlineInlineSpecExtension,
-} from '@blocksuite/polymind/inlines/preset';
-import { ReferenceInlineSpecExtension } from '@blocksuite/polymind/inlines/reference';
-import { ReferenceViewExtension } from '@blocksuite/polymind/inlines/reference/view';
+} from '@blockmind/polymind/inlines/preset';
+import { ReferenceInlineSpecExtension } from '@blockmind/polymind/inlines/reference';
+import { ReferenceViewExtension } from '@blockmind/polymind/inlines/reference/view';
 import {
   DefaultOpenDocExtension,
   DocDisplayMetaService,
@@ -48,12 +48,12 @@ import {
   PageViewportServiceExtension,
   ThemeService,
   ToolbarRegistryExtension,
-} from '@blocksuite/polymind/shared/services';
-import type { PolymindTextAttributes } from '@blocksuite/polymind/shared/types';
-import { InlineManagerExtension } from '@blocksuite/polymind/std/inline';
-import { LinkedDocViewExtension } from '@blocksuite/polymind/widgets/linked-doc/view';
-import { ToolbarViewExtension } from '@blocksuite/polymind/widgets/toolbar/view';
-import { ViewportOverlayViewExtension } from '@blocksuite/polymind/widgets/viewport-overlay/view';
+} from '@blockmind/polymind/shared/services';
+import type { PolymindTextAttributes } from '@blockmind/polymind/shared/types';
+import { InlineManagerExtension } from '@blockmind/polymind/std/inline';
+import { LinkedDocViewExtension } from '@blockmind/polymind/widgets/linked-doc/view';
+import { ToolbarViewExtension } from '@blockmind/polymind/widgets/toolbar/view';
+import { ViewportOverlayViewExtension } from '@blockmind/polymind/widgets/viewport-overlay/view';
 import type { FrameworkProvider } from '@toeverything/infra';
 import { z } from 'zod';
 

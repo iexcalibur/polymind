@@ -1,8 +1,8 @@
 import {
   DatabaseBlockDataSource,
   ExternalGroupByConfigProvider,
-} from '@blocksuite/polymind/blocks/database';
-import type { ExtensionType } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/blocks/database';
+import type { ExtensionType } from '@blockmind/polymind/store';
 
 import { groupByConfigList } from '../../database-block/group-by';
 import { propertiesPresets } from '../../database-block/properties';

@@ -5,11 +5,11 @@ import type {
 import type { AIModelService } from '@polymind/core/modules/ai-button/services/models';
 import type { FeatureFlagService } from '@polymind/core/modules/feature-flag';
 import type { CopilotChatHistoryFragment } from '@polymind/graphql';
-import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
-import { unsafeCSSVar, unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
-import type { EditorHost } from '@blocksuite/polymind/std';
-import { ShadowlessElement } from '@blocksuite/polymind/std';
-import type { NotificationService } from '@blocksuite/polymind-shared/services';
+import { SignalWatcher, WithDisposable } from '@blockmind/polymind/global/lit';
+import { unsafeCSSVar, unsafeCSSVarV2 } from '@blockmind/polymind/shared/theme';
+import type { EditorHost } from '@blockmind/polymind/std';
+import { ShadowlessElement } from '@blockmind/polymind/std';
+import type { NotificationService } from '@blockmind/polymind-shared/services';
 import { ArrowUpBigIcon, CloseIcon } from '@blocksuite/icons/lit';
 import { css, html, nothing, type PropertyValues } from 'lit';
 import { property, query, state } from 'lit/decorators.js';

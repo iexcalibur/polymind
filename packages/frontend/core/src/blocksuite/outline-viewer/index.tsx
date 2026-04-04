@@ -1,5 +1,5 @@
-import { OutlineViewer } from '@blocksuite/polymind/fragments/outline';
-import type { EditorHost } from '@blocksuite/polymind/std';
+import { OutlineViewer } from '@blockmind/polymind/fragments/outline';
+import type { EditorHost } from '@blockmind/polymind/std';
 import { useCallback, useRef } from 'react';
 
 import * as styles from './outline-viewer.css';

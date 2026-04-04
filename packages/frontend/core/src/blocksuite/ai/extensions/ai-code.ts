@@ -1,5 +1,5 @@
-import { PolymindCodeToolbarWidget } from '@blocksuite/polymind/blocks/code';
-import { LifeCycleWatcher } from '@blocksuite/polymind/std';
+import { PolymindCodeToolbarWidget } from '@blockmind/polymind/blocks/code';
+import { LifeCycleWatcher } from '@blockmind/polymind/std';
 
 import { setupCodeToolbarAIEntry } from '../entries/code-toolbar/setup-code-toolbar';
 

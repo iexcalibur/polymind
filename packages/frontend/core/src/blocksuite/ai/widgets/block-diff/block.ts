@@ -1,6 +1,6 @@
-import { WidgetComponent, WidgetViewExtension } from '@blocksuite/polymind/std';
-import { ThemeProvider } from '@blocksuite/polymind-shared/services';
-import { unsafeCSSVarV2 } from '@blocksuite/polymind-shared/theme';
+import { WidgetComponent, WidgetViewExtension } from '@blockmind/polymind/std';
+import { ThemeProvider } from '@blockmind/polymind-shared/services';
+import { unsafeCSSVarV2 } from '@blockmind/polymind-shared/theme';
 import { css, html, nothing, type TemplateResult } from 'lit';
 import { repeat } from 'lit/directives/repeat.js';
 import { literal, unsafeStatic } from 'lit/static-html.js';

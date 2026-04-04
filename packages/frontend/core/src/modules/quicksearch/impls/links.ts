@@ -1,4 +1,4 @@
-import type { ReferenceParams } from '@blocksuite/polymind/model';
+import type { ReferenceParams } from '@blockmind/polymind/model';
 import { BlockLinkIcon, EdgelessIcon, PageIcon } from '@blocksuite/icons/rc';
 import { Entity, LiveData } from '@toeverything/infra';
 import { omit, truncate } from 'lodash-es';

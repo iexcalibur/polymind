@@ -14,8 +14,8 @@ import {
   NoteShadow,
   NoteShadowMap,
   StrokeStyle,
-} from '@blocksuite/polymind/model';
-import type { Store } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/model';
+import type { Store } from '@blockmind/polymind/store';
 import { useFramework, useLiveData } from '@toeverything/infra';
 import { isEqual } from 'lodash-es';
 import { useCallback, useMemo } from 'react';

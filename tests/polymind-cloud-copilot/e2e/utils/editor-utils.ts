@@ -10,12 +10,12 @@ import {
   clickNewPageButton,
   getBlockSuiteEditorTitle,
 } from '@polymind-test/kit/utils/page-logic';
-import type { EdgelessRootBlockComponent } from '@blocksuite/polymind/blocks/root';
+import type { EdgelessRootBlockComponent } from '@blockmind/polymind/blocks/root';
 import type {
   MindmapElementModel,
   ShapeElementModel,
-} from '@blocksuite/polymind-model';
-import type { GfxModel } from '@blocksuite/std/gfx';
+} from '@blockmind/polymind-model';
+import type { GfxModel } from '@blockmind/std/gfx';
 import { type Page } from '@playwright/test';
 export class EditorUtils {
   public static async focusToEditor(page: Page) {

@@ -11,7 +11,7 @@
     "./bs/*": "./src/bs/*.ts"
   },
   "devDependencies": {
-    "@blocksuite/polymind": "workspace:*",
+    "@blockmind/polymind": "workspace:*",
     "@node-rs/argon2": "^2.0.2",
     "@playwright/test": "=1.58.2",
     "@polymind-tools/utils": "workspace:*",

@@ -1,4 +1,4 @@
-import type { PropertyMetaConfig } from '@blocksuite/polymind/blocks/database';
+import type { PropertyMetaConfig } from '@blockmind/polymind/blocks/database';
 
 import { createdByPropertyConfig } from './created-by/view';
 import { filePropertyConfig } from './file/view';

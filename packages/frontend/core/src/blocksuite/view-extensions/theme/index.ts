@@ -3,7 +3,7 @@ import { getThemeExtension } from '@polymind/core/blocksuite/view-extensions/the
 import {
   type ViewExtensionContext,
   ViewExtensionProvider,
-} from '@blocksuite/polymind/ext-loader';
+} from '@blockmind/polymind/ext-loader';
 import { FrameworkProvider } from '@toeverything/infra';
 import { z } from 'zod';
 

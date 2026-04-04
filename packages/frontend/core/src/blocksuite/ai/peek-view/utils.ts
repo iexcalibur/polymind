@@ -1,9 +1,9 @@
 import {
   EdgelessCRUDIdentifier,
   getSurfaceBlock,
-} from '@blocksuite/polymind/blocks/surface';
-import { Bound } from '@blocksuite/polymind/global/gfx';
-import type { BlockStdScope } from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/blocks/surface';
+import { Bound } from '@blockmind/polymind/global/gfx';
+import type { BlockStdScope } from '@blockmind/polymind/std';
 
 import {
   type AIChatBlockModel,

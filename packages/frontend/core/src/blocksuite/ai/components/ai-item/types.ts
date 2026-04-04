@@ -1,5 +1,5 @@
-import type { DocMode } from '@blocksuite/polymind/model';
-import type { Chain, EditorHost, InitCommandCtx } from '@blocksuite/polymind/std';
+import type { DocMode } from '@blockmind/polymind/model';
+import type { Chain, EditorHost, InitCommandCtx } from '@blockmind/polymind/std';
 import type { TemplateResult } from 'lit';
 
 export interface AIItemGroupConfig {

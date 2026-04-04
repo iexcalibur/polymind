@@ -1,4 +1,4 @@
-import type { EditorHost } from '@blocksuite/polymind/std';
+import type { EditorHost } from '@blockmind/polymind/std';
 import { BehaviorSubject, Subject } from 'rxjs';
 
 import type { ChatContextValue } from '../components/ai-chat-content';

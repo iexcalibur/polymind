@@ -1,8 +1,8 @@
-import { AIStarIcon } from '@blocksuite/polymind/components/icons';
-import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
-import { ColorScheme } from '@blocksuite/polymind/model';
-import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
-import { stopPropagation } from '@blocksuite/polymind/shared/utils';
+import { AIStarIcon } from '@blockmind/polymind/components/icons';
+import { SignalWatcher, WithDisposable } from '@blockmind/polymind/global/lit';
+import { ColorScheme } from '@blockmind/polymind/model';
+import { unsafeCSSVarV2 } from '@blockmind/polymind/shared/theme';
+import { stopPropagation } from '@blockmind/polymind/shared/utils';
 import { SendIcon } from '@blocksuite/icons/lit';
 import {
   darkCssVariablesV2,

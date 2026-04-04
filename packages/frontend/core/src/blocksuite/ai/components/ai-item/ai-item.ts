@@ -1,11 +1,11 @@
-import { ArrowRightIcon, EnterIcon } from '@blocksuite/polymind/components/icons';
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import { ColorScheme } from '@blocksuite/polymind/model';
+import { ArrowRightIcon, EnterIcon } from '@blockmind/polymind/components/icons';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import { ColorScheme } from '@blockmind/polymind/model';
 import {
   EditorHost,
   PropTypes,
   requiredProperties,
-} from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/std';
 import { css, html, LitElement, nothing } from 'lit';
 import { property, query } from 'lit/decorators.js';
 

@@ -137,7 +137,7 @@ jobs:
         if: ${{ inputs.platform == 'win32' }}
         shell: bash
         run: |
-          rm -rf packages/frontend/apps/electron/node_modules/@polymind/nbstore/node_modules/@blocksuite/polymind/node_modules
+          rm -rf packages/frontend/apps/electron/node_modules/@polymind/nbstore/node_modules/@blockmind/polymind/node_modules
           rm -rf packages/frontend/apps/electron/node_modules/@polymind/native/node_modules
 
       - name: make

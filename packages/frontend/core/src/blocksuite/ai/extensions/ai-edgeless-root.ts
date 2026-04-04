@@ -1,4 +1,4 @@
-import { LifeCycleWatcher } from '@blocksuite/polymind/std';
+import { LifeCycleWatcher } from '@blockmind/polymind/std';
 
 import { buildAIPanelConfig } from '../ai-panel';
 import { setupEdgelessCopilot } from '../entries/edgeless/index';

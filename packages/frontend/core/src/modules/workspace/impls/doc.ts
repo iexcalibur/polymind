@@ -6,7 +6,7 @@ import {
   type GetStoreOptions,
   StoreContainer,
   type YBlock,
-} from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/store';
 import { Awareness } from 'y-protocols/awareness.js';
 import * as Y from 'yjs';
 

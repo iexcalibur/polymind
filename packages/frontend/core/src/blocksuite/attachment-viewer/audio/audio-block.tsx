@@ -13,7 +13,7 @@ import { GlobalDialogService } from '@polymind/core/modules/dialogs';
 import type { AudioAttachmentBlock } from '@polymind/core/modules/media/entities/audio-attachment-block';
 import { AudioAttachmentService } from '@polymind/core/modules/media/services/audio-attachment';
 import { Trans, useI18n } from '@polymind/i18n';
-import type { AttachmentBlockModel } from '@blocksuite/polymind/model';
+import type { AttachmentBlockModel } from '@blockmind/polymind/model';
 import { ResetIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import bytes from 'bytes';

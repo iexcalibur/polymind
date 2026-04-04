@@ -9,19 +9,19 @@ import {
 } from '@polymind/core/modules/editor-setting';
 import { FeatureFlagService } from '@polymind/core/modules/feature-flag';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
-import { appendParagraphCommand } from '@blocksuite/polymind/blocks/paragraph';
-import type { DocTitle } from '@blocksuite/polymind/fragments/doc-title';
-import { DisposableGroup } from '@blocksuite/polymind/global/disposable';
-import { IS_LINUX } from '@blocksuite/polymind/global/env';
-import type { DocMode, RootBlockModel } from '@blocksuite/polymind/model';
+import { appendParagraphCommand } from '@blockmind/polymind/blocks/paragraph';
+import type { DocTitle } from '@blockmind/polymind/fragments/doc-title';
+import { DisposableGroup } from '@blockmind/polymind/global/disposable';
+import { IS_LINUX } from '@blockmind/polymind/global/env';
+import type { DocMode, RootBlockModel } from '@blockmind/polymind/model';
 import {
   customImageProxyMiddleware,
   ImageProxyService,
-} from '@blocksuite/polymind/shared/adapters';
-import { focusBlockEnd } from '@blocksuite/polymind/shared/commands';
-import { getLastNoteBlock } from '@blocksuite/polymind/shared/utils';
-import type { BlockStdScope, EditorHost } from '@blocksuite/polymind/std';
-import type { Store } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/shared/adapters';
+import { focusBlockEnd } from '@blockmind/polymind/shared/commands';
+import { getLastNoteBlock } from '@blockmind/polymind/shared/utils';
+import type { BlockStdScope, EditorHost } from '@blockmind/polymind/std';
+import type { Store } from '@blockmind/polymind/store';
 import { Slot } from '@radix-ui/react-slot';
 import { useLiveData, useService } from '@toeverything/infra';
 import { cssVar } from '@toeverything/theme';

@@ -1,4 +1,4 @@
-import type { DocsPropertiesMeta } from '@blocksuite/polymind/store';
+import type { DocsPropertiesMeta } from '@blockmind/polymind/store';
 import {
   LiveData,
   Store,

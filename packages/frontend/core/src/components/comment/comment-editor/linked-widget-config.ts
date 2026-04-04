@@ -1,13 +1,13 @@
 import { MemberSearchService } from '@polymind/core/modules/permissions';
 import { highlighter } from '@polymind/core/modules/quicksearch/utils/highlighter';
 import { I18n } from '@polymind/i18n';
-import type { PolymindInlineEditor } from '@blocksuite/polymind/shared/types';
+import type { PolymindInlineEditor } from '@blockmind/polymind/shared/types';
 import type {
   LinkedMenuItem,
   LinkedWidgetConfig,
-} from '@blocksuite/polymind/widgets/linked-doc';
+} from '@blockmind/polymind/widgets/linked-doc';
 import { UserIcon } from '@blocksuite/icons/lit';
-import { BLOCK_ID_ATTR, type BlockComponent } from '@blocksuite/std';
+import { BLOCK_ID_ATTR, type BlockComponent } from '@blockmind/std';
 import { computed } from '@preact/signals-core';
 import type { FrameworkProvider } from '@toeverything/infra';
 import { cssVarV2 } from '@toeverything/theme/v2';

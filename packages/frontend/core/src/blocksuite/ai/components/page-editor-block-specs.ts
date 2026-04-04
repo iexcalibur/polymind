@@ -1,7 +1,7 @@
-import { ViewExtensionManager } from '@blocksuite/polymind/ext-loader';
-import { getInternalViewExtensions } from '@blocksuite/polymind/extensions/view';
-import { BlockViewIdentifier } from '@blocksuite/polymind/std';
-import type { ExtensionType } from '@blocksuite/polymind/store';
+import { ViewExtensionManager } from '@blockmind/polymind/ext-loader';
+import { getInternalViewExtensions } from '@blockmind/polymind/extensions/view';
+import { BlockViewIdentifier } from '@blockmind/polymind/std';
+import type { ExtensionType } from '@blockmind/polymind/store';
 import { literal } from 'lit/static-html.js';
 
 const manager = new ViewExtensionManager([...getInternalViewExtensions()]);

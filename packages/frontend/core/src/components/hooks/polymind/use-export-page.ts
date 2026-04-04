@@ -7,17 +7,17 @@ import type { PolymindEditorContainer } from '@polymind/core/blocksuite/block-su
 import { EditorService } from '@polymind/core/modules/editor';
 import { getPolyMindWorkspaceSchema } from '@polymind/core/modules/workspace/global-schema';
 import { useI18n } from '@polymind/i18n';
-import { ExportManager } from '@blocksuite/polymind/blocks/surface';
+import { ExportManager } from '@blockmind/polymind/blocks/surface';
 import {
   docLinkBaseURLMiddleware,
   embedSyncedDocMiddleware,
   HtmlAdapterFactoryIdentifier,
   MarkdownAdapterFactoryIdentifier,
   titleMiddleware,
-} from '@blocksuite/polymind/shared/adapters';
-import { printToPdf } from '@blocksuite/polymind/shared/utils';
-import type { BlockStdScope } from '@blocksuite/polymind/std';
-import { type Store, Transformer } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/shared/adapters';
+import { printToPdf } from '@blockmind/polymind/shared/utils';
+import type { BlockStdScope } from '@blockmind/polymind/std';
+import { type Store, Transformer } from '@blockmind/polymind/store';
 import {
   createAssetsArchive,
   download,
@@ -25,7 +25,7 @@ import {
   MarkdownTransformer,
   PdfTransformer,
   ZipTransformer,
-} from '@blocksuite/polymind/widgets/linked-doc';
+} from '@blockmind/polymind/widgets/linked-doc';
 import { useLiveData, useService } from '@toeverything/infra';
 import { useSetAtom } from 'jotai';
 import { nanoid } from 'nanoid';

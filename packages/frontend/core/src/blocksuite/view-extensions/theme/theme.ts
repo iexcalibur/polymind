@@ -1,16 +1,16 @@
 import { DocService, DocsService } from '@polymind/core/modules/doc';
 import { AppThemeService } from '@polymind/core/modules/theme';
-import type { Container } from '@blocksuite/polymind/global/di';
-import { ColorScheme } from '@blocksuite/polymind/model';
+import type { Container } from '@blockmind/polymind/global/di';
+import { ColorScheme } from '@blockmind/polymind/model';
 import {
   type ThemeExtension,
   ThemeExtensionIdentifier,
-} from '@blocksuite/polymind/shared/services';
+} from '@blockmind/polymind/shared/services';
 import {
   createSignalFromObservable,
   type Signal,
-} from '@blocksuite/polymind/shared/utils';
-import { LifeCycleWatcher, StdIdentifier } from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/shared/utils';
+import { LifeCycleWatcher, StdIdentifier } from '@blockmind/polymind/std';
 import { type FrameworkProvider } from '@toeverything/infra';
 import type { Observable } from 'rxjs';
 import { combineLatest, map } from 'rxjs';

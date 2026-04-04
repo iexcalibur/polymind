@@ -1,5 +1,5 @@
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import type { EditorHost } from '@blocksuite/polymind/std';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import type { EditorHost } from '@blockmind/polymind/std';
 import { baseTheme } from '@toeverything/theme';
 import { css, html, LitElement, nothing, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';

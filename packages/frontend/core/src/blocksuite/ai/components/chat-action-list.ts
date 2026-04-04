@@ -1,11 +1,11 @@
 import type { CopilotChatHistoryFragment } from '@polymind/graphql';
-import type { ImageSelection } from '@blocksuite/polymind/shared/selection';
+import type { ImageSelection } from '@blockmind/polymind/shared/selection';
 import type {
   BlockSelection,
   EditorHost,
   TextSelection,
-} from '@blocksuite/polymind/std';
-import type { NotificationService } from '@blocksuite/polymind-shared/services';
+} from '@blockmind/polymind/std';
+import type { NotificationService } from '@blockmind/polymind-shared/services';
 import { css, html, LitElement, nothing } from 'lit';
 import { property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';

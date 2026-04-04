@@ -1,8 +1,8 @@
 import type { TagMeta } from '@polymind/core/components/page-list';
-import { createLitPortal } from '@blocksuite/polymind/components/portal';
-import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
-import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
-import { ShadowlessElement } from '@blocksuite/polymind/std';
+import { createLitPortal } from '@blockmind/polymind/components/portal';
+import { SignalWatcher, WithDisposable } from '@blockmind/polymind/global/lit';
+import { unsafeCSSVarV2 } from '@blockmind/polymind/shared/theme';
+import { ShadowlessElement } from '@blockmind/polymind/std';
 import { MoreVerticalIcon } from '@blocksuite/icons/lit';
 import { flip, offset } from '@floating-ui/dom';
 import { computed, type Signal, signal } from '@preact/signals-core';

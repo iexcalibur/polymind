@@ -1,4 +1,4 @@
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
 import { css, html, LitElement } from 'lit';
 
 export class AIPanelDivider extends WithDisposable(LitElement) {

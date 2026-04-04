@@ -13,7 +13,7 @@ import {
   type,
   waitForEditorLoad,
 } from '@polymind-test/kit/utils/page-logic';
-import type { ParagraphBlockComponent } from '@blocksuite/polymind-block-paragraph';
+import type { ParagraphBlockComponent } from '@blockmind/polymind-block-paragraph';
 import { expect, type Locator } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {

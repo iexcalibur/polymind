@@ -7,7 +7,7 @@ import { EditorService } from '@polymind/core/modules/editor';
 import type { EditorSettingExt } from '@polymind/core/modules/editor-setting/entities/editor-setting';
 import { copyLinkToBlockStdScopeClipboard } from '@polymind/core/utils/clipboard';
 import { I18n, i18nTime } from '@polymind/i18n';
-import { BookmarkBlockComponent } from '@blocksuite/polymind/blocks/bookmark';
+import { BookmarkBlockComponent } from '@blockmind/polymind/blocks/bookmark';
 import {
   EmbedFigmaBlockComponent,
   EmbedGithubBlockComponent,
@@ -15,35 +15,35 @@ import {
   EmbedLoomBlockComponent,
   EmbedYoutubeBlockComponent,
   getDocContentWithMaxLength,
-} from '@blocksuite/polymind/blocks/embed';
+} from '@blockmind/polymind/blocks/embed';
 import {
   EmbedLinkedDocBlockComponent,
   EmbedSyncedDocBlockComponent,
-} from '@blocksuite/polymind/blocks/embed-doc';
-import { SurfaceRefBlockComponent } from '@blocksuite/polymind/blocks/surface-ref';
-import { toggleEmbedCardEditModal } from '@blocksuite/polymind/components/embed-card-modal';
-import { notifyLinkedDocClearedAliases } from '@blocksuite/polymind/components/notification';
-import { isPeekable, peek } from '@blocksuite/polymind/components/peek';
-import { toast } from '@blocksuite/polymind/components/toast';
+} from '@blockmind/polymind/blocks/embed-doc';
+import { SurfaceRefBlockComponent } from '@blockmind/polymind/blocks/surface-ref';
+import { toggleEmbedCardEditModal } from '@blockmind/polymind/components/embed-card-modal';
+import { notifyLinkedDocClearedAliases } from '@blockmind/polymind/components/notification';
+import { isPeekable, peek } from '@blockmind/polymind/components/peek';
+import { toast } from '@blockmind/polymind/components/toast';
 import {
   EditorChevronDown,
   type MenuContext,
   type MenuItemGroup,
-} from '@blocksuite/polymind/components/toolbar';
-import { watch } from '@blocksuite/polymind/global/lit';
+} from '@blockmind/polymind/components/toolbar';
+import { watch } from '@blockmind/polymind/global/lit';
 import {
   PolymindReference,
   toggleReferencePopup,
-} from '@blocksuite/polymind/inlines/reference';
+} from '@blockmind/polymind/inlines/reference';
 import {
   BookmarkBlockModel,
   EmbedIframeBlockModel,
   EmbedLinkedDocModel,
   EmbedSyncedDocModel,
   SurfaceRefBlockSchema,
-} from '@blocksuite/polymind/model';
-import { getSelectedModelsCommand } from '@blocksuite/polymind/shared/commands';
-import { ImageSelection } from '@blocksuite/polymind/shared/selection';
+} from '@blockmind/polymind/model';
+import { getSelectedModelsCommand } from '@blockmind/polymind/shared/commands';
+import { ImageSelection } from '@blockmind/polymind/shared/selection';
 import {
   ActionPlacement,
   CitationProvider,
@@ -58,18 +58,18 @@ import {
   type ToolbarModuleConfig,
   ToolbarModuleExtension,
   UserProvider,
-} from '@blocksuite/polymind/shared/services';
-import { matchModels } from '@blocksuite/polymind/shared/utils';
+} from '@blockmind/polymind/shared/services';
+import { matchModels } from '@blockmind/polymind/shared/utils';
 import {
   BlockFlavourIdentifier,
   BlockSelection,
   TextSelection,
-} from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/std';
 import {
   GfxBlockElementModel,
   GfxPrimitiveElementModel,
-} from '@blocksuite/polymind/std/gfx';
-import type { ExtensionType } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/std/gfx';
+import type { ExtensionType } from '@blockmind/polymind/store';
 import {
   CopyAsImgaeIcon,
   CopyIcon,

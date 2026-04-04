@@ -5,17 +5,17 @@ import type { CommentAttachment } from '@polymind/core/modules/comment/types';
 import { PeekViewService } from '@polymind/core/modules/peek-view';
 import { downloadResourceWithUrl } from '@polymind/core/utils/resource';
 import { DebugLogger } from '@polymind/debug';
-import { getAttachmentFileIconRC } from '@blocksuite/polymind/components/icons';
-import { type RichText, selectTextModel } from '@blocksuite/polymind/rich-text';
-import { ViewportElementExtension } from '@blocksuite/polymind/shared/services';
-import { openFilesWith } from '@blocksuite/polymind/shared/utils';
-import { type DocSnapshot, nanoid, Store } from '@blocksuite/polymind/store';
+import { getAttachmentFileIconRC } from '@blockmind/polymind/components/icons';
+import { type RichText, selectTextModel } from '@blockmind/polymind/rich-text';
+import { ViewportElementExtension } from '@blockmind/polymind/shared/services';
+import { openFilesWith } from '@blockmind/polymind/shared/utils';
+import { type DocSnapshot, nanoid, Store } from '@blockmind/polymind/store';
 import {
   ArrowUpBigIcon,
   AttachmentIcon,
   CloseIcon,
 } from '@blocksuite/icons/rc';
-import type { TextSelection } from '@blocksuite/std';
+import type { TextSelection } from '@blockmind/std';
 import { useFramework, useService } from '@toeverything/infra';
 import bytes from 'bytes';
 import clsx from 'clsx';

@@ -8,7 +8,7 @@ import { PolymindPageReference } from '@polymind/core/components/polymind/refere
 import { DocService } from '@polymind/core/modules/doc';
 import { TemplateDocService } from '@polymind/core/modules/template-doc';
 import { useI18n } from '@polymind/i18n';
-import type { DatabaseBlockDataSource } from '@blocksuite/polymind/blocks/database';
+import type { DatabaseBlockDataSource } from '@blockmind/polymind/blocks/database';
 import { DatabaseTableViewIcon, PageIcon } from '@blocksuite/icons/rc';
 import { LiveData, useLiveData, useService } from '@toeverything/infra';
 import { useMemo } from 'react';

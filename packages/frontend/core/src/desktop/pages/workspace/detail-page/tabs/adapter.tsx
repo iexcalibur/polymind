@@ -1,12 +1,12 @@
-import { AdapterPanel } from '@blocksuite/polymind/fragments/adapter-panel';
+import { AdapterPanel } from '@blockmind/polymind/fragments/adapter-panel';
 import {
   customImageProxyMiddleware,
   docLinkBaseURLMiddlewareBuilder,
   embedSyncedDocMiddleware,
   titleMiddleware,
-} from '@blocksuite/polymind/shared/adapters';
-import type { EditorHost } from '@blocksuite/polymind/std';
-import type { TransformerMiddleware } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/shared/adapters';
+import type { EditorHost } from '@blockmind/polymind/std';
+import type { TransformerMiddleware } from '@blockmind/polymind/store';
 import { useService } from '@toeverything/infra';
 import { useCallback, useEffect, useRef } from 'react';
 

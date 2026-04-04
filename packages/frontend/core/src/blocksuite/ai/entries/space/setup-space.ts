@@ -1,5 +1,5 @@
-import type { RichText } from '@blocksuite/polymind/rich-text';
-import { type EditorHost, TextSelection } from '@blocksuite/polymind/std';
+import type { RichText } from '@blockmind/polymind/rich-text';
+import { type EditorHost, TextSelection } from '@blockmind/polymind/std';
 
 import { handleInlineAskAIAction } from '../../actions/doc-handler';
 import { AIProvider } from '../../provider';

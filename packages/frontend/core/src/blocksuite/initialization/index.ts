@@ -4,9 +4,9 @@ import {
   type NoteProps,
   type ParagraphProps,
   type RootBlockProps,
-} from '@blocksuite/polymind/model';
-import type { SurfaceBlockProps } from '@blocksuite/polymind/std/gfx';
-import { type Store, Text } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/model';
+import type { SurfaceBlockProps } from '@blockmind/polymind/std/gfx';
+import { type Store, Text } from '@blockmind/polymind/store';
 
 export interface DocProps {
   page?: Partial<RootBlockProps>;

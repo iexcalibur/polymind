@@ -1,4 +1,4 @@
-import { type CellDataType } from '@blocksuite/polymind/model';
+import { type CellDataType } from '@blockmind/polymind/model';
 import { type Doc as YDoc, type Map as YMap } from 'yjs';
 
 export interface WorkspacePage {

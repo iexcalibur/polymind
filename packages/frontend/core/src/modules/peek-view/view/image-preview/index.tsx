@@ -1,8 +1,8 @@
 import { Divider, Loading, toast } from '@polymind/component';
 import { Button, IconButton } from '@polymind/component/ui/button';
 import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
-import type { ImageBlockModel } from '@blocksuite/polymind/model';
-import type { BlockModel, Workspace } from '@blocksuite/polymind/store';
+import type { ImageBlockModel } from '@blockmind/polymind/model';
+import type { BlockModel, Workspace } from '@blockmind/polymind/store';
 import {
   ArrowLeftSmallIcon,
   ArrowRightSmallIcon,

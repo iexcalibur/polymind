@@ -4,11 +4,11 @@ import {
   createIcon,
   type DataViewCellLifeCycle,
   EditorHostKey,
-} from '@blocksuite/polymind/blocks/database';
+} from '@blockmind/polymind/blocks/database';
 import {
   UserProvider,
   type UserService,
-} from '@blocksuite/polymind/shared/services';
+} from '@blockmind/polymind/shared/services';
 import { css } from '@emotion/css';
 import {
   forwardRef,

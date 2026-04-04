@@ -1,5 +1,5 @@
-import { Bound } from '@blocksuite/polymind/global/gfx';
-import { nanoid } from '@blocksuite/polymind/store';
+import { Bound } from '@blockmind/polymind/global/gfx';
+import { nanoid } from '@blockmind/polymind/store';
 
 import { AIProvider } from '../provider';
 

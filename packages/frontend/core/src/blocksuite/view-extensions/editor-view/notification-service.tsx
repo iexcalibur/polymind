@@ -11,7 +11,7 @@ import {
 import {
   NotificationExtension,
   type NotificationService,
-} from '@blocksuite/polymind/shared/services';
+} from '@blockmind/polymind/shared/services';
 
 export class NotificationServiceImpl implements NotificationService {
   constructor(

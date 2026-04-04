@@ -12,7 +12,7 @@ import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
 import { CMDKQuickSearchService } from '@polymind/core/modules/quicksearch/services/cmdk';
 import type { Workspace } from '@polymind/core/modules/workspace';
 import { useI18n } from '@polymind/i18n';
-import type { Store } from '@blocksuite/polymind/store';
+import type { Store } from '@blockmind/polymind/store';
 import { AllDocsIcon, ImportIcon, SettingsIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService, useServices } from '@toeverything/infra';
 import type { ReactElement } from 'react';

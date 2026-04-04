@@ -1,5 +1,5 @@
-import type { PolymindReference } from '@blocksuite/polymind/inlines/reference';
-import type { EmbedSyncedDocBlockProps } from '@blocksuite/polymind/model';
+import type { PolymindReference } from '@blockmind/polymind/inlines/reference';
+import type { EmbedSyncedDocBlockProps } from '@blockmind/polymind/model';
 import { expect, type Page } from '@playwright/test';
 
 import { clickView } from '../utils/actions/click.js';

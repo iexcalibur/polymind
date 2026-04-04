@@ -4,7 +4,7 @@ import {
   FontWeight,
   type Palette,
   resolveColor,
-} from '@blocksuite/polymind/model';
+} from '@blockmind/polymind/model';
 import { isEqual } from 'lodash-es';
 import { useTheme } from 'next-themes';
 

@@ -1,8 +1,8 @@
 import { WorkspaceImpl } from '@polymind/core/modules/workspace/impls/workspace';
-import { ViewExtensionManagerIdentifier } from '@blocksuite/polymind/ext-loader';
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import { BlockStdScope, type EditorHost } from '@blocksuite/polymind/std';
-import type { Store } from '@blocksuite/polymind/store';
+import { ViewExtensionManagerIdentifier } from '@blockmind/polymind/ext-loader';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import { BlockStdScope, type EditorHost } from '@blockmind/polymind/std';
+import type { Store } from '@blockmind/polymind/store';
 import { css, html, LitElement, nothing } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { createRef, type Ref, ref } from 'lit/directives/ref.js';

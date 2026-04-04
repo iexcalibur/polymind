@@ -16,7 +16,7 @@ import {
   WorkspacesService,
 } from '@polymind/core/modules/workspace';
 import { useI18n } from '@polymind/i18n';
-import type { DocMode } from '@blocksuite/polymind/model';
+import type { DocMode } from '@blockmind/polymind/model';
 import { AllDocsIcon } from '@blocksuite/icons/rc';
 import { useLiveData, useService } from '@toeverything/infra';
 import { cssVar } from '@toeverything/theme';

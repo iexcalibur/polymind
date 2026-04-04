@@ -1,5 +1,5 @@
-import { OutlinePanel } from '@blocksuite/polymind/fragments/outline';
-import type { EditorHost } from '@blocksuite/polymind/std';
+import { OutlinePanel } from '@blockmind/polymind/fragments/outline';
+import type { EditorHost } from '@blockmind/polymind/std';
 import { useCallback, useEffect, useRef } from 'react';
 
 import * as styles from './outline.css';

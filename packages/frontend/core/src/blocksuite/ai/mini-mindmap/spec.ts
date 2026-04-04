@@ -1,19 +1,19 @@
-import { SurfaceBlockSchema } from '@blocksuite/polymind/blocks/surface';
-import { ConnectorElementRendererExtension } from '@blocksuite/polymind/gfx/connector';
+import { SurfaceBlockSchema } from '@blockmind/polymind/blocks/surface';
+import { ConnectorElementRendererExtension } from '@blockmind/polymind/gfx/connector';
 import {
   MindmapElementRendererExtension,
   MindMapView,
-} from '@blocksuite/polymind/gfx/mindmap';
-import { ShapeElementRendererExtension } from '@blocksuite/polymind/gfx/shape';
-import { TextElementRendererExtension } from '@blocksuite/polymind/gfx/text';
-import { RootBlockSchema } from '@blocksuite/polymind/model';
+} from '@blockmind/polymind/gfx/mindmap';
+import { ShapeElementRendererExtension } from '@blockmind/polymind/gfx/shape';
+import { TextElementRendererExtension } from '@blockmind/polymind/gfx/text';
+import { RootBlockSchema } from '@blockmind/polymind/model';
 import {
   DocModeService,
   ThemeService,
-} from '@blocksuite/polymind/shared/services';
-import { BlockViewExtension, FlavourExtension } from '@blocksuite/polymind/std';
-import { ToolController } from '@blocksuite/polymind/std/gfx';
-import type { BlockSchema, ExtensionType } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/shared/services';
+import { BlockViewExtension, FlavourExtension } from '@blockmind/polymind/std';
+import { ToolController } from '@blockmind/polymind/std/gfx';
+import type { BlockSchema, ExtensionType } from '@blockmind/polymind/store';
 import { literal } from 'lit/static-html.js';
 import type { z } from 'zod';
 

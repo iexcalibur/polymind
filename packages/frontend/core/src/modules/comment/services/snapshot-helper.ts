@@ -1,10 +1,10 @@
 import { getStoreManager } from '@polymind/core/blocksuite/manager/store';
 import { toArrayBuffer } from '@polymind/core/utils/array-buffer';
-import { Container } from '@blocksuite/polymind/global/di';
+import { Container } from '@blockmind/polymind/global/di';
 import {
   customImageProxyMiddleware,
   MarkdownAdapter,
-} from '@blocksuite/polymind/shared/adapters';
+} from '@blockmind/polymind/shared/adapters';
 import {
   type BlockModel,
   type DocSnapshot,
@@ -12,7 +12,7 @@ import {
   type Store,
   Text,
   Transformer,
-} from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/store';
 import { Service } from '@toeverything/infra';
 import { Doc as YDoc } from 'yjs';
 

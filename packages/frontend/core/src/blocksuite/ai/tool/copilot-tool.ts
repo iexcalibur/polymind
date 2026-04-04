@@ -1,17 +1,17 @@
 /* oxlint-disable @typescript-eslint/no-non-null-assertion */
-import { DefaultTool } from '@blocksuite/polymind/blocks/surface';
-import { IS_MAC } from '@blocksuite/polymind/global/env';
+import { DefaultTool } from '@blockmind/polymind/blocks/surface';
+import { IS_MAC } from '@blockmind/polymind/global/env';
 import {
   Bound,
   getCommonBoundWithRotation,
-} from '@blocksuite/polymind/global/gfx';
-import type { PointerEventState } from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/global/gfx';
+import type { PointerEventState } from '@blockmind/polymind/std';
 import {
   BaseTool,
   type GfxModel,
   MouseButton,
-} from '@blocksuite/polymind/std/gfx';
-import { on } from '@blocksuite/polymind-shared/utils';
+} from '@blockmind/polymind/std/gfx';
+import { on } from '@blockmind/polymind-shared/utils';
 import { isEqual } from 'lodash-es';
 import { Subject } from 'rxjs';
 

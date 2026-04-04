@@ -8,13 +8,13 @@
     "./bootstrap": "./src/bootstrap/index.ts"
   },
   "dependencies": {
-    "@blocksuite/global": "workspace:*",
+    "@blockmind/global": "workspace:*",
+    "@blockmind/polymind": "workspace:*",
+    "@blockmind/polymind-block-root": "workspace:*",
+    "@blockmind/polymind-components": "workspace:*",
+    "@blockmind/polymind-shared": "workspace:*",
+    "@blockmind/std": "workspace:*",
     "@blocksuite/icons": "^2.2.17",
-    "@blocksuite/polymind": "workspace:*",
-    "@blocksuite/polymind-block-root": "workspace:*",
-    "@blocksuite/polymind-components": "workspace:*",
-    "@blocksuite/polymind-shared": "workspace:*",
-    "@blocksuite/std": "workspace:*",
     "@emotion/cache": "^11.14.0",
     "@emotion/css": "^11.13.5",
     "@emotion/react": "^11.14.0",
@@ -100,7 +100,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@blocksuite/polymind-ext-loader": "workspace:*",
+    "@blockmind/polymind-ext-loader": "workspace:*",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.1.0",
     "@types/animejs": "^3.1.12",

@@ -10,7 +10,7 @@ import { WorkspaceService } from '@polymind/core/modules/workspace';
 import {
   type ViewExtensionContext,
   ViewExtensionProvider,
-} from '@blocksuite/polymind/ext-loader';
+} from '@blockmind/polymind/ext-loader';
 import { FrameworkProvider } from '@toeverything/infra';
 import type { TemplateResult } from 'lit';
 import { z } from 'zod';

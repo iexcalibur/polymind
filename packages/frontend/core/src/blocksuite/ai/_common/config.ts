@@ -3,10 +3,10 @@ import {
   ImageBlockModel,
   ListBlockModel,
   ParagraphBlockModel,
-} from '@blocksuite/polymind/model';
-import { getSelectedModelsCommand } from '@blocksuite/polymind/shared/commands';
-import { matchModels } from '@blocksuite/polymind/shared/utils';
-import type { Chain, InitCommandCtx } from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/model';
+import { getSelectedModelsCommand } from '@blockmind/polymind/shared/commands';
+import { matchModels } from '@blockmind/polymind/shared/utils';
+import type { Chain, InitCommandCtx } from '@blockmind/polymind/std';
 import {
   CommentIcon,
   DoneIcon,

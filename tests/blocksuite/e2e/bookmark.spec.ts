@@ -1,7 +1,7 @@
 import './utils/declare-test-window.js';
 
-import type { BookmarkBlockComponent } from '@blocksuite/polymind/blocks/bookmark';
-import type { BlockSnapshot } from '@blocksuite/store';
+import type { BookmarkBlockComponent } from '@blockmind/polymind/blocks/bookmark';
+import type { BlockSnapshot } from '@blockmind/store';
 import type { Page } from '@playwright/test';
 import { expect } from '@playwright/test';
 

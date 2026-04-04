@@ -3,17 +3,17 @@
 export const PackageList = [
   {
     location: 'blocksuite/docs',
-    name: '@blocksuite/bs-docs',
+    name: '@blockmind/bs-docs',
     workspaceDependencies: ['blocksuite/polymind/all'],
   },
   {
     location: 'blocksuite/framework/global',
-    name: '@blocksuite/global',
+    name: '@blockmind/global',
     workspaceDependencies: [],
   },
   {
     location: 'blocksuite/framework/std',
-    name: '@blocksuite/std',
+    name: '@blockmind/std',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/framework/store',
@@ -21,7 +21,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/framework/store',
-    name: '@blocksuite/store',
+    name: '@blockmind/store',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/framework/sync',
@@ -29,17 +29,17 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/framework/sync',
-    name: '@blocksuite/sync',
+    name: '@blockmind/sync',
     workspaceDependencies: ['blocksuite/framework/global'],
   },
   {
     location: 'blocksuite/integration-test',
-    name: '@blocksuite/integration-test',
+    name: '@blockmind/integration-test',
     workspaceDependencies: ['blocksuite/polymind/all'],
   },
   {
     location: 'blocksuite/playground',
-    name: '@blocksuite/playground',
+    name: '@blockmind/playground',
     workspaceDependencies: [
       'blocksuite/polymind/data-view',
       'blocksuite/integration-test',
@@ -51,7 +51,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/all',
-    name: '@blocksuite/polymind',
+    name: '@blockmind/polymind',
     workspaceDependencies: [
       'blocksuite/polymind/data-view',
       'blocksuite/framework/global',
@@ -126,7 +126,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/attachment',
-    name: '@blocksuite/polymind-block-attachment',
+    name: '@blockmind/polymind-block-attachment',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/surface',
@@ -141,7 +141,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/bookmark',
-    name: '@blocksuite/polymind-block-bookmark',
+    name: '@blockmind/polymind-block-bookmark',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/embed',
@@ -158,7 +158,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/callout',
-    name: '@blocksuite/polymind-block-callout',
+    name: '@blockmind/polymind-block-callout',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/components',
@@ -174,7 +174,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/code',
-    name: '@blocksuite/polymind-block-code',
+    name: '@blockmind/polymind-block-code',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/components',
@@ -194,7 +194,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/data-view',
-    name: '@blocksuite/polymind-block-data-view',
+    name: '@blockmind/polymind-block-data-view',
     workspaceDependencies: [
       'blocksuite/polymind/data-view',
       'blocksuite/framework/global',
@@ -210,7 +210,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/database',
-    name: '@blocksuite/polymind-block-database',
+    name: '@blockmind/polymind-block-database',
     workspaceDependencies: [
       'blocksuite/polymind/data-view',
       'blocksuite/framework/global',
@@ -229,7 +229,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/divider',
-    name: '@blocksuite/polymind-block-divider',
+    name: '@blockmind/polymind-block-divider',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/components',
@@ -243,7 +243,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/edgeless-text',
-    name: '@blocksuite/polymind-block-edgeless-text',
+    name: '@blockmind/polymind-block-edgeless-text',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/surface',
@@ -261,7 +261,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/embed',
-    name: '@blocksuite/polymind-block-embed',
+    name: '@blockmind/polymind-block-embed',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/surface',
@@ -279,7 +279,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/embed-doc',
-    name: '@blocksuite/polymind-block-embed-doc',
+    name: '@blockmind/polymind-block-embed-doc',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/embed',
@@ -297,7 +297,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/frame',
-    name: '@blocksuite/polymind-block-frame',
+    name: '@blockmind/polymind-block-frame',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/surface',
@@ -314,7 +314,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/image',
-    name: '@blocksuite/polymind-block-image',
+    name: '@blockmind/polymind-block-image',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/note',
@@ -331,7 +331,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/latex',
-    name: '@blocksuite/polymind-block-latex',
+    name: '@blockmind/polymind-block-latex',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/note',
@@ -348,7 +348,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/list',
-    name: '@blocksuite/polymind-block-list',
+    name: '@blockmind/polymind-block-list',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/components',
@@ -364,7 +364,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/note',
-    name: '@blocksuite/polymind-block-note',
+    name: '@blockmind/polymind-block-note',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/embed',
@@ -384,7 +384,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/paragraph',
-    name: '@blocksuite/polymind-block-paragraph',
+    name: '@blockmind/polymind-block-paragraph',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/components',
@@ -400,7 +400,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/root',
-    name: '@blocksuite/polymind-block-root',
+    name: '@blockmind/polymind-block-root',
     workspaceDependencies: [
       'blocksuite/polymind/data-view',
       'blocksuite/framework/global',
@@ -436,7 +436,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/surface',
-    name: '@blocksuite/polymind-block-surface',
+    name: '@blockmind/polymind-block-surface',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/components',
@@ -450,7 +450,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/surface-ref',
-    name: '@blocksuite/polymind-block-surface-ref',
+    name: '@blockmind/polymind-block-surface-ref',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/frame',
@@ -467,7 +467,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/blocks/table',
-    name: '@blocksuite/polymind-block-table',
+    name: '@blockmind/polymind-block-table',
     workspaceDependencies: [
       'blocksuite/polymind/data-view',
       'blocksuite/framework/global',
@@ -484,7 +484,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/components',
-    name: '@blocksuite/polymind-components',
+    name: '@blockmind/polymind-components',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/model',
@@ -496,7 +496,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/data-view',
-    name: '@blocksuite/data-view',
+    name: '@blockmind/data-view',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/components',
@@ -507,7 +507,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/ext-loader',
-    name: '@blocksuite/polymind-ext-loader',
+    name: '@blockmind/polymind-ext-loader',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/framework/store',
@@ -515,7 +515,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/foundation',
-    name: '@blocksuite/polymind-foundation',
+    name: '@blockmind/polymind-foundation',
     workspaceDependencies: [
       'blocksuite/polymind/data-view',
       'blocksuite/framework/global',
@@ -529,7 +529,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/fragments/adapter-panel',
-    name: '@blocksuite/polymind-fragment-adapter-panel',
+    name: '@blockmind/polymind-fragment-adapter-panel',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/components',
@@ -542,7 +542,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/fragments/doc-title',
-    name: '@blocksuite/polymind-fragment-doc-title',
+    name: '@blockmind/polymind-fragment-doc-title',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/frame',
@@ -558,7 +558,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/fragments/frame-panel',
-    name: '@blocksuite/polymind-fragment-frame-panel',
+    name: '@blockmind/polymind-fragment-frame-panel',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/frame',
@@ -574,7 +574,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/fragments/outline',
-    name: '@blocksuite/polymind-fragment-outline',
+    name: '@blockmind/polymind-fragment-outline',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/note',
@@ -590,7 +590,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/gfx/brush',
-    name: '@blocksuite/polymind-gfx-brush',
+    name: '@blockmind/polymind-gfx-brush',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/surface',
@@ -606,7 +606,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/gfx/connector',
-    name: '@blocksuite/polymind-gfx-connector',
+    name: '@blockmind/polymind-gfx-connector',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/surface',
@@ -623,7 +623,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/gfx/group',
-    name: '@blocksuite/polymind-gfx-group',
+    name: '@blockmind/polymind-gfx-group',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/surface',
@@ -640,7 +640,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/gfx/link',
-    name: '@blocksuite/polymind-gfx-link',
+    name: '@blockmind/polymind-gfx-link',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/bookmark',
@@ -659,7 +659,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/gfx/mindmap',
-    name: '@blocksuite/polymind-gfx-mindmap',
+    name: '@blockmind/polymind-gfx-mindmap',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/attachment',
@@ -682,7 +682,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/gfx/note',
-    name: '@blocksuite/polymind-gfx-note',
+    name: '@blockmind/polymind-gfx-note',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/attachment',
@@ -701,7 +701,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/gfx/pointer',
-    name: '@blocksuite/polymind-gfx-pointer',
+    name: '@blockmind/polymind-gfx-pointer',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/surface',
@@ -717,7 +717,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/gfx/shape',
-    name: '@blocksuite/polymind-gfx-shape',
+    name: '@blockmind/polymind-gfx-shape',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/surface',
@@ -734,7 +734,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/gfx/template',
-    name: '@blocksuite/polymind-gfx-template',
+    name: '@blockmind/polymind-gfx-template',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/surface',
@@ -751,7 +751,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/gfx/text',
-    name: '@blocksuite/polymind-gfx-text',
+    name: '@blockmind/polymind-gfx-text',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/surface',
@@ -767,7 +767,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/gfx/turbo-renderer',
-    name: '@blocksuite/polymind-gfx-turbo-renderer',
+    name: '@blockmind/polymind-gfx-turbo-renderer',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/framework/std',
@@ -776,7 +776,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/inlines/comment',
-    name: '@blocksuite/polymind-inline-comment',
+    name: '@blockmind/polymind-inline-comment',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/ext-loader',
@@ -789,7 +789,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/inlines/footnote',
-    name: '@blocksuite/polymind-inline-footnote',
+    name: '@blockmind/polymind-inline-footnote',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/components',
@@ -803,7 +803,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/inlines/latex',
-    name: '@blocksuite/polymind-inline-latex',
+    name: '@blockmind/polymind-inline-latex',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/components',
@@ -818,7 +818,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/inlines/link',
-    name: '@blocksuite/polymind-inline-link',
+    name: '@blockmind/polymind-inline-link',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/components',
@@ -832,7 +832,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/inlines/mention',
-    name: '@blocksuite/polymind-inline-mention',
+    name: '@blockmind/polymind-inline-mention',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/components',
@@ -845,7 +845,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/inlines/preset',
-    name: '@blocksuite/polymind-inline-preset',
+    name: '@blockmind/polymind-inline-preset',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/components',
@@ -865,7 +865,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/inlines/reference',
-    name: '@blocksuite/polymind-inline-reference',
+    name: '@blockmind/polymind-inline-reference',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/components',
@@ -878,7 +878,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/model',
-    name: '@blocksuite/polymind-model',
+    name: '@blockmind/polymind-model',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/framework/std',
@@ -887,7 +887,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/rich-text',
-    name: '@blocksuite/polymind-rich-text',
+    name: '@blockmind/polymind-rich-text',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/components',
@@ -899,7 +899,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/shared',
-    name: '@blocksuite/polymind-shared',
+    name: '@blockmind/polymind-shared',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/model',
@@ -909,7 +909,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/widgets/drag-handle',
-    name: '@blocksuite/polymind-widget-drag-handle',
+    name: '@blockmind/polymind-widget-drag-handle',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/callout',
@@ -928,7 +928,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/widgets/edgeless-auto-connect',
-    name: '@blocksuite/polymind-widget-edgeless-auto-connect',
+    name: '@blockmind/polymind-widget-edgeless-auto-connect',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/note',
@@ -942,7 +942,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/widgets/edgeless-dragging-area',
-    name: '@blocksuite/polymind-widget-edgeless-dragging-area',
+    name: '@blockmind/polymind-widget-edgeless-dragging-area',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/note',
@@ -956,7 +956,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/widgets/edgeless-selected-rect',
-    name: '@blocksuite/polymind-widget-edgeless-selected-rect',
+    name: '@blockmind/polymind-widget-edgeless-selected-rect',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/frame',
@@ -974,7 +974,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/widgets/edgeless-toolbar',
-    name: '@blocksuite/polymind-widget-edgeless-toolbar',
+    name: '@blockmind/polymind-widget-edgeless-toolbar',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/surface',
@@ -988,7 +988,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/widgets/edgeless-zoom-toolbar',
-    name: '@blocksuite/polymind-widget-edgeless-zoom-toolbar',
+    name: '@blockmind/polymind-widget-edgeless-zoom-toolbar',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/surface',
@@ -1001,7 +1001,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/widgets/frame-title',
-    name: '@blocksuite/polymind-widget-frame-title',
+    name: '@blockmind/polymind-widget-frame-title',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/surface',
@@ -1015,7 +1015,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/widgets/keyboard-toolbar',
-    name: '@blocksuite/polymind-widget-keyboard-toolbar',
+    name: '@blockmind/polymind-widget-keyboard-toolbar',
     workspaceDependencies: [
       'blocksuite/polymind/data-view',
       'blocksuite/framework/global',
@@ -1046,7 +1046,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/widgets/linked-doc',
-    name: '@blocksuite/polymind-widget-linked-doc',
+    name: '@blockmind/polymind-widget-linked-doc',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/image',
@@ -1062,7 +1062,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/widgets/note-slicer',
-    name: '@blocksuite/polymind-widget-note-slicer',
+    name: '@blockmind/polymind-widget-note-slicer',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/note',
@@ -1077,7 +1077,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/widgets/page-dragging-area',
-    name: '@blocksuite/polymind-widget-page-dragging-area',
+    name: '@blockmind/polymind-widget-page-dragging-area',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/components',
@@ -1090,7 +1090,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/widgets/remote-selection',
-    name: '@blocksuite/polymind-widget-remote-selection',
+    name: '@blockmind/polymind-widget-remote-selection',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/surface',
@@ -1103,7 +1103,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/widgets/scroll-anchoring',
-    name: '@blocksuite/polymind-widget-scroll-anchoring',
+    name: '@blockmind/polymind-widget-scroll-anchoring',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/ext-loader',
@@ -1114,7 +1114,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/widgets/slash-menu',
-    name: '@blocksuite/polymind-widget-slash-menu',
+    name: '@blockmind/polymind-widget-slash-menu',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/components',
@@ -1127,7 +1127,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/widgets/toolbar',
-    name: '@blocksuite/polymind-widget-toolbar',
+    name: '@blockmind/polymind-widget-toolbar',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/blocks/database',
@@ -1142,7 +1142,7 @@ export const PackageList = [
   },
   {
     location: 'blocksuite/polymind/widgets/viewport-overlay',
-    name: '@blocksuite/polymind-widget-viewport-overlay',
+    name: '@blockmind/polymind-widget-viewport-overlay',
     workspaceDependencies: [
       'blocksuite/framework/global',
       'blocksuite/polymind/components',
@@ -1446,79 +1446,79 @@ export const PackageList = [
 ];
 
 export type PackageName =
-  | '@blocksuite/bs-docs'
-  | '@blocksuite/global'
-  | '@blocksuite/std'
-  | '@blocksuite/store'
-  | '@blocksuite/sync'
-  | '@blocksuite/integration-test'
-  | '@blocksuite/playground'
-  | '@blocksuite/polymind'
-  | '@blocksuite/polymind-block-attachment'
-  | '@blocksuite/polymind-block-bookmark'
-  | '@blocksuite/polymind-block-callout'
-  | '@blocksuite/polymind-block-code'
-  | '@blocksuite/polymind-block-data-view'
-  | '@blocksuite/polymind-block-database'
-  | '@blocksuite/polymind-block-divider'
-  | '@blocksuite/polymind-block-edgeless-text'
-  | '@blocksuite/polymind-block-embed'
-  | '@blocksuite/polymind-block-embed-doc'
-  | '@blocksuite/polymind-block-frame'
-  | '@blocksuite/polymind-block-image'
-  | '@blocksuite/polymind-block-latex'
-  | '@blocksuite/polymind-block-list'
-  | '@blocksuite/polymind-block-note'
-  | '@blocksuite/polymind-block-paragraph'
-  | '@blocksuite/polymind-block-root'
-  | '@blocksuite/polymind-block-surface'
-  | '@blocksuite/polymind-block-surface-ref'
-  | '@blocksuite/polymind-block-table'
-  | '@blocksuite/polymind-components'
-  | '@blocksuite/data-view'
-  | '@blocksuite/polymind-ext-loader'
-  | '@blocksuite/polymind-foundation'
-  | '@blocksuite/polymind-fragment-adapter-panel'
-  | '@blocksuite/polymind-fragment-doc-title'
-  | '@blocksuite/polymind-fragment-frame-panel'
-  | '@blocksuite/polymind-fragment-outline'
-  | '@blocksuite/polymind-gfx-brush'
-  | '@blocksuite/polymind-gfx-connector'
-  | '@blocksuite/polymind-gfx-group'
-  | '@blocksuite/polymind-gfx-link'
-  | '@blocksuite/polymind-gfx-mindmap'
-  | '@blocksuite/polymind-gfx-note'
-  | '@blocksuite/polymind-gfx-pointer'
-  | '@blocksuite/polymind-gfx-shape'
-  | '@blocksuite/polymind-gfx-template'
-  | '@blocksuite/polymind-gfx-text'
-  | '@blocksuite/polymind-gfx-turbo-renderer'
-  | '@blocksuite/polymind-inline-comment'
-  | '@blocksuite/polymind-inline-footnote'
-  | '@blocksuite/polymind-inline-latex'
-  | '@blocksuite/polymind-inline-link'
-  | '@blocksuite/polymind-inline-mention'
-  | '@blocksuite/polymind-inline-preset'
-  | '@blocksuite/polymind-inline-reference'
-  | '@blocksuite/polymind-model'
-  | '@blocksuite/polymind-rich-text'
-  | '@blocksuite/polymind-shared'
-  | '@blocksuite/polymind-widget-drag-handle'
-  | '@blocksuite/polymind-widget-edgeless-auto-connect'
-  | '@blocksuite/polymind-widget-edgeless-dragging-area'
-  | '@blocksuite/polymind-widget-edgeless-selected-rect'
-  | '@blocksuite/polymind-widget-edgeless-toolbar'
-  | '@blocksuite/polymind-widget-edgeless-zoom-toolbar'
-  | '@blocksuite/polymind-widget-frame-title'
-  | '@blocksuite/polymind-widget-keyboard-toolbar'
-  | '@blocksuite/polymind-widget-linked-doc'
-  | '@blocksuite/polymind-widget-note-slicer'
-  | '@blocksuite/polymind-widget-page-dragging-area'
-  | '@blocksuite/polymind-widget-remote-selection'
-  | '@blocksuite/polymind-widget-scroll-anchoring'
-  | '@blocksuite/polymind-widget-slash-menu'
-  | '@blocksuite/polymind-widget-toolbar'
-  | '@blocksuite/polymind-widget-viewport-overlay'
+  | '@blockmind/bs-docs'
+  | '@blockmind/global'
+  | '@blockmind/std'
+  | '@blockmind/store'
+  | '@blockmind/sync'
+  | '@blockmind/integration-test'
+  | '@blockmind/playground'
+  | '@blockmind/polymind'
+  | '@blockmind/polymind-block-attachment'
+  | '@blockmind/polymind-block-bookmark'
+  | '@blockmind/polymind-block-callout'
+  | '@blockmind/polymind-block-code'
+  | '@blockmind/polymind-block-data-view'
+  | '@blockmind/polymind-block-database'
+  | '@blockmind/polymind-block-divider'
+  | '@blockmind/polymind-block-edgeless-text'
+  | '@blockmind/polymind-block-embed'
+  | '@blockmind/polymind-block-embed-doc'
+  | '@blockmind/polymind-block-frame'
+  | '@blockmind/polymind-block-image'
+  | '@blockmind/polymind-block-latex'
+  | '@blockmind/polymind-block-list'
+  | '@blockmind/polymind-block-note'
+  | '@blockmind/polymind-block-paragraph'
+  | '@blockmind/polymind-block-root'
+  | '@blockmind/polymind-block-surface'
+  | '@blockmind/polymind-block-surface-ref'
+  | '@blockmind/polymind-block-table'
+  | '@blockmind/polymind-components'
+  | '@blockmind/data-view'
+  | '@blockmind/polymind-ext-loader'
+  | '@blockmind/polymind-foundation'
+  | '@blockmind/polymind-fragment-adapter-panel'
+  | '@blockmind/polymind-fragment-doc-title'
+  | '@blockmind/polymind-fragment-frame-panel'
+  | '@blockmind/polymind-fragment-outline'
+  | '@blockmind/polymind-gfx-brush'
+  | '@blockmind/polymind-gfx-connector'
+  | '@blockmind/polymind-gfx-group'
+  | '@blockmind/polymind-gfx-link'
+  | '@blockmind/polymind-gfx-mindmap'
+  | '@blockmind/polymind-gfx-note'
+  | '@blockmind/polymind-gfx-pointer'
+  | '@blockmind/polymind-gfx-shape'
+  | '@blockmind/polymind-gfx-template'
+  | '@blockmind/polymind-gfx-text'
+  | '@blockmind/polymind-gfx-turbo-renderer'
+  | '@blockmind/polymind-inline-comment'
+  | '@blockmind/polymind-inline-footnote'
+  | '@blockmind/polymind-inline-latex'
+  | '@blockmind/polymind-inline-link'
+  | '@blockmind/polymind-inline-mention'
+  | '@blockmind/polymind-inline-preset'
+  | '@blockmind/polymind-inline-reference'
+  | '@blockmind/polymind-model'
+  | '@blockmind/polymind-rich-text'
+  | '@blockmind/polymind-shared'
+  | '@blockmind/polymind-widget-drag-handle'
+  | '@blockmind/polymind-widget-edgeless-auto-connect'
+  | '@blockmind/polymind-widget-edgeless-dragging-area'
+  | '@blockmind/polymind-widget-edgeless-selected-rect'
+  | '@blockmind/polymind-widget-edgeless-toolbar'
+  | '@blockmind/polymind-widget-edgeless-zoom-toolbar'
+  | '@blockmind/polymind-widget-frame-title'
+  | '@blockmind/polymind-widget-keyboard-toolbar'
+  | '@blockmind/polymind-widget-linked-doc'
+  | '@blockmind/polymind-widget-note-slicer'
+  | '@blockmind/polymind-widget-page-dragging-area'
+  | '@blockmind/polymind-widget-remote-selection'
+  | '@blockmind/polymind-widget-scroll-anchoring'
+  | '@blockmind/polymind-widget-slash-menu'
+  | '@blockmind/polymind-widget-toolbar'
+  | '@blockmind/polymind-widget-viewport-overlay'
   | '@polymind/docs'
   | '@polymind/server-native'
   | '@polymind/server'

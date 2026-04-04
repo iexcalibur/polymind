@@ -1,5 +1,5 @@
 import { WorkspaceImpl } from '@polymind/core/modules/workspace/impls/workspace';
-import { getSurfaceBlock } from '@blocksuite/polymind/blocks/surface';
+import { getSurfaceBlock } from '@blockmind/polymind/blocks/surface';
 import {
   DatabaseBlockModel,
   EmbedLinkedDocModel,
@@ -7,30 +7,30 @@ import {
   ImageBlockModel,
   NoteBlockModel,
   NoteDisplayMode,
-} from '@blocksuite/polymind/model';
+} from '@blockmind/polymind/model';
 import {
   embedSyncedDocMiddleware,
   MarkdownAdapter,
   titleMiddleware,
-} from '@blocksuite/polymind/shared/adapters';
+} from '@blockmind/polymind/shared/adapters';
 import {
   getImageSelectionsCommand,
   getSelectedBlocksCommand,
-} from '@blocksuite/polymind/shared/commands';
-import { DocModeProvider } from '@blocksuite/polymind/shared/services';
+} from '@blockmind/polymind/shared/commands';
+import { DocModeProvider } from '@blockmind/polymind/shared/services';
 import {
   getBlockProps,
   isInsideEdgelessEditor,
   matchModels,
-} from '@blocksuite/polymind/shared/utils';
-import { BlockStdScope, type EditorHost } from '@blocksuite/polymind/std';
+} from '@blockmind/polymind/shared/utils';
+import { BlockStdScope, type EditorHost } from '@blockmind/polymind/std';
 import {
   GfxControllerIdentifier,
   GfxPrimitiveElementModel,
-} from '@blocksuite/polymind/std/gfx';
-import type { BlockModel, DocSnapshot, Store } from '@blocksuite/polymind/store';
-import { Slice, toDraftModel } from '@blocksuite/polymind/store';
-import { getElementProps } from '@blocksuite/polymind-block-root';
+} from '@blockmind/polymind/std/gfx';
+import type { BlockModel, DocSnapshot, Store } from '@blockmind/polymind/store';
+import { Slice, toDraftModel } from '@blockmind/polymind/store';
+import { getElementProps } from '@blockmind/polymind-block-root';
 import { Doc as YDoc } from 'yjs';
 
 import { getStoreManager } from '../../manager/store';

@@ -1,7 +1,7 @@
 import {
   createSignalFromObservable,
   type Signal,
-} from '@blocksuite/polymind/shared/utils';
+} from '@blockmind/polymind/shared/utils';
 import { Service } from '@toeverything/infra';
 
 import type { FeatureFlagService } from '../../feature-flag';

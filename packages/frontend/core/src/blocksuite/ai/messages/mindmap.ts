@@ -1,5 +1,5 @@
-import type { MindmapStyle } from '@blocksuite/polymind/model';
-import type { EditorHost } from '@blocksuite/polymind/std';
+import type { MindmapStyle } from '@blockmind/polymind/model';
+import type { EditorHost } from '@blockmind/polymind/std';
 import { html, nothing } from 'lit';
 
 import { markdownToMindmap } from '../mini-mindmap';

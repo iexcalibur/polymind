@@ -1,18 +1,18 @@
 import type { PolymindEditorContainer } from '@polymind/core/blocksuite/block-suite-editor';
 import type { DefaultOpenProperty } from '@polymind/core/components/properties';
-import { PresentTool } from '@blocksuite/polymind/blocks/frame';
-import { DefaultTool } from '@blocksuite/polymind/blocks/surface';
-import type { DocTitle } from '@blocksuite/polymind/fragments/doc-title';
-import { findCommentedTexts } from '@blocksuite/polymind/inlines/comment';
-import type { DocMode, ReferenceParams } from '@blocksuite/polymind/model';
-import { HighlightSelection } from '@blocksuite/polymind/shared/selection';
+import { PresentTool } from '@blockmind/polymind/blocks/frame';
+import { DefaultTool } from '@blockmind/polymind/blocks/surface';
+import type { DocTitle } from '@blockmind/polymind/fragments/doc-title';
+import { findCommentedTexts } from '@blockmind/polymind/inlines/comment';
+import type { DocMode, ReferenceParams } from '@blockmind/polymind/model';
+import { HighlightSelection } from '@blockmind/polymind/shared/selection';
 import {
   DocModeProvider,
   findCommentedBlocks,
   findCommentedElements,
-} from '@blocksuite/polymind/shared/services';
-import { GfxControllerIdentifier } from '@blocksuite/polymind/std/gfx';
-import type { InlineEditor } from '@blocksuite/std/inline';
+} from '@blockmind/polymind/shared/services';
+import { GfxControllerIdentifier } from '@blockmind/polymind/std/gfx';
+import type { InlineEditor } from '@blockmind/std/inline';
 import { effect } from '@preact/signals-core';
 import { Entity, LiveData } from '@toeverything/infra';
 import { defaults, isEqual, omit } from 'lodash-es';

@@ -1,7 +1,7 @@
 import { Skeleton } from '@polymind/component';
 import { AttachmentViewerView } from '@polymind/core/blocksuite/attachment-viewer';
 import { type Doc, DocsService } from '@polymind/core/modules/doc';
-import { type AttachmentBlockModel } from '@blocksuite/polymind/model';
+import { type AttachmentBlockModel } from '@blockmind/polymind/model';
 import { FrameworkScope, useLiveData, useService } from '@toeverything/infra';
 import { type ReactElement, useLayoutEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';

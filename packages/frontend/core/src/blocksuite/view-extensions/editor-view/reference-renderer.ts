@@ -1,7 +1,7 @@
 import type { ReactToLit } from '@polymind/component';
-import type { PolymindReference } from '@blocksuite/polymind/inlines/reference';
-import { ReferenceNodeConfigExtension } from '@blocksuite/polymind/inlines/reference';
-import type { ExtensionType } from '@blocksuite/polymind/store';
+import type { PolymindReference } from '@blockmind/polymind/inlines/reference';
+import { ReferenceNodeConfigExtension } from '@blockmind/polymind/inlines/reference';
+import type { ExtensionType } from '@blockmind/polymind/store';
 
 export type ReferenceReactRenderer = (
   reference: PolymindReference

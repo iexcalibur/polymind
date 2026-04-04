@@ -2,8 +2,8 @@ import {
   POLYMIND_FLAGS,
   type FeatureFlagService,
 } from '@polymind/core/modules/feature-flag';
-import { FeatureFlagService as BSFeatureFlagService } from '@blocksuite/polymind/shared/services';
-import { type ExtensionType, StoreExtension } from '@blocksuite/polymind/store';
+import { FeatureFlagService as BSFeatureFlagService } from '@blockmind/polymind/shared/services';
+import { type ExtensionType, StoreExtension } from '@blockmind/polymind/store';
 
 export function getFeatureFlagSyncer(
   featureFlagService: FeatureFlagService

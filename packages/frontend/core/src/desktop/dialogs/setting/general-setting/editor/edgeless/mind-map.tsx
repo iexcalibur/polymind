@@ -7,9 +7,9 @@ import {
 import { SettingRow } from '@polymind/component/setting-components';
 import { EditorSettingService } from '@polymind/core/modules/editor-setting';
 import { useI18n } from '@polymind/i18n';
-import { getSurfaceBlock } from '@blocksuite/polymind/blocks/surface';
-import { LayoutType, MindmapStyle } from '@blocksuite/polymind/model';
-import type { Store } from '@blocksuite/polymind/store';
+import { getSurfaceBlock } from '@blockmind/polymind/blocks/surface';
+import { LayoutType, MindmapStyle } from '@blockmind/polymind/model';
+import type { Store } from '@blockmind/polymind/store';
 import { useFramework, useLiveData } from '@toeverything/infra';
 import { useCallback, useMemo } from 'react';
 

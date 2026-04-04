@@ -1,7 +1,7 @@
-import { createTemplateJob } from '@blocksuite/polymind/gfx/template';
-import type { EditorHost } from '@blocksuite/polymind/std';
-import { GfxControllerIdentifier } from '@blocksuite/polymind/std/gfx';
-import type { BlockSnapshot } from '@blocksuite/polymind/store';
+import { createTemplateJob } from '@blockmind/polymind/gfx/template';
+import type { EditorHost } from '@blockmind/polymind/std';
+import { GfxControllerIdentifier } from '@blockmind/polymind/std/gfx';
+import type { BlockSnapshot } from '@blockmind/polymind/store';
 
 import { markdownToSnapshot } from '../../utils';
 import { getSurfaceElementFromEditor } from '../utils/selection-utils';

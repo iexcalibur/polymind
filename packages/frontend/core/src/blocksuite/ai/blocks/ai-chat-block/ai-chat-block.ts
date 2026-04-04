@@ -1,6 +1,6 @@
-import { Peekable } from '@blocksuite/polymind/components/peek';
-import { ViewExtensionManagerIdentifier } from '@blocksuite/polymind/ext-loader';
-import { BlockComponent } from '@blocksuite/polymind/std';
+import { Peekable } from '@blockmind/polymind/components/peek';
+import { ViewExtensionManagerIdentifier } from '@blockmind/polymind/ext-loader';
+import { BlockComponent } from '@blockmind/polymind/std';
 import { computed } from '@preact/signals-core';
 import { html } from 'lit';
 

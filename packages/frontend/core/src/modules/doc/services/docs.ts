@@ -1,9 +1,9 @@
 import { DebugLogger } from '@polymind/debug';
 import { Unreachable } from '@polymind/env/constant';
-import { replaceIdMiddleware } from '@blocksuite/polymind/shared/adapters';
-import type { PolymindTextAttributes } from '@blocksuite/polymind/shared/types';
-import type { DeltaInsert } from '@blocksuite/polymind/store';
-import { Slice, Text, Transformer } from '@blocksuite/polymind/store';
+import { replaceIdMiddleware } from '@blockmind/polymind/shared/adapters';
+import type { PolymindTextAttributes } from '@blockmind/polymind/shared/types';
+import type { DeltaInsert } from '@blockmind/polymind/store';
+import { Slice, Text, Transformer } from '@blockmind/polymind/store';
 import { ObjectPool, Service } from '@toeverything/infra';
 import { combineLatest, map } from 'rxjs';
 

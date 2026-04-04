@@ -1,6 +1,6 @@
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import type { EditorHost } from '@blocksuite/polymind/std';
-import { ShadowlessElement } from '@blocksuite/polymind/std';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import type { EditorHost } from '@blockmind/polymind/std';
+import { ShadowlessElement } from '@blockmind/polymind/std';
 import { html, nothing } from 'lit';
 import { property } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';

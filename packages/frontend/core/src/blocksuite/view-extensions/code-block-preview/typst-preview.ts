@@ -1,9 +1,9 @@
 import { renderTypstSvg } from '@polymind/core/modules/code-block-preview-renderer/bridge';
-import { CodeBlockPreviewExtension } from '@blocksuite/polymind/blocks/code';
-import { SignalWatcher, WithDisposable } from '@blocksuite/polymind/global/lit';
-import type { CodeBlockModel } from '@blocksuite/polymind/model';
-import { unsafeCSSVarV2 } from '@blocksuite/polymind/shared/theme';
-import { ShadowlessElement } from '@blocksuite/std';
+import { CodeBlockPreviewExtension } from '@blockmind/polymind/blocks/code';
+import { SignalWatcher, WithDisposable } from '@blockmind/polymind/global/lit';
+import type { CodeBlockModel } from '@blockmind/polymind/model';
+import { unsafeCSSVarV2 } from '@blockmind/polymind/shared/theme';
+import { ShadowlessElement } from '@blockmind/std';
 import { css, html, nothing } from 'lit';
 import { property, query, state } from 'lit/decorators.js';
 import { choose } from 'lit/directives/choose.js';

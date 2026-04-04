@@ -8,10 +8,10 @@ import { useGuard } from '@polymind/core/components/guard';
 import { PageNotFound } from '@polymind/core/desktop/pages/404';
 import { EditorService } from '@polymind/core/modules/editor';
 import { DebugLogger } from '@polymind/debug';
-import { DisposableGroup } from '@blocksuite/polymind/global/disposable';
-import { Bound } from '@blocksuite/polymind/global/gfx';
-import { RefNodeSlotsProvider } from '@blocksuite/polymind/inlines/reference';
-import { GfxControllerIdentifier } from '@blocksuite/polymind/std/gfx';
+import { DisposableGroup } from '@blockmind/polymind/global/disposable';
+import { Bound } from '@blockmind/polymind/global/gfx';
+import { RefNodeSlotsProvider } from '@blockmind/polymind/inlines/reference';
+import { GfxControllerIdentifier } from '@blockmind/polymind/std/gfx';
 import {
   FrameworkScope,
   useLiveData,

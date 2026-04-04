@@ -6,8 +6,8 @@
     "test": "yarn playwright test"
   },
   "dependencies": {
-    "@blocksuite/integration-test": "workspace:*",
-    "@blocksuite/polymind": "workspace:*",
+    "@blockmind/integration-test": "workspace:*",
+    "@blockmind/polymind": "workspace:*",
     "@playwright/test": "=1.58.2",
     "@polymind-test/kit": "workspace:*",
     "@toeverything/theme": "^1.1.23",

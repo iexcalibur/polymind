@@ -1,8 +1,8 @@
 import type { FeatureFlagService } from '@polymind/core/modules/feature-flag';
-import { WithDisposable } from '@blocksuite/polymind/global/lit';
-import type { ColorScheme } from '@blocksuite/polymind/model';
-import { ShadowlessElement } from '@blocksuite/polymind/std';
-import type { ExtensionType } from '@blocksuite/polymind/store';
+import { WithDisposable } from '@blockmind/polymind/global/lit';
+import type { ColorScheme } from '@blockmind/polymind/model';
+import { ShadowlessElement } from '@blockmind/polymind/std';
+import type { ExtensionType } from '@blockmind/polymind/store';
 import type { Signal } from '@preact/signals-core';
 import { html } from 'lit';
 import { property } from 'lit/decorators.js';

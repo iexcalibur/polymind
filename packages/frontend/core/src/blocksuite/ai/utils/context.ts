@@ -1,6 +1,6 @@
-import type { SerializedXYWH } from '@blocksuite/polymind/global/gfx';
-import type { MindmapStyle } from '@blocksuite/polymind/model';
-import type { GfxModel } from '@blocksuite/polymind/std/gfx';
+import type { SerializedXYWH } from '@blockmind/polymind/global/gfx';
+import type { MindmapStyle } from '@blockmind/polymind/model';
+import type { GfxModel } from '@blockmind/polymind/std/gfx';
 
 import type { TemplateImage } from '../slides/template';
 

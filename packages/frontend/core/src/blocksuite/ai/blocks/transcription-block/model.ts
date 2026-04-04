@@ -2,7 +2,7 @@ import {
   BlockModel,
   BlockSchemaExtension,
   defineBlockSchema,
-} from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/store';
 
 export const TranscriptionBlockFlavour = 'polymind:transcription';
 

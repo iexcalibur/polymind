@@ -8,8 +8,8 @@ const buttonOptions: AskAIButtonOptions = {
   panelWidth: 240,
 };
 
-import type { PolymindCodeToolbarWidget } from '@blocksuite/polymind/blocks/code';
-import { BlockSelection } from '@blocksuite/polymind/std';
+import type { PolymindCodeToolbarWidget } from '@blockmind/polymind/blocks/code';
+import { BlockSelection } from '@blockmind/polymind/std';
 
 import { buildAICodeItemGroups } from '../../_common/config';
 import type { AskAIButtonOptions } from '../../components/ask-ai-button';

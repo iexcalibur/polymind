@@ -1,4 +1,4 @@
-import type { DocMeta, Workspace } from '@blocksuite/polymind/store';
+import type { DocMeta, Workspace } from '@blockmind/polymind/store';
 import type { Atom } from 'jotai';
 import { atom, useAtomValue } from 'jotai';
 

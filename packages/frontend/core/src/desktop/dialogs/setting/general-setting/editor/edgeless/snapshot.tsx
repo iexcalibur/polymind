@@ -2,16 +2,16 @@ import { Skeleton } from '@polymind/component';
 import { getViewManager } from '@polymind/core/blocksuite/manager/view';
 import type { EditorSettingSchema } from '@polymind/core/modules/editor-setting';
 import { EditorSettingService } from '@polymind/core/modules/editor-setting';
-import { EdgelessCRUDIdentifier } from '@blocksuite/polymind/blocks/surface';
-import { Bound } from '@blocksuite/polymind/global/gfx';
-import { ViewportElementExtension } from '@blocksuite/polymind/shared/services';
-import type { EditorHost } from '@blocksuite/polymind/std';
-import { BlockStdScope } from '@blocksuite/polymind/std';
+import { EdgelessCRUDIdentifier } from '@blockmind/polymind/blocks/surface';
+import { Bound } from '@blockmind/polymind/global/gfx';
+import { ViewportElementExtension } from '@blockmind/polymind/shared/services';
+import type { EditorHost } from '@blockmind/polymind/std';
+import { BlockStdScope } from '@blockmind/polymind/std';
 import {
   GfxControllerIdentifier,
   type GfxPrimitiveElementModel,
-} from '@blocksuite/polymind/std/gfx';
-import type { Block, Store } from '@blocksuite/polymind/store';
+} from '@blockmind/polymind/std/gfx';
+import type { Block, Store } from '@blockmind/polymind/store';
 import { useFramework } from '@toeverything/infra';
 import clsx from 'clsx';
 import { isEqual } from 'lodash-es';

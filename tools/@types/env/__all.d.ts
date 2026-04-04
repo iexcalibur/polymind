@@ -1,7 +1,7 @@
 import '@polymind/env/constant';
-import '@blocksuite/polymind/global/types'
+import '@blockmind/polymind/global/types'
 
-declare module '@blocksuite/polymind/store' {
+declare module '@blockmind/polymind/store' {
   interface DocMeta {
     /**
      * @deprecated

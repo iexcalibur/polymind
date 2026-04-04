@@ -21,7 +21,7 @@ import { WorkbenchService } from '@polymind/core/modules/workbench';
 import { ViewService } from '@polymind/core/modules/workbench/services/view';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { useI18n } from '@polymind/i18n';
-import type { Store } from '@blocksuite/polymind/store';
+import type { Store } from '@blockmind/polymind/store';
 import {
   DuplicateIcon,
   EdgelessIcon,

@@ -7,8 +7,8 @@ import {
   affineLabelToDatabaseTagColor,
   databaseTagColorToV2,
 } from '@polymind/core/modules/tag/entities/utils';
-import type { DatabaseBlockDataSource } from '@blocksuite/polymind/blocks/database';
-import type { SelectTag } from '@blocksuite/data-view';
+import type { DatabaseBlockDataSource } from '@blockmind/polymind/blocks/database';
+import type { SelectTag } from '@blockmind/data-view';
 import { MultiSelectIcon, SingleSelectIcon } from '@blocksuite/icons/rc';
 import { LiveData, useLiveData, useService } from '@toeverything/infra';
 import { nanoid } from 'nanoid';
