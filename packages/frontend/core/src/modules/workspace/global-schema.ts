@@ -13,6 +13,15 @@ export function getPolyMindWorkspaceSchema() {
       AIChatBlockSchema,
       TranscriptionBlockSchema,
     ]);
+
+    // Register legacy 'affine:*' flavour aliases for backward compatibility
+    // so that imported documents with old flavour names can be loaded
+    for (const [flavour] of _schema.flavourSchemaMap) {
+      if (flavour.startsWith('polymind:')) {
+        const legacyFlavour = 'affine:' + flavour.slice('polymind:'.length);
+        _schema.registerAliases({ [legacyFlavour]: flavour });
+      }
+    }
   }
 
   return _schema;
