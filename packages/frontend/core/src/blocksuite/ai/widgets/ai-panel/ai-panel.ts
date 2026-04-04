@@ -16,7 +16,7 @@ import { GfxControllerIdentifier } from '@blockmind/polymind/std/gfx';
 import { RANGE_SYNC_EXCLUDE_ATTR } from '@blockmind/polymind/std/inline';
 import type { BaseSelection } from '@blockmind/polymind/store';
 import {
-  AFFINE_VIEWPORT_OVERLAY_WIDGET,
+  POLYMIND_VIEWPORT_OVERLAY_WIDGET,
   type PolymindViewportOverlayWidget,
 } from '@blockmind/polymind/widgets/viewport-overlay';
 import {
@@ -43,7 +43,7 @@ import type {
   AIActionAnswer,
 } from './type.js';
 import { mergeAIActionAnswer } from './utils';
-export const AFFINE_AI_PANEL_WIDGET = 'affine-ai-panel-widget';
+export const POLYMIND_AI_PANEL_WIDGET = 'affine-ai-panel-widget';
 
 export class PolymindAIPanelWidget extends WidgetComponent {
   static override styles = css`
@@ -358,7 +358,7 @@ export class PolymindAIPanelWidget extends WidgetComponent {
     const rootId = this.host.store.root?.id;
     return rootId
       ? (this.host.view.getWidget(
-          AFFINE_VIEWPORT_OVERLAY_WIDGET,
+          POLYMIND_VIEWPORT_OVERLAY_WIDGET,
           rootId
         ) as PolymindViewportOverlayWidget)
       : null;
@@ -625,6 +625,6 @@ export class PolymindAIPanelWidget extends WidgetComponent {
 
 export const aiPanelWidget = WidgetViewExtension(
   'polymind:page',
-  AFFINE_AI_PANEL_WIDGET,
-  literal`${unsafeStatic(AFFINE_AI_PANEL_WIDGET)}`
+  POLYMIND_AI_PANEL_WIDGET,
+  literal`${unsafeStatic(POLYMIND_AI_PANEL_WIDGET)}`
 );

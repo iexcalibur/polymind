@@ -32,7 +32,7 @@ import {
 } from '@blockmind/polymind/components/toolbar';
 import { watch } from '@blockmind/polymind/global/lit';
 import {
-  AffineReference,
+  PolymindReference,
   toggleReferencePopup,
 } from '@blockmind/polymind/inlines/reference';
 import {
@@ -479,7 +479,7 @@ function createOpenDocActions(
   target:
     | EmbedLinkedDocBlockComponent
     | EmbedSyncedDocBlockComponent
-    | AffineReference
+    | PolymindReference
     | SurfaceRefBlockComponent,
   isSameDoc: boolean,
   actions = openDocActions.map(
@@ -702,7 +702,7 @@ function renderOpenDocMenu(
   target:
     | EmbedLinkedDocBlockComponent
     | EmbedSyncedDocBlockComponent
-    | AffineReference,
+    | PolymindReference,
   isSameDoc: boolean
 ) {
   const actions = createOpenDocActions(ctx, target, isSameDoc).map(action => ({
@@ -864,7 +864,7 @@ const inlineReferenceToolbarConfig = {
           icon: CopyIcon(),
           run(ctx) {
             const target = ctx.message$.peek()?.element;
-            if (!(target instanceof AffineReference)) return;
+            if (!(target instanceof PolymindReference)) return;
 
             const { pageId, params } = target.referenceInfo;
 
@@ -893,7 +893,7 @@ const inlineReferenceToolbarConfig = {
           icon: EditIcon(),
           run(ctx) {
             const target = ctx.message$.peek()?.element;
-            if (!(target instanceof AffineReference)) return;
+            if (!(target instanceof PolymindReference)) return;
 
             // Clears
             ctx.reset();
@@ -1080,7 +1080,7 @@ export const createCustomToolbarExtension = (
             id: 'A.open-doc',
             content(ctx) {
               const target = ctx.message$.peek()?.element;
-              if (!(target instanceof AffineReference)) return null;
+              if (!(target instanceof PolymindReference)) return null;
 
               return renderOpenDocMenu(
                 settings,

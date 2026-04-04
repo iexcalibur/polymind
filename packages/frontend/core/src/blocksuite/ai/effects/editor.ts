@@ -18,7 +18,7 @@ import { AskAIIcon } from '../components/ask-ai-icon';
 import { AskAIPanel } from '../components/ask-ai-panel';
 import { AskAIToolbarButton } from '../components/ask-ai-toolbar';
 import {
-  AFFINE_AI_PANEL_WIDGET,
+  POLYMIND_AI_PANEL_WIDGET,
   PolymindAIPanelWidget,
 } from '../widgets/ai-panel/ai-panel';
 import {
@@ -31,22 +31,22 @@ import {
 import { AIFinishTip } from '../widgets/ai-panel/components/finish-tip';
 import { GeneratingPlaceholder } from '../widgets/ai-panel/components/generating-placeholder';
 import {
-  AFFINE_BLOCK_DIFF_WIDGET_FOR_BLOCK,
+  POLYMIND_BLOCK_DIFF_WIDGET_FOR_BLOCK,
   PolymindBlockDiffWidgetForBlock,
 } from '../widgets/block-diff/block';
 import { BlockDiffOptions } from '../widgets/block-diff/options';
 import {
-  AFFINE_BLOCK_DIFF_WIDGET_FOR_PAGE,
+  POLYMIND_BLOCK_DIFF_WIDGET_FOR_PAGE,
   PolymindBlockDiffWidgetForPage,
 } from '../widgets/block-diff/page';
 import {
-  AFFINE_BLOCK_DIFF_PLAYGROUND,
-  AFFINE_BLOCK_DIFF_PLAYGROUND_MODAL,
+  POLYMIND_BLOCK_DIFF_PLAYGROUND,
+  POLYMIND_BLOCK_DIFF_PLAYGROUND_MODAL,
   BlockDiffPlayground,
   BlockDiffPlaygroundModal,
 } from '../widgets/block-diff/playground';
 import {
-  AFFINE_EDGELESS_COPILOT_WIDGET,
+  POLYMIND_EDGELESS_COPILOT_WIDGET,
   EdgelessCopilotWidget,
 } from '../widgets/edgeless-copilot';
 import { EdgelessCopilotPanel } from '../widgets/edgeless-copilot-panel';
@@ -80,12 +80,12 @@ const editorElements = {
   'ai-panel-generating': AIPanelGenerating,
   'ai-panel-error': AIPanelError,
   'ai-block-diff-options': BlockDiffOptions,
-  [AFFINE_BLOCK_DIFF_PLAYGROUND]: BlockDiffPlayground,
-  [AFFINE_BLOCK_DIFF_PLAYGROUND_MODAL]: BlockDiffPlaygroundModal,
-  [AFFINE_AI_PANEL_WIDGET]: PolymindAIPanelWidget,
-  [AFFINE_EDGELESS_COPILOT_WIDGET]: EdgelessCopilotWidget,
-  [AFFINE_BLOCK_DIFF_WIDGET_FOR_BLOCK]: PolymindBlockDiffWidgetForBlock,
-  [AFFINE_BLOCK_DIFF_WIDGET_FOR_PAGE]: PolymindBlockDiffWidgetForPage,
+  [POLYMIND_BLOCK_DIFF_PLAYGROUND]: BlockDiffPlayground,
+  [POLYMIND_BLOCK_DIFF_PLAYGROUND_MODAL]: BlockDiffPlaygroundModal,
+  [POLYMIND_AI_PANEL_WIDGET]: PolymindAIPanelWidget,
+  [POLYMIND_EDGELESS_COPILOT_WIDGET]: EdgelessCopilotWidget,
+  [POLYMIND_BLOCK_DIFF_WIDGET_FOR_BLOCK]: PolymindBlockDiffWidgetForBlock,
+  [POLYMIND_BLOCK_DIFF_WIDGET_FOR_PAGE]: PolymindBlockDiffWidgetForPage,
   'edgeless-copilot-panel': EdgelessCopilotPanel,
   'edgeless-copilot-toolbar-entry': EdgelessCopilotToolbarEntry,
   'transcription-block': LitTranscriptionBlock,

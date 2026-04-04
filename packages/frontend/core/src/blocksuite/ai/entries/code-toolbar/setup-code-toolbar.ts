@@ -8,13 +8,13 @@ const buttonOptions: AskAIButtonOptions = {
   panelWidth: 240,
 };
 
-import type { AffineCodeToolbarWidget } from '@blockmind/polymind/blocks/code';
+import type { PolymindCodeToolbarWidget } from '@blockmind/polymind/blocks/code';
 import { BlockSelection } from '@blockmind/polymind/std';
 
 import { buildAICodeItemGroups } from '../../_common/config';
 import type { AskAIButtonOptions } from '../../components/ask-ai-button';
 
-export function setupCodeToolbarAIEntry(codeToolbar: AffineCodeToolbarWidget) {
+export function setupCodeToolbarAIEntry(codeToolbar: PolymindCodeToolbarWidget) {
   codeToolbar.addPrimaryItems(
     [
       {

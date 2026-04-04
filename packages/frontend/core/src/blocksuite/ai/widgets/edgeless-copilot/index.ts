@@ -30,11 +30,11 @@ import type { AIItemGroupConfig } from '../../components/ai-item/types.js';
 import { AIProvider } from '../../provider/index.js';
 import { extractSelectedContent } from '../../utils/extract.js';
 import {
-  AFFINE_AI_PANEL_WIDGET,
+  POLYMIND_AI_PANEL_WIDGET,
   PolymindAIPanelWidget,
 } from '../ai-panel/ai-panel.js';
 import { EdgelessCopilotPanel } from '../edgeless-copilot-panel/index.js';
-import { AFFINE_EDGELESS_COPILOT_WIDGET } from './constant.js';
+import { POLYMIND_EDGELESS_COPILOT_WIDGET } from './constant.js';
 
 export class EdgelessCopilotWidget extends WidgetComponent<RootBlockModel> {
   static override styles = css`
@@ -92,7 +92,7 @@ export class EdgelessCopilotWidget extends WidgetComponent<RootBlockModel> {
       if (!rootBlockId) return;
 
       const input = this.host.view.getWidget(
-        AFFINE_AI_PANEL_WIDGET,
+        POLYMIND_AI_PANEL_WIDGET,
         rootBlockId
       );
 
@@ -337,13 +337,13 @@ export class EdgelessCopilotWidget extends WidgetComponent<RootBlockModel> {
 
 export const edgelessCopilotWidget = WidgetViewExtension(
   'polymind:page',
-  AFFINE_EDGELESS_COPILOT_WIDGET,
-  literal`${unsafeStatic(AFFINE_EDGELESS_COPILOT_WIDGET)}`
+  POLYMIND_EDGELESS_COPILOT_WIDGET,
+  literal`${unsafeStatic(POLYMIND_EDGELESS_COPILOT_WIDGET)}`
 );
 
 declare global {
   interface HTMLElementTagNameMap {
-    [AFFINE_EDGELESS_COPILOT_WIDGET]: EdgelessCopilotWidget;
+    [POLYMIND_EDGELESS_COPILOT_WIDGET]: EdgelessCopilotWidget;
   }
 }
 

@@ -14,7 +14,7 @@ import { pageAIGroups } from '../_common/config';
 import { handleInlineAskAIAction } from '../actions/doc-handler';
 import type { AIItemConfig } from '../components/ai-item/types';
 import {
-  AFFINE_AI_PANEL_WIDGET,
+  POLYMIND_AI_PANEL_WIDGET,
   type PolymindAIPanelWidget,
 } from '../widgets/ai-panel/ai-panel';
 
@@ -33,7 +33,7 @@ export function AiSlashMenuConfigExtension() {
       const root = std.host.store.root;
       if (!root) return false;
       const affineAIPanelWidget = std.view.getWidget(
-        AFFINE_AI_PANEL_WIDGET,
+        POLYMIND_AI_PANEL_WIDGET,
         root.id
       );
       if (affineAIPanelWidget === null) return false;
@@ -83,7 +83,7 @@ export function AiSlashMenuConfigExtension() {
         const root = std.host.store.root;
         if (!root) return;
         const affineAIPanelWidget = std.view.getWidget(
-          AFFINE_AI_PANEL_WIDGET,
+          POLYMIND_AI_PANEL_WIDGET,
           root.id
         ) as PolymindAIPanelWidget;
         handleInlineAskAIAction(affineAIPanelWidget.host);

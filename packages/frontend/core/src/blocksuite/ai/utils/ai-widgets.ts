@@ -1,7 +1,7 @@
 import type { EditorHost } from '@blockmind/polymind/std';
 
 import {
-  AFFINE_AI_PANEL_WIDGET,
+  POLYMIND_AI_PANEL_WIDGET,
   PolymindAIPanelWidget,
 } from '../widgets/ai-panel/ai-panel';
 
@@ -10,7 +10,7 @@ export const getAIPanelWidget = (host: EditorHost): PolymindAIPanelWidget => {
   if (!rootBlockId) {
     throw new Error('rootBlockId is not found');
   }
-  const aiPanel = host.view.getWidget(AFFINE_AI_PANEL_WIDGET, rootBlockId);
+  const aiPanel = host.view.getWidget(POLYMIND_AI_PANEL_WIDGET, rootBlockId);
   if (!(aiPanel instanceof PolymindAIPanelWidget)) {
     throw new Error('AI panel not found');
   }

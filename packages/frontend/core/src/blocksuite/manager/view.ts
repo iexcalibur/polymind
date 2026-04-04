@@ -33,7 +33,7 @@ import type {
 import { ViewExtensionManager } from '@blockmind/polymind/ext-loader';
 import { getInternalViewExtensions } from '@blockmind/polymind/extensions/view';
 import { FoundationViewExtension } from '@blockmind/polymind/foundation/view';
-import { AffineCanvasTextFonts } from '@blockmind/polymind/shared/services';
+import { PolymindCanvasTextFonts } from '@blockmind/polymind/shared/services';
 import { LinkedDocViewExtension } from '@blockmind/polymind/widgets/linked-doc/view';
 import type { FrameworkProvider } from '@toeverything/infra';
 import type { TemplateResult } from 'lit';
@@ -158,7 +158,7 @@ class ViewProvider {
     const peekViewService = framework?.get(PeekViewService);
 
     this._manager.configure(FoundationViewExtension, {
-      fontConfig: AffineCanvasTextFonts.map(font => ({
+      fontConfig: PolymindCanvasTextFonts.map(font => ({
         ...font,
         url: environment.publicPath + 'fonts/' + font.url.split('/').pop(),
       })),

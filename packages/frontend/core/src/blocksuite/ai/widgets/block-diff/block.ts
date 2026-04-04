@@ -9,7 +9,7 @@ import { BlockDiffProvider } from '../../services/block-diff';
 import type { Block } from '../../utils/apply-model/markdown-diff';
 import { blockDiffWidgetForPage } from './page';
 
-export const AFFINE_BLOCK_DIFF_WIDGET_FOR_BLOCK =
+export const POLYMIND_BLOCK_DIFF_WIDGET_FOR_BLOCK =
   'affine-block-diff-widget-for-block';
 
 export class PolymindBlockDiffWidgetForBlock extends WidgetComponent {
@@ -232,6 +232,6 @@ export class PolymindBlockDiffWidgetForBlock extends WidgetComponent {
 
 export const blockDiffWidgetForBlock = WidgetViewExtension(
   'polymind:note/*',
-  AFFINE_BLOCK_DIFF_WIDGET_FOR_BLOCK,
-  literal`${unsafeStatic(AFFINE_BLOCK_DIFF_WIDGET_FOR_BLOCK)}`
+  POLYMIND_BLOCK_DIFF_WIDGET_FOR_BLOCK,
+  literal`${unsafeStatic(POLYMIND_BLOCK_DIFF_WIDGET_FOR_BLOCK)}`
 );

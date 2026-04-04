@@ -19,7 +19,7 @@ import type { EditorHost } from '@blockmind/polymind/std';
 import { GfxControllerIdentifier } from '@blockmind/polymind/std/gfx';
 import { Text } from '@blockmind/polymind/store';
 import {
-  AFFINE_TOOLBAR_WIDGET,
+  POLYMIND_TOOLBAR_WIDGET,
   type PolymindToolbarWidget,
 } from '@blockmind/polymind/widgets/toolbar';
 import {
@@ -63,7 +63,7 @@ type ErrorConfig = Exclude<
 export function getToolbar(host: EditorHost) {
   const rootBlockId = host.store.root?.id as string;
   const toolbar = host.view.getWidget(
-    AFFINE_TOOLBAR_WIDGET,
+    POLYMIND_TOOLBAR_WIDGET,
     rootBlockId
   ) as PolymindToolbarWidget;
 

@@ -16,7 +16,7 @@ import { isEqual } from 'lodash-es';
 import { Subject } from 'rxjs';
 
 import {
-  AFFINE_AI_PANEL_WIDGET,
+  POLYMIND_AI_PANEL_WIDGET,
   type PolymindAIPanelWidget,
 } from '../widgets/ai-panel/ai-panel.js';
 
@@ -51,7 +51,7 @@ export class CopilotTool extends BaseTool {
   // AI processing
   get processing() {
     const aiPanel = this.gfx.std.view.getWidget(
-      AFFINE_AI_PANEL_WIDGET,
+      POLYMIND_AI_PANEL_WIDGET,
       this.doc.root!.id
     ) as PolymindAIPanelWidget;
     return aiPanel && aiPanel.state !== 'hidden';

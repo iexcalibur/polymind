@@ -12,7 +12,7 @@ import { literal, unsafeStatic } from 'lit/static-html.js';
 
 import { BlockDiffProvider } from '../../services/block-diff';
 
-export const AFFINE_BLOCK_DIFF_WIDGET_FOR_PAGE =
+export const POLYMIND_BLOCK_DIFF_WIDGET_FOR_PAGE =
   'affine-block-diff-widget-for-page';
 
 export class PolymindBlockDiffWidgetForPage extends WidgetComponent {
@@ -159,6 +159,6 @@ export class PolymindBlockDiffWidgetForPage extends WidgetComponent {
 
 export const blockDiffWidgetForPage = WidgetViewExtension(
   'polymind:page',
-  AFFINE_BLOCK_DIFF_WIDGET_FOR_PAGE,
-  literal`${unsafeStatic(AFFINE_BLOCK_DIFF_WIDGET_FOR_PAGE)}`
+  POLYMIND_BLOCK_DIFF_WIDGET_FOR_PAGE,
+  literal`${unsafeStatic(POLYMIND_BLOCK_DIFF_WIDGET_FOR_PAGE)}`
 );

@@ -212,7 +212,7 @@ const DetailPageImpl = memo(function DetailPageImpl() {
         const refNodeSlots = std.getOptional(RefNodeSlotsProvider);
         if (refNodeSlots) {
           disposable.add(
-            // the event should not be emitted by AffineReference
+            // the event should not be emitted by PolymindReference
             refNodeSlots.docLinkClicked.subscribe(
               ({ pageId, params, openMode, event, host }) => {
                 if (host !== editorContainer.host) {
