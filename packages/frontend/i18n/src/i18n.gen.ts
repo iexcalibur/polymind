@@ -6080,7 +6080,7 @@ export function usePolyMindI18N(): {
       */
     ["com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.name"](): string;
     /**
-      * `Once enabled, users can import and export blocksuite snapshots.`
+      * `Once enabled, users can import and export blockmind snapshots.`
       */
     ["com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.description"](): string;
     /**

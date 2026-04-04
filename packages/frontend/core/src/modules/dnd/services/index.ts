@@ -71,7 +71,7 @@ export class DndService extends Service {
 
   private setupBlocksuiteAdapter() {
     /**
-     * Migrate from affine to blocksuite
+     * Migrate from affine to blockmind
      * For now, we only support doc
      */
     const affineToBlocksuite = (args: MonitorGetFeedback<MixedDNDData>) => {
@@ -100,9 +100,9 @@ export class DndService extends Service {
     };
 
     /**
-     * Migrate from blocksuite to affine
+     * Migrate from blockmind to affine
      */
-    const blocksuiteToPolymind = (args: MonitorGetFeedback<MixedDNDData>) => {
+    const blockmindToPolymind = (args: MonitorGetFeedback<MixedDNDData>) => {
       const data = args.source.data;
       if (!data.entity && data.bsEntity) {
         if (data.bsEntity.type !== 'blocks' || !data.bsEntity.snapshot) {
@@ -122,7 +122,7 @@ export class DndService extends Service {
 
     function adaptDragEvent(args: MonitorGetFeedback<MixedDNDData>) {
       affineToBlocksuite(args);
-      blocksuiteToPolymind(args);
+      blockmindToPolymind(args);
     }
 
     function canMonitor(args: MonitorGetFeedback<MixedDNDData>) {
@@ -144,7 +144,7 @@ export class DndService extends Service {
     }
 
     const changeDocCardView = (args: MonitorDragEvent<MixedDNDData>) => {
-      if (args.source.data.from?.at === 'blocksuite-editor') return;
+      if (args.source.data.from?.at === 'blockmind-editor') return;
 
       const dropTarget = getBSDropTarget(args);
       if (dropTarget === 'other') return;
@@ -176,7 +176,7 @@ export class DndService extends Service {
             // HACK ahead:
             // canMonitor shall be used a pure function, which means
             // we may need to adapt the drag event to make sure the data is applied onDragStart.
-            // However, canMonitor in blocksuite is also called BEFORE onDragStart,
+            // However, canMonitor in blockmind is also called BEFORE onDragStart,
             // so we need to adapt it here in onMonitor
             adaptDragEvent(args);
             return true;
@@ -321,7 +321,7 @@ export class DndService extends Service {
     return {
       entity,
       from: {
-        at: 'blocksuite-editor',
+        at: 'blockmind-editor',
       },
     };
   };

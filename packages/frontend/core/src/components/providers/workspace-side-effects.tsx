@@ -7,7 +7,7 @@ import {
   AIProvider,
   CopilotClient,
   setupAIProvider,
-} from '@polymind/core/blocksuite/ai';
+} from '@polymind/core/blockmind/ai';
 import { useRegisterFindInPageCommands } from '@polymind/core/components/hooks/polymind/use-register-find-in-page-commands';
 import { useRegisterWorkspaceCommands } from '@polymind/core/components/hooks/use-register-workspace-commands';
 import { OverCapacityNotification } from '@polymind/core/components/over-capacity';

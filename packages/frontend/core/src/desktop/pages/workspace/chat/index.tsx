@@ -1,19 +1,19 @@
 import { observeResize, useConfirmModal } from '@polymind/component';
-import { CopilotClient } from '@polymind/core/blocksuite/ai';
+import { CopilotClient } from '@polymind/core/blockmind/ai';
 import { gqlFetcherFactory } from '@polymind/graphql';
 import {
   AIChatContent,
   type ChatContextValue,
-} from '@polymind/core/blocksuite/ai/components/ai-chat-content';
-import type { ChatStatus } from '@polymind/core/blocksuite/ai/components/ai-chat-messages';
-import type { AIChatToolbar } from '@polymind/core/blocksuite/ai/components/ai-chat-toolbar';
+} from '@polymind/core/blockmind/ai/components/ai-chat-content';
+import type { ChatStatus } from '@polymind/core/blockmind/ai/components/ai-chat-messages';
+import type { AIChatToolbar } from '@polymind/core/blockmind/ai/components/ai-chat-toolbar';
 import {
   configureAIChatToolbar,
   getOrCreateAIChatToolbar,
-} from '@polymind/core/blocksuite/ai/components/ai-chat-toolbar';
-import type { PromptKey } from '@polymind/core/blocksuite/ai/provider/prompt';
-import { getViewManager } from '@polymind/core/blocksuite/manager/view';
-import { NotificationServiceImpl } from '@polymind/core/blocksuite/view-extensions/editor-view/notification-service';
+} from '@polymind/core/blockmind/ai/components/ai-chat-toolbar';
+import type { PromptKey } from '@polymind/core/blockmind/ai/provider/prompt';
+import { getViewManager } from '@polymind/core/blockmind/manager/view';
+import { NotificationServiceImpl } from '@polymind/core/blockmind/view-extensions/editor-view/notification-service';
 import { useAIChatConfig } from '@polymind/core/components/hooks/polymind/use-ai-chat-config';
 import { useAISpecs } from '@polymind/core/components/hooks/polymind/use-ai-specs';
 import { useAISubscribe } from '@polymind/core/components/hooks/polymind/use-ai-subscribe';

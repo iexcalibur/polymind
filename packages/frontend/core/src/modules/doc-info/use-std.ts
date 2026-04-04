@@ -1,4 +1,4 @@
-import { getViewManager } from '@polymind/core/blocksuite/manager/view';
+import { getViewManager } from '@polymind/core/blockmind/manager/view';
 import { DebugLogger } from '@polymind/debug';
 import { BlockStdScope } from '@blockmind/polymind/std';
 import type { Store } from '@blockmind/polymind/store';

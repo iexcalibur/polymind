@@ -1476,7 +1476,7 @@
   "com.polymind.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.name": "모바일 연결된 문서 위젯",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.description": "모바일 연결된 문서 메뉴를 활성화합니다.",
   "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.name": "스냅샷 가져오기/내보내기 활성화",
-  "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.description": "활성화하면 사용자가 blocksuite 스냅샷을 가져오고 내보낼 수 있습니다.",
+  "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.description": "활성화하면 사용자가 blockmind 스냅샷을 가져오고 내보낼 수 있습니다.",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-edgeless-editing.name": "엣지리스 편집 활성화",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-edgeless-editing.description": "활성화하면 사용자가 엣지리스 캔버스를 편집할 수 있습니다.",
   "com.polymind.settings.workspace.experimental-features.enable-pdf-embed-preview.name": "PDF 임베드 미리보기",

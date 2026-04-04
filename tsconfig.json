@@ -144,7 +144,7 @@
     { "path": "./packages/frontend/media-capture-playground" },
     { "path": "./packages/frontend/native" },
     { "path": "./packages/frontend/routes" },
-    { "path": "./tests/blocksuite" },
+    { "path": "./tests/blockmind" },
     { "path": "./tests/kit" },
     { "path": "./tests/polymind-cloud" },
     { "path": "./tests/polymind-cloud-copilot" },

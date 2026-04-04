@@ -1,6 +1,6 @@
-import { CloudViewExtension } from '@polymind/core/blocksuite/view-extensions/cloud';
-import { PolymindEditorViewExtension } from '@polymind/core/blocksuite/view-extensions/editor-view/editor-view';
-import { PolymindThemeViewExtension } from '@polymind/core/blocksuite/view-extensions/theme';
+import { CloudViewExtension } from '@polymind/core/blockmind/view-extensions/cloud';
+import { PolymindEditorViewExtension } from '@polymind/core/blockmind/view-extensions/editor-view/editor-view';
+import { PolymindThemeViewExtension } from '@polymind/core/blockmind/view-extensions/theme';
 import { I18n } from '@polymind/i18n';
 import { CodeBlockViewExtension } from '@blockmind/polymind/blocks/code/view';
 import { DividerViewExtension } from '@blockmind/polymind/blocks/divider/view';

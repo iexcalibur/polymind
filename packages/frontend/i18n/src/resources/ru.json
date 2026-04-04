@@ -1487,7 +1487,7 @@
   "com.polymind.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.name": "Виджет связанного документа на мобильном устройстве",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.description": "Включает меню связанных документов на мобильных устройствах.",
   "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.name": "Включить импорт и экспорт снимков",
-  "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.description": "После включения пользователи смогут импортировать и экспортировать снимки blocksuite.",
+  "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.description": "После включения пользователи смогут импортировать и экспортировать снимки blockmind.",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-edgeless-editing.name": "Включить редактирование без границ",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-edgeless-editing.description": "После включения пользователи смогут редактировать холст без границ.",
   "com.polymind.settings.workspace.experimental-features.enable-pdf-embed-preview.name": "Предпросмотр встраивания PDF",

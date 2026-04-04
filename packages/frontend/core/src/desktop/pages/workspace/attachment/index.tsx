@@ -1,5 +1,5 @@
 import { Skeleton } from '@polymind/component';
-import { AttachmentViewerView } from '@polymind/core/blocksuite/attachment-viewer';
+import { AttachmentViewerView } from '@polymind/core/blockmind/attachment-viewer';
 import { type Doc, DocsService } from '@polymind/core/modules/doc';
 import { type AttachmentBlockModel } from '@blockmind/polymind/model';
 import { FrameworkScope, useLiveData, useService } from '@toeverything/infra';

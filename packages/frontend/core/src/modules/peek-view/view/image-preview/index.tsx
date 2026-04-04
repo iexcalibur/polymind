@@ -304,15 +304,15 @@ const ImagePreviewModalImpl = ({
   onClose: () => void;
 }): ReactElement | null => {
   const { doc, workspace } = useEditor(docId);
-  const blocksuiteDoc = doc?.blockSuiteDoc;
+  const blockmindDoc = doc?.blockSuiteDoc;
   const docCollection = workspace.docCollection;
   const blockModel = useMemo(() => {
-    const block = blocksuiteDoc?.getBlock(blockId);
+    const block = blockmindDoc?.getBlock(blockId);
     if (!block) {
       return null;
     }
     return block.model as ImageBlockModel;
-  }, [blockId, blocksuiteDoc]);
+  }, [blockId, blockmindDoc]);
 
   const {
     data: blobData,
@@ -339,17 +339,17 @@ const ImagePreviewModalImpl = ({
   const [cursor, setCursor] = useState(0);
 
   useEffect(() => {
-    if (!blockModel || !blocksuiteDoc) {
+    if (!blockModel || !blockmindDoc) {
       return;
     }
 
-    const prevs = blocksuiteDoc.getPrevs(blockModel).filter(filterImageBlock);
-    const nexts = blocksuiteDoc.getNexts(blockModel).filter(filterImageBlock);
+    const prevs = blockmindDoc.getPrevs(blockModel).filter(filterImageBlock);
+    const nexts = blockmindDoc.getNexts(blockModel).filter(filterImageBlock);
 
     const blocks = [...prevs, blockModel, ...nexts];
     setBlocks(blocks);
     setCursor(blocks.length ? prevs.length : 0);
-  }, [blockModel, blocksuiteDoc]);
+  }, [blockModel, blockmindDoc]);
 
   if (error || !blobUrl || isLoading || !blockModel) {
     return null;
@@ -385,7 +385,7 @@ const ImagePreviewModalImpl = ({
   const imageData: ImageData = createImageData(cursor);
 
   const handleDelete = () => {
-    if (!blocksuiteDoc) {
+    if (!blockmindDoc) {
       return;
     }
 
@@ -394,7 +394,7 @@ const ImagePreviewModalImpl = ({
 
     const newBlocks = blocks.toSpliced(cursor, 1);
     setBlocks(newBlocks);
-    blocksuiteDoc.deleteBlock(currentBlock);
+    blockmindDoc.deleteBlock(currentBlock);
 
     let nextBlock = newBlocks[cursor];
 

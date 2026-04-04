@@ -1,4 +1,4 @@
-import { AttachmentViewer } from '@polymind/core/blocksuite/attachment-viewer';
+import { AttachmentViewer } from '@polymind/core/blockmind/attachment-viewer';
 import type { AttachmentBlockModel } from '@blockmind/polymind/model';
 import { useMemo } from 'react';
 
@@ -14,10 +14,10 @@ export const AttachmentPreviewPeekView = ({
   blockId,
 }: AttachmentPreviewModalProps) => {
   const { doc } = useEditor(docId);
-  const blocksuiteDoc = doc?.blockSuiteDoc;
+  const blockmindDoc = doc?.blockSuiteDoc;
   const model = useMemo(
-    () => blocksuiteDoc?.getModelById<AttachmentBlockModel>(blockId) ?? null,
-    [blockId, blocksuiteDoc]
+    () => blockmindDoc?.getModelById<AttachmentBlockModel>(blockId) ?? null,
+    [blockId, blockmindDoc]
   );
 
   if (model) {

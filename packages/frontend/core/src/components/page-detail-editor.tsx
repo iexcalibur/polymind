@@ -4,8 +4,8 @@ import { useLiveData, useService } from '@toeverything/infra';
 import clsx from 'clsx';
 import { useEffect } from 'react';
 
-import type { PolymindEditorContainer } from '../blocksuite/block-suite-editor';
-import { BlockSuiteEditor } from '../blocksuite/block-suite-editor';
+import type { PolymindEditorContainer } from '../blockmind/block-suite-editor';
+import { BlockSuiteEditor } from '../blockmind/block-suite-editor';
 import { DocService } from '../modules/doc';
 import { EditorService } from '../modules/editor';
 import { EditorSettingService } from '../modules/editor-setting';

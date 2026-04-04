@@ -487,7 +487,7 @@ function buildStickerTemplate(data) {
         flavour: 'polymind:page',
         props: {
           title: {
-            '$blocksuite:internal:text$': true,
+            '$blockmind:internal:text$': true,
             delta: [
               {
                 insert: 'Sticker',

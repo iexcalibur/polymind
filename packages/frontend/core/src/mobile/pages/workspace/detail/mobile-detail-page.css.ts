@@ -62,7 +62,7 @@ export const editorContainer = style({
   flex: 1,
   zIndex: 0,
 });
-// brings styles of .affine-page-viewport from blocksuite
+// brings styles of .affine-page-viewport from blockmind
 export const affineDocViewport = style({
   display: 'flex',
   flexDirection: 'column',

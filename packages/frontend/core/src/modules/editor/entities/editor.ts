@@ -1,4 +1,4 @@
-import type { PolymindEditorContainer } from '@polymind/core/blocksuite/block-suite-editor';
+import type { PolymindEditorContainer } from '@polymind/core/blockmind/block-suite-editor';
 import type { DefaultOpenProperty } from '@polymind/core/components/properties';
 import { PresentTool } from '@blockmind/polymind/blocks/frame';
 import { DefaultTool } from '@blockmind/polymind/blocks/surface';

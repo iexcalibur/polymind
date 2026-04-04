@@ -173,7 +173,7 @@ export function PolymindSharedPageReference({
       // update refresh key
       setRefreshKey(nanoid());
 
-      // Prevent blocksuite link clicked behavior
+      // Prevent blockmind link clicked behavior
       e.stopPropagation();
 
       return;

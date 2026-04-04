@@ -39,7 +39,7 @@
     "packages/common/graphql/src/graphql/index.ts",
     "packages/frontend/native/index.d.ts",
     "packages/frontend/native/index.js",
-    "tests/blocksuite/snapshots",
+    "tests/blockmind/snapshots",
     "blockmind/packages/docs/api/**",
     "packages/frontend/admin/src/config.json",
     "**/test-docs.json",
@@ -273,7 +273,7 @@
       }
     },
     {
-      "files": ["tests/blocksuite/**/*.ts"],
+      "files": ["tests/blockmind/**/*.ts"],
       "rules": {
         "typescript/ban-ts-comment": "off",
         "unicorn/prefer-dom-node-dataset": "off",

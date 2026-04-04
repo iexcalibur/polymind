@@ -1,4 +1,4 @@
-import type { DocProps } from '@polymind/core/blocksuite/initialization';
+import type { DocProps } from '@polymind/core/blockmind/initialization';
 import { DocsService } from '@polymind/core/modules/doc';
 import { AudioAttachmentService } from '@polymind/core/modules/media/services/audio-attachment';
 import { WorkbenchService } from '@polymind/core/modules/workbench';

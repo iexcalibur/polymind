@@ -37,7 +37,7 @@ export const POLYMIND_FLAGS = {
     defaultState: isCanaryBuild,
   },
   enable_edgeless_text: {
-    category: 'blocksuite',
+    category: 'blockmind',
     bsFlag: 'enable_edgeless_text',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-edgeless-text.name',
@@ -47,7 +47,7 @@ export const POLYMIND_FLAGS = {
     defaultState: true,
   },
   enable_color_picker: {
-    category: 'blocksuite',
+    category: 'blockmind',
     bsFlag: 'enable_color_picker',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-color-picker.name',
@@ -57,7 +57,7 @@ export const POLYMIND_FLAGS = {
     defaultState: true,
   },
   enable_ai_chat_block: {
-    category: 'blocksuite',
+    category: 'blockmind',
     bsFlag: 'enable_ai_chat_block',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-ai-chat-block.name',
@@ -67,7 +67,7 @@ export const POLYMIND_FLAGS = {
     defaultState: true,
   },
   enable_ai_onboarding: {
-    category: 'blocksuite',
+    category: 'blockmind',
     bsFlag: 'enable_ai_onboarding',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-ai-onboarding.name',
@@ -77,7 +77,7 @@ export const POLYMIND_FLAGS = {
     defaultState: true,
   },
   enable_mind_map_import: {
-    category: 'blocksuite',
+    category: 'blockmind',
     bsFlag: 'enable_mind_map_import',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-mind-map-import.name',
@@ -87,7 +87,7 @@ export const POLYMIND_FLAGS = {
     defaultState: true,
   },
   enable_block_meta: {
-    category: 'blocksuite',
+    category: 'blockmind',
     bsFlag: 'enable_block_meta',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-block-meta.name',
@@ -141,7 +141,7 @@ export const POLYMIND_FLAGS = {
     defaultState: isCanaryBuild,
   },
   enable_advanced_block_visibility: {
-    category: 'blocksuite',
+    category: 'blockmind',
     bsFlag: 'enable_advanced_block_visibility',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-advanced-block-visibility.name',
@@ -151,7 +151,7 @@ export const POLYMIND_FLAGS = {
     defaultState: false,
   },
   enable_mobile_keyboard_toolbar: {
-    category: 'blocksuite',
+    category: 'blockmind',
     bsFlag: 'enable_mobile_keyboard_toolbar',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-mobile-keyboard-toolbar.name',
@@ -161,7 +161,7 @@ export const POLYMIND_FLAGS = {
     defaultState: isMobile,
   },
   enable_mobile_linked_doc_menu: {
-    category: 'blocksuite',
+    category: 'blockmind',
     bsFlag: 'enable_mobile_linked_doc_menu',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.name',
@@ -213,7 +213,7 @@ export const POLYMIND_FLAGS = {
     defaultState: isIOS || isAndroid,
   },
   enable_turbo_renderer: {
-    category: 'blocksuite',
+    category: 'blockmind',
     bsFlag: 'enable_turbo_renderer',
     displayName: 'Enable Turbo Renderer',
     description: 'Enable experimental edgeless turbo renderer',
@@ -221,7 +221,7 @@ export const POLYMIND_FLAGS = {
     defaultState: false,
   },
   enable_dom_renderer: {
-    category: 'blocksuite',
+    category: 'blockmind',
     bsFlag: 'enable_dom_renderer',
     displayName: 'Enable DOM Renderer',
     description: 'Enable DOM renderer for graphics elements',
@@ -229,7 +229,7 @@ export const POLYMIND_FLAGS = {
     defaultState: false,
   },
   enable_edgeless_scribbled_style: {
-    category: 'blocksuite',
+    category: 'blockmind',
     bsFlag: 'enable_edgeless_scribbled_style',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-edgeless-scribbled-style.name',
@@ -239,7 +239,7 @@ export const POLYMIND_FLAGS = {
     defaultState: false,
   },
   enable_table_virtual_scroll: {
-    category: 'blocksuite',
+    category: 'blockmind',
     bsFlag: 'enable_table_virtual_scroll',
     displayName:
       'com.polymind.settings.workspace.experimental-features.enable-table-virtual-scroll.name',
@@ -297,7 +297,7 @@ export const POLYMIND_FLAGS = {
     defaultState: isMobile,
   },
   enable_mobile_database_editing: {
-    category: 'blocksuite',
+    category: 'blockmind',
     bsFlag: 'enable_mobile_database_editing',
     displayName: 'Enable Mobile Database Editing',
     description: 'Enable mobile database editing',
@@ -305,7 +305,7 @@ export const POLYMIND_FLAGS = {
     defaultState: false,
   },
   enable_pdfmake_export: {
-    category: 'blocksuite',
+    category: 'blockmind',
     bsFlag: 'enable_pdfmake_export',
     displayName: 'Enable PDF Export',
     description:

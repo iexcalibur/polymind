@@ -1,4 +1,4 @@
-import type { DocProps } from '@polymind/core/blocksuite/initialization';
+import type { DocProps } from '@polymind/core/blockmind/initialization';
 import type { DocMode } from '@blockmind/polymind/model';
 
 export interface DocCreateOptions {

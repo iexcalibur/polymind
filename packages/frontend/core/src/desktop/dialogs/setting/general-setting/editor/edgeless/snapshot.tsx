@@ -1,5 +1,5 @@
 import { Skeleton } from '@polymind/component';
-import { getViewManager } from '@polymind/core/blocksuite/manager/view';
+import { getViewManager } from '@polymind/core/blockmind/manager/view';
 import type { EditorSettingSchema } from '@polymind/core/modules/editor-setting';
 import { EditorSettingService } from '@polymind/core/modules/editor-setting';
 import { EdgelessCRUDIdentifier } from '@blockmind/polymind/blocks/surface';

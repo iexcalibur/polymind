@@ -28,8 +28,8 @@ import {
 
 import { getStoreManager } from './bs-store';
 
-const blocksuiteSchema = new Schema();
-blocksuiteSchema.register([...PolymindSchemas]);
+const blockmindSchema = new Schema();
+blockmindSchema.register([...PolymindSchemas]);
 
 export interface BlockDocumentInfo {
   docId: string;
@@ -100,7 +100,7 @@ const getTextDeltasFromCellValue = (
   }
 
   if (value instanceof YMap) {
-    const marker = value.get('$blocksuite:internal:text$');
+    const marker = value.get('$blockmind:internal:text$');
     const delta = value.get('delta');
     if (marker) {
       if (delta instanceof YArray) {
@@ -119,7 +119,7 @@ const getTextDeltasFromCellValue = (
   if (
     typeof value === 'object' &&
     value !== null &&
-    '$blocksuite:internal:text$' in value
+    '$blockmind:internal:text$' in value
   ) {
     const delta = (value as { delta?: unknown }).delta;
     if (delta instanceof YArray) {
@@ -140,7 +140,7 @@ function generateMarkdownPreviewBuilder(
 ) {
   function yblockToDraftModal(yblock: YBlock): DraftModel | null {
     const flavour = yblock.get('sys:flavour') as string;
-    const blockSchema = blocksuiteSchema.flavourSchemaMap.get(flavour);
+    const blockSchema = blockmindSchema.flavourSchemaMap.get(flavour);
     if (!blockSchema) {
       return null;
     }
@@ -202,7 +202,7 @@ function generateMarkdownPreviewBuilder(
   const provider = container.provider();
   const markdownAdapter = new MarkdownAdapter(
     new Transformer({
-      schema: blocksuiteSchema,
+      schema: blockmindSchema,
       blobCRUD: {
         delete: () => Promise.resolve(),
         get: () => Promise.resolve(null),
@@ -734,7 +734,7 @@ export async function readAllBlocksFromDoc({
       if (
         !(
           elementsObj instanceof YMap &&
-          elementsObj.get('type') === '$blocksuite:internal:native$'
+          elementsObj.get('type') === '$blockmind:internal:native$'
         )
       ) {
         continue;

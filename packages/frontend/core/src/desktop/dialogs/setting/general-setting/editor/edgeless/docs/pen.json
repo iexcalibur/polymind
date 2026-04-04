@@ -13,7 +13,7 @@
     "version": 2,
     "props": {
       "title": {
-        "$blocksuite:internal:text$": true,
+        "$blockmind:internal:text$": true,
         "delta": [
           {
             "insert": "BlockSuite Playground"
@@ -2141,7 +2141,7 @@
             "version": 1,
             "props": {
               "title": {
-                "$blocksuite:internal:text$": true,
+                "$blockmind:internal:text$": true,
                 "delta": [
                   {
                     "insert": "Frame 1"

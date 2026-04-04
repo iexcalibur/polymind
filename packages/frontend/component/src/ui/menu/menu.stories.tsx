@@ -152,7 +152,7 @@ Default.args = {
 
 const selectList = [
   { name: 'PolyMind', value: '1' },
-  { name: 'blocksuite', value: '2' },
+  { name: 'blockmind', value: '2' },
   { name: 'octobase', value: '3' },
   { name: 'virgo', value: '4' },
 ];

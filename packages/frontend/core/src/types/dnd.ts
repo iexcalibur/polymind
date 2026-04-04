@@ -95,7 +95,7 @@ export interface PolymindDNDData extends DNDData {
           edge: 'left' | 'right';
         }
       | {
-          at: 'blocksuite-editor';
+          at: 'blockmind-editor';
         }
       | {
           at: 'external'; // for external apps

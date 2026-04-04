@@ -7,12 +7,12 @@
   },
   "include": ["./src", "src/**/*.json"],
   "references": [
-    { "path": "../../../blocksuite/framework/global" },
-    { "path": "../../../blocksuite/polymind/all" },
-    { "path": "../../../blocksuite/polymind/blocks/root" },
-    { "path": "../../../blocksuite/polymind/components" },
-    { "path": "../../../blocksuite/polymind/shared" },
-    { "path": "../../../blocksuite/framework/std" },
+    { "path": "../../../blockmind/framework/global" },
+    { "path": "../../../blockmind/polymind/all" },
+    { "path": "../../../blockmind/polymind/blocks/root" },
+    { "path": "../../../blockmind/polymind/components" },
+    { "path": "../../../blockmind/polymind/shared" },
+    { "path": "../../../blockmind/framework/std" },
     { "path": "../component" },
     { "path": "../../common/debug" },
     { "path": "../electron-api" },
@@ -23,6 +23,6 @@
     { "path": "../../common/nbstore" },
     { "path": "../../common/reader" },
     { "path": "../../common/infra" },
-    { "path": "../../../blocksuite/polymind/ext-loader" }
+    { "path": "../../../blockmind/polymind/ext-loader" }
   ]
 }

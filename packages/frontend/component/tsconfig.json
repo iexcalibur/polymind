@@ -17,7 +17,7 @@
     { "path": "../../common/error" },
     { "path": "../../common/graphql" },
     { "path": "../i18n" },
-    { "path": "../../../blocksuite/polymind/all" },
+    { "path": "../../../blockmind/polymind/all" },
     { "path": "../../../tools/utils" }
   ]
 }

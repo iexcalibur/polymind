@@ -1,5 +1,5 @@
 import { IconButton, notify, toast } from '@polymind/component';
-import { LitDocEditor, type PageEditor } from '@polymind/core/blocksuite/editors';
+import { LitDocEditor, type PageEditor } from '@polymind/core/blockmind/editors';
 import { SnapshotHelper } from '@polymind/core/modules/comment/services/snapshot-helper';
 import type { CommentAttachment } from '@polymind/core/modules/comment/types';
 import { PeekViewService } from '@polymind/core/modules/peek-view';

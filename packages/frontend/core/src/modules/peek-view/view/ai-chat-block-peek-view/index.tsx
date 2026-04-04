@@ -1,7 +1,7 @@
 import { toReactNode } from '@polymind/component';
-import { AIChatBlockPeekViewTemplate } from '@polymind/core/blocksuite/ai';
-import type { AIChatBlockModel } from '@polymind/core/blocksuite/ai/blocks/ai-chat-block/model/ai-chat-model';
-import { registerAIAppEffects } from '@polymind/core/blocksuite/ai/effects/app';
+import { AIChatBlockPeekViewTemplate } from '@polymind/core/blockmind/ai';
+import type { AIChatBlockModel } from '@polymind/core/blockmind/ai/blocks/ai-chat-block/model/ai-chat-model';
+import { registerAIAppEffects } from '@polymind/core/blockmind/ai/effects/app';
 import { useAIChatConfig } from '@polymind/core/components/hooks/polymind/use-ai-chat-config';
 import { useAISubscribe } from '@polymind/core/components/hooks/polymind/use-ai-subscribe';
 import {

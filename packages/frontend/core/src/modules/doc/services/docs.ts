@@ -7,7 +7,7 @@ import { Slice, Text, Transformer } from '@blockmind/polymind/store';
 import { ObjectPool, Service } from '@toeverything/infra';
 import { combineLatest, map } from 'rxjs';
 
-import { initDocFromProps } from '../../../blocksuite/initialization';
+import { initDocFromProps } from '../../../blockmind/initialization';
 import { getPolyMindWorkspaceSchema } from '../../workspace/global-schema';
 import type { Doc } from '../entities/doc';
 import { DocRecordList } from '../entities/record-list';

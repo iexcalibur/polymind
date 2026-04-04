@@ -18,7 +18,7 @@ export type FlagInfo = {
       category: 'polymind';
     }
   | {
-      category: 'blocksuite';
+      category: 'blockmind';
       bsFlag: keyof BlockSuiteFlags;
     }
 );

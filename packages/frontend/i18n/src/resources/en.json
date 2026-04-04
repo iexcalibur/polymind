@@ -1518,7 +1518,7 @@
   "com.polymind.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.name": "Mobile Linked Doc Widget",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.description": "Enables the mobile linked doc menu.",
   "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.name": "Enable Snapshot Import Export",
-  "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.description": "Once enabled, users can import and export blocksuite snapshots.",
+  "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.description": "Once enabled, users can import and export blockmind snapshots.",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-edgeless-editing.name": "Enable Edgeless Editing",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-edgeless-editing.description": "Once enabled, users can edit edgeless canvas.",
   "com.polymind.settings.workspace.experimental-features.enable-pdf-embed-preview.name": "PDF embed preview",

@@ -80,14 +80,14 @@ const PageOperationCellMenuItem = ({
   const workbench = workbenchService.workbench;
   const { duplicate } = useBlockSuiteMetaHelper();
   const docRecord = useLiveData(useService(DocsService).list.doc$(page.id));
-  const blocksuiteDoc = currentWorkspace.docCollection.getDoc(page.id);
+  const blockmindDoc = currentWorkspace.docCollection.getDoc(page.id);
 
   const workspaceDialogService = useService(WorkspaceDialogService);
   const onOpenInfoModal = useCallback(() => {
-    if (blocksuiteDoc?.id) {
-      workspaceDialogService.open('doc-info', { docId: blocksuiteDoc.id });
+    if (blockmindDoc?.id) {
+      workspaceDialogService.open('doc-info', { docId: blockmindDoc.id });
     }
-  }, [blocksuiteDoc, workspaceDialogService]);
+  }, [blockmindDoc, workspaceDialogService]);
 
   const onDisablePublicSharing = useCallback(() => {
     // TODO(@EYHN): implement disable public sharing

@@ -5,7 +5,7 @@ import {
   toast,
   useConfirmModal,
 } from '@polymind/component';
-import { usePageHelper } from '@polymind/core/blocksuite/block-suite-page-list/utils';
+import { usePageHelper } from '@polymind/core/blockmind/block-suite-page-list/utils';
 import { IsFavoriteIcon } from '@polymind/core/components/pure/icons';
 import type { NodeOperation } from '@polymind/core/desktop/components/navigation-panel';
 import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';

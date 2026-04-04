@@ -1,5 +1,5 @@
-import { BlocksuiteHeaderTitle } from '@polymind/core/blocksuite/block-suite-header/title';
-import { EditorModeSwitch } from '@polymind/core/blocksuite/block-suite-mode-switch';
+import { BlocksuiteHeaderTitle } from '@polymind/core/blockmind/block-suite-header/title';
+import { EditorModeSwitch } from '@polymind/core/blockmind/block-suite-mode-switch';
 import ShareHeaderRightItem from '@polymind/core/components/cloud/share-header-right-item';
 import type { DocMode } from '@blockmind/polymind/model';
 

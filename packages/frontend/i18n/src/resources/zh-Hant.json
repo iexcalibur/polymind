@@ -1474,7 +1474,7 @@
   "com.polymind.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.name": "行動鏈接文件小部件",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.description": "啟用移動設備連結檔案選單。",
   "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.name": "啟用快照匯入匯出",
-  "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.description": "一旦啟用，使用者可以匯入和匯出 blocksuite 快照。",
+  "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.description": "一旦啟用，使用者可以匯入和匯出 blockmind 快照。",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-edgeless-editing.name": "啟用無界編輯",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-edgeless-editing.description": "一旦啟用，用户可以編輯無界畫布。",
   "com.polymind.settings.workspace.experimental-features.enable-pdf-embed-preview.name": "PDF 嵌入式預覽",

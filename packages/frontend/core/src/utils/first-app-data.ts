@@ -1,5 +1,5 @@
 // the following import is used to ensure the block suite editor effects are run
-import '../blocksuite/block-suite-editor';
+import '../blockmind/block-suite-editor';
 
 import { DebugLogger } from '@polymind/debug';
 import { DEFAULT_WORKSPACE_NAME } from '@polymind/env/constant';

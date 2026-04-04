@@ -3,7 +3,7 @@ import {
   pushGlobalLoadingEventAtom,
   resolveGlobalLoadingEventAtom,
 } from '@polymind/component/global-loading';
-import type { PolymindEditorContainer } from '@polymind/core/blocksuite/block-suite-editor/blocksuite-editor';
+import type { PolymindEditorContainer } from '@polymind/core/blockmind/block-suite-editor/blockmind-editor';
 import { EditorService } from '@polymind/core/modules/editor';
 import { getPolyMindWorkspaceSchema } from '@polymind/core/modules/workspace/global-schema';
 import { useI18n } from '@polymind/i18n';
@@ -176,7 +176,7 @@ async function exportHandler({
 export const useExportPage = () => {
   const editor = useService(EditorService).editor;
   const editorContainer = useLiveData(editor.editorContainer$);
-  const blocksuiteDoc = editor.doc.blockSuiteDoc;
+  const blockmindDoc = editor.doc.blockSuiteDoc;
   const pushGlobalLoadingEvent = useSetAtom(pushGlobalLoadingEventAtom);
   const resolveGlobalLoadingEvent = useSetAtom(resolveGlobalLoadingEventAtom);
   const t = useI18n();
@@ -195,7 +195,7 @@ export const useExportPage = () => {
       });
       try {
         await exportHandler({
-          page: blocksuiteDoc,
+          page: blockmindDoc,
           type,
           editorContainer: originEditorContainer,
         });
@@ -214,7 +214,7 @@ export const useExportPage = () => {
       }
     },
     [
-      blocksuiteDoc,
+      blockmindDoc,
       editorContainer,
       pushGlobalLoadingEvent,
       resolveGlobalLoadingEvent,

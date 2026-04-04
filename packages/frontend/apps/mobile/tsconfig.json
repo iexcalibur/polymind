@@ -7,7 +7,7 @@
   },
   "include": ["./src"],
   "references": [
-    { "path": "../../../../blocksuite/polymind/all" },
+    { "path": "../../../../blockmind/polymind/all" },
     { "path": "../../component" },
     { "path": "../../core" },
     { "path": "../../../common/env" },

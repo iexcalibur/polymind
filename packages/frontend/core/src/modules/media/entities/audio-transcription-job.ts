@@ -1,5 +1,5 @@
 import { shallowEqual } from '@polymind/component';
-import type { TranscriptionBlockProps } from '@polymind/core/blocksuite/ai/blocks/transcription-block/model';
+import type { TranscriptionBlockProps } from '@polymind/core/blockmind/ai/blocks/transcription-block/model';
 import { DebugLogger } from '@polymind/debug';
 import { UserFriendlyError } from '@polymind/error';
 import { AiJobStatus } from '@polymind/graphql';

@@ -1,6 +1,6 @@
 import { useThemeColorV2 } from '@polymind/component';
 import { PageDetailLoading } from '@polymind/component/page-detail-skeleton';
-import type { PolymindEditorContainer } from '@polymind/core/blocksuite/block-suite-editor';
+import type { PolymindEditorContainer } from '@polymind/core/blockmind/block-suite-editor';
 import { PolymindErrorBoundary } from '@polymind/core/components/polymind/polymind-error-boundary';
 import { useGuard } from '@polymind/core/components/guard';
 import { useActiveBlocksuiteEditor } from '@polymind/core/components/hooks/use-block-suite-editor';
@@ -128,7 +128,7 @@ const DetailPageImpl = () => {
 
   const onLoad = useCallback(
     (editorContainer: PolymindEditorContainer) => {
-      // provide image proxy endpoint to blocksuite
+      // provide image proxy endpoint to blockmind
       const imageProxyUrl = new URL(
         BUILD_CONFIG.imageProxyUrl,
         window.location.origin
@@ -141,7 +141,7 @@ const DetailPageImpl = () => {
         .get(ImageProxyService)
         .setImageProxyURL(imageProxyUrl);
 
-      // provide page mode and updated date to blocksuite
+      // provide page mode and updated date to blockmind
       const refNodeService =
         editorContainer.std.getOptional(RefNodeSlotsProvider);
       const disposable = new DisposableGroup();

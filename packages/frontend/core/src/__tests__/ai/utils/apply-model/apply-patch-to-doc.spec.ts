@@ -8,8 +8,8 @@ import { createPolymindTemplate } from '@blockmind/polymind-shared/test-utils';
 import type { Store } from '@blockmind/store';
 import { describe, expect, it } from 'vitest';
 
-import { applyPatchToDoc } from '../../../../blocksuite/ai/utils/apply-model/apply-patch-to-doc';
-import type { PatchOp } from '../../../../blocksuite/ai/utils/apply-model/markdown-diff';
+import { applyPatchToDoc } from '../../../../blockmind/ai/utils/apply-model/apply-patch-to-doc';
+import type { PatchOp } from '../../../../blockmind/ai/utils/apply-model/markdown-diff';
 
 declare module 'vitest' {
   interface Assertion<T = any> {

@@ -1471,7 +1471,7 @@
   "com.polymind.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.name": "Mobil länkad dokumentwidget",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.description": "Aktiverar den mobila länkade dokumentmenyn.",
   "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.name": "Aktivera snapshot-import/export",
-  "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.description": "När funktionen är aktiverad kan användare importera och exportera blocksuite-snapshots.",
+  "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.description": "När funktionen är aktiverad kan användare importera och exportera blockmind-snapshots.",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-edgeless-editing.name": "Aktivera kantlös redigering",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-edgeless-editing.description": "När det är aktiverat kan användare redigera kantlösa kanvas.",
   "com.polymind.settings.workspace.experimental-features.enable-pdf-embed-preview.name": "PDF inbäddad förhandsvisning",

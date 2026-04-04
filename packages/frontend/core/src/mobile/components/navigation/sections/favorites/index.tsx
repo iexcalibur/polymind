@@ -1,4 +1,4 @@
-import { usePageHelper } from '@polymind/core/blocksuite/block-suite-page-list/utils';
+import { usePageHelper } from '@polymind/core/blockmind/block-suite-page-list/utils';
 import { NavigationPanelTreeRoot } from '@polymind/core/desktop/components/navigation-panel';
 import type { FavoriteSupportTypeUnion } from '@polymind/core/modules/favorite';
 import { FavoriteService } from '@polymind/core/modules/favorite';

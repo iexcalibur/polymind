@@ -14,7 +14,7 @@ import {
 } from '../../../base';
 import { DocReader } from '../../../core/doc';
 import { WorkspaceBlobStorage } from '../../../core/storage';
-import { readAllDocIdsFromWorkspaceSnapshot } from '../../../core/utils/blocksuite';
+import { readAllDocIdsFromWorkspaceSnapshot } from '../../../core/utils/blockmind';
 import { Models } from '../../../models';
 import { CopilotStorage } from '../storage';
 import { readStream } from '../utils';

@@ -1,4 +1,4 @@
-// Copyright: https://github.com/toeverything/blocksuite/commit/8032ef3ab97aefce01664b36502fc392c5db8b78#diff-bf5b41be21936f9165a8400c7f20e24d3dbc49644ba57b9258e0943f0dc1c464
+// Copyright: https://github.com/toeverything/blockmind/commit/8032ef3ab97aefce01664b36502fc392c5db8b78#diff-bf5b41be21936f9165a8400c7f20e24d3dbc49644ba57b9258e0943f0dc1c464
 import { DebugLogger } from '@polymind/debug';
 import type { TemplateResult } from 'lit';
 import { css, html } from 'lit';

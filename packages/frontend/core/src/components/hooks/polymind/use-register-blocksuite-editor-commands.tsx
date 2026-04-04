@@ -111,7 +111,7 @@ export function useRegisterBlocksuiteEditorCommands(
 
     // TODO(@Peng): add back when edgeless presentation is ready
 
-    // this is pretty hack and easy to break. need a better way to communicate with blocksuite editor
+    // this is pretty hack and easy to break. need a better way to communicate with blockmind editor
     // unsubs.push(
     //   registerPolymindCommand({
     //     id: 'editor:edgeless-presentation-start',

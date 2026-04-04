@@ -1,4 +1,4 @@
-// packages/frontend/core/src/blocksuite/ai/hooks/useChatPanelConfig.ts
+// packages/frontend/core/src/blockmind/ai/hooks/useChatPanelConfig.ts
 import { AIPlaygroundService } from '@polymind/core/modules/ai-button/services/playground';
 import { AIReasoningService } from '@polymind/core/modules/ai-button/services/reasoning';
 import { CollectionService } from '@polymind/core/modules/collection';

@@ -1,5 +1,5 @@
 import { Modal, Scrollable } from '@polymind/component';
-import { BlocksuiteHeaderTitle } from '@polymind/core/blocksuite/block-suite-header/title';
+import { BlocksuiteHeaderTitle } from '@polymind/core/blockmind/block-suite-header/title';
 import type { DialogComponentProps } from '@polymind/core/modules/dialogs';
 import type { WORKSPACE_DIALOG_SCHEMA } from '@polymind/core/modules/dialogs/constant';
 import { type Doc, DocsService } from '@polymind/core/modules/doc';

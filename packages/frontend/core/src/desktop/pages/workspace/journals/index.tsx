@@ -3,7 +3,7 @@ import {
   WeekDatePicker,
   type WeekDatePickerHandle,
 } from '@polymind/component';
-import { BlocksuiteEditorJournalDocTitleUI } from '@polymind/core/blocksuite/block-suite-editor/journal-doc-title';
+import { BlocksuiteEditorJournalDocTitleUI } from '@polymind/core/blockmind/block-suite-editor/journal-doc-title';
 import {
   JOURNAL_DATE_FORMAT,
   JournalService,

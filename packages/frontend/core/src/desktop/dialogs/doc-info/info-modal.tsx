@@ -5,7 +5,7 @@ import {
   PropertyCollapsibleContent,
   PropertyCollapsibleSection,
 } from '@polymind/component';
-import { BacklinkGroups } from '@polymind/core/blocksuite/block-suite-editor/bi-directional-link-panel';
+import { BacklinkGroups } from '@polymind/core/blockmind/block-suite-editor/bi-directional-link-panel';
 import { CreatePropertyMenuItems } from '@polymind/core/components/properties/menu/create-doc-property';
 import { WorkspacePropertyRow } from '@polymind/core/components/properties/table';
 import type { DocCustomPropertyInfo } from '@polymind/core/modules/db';

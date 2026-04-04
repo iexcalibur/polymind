@@ -10,7 +10,7 @@
   "references": [
     { "path": "../reader" },
     { "path": "../infra" },
-    { "path": "../../../blocksuite/polymind/all" },
+    { "path": "../../../blockmind/polymind/all" },
     { "path": "../error" },
     { "path": "../graphql" }
   ]

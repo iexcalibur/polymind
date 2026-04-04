@@ -1490,7 +1490,7 @@
   "com.polymind.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.name": "Mobilny widżet powiązanego dokumentu",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.description": "Umożliwia mobilne menu powiązanych dokumentów.",
   "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.name": "Włącz import i eksport migawki",
-  "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.description": "Po włączeniu użytkownicy mogą importować i eksportować migawki blocksuite.",
+  "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.description": "Po włączeniu użytkownicy mogą importować i eksportować migawki blockmind.",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-edgeless-editing.name": "Włącz edytowanie bez granic",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-edgeless-editing.description": "Po włączeniu użytkownicy mogą edytować kanwę bez granic.",
   "com.polymind.settings.workspace.experimental-features.enable-pdf-embed-preview.name": "Podgląd osadzonego PDF",

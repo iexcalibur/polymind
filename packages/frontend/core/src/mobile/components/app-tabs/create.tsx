@@ -1,4 +1,4 @@
-import { usePageHelper } from '@polymind/core/blocksuite/block-suite-page-list/utils';
+import { usePageHelper } from '@polymind/core/blockmind/block-suite-page-list/utils';
 import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
 import { DocsService } from '@polymind/core/modules/doc';
 import { TemplateDocService } from '@polymind/core/modules/template-doc';

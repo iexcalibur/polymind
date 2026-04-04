@@ -5,7 +5,7 @@ import {
   toast,
   useConfirmModal,
 } from '@polymind/component';
-import { usePageHelper } from '@polymind/core/blocksuite/block-suite-page-list/utils';
+import { usePageHelper } from '@polymind/core/blockmind/block-suite-page-list/utils';
 import { Guard } from '@polymind/core/components/guard';
 import { useAppSettingHelper } from '@polymind/core/components/hooks/polymind/use-app-setting-helper';
 import { useBlockSuiteMetaHelper } from '@polymind/core/components/hooks/polymind/use-block-suite-meta-helper';

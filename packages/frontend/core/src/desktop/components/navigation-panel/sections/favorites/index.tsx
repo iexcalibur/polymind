@@ -3,7 +3,7 @@ import {
   IconButton,
   useDropTarget,
 } from '@polymind/component';
-import { usePageHelper } from '@polymind/core/blocksuite/block-suite-page-list/utils';
+import { usePageHelper } from '@polymind/core/blockmind/block-suite-page-list/utils';
 import type { FavoriteSupportTypeUnion } from '@polymind/core/modules/favorite';
 import {
   FavoriteService,

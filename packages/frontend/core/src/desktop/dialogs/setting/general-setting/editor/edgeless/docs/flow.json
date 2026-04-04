@@ -13,7 +13,7 @@
     "version": 2,
     "props": {
       "title": {
-        "$blocksuite:internal:text$": true,
+        "$blockmind:internal:text$": true,
         "delta": [
           {
             "insert": "BlockSuite Playground"
@@ -35,7 +35,7 @@
               "color": "--affine-palette-line-black",
               "fillColor": "--affine-palette-shape-yellow",
               "filled": true,
-              "fontFamily": "blocksuite:surface:Inter",
+              "fontFamily": "blockmind:surface:Inter",
               "fontSize": 12,
               "maxWidth": false,
               "padding": [10, 20],
@@ -67,7 +67,7 @@
               "color": "--affine-palette-line-black",
               "fillColor": "--affine-palette-shape-yellow",
               "filled": true,
-              "fontFamily": "blocksuite:surface:Inter",
+              "fontFamily": "blockmind:surface:Inter",
               "fontSize": 12,
               "maxWidth": false,
               "padding": [10, 20],
@@ -99,7 +99,7 @@
               "color": "--affine-palette-line-black",
               "fillColor": "--affine-palette-shape-yellow",
               "filled": true,
-              "fontFamily": "blocksuite:surface:Inter",
+              "fontFamily": "blockmind:surface:Inter",
               "fontSize": 12,
               "maxWidth": false,
               "padding": [10, 20],
@@ -131,7 +131,7 @@
               "color": "--affine-palette-line-black",
               "fillColor": "--affine-palette-shape-yellow",
               "filled": true,
-              "fontFamily": "blocksuite:surface:Inter",
+              "fontFamily": "blockmind:surface:Inter",
               "fontSize": 12,
               "maxWidth": false,
               "padding": [10, 20],
@@ -163,7 +163,7 @@
               "color": "--affine-palette-line-black",
               "fillColor": "--affine-palette-shape-yellow",
               "filled": true,
-              "fontFamily": "blocksuite:surface:Inter",
+              "fontFamily": "blockmind:surface:Inter",
               "fontSize": 12,
               "maxWidth": false,
               "padding": [10, 20],
@@ -195,7 +195,7 @@
               "color": "--affine-palette-line-black",
               "fillColor": "--affine-palette-shape-yellow",
               "filled": true,
-              "fontFamily": "blocksuite:surface:Inter",
+              "fontFamily": "blockmind:surface:Inter",
               "fontSize": 12,
               "maxWidth": false,
               "padding": [10, 20],
@@ -227,7 +227,7 @@
               "color": "--affine-palette-line-black",
               "fillColor": "--affine-palette-shape-yellow",
               "filled": true,
-              "fontFamily": "blocksuite:surface:Inter",
+              "fontFamily": "blockmind:surface:Inter",
               "fontSize": 16,
               "maxWidth": false,
               "padding": [10, 20],
@@ -251,7 +251,7 @@
               "color": "--affine-palette-line-black",
               "fillColor": "--affine-palette-shape-yellow",
               "filled": true,
-              "fontFamily": "blocksuite:surface:Inter",
+              "fontFamily": "blockmind:surface:Inter",
               "fontSize": 16,
               "maxWidth": false,
               "padding": [10, 20],
@@ -413,7 +413,7 @@
               "xywh": "[30.80080405395168,20.987504771361614,71.2421875,56]",
               "index": "aE",
               "color": "--affine-palette-line-black",
-              "fontFamily": "blocksuite:surface:Inter",
+              "fontFamily": "blockmind:surface:Inter",
               "fontStyle": "normal",
               "fontWeight": "400",
               "textAlign": "left",
@@ -430,7 +430,7 @@
                 "props": {
                   "type": "text",
                   "text": {
-                    "$blocksuite:internal:text$": true,
+                    "$blockmind:internal:text$": true,
                     "delta": [
                       {
                         "insert": "Others"
@@ -449,7 +449,7 @@
             "version": 1,
             "props": {
               "title": {
-                "$blocksuite:internal:text$": true,
+                "$blockmind:internal:text$": true,
                 "delta": [
                   {
                     "insert": "Frame 1"

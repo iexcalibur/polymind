@@ -5,7 +5,7 @@ import {
   IconType,
   Modal,
 } from '@polymind/component';
-import { getStoreManager } from '@polymind/core/blocksuite/manager/store';
+import { getStoreManager } from '@polymind/core/blockmind/manager/store';
 import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
 import { useNavigateHelper } from '@polymind/core/components/hooks/use-navigate-helper';
 import {

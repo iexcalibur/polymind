@@ -5,14 +5,14 @@ import {
   observeResize,
   useDraggable,
 } from '@polymind/component';
-import { FavoriteButton } from '@polymind/core/blocksuite/block-suite-header/favorite';
-import { InfoButton } from '@polymind/core/blocksuite/block-suite-header/info';
-import { JournalWeekDatePicker } from '@polymind/core/blocksuite/block-suite-header/journal/date-picker';
-import { JournalTodayButton } from '@polymind/core/blocksuite/block-suite-header/journal/today-button';
-import { PageHeaderMenuButton } from '@polymind/core/blocksuite/block-suite-header/menu';
-import { DetailPageHeaderPresentButton } from '@polymind/core/blocksuite/block-suite-header/present/detail-header-present-button';
-import { BlocksuiteHeaderTitle } from '@polymind/core/blocksuite/block-suite-header/title';
-import { EditorModeSwitch } from '@polymind/core/blocksuite/block-suite-mode-switch';
+import { FavoriteButton } from '@polymind/core/blockmind/block-suite-header/favorite';
+import { InfoButton } from '@polymind/core/blockmind/block-suite-header/info';
+import { JournalWeekDatePicker } from '@polymind/core/blockmind/block-suite-header/journal/date-picker';
+import { JournalTodayButton } from '@polymind/core/blockmind/block-suite-header/journal/today-button';
+import { PageHeaderMenuButton } from '@polymind/core/blockmind/block-suite-header/menu';
+import { DetailPageHeaderPresentButton } from '@polymind/core/blockmind/block-suite-header/present/detail-header-present-button';
+import { BlocksuiteHeaderTitle } from '@polymind/core/blockmind/block-suite-header/title';
+import { EditorModeSwitch } from '@polymind/core/blockmind/block-suite-mode-switch';
 import { useRegisterCopyLinkCommands } from '@polymind/core/components/hooks/polymind/use-register-copy-link-commands';
 import { HeaderDivider } from '@polymind/core/components/pure/header';
 import { DocService } from '@polymind/core/modules/doc';

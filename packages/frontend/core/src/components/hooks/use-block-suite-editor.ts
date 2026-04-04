@@ -1,7 +1,7 @@
 import type { SetStateAction } from 'jotai';
 import { atom, useAtom } from 'jotai';
 
-import type { PolymindEditorContainer } from '../../blocksuite/block-suite-editor';
+import type { PolymindEditorContainer } from '../../blockmind/block-suite-editor';
 
 const activeEditorContainerAtom = atom<PolymindEditorContainer | null>(null);
 

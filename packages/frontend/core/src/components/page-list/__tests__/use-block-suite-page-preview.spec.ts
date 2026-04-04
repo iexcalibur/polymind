@@ -3,7 +3,7 @@
  */
 import 'fake-indexeddb/auto';
 
-import { getStoreManager } from '@polymind/core/blocksuite/manager/store';
+import { getStoreManager } from '@polymind/core/blockmind/manager/store';
 import { type Store, Text } from '@blockmind/polymind/store';
 import { TestWorkspace } from '@blockmind/polymind/store/test';
 import { renderHook } from '@testing-library/react';

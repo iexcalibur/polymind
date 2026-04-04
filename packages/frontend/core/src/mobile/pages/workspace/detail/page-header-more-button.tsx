@@ -5,7 +5,7 @@ import {
   MobileMenu,
   MobileMenuItem,
 } from '@polymind/component/ui/menu';
-import { useFavorite } from '@polymind/core/blocksuite/block-suite-header/favorite';
+import { useFavorite } from '@polymind/core/blockmind/block-suite-header/favorite';
 import { Guard, useGuard } from '@polymind/core/components/guard';
 import { IsFavoriteIcon } from '@polymind/core/components/pure/icons';
 import { DocInfoSheet } from '@polymind/core/mobile/components';

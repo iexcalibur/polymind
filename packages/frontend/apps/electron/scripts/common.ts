@@ -45,9 +45,9 @@ export const config = (): BuildOptions => {
 
         const { path, ...rest } = args;
 
-        // mark all blocksuite packages as side-effect free
+        // mark all blockmind packages as side-effect free
         // because they will include a lot of files that are not used in node_modules
-        if (rest.resolveDir.includes('blocksuite')) {
+        if (rest.resolveDir.includes('blockmind')) {
           rest.pluginData = true; // Avoid infinite recursion
           const result = await build.resolve(path, rest);
 

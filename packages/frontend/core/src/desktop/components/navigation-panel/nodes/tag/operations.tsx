@@ -1,5 +1,5 @@
 import { IconButton, MenuItem, MenuSeparator, toast } from '@polymind/component';
-import { usePageHelper } from '@polymind/core/blocksuite/block-suite-page-list/utils';
+import { usePageHelper } from '@polymind/core/blockmind/block-suite-page-list/utils';
 import { IsFavoriteIcon } from '@polymind/core/components/pure/icons';
 import { DocsService } from '@polymind/core/modules/doc';
 import { FavoriteService } from '@polymind/core/modules/favorite';

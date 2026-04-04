@@ -1,5 +1,5 @@
 import { type MenuProps } from '@polymind/component';
-import { usePageHelper } from '@polymind/core/blocksuite/block-suite-page-list/utils';
+import { usePageHelper } from '@polymind/core/blockmind/block-suite-page-list/utils';
 import { ExplorerDisplayMenuButton } from '@polymind/core/components/explorer/display-menu';
 import { ViewToggle } from '@polymind/core/components/explorer/display-menu/view-toggle';
 import type { DocListItemView } from '@polymind/core/components/explorer/docs-view/doc-list-item';

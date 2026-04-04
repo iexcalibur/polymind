@@ -15,10 +15,10 @@ vi.mock('@blockmind/polymind-components/context-menu', () => ({
   popupTargetFromElement: (el: any) => el,
 }));
 
-import { SingleViewBase } from '../../../../../blocksuite/polymind/data-view/src/core/view-manager/single-view.js';
-import { MobileKanbanViewUILogic } from '../../../../../blocksuite/polymind/data-view/src/view-presets/kanban/mobile/kanban-view-ui-logic.js';
-import { popCardMenu } from '../../../../../blocksuite/polymind/data-view/src/view-presets/kanban/mobile/menu.js';
-import { popMobileRowMenu } from '../../../../../blocksuite/polymind/data-view/src/view-presets/table/mobile/menu.js';
+import { SingleViewBase } from '../../../../../blockmind/polymind/data-view/src/core/view-manager/single-view.js';
+import { MobileKanbanViewUILogic } from '../../../../../blockmind/polymind/data-view/src/view-presets/kanban/mobile/kanban-view-ui-logic.js';
+import { popCardMenu } from '../../../../../blockmind/polymind/data-view/src/view-presets/kanban/mobile/menu.js';
+import { popMobileRowMenu } from '../../../../../blockmind/polymind/data-view/src/view-presets/table/mobile/menu.js';
 
 class TestView extends SingleViewBase {
   detailProperties$ = computed(() => []);

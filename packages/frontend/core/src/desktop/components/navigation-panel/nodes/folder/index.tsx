@@ -9,7 +9,7 @@ import {
   MenuSub,
   notify,
 } from '@polymind/component';
-import { usePageHelper } from '@polymind/core/blocksuite/block-suite-page-list/utils';
+import { usePageHelper } from '@polymind/core/blockmind/block-suite-page-list/utils';
 import { WorkspaceDialogService } from '@polymind/core/modules/dialogs';
 import { CompatibleFavoriteItemsAdapter } from '@polymind/core/modules/favorite';
 import { FeatureFlagService } from '@polymind/core/modules/feature-flag';

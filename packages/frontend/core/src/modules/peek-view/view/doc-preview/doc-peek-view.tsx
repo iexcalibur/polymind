@@ -1,8 +1,8 @@
 import { Scrollable } from '@polymind/component';
 import { PageDetailLoading } from '@polymind/component/page-detail-skeleton';
-import { type AIChatParams, AIProvider } from '@polymind/core/blocksuite/ai';
-import type { PolymindEditorContainer } from '@polymind/core/blocksuite/block-suite-editor';
-import { EditorOutlineViewer } from '@polymind/core/blocksuite/outline-viewer';
+import { type AIChatParams, AIProvider } from '@polymind/core/blockmind/ai';
+import type { PolymindEditorContainer } from '@polymind/core/blockmind/block-suite-editor';
+import { EditorOutlineViewer } from '@polymind/core/blockmind/outline-viewer';
 import { PolymindErrorBoundary } from '@polymind/core/components/polymind/polymind-error-boundary';
 import { useGuard } from '@polymind/core/components/guard';
 import { PageNotFound } from '@polymind/core/desktop/pages/404';
@@ -32,7 +32,7 @@ const logger = new DebugLogger('doc-peek-view');
 
 // Lazy load BlockSuiteEditor to break circular dependency
 const BlockSuiteEditor = lazy(() =>
-  import('@polymind/core/blocksuite/block-suite-editor').then(module => ({
+  import('@polymind/core/blockmind/block-suite-editor').then(module => ({
     default: module.BlockSuiteEditor,
   }))
 );

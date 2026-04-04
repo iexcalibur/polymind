@@ -1,4 +1,4 @@
-import { NoPageRootError } from '@polymind/core/blocksuite/block-suite-editor/no-page-error';
+import { NoPageRootError } from '@polymind/core/blockmind/block-suite-editor/no-page-error';
 import { useI18n } from '@polymind/i18n';
 
 import { ContactUS, ErrorDetail } from '../error-basic/error-detail';

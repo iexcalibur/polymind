@@ -1469,7 +1469,7 @@
   "com.polymind.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.name": "Widget de documento vinculado móvil",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.description": "Habilita el menú de documentos vinculados móviles.",
   "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.name": "Habilitar importación/exportación de instantáneas",
-  "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.description": "Una vez habilitado, los usuarios pueden importar y exportar instantáneas de blocksuite.",
+  "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.description": "Una vez habilitado, los usuarios pueden importar y exportar instantáneas de blockmind.",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-edgeless-editing.name": "Habilitar edición sin bordes",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-edgeless-editing.description": "Una vez habilitado, los usuarios pueden editar el lienzo sin bordes.",
   "com.polymind.settings.workspace.experimental-features.enable-pdf-embed-preview.name": "Vista previa de la incrustación de PDF",

@@ -27,8 +27,8 @@ import {
 } from 'react';
 import { encodeStateAsUpdate } from 'yjs';
 
-import { BlockSuiteEditor } from '../../../blocksuite/block-suite-editor';
-import { PureEditorModeSwitch } from '../../../blocksuite/block-suite-mode-switch';
+import { BlockSuiteEditor } from '../../../blockmind/block-suite-editor';
+import { PureEditorModeSwitch } from '../../../blockmind/block-suite-mode-switch';
 import { pageHistoryModalAtom } from '../../atoms/page-history';
 import { useGuard } from '../../guard';
 import { PolymindErrorBoundary } from '../polymind-error-boundary';

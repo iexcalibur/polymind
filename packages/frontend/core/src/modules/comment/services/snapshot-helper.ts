@@ -1,4 +1,4 @@
-import { getStoreManager } from '@polymind/core/blocksuite/manager/store';
+import { getStoreManager } from '@polymind/core/blockmind/manager/store';
 import { toArrayBuffer } from '@polymind/core/utils/array-buffer';
 import { Container } from '@blockmind/polymind/global/di';
 import {

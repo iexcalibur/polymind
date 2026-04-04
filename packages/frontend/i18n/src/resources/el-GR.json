@@ -1467,7 +1467,7 @@
   "com.polymind.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.name": "Κινητό Widget Συνδεδεμένου Εγγράφου",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-linked-doc-menu.description": "Ενεργοποιεί το μενού συνδεδεμένου εγγράφου κινητής συσκευής.",
   "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.name": "Ενεργοποίηση Εισαγωγής Εξαγωγής Στιγμιότυπου",
-  "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.description": "Μόλις ενεργοποιηθεί, οι χρήστες μπορούν να εισάγουν και να εξάγουν στιγμιότυπα blocksuite.",
+  "com.polymind.settings.workspace.experimental-features.enable-snapshot-import-export.description": "Μόλις ενεργοποιηθεί, οι χρήστες μπορούν να εισάγουν και να εξάγουν στιγμιότυπα blockmind.",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-edgeless-editing.name": "Ενεργοποίηση Επεξεργασίας Χωρίς Όρια",
   "com.polymind.settings.workspace.experimental-features.enable-mobile-edgeless-editing.description": "Μόλις ενεργοποιηθεί, οι χρήστες μπορούν να επεξεργαστούν τον καμβά χωρίς όρια.",
   "com.polymind.settings.workspace.experimental-features.enable-pdf-embed-preview.name": "Προεπισκόπηση ενσωμάτωσης PDF",

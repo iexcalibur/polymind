@@ -1,5 +1,5 @@
 import { Button, IconButton, Menu, MenuItem, MenuSub } from '@polymind/component';
-import { usePageHelper } from '@polymind/core/blocksuite/block-suite-page-list/utils';
+import { usePageHelper } from '@polymind/core/blockmind/block-suite-page-list/utils';
 import { useAsyncCallback } from '@polymind/core/components/hooks/affine-async-hooks';
 import { DocsService } from '@polymind/core/modules/doc';
 import { EditorSettingService } from '@polymind/core/modules/editor-setting';

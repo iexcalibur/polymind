@@ -13,7 +13,7 @@
     "version": 2,
     "props": {
       "title": {
-        "$blocksuite:internal:text$": true,
+        "$blockmind:internal:text$": true,
         "delta": [
           {
             "insert": "BlockSuite Playground"
@@ -35,7 +35,7 @@
               "color": "#000000",
               "fillColor": "#fcd34d",
               "filled": true,
-              "fontFamily": "blocksuite:surface:Inter",
+              "fontFamily": "blockmind:surface:Inter",
               "fontSize": 12,
               "maxWidth": false,
               "padding": [10, 20],
@@ -59,7 +59,7 @@
               "color": "#000000",
               "fillColor": "#fcd34d",
               "filled": true,
-              "fontFamily": "blocksuite:surface:Inter",
+              "fontFamily": "blockmind:surface:Inter",
               "fontSize": 12,
               "maxWidth": false,
               "padding": [10, 20],
@@ -83,7 +83,7 @@
               "color": "#000000",
               "fillColor": "#fcd34d",
               "filled": true,
-              "fontFamily": "blocksuite:surface:Inter",
+              "fontFamily": "blockmind:surface:Inter",
               "fontSize": 12,
               "maxWidth": false,
               "padding": [10, 20],
@@ -107,7 +107,7 @@
               "color": "#000000",
               "fillColor": "#fcd34d",
               "filled": true,
-              "fontFamily": "blocksuite:surface:Inter",
+              "fontFamily": "blockmind:surface:Inter",
               "fontSize": 12,
               "maxWidth": false,
               "padding": [10, 20],
@@ -131,7 +131,7 @@
               "color": "#000000",
               "fillColor": "#fcd34d",
               "filled": true,
-              "fontFamily": "blocksuite:surface:Inter",
+              "fontFamily": "blockmind:surface:Inter",
               "fontSize": 12,
               "maxWidth": false,
               "padding": [10, 20],
@@ -159,7 +159,7 @@
             "version": 1,
             "props": {
               "title": {
-                "$blocksuite:internal:text$": true,
+                "$blockmind:internal:text$": true,
                 "delta": [
                   {
                     "insert": "Shapes"

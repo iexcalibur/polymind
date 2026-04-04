@@ -1,8 +1,8 @@
 import {
   TranscriptionBlockFlavour,
   type TranscriptionBlockModel,
-} from '@polymind/core/blocksuite/ai/blocks/transcription-block/model';
-import { insertFromMarkdown } from '@polymind/core/blocksuite/utils';
+} from '@polymind/core/blockmind/ai/blocks/transcription-block/model';
+import { insertFromMarkdown } from '@polymind/core/blockmind/utils';
 import { toArrayBuffer } from '@polymind/core/utils/array-buffer';
 import { encodeAudioBlobToOpusSlices } from '@polymind/core/utils/opus-encoding';
 import { DebugLogger } from '@polymind/debug';

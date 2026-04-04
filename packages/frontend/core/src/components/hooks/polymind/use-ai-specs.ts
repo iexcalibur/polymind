@@ -1,5 +1,5 @@
 import { useConfirmModal, useLitPortalFactory } from '@polymind/component';
-import { getViewManager } from '@polymind/core/blocksuite/manager/view';
+import { getViewManager } from '@polymind/core/blockmind/manager/view';
 import { FeatureFlagService } from '@polymind/core/modules/feature-flag';
 import { WorkspaceService } from '@polymind/core/modules/workspace';
 import { useFramework, useLiveData, useServices } from '@toeverything/infra';

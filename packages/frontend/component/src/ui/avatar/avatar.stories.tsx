@@ -29,7 +29,7 @@ export const ColorfulFallback: StoryFn<AvatarProps> = Template.bind(undefined);
 ColorfulFallback.args = {
   size: 50,
   colorfulFallback: true,
-  name: 'blocksuite',
+  name: 'blockmind',
 };
 export const ColorfulFallbackWithDifferentSize: StoryFn<AvatarProps> = args => (
   <>

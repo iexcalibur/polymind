@@ -1,5 +1,5 @@
-import { AIChatBlockSchema } from '@polymind/core/blocksuite/ai/blocks/ai-chat-block/model';
-import { TranscriptionBlockSchema } from '@polymind/core/blocksuite/ai/blocks/transcription-block/model';
+import { AIChatBlockSchema } from '@polymind/core/blockmind/ai/blocks/ai-chat-block/model';
+import { TranscriptionBlockSchema } from '@polymind/core/blockmind/ai/blocks/transcription-block/model';
 import { PolymindSchemas } from '@blockmind/polymind/schemas';
 import { Schema } from '@blockmind/polymind/store';
 
