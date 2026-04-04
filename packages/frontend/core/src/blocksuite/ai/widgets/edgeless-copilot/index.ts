@@ -235,7 +235,8 @@ export class EdgelessCopilotWidget extends WidgetComponent<RootBlockModel> {
   override connectedCallback(): void {
     super.connectedCallback();
 
-    const CopilotSelectionTool = this.gfx.tool.get(CopilotTool);
+    const CopilotSelectionTool = this.gfx.tool.getOptional(CopilotTool);
+    if (!CopilotSelectionTool) return;
 
     this._disposables.add(
       CopilotSelectionTool.draggingAreaUpdated.subscribe(shouldShowPanel => {

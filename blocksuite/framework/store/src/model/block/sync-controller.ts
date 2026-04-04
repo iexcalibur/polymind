@@ -260,7 +260,7 @@ export class SyncController {
         return;
       }
       if (key === 'sys:flavour' && typeof value === 'string') {
-        flavour = value;
+        flavour = this.schema.resolveFlavour(value);
         return;
       }
       if (key === 'sys:children' && value instanceof Y.Array) {

@@ -558,6 +558,10 @@ export class ToolController extends GfxExtension {
     return instance;
   };
 
+  getOptional = <T extends BaseTool>(type: ToolType<T>): T | undefined => {
+    return this._tools.get(type.toolName) as T | undefined;
+  };
+
   override mounted(): void {
     const { addHook } = this._initializeEvents();
 
