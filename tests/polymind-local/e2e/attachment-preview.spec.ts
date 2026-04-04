@@ -51,7 +51,7 @@ test('attachment preview should be shown', async ({ page }) => {
 
   await importAttachment(page, 'lorem-ipsum.pdf');
 
-  await page.locator('polymind-attachment').first().dblclick();
+  await page.locator('affine-attachment').first().dblclick();
 
   const attachmentViewer = page.getByTestId('pdf-viewer');
   await expect(attachmentViewer).toBeVisible();
@@ -89,7 +89,7 @@ test('attachment preview can be expanded', async ({ page }) => {
 
   await importAttachment(page, 'lorem-ipsum.pdf');
 
-  await page.locator('polymind-attachment').first().dblclick();
+  await page.locator('affine-attachment').first().dblclick();
 
   const attachmentViewer = page.getByTestId('pdf-viewer');
 
@@ -140,7 +140,7 @@ test('should preview PDF in embed view', async ({ page }) => {
 
   await importAttachment(page, 'lorem-ipsum.pdf');
 
-  const attachment = page.locator('polymind-attachment');
+  const attachment = page.locator('affine-attachment');
   await attachment.click();
 
   const toolbar = locateToolbar(page);
@@ -190,7 +190,7 @@ test('should preview PDF in embed view', async ({ page }) => {
     const doc1 = page.locator('.linked-doc-popover').getByText('PDF page');
     await doc1.click();
 
-    const inlineLink = page.locator('polymind-reference').nth(0);
+    const inlineLink = page.locator('affine-reference').nth(0);
     const inlineTitle = inlineLink.locator('.affine-reference-title');
 
     await expect(inlineTitle).toHaveText('PDF preview');
@@ -220,7 +220,7 @@ test('should preview PDF in embed view', async ({ page }) => {
 
   // Chagnes origin title
   {
-    const inlineLink = page.locator('polymind-reference').nth(1);
+    const inlineLink = page.locator('affine-reference').nth(1);
     const inlineTitle = inlineLink.locator('.affine-reference-title');
     await expect(inlineTitle).toHaveText('PDF page');
 
@@ -246,7 +246,7 @@ test('should sync name in pdf embed view', async ({ page }) => {
 
   await importAttachment(page, 'lorem-ipsum.pdf');
 
-  const attachment = page.locator('polymind-attachment');
+  const attachment = page.locator('affine-attachment');
   await attachment.click();
 
   const toolbar = locateToolbar(page);
@@ -303,7 +303,7 @@ test('should enable pointer event in pdf viewer', async ({ page }) => {
 
   await importAttachment(page, 'lorem-ipsum.pdf');
 
-  const attachment = page.locator('polymind-attachment');
+  const attachment = page.locator('affine-attachment');
   await attachment.click();
 
   const attachmentSelection = attachment.locator(
@@ -360,7 +360,7 @@ test('should re-render pdf viewer', async ({ page }) => {
 
   await importAttachment(page, 'lorem-ipsum.pdf');
 
-  const attachment = page.locator('polymind-attachment');
+  const attachment = page.locator('affine-attachment');
   await attachment.click();
 
   const toolbar = locateToolbar(page);
@@ -401,7 +401,7 @@ test('should display status when an error is thrown in peek view', async ({
 
   await importAttachment(page, 'lorem-ipsum.pdf');
 
-  const attachment = page.locator('polymind-attachment');
+  const attachment = page.locator('affine-attachment');
   await attachment.click();
 
   const toolbar = locateToolbar(page);
@@ -434,7 +434,7 @@ test('should display 404 when attachment is not found', async ({ page }) => {
 
   await importAttachment(page, 'lorem-ipsum.pdf');
 
-  const attachment = page.locator('polymind-attachment');
+  const attachment = page.locator('affine-attachment');
   await attachment.click();
 
   const toolbar = locateToolbar(page);

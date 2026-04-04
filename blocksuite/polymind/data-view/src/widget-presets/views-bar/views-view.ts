@@ -181,7 +181,7 @@ export class DataViewHeaderViews extends WidgetBase {
                 name: 'Edit View',
                 prefix: InfoIcon(),
                 select: () => {
-                  this.closest('polymind-data-view-renderer')
+                  this.closest('affine-data-view-renderer')
                     ?.querySelector('data-view-header-tools-view-options')
                     ?.openMoreAction(target);
                 },

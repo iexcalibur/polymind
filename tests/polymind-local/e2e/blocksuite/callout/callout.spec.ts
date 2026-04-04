@@ -16,22 +16,22 @@ test.beforeEach(async ({ page }) => {
   await openHomePage(page);
   await clickNewPageButton(page);
   await waitForEmptyEditor(page);
-  await page.locator('polymind-paragraph v-line div').click();
+  await page.locator('affine-paragraph v-line div').click();
 });
 
 test('add callout block using slash menu and change emoji', async ({
   page,
 }) => {
   await type(page, '/callout\naaaa\nbbbb');
-  const callout = page.locator('polymind-callout');
-  const emoji = page.locator('polymind-callout').getByTestId('callout-emoji');
+  const callout = page.locator('affine-callout');
+  const emoji = page.locator('affine-callout').getByTestId('callout-emoji');
   await expect(callout).toBeVisible();
   await expect(emoji).toContainText('💡');
 
-  const paragraph = page.locator('polymind-callout affine-paragraph');
+  const paragraph = page.locator('affine-callout affine-paragraph');
   await expect(paragraph).toHaveCount(2);
 
-  const vLine = page.locator('polymind-callout v-line');
+  const vLine = page.locator('affine-callout v-line');
   await expect(vLine).toHaveCount(2);
   expect(await vLine.nth(0).innerText()).toBe('aaaa');
   expect(await vLine.nth(1).innerText()).toBe('bbbb');
@@ -43,8 +43,8 @@ test('press backspace after callout block', async ({ page }) => {
   await type(page, '/callout\n');
   await pressArrowDown(page);
 
-  const paragraph = page.locator('polymind-paragraph');
-  const callout = page.locator('polymind-callout');
+  const paragraph = page.locator('affine-paragraph');
+  const callout = page.locator('affine-callout');
   expect(await paragraph.count()).toBe(3);
   expect(await callout.count()).toBe(1);
 
@@ -58,8 +58,8 @@ test('press backspace after callout block', async ({ page }) => {
 });
 
 test('press backspace in callout block', async ({ page }) => {
-  const paragraph = page.locator('polymind-paragraph');
-  const callout = page.locator('polymind-callout');
+  const paragraph = page.locator('affine-paragraph');
+  const callout = page.locator('affine-callout');
 
   await type(page, '/callout\n');
 

@@ -190,7 +190,7 @@ export class ChatCopyMore extends WithDisposable(LitElement) {
               data-testid="action-copy-button"
             >
               ${CopyIcon({ width: '20px', height: '20px' })}
-              <polymind-tooltip>Copy</polymind-tooltip>
+              <affine-tooltip>Copy</affine-tooltip>
             </div>`
           : nothing}
         ${isLast
@@ -200,7 +200,7 @@ export class ChatCopyMore extends WithDisposable(LitElement) {
               data-testid="action-retry-button"
             >
               ${ResetIcon({ width: '20px', height: '20px' })}
-              <polymind-tooltip .autoShift=${true}>Retry</polymind-tooltip>
+              <affine-tooltip .autoShift=${true}>Retry</affine-tooltip>
             </div>`
           : nothing}
         ${showMoreIcon && host

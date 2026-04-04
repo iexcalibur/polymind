@@ -87,16 +87,16 @@ export class PolymindLinkedDocWidget extends WidgetComponent<RootBlockModel> {
   private readonly _renderLinkedDocMenu = () => {
     if (!this.block?.rootComponent) return nothing;
 
-    return html`<polymind-mobile-linked-doc-menu
+    return html`<affine-mobile-linked-doc-menu
       .context=${this._context}
       .rootComponent=${this.block.rootComponent}
-    ></polymind-mobile-linked-doc-menu>`;
+    ></affine-mobile-linked-doc-menu>`;
   };
 
   private readonly _renderLinkedDocPopover = () => {
-    return html`<polymind-linked-doc-popover
+    return html`<affine-linked-doc-popover
       .context=${this._context}
-    ></polymind-linked-doc-popover>`;
+    ></affine-linked-doc-popover>`;
   };
 
   private _renderInputMask() {

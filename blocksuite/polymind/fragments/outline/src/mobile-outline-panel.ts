@@ -25,7 +25,7 @@ import {
   scrollToBlockWithHighlight,
 } from './utils/scroll.js';
 
-export const AFFINE_MOBILE_OUTLINE_MENU = 'polymind-mobile-outline-menu';
+export const AFFINE_MOBILE_OUTLINE_MENU = 'affine-mobile-outline-menu';
 
 @requiredProperties({
   editor: PropTypes.object,

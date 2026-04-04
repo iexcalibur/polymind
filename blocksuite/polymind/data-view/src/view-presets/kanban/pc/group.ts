@@ -170,12 +170,12 @@ export class KanbanGroup extends SignalWatcher(
           row => row.rowId,
           row => {
             return html`
-              <polymind-data-view-kanban-card
+              <affine-data-view-kanban-card
                 data-card-id="${row.rowId}"
                 .groupKey="${this.group.key}"
                 .kanbanViewLogic="${this.kanbanViewLogic}"
                 .cardId="${row.rowId}"
-              ></polymind-data-view-kanban-card>
+              ></affine-data-view-kanban-card>
             `;
           }
         )}
@@ -206,6 +206,6 @@ export class KanbanGroup extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-data-view-kanban-group': KanbanGroup;
+    'affine-data-view-kanban-group': KanbanGroup;
   }
 }

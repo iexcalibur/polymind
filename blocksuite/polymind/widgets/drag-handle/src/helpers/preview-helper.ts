@@ -117,7 +117,7 @@ export class PreviewHelper {
     // oxlint-disable-next-line no-unassigned-vars
     let height;
 
-    const noteBlock = this.widget.host.querySelector('polymind-note');
+    const noteBlock = this.widget.host.querySelector('affine-note');
     width = noteBlock?.offsetWidth ?? noteBlock?.clientWidth ?? 500;
 
     return {

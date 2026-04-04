@@ -14,7 +14,7 @@ import { property } from 'lit/decorators.js';
  *     }
  *
  *   render() {
- *      return html`<polymind-block-selection></polymind-block-selection>
+ *      return html`<affine-block-selection></affine-block-selection>
  *   };
  * }
  * ```
@@ -64,6 +64,6 @@ export class BlockSelection extends SignalWatcher(LitElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-block-selection': BlockSelection;
+    'affine-block-selection': BlockSelection;
   }
 }

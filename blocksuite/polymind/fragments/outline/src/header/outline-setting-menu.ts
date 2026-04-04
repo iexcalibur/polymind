@@ -7,7 +7,7 @@ import { type TocContext, tocContext } from '../config';
 import * as styles from './outline-setting-menu.css';
 
 export const AFFINE_OUTLINE_NOTE_PREVIEW_SETTING_MENU =
-  'polymind-outline-note-preview-setting-menu';
+  'affine-outline-note-preview-setting-menu';
 
 export class OutlineNotePreviewSettingMenu extends SignalWatcher(
   WithDisposable(ShadowlessElement)

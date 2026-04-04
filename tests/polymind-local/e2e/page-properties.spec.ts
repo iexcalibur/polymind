@@ -303,7 +303,7 @@ test('can show database backlink info', async ({ page }) => {
   await addDatabase(page, databaseTitle);
   await addColumn(page, 'select', 2);
 
-  await expect(page.locator('polymind-database-title')).toContainText(
+  await expect(page.locator('affine-database-title')).toContainText(
     databaseTitle
   );
 

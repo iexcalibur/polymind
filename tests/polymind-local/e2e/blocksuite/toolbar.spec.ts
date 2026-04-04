@@ -54,7 +54,7 @@ test('should toggle toolbar when dragging page area', async ({ page }) => {
   await expect(toolbar).toBeVisible();
   await expect(toolbar).toBeInViewport();
 
-  const paragraph = page.locator('polymind-note affine-paragraph').nth(0);
+  const paragraph = page.locator('affine-note affine-paragraph').nth(0);
   const bounds = await paragraph.boundingBox();
 
   expect(bounds).toBeTruthy();
@@ -81,19 +81,19 @@ test.describe('Formatting', () => {
     await page.keyboard.press('Shift+ArrowLeft');
 
     const toolbar = locateToolbar(page);
-    const highlightButton = toolbar.locator('polymind-highlight-duotone-icon');
+    const highlightButton = toolbar.locator('affine-highlight-duotone-icon');
 
     await highlightButton.click();
 
     const fgGreenButton = toolbar.locator('[data-testid="foreground-green"]');
     await fgGreenButton.click();
     const fgColor = await fgGreenButton
-      .locator('polymind-text-duotone-icon')
+      .locator('affine-text-duotone-icon')
       .evaluate(e => window.getComputedStyle(e).getPropertyValue('--color'));
 
-    const paragraph = page.locator('polymind-paragraph');
+    const paragraph = page.locator('affine-paragraph');
     const textSpan = paragraph
-      .locator('polymind-text:has-text("rld")')
+      .locator('affine-text:has-text("rld")')
       .locator('span')
       .first();
 
@@ -111,7 +111,7 @@ test.describe('Formatting', () => {
     await page.keyboard.press('Shift+ArrowLeft');
 
     const toolbar = locateToolbar(page);
-    const highlightButton = toolbar.locator('polymind-highlight-duotone-icon');
+    const highlightButton = toolbar.locator('affine-highlight-duotone-icon');
 
     await highlightButton.click();
 
@@ -121,12 +121,12 @@ test.describe('Formatting', () => {
     await page.waitForTimeout(200);
 
     const fgColor = await fgGreenButton
-      .locator('polymind-text-duotone-icon')
+      .locator('affine-text-duotone-icon')
       .evaluate(e => window.getComputedStyle(e).getPropertyValue('--color'));
 
-    const paragraph = page.locator('polymind-paragraph');
+    const paragraph = page.locator('affine-paragraph');
     const textSpan1 = paragraph
-      .locator('polymind-text:has-text("rld")')
+      .locator('affine-text:has-text("rld")')
       .locator('span')
       .first();
 
@@ -145,7 +145,7 @@ test.describe('Formatting', () => {
     await bgYellowButton.click();
 
     const textSpan2 = paragraph
-      .locator('polymind-text:has-text("wo")')
+      .locator('affine-text:has-text("wo")')
       .locator('span')
       .first();
 
@@ -158,7 +158,7 @@ test.describe('Formatting', () => {
     expect(yellow).toBe(bgColor2);
 
     const bgColor = await bgYellowButton
-      .locator('polymind-text-duotone-icon')
+      .locator('affine-text-duotone-icon')
       .evaluate(e =>
         window.getComputedStyle(e).getPropertyValue('--background')
       );
@@ -210,18 +210,18 @@ test('should not show inner toolbar of surface-ref in note under edgeless', asyn
 
   const toolbar = locateToolbar(page);
 
-  const surfaceRef = page.locator('polymind-surface-ref');
+  const surfaceRef = page.locator('affine-surface-ref');
   await surfaceRef.hover();
 
   await expect(toolbar).toBeVisible();
 
   await clickEdgelessModeButton(page);
 
-  const note = page.locator('polymind-edgeless-note');
+  const note = page.locator('affine-edgeless-note');
   await note.click();
   await note.click();
 
-  const edgelessSurfaceRef = note.locator('polymind-edgeless-surface-ref');
+  const edgelessSurfaceRef = note.locator('affine-edgeless-surface-ref');
   await edgelessSurfaceRef.hover();
 
   await expect(toolbar).toBeHidden();
@@ -242,9 +242,9 @@ test('should show toolbar when inline link is preceded by image or surface-ref',
 }) => {
   await page.keyboard.press('Enter');
 
-  await importImage(page, 'polymind-preview.png');
+  await importImage(page, 'affine-preview.png');
 
-  const image = page.locator('polymind-image');
+  const image = page.locator('affine-image');
   await image.click();
 
   await page.keyboard.press('Enter');
@@ -255,7 +255,7 @@ test('should show toolbar when inline link is preceded by image or surface-ref',
 
   const toolbar = locateToolbar(page);
 
-  const inlineLink = page.locator('polymind-reference');
+  const inlineLink = page.locator('affine-reference');
 
   await inlineLink.hover();
   await expect(toolbar).toBeVisible();
@@ -279,7 +279,7 @@ test('should focus on input of popover on toolbar', async ({ page }) => {
 
   await expect(toolbar).toBeHidden();
 
-  const note = page.locator('polymind-edgeless-note').first();
+  const note = page.locator('affine-edgeless-note').first();
 
   await note.click();
 
@@ -327,7 +327,7 @@ test('Dropdown menus should be closed automatically when toolbar is displayed', 
 
   const toolbar = locateToolbar(page);
 
-  const surfaceRef = page.locator('polymind-surface-ref');
+  const surfaceRef = page.locator('affine-surface-ref');
   await surfaceRef.hover();
 
   await expect(toolbar).toBeVisible();
@@ -374,7 +374,7 @@ test.describe('Toolbar More Actions', () => {
     await page.keyboard.press('Enter');
 
     await importImage(page, 'large-image.png');
-    const images = page.locator('polymind-page-image');
+    const images = page.locator('affine-page-image');
 
     const firstImage = images.first();
     const firstImageUrl = await firstImage.locator('img').getAttribute('src');

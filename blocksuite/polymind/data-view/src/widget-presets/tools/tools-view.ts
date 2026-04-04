@@ -46,7 +46,7 @@ export class DataViewHeaderTools extends WidgetBase {
   override render() {
     const classList = classMap({
       'show-toolbar': IS_MOBILE,
-      'polymind-database-toolbar': true,
+      'affine-database-toolbar': true,
     });
     const tools = this.toolsMap[this.view.type];
     return html` <div class="${classList}">

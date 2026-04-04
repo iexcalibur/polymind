@@ -6,7 +6,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { literal, unsafeStatic } from 'lit/static-html.js';
 
-export const AFFINE_VIEWPORT_OVERLAY_WIDGET = 'polymind-viewport-overlay-widget';
+export const AFFINE_VIEWPORT_OVERLAY_WIDGET = 'affine-viewport-overlay-widget';
 
 export class PolymindViewportOverlayWidget extends WidgetComponent<RootBlockModel> {
   static override styles = css`
@@ -55,7 +55,7 @@ export class PolymindViewportOverlayWidget extends WidgetComponent<RootBlockMode
 
   override render() {
     const classes = classMap({
-      'polymind-viewport-overlay-widget': true,
+      'affine-viewport-overlay-widget': true,
       lock: this._lockViewport,
     });
     const style = styleMap({

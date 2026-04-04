@@ -147,7 +147,7 @@ test.describe('auto-complete', () => {
       await noteButton.click();
       await waitNextFrame(page);
 
-      const edgelessNote = page.locator('polymind-edgeless-note');
+      const edgelessNote = page.locator('affine-edgeless-note');
 
       expect(await edgelessNote.count()).toBe(1);
       const [x, y] = await toViewCoord(page, [240, 20]);
@@ -157,7 +157,7 @@ test.describe('auto-complete', () => {
       await assertRichTexts(page, ['hello']);
 
       const noteId = await page.evaluate(() => {
-        const note = document.body.querySelector('polymind-edgeless-note');
+        const note = document.body.querySelector('affine-edgeless-note');
         return note?.getAttribute('data-block-id');
       });
       if (!noteId) {
@@ -222,7 +222,7 @@ test.describe('auto-complete', () => {
       await waitNextFrame(page);
 
       const noteId2 = await page.evaluate(() => {
-        const note = document.body.querySelectorAll('polymind-edgeless-note')[1];
+        const note = document.body.querySelectorAll('affine-edgeless-note')[1];
         return note?.getAttribute('data-block-id');
       });
       if (!noteId2) {

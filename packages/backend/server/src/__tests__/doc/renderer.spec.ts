@@ -26,8 +26,8 @@ function initTestStaticFiles(staticPath: string) {
       gitHash: '',
       description: '',
     }),
-    'admin/main.b.js': `const name = 'polymind-admin'`,
-    'mobile/main.c.js': `const name = 'polymind-mobile'`,
+    'admin/main.b.js': `const name = 'affine-admin'`,
+    'mobile/main.c.js': `const name = 'affine-mobile'`,
     'mobile/assets-manifest.json': JSON.stringify({
       js: ['main.c.js'],
       css: [],

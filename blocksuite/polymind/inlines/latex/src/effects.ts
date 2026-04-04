@@ -5,12 +5,12 @@ import { PolymindLatexNode } from './latex-node/latex-node';
 export function effects() {
   customElements.define('latex-editor-menu', LatexEditorMenu);
   customElements.define('latex-editor-unit', LatexEditorUnit);
-  customElements.define('polymind-latex-node', PolymindLatexNode);
+  customElements.define('affine-latex-node', PolymindLatexNode);
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-latex-node': PolymindLatexNode;
+    'affine-latex-node': PolymindLatexNode;
     'latex-editor-unit': LatexEditorUnit;
     'latex-editor-menu': LatexEditorMenu;
   }

@@ -14,14 +14,14 @@ test.describe('Code Block Autocomplete Operations', () => {
     // open the home page and insert the code block
     await initCodeBlockByOneStep(page);
     await page.keyboard.type('<');
-    const codeUnit = page.locator('polymind-code-unit');
+    const codeUnit = page.locator('affine-code-unit');
     await expect(codeUnit).toHaveText('<');
   });
 });
 
 test.describe('Code Block Preview', () => {
   test('enable html preview', async ({ page }) => {
-    const code = page.locator('polymind-code');
+    const code = page.locator('affine-code');
 
     await openHomePage(page);
     await createNewPage(page);
@@ -44,7 +44,7 @@ test.describe('Code Block Preview', () => {
   });
 
   test('enable mermaid preview', async ({ page }) => {
-    const code = page.locator('polymind-code');
+    const code = page.locator('affine-code');
     const mermaidSvg = page.locator('mermaid-preview .mermaid-preview-svg svg');
 
     await openHomePage(page);
@@ -63,7 +63,7 @@ test.describe('Code Block Preview', () => {
   });
 
   test('enable typst preview', async ({ page }) => {
-    const code = page.locator('polymind-code');
+    const code = page.locator('affine-code');
     const typstPreview = page.locator('typst-preview');
 
     await openHomePage(page);
@@ -82,8 +82,8 @@ test.describe('Code Block Preview', () => {
   });
 
   test('change lang without preview', async ({ page }) => {
-    const code = page.locator('polymind-code');
-    const preview = page.locator('polymind-code .affine-code-block-preview');
+    const code = page.locator('affine-code');
+    const preview = page.locator('affine-code .affine-code-block-preview');
 
     await openHomePage(page);
     await createNewPage(page);

@@ -433,7 +433,7 @@ export class AttachmentBlockComponent extends CaptionedBlockComponent<Attachment
     const cardStyle = this.model.props.style$.value ?? AttachmentBlockStyles[1];
 
     const classInfo = {
-      'polymind-attachment-card': true,
+      'affine-attachment-card': true,
       [cardStyle]: true,
       loading: resolvedState.loading,
       error: resolvedState.error,
@@ -474,12 +474,12 @@ export class AttachmentBlockComponent extends CaptionedBlockComponent<Attachment
           needUpload ? this.resourceController.upload() : this.reload();
 
         return html`
-          <polymind-resource-status
+          <affine-resource-status
             class="affine-attachment-embed-status"
             .message=${message}
             .needUpload=${needUpload}
             .action=${action}
-          ></polymind-resource-status>
+          ></affine-resource-status>
         `;
       })}
     `;
@@ -489,19 +489,19 @@ export class AttachmentBlockComponent extends CaptionedBlockComponent<Attachment
     const { name, footnoteIdentifier } = this.model.props;
     const icon = getAttachmentFileIcon(this.filetype);
 
-    return html`<polymind-citation-card
+    return html`<affine-citation-card
       .icon=${icon}
       .citationTitle=${name}
       .citationIdentifier=${footnoteIdentifier}
       .active=${this.selected$.value}
-    ></polymind-citation-card>`;
+    ></affine-citation-card>`;
   };
 
   override renderBlock() {
     return html`
       <div
         class=${classMap({
-          'polymind-attachment-container': true,
+          'affine-attachment-container': true,
           focused: this.selected$.value,
           'comment-highlighted': this.isCommentHighlighted,
         })}
@@ -523,6 +523,6 @@ export class AttachmentBlockComponent extends CaptionedBlockComponent<Attachment
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-attachment': AttachmentBlockComponent;
+    'affine-attachment': AttachmentBlockComponent;
   }
 }

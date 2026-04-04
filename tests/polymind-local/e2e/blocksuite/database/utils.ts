@@ -76,7 +76,7 @@ export async function selectColumnType(
   columnType: string,
   nth: number = 1
 ) {
-  const typeMenu = page.locator('polymind-menu').getByText('Type');
+  const typeMenu = page.locator('affine-menu').getByText('Type');
   await page.waitForTimeout(100);
   await typeMenu.hover();
   await page.mouse.move(0, 0);
@@ -109,7 +109,7 @@ export async function changeColumnType(
   columnIndex: number,
   columnType: string
 ) {
-  const header = page.locator('polymind-database-header-column').nth(columnIndex);
+  const header = page.locator('affine-database-header-column').nth(columnIndex);
   await header.click();
   await selectColumnType(page, columnType);
 }

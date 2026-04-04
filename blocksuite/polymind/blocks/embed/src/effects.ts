@@ -19,14 +19,14 @@ import { EmbedEdgelessYoutubeBlockComponent } from './embed-youtube-block/embed-
 
 export function effects() {
   customElements.define(
-    'polymind-embed-edgeless-figma-block',
+    'affine-embed-edgeless-figma-block',
     EmbedEdgelessBlockComponent
   );
-  customElements.define('polymind-embed-figma-block', EmbedFigmaBlockComponent);
+  customElements.define('affine-embed-figma-block', EmbedFigmaBlockComponent);
 
-  customElements.define('polymind-embed-html-block', EmbedHtmlBlockComponent);
+  customElements.define('affine-embed-html-block', EmbedHtmlBlockComponent);
   customElements.define(
-    'polymind-embed-edgeless-html-block',
+    'affine-embed-edgeless-html-block',
     EmbedEdgelessHtmlBlockComponent
   );
 
@@ -35,31 +35,31 @@ export function effects() {
     EmbedHtmlFullscreenToolbar
   );
   customElements.define(
-    'polymind-embed-edgeless-github-block',
+    'affine-embed-edgeless-github-block',
     EmbedEdgelessGithubBlockComponent
   );
-  customElements.define('polymind-embed-github-block', EmbedGithubBlockComponent);
+  customElements.define('affine-embed-github-block', EmbedGithubBlockComponent);
 
   customElements.define(
-    'polymind-embed-edgeless-youtube-block',
+    'affine-embed-edgeless-youtube-block',
     EmbedEdgelessYoutubeBlockComponent
   );
   customElements.define(
-    'polymind-embed-youtube-block',
+    'affine-embed-youtube-block',
     EmbedYoutubeBlockComponent
   );
 
   customElements.define(
-    'polymind-embed-edgeless-loom-block',
+    'affine-embed-edgeless-loom-block',
     EmbedEdgelessLoomBlockComponent
   );
-  customElements.define('polymind-embed-loom-block', EmbedLoomBlockComponent);
+  customElements.define('affine-embed-loom-block', EmbedLoomBlockComponent);
 
   customElements.define(
-    'polymind-embed-edgeless-iframe-block',
+    'affine-embed-edgeless-iframe-block',
     EmbedEdgelessIframeBlockComponent
   );
-  customElements.define('polymind-embed-iframe-block', EmbedIframeBlockComponent);
+  customElements.define('affine-embed-iframe-block', EmbedIframeBlockComponent);
   customElements.define(
     'embed-iframe-link-input-popup',
     EmbedIframeLinkInputPopup
@@ -75,18 +75,18 @@ export function effects() {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-embed-figma-block': EmbedFigmaBlockComponent;
-    'polymind-embed-edgeless-figma-block': EmbedEdgelessBlockComponent;
-    'polymind-embed-github-block': EmbedGithubBlockComponent;
-    'polymind-embed-edgeless-github-block': EmbedEdgelessGithubBlockComponent;
-    'polymind-embed-html-block': EmbedHtmlBlockComponent;
-    'polymind-embed-edgeless-html-block': EmbedEdgelessHtmlBlockComponent;
+    'affine-embed-figma-block': EmbedFigmaBlockComponent;
+    'affine-embed-edgeless-figma-block': EmbedEdgelessBlockComponent;
+    'affine-embed-github-block': EmbedGithubBlockComponent;
+    'affine-embed-edgeless-github-block': EmbedEdgelessGithubBlockComponent;
+    'affine-embed-html-block': EmbedHtmlBlockComponent;
+    'affine-embed-edgeless-html-block': EmbedEdgelessHtmlBlockComponent;
     'embed-html-fullscreen-toolbar': EmbedHtmlFullscreenToolbar;
-    'polymind-embed-edgeless-loom-block': EmbedEdgelessLoomBlockComponent;
-    'polymind-embed-loom-block': EmbedLoomBlockComponent;
-    'polymind-embed-youtube-block': EmbedYoutubeBlockComponent;
-    'polymind-embed-edgeless-youtube-block': EmbedEdgelessYoutubeBlockComponent;
-    'polymind-embed-iframe-block': EmbedIframeBlockComponent;
+    'affine-embed-edgeless-loom-block': EmbedEdgelessLoomBlockComponent;
+    'affine-embed-loom-block': EmbedLoomBlockComponent;
+    'affine-embed-youtube-block': EmbedYoutubeBlockComponent;
+    'affine-embed-edgeless-youtube-block': EmbedEdgelessYoutubeBlockComponent;
+    'affine-embed-iframe-block': EmbedIframeBlockComponent;
     'embed-iframe-link-input-popup': EmbedIframeLinkInputPopup;
     'embed-iframe-loading-card': EmbedIframeLoadingCard;
     'embed-iframe-error-card': EmbedIframeErrorCard;

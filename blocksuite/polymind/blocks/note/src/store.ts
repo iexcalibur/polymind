@@ -17,7 +17,7 @@ const optionsSchema = z.object({
 export class NoteStoreExtension extends StoreExtensionProvider<
   z.infer<typeof optionsSchema>
 > {
-  override name = 'polymind-note-block';
+  override name = 'affine-note-block';
 
   override schema = optionsSchema;
 

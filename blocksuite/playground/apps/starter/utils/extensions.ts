@@ -42,7 +42,7 @@ export function createTestEditor(store: Store, workspace: Workspace) {
     .get(FeatureFlagService)
     .setFlag('enable_advanced_block_visibility', true);
 
-  const editor = document.createElement('polymind-editor-container');
+  const editor = document.createElement('affine-editor-container');
 
   editor.autofocus = true;
   editor.doc = store;

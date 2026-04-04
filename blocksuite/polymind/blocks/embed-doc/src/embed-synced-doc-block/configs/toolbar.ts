@@ -195,12 +195,12 @@ const conversionsActionGroup = {
 
     return html`${keyed(
       model,
-      html`<polymind-view-dropdown-menu
+      html`<affine-view-dropdown-menu
         @toggle=${onToggle}
         .actions=${actions}
         .context=${ctx}
         .viewType$=${viewType$}
-      ></polymind-view-dropdown-menu>`
+      ></affine-view-dropdown-menu>`
     )}`;
   },
 } as const satisfies ToolbarActionGroup<ToolbarAction>;
@@ -462,12 +462,12 @@ const builtinSurfaceToolbarConfig = {
 
         return html`${keyed(
           model,
-          html`<polymind-size-dropdown-menu
+          html`<affine-size-dropdown-menu
             @select=${onSelect}
             @toggle=${onToggle}
             .format=${format}
             .size$=${scale$}
-          ></polymind-size-dropdown-menu>`
+          ></affine-size-dropdown-menu>`
         )}`;
       },
     },

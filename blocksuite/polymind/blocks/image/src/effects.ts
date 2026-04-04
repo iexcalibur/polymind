@@ -6,16 +6,16 @@ import { ImageEdgelessPlaceholderBlockComponent } from './preview-image/edgeless
 import { ImagePlaceholderBlockComponent } from './preview-image/page.js';
 
 export function effects() {
-  customElements.define('polymind-image', ImageBlockComponent);
-  customElements.define('polymind-edgeless-image', ImageEdgelessBlockComponent);
-  customElements.define('polymind-page-image', ImageBlockPageComponent);
-  customElements.define('polymind-image-fallback-card', ImageBlockFallbackCard);
+  customElements.define('affine-image', ImageBlockComponent);
+  customElements.define('affine-edgeless-image', ImageEdgelessBlockComponent);
+  customElements.define('affine-page-image', ImageBlockPageComponent);
+  customElements.define('affine-image-fallback-card', ImageBlockFallbackCard);
   customElements.define(
-    'polymind-placeholder-preview-image',
+    'affine-placeholder-preview-image',
     ImagePlaceholderBlockComponent
   );
   customElements.define(
-    'polymind-edgeless-placeholder-preview-image',
+    'affine-edgeless-placeholder-preview-image',
     ImageEdgelessPlaceholderBlockComponent
   );
 }

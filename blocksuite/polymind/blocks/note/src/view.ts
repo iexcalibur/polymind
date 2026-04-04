@@ -16,7 +16,7 @@ import { NoteKeymapExtension } from './note-keymap';
 const flavour = NoteBlockSchema.model.flavour;
 
 export class NoteViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-note-block';
+  override name = 'affine-note-block';
 
   override effect() {
     super.effect();

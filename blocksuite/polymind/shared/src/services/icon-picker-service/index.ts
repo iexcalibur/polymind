@@ -2,7 +2,7 @@ import type { UniComponent } from '@blocksuite/polymind-shared/types';
 import { createIdentifier } from '@blocksuite/global/di';
 export enum IconType {
   Emoji = 'emoji',
-  PolymindIcon = 'polymind-icon',
+  PolymindIcon = 'affine-icon',
   Blob = 'blob',
 }
 

@@ -40,7 +40,7 @@ export const builtinInlineLinkToolbarConfig = {
         const { link } = target;
         if (!link) return null;
 
-        return html`<polymind-link-preview .url=${link}></polymind-link-preview>`;
+        return html`<affine-link-preview .url=${link}></affine-link-preview>`;
       },
     },
     {
@@ -284,12 +284,12 @@ export const builtinInlineLinkToolbarConfig = {
 
         return html`${keyed(
           target,
-          html`<polymind-view-dropdown-menu
+          html`<affine-view-dropdown-menu
             .actions=${actions}
             .context=${ctx}
             .onToggle=${onToggle}
             .viewType$=${viewType$}
-          ></polymind-view-dropdown-menu>`
+          ></affine-view-dropdown-menu>`
         )}`;
       },
       when(ctx) {
@@ -299,8 +299,8 @@ export const builtinInlineLinkToolbarConfig = {
 
         if (ctx.flags.isNative()) return false;
         if (
-          target.block.closest('polymind-database') ||
-          target.block.closest('polymind-table')
+          target.block.closest('affine-database') ||
+          target.block.closest('affine-table')
         )
           return false;
 

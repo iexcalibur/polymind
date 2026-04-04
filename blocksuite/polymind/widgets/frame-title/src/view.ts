@@ -7,7 +7,7 @@ import { frameTitleWidget } from './affine-frame-title-widget';
 import { effects } from './effects';
 
 export class FrameTitleViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-frame-title-widget';
+  override name = 'affine-frame-title-widget';
 
   override effect() {
     super.effect();

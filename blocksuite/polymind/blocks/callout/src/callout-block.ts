@@ -161,7 +161,7 @@ export class CalloutBlockComponent extends CaptionedBlockComponent<CalloutBlockM
     const target = event.target as HTMLElement;
     if (
       target.closest('.affine-callout-emoji-container') ||
-      target.classList.contains('polymind-callout-emoji')
+      target.classList.contains('affine-callout-emoji')
     ) {
       return;
     }

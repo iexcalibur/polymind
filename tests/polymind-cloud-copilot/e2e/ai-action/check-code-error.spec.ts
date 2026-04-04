@@ -46,7 +46,7 @@ test.describe('AIAction/CheckCodeError', () => {
       actionName,
     } = await utils.chatPanel.getLatestAIActionMessage(page);
     await expect(
-      message.getByTestId('original-text').locator('polymind-code')
+      message.getByTestId('original-text').locator('affine-code')
     ).toBeVisible();
     await expect(panelAnswer).toHaveText(/console/);
     await expect(prompt).toHaveText(/Check the code error of the follow code/);

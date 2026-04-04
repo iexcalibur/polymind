@@ -46,7 +46,7 @@ import type { DataViewBlockModel } from './data-view-model.js';
 
 export class DataViewBlockComponent extends CaptionedBlockComponent<DataViewBlockModel> {
   static override styles = css`
-    ${unsafeCSS(dataViewCommonStyle('polymind-database'))}
+    ${unsafeCSS(dataViewCommonStyle('affine-database'))}
     affine-database {
       display: block;
       border-radius: 8px;
@@ -312,6 +312,6 @@ export class DataViewBlockComponent extends CaptionedBlockComponent<DataViewBloc
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-data-view': DataViewBlockComponent;
+    'affine-data-view': DataViewBlockComponent;
   }
 }

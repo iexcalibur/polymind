@@ -217,7 +217,7 @@ export class RecordField extends SignalWatcher(
   });
 
   changeEditing = (editing: boolean) => {
-    const selection = this.closest('polymind-data-view-record-detail')?.selection;
+    const selection = this.closest('affine-data-view-record-detail')?.selection;
     if (selection) {
       selection.selection = {
         propertyId: this.column.id,
@@ -281,6 +281,6 @@ export class RecordField extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-data-view-record-field': RecordField;
+    'affine-data-view-record-field': RecordField;
   }
 }

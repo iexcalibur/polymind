@@ -8,7 +8,7 @@ import { NoteTool } from './note-tool';
 import { noteSeniorTool } from './toolbar/senior-tool';
 
 export class NoteViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-note-gfx';
+  override name = 'affine-note-gfx';
 
   override effect(): void {
     super.effect();

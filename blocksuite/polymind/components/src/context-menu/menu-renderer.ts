@@ -248,7 +248,7 @@ export class MenuComponent
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-menu': MenuComponent;
+    'affine-menu': MenuComponent;
   }
 }
 

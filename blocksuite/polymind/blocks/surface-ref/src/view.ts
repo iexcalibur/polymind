@@ -18,7 +18,7 @@ import { effects } from './effects';
 const flavour = SurfaceRefBlockSchema.model.flavour;
 
 export class SurfaceRefViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-surface-ref-block';
+  override name = 'affine-surface-ref-block';
 
   override effect(): void {
     super.effect();

@@ -8,7 +8,7 @@ import { TemplateTool } from './template-tool';
 import { templateSeniorTool } from './toolbar/senior-tool';
 
 export class TemplateViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-template-view';
+  override name = 'affine-template-view';
 
   override effect(): void {
     super.effect();

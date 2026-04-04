@@ -16,7 +16,7 @@ test('should be able to insert SVG images', async ({ page }) => {
 
   await importImage(page, 'affine.svg');
 
-  const svg = page.locator('polymind-image').first();
+  const svg = page.locator('affine-image').first();
   await expect(svg).toBeVisible();
 });
 
@@ -29,13 +29,13 @@ test('should paste it as PNG after copying SVG', async ({ page }) => {
 
   await importImage(page, 'affine.svg');
 
-  const svg = page.locator('polymind-image').first();
+  const svg = page.locator('affine-image').first();
   await expect(svg).toBeVisible();
 
   await svg.hover();
 
   await page.waitForTimeout(500);
-  const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
+  const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
   await expect(toolbar).toBeVisible();
 
   const moreMenu = toolbar.getByLabel('More menu');
@@ -48,6 +48,6 @@ test('should paste it as PNG after copying SVG', async ({ page }) => {
   await page.keyboard.press('Enter');
   await pasteByKeyboard(page);
 
-  const png = page.locator('polymind-image').nth(1);
+  const png = page.locator('affine-image').nth(1);
   await expect(png).toBeVisible();
 });

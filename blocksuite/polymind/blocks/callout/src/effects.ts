@@ -2,13 +2,13 @@ import { CalloutBlockComponent } from './callout-block';
 import { IconPickerWrapper } from './icon-picker-wrapper';
 
 export function effects() {
-  customElements.define('polymind-callout', CalloutBlockComponent);
+  customElements.define('affine-callout', CalloutBlockComponent);
   customElements.define('icon-picker-wrapper', IconPickerWrapper);
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-callout': CalloutBlockComponent;
+    'affine-callout': CalloutBlockComponent;
     'icon-picker-wrapper': IconPickerWrapper;
   }
 }

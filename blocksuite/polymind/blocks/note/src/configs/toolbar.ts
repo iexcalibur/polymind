@@ -148,10 +148,10 @@ const builtinSurfaceToolbarConfig = {
       id: 'e.slicer',
       label: 'Slicer',
       icon: ScissorsIcon(),
-      tooltip: html`<polymind-tooltip-content-with-shortcut
+      tooltip: html`<affine-tooltip-content-with-shortcut
         data-tip="${'Cutting mode'}"
         data-shortcut="${'-'}"
-      ></polymind-tooltip-content-with-shortcut>`,
+      ></affine-tooltip-content-with-shortcut>`,
       active: false,
       when(ctx) {
         return (
@@ -269,12 +269,12 @@ const builtinSurfaceToolbarConfig = {
         };
         const format = (value: number) => `${value}%`;
 
-        return html`<polymind-size-dropdown-menu
+        return html`<affine-size-dropdown-menu
           @select=${onSelect}
           @toggle=${onToggle}
           .format=${format}
           .size$=${scale$}
-        ></polymind-size-dropdown-menu>`;
+        ></affine-size-dropdown-menu>`;
       },
     },
   ],

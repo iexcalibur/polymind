@@ -67,7 +67,7 @@ export class EmbedHtmlBlockComponent extends EmbedBlockComponent<EmbedHtmlModel>
       return html`
         <div
           class=${classMap({
-            'polymind-embed-html-block': true,
+            'affine-embed-html-block': true,
             selected: this.selected$.value,
           })}
           style=${styleMap(this.embedHtmlStyle)}
@@ -92,7 +92,7 @@ export class EmbedHtmlBlockComponent extends EmbedBlockComponent<EmbedHtmlModel>
               <!-- overlay to prevent the iframe from capturing pointer events -->
               <div
                 class=${classMap({
-                  'polymind-embed-html-iframe-overlay': true,
+                  'affine-embed-html-iframe-overlay': true,
                   hide: !this.showOverlay$.value,
                 })}
               ></div>

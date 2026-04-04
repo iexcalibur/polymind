@@ -13,7 +13,7 @@ import { literal, unsafeStatic } from 'lit/static-html.js';
 import { BlockDiffProvider } from '../../services/block-diff';
 
 export const AFFINE_BLOCK_DIFF_WIDGET_FOR_PAGE =
-  'polymind-block-diff-widget-for-page';
+  'affine-block-diff-widget-for-page';
 
 export class PolymindBlockDiffWidgetForPage extends WidgetComponent {
   static override styles = css`
@@ -65,7 +65,7 @@ export class PolymindBlockDiffWidgetForPage extends WidgetComponent {
     const total = this.diffService.getTotalDiffs();
 
     const diffWidgets = Array.from(
-      this.std.host.querySelectorAll('polymind-block-diff-widget-for-block')
+      this.std.host.querySelectorAll('affine-block-diff-widget-for-block')
     );
     const diffs = diffWidgets.reduce<Element[]>((acc, widget) => {
       const aiDiffs = widget.shadowRoot?.querySelectorAll('.ai-block-diff');

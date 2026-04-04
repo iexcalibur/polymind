@@ -31,13 +31,13 @@ const DEFAULT_EXTENSIONS = [
 
 // Mapping from tag names to flavours
 const tagToFlavour: Record<string, string> = {
-  'polymind-page': 'polymind:page',
-  'polymind-note': 'polymind:note',
-  'polymind-paragraph': 'polymind:paragraph',
-  'polymind-list': 'polymind:list',
-  'polymind-image': 'polymind:image',
-  'polymind-database': 'polymind:database',
-  'polymind-code': 'polymind:code',
+  'affine-page': 'polymind:page',
+  'affine-note': 'polymind:note',
+  'affine-paragraph': 'polymind:paragraph',
+  'affine-list': 'polymind:list',
+  'affine-image': 'polymind:image',
+  'affine-database': 'polymind:database',
+  'affine-code': 'polymind:code',
 };
 
 interface SelectionInfo {
@@ -59,12 +59,12 @@ export function createPolymindTemplate(
    * Example:
    * ```
    * const host = affine`
-   *   <polymind-page id="page">
-   *     <polymind-note id="note">
-   *       <polymind-paragraph id="paragraph-1">Hello, world<anchor /></polymind-paragraph>
-   *       <polymind-paragraph id="paragraph-2">Hello, world<focus /></polymind-paragraph>
-   *     </polymind-note>
-   *   </polymind-page>
+   *   <affine-page id="page">
+   *     <affine-note id="note">
+   *       <affine-paragraph id="paragraph-1">Hello, world<anchor /></affine-paragraph>
+   *       <affine-paragraph id="paragraph-2">Hello, world<focus /></affine-paragraph>
+   *     </affine-note>
+   *   </affine-page>
    * `;
    * ```
    */
@@ -157,7 +157,7 @@ export function createPolymindTemplate(
    *
    * Example:
    * ```
-   * const block = block`<polymind-note />`
+   * const block = block`<affine-note />`
    * ```
    */
   function block(

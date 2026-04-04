@@ -157,11 +157,11 @@ export class DatabaseBlockComponent extends CaptionedBlockComponent<DatabaseBloc
   });
 
   private readonly renderTitle = (dataViewLogic: DataViewUILogicBase) => {
-    return html` <polymind-database-title
+    return html` <affine-database-title
       class="${databaseTitleStyles}"
       .titleText="${this.model.props.title}"
       .dataViewLogic="${dataViewLogic}"
-    ></polymind-database-title>`;
+    ></affine-database-title>`;
   };
 
   createTemplate = (
@@ -501,6 +501,6 @@ export class DatabaseBlockComponent extends CaptionedBlockComponent<DatabaseBloc
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-database': DatabaseBlockComponent;
+    'affine-database': DatabaseBlockComponent;
   }
 }

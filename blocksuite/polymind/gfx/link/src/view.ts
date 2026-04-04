@@ -7,7 +7,7 @@ import { effects } from './effects';
 import { linkQuickTool } from './link-tool';
 
 export class LinkViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-link-gfx';
+  override name = 'affine-link-gfx';
 
   override effect() {
     super.effect();

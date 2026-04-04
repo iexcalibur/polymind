@@ -9,9 +9,9 @@ export function effects() {
     'surface-ref-generic-block-portal',
     SurfaceRefGenericBlockPortal
   );
-  customElements.define('polymind-surface-ref', SurfaceRefBlockComponent);
+  customElements.define('affine-surface-ref', SurfaceRefBlockComponent);
   customElements.define(
-    'polymind-edgeless-surface-ref',
+    'affine-edgeless-surface-ref',
     EdgelessSurfaceRefBlockComponent
   );
   customElements.define('surface-ref-note-portal', SurfaceRefNotePortal);

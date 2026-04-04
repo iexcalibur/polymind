@@ -817,7 +817,7 @@ export class TableSelectionController implements ReactiveController {
     cell: TableViewCellContainer,
     fillValues?: boolean
   ) {
-    const groupKey = cell.closest<TableGroup>('polymind-data-view-table-group')
+    const groupKey = cell.closest<TableGroup>('affine-data-view-table-group')
       ?.group?.key;
     const table = this.tableContainer;
     const scrollContainer = table?.parentElement;

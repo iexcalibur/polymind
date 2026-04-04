@@ -57,7 +57,7 @@ export class MobileTableRow extends SignalWatcher(
   `;
 
   get groupKey() {
-    return this.closest('polymind-data-view-table-group')?.group?.key;
+    return this.closest('affine-data-view-table-group')?.group?.key;
   }
 
   override connectedCallback() {

@@ -26,7 +26,7 @@ import { NoteBlockComponent } from './note-block';
 import { ACTIVE_NOTE_EXTRA_PADDING } from './note-edgeless-block.css';
 import * as styles from './note-edgeless-block.css';
 
-export const POLYMIND_EDGELESS_NOTE = 'polymind-edgeless-note';
+export const AFFINE_EDGELESS_NOTE = 'affine-edgeless-note';
 
 export class EdgelessNoteBlockComponent extends toGfxBlockComponent(
   NoteBlockComponent
@@ -370,7 +370,7 @@ export class EdgelessNoteBlockComponent extends toGfxBlockComponent(
 
 declare global {
   interface HTMLElementTagNameMap {
-    [POLYMIND_EDGELESS_NOTE]: EdgelessNoteBlockComponent;
+    [AFFINE_EDGELESS_NOTE]: EdgelessNoteBlockComponent;
   }
 }
 

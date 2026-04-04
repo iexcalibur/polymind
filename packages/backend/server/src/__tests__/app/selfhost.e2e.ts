@@ -25,9 +25,9 @@ function initTestStaticFiles(staticPath: string) {
     'selfhost.html': `<!DOCTYPE html><html><body>PolyMind</body><script src="main.a.js"/></html>`,
     'main.a.js': `const name = 'polymind'`,
     'admin/selfhost.html': `<!DOCTYPE html><html><body>PolyMind Admin</body><script src="/admin/main.b.js"/></html>`,
-    'admin/main.b.js': `const name = 'polymind-admin'`,
+    'admin/main.b.js': `const name = 'affine-admin'`,
     'mobile/selfhost.html': `<!DOCTYPE html><html><body>PolyMind mobile</body><script src="/mobile/main.c.js"/></html>`,
-    'mobile/main.c.js': `const name = 'polymind-mobile'`,
+    'mobile/main.c.js': `const name = 'affine-mobile'`,
   };
 
   for (const [filename, content] of Object.entries(files)) {
@@ -99,12 +99,12 @@ test('should always return static asset files', async t => {
   res = await request(t.context.app.getHttpServer())
     .get('/admin/main.b.js')
     .expect(200);
-  t.is(res.text, "const name = 'polymind-admin'");
+  t.is(res.text, "const name = 'affine-admin'");
 
   res = await request(t.context.app.getHttpServer())
     .get('/main.c.js')
     .expect(200);
-  t.is(res.text, "const name = 'polymind-mobile'");
+  t.is(res.text, "const name = 'affine-mobile'");
 
   await t.context.db.user.create({
     data: {
@@ -121,12 +121,12 @@ test('should always return static asset files', async t => {
   res = await request(t.context.app.getHttpServer())
     .get('/admin/main.b.js')
     .expect(200);
-  t.is(res.text, "const name = 'polymind-admin'");
+  t.is(res.text, "const name = 'affine-admin'");
 
   res = await request(t.context.app.getHttpServer())
     .get('/main.c.js')
     .expect(200);
-  t.is(res.text, "const name = 'polymind-mobile'");
+  t.is(res.text, "const name = 'affine-mobile'");
 });
 
 test('should be able to call apis', async t => {

@@ -170,11 +170,11 @@ export class EdgelessMindmapMenu extends EdgelessToolbarToolMixin(
       >
         ${importMindMapIcon}
       </button>
-      <polymind-tooltip tip-position="top" .offset=${12}>
-        <polymind-tooltip-content-with-shortcut
+      <affine-tooltip tip-position="top" .offset=${12}>
+        <affine-tooltip-content-with-shortcut
           data-tip="${'Support import of FreeMind,OPML.'}"
-        ></polymind-tooltip-content-with-shortcut>
-      </polymind-tooltip>
+        ></affine-tooltip-content-with-shortcut>
+      </affine-tooltip>
     </div>`;
   }
 
@@ -287,11 +287,11 @@ export class EdgelessMindmapMenu extends EdgelessToolbarToolMixin(
           >
             ${mediaItem.icon}
           </button>
-          <polymind-tooltip tip-position="top" .offset=${12}>
-            <polymind-tooltip-content-with-shortcut
+          <affine-tooltip tip-position="top" .offset=${12}>
+            <affine-tooltip-content-with-shortcut
               data-tip="${'Add media'}"
-            ></polymind-tooltip-content-with-shortcut>
-          </polymind-tooltip>
+            ></affine-tooltip-content-with-shortcut>
+          </affine-tooltip>
         </div>
         <div class="thin-divider"></div>
         <div class="text-item">
@@ -318,12 +318,12 @@ export class EdgelessMindmapMenu extends EdgelessToolbarToolMixin(
           >
             ${textItem.icon}
           </button>
-          <polymind-tooltip tip-position="top" .offset=${12}>
-            <polymind-tooltip-content-with-shortcut
+          <affine-tooltip tip-position="top" .offset=${12}>
+            <affine-tooltip-content-with-shortcut
               data-tip="${'Edgeless Text'}"
               data-shortcup="${'T'}"
-            ></polymind-tooltip-content-with-shortcut>
-          </polymind-tooltip>
+            ></affine-tooltip-content-with-shortcut>
+          </affine-tooltip>
         </div>
         <div class="thin-divider"></div>
         <!-- mind map -->
@@ -364,12 +364,12 @@ export class EdgelessMindmapMenu extends EdgelessToolbarToolMixin(
               >
                 ${mindMap.icon}
               </button>
-              <polymind-tooltip tip-position="top" .offset=${12}>
-                <polymind-tooltip-content-with-shortcut
+              <affine-tooltip tip-position="top" .offset=${12}>
+                <affine-tooltip-content-with-shortcut
                   data-tip="${'Mind Map'}"
                   data-shortcup="${'M'}"
-                ></polymind-tooltip-content-with-shortcut>
-              </polymind-tooltip>
+                ></affine-tooltip-content-with-shortcut>
+              </affine-tooltip>
             </div>
           `;
         })}

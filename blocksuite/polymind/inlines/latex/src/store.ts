@@ -10,7 +10,7 @@ import {
 } from './adapters';
 
 export class LatexStoreExtension extends StoreExtensionProvider {
-  override name = 'polymind-latex-inline';
+  override name = 'affine-latex-inline';
 
   override setup(context: StoreExtensionContext) {
     super.setup(context);

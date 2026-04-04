@@ -12,7 +12,7 @@ import { createBuiltinToolbarConfigExtension } from './configs/toolbar';
 import { effects } from './effects';
 
 export class CalloutViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-callout-block';
+  override name = 'affine-callout-block';
 
   override effect() {
     super.effect();

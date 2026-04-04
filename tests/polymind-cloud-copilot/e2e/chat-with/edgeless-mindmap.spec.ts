@@ -30,7 +30,7 @@ test.describe('AIChatWith/EdgelessMindMap', () => {
         id = await utils.editor.createMindmap(page);
         originalChildCount = await page.evaluate(mindmapId => {
           const edgelessBlock = document.querySelector(
-            'polymind-edgeless-root'
+            'affine-edgeless-root'
           ) as EdgelessRootBlockComponent;
           const mindmap = edgelessBlock.gfx.getElementById(mindmapId) as {
             tree: { children?: unknown[] };
@@ -88,7 +88,7 @@ test.describe('AIChatWith/EdgelessMindMap', () => {
               const surface = descendants.find(
                 element =>
                   element instanceof HTMLElement &&
-                  element.classList.contains('polymind-mini-mindmap-surface')
+                  element.classList.contains('affine-mini-mindmap-surface')
               ) as HTMLElement | undefined;
               const surfaceRect = surface?.getBoundingClientRect();
 
@@ -127,7 +127,7 @@ test.describe('AIChatWith/EdgelessMindMap', () => {
         async () => {
           return page.evaluate<MindmapSnapshot>(() => {
             const edgelessBlock = document.querySelector(
-              'polymind-edgeless-root'
+              'affine-edgeless-root'
             ) as EdgelessRootBlockComponent;
             const mindmaps = edgelessBlock?.gfx.gfxElements.filter(
               (el: GfxModel) => 'type' in el && el.type === 'mindmap'
@@ -155,7 +155,7 @@ test.describe('AIChatWith/EdgelessMindMap', () => {
 
     const replacedMindmap = await page.evaluate<MindmapSnapshot>(() => {
       const edgelessBlock = document.querySelector(
-        'polymind-edgeless-root'
+        'affine-edgeless-root'
       ) as EdgelessRootBlockComponent;
       const mindmaps = edgelessBlock?.gfx.gfxElements.filter(
         (el: GfxModel) => 'type' in el && el.type === 'mindmap'

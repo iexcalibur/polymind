@@ -101,7 +101,7 @@ const createAndShowNewToast = (
   ToastContainer.append(toastElement);
   logger.debug(`toast with message: "${message}"`);
   window.dispatchEvent(
-    new CustomEvent('polymind-toast:emit', { detail: message })
+    new CustomEvent('affine-toast:emit', { detail: message })
   );
 
   setTimeout(() => {

@@ -136,7 +136,7 @@ export class ExportManager {
             : null
           : null;
         const imageCard = rootComponent?.querySelector(
-          'polymind-image-fallback-card'
+          'affine-image-fallback-card'
         );
         const isReady =
           !imageCard || imageCard.getAttribute('imageState') === '0';

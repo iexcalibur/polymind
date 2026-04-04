@@ -36,7 +36,7 @@ export interface DetailSlots {
 }
 
 const styles = css`
-  ${unsafeCSS(dataViewCommonStyle('polymind-data-view-record-detail'))}
+  ${unsafeCSS(dataViewCommonStyle('affine-data-view-record-detail'))}
   affine-data-view-record-detail {
     position: relative;
     display: flex;
@@ -182,7 +182,7 @@ export class RecordDetail extends SignalWatcher(
       this.selection.selection = undefined;
     });
     //FIXME: simulate as a widget
-    this.dataset.widgetId = 'polymind-detail-widget';
+    this.dataset.widgetId = 'affine-detail-widget';
   }
 
   row$ = computed(() => {
@@ -247,12 +247,12 @@ export class RecordDetail extends SignalWatcher(
             property => {
               return keyed(
                 this.rowId,
-                html` <polymind-data-view-record-field
+                html` <affine-data-view-record-field
                   .view="${this.view}"
                   .column="${property}"
                   .rowId="${this.rowId}"
                   data-column-id="${property.id}"
-                ></polymind-data-view-record-field>`
+                ></affine-data-view-record-field>`
               );
             }
           )}
@@ -286,7 +286,7 @@ export class RecordDetail extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-data-view-record-detail': RecordDetail;
+    'affine-data-view-record-detail': RecordDetail;
   }
 }
 export const createRecordDetail = (ops: {
@@ -295,11 +295,11 @@ export const createRecordDetail = (ops: {
   detail: DetailSlots;
   openDoc: (docId: string) => void;
 }) => {
-  return html` <polymind-data-view-record-detail
+  return html` <affine-data-view-record-detail
     .view=${ops.view}
     .rowId=${ops.rowId}
     .detailSlots=${ops.detail}
     .openDoc=${ops.openDoc}
     class="data-view-popup-container"
-  ></polymind-data-view-record-detail>`;
+  ></affine-data-view-record-detail>`;
 };

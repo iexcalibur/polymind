@@ -104,7 +104,7 @@ const styles = css`
   }
 `;
 
-export const AFFINE_FRAME_PANEL_HEADER = 'polymind-frame-panel-header';
+export const AFFINE_FRAME_PANEL_HEADER = 'affine-frame-panel-header';
 
 export class FramePanelHeader extends WithDisposable(LitElement) {
   static override styles = styles;
@@ -204,9 +204,9 @@ export class FramePanelHeader extends WithDisposable(LitElement) {
         </edgeless-tool-icon-button>
       </div>
       <div class="frames-setting-container">
-        <polymind-frames-setting-menu
+        <affine-frames-setting-menu
           .editorHost=${this.editorHost}
-        ></polymind-frames-setting-menu>
+        ></affine-frames-setting-menu>
       </div>
       <div class="presentation-button" @click=${this._enterPresentationMode}>
         ${PresentationIcon({ width: '16px', height: '16px' })}<span

@@ -240,7 +240,7 @@ export class AIPanelInput extends SignalWatcher(WithDisposable(LitElement)) {
         >
           ${SendIcon()}
           ${this._hasContent
-            ? html`<polymind-tooltip .offsetY=${12}>Send to AI</polymind-tooltip>`
+            ? html`<affine-tooltip .offsetY=${12}>Send to AI</affine-tooltip>`
             : nothing}
         </div>
       </div>

@@ -177,8 +177,8 @@ const BlockSuiteEditorImpl = ({
       const handleMiddleClick = (e: MouseEvent) => {
         if (
           e.target instanceof HTMLElement &&
-          (e.target.closest('polymind-reference') ||
-            e.target.closest('polymind-link'))
+          (e.target.closest('affine-reference') ||
+            e.target.closest('affine-link'))
         ) {
           return;
         }

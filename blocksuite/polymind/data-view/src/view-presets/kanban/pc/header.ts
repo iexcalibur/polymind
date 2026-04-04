@@ -77,6 +77,6 @@ export class KanbanHeader extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-data-view-kanban-header': KanbanHeader;
+    'affine-data-view-kanban-header': KanbanHeader;
   }
 }

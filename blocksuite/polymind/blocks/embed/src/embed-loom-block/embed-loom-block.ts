@@ -107,7 +107,7 @@ export class EmbedLoomBlockComponent extends EmbedBlockComponent<
       () => html`
         <div
           class=${classMap({
-            'polymind-embed-loom-block': true,
+            'affine-embed-loom-block': true,
             loading,
             selected: this.selected$.value,
           })}
@@ -133,7 +133,7 @@ export class EmbedLoomBlockComponent extends EmbedBlockComponent<
                     <!-- overlay to prevent the iframe from capturing pointer events -->
                     <div
                       class=${classMap({
-                        'polymind-embed-loom-video-iframe-overlay': true,
+                        'affine-embed-loom-video-iframe-overlay': true,
                         hide: !this.showOverlay$.value,
                       })}
                     ></div>

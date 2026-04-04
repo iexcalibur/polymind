@@ -17,7 +17,7 @@ test('default white', async ({ page }) => {
   const themeMode = await root.evaluate(element => element.dataset.theme);
   expect(themeMode).toBe('light');
   await page.screenshot({
-    path: resolve(testResultDir, 'polymind-light-theme.png'),
+    path: resolve(testResultDir, 'affine-light-theme.png'),
   });
   await page.getByTestId('settings-modal-trigger').click();
   await page.getByTestId('appearance-panel-trigger').click();
@@ -26,6 +26,6 @@ test('default white', async ({ page }) => {
   const darkMode = await root.evaluate(element => element.dataset.theme);
   expect(darkMode).toBe('dark');
   await page.screenshot({
-    path: resolve(testResultDir, 'polymind-dark-theme.png'),
+    path: resolve(testResultDir, 'affine-dark-theme.png'),
   });
 });

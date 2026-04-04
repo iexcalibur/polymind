@@ -35,7 +35,7 @@ const optionsSchema = z.object({
 export class ParagraphViewExtension extends ViewExtensionProvider<
   z.infer<typeof optionsSchema>
 > {
-  override name = 'polymind-paragraph-block';
+  override name = 'affine-paragraph-block';
 
   override schema = optionsSchema;
 

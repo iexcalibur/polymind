@@ -6,7 +6,7 @@ import {
 import { InlineAdapterExtensions } from './adapters/extensions';
 
 export class InlinePresetStoreExtension extends StoreExtensionProvider {
-  override name = 'polymind-inline-preset';
+  override name = 'affine-inline-preset';
 
   override setup(context: StoreExtensionContext) {
     super.setup(context);

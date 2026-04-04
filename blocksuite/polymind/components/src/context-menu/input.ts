@@ -106,7 +106,7 @@ export class MenuInput extends MenuFocusable {
   protected override render(): unknown {
     const classString = classMap({
       [this.data.class ?? '']: true,
-      'polymind-menu-input': true,
+      'affine-menu-input': true,
       focused: this.isFocused$.value,
     });
 
@@ -206,11 +206,11 @@ const renderInput = (data: MenuInputData, menu: Menu) => {
       .menu="${menu}"
     ></mobile-menu-input>`;
   }
-  return html` <polymind-menu-input
+  return html` <affine-menu-input
     style="flex:1"
     .data="${data}"
     .menu="${menu}"
-  ></polymind-menu-input>`;
+  ></affine-menu-input>`;
 };
 export const menuInputItems = {
   input:

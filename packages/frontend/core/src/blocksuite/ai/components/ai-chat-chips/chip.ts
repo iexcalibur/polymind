@@ -112,7 +112,7 @@ export class ChatPanelChip extends SignalWatcher(
           <span class="chip-card-title">
             <span data-testid="chat-panel-chip-title">${this.name}</span>
           </span>
-          <polymind-tooltip>${this.tooltip}</polymind-tooltip>
+          <affine-tooltip>${this.tooltip}</affine-tooltip>
         </div>
         ${isCandidate
           ? html`${PlusIcon()}`

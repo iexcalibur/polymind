@@ -34,7 +34,7 @@ test('drag handle should be shown when a note is activated in default mode or hi
   await assertRichTexts(page, ['hello']);
 
   await switchEditorMode(page);
-  const noteBox = await page.locator('polymind-edgeless-note').boundingBox();
+  const noteBox = await page.locator('affine-edgeless-note').boundingBox();
   if (!noteBox) {
     throw new Error('Missing edgeless affine-note');
   }
@@ -122,7 +122,7 @@ test('drag handle should work inside one note', async ({ page }) => {
   await page.mouse.dblclick(CENTER_X, CENTER_Y);
   await dragHandleFromBlockToBlockBottomById(page, '3', '5');
   await waitNextFrame(page);
-  await expect(page.locator('polymind-drag-handle-container')).toBeHidden();
+  await expect(page.locator('affine-drag-handle-container')).toBeHidden();
   await assertRichTexts(page, ['456', '789', '123']);
 });
 
@@ -150,9 +150,9 @@ test('drag handle should work across multiple notes', async ({ page }) => {
   await assertRichTexts(page, ['456', '789', '000', '123']);
 
   const rect = await page
-    .locator('polymind-edgeless-note')
+    .locator('affine-edgeless-note')
     .nth(1)
-    .locator('polymind-paragraph')
+    .locator('affine-paragraph')
     .nth(1)
     .boundingBox();
 
@@ -204,7 +204,7 @@ test('should keep relative order of new note when a block is dragged from note t
 
   await assertRichTexts(page, ['3', '5', '6', '7', '9']);
 
-  const notes = page.locator('polymind-edgeless-note');
+  const notes = page.locator('affine-edgeless-note');
 
   await notes.nth(1).dblclick();
   await dragBlockToPoint(page, '5', { x: 50, y: 100 });
@@ -229,7 +229,7 @@ test('drag handle should work when hover on the background of a selected edgeles
   // wait for the note animation
   await waitNextFrame(page, 400);
 
-  const noteRect = await page.locator('polymind-edgeless-note').boundingBox();
+  const noteRect = await page.locator('affine-edgeless-note').boundingBox();
   assertRectExist(noteRect);
 
   const noteBackgroundRect = await page
@@ -237,7 +237,7 @@ test('drag handle should work when hover on the background of a selected edgeles
     .boundingBox();
   assertRectExist(noteBackgroundRect);
 
-  const paragraphRect = await page.locator('polymind-paragraph').boundingBox();
+  const paragraphRect = await page.locator('affine-paragraph').boundingBox();
   assertRectExist(paragraphRect);
 
   // move to the area between note background and note block and before the paragraph

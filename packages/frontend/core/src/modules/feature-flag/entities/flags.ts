@@ -5,7 +5,7 @@ import type { GlobalStateService } from '../../storage';
 import { POLYMIND_FLAGS } from '../constant';
 import type { FlagInfo } from '../types';
 
-const FLAG_PREFIX = 'polymind-flag:';
+const FLAG_PREFIX = 'affine-flag:';
 
 export type Flag<F extends FlagInfo = FlagInfo> = {
   readonly value: F['defaultState'] extends boolean

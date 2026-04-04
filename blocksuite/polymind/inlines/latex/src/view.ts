@@ -11,7 +11,7 @@ import {
 import { LatexEditorInlineManagerExtension } from './latex-node/latex-editor-menu';
 
 export class LatexViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-latex-inline';
+  override name = 'affine-latex-inline';
 
   override effect(): void {
     super.effect();

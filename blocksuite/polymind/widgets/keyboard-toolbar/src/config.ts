@@ -384,7 +384,7 @@ const pageToolGroup: KeyboardToolPanelGroup = {
       icon: LinkedPageIcon(),
       showWhen: ({ std, rootComponent }) => {
         const linkedDocWidget = std.view.getWidget(
-          'polymind-linked-doc-widget',
+          'affine-linked-doc-widget',
           rootComponent.model.id
         );
         if (!linkedDocWidget) return false;
@@ -395,7 +395,7 @@ const pageToolGroup: KeyboardToolPanelGroup = {
         const { std } = rootComponent;
 
         const linkedDocWidget = std.view.getWidget(
-          'polymind-linked-doc-widget',
+          'affine-linked-doc-widget',
           rootComponent.model.id
         );
         if (!linkedDocWidget) return;

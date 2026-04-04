@@ -23,9 +23,9 @@ export class CustomFramePanel extends WithDisposable(ShadowlessElement) {
   `;
 
   private _renderPanel() {
-    return html`<polymind-frame-panel
+    return html`<affine-frame-panel
       .host=${this.editor.std.host}
-    ></polymind-frame-panel>`;
+    ></affine-frame-panel>`;
   }
 
   override connectedCallback(): void {

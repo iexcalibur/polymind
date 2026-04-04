@@ -7,7 +7,7 @@ import { edgelessDraggingAreaWidget } from './edgeless-dragging-area-rect';
 import { effects } from './effects';
 
 export class EdgelessDraggingAreaViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-edgeless-dragging-area-widget';
+  override name = 'affine-edgeless-dragging-area-widget';
 
   override effect() {
     super.effect();

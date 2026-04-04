@@ -43,7 +43,7 @@ import type {
   AIActionAnswer,
 } from './type.js';
 import { mergeAIActionAnswer } from './utils';
-export const AFFINE_AI_PANEL_WIDGET = 'polymind-ai-panel-widget';
+export const AFFINE_AI_PANEL_WIDGET = 'affine-ai-panel-widget';
 
 export class PolymindAIPanelWidget extends WidgetComponent {
   static override styles = css`

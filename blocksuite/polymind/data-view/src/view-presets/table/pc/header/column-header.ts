@@ -31,7 +31,7 @@ export class DatabaseColumnHeader extends SignalWatcher(
   };
 
   editLastColumnTitle = () => {
-    const columns = this.querySelectorAll('polymind-database-header-column');
+    const columns = this.querySelectorAll('affine-database-header-column');
     const column = columns.item(columns.length - 1);
     column.editTitle();
   };
@@ -65,9 +65,9 @@ export class DatabaseColumnHeader extends SignalWatcher(
   override connectedCallback() {
     super.connectedCallback();
     const scrollContainer = getScrollContainer(
-      this.closest('polymind-data-view-renderer')!
+      this.closest('affine-data-view-renderer')!
     );
-    const group = this.closest('polymind-data-view-table-group');
+    const group = this.closest('affine-data-view-table-group');
     if (group) {
       const cancel = autoUpdate(group, this, () => {
         if (!scrollContainer) {
@@ -99,14 +99,14 @@ export class DatabaseColumnHeader extends SignalWatcher(
               border: index === 0 ? 'none' : undefined,
             });
             return html`
-              <polymind-database-header-column
+              <affine-database-header-column
                 style="${style}"
                 data-column-id="${column.id}"
                 data-column-index="${index}"
                 class="affine-database-column database-cell"
                 .column="${column}"
                 .tableViewLogic="${this.tableViewLogic}"
-              ></polymind-database-header-column>
+              ></affine-database-header-column>
               <div class="${cellDivider}" style="height: auto;"></div>
             `;
           }
@@ -138,6 +138,6 @@ export class DatabaseColumnHeader extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-database-column-header': DatabaseColumnHeader;
+    'affine-database-column-header': DatabaseColumnHeader;
   }
 }

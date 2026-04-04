@@ -38,7 +38,7 @@ test.describe('AIAction/ExplainCode', () => {
       actionName,
     } = await utils.chatPanel.getLatestAIActionMessage(page);
     await expect(
-      message.getByTestId('original-text').locator('polymind-code')
+      message.getByTestId('original-text').locator('affine-code')
     ).toBeVisible();
     await expect(panelAnswer).toHaveText(/console.log/);
     await expect(prompt).toHaveText(/Analyze and explain the follow code/);

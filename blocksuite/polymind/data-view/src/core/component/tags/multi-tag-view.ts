@@ -83,6 +83,6 @@ export class MultiTagView extends WithDisposable(ShadowlessElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-multi-tag-view': MultiTagView;
+    'affine-multi-tag-view': MultiTagView;
   }
 }

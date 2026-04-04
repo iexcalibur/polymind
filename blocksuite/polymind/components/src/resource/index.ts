@@ -4,5 +4,5 @@ export * from './resource';
 export * from './status';
 
 export function effects() {
-  customElements.define('polymind-resource-status', ResourceStatus);
+  customElements.define('affine-resource-status', ResourceStatus);
 }

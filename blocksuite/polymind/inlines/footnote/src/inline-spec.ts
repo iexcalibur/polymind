@@ -21,11 +21,11 @@ export const FootNoteInlineSpecExtension =
         return !!delta.attributes?.footnote;
       },
       renderer: ({ delta }) => {
-        return html`<polymind-footnote-node
+        return html`<affine-footnote-node
           .delta=${delta}
           .std=${std}
           .config=${config}
-        ></polymind-footnote-node>`;
+        ></affine-footnote-node>`;
       },
       embed: true,
     };

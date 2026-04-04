@@ -20,7 +20,7 @@ test('database is useable', async ({ page }) => {
   await page.keyboard.press('Enter');
   expect(await title.innerText()).toBe('test title');
   await addDatabase(page);
-  const database = page.locator('polymind-database');
+  const database = page.locator('affine-database');
   await expect(database).toBeVisible();
   await page.reload();
   await waitForEditorLoad(page);
@@ -31,7 +31,7 @@ test('database is useable', async ({ page }) => {
   expect(await title2.innerText()).toBe('test title2');
   await page.keyboard.press('Enter');
   await addDatabase(page);
-  const database2 = page.locator('polymind-database');
+  const database2 = page.locator('affine-database');
   await expect(database2).toBeVisible();
 });
 
@@ -79,7 +79,7 @@ test('append paragraph when click editor gap', async ({ page }) => {
   await page.keyboard.press('ArrowDown');
   await page.keyboard.insertText('test content');
 
-  const paragraph = page.locator('polymind-paragraph');
+  const paragraph = page.locator('affine-paragraph');
   const numParagraphs = await paragraph.count();
 
   await page.locator('[data-testid=page-editor-blank]').click();

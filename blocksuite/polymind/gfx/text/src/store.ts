@@ -9,7 +9,7 @@ import {
 } from './adapter';
 
 export class TextStoreExtension extends StoreExtensionProvider {
-  override name = 'polymind-text-gfx';
+  override name = 'affine-text-gfx';
 
   override setup(context: StoreExtensionContext) {
     super.setup(context);

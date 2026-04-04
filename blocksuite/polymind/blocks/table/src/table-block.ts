@@ -21,7 +21,7 @@ import {
 } from './table-block-css';
 import { TableDataManager } from './table-data-manager';
 
-export const TableBlockComponentName = 'polymind-table';
+export const TableBlockComponentName = 'affine-table';
 export class TableBlockComponent extends CaptionedBlockComponent<TableBlockModel> {
   private _dataManager: TableDataManager | null = null;
 
@@ -174,7 +174,7 @@ export class TableBlockComponent extends CaptionedBlockComponent<TableBlockModel
                             column.columnId
                           );
                           return html`
-                            <polymind-table-cell
+                            <affine-table-cell
                               style="display: contents;"
                               .rowIndex=${rowIndex}
                               .columnIndex=${columnIndex}
@@ -183,7 +183,7 @@ export class TableBlockComponent extends CaptionedBlockComponent<TableBlockModel
                               .text=${cell?.text}
                               .dataManager=${this.dataManager}
                               .selectionController=${this.selectionController}
-                            ></polymind-table-cell>
+                            ></affine-table-cell>
                           `;
                         }
                       )}
@@ -194,17 +194,17 @@ export class TableBlockComponent extends CaptionedBlockComponent<TableBlockModel
             </tbody>
             ${IS_MOBILE || this.dataManager.readonly$.value
               ? nothing
-              : html`<polymind-table-add-button
+              : html`<affine-table-add-button
                   style="display: contents;"
                   .dataManager=${this.dataManager}
-                ></polymind-table-add-button>`}
-            ${html`<polymind-table-selection-layer
+                ></affine-table-add-button>`}
+            ${html`<affine-table-selection-layer
               style="display: contents;"
               .selectionController=${this.selectionController}
               .getRowRect=${this.getRowRect}
               .getColumnRect=${this.getColumnRect}
               .getAreaRect=${this.getAreaRect}
-            ></polymind-table-selection-layer>`}
+            ></affine-table-selection-layer>`}
           </table>
         </div>
       </div>

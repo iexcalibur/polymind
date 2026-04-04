@@ -12,7 +12,7 @@ import {
   ADAPTERS,
 } from '../config';
 
-export const AFFINE_ADAPTER_PANEL_BODY = 'polymind-adapter-panel-body';
+export const AFFINE_ADAPTER_PANEL_BODY = 'affine-adapter-panel-body';
 
 export class AdapterPanelBody extends SignalWatcher(LitElement) {
   static override styles = css`

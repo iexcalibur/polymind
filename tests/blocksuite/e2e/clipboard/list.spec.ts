@@ -109,7 +109,7 @@ test('copy a nested list by clicking button, the clipboard data should be comple
   };
   await pasteContent(page, clipData);
 
-  const rootListBound = await page.locator('polymind-list').first().boundingBox();
+  const rootListBound = await page.locator('affine-list').first().boundingBox();
   if (!rootListBound) {
     throw new Error('rootListBound is not found');
   }

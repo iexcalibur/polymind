@@ -204,7 +204,7 @@ test('when the selection is always a note, it should remain in an active state',
   await clickInCenter(page, bound);
   await clickInCenter(page, bound);
   await waitNextFrame(page);
-  await assertSelectionInNote(page, ids.noteId, 'polymind-edgeless-note');
+  await assertSelectionInNote(page, ids.noteId, 'affine-edgeless-note');
 });
 
 test('should auto panning when selection rectangle reaches viewport edges', async ({
@@ -536,10 +536,10 @@ test('should the block selectable after undo drag a block from canvas to note', 
 
   await page.dragAndDrop(
     '.affine-drag-handle-grabber.dots',
-    'polymind-edgeless-note[data-block-id="2"]'
+    'affine-edgeless-note[data-block-id="2"]'
   );
   await waitNextFrame(page);
   await undoByKeyboard(page);
-  await page.locator('polymind-embed-edgeless-synced-doc-block').click();
+  await page.locator('affine-embed-edgeless-synced-doc-block').click();
   expect(await actions.getSelectedBoundCount(page)).toBe(1);
 });

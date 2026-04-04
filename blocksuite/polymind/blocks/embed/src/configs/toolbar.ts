@@ -58,7 +58,7 @@ const previewAction = {
 
     if (options?.viewType !== 'card') return null;
 
-    return html`<polymind-link-preview .url=${url}></polymind-link-preview>`;
+    return html`<affine-link-preview .url=${url}></affine-link-preview>`;
   },
 } satisfies ToolbarAction;
 
@@ -277,12 +277,12 @@ function createBuiltinToolbarConfigForExternal(
 
           return html`${keyed(
             model,
-            html`<polymind-view-dropdown-menu
+            html`<affine-view-dropdown-menu
               @toggle=${onToggle}
               .actions=${actions}
               .context=${ctx}
               .viewType$=${viewType$}
-            ></polymind-view-dropdown-menu>`
+            ></affine-view-dropdown-menu>`
           )}`;
         },
       } satisfies ToolbarActionGroup<ToolbarAction>,
@@ -325,12 +325,12 @@ function createBuiltinToolbarConfigForExternal(
 
           return html`${keyed(
             model,
-            html`<polymind-card-style-dropdown-menu
+            html`<affine-card-style-dropdown-menu
               @toggle=${onToggle}
               .actions=${actions}
               .context=${ctx}
               .style$=${model.props.style$}
-            ></polymind-card-style-dropdown-menu>`
+            ></affine-card-style-dropdown-menu>`
           )}`;
         },
       } satisfies ToolbarActionGroup<ToolbarAction>,
@@ -510,12 +510,12 @@ const createBuiltinSurfaceToolbarConfigForExternal = (
 
           return html`${keyed(
             model,
-            html`<polymind-view-dropdown-menu
+            html`<affine-view-dropdown-menu
               @toggle=${onToggle}
               .actions=${actions}
               .context=${ctx}
               .viewType$=${viewType$}
-            ></polymind-view-dropdown-menu>`
+            ></affine-view-dropdown-menu>`
           )}`;
         },
       } satisfies ToolbarActionGroup<ToolbarAction>,
@@ -575,12 +575,12 @@ const createBuiltinSurfaceToolbarConfigForExternal = (
 
           return html`${keyed(
             model,
-            html`<polymind-card-style-dropdown-menu
+            html`<affine-card-style-dropdown-menu
               @toggle=${onToggle}
               .actions=${actions}
               .context=${ctx}
               .style$=${style$}
-            ></polymind-card-style-dropdown-menu>`
+            ></affine-card-style-dropdown-menu>`
           )}`;
         },
       } satisfies ToolbarActionGroup<ToolbarAction>,
@@ -642,12 +642,12 @@ const createBuiltinSurfaceToolbarConfigForExternal = (
 
           return html`${keyed(
             model,
-            html`<polymind-size-dropdown-menu
+            html`<affine-size-dropdown-menu
               @select=${onSelect}
               @toggle=${onToggle}
               .format=${format}
               .size$=${scale$}
-            ></polymind-size-dropdown-menu>`
+            ></affine-size-dropdown-menu>`
           )}`;
         },
       },

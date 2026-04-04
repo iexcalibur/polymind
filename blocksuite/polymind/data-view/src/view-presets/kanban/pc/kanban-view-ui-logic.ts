@@ -207,12 +207,12 @@ export class KanbanViewUI extends DataViewUIBase<KanbanViewUILogic> {
     );
 
     return html`${safeGroups.map(group => {
-      return html` <polymind-data-view-kanban-group
+      return html` <affine-data-view-kanban-group
         ${sortable(group.key)}
         data-key="${group.key}"
         .kanbanViewLogic="${this.logic}"
         .group="${group}"
-      ></polymind-data-view-kanban-group>`;
+      ></affine-data-view-kanban-group>`;
     })}`;
   }
 

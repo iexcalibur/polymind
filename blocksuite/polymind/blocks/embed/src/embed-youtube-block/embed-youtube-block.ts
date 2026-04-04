@@ -129,7 +129,7 @@ export class EmbedYoutubeBlockComponent extends EmbedBlockComponent<
       () => html`
         <div
           class=${classMap({
-            'polymind-embed-youtube-block': true,
+            'affine-embed-youtube-block': true,
             loading,
             selected: this.selected$.value,
           })}
@@ -157,13 +157,13 @@ export class EmbedYoutubeBlockComponent extends EmbedBlockComponent<
                     <!-- overlay to prevent the iframe from capturing pointer events -->
                     <div
                       class=${classMap({
-                        'polymind-embed-youtube-video-iframe-overlay': true,
+                        'affine-embed-youtube-video-iframe-overlay': true,
                         hide: !this.showOverlay$.value,
                       })}
                     ></div>
                     <img
                       class=${classMap({
-                        'polymind-embed-youtube-video-iframe-overlay': true,
+                        'affine-embed-youtube-video-iframe-overlay': true,
                         'media-print': true,
                         hide: !this._showImage,
                       })}

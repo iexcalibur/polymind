@@ -46,7 +46,7 @@ export class CaptionedBlockComponent<
     return html`<div
       style=${style}
       class=${classMap({
-        'polymind-block-component': true,
+        'affine-block-component': true,
         [theme]: true,
         border: isBorder,
       })}
@@ -58,9 +58,9 @@ export class CaptionedBlockComponent<
           ></block-caption-editor>`
         : nothing}
       ${this.selectedStyle === SelectedStyle.Background
-        ? html`<polymind-block-selection
+        ? html`<affine-block-selection
             .selected=${this.selected$.value}
-          ></polymind-block-selection>`
+          ></affine-block-selection>`
         : null}
       ${this.useZeroWidth && !this.store.readonly
         ? html`<block-zero-width .block=${this}></block-zero-width>`

@@ -83,6 +83,6 @@ export const BookmarkBlockInteraction = GfxViewInteractionExtension(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-edgeless-bookmark': BookmarkEdgelessBlockComponent;
+    'affine-edgeless-bookmark': BookmarkEdgelessBlockComponent;
   }
 }

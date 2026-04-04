@@ -475,7 +475,7 @@ export class EmbedIframeBlockComponent extends CaptionedBlockComponent<EmbedIfra
 
   override renderBlock() {
     const containerClasses = classMap({
-      'polymind-embed-iframe-block-container': true,
+      'affine-embed-iframe-block-container': true,
       ...this.selectedStyle$?.value,
       'in-surface': this.inSurface,
     });
@@ -484,7 +484,7 @@ export class EmbedIframeBlockComponent extends CaptionedBlockComponent<EmbedIfra
     });
 
     const overlayClasses = classMap({
-      'polymind-embed-iframe-block-overlay': true,
+      'affine-embed-iframe-block-overlay': true,
       show: this.showOverlay$.value,
     });
 

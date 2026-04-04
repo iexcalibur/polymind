@@ -72,7 +72,7 @@ export class EmbedFigmaBlockComponent extends EmbedBlockComponent<EmbedFigmaMode
       () => html`
         <div
           class=${classMap({
-            'polymind-embed-figma-block': true,
+            'affine-embed-figma-block': true,
             selected: this.selected$.value,
           })}
           @click=${this._handleClick}
@@ -91,7 +91,7 @@ export class EmbedFigmaBlockComponent extends EmbedBlockComponent<EmbedFigmaMode
               <!-- overlay to prevent the iframe from capturing pointer events -->
               <div
                 class=${classMap({
-                  'polymind-embed-figma-iframe-overlay': true,
+                  'affine-embed-figma-iframe-overlay': true,
                   hide: !this.showOverlay$.value,
                 })}
               ></div>

@@ -97,18 +97,18 @@ const updateArrowStyles = ({
  * ```ts
  * // Simple usage
  * html`
- * <polymind-tooltip>Content</polymind-tooltip>
+ * <affine-tooltip>Content</affine-tooltip>
  * `
  * // With placement
  * html`
- * <polymind-tooltip tip-position="top">
+ * <affine-tooltip tip-position="top">
  *   Content
- * </polymind-tooltip>
+ * </affine-tooltip>
  * `
  *
  * // With custom properties
  * html`
- * <polymind-tooltip
+ * <affine-tooltip
  *   .zIndex=${0}
  *   .offset=${4}
  *   .autoFlip=${true}
@@ -117,7 +117,7 @@ const updateArrowStyles = ({
  *   .allowInteractive=${false}
  * >
  *   Content
- * </polymind-tooltip>
+ * </affine-tooltip>
  * `
  * ```
  */
@@ -323,6 +323,6 @@ export class Tooltip extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-tooltip': Tooltip;
+    'affine-tooltip': Tooltip;
   }
 }

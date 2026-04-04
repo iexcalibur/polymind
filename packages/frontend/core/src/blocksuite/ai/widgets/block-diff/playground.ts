@@ -8,9 +8,9 @@ import { literal, unsafeStatic } from 'lit/static-html.js';
 
 import { BlockDiffProvider } from '../../services/block-diff';
 
-export const AFFINE_BLOCK_DIFF_PLAYGROUND = 'polymind-block-diff-playground';
+export const AFFINE_BLOCK_DIFF_PLAYGROUND = 'affine-block-diff-playground';
 export const AFFINE_BLOCK_DIFF_PLAYGROUND_MODAL =
-  'polymind-block-diff-playground-modal';
+  'affine-block-diff-playground-modal';
 
 export class BlockDiffPlaygroundModal extends WithDisposable(LitElement) {
   static override styles = css`
@@ -188,11 +188,11 @@ export class BlockDiffPlayground extends WidgetComponent {
 
     createLitPortal({
       template: html`
-        <polymind-block-diff-playground-modal
+        <affine-block-diff-playground-modal
           .diffService=${this.diffService}
           .store=${this.std.store}
           .onClose=${this.handleClose}
-        ></polymind-block-diff-playground-modal>
+        ></affine-block-diff-playground-modal>
       `,
       container: this.host,
       computePosition: {

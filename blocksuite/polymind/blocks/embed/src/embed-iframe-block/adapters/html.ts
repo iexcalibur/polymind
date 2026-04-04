@@ -22,7 +22,7 @@ export const embedIframeBlockHtmlAdapterMatcher =
               type: 'element',
               tagName: 'div',
               properties: {
-                className: ['polymind-paragraph-block-container'],
+                className: ['affine-paragraph-block-container'],
               },
               children: [],
             },

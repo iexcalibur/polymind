@@ -198,12 +198,12 @@ export const builtinToolbarConfig = {
 
         return html`${keyed(
           model,
-          html`<polymind-view-dropdown-menu
+          html`<affine-view-dropdown-menu
             .actions=${actions}
             .context=${ctx}
             .toggle=${toggle}
             .viewType$=${signal(actions[2].label)}
-          ></polymind-view-dropdown-menu>`
+          ></affine-view-dropdown-menu>`
         )}`;
       },
     } satisfies ToolbarActionGroup<ToolbarAction>,
@@ -404,12 +404,12 @@ export const builtinSurfaceToolbarConfig = {
 
         return html`${keyed(
           model,
-          html`<polymind-view-dropdown-menu
+          html`<affine-view-dropdown-menu
             @toggle=${onToggle}
             .actions=${actions}
             .context=${ctx}
             .viewType$=${signal(actions[1].label)}
-          ></polymind-view-dropdown-menu>`
+          ></affine-view-dropdown-menu>`
         )}`;
       },
     } satisfies ToolbarActionGroup<ToolbarAction>,
@@ -461,12 +461,12 @@ export const builtinSurfaceToolbarConfig = {
 
         return html`${keyed(
           model,
-          html`<polymind-size-dropdown-menu
+          html`<affine-size-dropdown-menu
             @select=${onSelect}
             @toggle=${onToggle}
             .format=${format}
             .size$=${scale$}
-          ></polymind-size-dropdown-menu>`
+          ></affine-size-dropdown-menu>`
         )}`;
       },
     },

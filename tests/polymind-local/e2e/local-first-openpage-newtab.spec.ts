@@ -118,19 +118,19 @@ test('ctrl click embedded doc link and open in new tab', async ({ page }) => {
   );
 
   const referenceNode = page.locator(
-    'polymind-reference:has-text("this is a new page")'
+    'affine-reference:has-text("this is a new page")'
   );
 
   // hover on the reference node and change it to embedded card mode
   await referenceNode.hover();
 
-  const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
+  const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
 
   await expect(toolbar).toBeVisible();
   await toolbar.getByRole('button', { name: 'Switch view' }).click();
   await page.getByRole('button', { name: 'Card view' }).click();
 
-  const embededDocBlock = page.locator('polymind-embed-linked-doc-block');
+  const embededDocBlock = page.locator('affine-embed-linked-doc-block');
 
   await expect(embededDocBlock).toBeVisible();
 

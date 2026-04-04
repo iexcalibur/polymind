@@ -60,7 +60,7 @@ test('switch to edgeless mode', async ({ page }) => {
   await assertRichTextInlineRange(page, 0, 5, 0);
 
   await switchEditorMode(page);
-  const locator = page.locator('polymind-edgeless-root gfx-viewport');
+  const locator = page.locator('affine-edgeless-root gfx-viewport');
   await expect(locator).toHaveCount(1);
   await assertRichTexts(page, ['hello']);
   await waitNextFrame(page);

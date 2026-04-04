@@ -9,5 +9,5 @@ export {
 export { DropIndicator };
 
 export function effects() {
-  customElements.define('polymind-drop-indicator', DropIndicator);
+  customElements.define('affine-drop-indicator', DropIndicator);
 }

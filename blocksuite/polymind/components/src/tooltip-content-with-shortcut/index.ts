@@ -74,13 +74,13 @@ export class TooltipContentWithShortcut extends LitElement {
 
 export function effects() {
   customElements.define(
-    'polymind-tooltip-content-with-shortcut',
+    'affine-tooltip-content-with-shortcut',
     TooltipContentWithShortcut
   );
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-tooltip-content-with-shortcut': TooltipContentWithShortcut;
+    'affine-tooltip-content-with-shortcut': TooltipContentWithShortcut;
   }
 }

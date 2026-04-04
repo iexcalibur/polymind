@@ -29,7 +29,7 @@ import {
   isKeyboardToolPanelConfig,
 } from './utils';
 
-export const AFFINE_KEYBOARD_TOOLBAR = 'polymind-keyboard-toolbar';
+export const AFFINE_KEYBOARD_TOOLBAR = 'affine-keyboard-toolbar';
 
 @requiredProperties({
   config: PropTypes.object,
@@ -374,14 +374,14 @@ export class PolymindKeyboardToolbar extends SignalWatcher(
         <div class="divider"></div>
         ${this._renderKeyboardButton()}
       </div>
-      <polymind-keyboard-tool-panel
+      <affine-keyboard-tool-panel
         .config=${this._currentPanelConfig}
         .context=${this._context}
         style=${styleMap({
           height: this.panelHeight,
           paddingBottom: this.keyboard.appTabSafeArea$.value,
         })}
-      ></polymind-keyboard-tool-panel>
+      ></affine-keyboard-tool-panel>
     `;
   }
 

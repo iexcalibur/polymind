@@ -205,7 +205,7 @@ export class PolymindDragHandleWidget extends WidgetComponent<RootBlockModel> {
     );
     const isGfx = this.activeDragHandle === 'gfx';
     const classes = {
-      'polymind-drag-handle-grabber': true,
+      'affine-drag-handle-grabber': true,
       dots: isGfx ? true : false,
     };
 

@@ -60,10 +60,10 @@ export class EdgelessEraserToolButton extends EdgelessToolbarToolMixin(
     return html`
       <edgeless-toolbar-button
         class="edgeless-eraser-button"
-        .tooltip=${html`<polymind-tooltip-content-with-shortcut
+        .tooltip=${html`<affine-tooltip-content-with-shortcut
           data-tip="${'Eraser'}"
           data-shortcut="${'E'}"
-        ></polymind-tooltip-content-with-shortcut>`}
+        ></affine-tooltip-content-with-shortcut>`}
         .tooltipOffset=${4}
         .active=${type === EraserTool}
         @click=${() => this.setEdgelessTool(EraserTool)}

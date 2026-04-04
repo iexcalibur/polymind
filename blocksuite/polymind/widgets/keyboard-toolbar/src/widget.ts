@@ -17,7 +17,7 @@ import {
   KeyboardToolbarConfigExtension,
 } from './config.js';
 
-export const AFFINE_KEYBOARD_TOOLBAR_WIDGET = 'polymind-keyboard-toolbar-widget';
+export const AFFINE_KEYBOARD_TOOLBAR_WIDGET = 'affine-keyboard-toolbar-widget';
 
 export class PolymindKeyboardToolbarWidget extends WidgetComponent<RootBlockModel> {
   private readonly _show$ = signal(false);
@@ -110,11 +110,11 @@ export class PolymindKeyboardToolbarWidget extends WidgetComponent<RootBlockMode
 
     return html`<blocksuite-portal
       .shadowDom=${false}
-      .template=${html`<polymind-keyboard-toolbar
+      .template=${html`<affine-keyboard-toolbar
         .keyboard=${this.keyboard}
         .config=${this.config}
         .rootComponent=${this.block.rootComponent}
-      ></polymind-keyboard-toolbar>`}
+      ></affine-keyboard-toolbar>`}
     ></blocksuite-portal>`;
   }
 }

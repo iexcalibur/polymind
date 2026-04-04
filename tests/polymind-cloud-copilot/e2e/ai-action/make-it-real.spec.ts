@@ -84,7 +84,7 @@ test.describe('AIAction/MakeItReal', () => {
       prompt,
       actionName,
     } = await utils.chatPanel.getLatestAIActionMessage(page);
-    await expect(panelAnswer.locator('polymind-code')).toBeVisible();
+    await expect(panelAnswer.locator('affine-code')).toBeVisible();
     await expect(prompt).toHaveText(/Write a web page of follow text/);
     await expect(actionName).toHaveText(/Make it real with text/);
   });

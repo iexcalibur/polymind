@@ -28,10 +28,10 @@ export class VirtualDataBaseColumnStats extends SignalWatcher(
         cols,
         col => col.id,
         col => {
-          return html`<polymind-database-virtual-column-stats-cell
+          return html`<affine-database-virtual-column-stats-cell
             .column=${col}
             .group=${this.group}
-          ></polymind-database-virtual-column-stats-cell>`;
+          ></affine-database-virtual-column-stats-cell>`;
         }
       )}
     `;
@@ -46,6 +46,6 @@ export class VirtualDataBaseColumnStats extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-database-virtual-column-stats': VirtualDataBaseColumnStats;
+    'affine-database-virtual-column-stats': VirtualDataBaseColumnStats;
   }
 }

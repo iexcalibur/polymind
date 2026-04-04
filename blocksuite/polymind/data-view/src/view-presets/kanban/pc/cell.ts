@@ -180,6 +180,6 @@ export class KanbanCell extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-data-view-kanban-cell': KanbanCell;
+    'affine-data-view-kanban-cell': KanbanCell;
   }
 }

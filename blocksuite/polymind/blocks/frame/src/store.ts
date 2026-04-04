@@ -5,7 +5,7 @@ import {
 import { FrameBlockSchemaExtension } from '@blocksuite/polymind-model';
 
 export class FrameStoreExtension extends StoreExtensionProvider {
-  override name = 'polymind-frame-block';
+  override name = 'affine-frame-block';
 
   override setup(context: StoreExtensionContext) {
     super.setup(context);

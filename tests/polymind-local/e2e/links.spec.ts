@@ -76,7 +76,7 @@ test('not allowed to switch to embed view when linking to the same document', as
     toolbarButtons(page);
 
   // Inline
-  const inlineLink = page.locator('polymind-reference');
+  const inlineLink = page.locator('affine-reference');
 
   await inlineLink.hover();
   await switchViewBtn.click();
@@ -89,7 +89,7 @@ test('not allowed to switch to embed view when linking to the same document', as
   await cardViewBtn.click();
 
   // Card
-  const cardLink = page.locator('polymind-embed-linked-doc-block');
+  const cardLink = page.locator('affine-embed-linked-doc-block');
   await expect(cardLink).toBeVisible();
 
   await cardLink.click();
@@ -123,7 +123,7 @@ test('not allowed to switch to embed view when linking to block', async ({
     toolbarButtons(page);
 
   // Inline
-  const inlineLink = page.locator('polymind-reference');
+  const inlineLink = page.locator('affine-reference');
 
   await inlineLink.hover();
   await switchViewBtn.click();
@@ -136,7 +136,7 @@ test('not allowed to switch to embed view when linking to block', async ({
   await cardViewBtn.click();
 
   // Card
-  const cardLink = page.locator('polymind-embed-linked-doc-block');
+  const cardLink = page.locator('affine-embed-linked-doc-block');
 
   await cardLink.dblclick();
 
@@ -167,7 +167,7 @@ test('not allowed to switch to embed view when linking to block', async ({
   // Switches to card view
   await cardViewBtn.click();
 
-  const otherCardLink = page.locator('polymind-embed-linked-doc-block').nth(1);
+  const otherCardLink = page.locator('affine-embed-linked-doc-block').nth(1);
   await otherCardLink.dblclick();
 
   await expect(peekViewModel).toBeVisible();
@@ -209,7 +209,7 @@ test('allow switching to embed view when linking to the other document without m
     toolbarButtons(page);
 
   // Inline
-  const inlineLink = page.locator('polymind-reference');
+  const inlineLink = page.locator('affine-reference');
 
   await inlineLink.hover();
   await switchViewBtn.click();
@@ -222,7 +222,7 @@ test('allow switching to embed view when linking to the other document without m
   await cardViewBtn.click();
 
   // Card
-  const cardLink = page.locator('polymind-embed-linked-doc-block');
+  const cardLink = page.locator('affine-embed-linked-doc-block');
   await expect(cardLink).toBeVisible();
 
   await cardLink.click();
@@ -238,7 +238,7 @@ test('allow switching to embed view when linking to the other document without m
   await embedViewBtn.click();
 
   // Embed
-  const embedLink = page.locator('polymind-embed-synced-doc-block');
+  const embedLink = page.locator('affine-embed-synced-doc-block');
   await expect(embedLink).toBeVisible();
 
   await embedLink.click();
@@ -294,7 +294,7 @@ test('allow switching to embed view when linking to the other document with mode
   const { switchViewBtn, inlineViewBtn, cardViewBtn, embedViewBtn } =
     toolbarButtons(page);
 
-  const inlineLink = page.locator('polymind-reference');
+  const inlineLink = page.locator('affine-reference');
 
   await inlineLink.click();
 
@@ -315,7 +315,7 @@ test('allow switching to embed view when linking to the other document with mode
   await cardViewBtn.click();
 
   // Card
-  const cardLink = page.locator('polymind-embed-linked-doc-block');
+  const cardLink = page.locator('affine-embed-linked-doc-block');
   await expect(cardLink).toBeVisible();
 
   // refocus
@@ -330,7 +330,7 @@ test('allow switching to embed view when linking to the other document with mode
   await embedViewBtn.click();
 
   // Embed
-  const embedLink = page.locator('polymind-embed-synced-doc-block');
+  const embedLink = page.locator('affine-embed-synced-doc-block');
   await expect(embedLink).toBeVisible();
 
   // refocus
@@ -391,7 +391,7 @@ test('@ popover should show today menu item', async ({ page }) => {
 
   // a affine-reference should be created with name date
   await expect(
-    page.locator('polymind-reference:has-text("' + date + '")')
+    page.locator('affine-reference:has-text("' + date + '")')
   ).toBeVisible();
 });
 
@@ -411,7 +411,7 @@ test('@ popover with input=tmr', async ({ page }) => {
 
   // a affine-reference should be created with name date
   await expect(
-    page.locator('polymind-reference:has-text("' + textContent + '")')
+    page.locator('affine-reference:has-text("' + textContent + '")')
   ).toBeVisible();
 });
 
@@ -435,7 +435,7 @@ test('@ popover with input=dec should create a reference with a December date', 
 
   // a affine-reference should be created with name date
   await expect(
-    page.locator('polymind-reference:has-text("' + textContent + '")')
+    page.locator('affine-reference:has-text("' + textContent + '")')
   ).toBeVisible();
 });
 
@@ -460,7 +460,7 @@ test('@ popover with click "select a specific date" should show a date picker', 
 
   // a affine-reference should be created with name date
   await expect(
-    page.locator('polymind-reference:has-text("' + date + '")')
+    page.locator('affine-reference:has-text("' + date + '")')
   ).toBeVisible();
 });
 
@@ -490,7 +490,7 @@ test('linked doc should show markdown preview in the backlink section', async ({
   await page.keyboard.press('Enter');
 
   await createLinkedPage(page, 'Test Page');
-  await page.locator('polymind-reference:has-text("Test Page")').click();
+  await page.locator('affine-reference:has-text("Test Page")').click();
 
   await expect(getBlockSuiteEditorTitle(page)).toHaveText('Test Page');
   await page
@@ -514,7 +514,7 @@ test('the viewport should be fit when the linked document is with edgeless mode'
 
   await clickEdgelessModeButton(page);
 
-  const note = page.locator('polymind-edgeless-note');
+  const note = page.locator('affine-edgeless-note');
   const noteBoundingBox = await note.boundingBox();
   expect(noteBoundingBox).not.toBeNull();
   if (!noteBoundingBox) return;
@@ -533,7 +533,7 @@ test('the viewport should be fit when the linked document is with edgeless mode'
   // create edgeless text
   await page.keyboard.press('t');
   await page.mouse.click(x, y);
-  await page.waitForSelector('polymind-edgeless-text');
+  await page.waitForSelector('affine-edgeless-text');
   await page.keyboard.type('Edgeless Text');
 
   const url = new URL(page.url());
@@ -544,18 +544,18 @@ test('the viewport should be fit when the linked document is with edgeless mode'
   await writeTextToClipboard(page, url.toString());
 
   // Inline
-  await page.locator('polymind-reference').hover();
+  await page.locator('affine-reference').hover();
   await page.getByLabel('Switch view').click();
   await page.getByTestId('link-to-embed').click();
 
   const viewport = await page
-    .locator('polymind-embed-synced-doc-block')
+    .locator('affine-embed-synced-doc-block')
     .boundingBox();
   expect(viewport).not.toBeNull();
   if (!viewport) return;
 
   const edgelessText = await page
-    .locator('polymind-embed-synced-doc-block affine-edgeless-text')
+    .locator('affine-embed-synced-doc-block affine-edgeless-text')
     .boundingBox();
   expect(edgelessText).not.toBeNull();
   if (!edgelessText) return;
@@ -578,7 +578,7 @@ test('should show edgeless content when switching card view of linked mode doc i
 
   await clickEdgelessModeButton(page);
 
-  const note = page.locator('polymind-edgeless-note');
+  const note = page.locator('affine-edgeless-note');
   const noteBoundingBox = await note.boundingBox();
   expect(noteBoundingBox).not.toBeNull();
   if (!noteBoundingBox) return;
@@ -598,7 +598,7 @@ test('should show edgeless content when switching card view of linked mode doc i
   // create edgeless text
   await page.keyboard.press('t');
   await page.mouse.click(x, y + 100);
-  await page.locator('polymind-edgeless-text').waitFor({ state: 'visible' });
+  await page.locator('affine-edgeless-text').waitFor({ state: 'visible' });
   await page.keyboard.type('Edgeless Text');
 
   const url = new URL(page.url());
@@ -614,19 +614,19 @@ test('should show edgeless content when switching card view of linked mode doc i
   await writeTextToClipboard(page, url.toString(), false);
 
   // Inline
-  const embed = page.locator('polymind-embed-edgeless-linked-doc-block');
+  const embed = page.locator('affine-embed-edgeless-linked-doc-block');
   await expect(embed).toBeVisible();
   await page.getByLabel('Switch view').click();
   await page.getByTestId('link-to-embed').click();
 
   const viewport = await page
-    .locator('polymind-embed-edgeless-synced-doc-block')
+    .locator('affine-embed-edgeless-synced-doc-block')
     .boundingBox();
   expect(viewport).not.toBeNull();
   if (!viewport) return;
 
   const edgelessText = await page
-    .locator('polymind-embed-edgeless-synced-doc-block affine-edgeless-text')
+    .locator('affine-embed-edgeless-synced-doc-block affine-edgeless-text')
     .boundingBox();
   expect(edgelessText).not.toBeNull();
   if (!edgelessText) return;
@@ -649,9 +649,9 @@ test.describe('Customize linked doc title and description', () => {
     await page.keyboard.press('Enter');
     await createLinkedPage(page, 'Test Page');
 
-    const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
+    const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
 
-    const link = page.locator('polymind-reference');
+    const link = page.locator('affine-reference');
     const title = link.locator('.affine-reference-title');
 
     await link.hover();
@@ -714,7 +714,7 @@ test.describe('Customize linked doc title and description', () => {
     const { toolbar, switchViewBtn, inlineViewBtn, cardViewBtn } =
       toolbarButtons(page);
 
-    const inlineLink = page.locator('polymind-reference');
+    const inlineLink = page.locator('affine-reference');
     await inlineLink.hover();
 
     // Copies link
@@ -742,7 +742,7 @@ test.describe('Customize linked doc title and description', () => {
     await switchViewBtn.click();
     await cardViewBtn.click();
 
-    const cardLink = page.locator('polymind-embed-linked-doc-block');
+    const cardLink = page.locator('affine-embed-linked-doc-block');
     const cardTitle = cardLink.locator(
       '.affine-embed-linked-doc-content-title-text'
     );
@@ -831,9 +831,9 @@ test.describe('Customize linked doc title and description', () => {
   //   await page.keyboard.press('Enter');
   //   await createLinkedPage(page, 'Test Page');
 
-  //   const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
+  //   const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
 
-  //   const inlineLink = page.locator('polymind-reference');
+  //   const inlineLink = page.locator('affine-reference');
   //   await inlineLink.hover();
 
   //   // Edits title
@@ -860,9 +860,9 @@ test.describe('Customize linked doc title and description', () => {
   //     await page.keyboard.press('Enter');
   //     await createTodayPage(page);
 
-  //     const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
+  //     const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
 
-  //     const inlineLink = page.locator('polymind-reference');
+  //     const inlineLink = page.locator('affine-reference');
   //     await inlineLink.hover();
 
   //     // Edits title
@@ -894,7 +894,7 @@ test('should save open doc mode of internal links', async ({ page }) => {
   const { toolbar, switchViewBtn, inlineViewBtn, cardViewBtn, embedViewBtn } =
     toolbarButtons(page);
 
-  const inlineLink = page.locator('polymind-reference');
+  const inlineLink = page.locator('affine-reference');
   await inlineLink.hover();
 
   const recentOpenModeBtn = toolbar.locator(
@@ -973,7 +973,7 @@ test('should show full email address', async ({ page }) => {
 
   await writeTextToClipboard(page, 'dev@polymind.pro');
 
-  const inlineLink = page.locator('polymind-link');
+  const inlineLink = page.locator('affine-link');
 
   await expect(inlineLink).toHaveText('dev@polymind.pro');
 
@@ -984,7 +984,7 @@ test('should show full email address', async ({ page }) => {
   await expect(toolbar).toBeVisible();
   await expect(switchViewBtn).toBeHidden();
 
-  await expect(toolbar.locator('polymind-link-preview')).toHaveText(
+  await expect(toolbar.locator('affine-link-preview')).toHaveText(
     'dev@polymind.pro'
   );
 });
@@ -996,7 +996,7 @@ test('should not show view toggle button when protocol of link is not http(s)', 
 
   await writeTextToClipboard(page, 'ftp://polymind.pro/blocksuite.pdf');
 
-  const inlineLink = page.locator('polymind-link');
+  const inlineLink = page.locator('affine-link');
 
   await expect(inlineLink).toHaveText('ftp://polymind.pro/blocksuite.pdf');
 
@@ -1007,7 +1007,7 @@ test('should not show view toggle button when protocol of link is not http(s)', 
   await expect(toolbar).toBeVisible();
   await expect(switchViewBtn).toBeHidden();
 
-  await expect(toolbar.locator('polymind-link-preview')).toHaveText('polymind.pro');
+  await expect(toolbar.locator('affine-link-preview')).toHaveText('polymind.pro');
 });
 
 test('should reach target block when clicking affine-link multiple times', async ({
@@ -1029,7 +1029,7 @@ test('should reach target block when clicking affine-link multiple times', async
   await toolbar.getByLabel('More menu').click();
   await toolbar.getByLabel('Copy link to block').click();
 
-  const paragraph = page.locator('polymind-paragraph').nth(0);
+  const paragraph = page.locator('affine-paragraph').nth(0);
   await paragraph.click();
 
   await selectAllByKeyboard(page);
@@ -1042,10 +1042,10 @@ test('should reach target block when clicking affine-link multiple times', async
 
   await page.locator('.affine-confirm-button').click();
 
-  const scrollAnchoringWidget = page.locator('polymind-scroll-anchoring-widget');
+  const scrollAnchoringWidget = page.locator('affine-scroll-anchoring-widget');
   const highlight = scrollAnchoringWidget.locator('.highlight');
 
-  const inlineLink = page.locator('polymind-link');
+  const inlineLink = page.locator('affine-link');
 
   await inlineLink.click();
   await expect(highlight).toBeVisible();
@@ -1076,9 +1076,9 @@ test('should display date as the original title of journal', async ({
 
   const { toolbar, switchViewBtn, cardViewBtn } = toolbarButtons(page);
 
-  const linkedDocTitle = toolbar.locator('polymind-linked-doc-title .label');
+  const linkedDocTitle = toolbar.locator('affine-linked-doc-title .label');
 
-  const inlineLink = page.locator('polymind-reference');
+  const inlineLink = page.locator('affine-reference');
   await inlineLink.hover();
 
   await expect(toolbar).toBeVisible();
@@ -1110,7 +1110,7 @@ test('should display date as the original title of journal', async ({
   await switchViewBtn.click();
   await cardViewBtn.click();
 
-  const cardLink = page.locator('polymind-embed-linked-doc-block');
+  const cardLink = page.locator('affine-embed-linked-doc-block');
   await expect(cardLink).toBeVisible();
 
   await expect(toolbar).toBeVisible();
@@ -1147,7 +1147,7 @@ test('should add HTTP protocol into link automatically', async ({ page }) => {
 
   const { toolbar, switchViewBtn, cardViewBtn } = toolbarButtons(page);
 
-  const inlineLink = page.locator('polymind-link');
+  const inlineLink = page.locator('affine-link');
 
   await expect(inlineLink).toBeVisible();
 
@@ -1156,7 +1156,7 @@ test('should add HTTP protocol into link automatically', async ({ page }) => {
 
   await inlineLink.hover();
 
-  const linkPreview = toolbar.locator('polymind-link-preview');
+  const linkPreview = toolbar.locator('affine-link-preview');
 
   url = await linkPreview.locator('a').getAttribute('href');
   expect(url).toBe(link);
@@ -1164,7 +1164,7 @@ test('should add HTTP protocol into link automatically', async ({ page }) => {
   await switchViewBtn.click();
   await cardViewBtn.click();
 
-  const cardLink = page.locator('polymind-bookmark');
+  const cardLink = page.locator('affine-bookmark');
 
   await expect(cardLink).toBeVisible();
 
@@ -1192,7 +1192,7 @@ test('should open link in new tab when middle clicking on link', async ({
 
     const newTabPromise = context.waitForEvent('page');
 
-    await page.locator('polymind-link').click({ button: 'middle' });
+    await page.locator('affine-link').click({ button: 'middle' });
 
     const newTab = await newTabPromise;
     await expect(newTab).toHaveURL(externalUrl);
@@ -1215,7 +1215,7 @@ test('should open link in new tab when middle clicking on link', async ({
 
     const newTabPromise = context.waitForEvent('page');
 
-    await page.locator('polymind-link').click({ button: 'middle' });
+    await page.locator('affine-link').click({ button: 'middle' });
 
     const newTab = await newTabPromise;
     // there is a refreshKey in the url
@@ -1236,7 +1236,7 @@ test('should open link in new tab when middle clicking on link', async ({
 
     const newTabPromise = context.waitForEvent('page');
 
-    await page.locator('polymind-reference').click({ button: 'middle' });
+    await page.locator('affine-reference').click({ button: 'middle' });
 
     const newTab = await newTabPromise;
     expect(newTab.url()).toContain(page.url());

@@ -461,14 +461,14 @@ export class SelectionController implements ReactiveController {
     const startX = event.clientX;
     const startY = event.clientY;
     let selected = false;
-    const initCell = target.closest('polymind-table-cell');
+    const initCell = target.closest('affine-table-cell');
     if (!initCell) {
       selected = true;
     }
     const onMove = (event: MouseEvent) => {
       const target = event.target;
       if (target instanceof HTMLElement) {
-        const cell = target.closest('polymind-table-cell');
+        const cell = target.closest('affine-table-cell');
         if (!selected && initCell === cell) {
           return;
         }

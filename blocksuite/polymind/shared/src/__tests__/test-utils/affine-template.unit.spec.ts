@@ -6,11 +6,11 @@ import { affine } from '../../test-utils';
 describe('helpers/affine-template', () => {
   it('should create a basic document structure from template', () => {
     const host = affine`
-      <polymind-page id="page">
-        <polymind-note id="note">
-          <polymind-paragraph id="paragraph-1">Hello, world</polymind-paragraph>
-        </polymind-note>
-      </polymind-page>
+      <affine-page id="page">
+        <affine-note id="note">
+          <affine-paragraph id="paragraph-1">Hello, world</affine-paragraph>
+        </affine-note>
+      </affine-page>
     `;
 
     expect(host.store).toBeDefined();
@@ -30,13 +30,13 @@ describe('helpers/affine-template', () => {
 
   it('should handle nested blocks correctly', () => {
     const host = affine`
-      <polymind-page>
-        <polymind-note>
-          <polymind-paragraph>First paragraph</polymind-paragraph>
-          <polymind-list>List item</polymind-list>
-          <polymind-paragraph>Second paragraph</polymind-paragraph>
-        </polymind-note>
-      </polymind-page>
+      <affine-page>
+        <affine-note>
+          <affine-paragraph>First paragraph</affine-paragraph>
+          <affine-list>List item</affine-list>
+          <affine-paragraph>Second paragraph</affine-paragraph>
+        </affine-note>
+      </affine-page>
     `;
 
     const noteBlocks = host.store.getBlocksByFlavour('polymind:note');
@@ -59,11 +59,11 @@ describe('helpers/affine-template', () => {
 
   it('should handle empty blocks correctly', () => {
     const host = affine`
-      <polymind-page>
-        <polymind-note>
-          <polymind-paragraph></polymind-paragraph>
-        </polymind-note>
-      </polymind-page>
+      <affine-page>
+        <affine-note>
+          <affine-paragraph></affine-paragraph>
+        </affine-note>
+      </affine-page>
     `;
 
     const paragraphBlocks = host.store.getBlocksByFlavour('polymind:paragraph');
@@ -84,12 +84,12 @@ describe('helpers/affine-template', () => {
 
   it('should handle text selection with anchor and focus', () => {
     const host = affine`
-      <polymind-page id="page">
-        <polymind-note id="note">
-          <polymind-paragraph id="paragraph-1">Hel<anchor />lo</polymind-paragraph>
-          <polymind-paragraph id="paragraph-2">Wo<focus />rld</polymind-paragraph>
-        </polymind-note>
-      </polymind-page>
+      <affine-page id="page">
+        <affine-note id="note">
+          <affine-paragraph id="paragraph-1">Hel<anchor />lo</affine-paragraph>
+          <affine-paragraph id="paragraph-2">Wo<focus />rld</affine-paragraph>
+        </affine-note>
+      </affine-page>
     `;
 
     const selection = host.selection.value[0] as TextSelection;
@@ -105,11 +105,11 @@ describe('helpers/affine-template', () => {
 
   it('should handle cursor position', () => {
     const host = affine`
-      <polymind-page id="page">
-        <polymind-note id="note">
-          <polymind-paragraph id="paragraph-1">Hello<cursor />World</polymind-paragraph>
-        </polymind-note>
-      </polymind-page>
+      <affine-page id="page">
+        <affine-note id="note">
+          <affine-paragraph id="paragraph-1">Hello<cursor />World</affine-paragraph>
+        </affine-note>
+      </affine-page>
     `;
 
     const selection = host.selection.value[0] as TextSelection;
@@ -123,11 +123,11 @@ describe('helpers/affine-template', () => {
 
   it('should handle selection in empty blocks', () => {
     const host = affine`
-      <polymind-page id="page">
-        <polymind-note id="note">
-          <polymind-paragraph id="paragraph-1"><cursor /></polymind-paragraph>
-        </polymind-note>
-      </polymind-page>
+      <affine-page id="page">
+        <affine-note id="note">
+          <affine-paragraph id="paragraph-1"><cursor /></affine-paragraph>
+        </affine-note>
+      </affine-page>
     `;
 
     const selection = host.selection.value[0] as TextSelection;
@@ -141,11 +141,11 @@ describe('helpers/affine-template', () => {
 
   it('should handle single point selection', () => {
     const host = affine`
-      <polymind-page id="page">
-        <polymind-note id="note">
-          <polymind-paragraph id="paragraph-1">Hello<anchor></anchor>World<focus></focus>Polymind</polymind-paragraph>
-        </polymind-note>
-      </polymind-page>
+      <affine-page id="page">
+        <affine-note id="note">
+          <affine-paragraph id="paragraph-1">Hello<anchor></anchor>World<focus></focus>Polymind</affine-paragraph>
+        </affine-note>
+      </affine-page>
     `;
 
     const selection = host.selection.value[0] as TextSelection;

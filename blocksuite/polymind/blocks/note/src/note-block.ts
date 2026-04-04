@@ -29,6 +29,6 @@ export class NoteBlockComponent extends BlockComponent<NoteBlockModel> {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-note': NoteBlockComponent;
+    'affine-note': NoteBlockComponent;
   }
 }

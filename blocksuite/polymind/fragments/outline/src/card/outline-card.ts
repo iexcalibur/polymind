@@ -16,7 +16,7 @@ import type { SelectEvent } from '../utils/custom-events';
 import type { NoteCardEntity, NoteDropPayload } from '../utils/drag';
 import * as styles from './outline-card.css';
 
-export const AFFINE_OUTLINE_NOTE_CARD = 'polymind-outline-note-card';
+export const AFFINE_OUTLINE_NOTE_CARD = 'affine-outline-note-card';
 
 export class OutlineNoteCard extends SignalWatcher(
   WithDisposable(ShadowlessElement)
@@ -232,7 +232,7 @@ export class OutlineNoteCard extends SignalWatcher(
         </div>`}
           <div class=${styles.cardContent}>
             ${children.map(block => {
-              return html`<polymind-outline-block-preview
+              return html`<affine-outline-block-preview
                 class=${classMap({ active: this.activeHeadingId === block.id })}
                 .block=${block}
                 .disabledIcon=${invisible}
@@ -240,7 +240,7 @@ export class OutlineNoteCard extends SignalWatcher(
                   if (invisible) return;
                   this._dispatchClickBlockEvent(block);
                 }}
-              ></polymind-outline-block-preview>`;
+              ></affine-outline-block-preview>`;
             })}
             </div>
           </div>

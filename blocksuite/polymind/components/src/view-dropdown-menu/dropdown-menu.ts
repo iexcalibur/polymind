@@ -81,6 +81,6 @@ export class ViewDropdownMenu extends SignalWatcher(LitElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-view-dropdown-menu': ViewDropdownMenu;
+    'affine-view-dropdown-menu': ViewDropdownMenu;
   }
 }

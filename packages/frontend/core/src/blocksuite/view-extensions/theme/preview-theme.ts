@@ -22,7 +22,7 @@ export function getPreviewThemeExtension(framework: FrameworkProvider) {
     extends LifeCycleWatcher
     implements ThemeExtension
   {
-    static override readonly key = 'polymind-page-preview-theme';
+    static override readonly key = 'affine-page-preview-theme';
 
     readonly theme: Signal<ColorScheme>;
 

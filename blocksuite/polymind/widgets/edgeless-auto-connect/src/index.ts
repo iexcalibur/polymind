@@ -112,7 +112,7 @@ function isAutoConnectElement(element: unknown): element is AutoConnectElement {
 }
 
 export const AFFINE_EDGELESS_AUTO_CONNECT_WIDGET =
-  'polymind-edgeless-auto-connect-widget';
+  'affine-edgeless-auto-connect-widget';
 
 export class EdgelessAutoConnectWidget extends WidgetComponent<RootBlockModel> {
   static override styles = css`
@@ -264,9 +264,9 @@ export class EdgelessAutoConnectWidget extends WidgetComponent<RootBlockModel> {
 
         return html`<div style=${style} class="edgeless-only-index-label">
           ${InvisibleIcon({ width: '20px', height: '20px' })}
-          <polymind-tooltip tip-position="bottom">
+          <affine-tooltip tip-position="bottom">
             ${getIndexLabelTooltip(SmallDocIcon, 'Hidden on page')}
-          </polymind-tooltip>
+          </affine-tooltip>
         </div>`;
       }
     )}`;
@@ -485,9 +485,9 @@ export class EdgelessAutoConnectWidget extends WidgetComponent<RootBlockModel> {
               }}
             >
               ${index}
-              <polymind-tooltip tip-position="bottom">
+              <affine-tooltip tip-position="bottom">
                 ${getIndexLabelTooltip(SmallDocIcon, 'Page mode index')}
-              </polymind-tooltip>
+              </affine-tooltip>
             </div>
           `);
         }
@@ -629,6 +629,6 @@ export const autoConnectWidget = WidgetViewExtension(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-edgeless-auto-connect-widget': EdgelessAutoConnectWidget;
+    'affine-edgeless-auto-connect-widget': EdgelessAutoConnectWidget;
   }
 }

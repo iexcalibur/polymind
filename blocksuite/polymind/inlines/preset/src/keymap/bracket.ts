@@ -128,7 +128,7 @@ function tryConvertToLinkedDoc(std: BlockStdScope, inlineEditor: InlineEditor) {
   const root = std.store.root;
   if (!root) return false;
   const linkedDocWidgetEle = std.view.getWidget(
-    'polymind-linked-doc-widget',
+    'affine-linked-doc-widget',
     root.id
   );
   if (!linkedDocWidgetEle) return false;

@@ -160,7 +160,7 @@ export class BookmarkBlockComponent extends CaptionedBlockComponent<BookmarkBloc
     const { icon, title, description } = this.linkPreview$.value;
     const iconSrc = icon ? this.imageProxyService.buildUrl(icon) : undefined;
     return html`
-      <polymind-citation-card
+      <affine-citation-card
         .icon=${iconSrc}
         .citationTitle=${title || url}
         .citationContent=${description}
@@ -168,7 +168,7 @@ export class BookmarkBlockComponent extends CaptionedBlockComponent<BookmarkBloc
         .onClickCallback=${this.handleClick}
         .onDoubleClickCallback=${this.handleDoubleClick}
         .active=${this.selected$.value}
-      ></polymind-citation-card>
+      ></affine-citation-card>
     `;
   };
 
@@ -256,7 +256,7 @@ export class BookmarkBlockComponent extends CaptionedBlockComponent<BookmarkBloc
       <div
         draggable="${this.blockDraggable ? 'true' : 'false'}"
         class=${classMap({
-          'polymind-bookmark-container': true,
+          'affine-bookmark-container': true,
           ...this.selectedStyle$?.value,
         })}
         style=${this.containerStyleMap}
@@ -288,6 +288,6 @@ export class BookmarkBlockComponent extends CaptionedBlockComponent<BookmarkBloc
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-bookmark': BookmarkBlockComponent;
+    'affine-bookmark': BookmarkBlockComponent;
   }
 }

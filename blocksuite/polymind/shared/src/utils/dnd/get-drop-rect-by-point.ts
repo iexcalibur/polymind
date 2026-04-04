@@ -71,7 +71,7 @@ export function getDropRectByPoint(
     for (; i < len; i++) {
       e = elements[i];
 
-      if (e.classList.contains('polymind-database-block-row-cell-content')) {
+      if (e.classList.contains('affine-database-block-row-cell-content')) {
         const cellRect = getCellRect(e, bounds);
         if (!cellRect) {
           return null;
@@ -80,7 +80,7 @@ export function getDropRectByPoint(
         return result;
       }
 
-      if (e.classList.contains('polymind-database-block-row')) {
+      if (e.classList.contains('affine-database-block-row')) {
         e = e.querySelector(ATTR_SELECTOR);
         if (!e) {
           return null;
@@ -98,7 +98,7 @@ export function getDropRectByPoint(
   }
 
   const parent = element.parentElement;
-  if (parent?.classList.contains('polymind-database-block-row-cell-content')) {
+  if (parent?.classList.contains('affine-database-block-row-cell-content')) {
     result.flag = DropFlags.Database;
     const cellRect = getCellRect(parent);
     if (!cellRect) {

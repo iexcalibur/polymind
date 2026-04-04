@@ -101,5 +101,5 @@ export class ImageResizeManager {
 }
 
 function getClosestRootBlockComponent(el: HTMLElement): BlockComponent | null {
-  return el.closest('polymind-edgeless-root, affine-page-root');
+  return el.closest('affine-edgeless-root, affine-page-root');
 }

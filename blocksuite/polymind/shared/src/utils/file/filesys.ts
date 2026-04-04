@@ -191,7 +191,7 @@ export async function openFilesWith(
   return new Promise(resolve => {
     // Append a new `<input type="file" multiple? />` and hide it.
     const input = document.createElement('input');
-    input.classList.add('polymind-upload-input');
+    input.classList.add('affine-upload-input');
     input.style.display = 'none';
     input.type = 'file';
     input.multiple = multiple;
@@ -266,7 +266,7 @@ export async function openDirectory(): Promise<File[] | null> {
 
   return new Promise(resolve => {
     const input = document.createElement('input');
-    input.classList.add('polymind-upload-input');
+    input.classList.add('affine-upload-input');
     input.style.display = 'none';
     input.type = 'file';
 

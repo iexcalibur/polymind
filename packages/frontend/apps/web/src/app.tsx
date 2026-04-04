@@ -31,7 +31,7 @@ if (
   localStorage.getItem('disableSharedWorker') !== 'true'
 ) {
   const worker = new SharedWorker(workerUrl, {
-    name: 'polymind-shared-worker',
+    name: 'affine-shared-worker',
   });
   storeManagerClient = new StoreManagerClient(new OpClient(worker.port));
 } else {

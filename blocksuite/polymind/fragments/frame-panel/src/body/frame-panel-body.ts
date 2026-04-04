@@ -83,7 +83,7 @@ const styles = css`
   }
 `;
 
-export const AFFINE_FRAME_PANEL_BODY = 'polymind-frame-panel-body';
+export const AFFINE_FRAME_PANEL_BODY = 'affine-frame-panel-body';
 
 export class FramePanelBody extends SignalWatcher(
   WithDisposable(ShadowlessElement)
@@ -262,7 +262,7 @@ export class FramePanelBody extends SignalWatcher(
       const { frame, frameIndex, cardIndex } = frameItem;
       return keyed(
         frame,
-        html`<polymind-frame-card
+        html`<affine-frame-card
           data-frame-id=${frame.id}
           .frame=${frame}
           .std=${this.editorHost.std}
@@ -276,7 +276,7 @@ export class FramePanelBody extends SignalWatcher(
           @select=${this._selectFrame}
           @fitview=${this._fitToElement}
           @drag=${this._drag}
-        ></polymind-frame-card>`
+        ></affine-frame-card>`
       );
     })}`;
 

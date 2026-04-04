@@ -13,7 +13,7 @@ const playCheckAnimation = async (
   { left = 0, size = 20 }: { left?: number; size?: number } = {}
 ) => {
   const sparkingEl = document.createElement('div');
-  sparkingEl.classList.add('polymind-check-animation');
+  sparkingEl.classList.add('affine-check-animation');
   if (size < 20) {
     console.warn('If the size is less than 20, the animation may be abnormal.');
   }

@@ -15,7 +15,7 @@ type Anchor = {
   highlight: boolean;
 };
 
-export const AFFINE_SCROLL_ANCHORING_WIDGET = 'polymind-scroll-anchoring-widget';
+export const AFFINE_SCROLL_ANCHORING_WIDGET = 'affine-scroll-anchoring-widget';
 
 export class PolymindScrollAnchoringWidget extends WidgetComponent {
   static override styles = css`

@@ -15,7 +15,7 @@ export const toast = (message: string, options?: ToastOptions) => {
 declare global {
   // global Events
   interface WindowEventMap {
-    'polymind-toast:emit': CustomEvent<{
+    'affine-toast:emit': CustomEvent<{
       message: string;
     }>;
   }

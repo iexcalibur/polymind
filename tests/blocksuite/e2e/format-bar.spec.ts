@@ -68,7 +68,7 @@ test('should format quick bar show when select text', async ({ page }) => {
   // Even not any button is clicked, the format quick bar should't be hidden
   await expect(formatBar).toBeVisible();
 
-  const noteEl = page.locator('polymind-note');
+  const noteEl = page.locator('affine-note');
   const { x, y } = await getBoundingBox(noteEl);
   await page.mouse.click(x + 100, y + 20);
   await expect(formatBar).not.toBeVisible();
@@ -81,7 +81,7 @@ test('should format quick bar show when clicking drag handle', async ({
   await initEmptyParagraphState(page);
   await initThreeParagraphs(page);
 
-  const locator = page.locator('polymind-paragraph').first();
+  const locator = page.locator('affine-paragraph').first();
   await locator.hover();
   const dragHandle = page.locator('.affine-drag-handle-grabber');
   const dragHandleRect = await dragHandle.boundingBox();
@@ -364,7 +364,7 @@ test('should format quick bar be able to link text', async ({
     `${testInfo.title}_init.json`
   );
 
-  const linkLocator = page.locator('polymind-link a');
+  const linkLocator = page.locator('affine-link a');
   await expect(linkLocator).toHaveAttribute('href', url);
 
   await focusRichTextEnd(page);
@@ -564,7 +564,7 @@ test('should format quick bar work in single block selection', async ({
     { x: 0, y: 0 }
   );
   const blockSelections = page
-    .locator('polymind-block-selection')
+    .locator('affine-block-selection')
     .locator('visible=true');
   await expect(blockSelections).toHaveCount(1);
 
@@ -587,7 +587,7 @@ test('should format quick bar work in single block selection', async ({
     `${testInfo.title}.json`
   );
 
-  const noteEl = page.locator('polymind-note');
+  const noteEl = page.locator('affine-note');
   const { x, y, width, height } = await getBoundingBox(noteEl);
   await page.mouse.click(x + width / 2, y + height / 2);
   await expect(formatBar).not.toBeVisible();
@@ -608,7 +608,7 @@ test('should format quick bar work in multiple block selection', async ({
     { x: 0, y: 0 }
   );
   const blockSelections = page
-    .locator('polymind-block-selection')
+    .locator('affine-block-selection')
     .locator('visible=true');
   await expect(blockSelections).toHaveCount(3);
 
@@ -627,7 +627,7 @@ test('should format quick bar work in multiple block selection', async ({
     `${testInfo.title}.json`
   );
 
-  const noteEl = page.locator('polymind-note');
+  const noteEl = page.locator('affine-note');
   const { x, y, width, height } = await getBoundingBox(noteEl);
   await page.mouse.click(x + width / 2, y + height / 2);
   await expect(formatBarController.formatBar).not.toBeVisible();
@@ -648,7 +648,7 @@ test('should format quick bar with block selection works when update block type'
     { x: 0, y: 0 }
   );
   const blockSelections = page
-    .locator('polymind-block-selection')
+    .locator('affine-block-selection')
     .locator('visible=true');
   await expect(blockSelections).toHaveCount(3);
 
@@ -671,7 +671,7 @@ test('should format quick bar with block selection works when update block type'
   await expect(formatBarController.formatBar).toBeVisible();
   await expect(blockSelections).toHaveCount(3);
 
-  const noteEl = page.locator('polymind-note');
+  const noteEl = page.locator('affine-note');
   const { x, y, width, height } = await getBoundingBox(noteEl);
   await page.mouse.click(x + width / 2, y + height / 2);
   await expect(formatBarController.formatBar).not.toBeVisible();
@@ -797,7 +797,7 @@ test('should the database action icon show correctly', async ({ page }) => {
   await focusRichText(page, 2);
   await pressEnter(page);
   await updateBlockType(page, 'polymind:code');
-  const codeBlock = page.locator('polymind-code');
+  const codeBlock = page.locator('affine-code');
   const codeBox = await codeBlock.boundingBox();
   if (!codeBox) throw new Error('Missing code block box');
 
@@ -832,7 +832,7 @@ test('should convert to database work', async ({ page }) => {
   );
   const databaseAction = page.getByTestId('convert-to-database');
   await databaseAction.click();
-  const database = page.locator('polymind-database');
+  const database = page.locator('affine-database');
   await expect(database).toBeVisible();
   const rows = page.locator('.affine-database-block-row');
   expect(await rows.count()).toBe(3);
@@ -860,7 +860,7 @@ test('should show format-quick-bar and select all text of the block when triple 
 
   await assertRichTextInlineRange(page, 0, 0, 5);
 
-  const noteEl = page.locator('polymind-note');
+  const noteEl = page.locator('affine-note');
   const { x, y, width, height } = await getBoundingBox(noteEl);
   await page.mouse.click(x + width / 2, y + height / 2);
 
@@ -965,7 +965,7 @@ test('create linked doc from block selection with format bar', async ({
   await waitNextFrame(page, 200);
 
   const blockSelections = page
-    .locator('polymind-block-selection')
+    .locator('affine-block-selection')
     .locator('visible=true');
   await expect(blockSelections).toHaveCount(2);
 
@@ -973,7 +973,7 @@ test('create linked doc from block selection with format bar', async ({
   expect(await createLinkedDocBtn.isVisible()).toBe(true);
   await createLinkedDocBtn.click();
 
-  const linkedDocBlock = page.locator('polymind-embed-linked-doc-block');
+  const linkedDocBlock = page.locator('affine-embed-linked-doc-block');
   await expect(linkedDocBlock).toHaveCount(1);
 
   const linkedDocBox = await linkedDocBlock.boundingBox();
@@ -990,7 +990,7 @@ test('create linked doc from block selection with format bar', async ({
     `${testInfo.title}.json`
   );
 
-  const paragraph = page.locator('polymind-paragraph');
+  const paragraph = page.locator('affine-paragraph');
   await expect(paragraph).toHaveCount(3);
 });
 

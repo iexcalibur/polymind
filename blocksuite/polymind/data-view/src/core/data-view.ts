@@ -168,10 +168,10 @@ export class DataViewRootUILogic {
   }
 
   render() {
-    return html` <polymind-data-view-renderer
+    return html` <affine-data-view-renderer
       ${ref(this._uiRef)}
       .logic="${this}"
-    ></polymind-data-view-renderer>`;
+    ></affine-data-view-renderer>`;
   }
 }
 
@@ -179,7 +179,7 @@ export class DataViewRootUI extends SignalWatcher(
   WithDisposable(ShadowlessElement)
 ) {
   static override styles = css`
-    ${unsafeCSS(dataViewCommonStyle('polymind-data-view-renderer'))}
+    ${unsafeCSS(dataViewCommonStyle('affine-data-view-renderer'))}
     affine-data-view-renderer {
       background-color: var(--affine-background-primary-color);
       display: contents;
@@ -231,6 +231,6 @@ export class DataViewRootUI extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-data-view-renderer': DataViewRootUI;
+    'affine-data-view-renderer': DataViewRootUI;
   }
 }

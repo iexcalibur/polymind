@@ -141,7 +141,7 @@ test.describe('AISettings/Embedding', () => {
     loggedInPage: page,
     utils,
   }) => {
-    await createLocalWorkspace({ name: 'test' }, page, false, 'polymind-cloud');
+    await createLocalWorkspace({ name: 'test' }, page, false, 'affine-cloud');
     await utils.settings.openSettingsPanel(page);
     await utils.settings.enableWorkspaceEmbedding(page);
     const randomStr1 = Math.random().toString(36).substring(2, 6);
@@ -204,7 +204,7 @@ test.describe('AISettings/Embedding', () => {
       expect(fullText).toMatch(new RegExp(`Workspace${randomStr1}.*cat`));
       expect(fullText).toMatch(new RegExp(`Workspace${randomStr2}.*dog`));
       expect(
-        await message.locator('polymind-footnote-node').count()
+        await message.locator('affine-footnote-node').count()
       ).toBeGreaterThanOrEqual(1);
     }).toPass({ timeout: 20000 });
   });
@@ -213,7 +213,7 @@ test.describe('AISettings/Embedding', () => {
     loggedInPage: page,
     utils,
   }) => {
-    await createLocalWorkspace({ name: 'test' }, page, false, 'polymind-cloud');
+    await createLocalWorkspace({ name: 'test' }, page, false, 'affine-cloud');
     await utils.settings.openSettingsPanel(page);
     await utils.settings.enableWorkspaceEmbedding(page);
     const attachments = [
@@ -245,7 +245,7 @@ test.describe('AISettings/Embedding', () => {
     loggedInPage: page,
     utils,
   }) => {
-    await createLocalWorkspace({ name: 'test' }, page, false, 'polymind-cloud');
+    await createLocalWorkspace({ name: 'test' }, page, false, 'affine-cloud');
     await utils.settings.openSettingsPanel(page);
     await utils.settings.enableWorkspaceEmbedding(page);
     const person = 'test123';
@@ -295,7 +295,7 @@ test.describe('AISettings/Embedding', () => {
       expect(fullText).toMatch(/climbing/i);
       expect(fullText).toMatch(/skating/i);
       expect(
-        await message.locator('polymind-footnote-node').count()
+        await message.locator('affine-footnote-node').count()
       ).toBeGreaterThanOrEqual(1);
     }).toPass({ timeout: 20000 });
   });
@@ -304,7 +304,7 @@ test.describe('AISettings/Embedding', () => {
     loggedInPage: page,
     utils,
   }) => {
-    await createLocalWorkspace({ name: 'test' }, page, false, 'polymind-cloud');
+    await createLocalWorkspace({ name: 'test' }, page, false, 'affine-cloud');
     await utils.settings.openSettingsPanel(page);
     await utils.settings.enableWorkspaceEmbedding(page);
     const attachments = Array.from({ length: 11 }, (_, i) => ({
@@ -343,7 +343,7 @@ test.describe('AISettings/Embedding', () => {
     loggedInPage: page,
     utils,
   }) => {
-    await createLocalWorkspace({ name: 'test' }, page, false, 'polymind-cloud');
+    await createLocalWorkspace({ name: 'test' }, page, false, 'affine-cloud');
     await utils.settings.openSettingsPanel(page);
     await utils.settings.enableWorkspaceEmbedding(page);
     const randomStr1 = Math.random().toString(36).substring(2, 6);
@@ -370,7 +370,7 @@ test.describe('AISettings/Embedding', () => {
     loggedInPage: page,
     utils,
   }) => {
-    await createLocalWorkspace({ name: 'test' }, page, false, 'polymind-cloud');
+    await createLocalWorkspace({ name: 'test' }, page, false, 'affine-cloud');
     await utils.settings.openSettingsPanel(page);
     await utils.settings.enableWorkspaceEmbedding(page);
     const randomStr1 = Math.random().toString(36).substring(2, 6);
@@ -403,7 +403,7 @@ test.describe('AISettings/Embedding', () => {
     loggedInPage: page,
     utils,
   }) => {
-    await createLocalWorkspace({ name: 'test' }, page, false, 'polymind-cloud');
+    await createLocalWorkspace({ name: 'test' }, page, false, 'affine-cloud');
     await utils.settings.openSettingsPanel(page);
     await utils.settings.enableWorkspaceEmbedding(page);
     const randomStr1 = Math.random().toString(36).substring(2, 6);
@@ -466,7 +466,7 @@ test.describe('AISettings/Embedding', () => {
         await utils.chatPanel.getLatestAssistantMessage(page);
       expect(content).toMatch(/WBIgnoreEEE.*cat/);
       expect(content).toMatch(/WBIgnoreFFF.*dog/);
-      expect(await message.locator('polymind-footnote-node').count()).toBe(2);
+      expect(await message.locator('affine-footnote-node').count()).toBe(2);
     }).toPass({ timeout: 20000 });
 
     // Ignore docs

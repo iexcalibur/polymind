@@ -23,7 +23,7 @@ export class KanbanDragController implements ReactiveController {
       evt.x - offsetLeft,
       evt.y - offsetTop
     );
-    const currentGroup = ele.closest('polymind-data-view-kanban-group');
+    const currentGroup = ele.closest('affine-data-view-kanban-group');
     const drag = startDrag<
       | { type: 'out'; callback: () => void }
       | {
@@ -160,12 +160,12 @@ export class KanbanDragController implements ReactiveController {
           const event = context.get('pointerState').raw;
           const target = event.target;
           if (target instanceof Element) {
-            const cell = target.closest('polymind-data-view-kanban-cell');
+            const cell = target.closest('affine-data-view-kanban-cell');
             if (cell?.isEditing$.value) {
               return;
             }
             cell?.selectCurrentCell(false);
-            const card = target.closest('polymind-data-view-kanban-card');
+            const card = target.closest('affine-data-view-kanban-card');
             if (card) {
               this.dragStart(card, event);
             }
@@ -230,7 +230,7 @@ const createDropPreview = () => {
 
       if (!card) {
         const cards = Array.from(
-          group.querySelectorAll('polymind-data-view-kanban-card')
+          group.querySelectorAll('affine-data-view-kanban-card')
         );
         const lastCard = cards[cards.length - 1];
         if (lastCard === self) {
@@ -279,7 +279,7 @@ const getCardByPoint = (
   y: number
 ): KanbanCard | undefined => {
   const cards = Array.from(
-    group.querySelectorAll('polymind-data-view-kanban-card')
+    group.querySelectorAll('affine-data-view-kanban-card')
   );
   const positions = cards.map(v => {
     const rect = v.getBoundingClientRect();

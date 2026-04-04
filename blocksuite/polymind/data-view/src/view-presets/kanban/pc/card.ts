@@ -173,7 +173,7 @@ export class KanbanCard extends SignalWatcher(
         ],
       };
       const target = e.target as HTMLElement;
-      const ref = target.closest('polymind-data-view-kanban-cell') ?? this;
+      const ref = target.closest('affine-data-view-kanban-cell') ?? this;
       popCardMenu(
         this.kanbanViewLogic,
         popupTargetFromElement(ref),
@@ -199,14 +199,14 @@ export class KanbanCard extends SignalWatcher(
           if (this.view.isInHeader(column.id)) {
             return '';
           }
-          return html` <polymind-data-view-kanban-cell
+          return html` <affine-data-view-kanban-cell
             .contentOnly="${false}"
             data-column-id="${column.id}"
             .groupKey="${this.groupKey}"
             .column="${column}"
             .cardId="${this.cardId}"
             .kanbanViewLogic="${this.kanbanViewLogic}"
-          ></polymind-data-view-kanban-cell>`;
+          ></affine-data-view-kanban-cell>`;
         }
       )}
     </div>`;
@@ -257,14 +257,14 @@ export class KanbanCard extends SignalWatcher(
       return;
     }
     return html` <div class="card-header-title">
-      <polymind-data-view-kanban-cell
+      <affine-data-view-kanban-cell
         .contentOnly="${true}"
         data-column-id="${title.id}"
         .kanbanViewLogic="${this.kanbanViewLogic}"
         .groupKey="${this.groupKey}"
         .column="${title}"
         .cardId="${this.cardId}"
-      ></polymind-data-view-kanban-cell>
+      ></affine-data-view-kanban-cell>
     </div>`;
   }
 
@@ -332,6 +332,6 @@ export class KanbanCard extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-data-view-kanban-card': KanbanCard;
+    'affine-data-view-kanban-card': KanbanCard;
   }
 }

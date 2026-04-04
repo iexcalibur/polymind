@@ -25,9 +25,9 @@ test('can open peek view via link popover', async ({ page }) => {
   await page.keyboard.press('Enter');
   await createLinkedPage(page, 'Test Page');
 
-  await page.locator('polymind-reference').hover();
+  await page.locator('affine-reference').hover();
 
-  const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
+  const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
   await expect(toolbar).toBeVisible();
 
   await toolbar.getByLabel(/^Open doc with$/).click();
@@ -49,7 +49,7 @@ test('can open peek view via shift+click link', async ({ page }) => {
   await page.keyboard.press('Enter');
   await createLinkedPage(page, 'Test Page');
 
-  await page.locator('polymind-reference').click({ modifiers: ['Shift'] });
+  await page.locator('affine-reference').click({ modifiers: ['Shift'] });
 
   // verify peek view is opened
   await expect(page.getByTestId('peek-view-modal')).toBeVisible();
@@ -64,20 +64,20 @@ test('can open peek view via db+click link card', async ({ page }) => {
   await page.keyboard.press('Enter');
   await createLinkedPage(page, 'Test Page');
 
-  await page.locator('polymind-reference').hover();
+  await page.locator('affine-reference').hover();
 
-  const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
+  const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
   await expect(toolbar).toBeVisible();
 
   await toolbar.getByLabel('Switch view').click();
   await toolbar.getByLabel('Card view').click();
 
   await expect(
-    page.locator('polymind-embed-linked-doc-block:has-text("Test Page")')
+    page.locator('affine-embed-linked-doc-block:has-text("Test Page")')
   ).toBeVisible();
 
   // double click to open peek view
-  await page.locator('polymind-embed-linked-doc-block').dblclick();
+  await page.locator('affine-embed-linked-doc-block').dblclick();
 
   // verify peek view is opened
   await expect(page.getByTestId('peek-view-modal')).toBeVisible();
@@ -91,7 +91,7 @@ test('can open peek view via db+click link card', async ({ page }) => {
   await expect(page.getByTestId('peek-view-modal')).not.toBeVisible();
 
   // double click to open peek view
-  await page.locator('polymind-embed-linked-doc-block').dblclick();
+  await page.locator('affine-embed-linked-doc-block').dblclick();
 
   // check if open-in-new button works
   await page
@@ -115,7 +115,7 @@ test('should not open peek view when content is covered by canvas element', asyn
   await createSyncedPageInEdgeless(page, 'Test Page');
 
   const syncedDocBlock = await page.locator(
-    'polymind-embed-edgeless-synced-doc-block'
+    'affine-embed-edgeless-synced-doc-block'
   );
   const syncedDocRect = (await syncedDocBlock.boundingBox())!;
 
@@ -187,18 +187,18 @@ test('can open peek view for embedded frames', async ({ page }) => {
   await type(page, '/frame');
   await pressEnter(page);
 
-  const surfaceRef = page.locator('polymind-surface-ref');
+  const surfaceRef = page.locator('affine-surface-ref');
   const peekView = page.locator('[data-testid="peek-view-modal"]');
 
   await expect(surfaceRef).toBeVisible();
   await surfaceRef.click();
   await surfaceRef.hover();
   await page
-    .locator('polymind-toolbar-widget editor-menu-button[aria-label="Open"]')
+    .locator('affine-toolbar-widget editor-menu-button[aria-label="Open"]')
     .click();
   await page
     .locator(
-      'polymind-toolbar-widget editor-menu-action[aria-label="Open in center peek"]'
+      'affine-toolbar-widget editor-menu-action[aria-label="Open in center peek"]'
     )
     .click();
 

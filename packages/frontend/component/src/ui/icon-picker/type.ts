@@ -1,6 +1,6 @@
 export enum IconType {
   Emoji = 'emoji',
-  PolymindIcon = 'polymind-icon',
+  PolymindIcon = 'affine-icon',
   Blob = 'blob',
 }
 

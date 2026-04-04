@@ -187,8 +187,8 @@ export class TestPolymindEditorContainer extends SignalWatcher(
         <div
           data-theme=${mode === 'page' ? appTheme : edgelessTheme}
           class=${mode === 'page'
-            ? 'polymind-page-viewport'
-            : 'polymind-edgeless-viewport'}
+            ? 'affine-page-viewport'
+            : 'affine-edgeless-viewport'}
         >
           ${when(
             mode === 'page',
@@ -216,6 +216,6 @@ export class TestPolymindEditorContainer extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-editor-container': TestPolymindEditorContainer;
+    'affine-editor-container': TestPolymindEditorContainer;
   }
 }

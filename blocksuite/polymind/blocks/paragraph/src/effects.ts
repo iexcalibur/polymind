@@ -3,11 +3,11 @@ import { ParagraphBlockComponent } from './paragraph-block.js';
 
 export function effects() {
   ParagraphHeadingIconEffects();
-  customElements.define('polymind-paragraph', ParagraphBlockComponent);
+  customElements.define('affine-paragraph', ParagraphBlockComponent);
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-paragraph': ParagraphBlockComponent;
+    'affine-paragraph': ParagraphBlockComponent;
   }
 }

@@ -140,6 +140,6 @@ export class DatabaseNumberFormatBar extends WithDisposable(LitElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-database-number-format-bar': DatabaseNumberFormatBar;
+    'affine-database-number-format-bar': DatabaseNumberFormatBar;
   }
 }

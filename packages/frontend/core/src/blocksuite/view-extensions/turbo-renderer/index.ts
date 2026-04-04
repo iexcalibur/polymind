@@ -13,7 +13,7 @@ const optionsSchema = z.object({
 type TurboRendererViewOptions = z.infer<typeof optionsSchema>;
 
 export class TurboRendererViewExtension extends ViewExtensionProvider<TurboRendererViewOptions> {
-  override name = 'polymind-view-turbo-renderer';
+  override name = 'affine-view-turbo-renderer';
 
   override schema = optionsSchema;
 

@@ -421,7 +421,7 @@ export class CodeBlockComponent extends CaptionedBlockComponent<CodeBlockModel> 
     return html`
       <div
         class=${classMap({
-          'polymind-code-block-container': true,
+          'affine-code-block-container': true,
           'highlight-comment': this.isCommentHighlighted,
           mobile: IS_MOBILE,
           wrap: this.model.props.wrap,
@@ -493,6 +493,6 @@ export class CodeBlockComponent extends CaptionedBlockComponent<CodeBlockModel> 
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-code': CodeBlockComponent;
+    'affine-code': CodeBlockComponent;
   }
 }

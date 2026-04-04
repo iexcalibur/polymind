@@ -53,6 +53,6 @@ export class ImagePlaceholderBlockComponent extends BlockComponent<ImageBlockMod
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-placeholder-preview-image': ImagePlaceholderBlockComponent;
+    'affine-placeholder-preview-image': ImagePlaceholderBlockComponent;
   }
 }

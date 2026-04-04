@@ -98,6 +98,6 @@ export const EdgelessAIChatBlockInteraction =
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-edgeless-ai-chat': EdgelessAIChatBlockComponent;
+    'affine-edgeless-ai-chat': EdgelessAIChatBlockComponent;
   }
 }

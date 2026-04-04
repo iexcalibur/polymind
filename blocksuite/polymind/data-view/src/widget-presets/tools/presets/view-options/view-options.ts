@@ -397,11 +397,11 @@ export const popViewOptions = (
                 const containerStyle = styleMap({
                   flex: '1',
                 });
-                return html`<polymind-menu-button
+                return html`<affine-menu-button
                   style="${containerStyle}"
                   .data="${buttonData}"
                   .menu="${menu}"
-                ></polymind-menu-button>`;
+                ></affine-menu-button>`;
               };
             })
           );

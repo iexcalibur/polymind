@@ -327,7 +327,7 @@ export class ImageEdgelessBlockComponent extends GfxBlockComponent<ImageBlockMod
             ${when(
               Boolean(error && description),
               () =>
-                html`<polymind-resource-status
+                html`<affine-resource-status
                   class="affine-image-status"
                   .message=${description}
                   .needUpload=${needUpload}
@@ -335,15 +335,15 @@ export class ImageEdgelessBlockComponent extends GfxBlockComponent<ImageBlockMod
                     needUpload
                       ? this.resourceController.upload()
                       : this.refreshData()}
-                ></polymind-resource-status>`
+                ></affine-resource-status>`
             )}
           `,
           () =>
-            html`<polymind-image-fallback-card
+            html`<affine-image-fallback-card
               .state=${resovledState}
-            ></polymind-image-fallback-card>`
+            ></affine-image-fallback-card>`
         )}
-        <polymind-block-selection .block=${this}></polymind-block-selection>
+        <affine-block-selection .block=${this}></affine-block-selection>
       </div>
       <block-caption-editor></block-caption-editor>
 
@@ -369,6 +369,6 @@ export const ImageEdgelessBlockInteraction = GfxViewInteractionExtension(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-edgeless-image': ImageEdgelessBlockComponent;
+    'affine-edgeless-image': ImageEdgelessBlockComponent;
   }
 }

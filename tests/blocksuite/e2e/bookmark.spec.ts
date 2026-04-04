@@ -89,7 +89,7 @@ test(scoped`create bookmark by slash menu`, async ({ page }, testInfo) => {
 
 test(scoped`covert bookmark block to link text`, async ({ page }, testInfo) => {
   await createBookmarkBlockBySlashMenu(page);
-  const bookmark = page.locator('polymind-bookmark');
+  const bookmark = page.locator('affine-bookmark');
   await bookmark.click();
   await page.waitForTimeout(100);
   await page.getByRole('button', { name: 'Switch view' }).click();
@@ -157,7 +157,7 @@ test.fixme(
       `${testInfo.title}_init.json`
     );
 
-    const bookmark = page.locator('polymind-bookmark');
+    const bookmark = page.locator('affine-bookmark');
     const rect = await bookmark.boundingBox();
     if (!rect) {
       throw new Error('image not found');
@@ -196,7 +196,7 @@ test.fixme(
     await page.waitForTimeout(200);
 
     const rects = page
-      .locator('polymind-block-selection')
+      .locator('affine-block-selection')
       .locator('visible=true');
     await expect(rects).toHaveCount(1);
 
@@ -232,7 +232,7 @@ test('press backspace after bookmark block can select bookmark block', async ({
 test.describe('embed card toolbar', () => {
   async function showEmbedCardToolbar(page: Page) {
     await createBookmarkBlockBySlashMenu(page);
-    const bookmark = page.locator('polymind-bookmark');
+    const bookmark = page.locator('affine-bookmark');
     await bookmark.click();
     await page.waitForTimeout(100);
     const { embedCardToolbar } = getEmbedCardToolbar(page);
@@ -259,7 +259,7 @@ test.describe('embed card toolbar', () => {
 
   test('change card style', async ({ page }) => {
     await showEmbedCardToolbar(page);
-    const bookmark = page.locator('polymind-bookmark');
+    const bookmark = page.locator('affine-bookmark');
     const { openCardStyleMenu } = getEmbedCardToolbar(page);
     await openCardStyleMenu();
     const { cardStyleHorizontalButton, cardStyleListButton } =
@@ -391,12 +391,12 @@ test.describe('embed youtube card', () => {
     expectConsoleMessage(page, /Failed to load resource/);
 
     await createBookmarkBlockBySlashMenu(page, YOUTUBE_URL);
-    const youtube = page.locator('polymind-embed-youtube-block');
+    const youtube = page.locator('affine-embed-youtube-block');
     await youtube.click();
     await page.waitForTimeout(100);
 
     // change to card view
-    const embedToolbar = page.locator('polymind-toolbar-widget editor-toolbar');
+    const embedToolbar = page.locator('affine-toolbar-widget editor-toolbar');
     await expect(embedToolbar).toBeVisible();
     const embedView = page.locator('editor-menu-button', {
       hasText: 'embed view',
@@ -414,7 +414,7 @@ test.describe('embed youtube card', () => {
     );
 
     // change to embed view
-    const bookmark = page.locator('polymind-bookmark');
+    const bookmark = page.locator('affine-bookmark');
     await bookmark.click();
     await page.waitForTimeout(100);
     const cardView2 = page.locator('editor-icon-button', {
@@ -446,12 +446,12 @@ test.describe('embed figma card', () => {
     expectConsoleMessage(page, /Refused to frame/);
     expectConsoleMessage(page, /Running frontend commit/, 'log');
     await createBookmarkBlockBySlashMenu(page, FIGMA_URL);
-    const youtube = page.locator('polymind-embed-figma-block');
+    const youtube = page.locator('affine-embed-figma-block');
     await youtube.click();
     await page.waitForTimeout(100);
 
     // change to card view
-    const embedToolbar = page.locator('polymind-toolbar-widget editor-toolbar');
+    const embedToolbar = page.locator('affine-toolbar-widget editor-toolbar');
     await expect(embedToolbar).toBeVisible();
     const embedView = page.locator('editor-menu-button', {
       hasText: 'embed view',
@@ -467,7 +467,7 @@ test.describe('embed figma card', () => {
     expect(ignoreSnapshotId(snapshot)).toMatchSnapshot('horizontal-figma.json');
 
     // change to embed view
-    const bookmark = page.locator('polymind-bookmark');
+    const bookmark = page.locator('affine-bookmark');
     await bookmark.click();
     await page.waitForTimeout(100);
     const cardView2 = page.locator('editor-icon-button', {
@@ -515,13 +515,13 @@ test('drag a card from canvas to note should not change the style of the card', 
   await page.locator('.embed-card-modal-input').fill(url);
   await pressEnter(page);
 
-  const edgelessBookmark = page.locator('polymind-edgeless-bookmark');
+  const edgelessBookmark = page.locator('affine-edgeless-bookmark');
   await edgelessBookmark.click();
   await waitNextFrame(page);
   const dragHandle = page.locator('.affine-drag-handle-container');
-  await dragHandle.dragTo(page.locator('polymind-edgeless-note'));
+  await dragHandle.dragTo(page.locator('affine-edgeless-note'));
 
-  const noteBookmark = page.locator('polymind-bookmark');
+  const noteBookmark = page.locator('affine-bookmark');
   await expect(noteBookmark).toBeVisible();
   const style = await noteBookmark.evaluate(
     (el: BookmarkBlockComponent) => el.model.props.style

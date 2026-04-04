@@ -206,6 +206,6 @@ export class SizeDropdownMenu extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-size-dropdown-menu': SizeDropdownMenu;
+    'affine-size-dropdown-menu': SizeDropdownMenu;
   }
 }

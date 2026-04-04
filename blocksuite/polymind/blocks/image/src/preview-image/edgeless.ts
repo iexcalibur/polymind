@@ -21,6 +21,6 @@ export class ImageEdgelessPlaceholderBlockComponent extends toGfxBlockComponent(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-edgeless-placeholder-preview-image': ImageEdgelessPlaceholderBlockComponent;
+    'affine-edgeless-placeholder-preview-image': ImageEdgelessPlaceholderBlockComponent;
   }
 }

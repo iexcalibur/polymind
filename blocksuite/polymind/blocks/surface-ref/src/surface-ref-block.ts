@@ -134,7 +134,7 @@ export class SurfaceRefBlockComponent extends BlockComponent<SurfaceRefBlockMode
     return (
       this.isConnected &&
       // prevent surface-ref from render itself in loop
-      !this.parentComponent?.closest('polymind-surface-ref')
+      !this.parentComponent?.closest('affine-surface-ref')
     );
   }
 
@@ -467,7 +467,7 @@ export class SurfaceRefBlockComponent extends BlockComponent<SurfaceRefBlockMode
     return html`
       <div
         class=${classMap({
-          'polymind-surface-ref': true,
+          'affine-surface-ref': true,
           focused: this.selected$.value,
           'comment-highlighted': this.isCommentHighlighted,
         })}
@@ -497,7 +497,7 @@ export class SurfaceRefBlockComponent extends BlockComponent<SurfaceRefBlockMode
   @query('.affine-surface-ref')
   accessor hoverableContainer!: HTMLDivElement;
 
-  @query('polymind-surface-ref > block-caption-editor')
+  @query('affine-surface-ref > block-caption-editor')
   accessor captionElement!: BlockCaptionEditor;
 
   @query('editor-host')
@@ -506,6 +506,6 @@ export class SurfaceRefBlockComponent extends BlockComponent<SurfaceRefBlockMode
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-surface-ref': SurfaceRefBlockComponent;
+    'affine-surface-ref': SurfaceRefBlockComponent;
   }
 }

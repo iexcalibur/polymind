@@ -33,10 +33,10 @@ describe('frame', () => {
 
     const getFrameTitle = (frameId: string) => {
       const frameTitleWidget = service.std.view.getWidget(
-        'polymind-frame-title-widget',
+        'affine-frame-title-widget',
         frameId
       ) as PolymindFrameTitleWidget | null;
-      return frameTitleWidget?.shadowRoot?.querySelector('polymind-frame-title');
+      return frameTitleWidget?.shadowRoot?.querySelector('affine-frame-title');
     };
 
     const frameTitle = getFrameTitle(frame);

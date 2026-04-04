@@ -139,7 +139,7 @@ const Dialog = ({
       const { workspaceId, docId } =
         await importTemplateService.importToNewWorkspace(
           // TODO: support selfhosted
-          'polymind-cloud',
+          'affine-cloud',
           'Workspace',
           templateDownloader.data$.value
         );

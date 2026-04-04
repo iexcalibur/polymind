@@ -71,7 +71,7 @@ const styles = css`
   }
 `;
 
-export const AFFINE_FRAMES_SETTING_MENU = 'polymind-frames-setting-menu';
+export const AFFINE_FRAMES_SETTING_MENU = 'affine-frames-setting-menu';
 
 export class FramesSettingMenu extends WithDisposable(LitElement) {
   static override styles = styles;

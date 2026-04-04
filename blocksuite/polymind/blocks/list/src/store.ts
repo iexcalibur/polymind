@@ -7,7 +7,7 @@ import { ListBlockSchemaExtension } from '@blocksuite/polymind-model';
 import { ListBlockAdapterExtensions } from './adapters/extension';
 
 export class ListStoreExtension extends StoreExtensionProvider {
-  override name = 'polymind-list-block';
+  override name = 'affine-list-block';
 
   override setup(context: StoreExtensionContext) {
     super.setup(context);

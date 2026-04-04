@@ -310,14 +310,14 @@ export class EmbedLinkedDocBlockComponent extends EmbedBlockComponent<EmbedLinke
         ...this.embedContainerStyle,
       })}
     >
-      <polymind-citation-card
+      <affine-citation-card
         .icon=${this.icon$.value}
         .citationTitle=${this.title$.value}
         .citationIdentifier=${footnoteIdentifier}
         .active=${this.selected$.value}
         .onClickCallback=${this._handleClick}
         .onDoubleClickCallback=${this._handleDoubleClick}
-      ></polymind-citation-card>
+      ></affine-citation-card>
     </div> `;
   };
 

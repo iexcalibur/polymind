@@ -16,8 +16,8 @@ const TEST_SPOTIFY_URL =
 
 const TEST_POLYMIND_URL = 'https://app.polymind.pro/';
 
-const EMBED_IFRAME_BLOCK = 'polymind-embed-iframe-block';
-const EMBED_EDGELESS_IFRAME_BLOCK = 'polymind-embed-edgeless-iframe-block';
+const EMBED_IFRAME_BLOCK = 'affine-embed-iframe-block';
+const EMBED_EDGELESS_IFRAME_BLOCK = 'affine-embed-edgeless-iframe-block';
 const IDLE_CARD = 'embed-iframe-idle-card';
 const LINK_INPUT_POPUP = 'embed-iframe-link-input-popup';
 
@@ -25,7 +25,7 @@ test.beforeEach(async ({ page }) => {
   await openHomePage(page);
   await clickNewPageButton(page);
   await waitForEmptyEditor(page);
-  await page.locator('polymind-paragraph v-line div').click();
+  await page.locator('affine-paragraph v-line div').click();
 });
 
 test.describe('embed iframe block', () => {
@@ -100,7 +100,7 @@ test.describe('embed iframe block', () => {
     await expect(embedIframeBlock).toHaveCount(0);
 
     // expect the bookmark block count is 1
-    const bookmarkBlock = page.locator('polymind-bookmark');
+    const bookmarkBlock = page.locator('affine-bookmark');
     await expect(bookmarkBlock).toHaveCount(1);
   });
 
@@ -157,7 +157,7 @@ test.describe('embed iframe block', () => {
       await openToolbarAndSwitchView(page);
       await page.getByRole('button', { name: 'Inline view' }).click();
 
-      const affineLink = page.locator('polymind-link');
+      const affineLink = page.locator('affine-link');
       await expect(affineLink).toBeVisible();
 
       // hover affine link
@@ -185,7 +185,7 @@ test.describe('embed iframe block', () => {
       await expect(embedIframeBlock).toHaveCount(0);
 
       // expect the bookmark block count is 1
-      const bookmarkBlock = page.locator('polymind-bookmark');
+      const bookmarkBlock = page.locator('affine-bookmark');
       await expect(bookmarkBlock).toHaveCount(1);
 
       // click the bookmark block
@@ -246,7 +246,7 @@ test.describe('embed iframe block', () => {
       await expect(embedEdgelessIframeBlock).toHaveCount(0);
 
       // expect the bookmark block count is 1
-      const bookmarkEdgelessBlock = page.locator('polymind-edgeless-bookmark');
+      const bookmarkEdgelessBlock = page.locator('affine-edgeless-bookmark');
       await expect(bookmarkEdgelessBlock).toHaveCount(1);
 
       // click the bookmark block

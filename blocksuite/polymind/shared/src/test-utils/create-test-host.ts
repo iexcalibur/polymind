@@ -208,7 +208,7 @@ class MockViewStore {
  *
  * Usage:
  * ```typescript
- * const doc = affine`<polymind-page></polymind-page>`;
+ * const doc = affine`<affine-page></affine-page>`;
  * const host = createTestHost(doc);
  *
  * // Use host.command.exec to execute commands

@@ -196,7 +196,7 @@ test.describe('pasting URLs', () => {
     });
 
     await expect(
-      page.locator('polymind-embed-edgeless-github-block')
+      page.locator('affine-embed-edgeless-github-block')
     ).toBeVisible();
   });
 
@@ -221,7 +221,7 @@ test.describe('pasting URLs', () => {
     });
 
     await expect(
-      page.locator('polymind-embed-edgeless-linked-doc-block')
+      page.locator('affine-embed-edgeless-linked-doc-block')
     ).toBeVisible();
 
     await expect(

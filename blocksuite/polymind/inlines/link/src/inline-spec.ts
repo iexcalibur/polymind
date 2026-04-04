@@ -16,7 +16,7 @@ export const LinkInlineSpecExtension =
         return !!delta.attributes?.link;
       },
       renderer: ({ delta }) => {
-        return html`<polymind-link .std=${std} .delta=${delta}></polymind-link>`;
+        return html`<affine-link .std=${std} .delta=${delta}></affine-link>`;
       },
     };
   });

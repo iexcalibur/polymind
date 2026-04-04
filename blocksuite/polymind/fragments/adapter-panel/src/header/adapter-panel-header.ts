@@ -8,7 +8,7 @@ import { property, query } from 'lit/decorators.js';
 
 import { type AdapterPanelContext, adapterPanelContext } from '../config';
 
-export const AFFINE_ADAPTER_PANEL_HEADER = 'polymind-adapter-panel-header';
+export const AFFINE_ADAPTER_PANEL_HEADER = 'affine-adapter-panel-header';
 
 export class AdapterPanelHeader extends SignalWatcher(LitElement) {
   static override styles = css`
@@ -65,9 +65,9 @@ export class AdapterPanelHeader extends SignalWatcher(LitElement) {
     this._adapterMenuAbortController = new AbortController();
 
     createLitPortal({
-      template: html`<polymind-adapter-menu
+      template: html`<affine-adapter-menu
         .abortController=${this._adapterMenuAbortController}
-      ></polymind-adapter-menu>`,
+      ></affine-adapter-menu>`,
       portalStyles: {
         zIndex: 'var(--affine-z-index-popover)',
       },

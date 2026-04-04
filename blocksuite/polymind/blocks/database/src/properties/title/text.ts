@@ -40,7 +40,7 @@ export class HeaderAreaTextCell extends BaseCellRenderer<Text, string> {
 
   get topContenteditableElement() {
     const databaseBlock =
-      this.closest<DatabaseBlockComponent>('polymind-database');
+      this.closest<DatabaseBlockComponent>('affine-database');
     return databaseBlock?.topContenteditableElement;
   }
 

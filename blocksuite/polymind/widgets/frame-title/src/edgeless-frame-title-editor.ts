@@ -142,7 +142,7 @@ export class EdgelessFrameTitleEditor extends WithDisposable(
     if (!frameTitleWidget) return nothing;
 
     const frameTitle =
-      frameTitleWidget.querySelector<PolymindFrameTitle>('polymind-frame-title');
+      frameTitleWidget.querySelector<PolymindFrameTitle>('affine-frame-title');
 
     const colors = frameTitle?.colors ?? {
       background: cssVarV2('edgeless/frame/background/white'),

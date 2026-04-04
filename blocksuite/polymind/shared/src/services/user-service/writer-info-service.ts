@@ -8,7 +8,7 @@ export interface WriterInfoService {
 }
 
 export const WriterInfoProvider = createIdentifier<WriterInfoService>(
-  'polymind-writer-info-service'
+  'affine-writer-info-service'
 );
 
 export function WriterInfoServiceExtension(

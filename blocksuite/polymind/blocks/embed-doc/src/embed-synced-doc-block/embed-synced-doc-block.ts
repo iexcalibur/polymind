@@ -229,7 +229,7 @@ export class EmbedSyncedDocBlockComponent extends EmbedBlockComponent<EmbedSynce
       () => html`
         <div
           class=${classMap({
-            'polymind-embed-synced-doc-container': true,
+            'affine-embed-synced-doc-container': true,
             [editorMode]: true,
             [theme]: true,
             surface: false,
@@ -257,7 +257,7 @@ export class EmbedSyncedDocBlockComponent extends EmbedBlockComponent<EmbedSynce
           </div>
           <div
             class=${classMap({
-              'polymind-embed-synced-doc-header-wrapper': true,
+              'affine-embed-synced-doc-header-wrapper': true,
               selected: this.selected$.value,
             })}
           >
@@ -580,10 +580,10 @@ export class EmbedSyncedDocBlockComponent extends EmbedBlockComponent<EmbedSynce
     ) {
       return this.renderEmbed(
         () => html`
-          <polymind-embed-synced-doc-card
+          <affine-embed-synced-doc-card
             style=${this.cardStyleMap}
             .block=${this}
-          ></polymind-embed-synced-doc-card>
+          ></affine-embed-synced-doc-card>
         `
       );
     }

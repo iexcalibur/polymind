@@ -23,7 +23,7 @@ export const windowFrameStyleOptions: AppSetting['windowFrameStyle'][] = [
   'NativeTitleBar',
 ];
 
-export const APP_SETTINGS_STORAGE_KEY = 'polymind-settings';
+export const APP_SETTINGS_STORAGE_KEY = 'affine-settings';
 const appSettingBaseAtom = atomWithStorage<AppSetting>(
   APP_SETTINGS_STORAGE_KEY,
   {

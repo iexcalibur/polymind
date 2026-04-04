@@ -58,7 +58,7 @@ export function calcDropTarget(
 
   if (!shouldAppendToDatabase && !matchModels(model, [DatabaseBlockModel])) {
     const databaseBlockComponent =
-      element.closest<BlockComponent>('polymind-database');
+      element.closest<BlockComponent>('affine-database');
     if (databaseBlockComponent) {
       element = databaseBlockComponent;
       model = databaseBlockComponent.model;

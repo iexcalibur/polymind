@@ -125,7 +125,7 @@ export class FilterableListComponent<Props = unknown> extends WithDisposable(
 
     return html`
       <div
-        class=${classMap({ 'polymind-filterable-list': true, flipped: isFlip })}
+        class=${classMap({ 'affine-filterable-list': true, flipped: isFlip })}
       >
         <div class="input-wrapper">
           ${SearchIcon()}
@@ -254,6 +254,6 @@ export function showPopFilterableList({
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-filterable-list': FilterableListComponent;
+    'affine-filterable-list': FilterableListComponent;
   }
 }

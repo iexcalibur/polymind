@@ -161,7 +161,7 @@ function DocPeekPreviewEditor({
     <PolymindErrorBoundary>
       <Scrollable.Root>
         <Scrollable.Viewport
-          className={clsx('polymind-page-viewport', styles.affineDocViewport)}
+          className={clsx('affine-page-viewport', styles.affineDocViewport)}
         >
           <Suspense fallback={<PageDetailLoading />}>
             <BlockSuiteEditor

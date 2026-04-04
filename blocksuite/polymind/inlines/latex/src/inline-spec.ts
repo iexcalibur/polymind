@@ -14,14 +14,14 @@ export const LatexInlineSpecExtension =
       }),
       match: delta => typeof delta.attributes?.latex === 'string',
       renderer: ({ delta, selected, editor, startOffset, endOffset }) => {
-        return html`<polymind-latex-node
+        return html`<affine-latex-node
           .std=${std}
           .delta=${delta}
           .selected=${selected}
           .editor=${editor}
           .startOffset=${startOffset}
           .endOffset=${endOffset}
-        ></polymind-latex-node>`;
+        ></affine-latex-node>`;
       },
       embed: true,
     };

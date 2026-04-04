@@ -27,7 +27,7 @@ test.describe('AIChatWith/Image', () => {
     const caption = await answer.innerText();
     const useAsCaption = answer.getByTestId('answer-use-as-caption');
     await useAsCaption.click();
-    const imageBlock = await page.locator('polymind-image');
+    const imageBlock = await page.locator('affine-image');
     const captionBlock = await imageBlock.locator('block-caption-editor');
     await expect(captionBlock).toBeVisible();
     const captionText = await captionBlock.locator('textarea');

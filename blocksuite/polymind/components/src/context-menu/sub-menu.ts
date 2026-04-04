@@ -153,7 +153,7 @@ export class MenuSubMenu extends MenuFocusable {
   protected override render(): unknown {
     const classString = classMap({
       [this.data.class ?? '']: true,
-      'polymind-menu-button': true,
+      'affine-menu-button': true,
       focused: this.isFocused$.value,
     });
     return html` <div class="${classString}">${this.data.content()}</div>`;
@@ -225,10 +225,10 @@ export const renderSubMenu = (data: MenuSubMenuData, menu: Menu) => {
       .menu="${menu}"
     ></mobile-sub-menu>`;
   }
-  return html` <polymind-menu-sub-menu
+  return html` <affine-menu-sub-menu
     .data="${data}"
     .menu="${menu}"
-  ></polymind-menu-sub-menu>`;
+  ></affine-menu-sub-menu>`;
 };
 
 export const subMenuItems = {

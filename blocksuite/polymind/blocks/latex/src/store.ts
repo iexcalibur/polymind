@@ -8,7 +8,7 @@ import { LatexBlockAdapterExtensions } from './adapters/extension';
 import { LatexMarkdownPreprocessorExtension } from './adapters/markdown/preprocessor';
 
 export class LatexStoreExtension extends StoreExtensionProvider {
-  override name = 'polymind-latex-block';
+  override name = 'affine-latex-block';
 
   override setup(context: StoreExtensionContext) {
     super.setup(context);

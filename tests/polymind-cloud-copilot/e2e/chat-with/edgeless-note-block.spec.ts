@@ -22,7 +22,7 @@ test.describe('AIChatWith/EdgelessNoteBlock', () => {
     await expect(answer).toHaveText(/苹果/, { timeout: 10000 });
     const insertBelow = answer.getByTestId('answer-insert-below');
     await insertBelow.click();
-    await expect(page.locator('polymind-edgeless-note').nth(1)).toHaveText(
+    await expect(page.locator('affine-edgeless-note').nth(1)).toHaveText(
       /苹果/
     );
   });

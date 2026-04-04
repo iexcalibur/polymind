@@ -9,7 +9,7 @@ import { effects } from './effects';
 import { DividerMarkdownExtension } from './markdown';
 
 export class DividerViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-divider-block';
+  override name = 'affine-divider-block';
 
   override effect() {
     super.effect();

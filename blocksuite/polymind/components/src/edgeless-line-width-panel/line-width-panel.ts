@@ -18,7 +18,7 @@ export class EdgelessLineWidthPanel extends WithDisposable(LitElement) {
   }
 
   override render() {
-    return html`<polymind-slider
+    return html`<affine-slider
       ?disabled=${this.disabled}
       .range=${{ points: this.lineWidths }}
       .value=${this.selectedSize}
@@ -27,7 +27,7 @@ export class EdgelessLineWidthPanel extends WithDisposable(LitElement) {
         e.stopPropagation();
         this._onSelect(e.detail.value);
       }}
-    ></polymind-slider>`;
+    ></affine-slider>`;
   }
 
   @property({ attribute: false })

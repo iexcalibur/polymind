@@ -9,7 +9,7 @@ import { InlineSpecExtensions } from './inline-spec';
 import { MarkdownExtensions } from './markdown';
 
 export class InlinePresetViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-inline-preset';
+  override name = 'affine-inline-preset';
 
   override effect() {
     super.effect();

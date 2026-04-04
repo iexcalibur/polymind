@@ -14,7 +14,7 @@ type Rect = {
   height: number;
 };
 
-export const SelectionLayerComponentName = 'polymind-table-selection-layer';
+export const SelectionLayerComponentName = 'affine-table-selection-layer';
 export class SelectionLayer extends SignalWatcher(
   WithDisposable(ShadowlessElement)
 ) {

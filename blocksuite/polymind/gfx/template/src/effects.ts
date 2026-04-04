@@ -7,7 +7,7 @@ export function effects() {
   customElements.define('edgeless-templates-panel', EdgelessTemplatePanel);
   customElements.define('overlay-scrollbar', OverlayScrollbar);
   customElements.define('edgeless-template-button', EdgelessTemplateButton);
-  customElements.define('polymind-template-loading', PolymindTemplateLoading);
+  customElements.define('affine-template-loading', PolymindTemplateLoading);
 }
 
 declare global {
@@ -15,6 +15,6 @@ declare global {
     'edgeless-templates-panel': EdgelessTemplatePanel;
     'overlay-scrollbar': OverlayScrollbar;
     'edgeless-template-button': EdgelessTemplateButton;
-    'polymind-template-loading': PolymindTemplateLoading;
+    'affine-template-loading': PolymindTemplateLoading;
   }
 }

@@ -168,15 +168,15 @@ export class ImageBlockComponent extends CaptionedBlockComponent<ImageBlockModel
         ${when(
           blobUrl,
           () =>
-            html`<polymind-page-image
+            html`<affine-page-image
               .block=${this}
               .state=${resovledState}
               style="${alignItemsStyleMap}"
-            ></polymind-page-image>`,
+            ></affine-page-image>`,
           () =>
-            html`<polymind-image-fallback-card
+            html`<affine-image-fallback-card
               .state=${resovledState}
-            ></polymind-image-fallback-card>`
+            ></affine-image-fallback-card>`
         )}
       </div>
 
@@ -186,7 +186,7 @@ export class ImageBlockComponent extends CaptionedBlockComponent<ImageBlockModel
 
   override accessor blockContainerStyles = { margin: '18px 0' };
 
-  @query('polymind-page-image')
+  @query('affine-page-image')
   private accessor pageImage: ImageBlockPageComponent | null = null;
 
   @query('.affine-image-container')
@@ -199,6 +199,6 @@ export class ImageBlockComponent extends CaptionedBlockComponent<ImageBlockModel
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-image': ImageBlockComponent;
+    'affine-image': ImageBlockComponent;
   }
 }

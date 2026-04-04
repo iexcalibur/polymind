@@ -136,7 +136,7 @@ test.describe('column operations', () => {
     await pressEscape(page);
     await performColumnAction(page, '1', 'duplicate');
     await pressEscape(page);
-    const cells = page.locator('polymind-database-multi-select-cell');
+    const cells = page.locator('affine-database-multi-select-cell');
     expect(await cells.count()).toBe(2);
 
     const secondCell = cells.nth(1);
@@ -613,7 +613,7 @@ test.describe('drag-to-fill', () => {
     await pressEscape(page);
     await pressArrowUp(page);
 
-    const cells = page.locator('polymind-database-multi-select-cell');
+    const cells = page.locator('affine-database-multi-select-cell');
 
     expect(await cells.nth(0).innerText()).toBe('thing');
     expect(await cells.nth(1).innerText()).toBe('aaa');

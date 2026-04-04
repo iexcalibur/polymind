@@ -94,7 +94,7 @@ export class ImageBlockFallbackCard extends WithDisposable(ShadowlessElement) {
     const { icon, title, description, loading, error } = this.state;
 
     const classInfo = {
-      'polymind-image-fallback-card': true,
+      'affine-image-fallback-card': true,
       'drag-target': true,
       loading,
       error,
@@ -121,6 +121,6 @@ export class ImageBlockFallbackCard extends WithDisposable(ShadowlessElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-image-fallback-card': ImageBlockFallbackCard;
+    'affine-image-fallback-card': ImageBlockFallbackCard;
   }
 }

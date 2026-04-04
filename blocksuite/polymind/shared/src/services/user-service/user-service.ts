@@ -13,7 +13,7 @@ export interface UserService {
 }
 
 export const UserProvider = createIdentifier<UserService>(
-  'polymind-user-service'
+  'affine-user-service'
 );
 
 export function UserServiceExtension(service: UserService): ExtensionType {

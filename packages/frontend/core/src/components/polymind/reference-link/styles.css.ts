@@ -20,7 +20,7 @@ export const notFound = style({
   textDecoration: 'line-through',
 });
 
-globalStyle('polymind-reference .affine-reference', {
+globalStyle('affine-reference .affine-reference', {
   color: 'inherit !important',
   textDecoration: 'none !important',
 });

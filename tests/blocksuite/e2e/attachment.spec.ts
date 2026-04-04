@@ -48,9 +48,9 @@ const FILE_PATH = path.resolve(
 );
 
 function getAttachment(page: Page) {
-  const attachment = page.locator('polymind-attachment');
+  const attachment = page.locator('affine-attachment');
   const loading = attachment.locator('.affine-attachment-card.loading');
-  const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
+  const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
   const switchViewButton = toolbar.getByRole('button', { name: 'Switch view' });
   const renameBtn = toolbar.getByRole('button', { name: 'Rename' });
   const renameInput = page.locator('.affine-attachment-rename-container input');
@@ -168,7 +168,7 @@ test('should undo/redo works for attachment', async ({ page }, testInfo) => {
   );
 
   await undoByKeyboard(page);
-  await page.locator('polymind-attachment').waitFor({ state: 'detached' });
+  await page.locator('affine-attachment').waitFor({ state: 'detached' });
 
   // The loading/error state should not be restored after undo
   expect(await getPageSnapshot(page, true)).toMatchSnapshot(
@@ -292,7 +292,7 @@ test(`support dragging attachment block directly`, async ({
     `${testInfo.title}_1.json`
   );
 
-  const attachmentBlock = page.locator('polymind-attachment');
+  const attachmentBlock = page.locator('affine-attachment');
   const rect = await attachmentBlock.boundingBox();
   if (!rect) {
     throw new Error('image not found');

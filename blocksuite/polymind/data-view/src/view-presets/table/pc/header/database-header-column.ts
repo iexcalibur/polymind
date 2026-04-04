@@ -418,7 +418,7 @@ export class DatabaseHeaderColumn extends SignalWatcher(
       height: DEFAULT_COLUMN_TITLE_HEIGHT + 'px',
     });
     const classes = classMap({
-      'polymind-database-column-move': true,
+      'affine-database-column-move': true,
       [this.grabStatus]: true,
     });
     return html`
@@ -480,13 +480,13 @@ export class DatabaseHeaderColumn extends SignalWatcher(
 
 function numberFormatConfig(column: Property): MenuConfig {
   return () =>
-    html` <polymind-database-number-format-bar
+    html` <affine-database-number-format-bar
       .column="${column}"
-    ></polymind-database-number-format-bar>`;
+    ></affine-database-number-format-bar>`;
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-database-header-column': DatabaseHeaderColumn;
+    'affine-database-header-column': DatabaseHeaderColumn;
   }
 }

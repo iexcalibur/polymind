@@ -18,7 +18,7 @@ const optionsSchema = z.object({
 export class InlineCommentViewExtension extends ViewExtensionProvider<
   z.infer<typeof optionsSchema>
 > {
-  override name = 'polymind-inline-comment';
+  override name = 'affine-inline-comment';
 
   override schema = optionsSchema;
 

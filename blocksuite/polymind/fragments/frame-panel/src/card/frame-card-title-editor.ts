@@ -12,7 +12,7 @@ const styles = css`
   }
 `;
 
-export const AFFINE_FRAME_TITLE_EDITOR = 'polymind-frame-card-title-editor';
+export const AFFINE_FRAME_TITLE_EDITOR = 'affine-frame-card-title-editor';
 
 export class FrameCardTitleEditor extends WithDisposable(ShadowlessElement) {
   static override styles = styles;

@@ -288,9 +288,9 @@ export class ImportDoc extends WithDisposable(LitElement) {
               @click="${this._openLearnImportLink}"
             >
               ${HelpIcon}
-              <polymind-tooltip>
+              <affine-tooltip>
                 Learn how to Import your Notion pages into PolyMind.
-              </polymind-tooltip>
+              </affine-tooltip>
             </div>
           </icon-button>
           <icon-button

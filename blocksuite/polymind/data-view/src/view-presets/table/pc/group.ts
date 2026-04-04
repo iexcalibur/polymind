@@ -325,10 +325,10 @@ export class TableGroup extends SignalWatcher(
 
   private renderRows(rows: Row[]) {
     return html`
-      <polymind-database-column-header
+      <affine-database-column-header
         .renderGroupHeader=${this.renderGroupHeader}
         .tableViewLogic=${this.tableViewLogic}
-      ></polymind-database-column-header>
+      ></affine-database-column-header>
       <div class="affine-database-block-rows">
         ${repeat(
           rows,
@@ -358,11 +358,11 @@ export class TableGroup extends SignalWatcher(
               ${PlusIcon()}<span style="font-size: 12px">New Record</span>
             </div>
           </div>`}
-      <polymind-database-column-stats
+      <affine-database-column-stats
         .tableViewLogic="${this.tableViewLogic}"
         .group="${this.group}"
       >
-      </polymind-database-column-stats>
+      </affine-database-column-stats>
     `;
   }
 
@@ -402,6 +402,6 @@ export class TableGroup extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-data-view-table-group': TableGroup;
+    'affine-data-view-table-group': TableGroup;
   }
 }

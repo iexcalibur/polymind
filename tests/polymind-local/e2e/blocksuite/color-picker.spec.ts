@@ -51,7 +51,7 @@ test('should keep color on custom color button', async ({ page }) => {
 
   // frame
   {
-    const frameTitle = page.locator('polymind-frame-title');
+    const frameTitle = page.locator('affine-frame-title');
 
     await frameTitle.click();
 

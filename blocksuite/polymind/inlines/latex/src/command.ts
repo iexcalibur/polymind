@@ -45,7 +45,7 @@ export const insertInlineLatex: Command<{
       const textPoint = inlineEditor.getTextPoint(textSelection.from.index + 1);
       if (!textPoint) return;
       const [text] = textPoint;
-      const latexNode = text.parentElement?.closest('polymind-latex-node');
+      const latexNode = text.parentElement?.closest('affine-latex-node');
       if (!latexNode) return;
       latexNode.toggleEditor();
     })

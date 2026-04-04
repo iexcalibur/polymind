@@ -310,7 +310,7 @@ describe('hotkey/bracket/linked-page', () => {
     expect(collection.docs.has(linkedDoc.id)).toBe(true);
 
     const richText = getRichTextByBlockId(paragraphId);
-    expect(richText.querySelectorAll('polymind-reference').length).toBe(2);
+    expect(richText.querySelectorAll('affine-reference').length).toBe(2);
     expect(richText.inlineEditor.yTextString.length).toBe(2);
   });
 });

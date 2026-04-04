@@ -10,7 +10,7 @@ import type { ThemedToken } from 'shiki';
 
 export class PolymindCodeUnit extends ShadowlessElement {
   get codeBlock() {
-    return this.closest('polymind-code');
+    return this.closest('affine-code');
   }
 
   get vElement() {
@@ -19,10 +19,10 @@ export class PolymindCodeUnit extends ShadowlessElement {
 
   override render() {
     if (this.delta.attributes?.link && this.codeBlock) {
-      return html`<polymind-link
+      return html`<affine-link
         .std=${this.codeBlock.std}
         .delta=${this.delta}
-      ></polymind-link>`;
+      ></affine-link>`;
     }
 
     let style = this.delta.attributes
@@ -119,6 +119,6 @@ export class PolymindCodeUnit extends ShadowlessElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-code-unit': PolymindCodeUnit;
+    'affine-code-unit': PolymindCodeUnit;
   }
 }

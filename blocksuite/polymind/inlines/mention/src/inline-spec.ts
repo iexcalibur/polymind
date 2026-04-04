@@ -23,11 +23,11 @@ export const MentionInlineSpecExtension =
         return !!delta.attributes?.mention?.member;
       },
       renderer: ({ delta, selected }) => {
-        return html`<polymind-mention
+        return html`<affine-mention
           .delta=${delta}
           .std=${std}
           .selected=${selected}
-        ></polymind-mention>`;
+        ></affine-mention>`;
       },
       embed: true,
     };

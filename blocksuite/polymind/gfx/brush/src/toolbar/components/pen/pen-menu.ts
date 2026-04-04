@@ -130,10 +130,10 @@ export class EdgelessPenMenu extends EdgelessToolbarToolMixin(
         <div class="pens" slot="prefix">
           <edgeless-tool-icon-button
             class="edgeless-brush-button"
-            .tooltip=${html`<polymind-tooltip-content-with-shortcut
+            .tooltip=${html`<affine-tooltip-content-with-shortcut
               data-tip="${penInfoMap.brush.tip}"
               data-shortcut="${penInfoMap.brush.shortcut}"
-            ></polymind-tooltip-content-with-shortcut>`}
+            ></affine-tooltip-content-with-shortcut>`}
             .tooltipOffset=${20}
             .hover=${false}
             @click=${() => this._onPickPen('brush')}
@@ -149,10 +149,10 @@ export class EdgelessPenMenu extends EdgelessToolbarToolMixin(
 
           <edgeless-tool-icon-button
             class="edgeless-highlighter-button"
-            .tooltip=${html`<polymind-tooltip-content-with-shortcut
+            .tooltip=${html`<affine-tooltip-content-with-shortcut
               data-tip="${penInfoMap.highlighter.tip}"
               data-shortcut="${penInfoMap.highlighter.shortcut}"
-            ></polymind-tooltip-content-with-shortcut>`}
+            ></affine-tooltip-content-with-shortcut>`}
             .tooltipOffset=${20}
             .hover=${false}
             @click=${() => this._onPickPen('highlighter')}

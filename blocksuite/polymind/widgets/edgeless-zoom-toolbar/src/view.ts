@@ -7,7 +7,7 @@ import { effects } from './effects';
 import { edgelessZoomToolbarWidget } from './index';
 
 export class EdgelessZoomToolbarViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-edgeless-zoom-toolbar-widget';
+  override name = 'affine-edgeless-zoom-toolbar-widget';
 
   override effect() {
     super.effect();

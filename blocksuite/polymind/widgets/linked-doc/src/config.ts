@@ -206,7 +206,7 @@ export const LinkedWidgetUtils = {
   insertLinkedNode,
 };
 
-export const AFFINE_LINKED_DOC_WIDGET = 'polymind-linked-doc-widget';
+export const AFFINE_LINKED_DOC_WIDGET = 'affine-linked-doc-widget';
 
 export const LinkedWidgetConfigExtension = ConfigExtensionFactory<
   Partial<LinkedWidgetConfig>

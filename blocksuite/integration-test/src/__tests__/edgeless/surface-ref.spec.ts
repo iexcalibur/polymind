@@ -90,7 +90,7 @@ describe('basic', () => {
       `affine-surface-ref[data-block-id="${surfaceRefId}"]`
     ) as HTMLElement;
     const refBlocks = Array.from(
-      surfaceRef.querySelectorAll('polymind-edgeless-note')
+      surfaceRef.querySelectorAll('affine-edgeless-note')
     ) as HTMLElement[];
     const stackingCanvas = Array.from(
       surfaceRef.querySelectorAll('.indexable-canvas')!
@@ -128,7 +128,7 @@ describe('basic', () => {
       `affine-surface-ref[data-block-id="${surfaceRefId}"]`
     ) as HTMLElement;
     const refBlocks = Array.from(
-      surfaceRef.querySelectorAll('polymind-edgeless-note')
+      surfaceRef.querySelectorAll('affine-edgeless-note')
     ) as HTMLElement[];
     const stackingCanvas = Array.from(
       surfaceRef.querySelectorAll('.indexable-canvas')
@@ -161,7 +161,7 @@ describe('basic', () => {
     const edgeless = surfaceRef.previewEditor!.std.get(EdgelessRootService);
 
     const frame = surfaceRef.querySelector(
-      'polymind-frame'
+      'affine-frame'
     ) as FrameBlockComponent;
 
     expect(
@@ -221,7 +221,7 @@ describe('basic', () => {
     const edgeless = surfaceRef.previewEditor!.std.get(EdgelessRootService);
 
     const frame = surfaceRef.querySelector(
-      'polymind-frame'
+      'affine-frame'
     ) as FrameBlockComponent;
 
     const oldViewport = edgeless.viewport.viewportBounds;

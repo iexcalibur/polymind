@@ -1,5 +1,5 @@
 import { LatexBlockComponent } from './latex-block';
 
 export function effects() {
-  customElements.define('polymind-latex', LatexBlockComponent);
+  customElements.define('affine-latex', LatexBlockComponent);
 }

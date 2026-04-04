@@ -11,7 +11,7 @@ import { edgelessTextToolbarExtension } from './edgeless-toolbar';
 import { effects } from './effects';
 
 export class EdgelessTextViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-edgeless-text-block';
+  override name = 'affine-edgeless-text-block';
 
   override effect() {
     super.effect();

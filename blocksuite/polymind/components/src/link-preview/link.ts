@@ -76,6 +76,6 @@ export class LinkPreview extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-link-preview': LinkPreview;
+    'affine-link-preview': LinkPreview;
   }
 }

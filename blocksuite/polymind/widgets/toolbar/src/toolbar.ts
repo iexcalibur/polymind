@@ -49,7 +49,7 @@ import toPairs from 'lodash-es/toPairs';
 
 import { autoUpdatePosition, renderToolbar, sideMap } from './utils';
 
-export const AFFINE_TOOLBAR_WIDGET = 'polymind-toolbar-widget';
+export const AFFINE_TOOLBAR_WIDGET = 'affine-toolbar-widget';
 
 export class PolymindToolbarWidget extends WidgetComponent {
   static override styles = css`

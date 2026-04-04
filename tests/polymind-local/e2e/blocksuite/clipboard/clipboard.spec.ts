@@ -30,8 +30,8 @@ import type { PageRootBlockComponent } from '@blocksuite/polymind-block-root';
 import type { BlockComponent } from '@blocksuite/std';
 import { expect, type Page } from '@playwright/test';
 
-const paragraphLocator = 'polymind-note affine-paragraph';
-const codeBlockLocator = 'polymind-note affine-code';
+const paragraphLocator = 'affine-note affine-paragraph';
+const codeBlockLocator = 'affine-note affine-code';
 
 // Helper function to create paragraph blocks with text
 async function createParagraphBlocks(page: Page, texts: string[]) {
@@ -195,11 +195,11 @@ test.describe('surface-ref block', () => {
     await page.waitForTimeout(50);
 
     // click on the frame title to trigger the change frame button toolbar
-    const frameTitle = page.locator('polymind-frame-title');
+    const frameTitle = page.locator('affine-frame-title');
     await frameTitle.click();
     await page.waitForTimeout(50);
 
-    const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
+    const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
     const insertIntoPageButton = toolbar.getByLabel('Insert into Page');
     await insertIntoPageButton.click();
 
@@ -216,9 +216,9 @@ test.describe('surface-ref block', () => {
     await setupSurfaceRefBlock(page);
 
     // copy surface-ref block
-    const surfaceRefBlock = page.locator('polymind-surface-ref');
+    const surfaceRefBlock = page.locator('affine-surface-ref');
     await surfaceRefBlock.click();
-    await page.waitForSelector('polymind-surface-ref .focused');
+    await page.waitForSelector('affine-surface-ref .focused');
     await copyByKeyboard(page);
 
     // paste to another doc
@@ -229,7 +229,7 @@ test.describe('surface-ref block', () => {
     await pasteByKeyboard(page);
     await page.waitForTimeout(50);
 
-    const embedLinkedDocBlock = page.locator('polymind-embed-linked-doc-block');
+    const embedLinkedDocBlock = page.locator('affine-embed-linked-doc-block');
     await expect(embedLinkedDocBlock).toBeVisible();
     const embedLinkedDocBlockTitle = embedLinkedDocBlock.locator(
       '.affine-embed-linked-doc-content-title-text'
@@ -243,9 +243,9 @@ test.describe('surface-ref block', () => {
     const { container } = await setupSurfaceRefBlock(page);
 
     // cut surface-ref block
-    const surfaceRefBlock = page.locator('polymind-surface-ref');
+    const surfaceRefBlock = page.locator('affine-surface-ref');
     await surfaceRefBlock.click();
-    await page.waitForSelector('polymind-surface-ref .focused');
+    await page.waitForSelector('affine-surface-ref .focused');
     await cutByKeyboard(page);
 
     // focus on the editor
@@ -449,7 +449,7 @@ test.describe('paste in readonly mode', () => {
 
     await page.evaluate(() => {
       const pageRoot = document.querySelector(
-        'polymind-page-root'
+        'affine-page-root'
       ) as PageRootBlockComponent;
       pageRoot.store.readonly = true;
     });
@@ -564,7 +564,7 @@ test('should copy single image from edgeless and paste to page', async ({
     await clickView(page, [100, 250]);
   });
 
-  const image = page.locator('polymind-edgeless-image').first();
+  const image = page.locator('affine-edgeless-image').first();
   await image.click();
 
   await copyByKeyboard(page);
@@ -577,5 +577,5 @@ test('should copy single image from edgeless and paste to page', async ({
 
   await pasteByKeyboard(page);
 
-  await expect(page.locator('polymind-page-image')).toBeVisible();
+  await expect(page.locator('affine-page-image')).toBeVisible();
 });

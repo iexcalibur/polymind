@@ -241,6 +241,6 @@ export class DatabaseColumnStatsCell extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-database-column-stats-cell': DatabaseColumnStatsCell;
+    'affine-database-column-stats-cell': DatabaseColumnStatsCell;
   }
 }

@@ -11,7 +11,7 @@ import { tableSlashMenuConfig } from './configs/slash-menu';
 import { effects } from './effects';
 
 export class TableViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-table-block';
+  override name = 'affine-table-block';
 
   override effect(): void {
     super.effect();

@@ -23,11 +23,11 @@ test.describe('Table insertion operations', () => {
 
     // Create a simple table with default 2x2 cells
     await createTable(page);
-    const table = page.locator('polymind-table');
+    const table = page.locator('affine-table');
     await expect(table).toBeVisible();
 
     // Verify initial table structure (2x2)
-    const initialCells = table.locator('polymind-table-cell');
+    const initialCells = table.locator('affine-table-cell');
     expect(await initialCells.count()).toBe(4);
 
     // Hover over the first cell to make the column options button visible
@@ -42,13 +42,13 @@ test.describe('Table insertion operations', () => {
     await columnOptionButton.click();
 
     // Click on the "Insert Right" option in the menu
-    const menu = page.locator('polymind-menu');
+    const menu = page.locator('affine-menu');
     await expect(menu).toBeVisible();
     await menu.getByText('Insert Right').click();
     await waitNextFrame(page);
 
     // Verify: Now we should have 6 cells (3x2 table)
-    const cellsAfterRightInsert = table.locator('polymind-table-cell');
+    const cellsAfterRightInsert = table.locator('affine-table-cell');
     expect(await cellsAfterRightInsert.count()).toBe(6);
 
     // Input text in the newly inserted column to verify its position
@@ -79,7 +79,7 @@ test.describe('Table insertion operations', () => {
     await waitNextFrame(page);
 
     // Verify: Now we should have 8 cells (4x2 table)
-    const cellsAfterLeftInsert = table.locator('polymind-table-cell');
+    const cellsAfterLeftInsert = table.locator('affine-table-cell');
     expect(await cellsAfterLeftInsert.count()).toBe(8);
 
     // Input text in the newly inserted column
@@ -106,11 +106,11 @@ test.describe('Table insertion operations', () => {
 
     // Create a simple table with default 2x2 cells
     await createTable(page);
-    const table = page.locator('polymind-table');
+    const table = page.locator('affine-table');
     await expect(table).toBeVisible();
 
     // Verify initial table structure (2x2)
-    const initialCells = table.locator('polymind-table-cell');
+    const initialCells = table.locator('affine-table-cell');
     expect(await initialCells.count()).toBe(4);
 
     // Hover over the first cell to make the row options button visible
@@ -125,13 +125,13 @@ test.describe('Table insertion operations', () => {
     await rowOptionButton.click();
 
     // Click on the "Insert Below" option in the menu
-    const menu = page.locator('polymind-menu');
+    const menu = page.locator('affine-menu');
     await expect(menu).toBeVisible();
     await menu.getByText('Insert Below').click();
     await waitNextFrame(page);
 
     // Verify: Now we should have 6 cells (2x3 table)
-    const cellsAfterBelowInsert = table.locator('polymind-table-cell');
+    const cellsAfterBelowInsert = table.locator('affine-table-cell');
     expect(await cellsAfterBelowInsert.count()).toBe(6);
 
     // Input text in the newly inserted row
@@ -171,7 +171,7 @@ test.describe('Table insertion operations', () => {
     await waitNextFrame(page);
 
     // Verify: Now we should have 8 cells (2x4 table)
-    const cellsAfterAboveInsert = table.locator('polymind-table-cell');
+    const cellsAfterAboveInsert = table.locator('affine-table-cell');
     expect(await cellsAfterAboveInsert.count()).toBe(8);
 
     // Input text in the newly inserted row

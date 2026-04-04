@@ -11,7 +11,7 @@ import { affine } from '../../../test-utils';
 describe('commands/selection', () => {
   describe('isNothingSelectedCommand', () => {
     it('should return true when nothing is selected', () => {
-      const host = affine`<polymind-page></polymind-page>`;
+      const host = affine`<affine-page></affine-page>`;
 
       const [_, { isNothingSelected }] = host.command.exec(
         isNothingSelectedCommand,
@@ -23,11 +23,11 @@ describe('commands/selection', () => {
 
     it('should return false when text selection exists', () => {
       const host = affine`
-        <polymind-page>
-          <polymind-note id="note-1">
-            <polymind-paragraph id="paragraph-1">Test paragraph</polymind-paragraph>
-          </polymind-note>
-        </polymind-page>
+        <affine-page>
+          <affine-note id="note-1">
+            <affine-paragraph id="paragraph-1">Test paragraph</affine-paragraph>
+          </affine-note>
+        </affine-page>
       `;
 
       // Mock text selection
@@ -56,11 +56,11 @@ describe('commands/selection', () => {
 
     it('should return false when block selection exists', () => {
       const host = affine`
-        <polymind-page>
-          <polymind-note id="note-1">
-            <polymind-paragraph id="paragraph-1">Test paragraph</polymind-paragraph>
-          </polymind-note>
-        </polymind-page>
+        <affine-page>
+          <affine-note id="note-1">
+            <affine-paragraph id="paragraph-1">Test paragraph</affine-paragraph>
+          </affine-note>
+        </affine-page>
       `;
 
       // Mock block selection
@@ -80,11 +80,11 @@ describe('commands/selection', () => {
 
     it('should return false when image selection exists', () => {
       const host = affine`
-        <polymind-page>
-          <polymind-note id="note-1">
-            <polymind-image id="image-1">Test paragraph</polymind-image>
-          </polymind-note>
-        </polymind-page>
+        <affine-page>
+          <affine-note id="note-1">
+            <affine-image id="image-1">Test paragraph</affine-image>
+          </affine-note>
+        </affine-page>
       `;
 
       // Mock image selection
@@ -104,11 +104,11 @@ describe('commands/selection', () => {
 
     it('should return false when no selection is provided but selection is found in context', () => {
       const host = affine`
-        <polymind-page>
-          <polymind-note id="note-1">
-            <polymind-paragraph id="paragraph-1">Test paragraph</polymind-paragraph>
-          </polymind-note>
-        </polymind-page>
+        <affine-page>
+          <affine-note id="note-1">
+            <affine-paragraph id="paragraph-1">Test paragraph</affine-paragraph>
+          </affine-note>
+        </affine-page>
       `;
 
       // Mock selection behavior via vi.spyOn before executing the command

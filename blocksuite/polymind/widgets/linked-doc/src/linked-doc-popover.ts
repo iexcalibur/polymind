@@ -294,14 +294,14 @@ export class LinkedDocPopover extends SignalWatcher(
             <div class="group" style=${group.styles ?? ''}>
               ${group.items.map(({ key, name, icon, action }) => {
                 const tooltip = this._showTooltip
-                  ? html`<polymind-tooltip
+                  ? html`<affine-tooltip
                       tip-position=${'right'}
                       .tooltipStyle=${css`
                         * {
                           color: ${unsafeCSSVar('white')} !important;
                         }
                       `}
-                      >${name}</polymind-tooltip
+                      >${name}</affine-tooltip
                     >`
                   : nothing;
                 return html`<icon-button

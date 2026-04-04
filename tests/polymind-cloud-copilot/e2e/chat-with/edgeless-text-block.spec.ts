@@ -22,7 +22,7 @@ test.describe('AIChatWith/EdgelessTextBlock', () => {
     await expect(answer).toHaveText(/苹果/, { timeout: 10000 });
     const insertBelow = answer.getByTestId('answer-insert-below');
     await insertBelow.click();
-    await expect(page.locator('polymind-edgeless-text')).toHaveText(
+    await expect(page.locator('affine-edgeless-text')).toHaveText(
       /Apple[\s\S]*苹果/
     );
   });

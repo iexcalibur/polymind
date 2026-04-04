@@ -73,20 +73,20 @@ test.describe('edgeless page block', () => {
   }) => {
     const toolbar = locateHeaderToolbar(page);
     const toolBox = await toolbar.boundingBox();
-    const noteBox = await page.locator('polymind-edgeless-note').boundingBox();
+    const noteBox = await page.locator('affine-edgeless-note').boundingBox();
     if (!noteBox || !toolBox) throw new Error('Bounding box not found');
     expect(noteBox.height).toBeGreaterThan(toolBox.height);
 
     const toggleButton = toolbar.getByTestId('edgeless-note-toggle-button');
     await toggleButton.click();
 
-    const newNoteBox = await page.locator('polymind-edgeless-note').boundingBox();
+    const newNoteBox = await page.locator('affine-edgeless-note').boundingBox();
     if (!newNoteBox) throw new Error('Bounding box not found');
     expect(newNoteBox.height).toBe(toolBox.height);
 
     await toggleButton.click();
     const newNoteBox2 = await page
-      .locator('polymind-edgeless-note')
+      .locator('affine-edgeless-note')
       .boundingBox();
     if (!newNoteBox2) throw new Error('Bounding box not found');
     expect(newNoteBox2).toEqual(noteBox);
@@ -151,7 +151,7 @@ test.describe('edgeless page block', () => {
     await clickNewPageButton(page);
     await page.keyboard.press('Enter');
     await pasteByKeyboard(page);
-    const reference = page.locator('polymind-reference');
+    const reference = page.locator('affine-reference');
     await reference.click({ modifiers: ['Shift'] });
 
     const toolbar = locateHeaderToolbar(page);
@@ -162,7 +162,7 @@ test.describe('edgeless page block', () => {
   });
 
   test('caret on focusing', async ({ page }) => {
-    const note = page.locator('polymind-edgeless-note');
+    const note = page.locator('affine-edgeless-note');
     await note.click(); // focus note
 
     // click on title's rear
@@ -180,7 +180,7 @@ test.describe('edgeless page block', () => {
     await note.click(); // focus note again
 
     // click on firstParagraph's rear
-    const firstParagraph = note.locator('polymind-paragraph:first-child');
+    const firstParagraph = note.locator('affine-paragraph:first-child');
     await expect(firstParagraph).toBeVisible();
 
     await clickLocatorByRatio(page, firstParagraph, {
@@ -190,7 +190,7 @@ test.describe('edgeless page block', () => {
 
     const hasCaretInParagraph = await page.evaluate(
       hasCaretIn,
-      'polymind-paragraph'
+      'affine-paragraph'
     );
     expect(hasCaretInParagraph).toBe(true);
 
@@ -215,7 +215,7 @@ test.describe('edgeless page block', () => {
   });
 
   test('page title should be editable', async ({ page }) => {
-    const note = page.locator('polymind-edgeless-note');
+    const note = page.locator('affine-edgeless-note');
     const docTitle = note.locator('edgeless-page-block-title');
     await expect(docTitle).toBeVisible();
     await assertTitle(page, title);
@@ -236,7 +236,7 @@ test.describe('edgeless page block', () => {
     await page.keyboard.press('ArrowDown');
     await type(page, 'xx');
 
-    const paragraphs = note.locator('polymind-paragraph v-line');
+    const paragraphs = note.locator('affine-paragraph v-line');
     const numParagraphs = await paragraphs.count();
     await expect(paragraphs.first()).toHaveText('xxHello');
 
@@ -285,7 +285,7 @@ test.describe('edgeless note element toolbar', () => {
 
   test('display in page button', async ({ page }) => {
     const editorContainer = locateEditorContainer(page);
-    const notes = editorContainer.locator('polymind-note');
+    const notes = editorContainer.locator('affine-note');
 
     await createEdgelessNoteBlock(page, [100, 100]);
     await page.waitForSelector('.affine-paragraph-placeholder.visible');
@@ -336,10 +336,10 @@ test.describe('edgeless note element toolbar', () => {
 
     await displayInPage.click();
     await viewTocButton.click();
-    const toc = page.locator('polymind-outline-panel');
+    const toc = page.locator('affine-outline-panel');
     await toc.waitFor({ state: 'visible' });
     const highlightNoteCards = toc.locator(
-      'polymind-outline-note-card > [data-status="selected"]'
+      'affine-outline-note-card > [data-status="selected"]'
     );
     await expect(highlightNoteCards).toHaveCount(1);
   });
@@ -349,7 +349,7 @@ test.describe('edgeless note element toolbar', () => {
       const container = locateEditorContainer(page);
       return await container.evaluate((container: HTMLElement, noteId) => {
         const root = container.querySelector(
-          'polymind-edgeless-root'
+          'affine-edgeless-root'
         ) as EdgelessRootBlockComponent;
         const note = root.gfx.getElementById(noteId) as NoteBlockModel;
         return note.props.edgeless;
@@ -372,7 +372,7 @@ test.describe('edgeless note element toolbar', () => {
 
     await toolbar.getByRole('button', { name: 'Note Style' }).click();
     const noteStylePanel = page.locator('edgeless-note-style-panel');
-    await noteStylePanel.getByTestId('polymind-note-shadow-film').click();
+    await noteStylePanel.getByTestId('affine-note-shadow-film').click();
 
     expect(await getNoteEdgelessProps(page, noteId)).toEqual({
       style: {
@@ -384,10 +384,10 @@ test.describe('edgeless note element toolbar', () => {
     });
 
     const borderStylePanel = noteStylePanel.getByTestId(
-      'polymind-note-border-style-panel'
+      'affine-note-border-style-panel'
     );
     await borderStylePanel.locator('.mode-solid').click();
-    await borderStylePanel.locator('polymind-slider').getByLabel('8').click();
+    await borderStylePanel.locator('affine-slider').getByLabel('8').click();
 
     expect(await getNoteEdgelessProps(page, noteId)).toEqual({
       style: {
@@ -399,9 +399,9 @@ test.describe('edgeless note element toolbar', () => {
     });
 
     const cornerPanel = noteStylePanel.getByTestId(
-      'polymind-note-corner-radius-panel'
+      'affine-note-corner-radius-panel'
     );
-    await cornerPanel.locator('polymind-slider').getByLabel('24').click();
+    await cornerPanel.locator('affine-slider').getByLabel('24').click();
 
     expect(await getNoteEdgelessProps(page, noteId)).toEqual({
       style: {
@@ -449,7 +449,7 @@ test.describe('note block rendering', () => {
     const center: IVec = [xywh[0] + xywh[2] / 2, xywh[1] + xywh[3] / 2];
 
     const note = page
-      .locator('polymind-edgeless-note')
+      .locator('affine-edgeless-note')
       .getByTestId('edgeless-note-clip-container')
       .nth(1);
 
@@ -504,7 +504,7 @@ test('should convert note block to linked doc when clicking turn into linked doc
 
   await pressEscape(page, 3);
 
-  const note = page.locator('polymind-edgeless-note', {
+  const note = page.locator('affine-edgeless-note', {
     hasText: 'Is this just fantasy?',
   });
   await note.click();
@@ -522,13 +522,13 @@ test('should convert note block to linked doc when clicking turn into linked doc
   const confirmBtn = page.getByTestId('confirm-modal-confirm');
   await confirmBtn.click();
 
-  const syncedDoc = page.locator('polymind-embed-edgeless-synced-doc-block');
+  const syncedDoc = page.locator('affine-embed-edgeless-synced-doc-block');
   await expect(syncedDoc).toBeVisible();
 
-  const noteInSyncedDoc = syncedDoc.locator('polymind-note');
+  const noteInSyncedDoc = syncedDoc.locator('affine-note');
   await expect(noteInSyncedDoc).toBeVisible();
 
-  const paragraphs = noteInSyncedDoc.locator('polymind-paragraph');
+  const paragraphs = noteInSyncedDoc.locator('affine-paragraph');
   await expect(paragraphs.nth(0)).toContainText('Two Questions');
   await expect(paragraphs.nth(1)).toContainText('Is this the real life?');
   await expect(paragraphs.nth(2)).toContainText('Is this just fantasy?');

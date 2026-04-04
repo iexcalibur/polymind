@@ -519,6 +519,6 @@ export class EdgelessRootBlockComponent extends BlockComponent<
   @query('.edgeless-mount-point')
   accessor mountElm: HTMLDivElement | null = null;
 
-  @query('polymind-surface')
+  @query('affine-surface')
   accessor surface!: SurfaceBlockComponent;
 }

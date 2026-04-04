@@ -334,13 +334,13 @@ export class EdgelessNoteStylePanel extends SignalWatcher(
       >
         <div class="edgeless-note-style-section-title">Corner Radius</div>
         <div class="edgeless-note-corner-radius-panel">
-          <polymind-slider
+          <affine-slider
             .value=${this._borderRadius}
             .range=${{
               points: [0, 4, 8, 16, 24, 32],
             }}
             @select=${this._selectBorderRadius}
-          ></polymind-slider>
+          ></affine-slider>
 
           <editor-toolbar-separator></editor-toolbar-separator>
 

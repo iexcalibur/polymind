@@ -58,7 +58,7 @@ test('should update zindex of element when moving it into frame', async ({
   const isNoteAboveFrame = await page.evaluate(point => {
     return !!document
       .elementFromPoint(point[0], point[1])
-      ?.closest('polymind-edgeless-note');
+      ?.closest('affine-edgeless-note');
   }, point);
   expect(isNoteAboveFrame).toBe(true);
 });

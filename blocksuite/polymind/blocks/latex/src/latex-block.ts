@@ -153,6 +153,6 @@ export class LatexBlockComponent extends CaptionedBlockComponent<LatexBlockModel
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-latex': LatexBlockComponent;
+    'affine-latex': LatexBlockComponent;
   }
 }

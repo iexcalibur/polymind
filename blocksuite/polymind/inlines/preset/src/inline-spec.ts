@@ -19,7 +19,7 @@ export const BoldInlineSpecExtension =
       return !!delta.attributes?.bold;
     },
     renderer: ({ delta }) => {
-      return html`<polymind-text .delta=${delta}></polymind-text>`;
+      return html`<affine-text .delta=${delta}></affine-text>`;
     },
   });
 
@@ -33,7 +33,7 @@ export const ItalicInlineSpecExtension =
       return !!delta.attributes?.italic;
     },
     renderer: ({ delta }) => {
-      return html`<polymind-text .delta=${delta}></polymind-text>`;
+      return html`<affine-text .delta=${delta}></affine-text>`;
     },
   });
 
@@ -47,7 +47,7 @@ export const UnderlineInlineSpecExtension =
       return !!delta.attributes?.underline;
     },
     renderer: ({ delta }) => {
-      return html`<polymind-text .delta=${delta}></polymind-text>`;
+      return html`<affine-text .delta=${delta}></affine-text>`;
     },
   });
 
@@ -61,7 +61,7 @@ export const StrikeInlineSpecExtension =
       return !!delta.attributes?.strike;
     },
     renderer: ({ delta }) => {
-      return html`<polymind-text .delta=${delta}></polymind-text>`;
+      return html`<affine-text .delta=${delta}></affine-text>`;
     },
   });
 
@@ -75,7 +75,7 @@ export const CodeInlineSpecExtension =
       return !!delta.attributes?.code;
     },
     renderer: ({ delta }) => {
-      return html`<polymind-text .delta=${delta}></polymind-text>`;
+      return html`<affine-text .delta=${delta}></affine-text>`;
     },
   });
 
@@ -89,7 +89,7 @@ export const BackgroundInlineSpecExtension =
       return !!delta.attributes?.background;
     },
     renderer: ({ delta }) => {
-      return html`<polymind-text .delta=${delta}></polymind-text>`;
+      return html`<affine-text .delta=${delta}></affine-text>`;
     },
   });
 
@@ -103,7 +103,7 @@ export const ColorInlineSpecExtension =
       return !!delta.attributes?.color;
     },
     renderer: ({ delta }) => {
-      return html`<polymind-text .delta=${delta}></polymind-text>`;
+      return html`<affine-text .delta=${delta}></affine-text>`;
     },
   });
 

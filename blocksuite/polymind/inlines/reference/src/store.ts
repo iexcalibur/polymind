@@ -10,7 +10,7 @@ import {
 } from './adapters';
 
 export class ReferenceStoreExtension extends StoreExtensionProvider {
-  override name = 'polymind-reference-inline';
+  override name = 'affine-reference-inline';
 
   override setup(context: StoreExtensionContext) {
     super.setup(context);

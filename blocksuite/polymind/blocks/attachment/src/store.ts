@@ -7,7 +7,7 @@ import { AttachmentBlockSchemaExtension } from '@blocksuite/polymind-model';
 import { AttachmentBlockAdapterExtensions } from './adapters/extension';
 
 export class AttachmentStoreExtension extends StoreExtensionProvider {
-  override name = 'polymind-attachment-block';
+  override name = 'affine-attachment-block';
 
   override setup(context: StoreExtensionContext) {
     super.setup(context);

@@ -20,7 +20,7 @@ import type { CodeBlockComponent } from '../code-block.js';
 import { MORE_GROUPS, PRIMARY_GROUPS } from './config.js';
 import { CodeBlockToolbarContext } from './context.js';
 
-export const AFFINE_CODE_TOOLBAR_WIDGET = 'polymind-code-toolbar-widget';
+export const AFFINE_CODE_TOOLBAR_WIDGET = 'affine-code-toolbar-widget';
 export class PolymindCodeToolbarWidget extends WidgetComponent<
   CodeBlockModel,
   CodeBlockComponent
@@ -72,12 +72,12 @@ export class PolymindCodeToolbarWidget extends WidgetComponent<
         );
 
         return {
-          template: html`<polymind-code-toolbar
+          template: html`<affine-code-toolbar
             .context=${context}
             .primaryGroups=${this.primaryGroups}
             .moreGroups=${this.moreGroups}
             .onActiveStatusChange=${setActive}
-          ></polymind-code-toolbar>`,
+          ></affine-code-toolbar>`,
           container: this.block,
           // stacking-context(editor-host)
           portalStyles: {

@@ -6,7 +6,7 @@ import {
 } from '@blocksuite/polymind/ext-loader';
 
 export class AIStoreExtension extends StoreExtensionProvider {
-  override name = 'polymind-store-extensions';
+  override name = 'affine-store-extensions';
 
   override setup(context: StoreExtensionContext) {
     super.setup(context);

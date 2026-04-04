@@ -14,7 +14,7 @@ const optionsSchema = z.object({
 type PolymindThemeViewOptions = z.infer<typeof optionsSchema>;
 
 export class PolymindThemeViewExtension extends ViewExtensionProvider<PolymindThemeViewOptions> {
-  override name = 'polymind-view-theme';
+  override name = 'affine-view-theme';
 
   override schema = optionsSchema;
 

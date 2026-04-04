@@ -785,7 +785,7 @@ test('should insert database', async ({ page }) => {
   await assertBlockCount(page, 'paragraph', 0);
   await assertBlockCount(page, 'database', 1);
 
-  const database = page.locator('polymind-database');
+  const database = page.locator('affine-database');
   await expect(database).toBeVisible();
   const titleColumn = page.locator('.affine-database-column').nth(0);
   expect(await titleColumn.innerText()).toBe('Title');
@@ -857,8 +857,8 @@ test('should slash menu can trigger linked doc popover', async ({ page }) => {
 
   await type(page, 'doc');
   await pressEnter(page);
-  await expect(page.locator('polymind-reference')).toBeVisible();
+  await expect(page.locator('affine-reference')).toBeVisible();
   await expect(
-    page.locator('polymind-reference .affine-reference-title')
+    page.locator('affine-reference .affine-reference-title')
   ).toHaveText('doc');
 });

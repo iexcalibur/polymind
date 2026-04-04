@@ -186,10 +186,10 @@ export class EdgelessNoteSeniorButton extends EdgelessToolbarToolMixin(
       class="edgeless-note-button"
       .tooltip=${this.popper
         ? ''
-        : html`<polymind-tooltip-content-with-shortcut
+        : html`<affine-tooltip-content-with-shortcut
             data-tip="${'Note'}"
             data-shortcut="${'N'}"
-          ></polymind-tooltip-content-with-shortcut>`}
+          ></affine-tooltip-content-with-shortcut>`}
       .tooltipOffset=${5}
     >
       <div

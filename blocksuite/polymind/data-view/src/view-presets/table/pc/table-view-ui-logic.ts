@@ -150,7 +150,7 @@ export class TableViewUI extends DataViewUIBase<TableViewUILogic> {
     this.logic.dragController.hostConnected();
     this.logic.hotkeysController.hostConnected();
     this.logic.selectionController.hostConnected();
-    this.classList.add('polymind-database-table', tableViewStyle);
+    this.classList.add('affine-database-table', tableViewStyle);
     this.dataset['testid'] = 'dv-table-view';
   }
 
@@ -165,19 +165,19 @@ export class TableViewUI extends DataViewUIBase<TableViewUILogic> {
             groups,
             group => group.key,
             group =>
-              html`<polymind-data-view-table-group
+              html`<affine-data-view-table-group
                 data-group-key="${group.key}"
                 .tableViewLogic="${this.logic}"
                 .group="${group}"
-              ></polymind-data-view-table-group>`
+              ></affine-data-view-table-group>`
           )}
           ${this.logic.renderAddGroup(this.logic.view.groupTrait)}
         </div>
       `;
     }
-    return html`<polymind-data-view-table-group
+    return html`<affine-data-view-table-group
       .tableViewLogic="${this.logic}"
-    ></polymind-data-view-table-group>`;
+    ></affine-data-view-table-group>`;
   }
 
   override render(): TemplateResult {

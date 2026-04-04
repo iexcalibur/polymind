@@ -9,7 +9,7 @@ import {
 } from './adapter';
 
 export class ShapeStoreExtension extends StoreExtensionProvider {
-  override name = 'polymind-shape-gfx';
+  override name = 'affine-shape-gfx';
 
   override setup(context: StoreExtensionContext) {
     super.setup(context);

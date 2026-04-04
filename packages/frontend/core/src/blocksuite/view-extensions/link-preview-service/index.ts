@@ -14,7 +14,7 @@ const optionsSchema = z.object({
 type PolymindLinkPreviewViewOptions = z.infer<typeof optionsSchema>;
 
 export class PolymindLinkPreviewExtension extends ViewExtensionProvider<PolymindLinkPreviewViewOptions> {
-  override name = 'polymind-link-preview-extension';
+  override name = 'affine-link-preview-extension';
 
   override schema = optionsSchema;
 

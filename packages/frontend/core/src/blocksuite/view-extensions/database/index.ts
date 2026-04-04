@@ -11,7 +11,7 @@ const optionsSchema = z.object({});
 export type PolymindDatabaseViewOptions = z.infer<typeof optionsSchema>;
 
 export class PolymindDatabaseViewExtension extends ViewExtensionProvider<PolymindDatabaseViewOptions> {
-  override name = 'polymind-database-view';
+  override name = 'affine-database-view';
 
   override schema = optionsSchema;
 

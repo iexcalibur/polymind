@@ -34,12 +34,12 @@ test.describe('Embed synced doc in edgeless mode', () => {
     await switchEditorMode(page);
 
     // Double click on note to enter edit status
-    const noteBlock = page.locator('polymind-edgeless-note');
+    const noteBlock = page.locator('affine-edgeless-note');
     await noteBlock.dblclick();
 
     // Drag the embed synced doc to whiteboard
     const embedSyncedBlockInNote = page.locator(
-      'polymind-embed-synced-doc-block'
+      'affine-embed-synced-doc-block'
     );
     const embedSyncedBoxInNote = await embedSyncedBlockInNote.boundingBox();
     if (!embedSyncedBoxInNote) {
@@ -61,7 +61,7 @@ test.describe('Embed synced doc in edgeless mode', () => {
 
     // Check the height of the embed synced doc portal, it should be the same as the embed synced doc in note
     const EmbedSyncedDocBlockInCanvas = page.locator(
-      'polymind-embed-edgeless-synced-doc-block'
+      'affine-embed-edgeless-synced-doc-block'
     );
     const EmbedSyncedDocBlockBoxInCanvas =
       await EmbedSyncedDocBlockInCanvas.boundingBox();
@@ -86,7 +86,7 @@ test.describe('Embed synced doc in edgeless mode', () => {
 
     const paragraphHeight = (
       await page
-        .locator('polymind-embed-synced-doc-block affine-paragraph')
+        .locator('affine-embed-synced-doc-block affine-paragraph')
         .boundingBox()
     )?.height;
     if (!paragraphHeight) {
@@ -114,7 +114,7 @@ test.describe('Embed synced doc in edgeless mode', () => {
     };
 
     const embedSyncedBlockInNote = page.locator(
-      'polymind-embed-edgeless-synced-doc-block'
+      'affine-embed-edgeless-synced-doc-block'
     );
 
     {
@@ -145,7 +145,7 @@ test.describe('Embed synced doc in edgeless mode', () => {
       await switchEditorMode(page);
 
       const edgelessEmbedSyncedBlock = page.locator(
-        'polymind-embed-edgeless-synced-doc-block'
+        'affine-embed-edgeless-synced-doc-block'
       );
       await edgelessEmbedSyncedBlock.click();
     });
@@ -159,16 +159,16 @@ test.describe('Embed synced doc in edgeless mode', () => {
     const locateToolbar = (page: Page) => {
       return page.locator(
         // TODO(@L-Sun): simplify this selector after that toolbar widget are disabled in preview rendering is ready
-        'polymind-edgeless-root > .widgets-container affine-toolbar-widget editor-toolbar'
+        'affine-edgeless-root > .widgets-container affine-toolbar-widget editor-toolbar'
       );
     };
 
     test('should insert embed-synced-doc into page when click "Insert into page" button', async ({
       page,
     }) => {
-      const embedSyncedBlock = page.locator('polymind-embed-synced-doc-block');
+      const embedSyncedBlock = page.locator('affine-embed-synced-doc-block');
       const edgelessEmbedSyncedBlock = page.locator(
-        'polymind-embed-edgeless-synced-doc-block'
+        'affine-embed-edgeless-synced-doc-block'
       );
 
       const toolbar = locateToolbar(page);
@@ -210,18 +210,18 @@ test.describe('Embed synced doc in edgeless mode', () => {
       await switchDoc();
 
       const edgelessEmbedSyncedBlock = page.locator(
-        'polymind-embed-edgeless-synced-doc-block'
+        'affine-embed-edgeless-synced-doc-block'
       );
       await edgelessEmbedSyncedBlock.click();
       await toolbar.getByLabel('Duplicate as note').click();
 
-      const edgelessNotes = page.locator('polymind-edgeless-note');
+      const edgelessNotes = page.locator('affine-edgeless-note');
       await expect(edgelessNotes).toHaveCount(2);
       await expect(edgelessNotes.last()).toBeVisible();
 
       const blocks = edgelessNotes.last().locator('[data-block-id]');
       await expect(blocks).toHaveCount(3);
-      const reference = blocks.nth(0).locator('polymind-reference');
+      const reference = blocks.nth(0).locator('affine-reference');
       const paragraph1 = blocks.nth(1).locator('[data-v-text="true"]');
       const paragraph2 = blocks.nth(2).locator('[data-v-text="true"]');
       const refInfo = await reference.evaluate((reference: PolymindReference) => {
@@ -246,7 +246,7 @@ test.describe('Embed synced doc in edgeless mode', () => {
       const toolbar = locateToolbar(page);
       await toolbar.getByLabel('Duplicate as note').click();
 
-      const edgelessNotes = page.locator('polymind-edgeless-note');
+      const edgelessNotes = page.locator('affine-edgeless-note');
       await expect(edgelessNotes).toHaveCount(2);
       expect(await getSelectedIds(page)).toHaveLength(1);
       expect(await getSelectedIds(page)).not.toContain(prevIds);
@@ -260,11 +260,11 @@ test.describe('Embed synced doc in edgeless mode', () => {
       page,
     }) => {
       await createShapeElement(page, [0, 0], [100, 100]);
-      await page.locator('polymind-embed-edgeless-synced-doc-block').click();
+      await page.locator('affine-embed-edgeless-synced-doc-block').click();
       const toolbar = locateToolbar(page);
       await toolbar.getByLabel('Duplicate as note').click();
 
-      const edgelessNotes = page.locator('polymind-edgeless-note');
+      const edgelessNotes = page.locator('affine-edgeless-note');
       await expect(edgelessNotes).toHaveCount(2);
       const duplicatedNoteId = (await getSelectedIds(page))[0];
       const sortedIds = await getAllSortedIds(page);

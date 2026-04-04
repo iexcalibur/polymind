@@ -216,7 +216,7 @@ export class EmbedIframeErrorCard extends WithDisposable(LitElement) {
   override render() {
     const { layout, width, height } = this.options;
     const cardClasses = classMap({
-      'polymind-embed-iframe-error-card': true,
+      'affine-embed-iframe-error-card': true,
       horizontal: layout === 'horizontal',
       vertical: layout === 'vertical',
     });

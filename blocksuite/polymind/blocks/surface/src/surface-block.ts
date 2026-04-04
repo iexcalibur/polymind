@@ -250,6 +250,6 @@ export class SurfaceBlockComponent extends BlockComponent<SurfaceBlockModel> {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-surface': SurfaceBlockComponent;
+    'affine-surface': SurfaceBlockComponent;
   }
 }

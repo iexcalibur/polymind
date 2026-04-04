@@ -16,13 +16,13 @@ export * from './menu-renderer';
 export * from './sub-menu';
 
 export function effects() {
-  customElements.define('polymind-menu', MenuComponent);
+  customElements.define('affine-menu', MenuComponent);
   customElements.define('mobile-menu', MobileMenuComponent);
-  customElements.define('polymind-menu-button', MenuButton);
+  customElements.define('affine-menu-button', MenuButton);
   customElements.define('mobile-menu-button', MobileMenuButton);
-  customElements.define('polymind-menu-input', MenuInput);
+  customElements.define('affine-menu-input', MenuInput);
   customElements.define('mobile-menu-input', MobileMenuInput);
-  customElements.define('polymind-menu-sub-menu', MenuSubMenu);
+  customElements.define('affine-menu-sub-menu', MenuSubMenu);
   customElements.define('mobile-sub-menu', MobileSubMenu);
   customElements.define('menu-divider', MenuDivider);
 }

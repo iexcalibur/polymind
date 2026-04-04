@@ -8,7 +8,7 @@ import { state } from 'lit/decorators.js';
 import { literal, unsafeStatic } from 'lit/static-html.js';
 
 export const AFFINE_EDGELESS_ZOOM_TOOLBAR_WIDGET =
-  'polymind-edgeless-zoom-toolbar-widget';
+  'affine-edgeless-zoom-toolbar-widget';
 
 export class PolymindEdgelessZoomToolbarWidget extends WidgetComponent<RootBlockModel> {
   static override styles = css`

@@ -23,7 +23,7 @@ function isInKeyframes(rule: Rule) {
   return false;
 }
 
-const DEFAULT_SCOPE_CLASS = 'polymind-queuedash';
+const DEFAULT_SCOPE_CLASS = 'affine-queuedash';
 
 export const queuedashScopePostcssPlugin: PluginCreator<
   QueuedashScopeOptions
@@ -69,7 +69,7 @@ export const queuedashScopePostcssPlugin: PluginCreator<
   });
 
   return {
-    postcssPlugin: 'polymind-queuedash-scope',
+    postcssPlugin: 'affine-queuedash-scope',
     Once(root, { result }) {
       const from =
         root.source?.input.file ||

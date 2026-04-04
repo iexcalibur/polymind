@@ -51,7 +51,7 @@ const optionsSchema = z.object({
 export type PolymindEditorViewOptions = z.infer<typeof optionsSchema>;
 
 export class PolymindEditorViewExtension extends ViewExtensionProvider<PolymindEditorViewOptions> {
-  override name = 'polymind-editor-view';
+  override name = 'affine-editor-view';
 
   override schema = optionsSchema;
 

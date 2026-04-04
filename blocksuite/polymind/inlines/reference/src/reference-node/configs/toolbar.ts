@@ -40,10 +40,10 @@ export const builtinInlineReferenceToolbarConfig = {
             .value || 'Untitled';
         const open = (event: MouseEvent) => target.open({ event });
 
-        return html`<polymind-linked-doc-title
+        return html`<affine-linked-doc-title
           .title=${originalTitle}
           .open=${open}
-        ></polymind-linked-doc-title>`;
+        ></affine-linked-doc-title>`;
       },
     },
     {
@@ -121,7 +121,7 @@ export const builtinInlineReferenceToolbarConfig = {
               return true;
 
             // nesting is not supported
-            if (target.closest('polymind-embed-synced-doc-block')) return true;
+            if (target.closest('affine-embed-synced-doc-block')) return true;
 
             // same doc
             if (target.referenceInfo.pageId === ctx.store.id) return true;
@@ -202,12 +202,12 @@ export const builtinInlineReferenceToolbarConfig = {
 
         return html`${keyed(
           target,
-          html`<polymind-view-dropdown-menu
+          html`<affine-view-dropdown-menu
             .actions=${actions}
             .context=${ctx}
             .onToggle=${onToggle}
             .viewType$=${viewType$}
-          ></polymind-view-dropdown-menu>`
+          ></affine-view-dropdown-menu>`
         )}`;
       },
       when(ctx) {
@@ -217,8 +217,8 @@ export const builtinInlineReferenceToolbarConfig = {
 
         if (ctx.flags.isNative()) return false;
         if (
-          target.block.closest('polymind-database') ||
-          target.block.closest('polymind-table')
+          target.block.closest('affine-database') ||
+          target.block.closest('affine-table')
         )
           return false;
 

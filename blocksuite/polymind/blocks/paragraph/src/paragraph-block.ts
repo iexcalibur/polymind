@@ -54,7 +54,7 @@ export class ParagraphBlockComponent extends CaptionedBlockComponent<ParagraphBl
   private readonly _isInDatabase = () => {
     let parent = this.parentElement;
     while (parent && parent !== document.body) {
-      if (parent.tagName.toLowerCase() === 'polymind-database') {
+      if (parent.tagName.toLowerCase() === 'affine-database') {
         return true;
       }
       parent = parent.parentElement;
@@ -91,7 +91,7 @@ export class ParagraphBlockComponent extends CaptionedBlockComponent<ParagraphBl
   get inEdgelessText() {
     return (
       this.topContenteditableElement?.tagName.toLowerCase() ===
-      'polymind-edgeless-text'
+      'affine-edgeless-text'
     );
   }
 
@@ -289,7 +289,7 @@ export class ParagraphBlockComponent extends CaptionedBlockComponent<ParagraphBl
       </style>
       <div
         class=${classMap({
-          'polymind-paragraph-block-container': true,
+          'affine-paragraph-block-container': true,
           'highlight-comment': this.isCommentHighlighted,
         })}
         style="${textAlignStyle}"
@@ -297,16 +297,16 @@ export class ParagraphBlockComponent extends CaptionedBlockComponent<ParagraphBl
       >
         <div
           class=${classMap({
-            'polymind-paragraph-rich-text-wrapper': true,
+            'affine-paragraph-rich-text-wrapper': true,
             [type$.value]: true,
             [TOGGLE_BUTTON_PARENT_CLASS]: true,
           })}
         >
           ${this.model.props.type$.value.startsWith('h')
             ? html`
-                <polymind-paragraph-heading-icon
+                <affine-paragraph-heading-icon
                   .model=${this.model}
-                ></polymind-paragraph-heading-icon>
+                ></affine-paragraph-heading-icon>
               `
             : nothing}
           ${this.model.props.type$.value.startsWith('h') &&
@@ -355,7 +355,7 @@ export class ParagraphBlockComponent extends CaptionedBlockComponent<ParagraphBl
                 <div
                   contenteditable="false"
                   class=${classMap({
-                    'polymind-paragraph-placeholder': true,
+                    'affine-paragraph-placeholder': true,
                     visible: this._displayPlaceholder.value,
                   })}
                 >

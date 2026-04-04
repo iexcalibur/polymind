@@ -33,7 +33,7 @@ function assertType<T>(value: unknown): asserts value is T {
   noop(value);
 }
 
-export const AFFINE_OUTLINE_BLOCK_PREVIEW = 'polymind-outline-block-preview';
+export const AFFINE_OUTLINE_BLOCK_PREVIEW = 'affine-outline-block-preview';
 
 export class OutlineBlockPreview extends SignalWatcher(
   WithDisposable(ShadowlessElement)

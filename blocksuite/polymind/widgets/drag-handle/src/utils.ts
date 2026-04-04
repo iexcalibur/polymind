@@ -1,6 +1,6 @@
 import { type CalloutBlockComponent } from '@blocksuite/polymind-block-callout';
 import {
-  POLYMIND_EDGELESS_NOTE,
+  AFFINE_EDGELESS_NOTE,
   EdgelessNoteBackground,
   EdgelessNoteBlockComponent,
 } from '@blocksuite/polymind-block-note';
@@ -158,7 +158,7 @@ export const isOutOfNoteBlock = (
 };
 
 export const getParentNoteBlock = (blockComponent: BlockComponent) => {
-  return blockComponent.closest('polymind-note, affine-edgeless-note') ?? null;
+  return blockComponent.closest('affine-note, affine-edgeless-note') ?? null;
 };
 
 export const getClosestNoteBlock = (
@@ -169,7 +169,7 @@ export const getClosestNoteBlock = (
   const isInsidePageEditor =
     editorHost.std.get(DocModeProvider).getEditorMode() === 'page';
   return isInsidePageEditor
-    ? findClosestBlockComponent(rootComponent, point, 'polymind-note')
+    ? findClosestBlockComponent(rootComponent, point, 'affine-note')
     : getHoveringNote(point);
 };
 
@@ -213,7 +213,7 @@ export const getClosestBlockByPoint = (
 
   if (matchModels(closestBlock.model, [ParagraphBlockModel])) {
     const callout =
-      closestBlock.closest<CalloutBlockComponent>('polymind-callout');
+      closestBlock.closest<CalloutBlockComponent>('affine-callout');
     if (callout) {
       return callout;
     }
@@ -294,7 +294,7 @@ function getHoveringNote(point: Point) {
     // note-background and edgeless-note, using elementsFromPoint alone cannot correctly
     // retrieve the edgeless-note.
     if (el instanceof EdgelessNoteBackground) {
-      return el.closest(POLYMIND_EDGELESS_NOTE) ?? null;
+      return el.closest(AFFINE_EDGELESS_NOTE) ?? null;
     }
   }
   return null;

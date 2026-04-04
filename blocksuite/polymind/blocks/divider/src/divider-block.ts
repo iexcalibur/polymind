@@ -45,6 +45,6 @@ export class DividerBlockComponent extends CaptionedBlockComponent<DividerBlockM
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-divider': DividerBlockComponent;
+    'affine-divider': DividerBlockComponent;
   }
 }

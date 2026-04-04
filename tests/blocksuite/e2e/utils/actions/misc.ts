@@ -50,7 +50,7 @@ export const getSelectionRect = async (page: Page): Promise<DOMRect> => {
 };
 
 export const getEditorLocator = (page: Page) => {
-  return page.locator('polymind-editor-container').nth(currentEditorIndex);
+  return page.locator('affine-editor-container').nth(currentEditorIndex);
 };
 
 export const getEditorHostLocator = (page: Page) => {
@@ -173,11 +173,11 @@ export async function enterPlaygroundRoom(
     throw new Error(`Uncaught exception: "${exception}"\n${exception.stack}`);
   });
 
-  const locator = page.locator('polymind-editor-container');
+  const locator = page.locator('affine-editor-container');
   await locator.isVisible();
   await page.evaluate(async () => {
     const dom = document.querySelector<TestPolymindEditorContainer>(
-      'polymind-editor-container'
+      'affine-editor-container'
     );
     if (dom) {
       await dom.updateComplete;
@@ -193,7 +193,7 @@ export async function enterPlaygroundRoom(
 }
 
 export async function waitDefaultPageLoaded(page: Page) {
-  await page.waitForSelector('polymind-page-root[data-block-id="0"]');
+  await page.waitForSelector('affine-page-root[data-block-id="0"]');
 }
 
 export async function waitEmbedLoaded(page: Page) {
@@ -496,7 +496,7 @@ export async function focusDatabaseTitle(page: Page) {
 
   await page.evaluate(() => {
     const dbTitle = document.querySelector(
-      'polymind-database-title textarea'
+      'affine-database-title textarea'
     ) as HTMLTextAreaElement | null;
     if (!dbTitle) {
       throw new Error('Cannot find database title');
@@ -511,8 +511,8 @@ export async function focusDatabaseTitle(page: Page) {
 
 export async function assertDatabaseColumnOrder(page: Page, order: string[]) {
   const columns = await page
-    .locator('polymind-database-column-header')
-    .locator('polymind-database-header-column')
+    .locator('affine-database-column-header')
+    .locator('affine-database-header-column')
     .all();
   expect(await Promise.all(columns.slice(1).map(v => v.innerText()))).toEqual(
     order
@@ -1157,7 +1157,7 @@ export async function initImageState(page: Page, prependParagraph = false) {
 
     await new Promise(res => setTimeout(res, 200));
 
-    const pageRoot = document.querySelector('polymind-page-root');
+    const pageRoot = document.querySelector('affine-page-root');
     if (!pageRoot) throw new Error('Cannot find doc page');
     const imageBlob = await fetch(`${location.origin}/test-card-1.png`).then(
       response => response.blob()
@@ -1186,7 +1186,7 @@ export async function initImageState(page: Page, prependParagraph = false) {
 
 export async function getCurrentEditorDocId(page: Page) {
   return page.evaluate(index => {
-    const editor = document.querySelectorAll('polymind-editor-container')[index];
+    const editor = document.querySelectorAll('affine-editor-container')[index];
     if (!editor) throw new Error("Can't find affine-editor-container");
     const docId = editor.doc.id;
     return docId;
@@ -1201,7 +1201,7 @@ export async function getCurrentHTMLTheme(page: Page) {
 
 export async function getCurrentEditorTheme(page: Page) {
   const mode = await page
-    .locator('polymind-editor-container')
+    .locator('affine-editor-container')
     .first()
     .evaluate(() =>
       window
@@ -1217,7 +1217,7 @@ export async function getCurrentThemeCSSPropertyValue(
   property: string
 ) {
   const value = await page
-    .locator('polymind-editor-container')
+    .locator('affine-editor-container')
     .evaluate(
       (_, property) =>
         window

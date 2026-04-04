@@ -68,7 +68,7 @@ test('heading icon should be updated after change heading level', async ({
   // Hello|
   // empty paragraph
 
-  const paragraph = page.locator('polymind-note affine-paragraph').nth(0);
+  const paragraph = page.locator('affine-note affine-paragraph').nth(0);
 
   await selectAllByKeyboard(page);
   const toolbar = locateToolbar(page);
@@ -106,16 +106,16 @@ test('basic heading collapsed', async ({ page }) => {
     page,
     '# aaa\nbbb\n## ccc\nddd\n### eee\nfff\n## ggg\nhhh\n# iii\njjj'
   );
-  const a = page.locator('polymind-note affine-paragraph').nth(0);
-  const b = page.locator('polymind-note affine-paragraph').nth(1);
-  const c = page.locator('polymind-note affine-paragraph').nth(2);
-  const d = page.locator('polymind-note affine-paragraph').nth(3);
-  const e = page.locator('polymind-note affine-paragraph').nth(4);
-  const f = page.locator('polymind-note affine-paragraph').nth(5);
-  const g = page.locator('polymind-note affine-paragraph').nth(6);
-  const h = page.locator('polymind-note affine-paragraph').nth(7);
-  const i = page.locator('polymind-note affine-paragraph').nth(8);
-  const j = page.locator('polymind-note affine-paragraph').nth(9);
+  const a = page.locator('affine-note affine-paragraph').nth(0);
+  const b = page.locator('affine-note affine-paragraph').nth(1);
+  const c = page.locator('affine-note affine-paragraph').nth(2);
+  const d = page.locator('affine-note affine-paragraph').nth(3);
+  const e = page.locator('affine-note affine-paragraph').nth(4);
+  const f = page.locator('affine-note affine-paragraph').nth(5);
+  const g = page.locator('affine-note affine-paragraph').nth(6);
+  const h = page.locator('affine-note affine-paragraph').nth(7);
+  const i = page.locator('affine-note affine-paragraph').nth(8);
+  const j = page.locator('affine-note affine-paragraph').nth(9);
 
   const assertInitState = async () => {
     expect(await a.isVisible()).toBeTruthy();
@@ -206,7 +206,7 @@ test('add new heading when press enter at the end of collapsed heading', async (
   await page.keyboard.press('ArrowUp');
   await page.keyboard.press('ArrowRight');
 
-  const paragraph = page.locator('polymind-note affine-paragraph');
+  const paragraph = page.locator('affine-note affine-paragraph');
 
   expect(
     await paragraph
@@ -271,7 +271,7 @@ test('unfold collapsed heading when some block indented to be its child', async 
 }) => {
   await pressEnter(page);
   await type(page, '# aaa\nbbb\n# ccc');
-  const paragraph = page.locator('polymind-note affine-paragraph');
+  const paragraph = page.locator('affine-note affine-paragraph');
   await paragraph
     .nth(0)
     .locator('blocksuite-toggle-button .toggle-icon')
@@ -287,7 +287,7 @@ test('unfold collapsed heading when its siblings changed to text type from headi
 }) => {
   await pressEnter(page);
   await type(page, '# aaa\nbbb\n# ccc');
-  const paragraph = page.locator('polymind-note affine-paragraph');
+  const paragraph = page.locator('affine-note affine-paragraph');
   await paragraph
     .nth(0)
     .locator('blocksuite-toggle-button .toggle-icon')
@@ -326,8 +326,8 @@ test('also move children when dedent collapsed heading', async ({ page }) => {
   await pressTab(page);
   await type(page, '# bbb\nccc');
 
-  const paragraph = page.locator('polymind-note affine-paragraph');
-  const subParagraph = paragraph.nth(0).locator('polymind-paragraph');
+  const paragraph = page.locator('affine-note affine-paragraph');
+  const subParagraph = paragraph.nth(0).locator('affine-paragraph');
   expect(await subParagraph.count()).toBe(2);
   expect(
     await subParagraph
@@ -382,14 +382,14 @@ test('also move collapsed siblings when indent collapsed heading', async ({
   await type(page, '# bbb\nccc');
   await page.keyboard.press('ArrowUp');
 
-  const paragraph = page.locator('polymind-note affine-paragraph');
-  expect(await paragraph.nth(0).locator('polymind-paragraph').count()).toBe(0);
+  const paragraph = page.locator('affine-note affine-paragraph');
+  expect(await paragraph.nth(0).locator('affine-paragraph').count()).toBe(0);
   await pressTab(page);
-  expect(await paragraph.nth(0).locator('polymind-paragraph').count()).toBe(1);
+  expect(await paragraph.nth(0).locator('affine-paragraph').count()).toBe(1);
   expect(
     await paragraph
       .nth(0)
-      .locator('polymind-paragraph')
+      .locator('affine-paragraph')
       .nth(0)
       .evaluate(
         (block: ParagraphBlockComponent) =>
@@ -408,11 +408,11 @@ test('also move collapsed siblings when indent collapsed heading', async ({
   await paragraph.nth(1).click();
   await pressTab(page);
   expect(await paragraph.nth(2).isVisible()).toBeFalsy();
-  expect(await paragraph.nth(0).locator('polymind-paragraph').count()).toBe(2);
+  expect(await paragraph.nth(0).locator('affine-paragraph').count()).toBe(2);
   expect(
     await paragraph
       .nth(0)
-      .locator('polymind-paragraph')
+      .locator('affine-paragraph')
       .nth(0)
       .evaluate(
         (block: ParagraphBlockComponent) =>
@@ -423,7 +423,7 @@ test('also move collapsed siblings when indent collapsed heading', async ({
   expect(
     await paragraph
       .nth(0)
-      .locator('polymind-paragraph')
+      .locator('affine-paragraph')
       .nth(1)
       .evaluate(
         (block: ParagraphBlockComponent) =>
@@ -453,7 +453,7 @@ test('unfold collapsed heading when its other blocks indented to be its sibling'
    * ddd
    */
 
-  const paragraph = page.locator('polymind-note affine-paragraph');
+  const paragraph = page.locator('affine-note affine-paragraph');
   await expectParagraphVisibility(paragraph, 2, true);
   await expectParagraphState(paragraph, 2, 'text', 'ccc');
   await paragraph.locator('blocksuite-toggle-button .toggle-icon').click();
@@ -462,11 +462,11 @@ test('unfold collapsed heading when its other blocks indented to be its sibling'
   await paragraph.nth(3).click(); // ddd
   await expectParagraphVisibility(paragraph, 2, false);
   await expect
-    .poll(() => paragraph.nth(0).locator('polymind-paragraph').count())
+    .poll(() => paragraph.nth(0).locator('affine-paragraph').count())
     .toBe(2);
   await pressTab(page);
   await expect
-    .poll(() => paragraph.nth(0).locator('polymind-paragraph').count())
+    .poll(() => paragraph.nth(0).locator('affine-paragraph').count())
     .toBe(3);
   await expectParagraphVisibility(paragraph, 2, true);
 });

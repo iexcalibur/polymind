@@ -415,7 +415,7 @@ export class DatabaseHeaderColumn extends SignalWatcher(
       height: DEFAULT_COLUMN_TITLE_HEIGHT + 'px',
     });
     const classes = classMap({
-      'polymind-database-column-move': true,
+      'affine-database-column-move': true,
       [this.grabStatus]: true,
     });
     return html`

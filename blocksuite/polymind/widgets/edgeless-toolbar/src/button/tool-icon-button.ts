@@ -127,11 +127,11 @@ export class EdgelessToolIconButton extends LitElement {
         <slot></slot>
         ${cache(
           this.showTooltip && tooltip
-            ? html`<polymind-tooltip
+            ? html`<affine-tooltip
                 tip-position=${this.tipPosition}
                 .arrow=${this.arrow}
                 .offset=${this.tooltipOffset}
-                >${tooltip}</polymind-tooltip
+                >${tooltip}</affine-tooltip
               >`
             : nothing
         )}

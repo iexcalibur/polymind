@@ -160,7 +160,7 @@ export class TableRowView extends SignalWatcher(
   };
 
   get groupKey() {
-    return this.closest<TableGroup>('polymind-data-view-table-group')?.group?.key;
+    return this.closest<TableGroup>('affine-data-view-table-group')?.group?.key;
   }
 
   get selectionController() {
@@ -171,7 +171,7 @@ export class TableRowView extends SignalWatcher(
     super.connectedCallback();
     this.disposables.addFromEvent(this, 'contextmenu', this.contextMenu);
 
-    this.classList.add('polymind-database-block-row', 'database-row');
+    this.classList.add('affine-database-block-row', 'database-row');
   }
 
   protected override render(): unknown {

@@ -28,10 +28,10 @@ export class DataBaseColumnStats extends SignalWatcher(
         cols,
         col => col.id,
         col => {
-          return html`<polymind-database-column-stats-cell
+          return html`<affine-database-column-stats-cell
             .column=${col}
             .group=${this.group}
-          ></polymind-database-column-stats-cell>`;
+          ></affine-database-column-stats-cell>`;
         }
       )}
     `;
@@ -50,6 +50,6 @@ export class DataBaseColumnStats extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-database-column-stats': DataBaseColumnStats;
+    'affine-database-column-stats': DataBaseColumnStats;
   }
 }

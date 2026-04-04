@@ -9,7 +9,7 @@ import { RefNodeSlotsExtension } from './reference-node';
 import { referenceNodeToolbar } from './toolbar';
 
 export class ReferenceViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-reference-inline';
+  override name = 'affine-reference-inline';
 
   override effect(): void {
     super.effect();

@@ -17,7 +17,7 @@ import { styleMap } from 'lit/directives/style-map.js';
 import { RemoteColorManager } from '../manager/remote-color-manager';
 
 export const AFFINE_EDGELESS_REMOTE_SELECTION_WIDGET =
-  'polymind-edgeless-remote-selection-widget';
+  'affine-edgeless-remote-selection-widget';
 
 export class EdgelessRemoteSelectionWidget extends WidgetComponent<RootBlockModel> {
   static override styles = css`

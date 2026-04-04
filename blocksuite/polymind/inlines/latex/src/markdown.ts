@@ -91,7 +91,7 @@ export const LatexExtension = InlineMarkdownExtension<PolymindTextAttributes>({
           if (!textPoint) return;
 
           const [text] = textPoint;
-          const latexNode = text.parentElement?.closest('polymind-latex-node');
+          const latexNode = text.parentElement?.closest('affine-latex-node');
           if (!latexNode) return;
 
           latexNode.toggleEditor();

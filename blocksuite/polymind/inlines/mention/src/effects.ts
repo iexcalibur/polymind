@@ -1,11 +1,11 @@
 import { PolymindMention } from './affine-mention';
 
 export function effects() {
-  customElements.define('polymind-mention', PolymindMention);
+  customElements.define('affine-mention', PolymindMention);
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-mention': PolymindMention;
+    'affine-mention': PolymindMention;
   }
 }

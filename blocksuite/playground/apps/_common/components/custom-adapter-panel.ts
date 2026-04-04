@@ -24,10 +24,10 @@ export class CustomAdapterPanel extends SignalWatcher(
   `;
 
   private _renderPanel() {
-    return html`<polymind-adapter-panel
+    return html`<affine-adapter-panel
       .store=${this.editor.doc}
       .transformerMiddlewares=${this.transformerMiddlewares}
-    ></polymind-adapter-panel>`;
+    ></affine-adapter-panel>`;
   }
 
   override render() {

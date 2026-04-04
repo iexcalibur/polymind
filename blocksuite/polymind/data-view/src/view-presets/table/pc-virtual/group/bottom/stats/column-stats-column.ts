@@ -241,6 +241,6 @@ export class VirtualDatabaseColumnStatsCell extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-database-virtual-column-stats-cell': VirtualDatabaseColumnStatsCell;
+    'affine-database-virtual-column-stats-cell': VirtualDatabaseColumnStatsCell;
   }
 }

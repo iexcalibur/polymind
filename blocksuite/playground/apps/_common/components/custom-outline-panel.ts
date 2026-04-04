@@ -21,10 +21,10 @@ export class CustomOutlinePanel extends WithDisposable(ShadowlessElement) {
   `;
 
   private _renderPanel() {
-    return html`<polymind-outline-panel
+    return html`<affine-outline-panel
       .editor=${this.editor.host}
       .fitPadding=${[50, 360, 50, 50]}
-    ></polymind-outline-panel>`;
+    ></affine-outline-panel>`;
   }
 
   override render() {

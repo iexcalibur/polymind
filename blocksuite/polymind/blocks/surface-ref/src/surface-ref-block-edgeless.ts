@@ -60,7 +60,7 @@ export class EdgelessSurfaceRefBlockComponent extends BlockComponent<SurfaceRefB
   override renderBlock() {
     return html` <div
       class=${classMap({
-        'polymind-edgeless-surface-ref-container': true,
+        'affine-edgeless-surface-ref-container': true,
         focused: this._focused,
       })}
     >
@@ -75,6 +75,6 @@ export class EdgelessSurfaceRefBlockComponent extends BlockComponent<SurfaceRefB
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-edgeless-surface-ref': EdgelessSurfaceRefBlockComponent;
+    'affine-edgeless-surface-ref': EdgelessSurfaceRefBlockComponent;
   }
 }

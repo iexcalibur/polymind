@@ -9,7 +9,7 @@ import {
 } from './adapter';
 
 export class MindmapStoreExtension extends StoreExtensionProvider {
-  override name = 'polymind-mindmap-gfx';
+  override name = 'affine-mindmap-gfx';
 
   override setup(context: StoreExtensionContext) {
     super.setup(context);

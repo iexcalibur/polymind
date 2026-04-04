@@ -10,7 +10,7 @@ import {
 } from './index';
 
 export class RemoteSelectionViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-remote-selection-widget';
+  override name = 'affine-remote-selection-widget';
 
   override effect() {
     super.effect();

@@ -38,7 +38,7 @@ import {
 } from './utils';
 
 async function openTocPanel(page: Page) {
-  const toc = page.locator('polymind-outline-panel');
+  const toc = page.locator('affine-outline-panel');
   if (await toc.isVisible()) return toc;
 
   await openRightSideBar(page, 'outline');
@@ -53,7 +53,7 @@ function getTocHeading(panel: Locator, level: number) {
 // locate cards in outline panel
 // ! Please note that when any card mode changed, the locator will be mutated
 function locateCards(toc: Locator, mode?: 'both' | 'page' | 'edgeless') {
-  const cards = toc.locator('polymind-outline-note-card');
+  const cards = toc.locator('affine-outline-note-card');
   return mode
     ? cards.locator(`>div[data-visibility="${mode}"]`)
     : cards.locator('>div');
@@ -214,7 +214,7 @@ test.describe('TOC display', () => {
     const card = locateCards(toc, 'edgeless');
     await changeNoteDisplayMode(card, 'doc');
 
-    const notification = toc.getByTestId('polymind-outline-notice');
+    const notification = toc.getByTestId('affine-outline-notice');
     await expect(notification).toBeHidden();
 
     const sortingButton = locateSortingButton(toc);
@@ -250,7 +250,7 @@ test.describe('TOC and editor scroll', () => {
     );
 
     const activeHeadingContainer = toc.locator(
-      'polymind-outline-panel-body .active'
+      'affine-outline-panel-body .active'
     );
 
     await title.click();
@@ -272,7 +272,7 @@ test.describe('TOC and editor scroll', () => {
     const toc = await openTocPanel(page);
 
     const activeHeadingContainer = toc.locator(
-      'polymind-outline-panel-body .active'
+      'affine-outline-panel-body .active'
     );
 
     const headingsInPanel = Array.from({ length: 6 }, (_, i) =>
@@ -439,7 +439,7 @@ test.describe('drag and drop note in outline panel', () => {
 
     await clickPageModeButton(page);
     const paragraphs = page
-      .locator('polymind-paragraph')
+      .locator('affine-paragraph')
       .locator('[data-v-text="true"]');
     await expect(paragraphs).toHaveCount(4);
     await expect(paragraphs.nth(0)).toContainText('0');
@@ -470,7 +470,7 @@ test.describe('drag and drop note in outline panel', () => {
     await clickPageModeButton(page);
 
     const paragraphs = page
-      .locator('polymind-paragraph')
+      .locator('affine-paragraph')
       .locator('[data-v-text="true"]');
 
     await expect(paragraphs).toHaveCount(4);

@@ -44,7 +44,7 @@ import {
 } from '../utils/scroll';
 import * as styles from './outline-panel-body.css';
 
-export const AFFINE_OUTLINE_PANEL_BODY = 'polymind-outline-panel-body';
+export const AFFINE_OUTLINE_PANEL_BODY = 'affine-outline-panel-body';
 
 export class OutlinePanelBody extends SignalWatcher(
   WithDisposable(ShadowlessElement)
@@ -393,13 +393,13 @@ export class OutlinePanelBody extends SignalWatcher(
     const rootId = this.store.root.id;
     const active = rootId === this._activeHeadingId$.value;
 
-    return html`<polymind-outline-block-preview
+    return html`<affine-outline-block-preview
       class=${classMap({ active: active })}
       .block=${this.store.root}
       @click=${() => {
         this._scrollToBlock(rootId).catch(console.error);
       }}
-    ></polymind-outline-block-preview>`;
+    ></affine-outline-block-preview>`;
   }
 
   private _renderNoteCards(notes: NoteBlockModel[]) {
@@ -407,7 +407,7 @@ export class OutlinePanelBody extends SignalWatcher(
       notes,
       ({ id }) => id,
       (note, index) =>
-        html`<polymind-outline-note-card
+        html`<affine-outline-note-card
           data-note-id=${note.id}
           index=${index}
           .note=${note}
@@ -423,7 +423,7 @@ export class OutlinePanelBody extends SignalWatcher(
           @clickblock=${(e: ClickBlockEvent) => {
             this._scrollToBlock(e.detail.blockId).catch(console.error);
           }}
-        ></polymind-outline-note-card>`
+        ></affine-outline-note-card>`
     );
   }
 

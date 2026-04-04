@@ -103,7 +103,7 @@ export class AIChatToolbar extends WithDisposable(ShadowlessElement) {
           data-testid="ai-panel-new-chat"
         >
           ${PlusIcon()}
-          <polymind-tooltip>New Chat</polymind-tooltip>
+          <affine-tooltip>New Chat</affine-tooltip>
         </div>
         <div
           class="chat-toolbar-icon"
@@ -113,16 +113,16 @@ export class AIChatToolbar extends WithDisposable(ShadowlessElement) {
           data-testid="ai-panel-pin-chat"
         >
           ${pinned ? PinedIcon() : PinIcon()}
-          <polymind-tooltip>
+          <affine-tooltip>
             ${pinned ? 'Unpin this Chat' : 'Pin this Chat'}
-          </polymind-tooltip>
+          </affine-tooltip>
         </div>
         <div
           class="chat-toolbar-icon history-button"
           @click=${this.toggleHistoryMenu}
         >
           ${ArrowDownSmallIcon()}
-          <polymind-tooltip>Chat History</polymind-tooltip>
+          <affine-tooltip>Chat History</affine-tooltip>
         </div>
       </div>
     `;

@@ -217,7 +217,7 @@ export class PointerEventWatcher {
     // Need to be optimized
     const relatedElement = captureEventTarget(relatedTarget);
     const outOfPageViewPort = element.classList.contains(
-      'polymind-page-viewport'
+      'affine-page-viewport'
     );
     const inPage = !!relatedElement?.closest('.affine-page-viewport');
 

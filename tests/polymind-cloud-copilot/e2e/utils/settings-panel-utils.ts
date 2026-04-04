@@ -203,7 +203,7 @@ export class SettingsPanelUtils {
       const pageListItem = searcher.getByTestId('page-list-item');
       await expect(pageListItem).toHaveCount(1);
 
-      await pageListItem.getByTestId('polymind-checkbox').uncheck();
+      await pageListItem.getByTestId('affine-checkbox').uncheck();
 
       await searcher.getByTestId('doc-selector-confirm-button').click();
     }

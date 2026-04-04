@@ -59,7 +59,7 @@ export class ListLayoutHandlerExtension extends BlockLayoutHandlerExtension<List
       let collapsed = false;
       let prefix = '';
 
-      if (listItemWrapper.classList.contains('polymind-list--checked')) {
+      if (listItemWrapper.classList.contains('affine-list--checked')) {
         checked = true;
       }
 

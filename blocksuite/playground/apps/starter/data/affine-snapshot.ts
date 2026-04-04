@@ -19,6 +19,6 @@ export async function affineSnapshot(collection: Workspace, id: string) {
   await ZipTransformer.importDocs(collection, schema, file);
 }
 
-affineSnapshot.id = 'polymind-snapshot';
+affineSnapshot.id = 'affine-snapshot';
 affineSnapshot.displayName = 'Polymind Snapshot Test';
 affineSnapshot.description = 'Polymind Snapshot Test';

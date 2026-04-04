@@ -11,7 +11,7 @@ import { effects } from './effects';
 const flavour = DataViewBlockSchema.model.flavour;
 
 export class DataViewViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-data-view-block';
+  override name = 'affine-data-view-block';
 
   override effect() {
     super.effect();

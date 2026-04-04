@@ -26,7 +26,7 @@ import { ReadOnlyClipboard } from './readonly-clipboard';
  * It is supported to copy and paste models in the page root block.
  */
 export class PageClipboard extends ReadOnlyClipboard {
-  static override key = 'polymind-page-clipboard';
+  static override key = 'affine-page-clipboard';
 
   protected _init = () => {
     this._initAdapters();
@@ -164,7 +164,7 @@ export class PageClipboard extends ReadOnlyClipboard {
     // If no valid selection target exists (for example, stale block selection
     // right after cut), create/focus the default paragraph and paste after it.
     const firstParagraphId = document
-      .querySelector('polymind-page-root')
+      .querySelector('affine-page-root')
       ?.focusFirstParagraph?.()?.id;
     const parentModel = firstParagraphId
       ? this.std.store.getParent(firstParagraphId)

@@ -91,10 +91,10 @@ export class EdgelessNoteToolButton extends QuickToolMixin(LitElement) {
         class="edgeless-note-button"
         .tooltip=${this._noteMenu
           ? ''
-          : html`<polymind-tooltip-content-with-shortcut
+          : html`<affine-tooltip-content-with-shortcut
               data-tip="${'Note'}"
               data-shortcut="${'N'}"
-            ></polymind-tooltip-content-with-shortcut>`}
+            ></affine-tooltip-content-with-shortcut>`}
         .tooltipOffset=${17}
         .active=${active}
         .iconContainerPadding=${6}

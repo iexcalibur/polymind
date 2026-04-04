@@ -113,6 +113,6 @@ export class CardStyleDropdownMenu extends SignalWatcher(LitElement) {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-card-style-dropdown-menu': CardStyleDropdownMenu;
+    'affine-card-style-dropdown-menu': CardStyleDropdownMenu;
   }
 }

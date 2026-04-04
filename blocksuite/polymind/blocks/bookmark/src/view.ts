@@ -15,7 +15,7 @@ import { effects } from './effects';
 const flavour = BookmarkBlockSchema.model.flavour;
 
 export class BookmarkViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-bookmark-block';
+  override name = 'affine-bookmark-block';
 
   override effect() {
     super.effect();

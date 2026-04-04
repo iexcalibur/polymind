@@ -91,7 +91,7 @@ function highlightBlock(host: EditorHost, blockId: string) {
 
   const rootComponent = host.querySelector<
     HTMLElement & { viewport: Viewport }
-  >('polymind-page-root');
+  >('affine-page-root');
   if (!rootComponent) return emptyClear;
 
   if (!rootComponent.viewport) {

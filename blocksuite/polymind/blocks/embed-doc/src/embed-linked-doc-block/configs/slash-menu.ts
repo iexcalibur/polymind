@@ -48,7 +48,7 @@ const linkedDocSlashMenuConfig: SlashMenuConfig = {
         const root = model.store.root;
         if (!root) return false;
         const linkedDocWidget = std.view.getWidget(
-          'polymind-linked-doc-widget',
+          'affine-linked-doc-widget',
           root.id
         );
         if (!linkedDocWidget) return false;
@@ -61,7 +61,7 @@ const linkedDocSlashMenuConfig: SlashMenuConfig = {
         const root = model.store.root;
         if (!root) return;
         const linkedDocWidget = std.view.getWidget(
-          'polymind-linked-doc-widget',
+          'affine-linked-doc-widget',
           root.id
         );
         if (!linkedDocWidget) return;

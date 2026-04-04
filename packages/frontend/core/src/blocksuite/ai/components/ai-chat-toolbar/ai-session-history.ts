@@ -312,9 +312,9 @@ export class AISessionHistory extends WithDisposable(ShadowlessElement) {
             >
               <div class="ai-session-title">
                 ${session.title || 'New chat'}
-                <polymind-tooltip .offsetX=${60}>
+                <affine-tooltip .offsetX=${60}>
                   Click to open this chat
-                </polymind-tooltip>
+                </affine-tooltip>
               </div>
               ${session.docId
                 ? this.renderSessionDoc(session.docId, session.sessionId)
@@ -327,7 +327,7 @@ export class AISessionHistory extends WithDisposable(ShadowlessElement) {
                 }}
               >
                 ${DeleteIcon()}
-                <polymind-tooltip>Delete</polymind-tooltip>
+                <affine-tooltip>Delete</affine-tooltip>
               </div>
             </div>
           `;
@@ -349,7 +349,7 @@ export class AISessionHistory extends WithDisposable(ShadowlessElement) {
     >
       ${docIcon}
       <span class="doc-title"> ${this.docDisplayConfig.getTitle(docId)} </span>
-      <polymind-tooltip>Open this doc</polymind-tooltip>
+      <affine-tooltip>Open this doc</affine-tooltip>
     </div>`;
   }
 

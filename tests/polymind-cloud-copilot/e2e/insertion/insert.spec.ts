@@ -75,7 +75,7 @@ test.describe('AIInsertion/Insert', () => {
 
     // Focus to Hello
     // - Hello<cursor />
-    await page.locator('polymind-edgeless-note').dblclick();
+    await page.locator('affine-edgeless-note').dblclick();
     await page.getByText('Hello Block').click();
 
     const { actions } = await utils.chatPanel.getLatestAssistantMessage(page);
@@ -169,7 +169,7 @@ test.describe('AIInsertion/Insert', () => {
     await utils.editor.switchToEdgelessMode(page);
 
     // Delete default note
-    await (await page.waitForSelector('polymind-edgeless-note')).click();
+    await (await page.waitForSelector('affine-edgeless-note')).click();
     await page.keyboard.press('Delete');
 
     await utils.chatPanel.openChatPanel(page);

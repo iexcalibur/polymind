@@ -92,10 +92,10 @@ export class TableGroupFooter extends WithDisposable(ShadowlessElement) {
               </div>
             </div>
           `}
-      <polymind-database-virtual-column-stats
+      <affine-database-virtual-column-stats
         .view="${this.tableViewManager}"
         .group="${this.group$.value}"
-      ></polymind-database-virtual-column-stats>
+      ></affine-database-virtual-column-stats>
     `;
   }
 }

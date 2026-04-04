@@ -36,11 +36,11 @@ test.describe('note to linked doc', () => {
     await triggerComponentToolbarAction(page, 'turnIntoLinkedDoc');
 
     const embedSyncedBlock = page.locator(
-      'polymind-embed-edgeless-synced-doc-block'
+      'affine-embed-edgeless-synced-doc-block'
     );
     await expect(embedSyncedBlock).toBeVisible();
     const paragraph = embedSyncedBlock.locator(
-      'polymind-paragraph [data-v-text="true"]'
+      'affine-paragraph [data-v-text="true"]'
     );
     await expect(paragraph.nth(0)).toHaveText('Hello');
     await expect(paragraph.nth(1)).toHaveText('World');
@@ -58,7 +58,7 @@ test.describe('note to linked doc', () => {
     await triggerComponentToolbarAction(page, 'turnIntoLinkedDoc');
 
     await waitNextFrame(page, 200);
-    const embedSyncedBlock = page.locator('polymind-embed-synced-doc-block');
+    const embedSyncedBlock = page.locator('affine-embed-synced-doc-block');
     if (!embedSyncedBlock) {
       throw new Error('embedSyncedBlock is not found');
     }
@@ -74,7 +74,7 @@ test.describe('single edgeless element to linked doc', () => {
 
     await triggerComponentToolbarAction(page, 'createLinkedDoc');
     await waitNextFrame(page, 200);
-    const linkedSyncedBlock = page.locator('polymind-linked-synced-doc-block');
+    const linkedSyncedBlock = page.locator('affine-linked-synced-doc-block');
     if (!linkedSyncedBlock) {
       throw new Error('linkedSyncedBlock is not found');
     }
@@ -83,7 +83,7 @@ test.describe('single edgeless element to linked doc', () => {
     await waitNextFrame(page, 200);
 
     const shapes = await page.evaluate(() => {
-      const container = document.querySelector('polymind-edgeless-root');
+      const container = document.querySelector('affine-edgeless-root');
       return container!.service.crud
         .getElementsByType('shape')
         .map(s => ({ type: s.type, xywh: s.xywh }));
@@ -99,7 +99,7 @@ test.describe('single edgeless element to linked doc', () => {
 
     await triggerComponentToolbarAction(page, 'createLinkedDoc');
     await waitNextFrame(page, 200);
-    const linkedSyncedBlock = page.locator('polymind-linked-synced-doc-block');
+    const linkedSyncedBlock = page.locator('affine-linked-synced-doc-block');
     if (!linkedSyncedBlock) {
       throw new Error('linkedSyncedBlock is not found');
     }
@@ -118,7 +118,7 @@ test.describe('single edgeless element to linked doc', () => {
 
     await triggerComponentToolbarAction(page, 'createLinkedDoc');
     await waitNextFrame(page, 200);
-    const linkedSyncedBlock = page.locator('polymind-linked-synced-doc-block');
+    const linkedSyncedBlock = page.locator('affine-linked-synced-doc-block');
     if (!linkedSyncedBlock) {
       throw new Error('linkedSyncedBlock is not found');
     }
@@ -126,7 +126,7 @@ test.describe('single edgeless element to linked doc', () => {
     await triggerComponentToolbarAction(page, 'openLinkedDoc');
     await waitNextFrame(page, 200);
     const brushes = await page.evaluate(() => {
-      const container = document.querySelector('polymind-edgeless-root');
+      const container = document.querySelector('affine-edgeless-root');
       return container!.service.crud
         .getElementsByType('brush')
         .map(s => ({ type: s.type, xywh: s.xywh }));
@@ -148,7 +148,7 @@ test.describe('single edgeless element to linked doc', () => {
 
     await triggerComponentToolbarAction(page, 'createLinkedDoc');
     await waitNextFrame(page, 200);
-    const linkedSyncedBlock = page.locator('polymind-linked-synced-doc-block');
+    const linkedSyncedBlock = page.locator('affine-linked-synced-doc-block');
     if (!linkedSyncedBlock) {
       throw new Error('linkedSyncedBlock is not found');
     }
@@ -156,7 +156,7 @@ test.describe('single edgeless element to linked doc', () => {
     await triggerComponentToolbarAction(page, 'openLinkedDoc');
     await waitNextFrame(page, 200);
     const groups = await page.evaluate(() => {
-      const container = document.querySelector('polymind-edgeless-root');
+      const container = document.querySelector('affine-edgeless-root');
       return container!.service.crud.getElementsByType('group').map(s => ({
         type: s.type,
         // oxlint-disable-next-line @typescript-eslint/no-explicit-any
@@ -187,7 +187,7 @@ test.describe('single edgeless element to linked doc', () => {
 
     await triggerComponentToolbarAction(page, 'createLinkedDoc');
     await waitNextFrame(page, 200);
-    const linkedSyncedBlock = page.locator('polymind-linked-synced-doc-block');
+    const linkedSyncedBlock = page.locator('affine-linked-synced-doc-block');
     if (!linkedSyncedBlock) {
       throw new Error('linkedSyncedBlock is not found');
     }
@@ -195,7 +195,7 @@ test.describe('single edgeless element to linked doc', () => {
     await triggerComponentToolbarAction(page, 'openLinkedDoc');
     await waitNextFrame(page, 200);
     const nodes = await page.evaluate(() => {
-      const container = document.querySelector('polymind-edgeless-root');
+      const container = document.querySelector('affine-edgeless-root');
       const elements = container!.service.elements.map(s => s.type);
       const blocks = container!.service.blocks.map(b => b.flavour);
 
@@ -236,7 +236,7 @@ test.describe('multiple edgeless elements to linked doc', () => {
     await selectAllByKeyboard(page);
     await triggerComponentToolbarAction(page, 'createLinkedDoc');
     await waitNextFrame(page, 200);
-    const linkedSyncedBlock = page.locator('polymind-linked-synced-doc-block');
+    const linkedSyncedBlock = page.locator('affine-linked-synced-doc-block');
     if (!linkedSyncedBlock) {
       throw new Error('linkedSyncedBlock is not found');
     }
@@ -244,7 +244,7 @@ test.describe('multiple edgeless elements to linked doc', () => {
     await triggerComponentToolbarAction(page, 'openLinkedDoc');
     await waitNextFrame(page, 200);
     const nodes = await page.evaluate(() => {
-      const container = document.querySelector('polymind-edgeless-root');
+      const container = document.querySelector('affine-edgeless-root');
       const elements = container!.service.elements.map(s => s.type);
       const blocks = container!.service.blocks.map(b => b.flavour);
 
@@ -274,7 +274,7 @@ test.describe('multiple edgeless elements to linked doc', () => {
     await selectAllByKeyboard(page);
     await triggerComponentToolbarAction(page, 'createLinkedDoc');
     await waitNextFrame(page, 200);
-    const linkedSyncedBlock = page.locator('polymind-linked-synced-doc-block');
+    const linkedSyncedBlock = page.locator('affine-linked-synced-doc-block');
     if (!linkedSyncedBlock) {
       throw new Error('linkedSyncedBlock is not found');
     }
@@ -282,7 +282,7 @@ test.describe('multiple edgeless elements to linked doc', () => {
     await triggerComponentToolbarAction(page, 'openLinkedDoc');
     await waitNextFrame(page, 200);
     const nodes = await page.evaluate(() => {
-      const container = document.querySelector('polymind-edgeless-root');
+      const container = document.querySelector('affine-edgeless-root');
       const elements = container!.service.elements.map(s => s.type);
       const blocks = container!.service.blocks.map(b => b.flavour);
       return { blocks, elements };
@@ -305,7 +305,7 @@ test.describe('multiple edgeless elements to linked doc', () => {
     await selectAllByKeyboard(page);
     await triggerComponentToolbarAction(page, 'createLinkedDoc');
     await waitNextFrame(page, 200);
-    const linkedSyncedBlock = page.locator('polymind-linked-synced-doc-block');
+    const linkedSyncedBlock = page.locator('affine-linked-synced-doc-block');
     if (!linkedSyncedBlock) {
       throw new Error('linkedSyncedBlock is not found');
     }
@@ -313,7 +313,7 @@ test.describe('multiple edgeless elements to linked doc', () => {
     await triggerComponentToolbarAction(page, 'openLinkedDoc');
     await waitNextFrame(page, 200);
     const nodes = await page.evaluate(() => {
-      const container = document.querySelector('polymind-edgeless-root');
+      const container = document.querySelector('affine-edgeless-root');
       const elements = container!.service.elements.map(s => s.type);
       const blocks = container!.service.blocks.map(b => b.flavour);
       return { blocks, elements };

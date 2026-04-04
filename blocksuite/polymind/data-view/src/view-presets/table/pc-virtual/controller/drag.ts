@@ -90,7 +90,7 @@ export class TableDragController implements ReactiveController {
     | undefined => {
     const y = evt.y;
     const tableRect = this.host
-      ?.querySelector('polymind-data-view-table-group')
+      ?.querySelector('affine-data-view-table-group')
       ?.getBoundingClientRect();
     const rows = this.host?.querySelectorAll('data-view-table-row');
     if (!rows || !tableRect || y < tableRect.top) {

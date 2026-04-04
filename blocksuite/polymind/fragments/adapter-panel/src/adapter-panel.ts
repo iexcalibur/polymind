@@ -20,7 +20,7 @@ import {
   ADAPTERS,
 } from './config';
 
-export const AFFINE_ADAPTER_PANEL = 'polymind-adapter-panel';
+export const AFFINE_ADAPTER_PANEL = 'affine-adapter-panel';
 
 export class AdapterPanel extends SignalWatcher(WithDisposable(LitElement)) {
   static override styles = css`
@@ -152,10 +152,10 @@ export class AdapterPanel extends SignalWatcher(WithDisposable(LitElement)) {
   override render() {
     return html`
       <div class="adapters-container">
-        <polymind-adapter-panel-header
+        <affine-adapter-panel-header
           .updateActiveContent=${this._updateActiveContent}
-        ></polymind-adapter-panel-header>
-        <polymind-adapter-panel-body></polymind-adapter-panel-body>
+        ></affine-adapter-panel-header>
+        <affine-adapter-panel-body></affine-adapter-panel-body>
       </div>
     `;
   }

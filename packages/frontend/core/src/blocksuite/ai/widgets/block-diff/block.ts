@@ -10,7 +10,7 @@ import type { Block } from '../../utils/apply-model/markdown-diff';
 import { blockDiffWidgetForPage } from './page';
 
 export const AFFINE_BLOCK_DIFF_WIDGET_FOR_BLOCK =
-  'polymind-block-diff-widget-for-block';
+  'affine-block-diff-widget-for-block';
 
 export class PolymindBlockDiffWidgetForBlock extends WidgetComponent {
   static override styles = css`

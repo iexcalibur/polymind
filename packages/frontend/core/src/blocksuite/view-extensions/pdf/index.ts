@@ -21,7 +21,7 @@ const optionsSchema = z.object({
 type PdfViewOptions = z.infer<typeof optionsSchema>;
 
 export class PdfViewExtension extends ViewExtensionProvider<PdfViewOptions> {
-  override name = 'polymind-view-pdf';
+  override name = 'affine-view-pdf';
 
   override schema = optionsSchema;
 

@@ -88,7 +88,7 @@ export class RichTextCell extends BaseCellRenderer<Text, string> {
 
   get topContenteditableElement() {
     const databaseBlock =
-      this.closest<DatabaseBlockComponent>('polymind-database');
+      this.closest<DatabaseBlockComponent>('affine-database');
     return databaseBlock?.topContenteditableElement;
   }
 
@@ -396,7 +396,7 @@ export class RichTextCell extends BaseCellRenderer<Text, string> {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-database-rich-text-cell': RichTextCell;
+    'affine-database-rich-text-cell': RichTextCell;
   }
 }
 

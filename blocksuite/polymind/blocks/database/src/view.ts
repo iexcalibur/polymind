@@ -23,7 +23,7 @@ const optionsSchema = z.object({
 export type DatabaseViewExtensionOptions = z.infer<typeof optionsSchema>;
 
 export class DatabaseViewExtension extends ViewExtensionProvider<DatabaseViewExtensionOptions> {
-  override name = 'polymind-database-block';
+  override name = 'affine-database-block';
 
   override schema = optionsSchema;
 

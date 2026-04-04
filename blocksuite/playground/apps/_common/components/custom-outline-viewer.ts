@@ -16,10 +16,10 @@ export class CustomOutlineViewer extends WithDisposable(LitElement) {
   `;
 
   private _renderViewer() {
-    return html`<polymind-outline-viewer
+    return html`<affine-outline-viewer
       .editor=${this.editor.host}
       .toggleOutlinePanel=${this.toggleOutlinePanel}
-    ></polymind-outline-viewer>`;
+    ></affine-outline-viewer>`;
   }
 
   override render() {

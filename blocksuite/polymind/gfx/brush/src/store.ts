@@ -9,7 +9,7 @@ import {
 } from './adapter';
 
 export class BrushStoreExtension extends StoreExtensionProvider {
-  override name = 'polymind-brush-gfx';
+  override name = 'affine-brush-gfx';
 
   override setup(context: StoreExtensionContext) {
     super.setup(context);

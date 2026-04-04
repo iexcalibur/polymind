@@ -163,7 +163,7 @@ export class EmbedGithubBlockComponent extends EmbedBlockComponent<
       () => html`
         <div
           class=${classMap({
-            'polymind-embed-github-block': true,
+            'affine-embed-github-block': true,
             loading,
             [style]: true,
             edgeless: isGfxBlockComponent(this),
@@ -186,7 +186,7 @@ export class EmbedGithubBlockComponent extends EmbedBlockComponent<
                 ${status && statusText
                   ? html`<div
                       class=${classMap({
-                        'polymind-embed-github-content-title-status-icon': true,
+                        'affine-embed-github-content-title-status-icon': true,
                         [githubType]: true,
                         [status]: true,
                         success: statusReason === 'completed',

@@ -7,7 +7,7 @@ import { effects } from './effects';
 import { MentionInlineSpecExtension } from './inline-spec';
 
 export class MentionViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-mention-inline';
+  override name = 'affine-mention-inline';
 
   override effect(): void {
     super.effect();

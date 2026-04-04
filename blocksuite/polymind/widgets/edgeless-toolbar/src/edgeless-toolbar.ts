@@ -528,9 +528,9 @@ export class EdgelessToolbarWidget extends WidgetComponent<RootBlockModel> {
             .some(tool => tool.type === this.edgelessTool)}
         >
           ${MoreHorizontalIcon({ width: '20px', height: '20px' })}
-          <polymind-tooltip tip-position="top" .offset=${25}>
+          <affine-tooltip tip-position="top" .offset=${25}>
             More Tools
-          </polymind-tooltip>
+          </affine-tooltip>
         </icon-button>
       </div>
       <div class="full-divider"></div>
@@ -544,9 +544,9 @@ export class EdgelessToolbarWidget extends WidgetComponent<RootBlockModel> {
           ${ArrowLeftSmallIcon({ width: '20px', height: '20px' })}
           ${cache(
             this._seniorPrevTooltip
-              ? html` <polymind-tooltip tip-position="top" .offset=${4}>
+              ? html` <affine-tooltip tip-position="top" .offset=${4}>
                   ${this._seniorPrevTooltip}
-                </polymind-tooltip>`
+                </affine-tooltip>`
               : nothing
           )}
         </icon-button>
@@ -571,9 +571,9 @@ export class EdgelessToolbarWidget extends WidgetComponent<RootBlockModel> {
           ${ArrowRightSmallIcon({ width: '20px', height: '20px' })}
           ${cache(
             this._seniorNextTooltip
-              ? html` <polymind-tooltip tip-position="top" .offset=${4}>
+              ? html` <affine-tooltip tip-position="top" .offset=${4}>
                   ${this._seniorNextTooltip}
-                </polymind-tooltip>`
+                </affine-tooltip>`
               : nothing
           )}
         </icon-button>

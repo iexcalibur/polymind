@@ -339,11 +339,11 @@ test.describe('AIBasic/Chat', () => {
         await utils.chatPanel.getLatestAssistantMessage(page);
       // Select multiple rich text
       const firstParagraph = await message
-        .locator('polymind-paragraph rich-text v-text')
+        .locator('affine-paragraph rich-text v-text')
         .first()
         .boundingBox();
       const lastParagraph = await message
-        .locator('polymind-paragraph rich-text v-text')
+        .locator('affine-paragraph rich-text v-text')
         .last()
         .boundingBox();
 

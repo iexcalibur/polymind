@@ -20,7 +20,7 @@ export async function press(page: Page, content: string) {
 
 export async function initDatabaseColumn(page: Page, title = '') {
   const editor = getEditorLocator(page);
-  await editor.locator('polymind-data-view-table-group').first().hover();
+  await editor.locator('affine-data-view-table-group').first().hover();
   const columnAddBtn = editor.locator('.header-add-column-button');
   await columnAddBtn.click();
   await waitNextFrame(page, 200);
@@ -36,7 +36,7 @@ export async function initDatabaseColumn(page: Page, title = '') {
 }
 
 export const renameColumn = async (page: Page, name: string) => {
-  const column = page.locator('polymind-database-header-column', {
+  const column = page.locator('affine-database-header-column', {
     hasText: name,
   });
   await column.click();
@@ -177,7 +177,7 @@ export async function assertDatabaseCellRichTexts(
     `dv-table-view-cell-container[data-row-index='${rowIndex}'][data-column-index='${columnIndex}']`
   );
 
-  const cell = cellContainer.locator('polymind-database-rich-text-cell');
+  const cell = cellContainer.locator('affine-database-rich-text-cell');
 
   const actualTexts = await cell.evaluate(ele => {
     return (ele as RichTextCell).inlineEditor$.value?.yTextString;
@@ -230,7 +230,7 @@ export async function assertDatabaseCellLink(
         `.database-cell:nth-child(${columnIndex + 1})`
       );
       const richText = cell?.querySelector<RichTextCell>(
-        'polymind-database-link-cell'
+        'affine-database-link-cell'
       );
       if (!richText) throw new Error('Missing database rich text cell');
       return richText.inlineEditor$.value!.yText.toString();
@@ -521,8 +521,8 @@ export function getKanbanCard(
     cardIndex: number;
   }
 ) {
-  const group = page.locator('polymind-data-view-kanban-group').nth(groupIndex);
-  const card = group.locator('polymind-data-view-kanban-card').nth(cardIndex);
+  const group = page.locator('affine-data-view-kanban-group').nth(groupIndex);
+  const card = group.locator('affine-data-view-kanban-card').nth(cardIndex);
   return card;
 }
 
@@ -537,7 +537,7 @@ export const changeColumnType = async (
   name: string
 ) => {
   await waitNextFrame(page);
-  await page.locator('polymind-database-header-column').nth(column).click();
+  await page.locator('affine-database-header-column').nth(column).click();
   await waitNextFrame(page, 200);
   await pressKey(page, 'Escape');
   await pressKey(page, 'ArrowDown');

@@ -1,5 +1,5 @@
 import { DataViewBlockComponent } from './data-view-block';
 
 export function effects() {
-  customElements.define('polymind-data-view', DataViewBlockComponent);
+  customElements.define('affine-data-view', DataViewBlockComponent);
 }

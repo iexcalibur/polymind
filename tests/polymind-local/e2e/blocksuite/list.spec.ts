@@ -28,7 +28,7 @@ test.describe('split list', () => {
     await pressTab(page);
     await pressArrowUp(page, 2);
 
-    const listLocator = page.locator('polymind-list');
+    const listLocator = page.locator('affine-list');
 
     /**
      * 1. |aaa
@@ -86,10 +86,10 @@ test.describe('split list', () => {
     await page.keyboard.press('Enter');
     await page.keyboard.press('Tab');
     await createLinkedPage(page, 'Test Page');
-    const inlineLink = page.locator('polymind-reference');
+    const inlineLink = page.locator('affine-reference');
     const { switchViewBtn, cardViewBtn } = toolbarButtons(page);
-    const list = page.locator('polymind-list');
-    const card = page.locator('polymind-embed-linked-doc-block');
+    const list = page.locator('affine-list');
+    const card = page.locator('affine-embed-linked-doc-block');
 
     const pressWithCount = async (key: string, count: number) => {
       for (let i = 0; i < count; i++) {

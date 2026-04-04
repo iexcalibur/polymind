@@ -56,6 +56,6 @@ export class DocTitle extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-linked-doc-title': DocTitle;
+    'affine-linked-doc-title': DocTitle;
   }
 }

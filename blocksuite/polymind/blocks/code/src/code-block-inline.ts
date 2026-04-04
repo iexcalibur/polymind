@@ -26,7 +26,7 @@ export const CodeBlockUnitSpecExtension =
     }),
     match: () => true,
     renderer: ({ delta }) => {
-      return html`<polymind-code-unit .delta=${delta}></polymind-code-unit>`;
+      return html`<affine-code-unit .delta=${delta}></affine-code-unit>`;
     },
   });
 

@@ -25,7 +25,7 @@ test('image preview should be shown', async ({ page }) => {
   await title.click();
   await page.keyboard.press('Enter');
   await importImage(page, 'large-image.png');
-  await page.locator('polymind-page-image').first().dblclick();
+  await page.locator('affine-page-image').first().dblclick();
   const locator = page.getByTestId('image-preview-modal');
   await expect(locator).toBeVisible();
   await closeImagePreviewModal(page);
@@ -42,7 +42,7 @@ test('image go left and right', async ({ page }) => {
     await title.click();
     await page.keyboard.press('Enter');
     await importImage(page, 'large-image.png');
-    await page.locator('polymind-page-image').first().dblclick();
+    await page.locator('affine-page-image').first().dblclick();
     await page.waitForTimeout(500);
     blobId = (await page
       .getByTestId('image-preview-modal')
@@ -56,11 +56,11 @@ test('image go left and right', async ({ page }) => {
     const title = getBlockSuiteEditorTitle(page);
     await title.click();
     await page.keyboard.press('Enter');
-    await importImage(page, 'polymind-preview.png');
+    await importImage(page, 'affine-preview.png');
   }
   const locator = page.getByTestId('image-preview-modal');
   await expect(locator).toBeHidden();
-  await page.locator('polymind-page-image').first().dblclick();
+  await page.locator('affine-page-image').first().dblclick();
   await page.waitForTimeout(1000);
   {
     const newBlobId = (await page
@@ -92,7 +92,7 @@ test('image able to zoom in and out with mouse scroll', async ({ page }) => {
     await title.click();
     await page.keyboard.press('Enter');
     await importImage(page, 'large-image.png');
-    await page.locator('polymind-page-image').first().dblclick();
+    await page.locator('affine-page-image').first().dblclick();
     await page.waitForTimeout(500);
     blobId = (await page
       .getByTestId('image-preview-modal')
@@ -146,7 +146,7 @@ test('image able to zoom in and out with button click', async ({ page }) => {
     await title.click();
     await page.keyboard.press('Enter');
     await importImage(page, 'large-image.png');
-    await page.locator('polymind-page-image').first().dblclick();
+    await page.locator('affine-page-image').first().dblclick();
     await page.waitForTimeout(500);
     blobId = (await page
       .getByTestId('image-preview-modal')
@@ -193,7 +193,7 @@ test('image should able to go left and right by buttons', async ({ page }) => {
     await title.click();
     await page.keyboard.press('Enter');
     await importImage(page, 'large-image.png');
-    await page.locator('polymind-page-image').first().dblclick();
+    await page.locator('affine-page-image').first().dblclick();
     await page.waitForTimeout(500);
     blobId = (await page
       .getByTestId('image-preview-modal')
@@ -207,10 +207,10 @@ test('image should able to go left and right by buttons', async ({ page }) => {
     const title = getBlockSuiteEditorTitle(page);
     await title.click();
     await page.keyboard.press('Enter');
-    await importImage(page, 'polymind-preview.png');
+    await importImage(page, 'affine-preview.png');
   }
   const locator = page.getByTestId('image-preview-modal');
-  await page.locator('polymind-page-image').first().dblclick();
+  await page.locator('affine-page-image').first().dblclick();
   await expect(locator).toBeVisible();
   {
     const newBlobId = (await locator
@@ -246,7 +246,7 @@ test('image able to fit to screen by button', async ({ page }) => {
     await title.click();
     await page.keyboard.press('Enter');
     await importImage(page, 'large-image.png');
-    await page.locator('polymind-page-image').first().dblclick();
+    await page.locator('affine-page-image').first().dblclick();
     await page.waitForTimeout(500);
     blobId = (await page
       .getByTestId('image-preview-modal')
@@ -304,7 +304,7 @@ test('image able to reset zoom to 100%', async ({ page }) => {
     await title.click();
     await page.keyboard.press('Enter');
     await importImage(page, 'large-image.png');
-    await page.locator('polymind-page-image').first().dblclick();
+    await page.locator('affine-page-image').first().dblclick();
     await page.waitForTimeout(500);
     blobId = (await page
       .getByTestId('image-preview-modal')
@@ -358,7 +358,7 @@ test('image able to copy to clipboard', async ({ page }) => {
     await title.click();
     await page.keyboard.press('Enter');
     await importImage(page, 'large-image.png');
-    await page.locator('polymind-page-image').first().dblclick();
+    await page.locator('affine-page-image').first().dblclick();
     await page.waitForTimeout(500);
     blobId = (await page
       .getByTestId('image-preview-modal')
@@ -387,7 +387,7 @@ test('image preview should be able to copy image to clipboard on copy event', as
     await title.click();
     await page.keyboard.press('Enter');
     await importImage(page, 'large-image.png');
-    await page.locator('polymind-page-image').first().dblclick();
+    await page.locator('affine-page-image').first().dblclick();
     await page.waitForTimeout(500);
     blobId = (await page
       .getByTestId('image-preview-modal')
@@ -414,7 +414,7 @@ test('image able to download', async ({ page }) => {
     await title.click();
     await page.keyboard.press('Enter');
     await importImage(page, 'large-image.png');
-    await page.locator('polymind-page-image').first().dblclick();
+    await page.locator('affine-page-image').first().dblclick();
     await page.waitForTimeout(500);
     blobId = (await page
       .getByTestId('image-preview-modal')
@@ -445,7 +445,7 @@ test('image should only able to move when image is larger than viewport', async 
     await title.click();
     await page.keyboard.press('Enter');
     await importImage(page, 'large-image.png');
-    await page.locator('polymind-page-image').first().dblclick();
+    await page.locator('affine-page-image').first().dblclick();
     await page.waitForTimeout(500);
     blobId = (await page
       .getByTestId('image-preview-modal')
@@ -503,7 +503,7 @@ test('image should able to delete and when delete, it will move to previous/next
     await title.click();
     await page.keyboard.press('Enter');
     await importImage(page, 'large-image.png');
-    await page.locator('polymind-page-image').first().dblclick();
+    await page.locator('affine-page-image').first().dblclick();
     await page.waitForTimeout(500);
     blobId = (await page
       .getByTestId('image-preview-modal')
@@ -517,10 +517,10 @@ test('image should able to delete and when delete, it will move to previous/next
     const title = getBlockSuiteEditorTitle(page);
     await title.click();
     await page.keyboard.press('Enter');
-    await importImage(page, 'polymind-preview.png');
+    await importImage(page, 'affine-preview.png');
   }
   const locator = page.getByTestId('image-preview-modal');
-  await page.locator('polymind-page-image').first().dblclick();
+  await page.locator('affine-page-image').first().dblclick();
   await expect(locator).toBeVisible();
   // ensure the new image was imported
   await page.waitForTimeout(1000);
@@ -541,9 +541,9 @@ test('image should able to delete and when delete, it will move to previous/next
     const title = getBlockSuiteEditorTitle(page);
     await title.click();
     await page.keyboard.press('Enter');
-    await importImage(page, 'polymind-preview.png');
+    await importImage(page, 'affine-preview.png');
   }
-  await page.locator('polymind-page-image').first().dblclick();
+  await page.locator('affine-page-image').first().dblclick();
   await locator.getByTestId('next-image-button').click();
   await page.waitForTimeout(1000);
   {
@@ -579,10 +579,10 @@ test('tooltips for all buttons should be visible when hovering', async ({
     await title.click();
     await page.keyboard.press('Enter');
     await importImage(page, 'large-image.png');
-    await page.locator('polymind-page-image').first().click();
+    await page.locator('affine-page-image').first().click();
     await page.keyboard.press('Enter');
     await importImage(page, 'large-image.png');
-    await page.locator('polymind-page-image').first().dblclick();
+    await page.locator('affine-page-image').first().dblclick();
     await page.waitForTimeout(500);
     blobId = (await page
       .getByTestId('image-preview-modal')
@@ -683,7 +683,7 @@ test('keypress esc should close the modal', async ({ page }) => {
   await title.click();
   await page.keyboard.press('Enter');
   await importImage(page, 'large-image.png');
-  await page.locator('polymind-page-image').first().dblclick();
+  await page.locator('affine-page-image').first().dblclick();
   const locator = page.getByTestId('image-preview-modal');
   await expect(locator).toBeVisible();
   await page.keyboard.press('Escape');
@@ -701,7 +701,7 @@ test('when mouse moves outside, the modal should be closed', async ({
   await title.click();
   await page.keyboard.press('Enter');
   await importImage(page, 'large-image.png');
-  await page.locator('polymind-page-image').first().dblclick();
+  await page.locator('affine-page-image').first().dblclick();
   const locator = page.getByTestId('image-preview-modal');
   await expect(locator).toBeVisible();
   // animation delay
@@ -722,11 +722,11 @@ test('caption should be visible and different styles were applied if image zoome
   await title.click();
   await page.keyboard.press('Enter');
   await importImage(page, 'large-image.png');
-  await page.locator('polymind-page-image').first().hover();
-  const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
+  await page.locator('affine-page-image').first().hover();
+  const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
   await toolbar.getByLabel('Caption').click();
   await page.getByPlaceholder('Write a caption').fill(sampleCaption);
-  await page.locator('polymind-page-image').first().dblclick();
+  await page.locator('affine-page-image').first().dblclick();
   const locator = page.getByTestId('image-preview-modal');
   await expect(locator).toBeVisible();
   await page.waitForTimeout(1000);

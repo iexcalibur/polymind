@@ -7,7 +7,7 @@ import { ParagraphBlockSchemaExtension } from '@blocksuite/polymind-model';
 import { ParagraphBlockAdapterExtensions } from './adapters/extension';
 
 export class ParagraphStoreExtension extends StoreExtensionProvider {
-  override name = 'polymind-paragraph-block';
+  override name = 'affine-paragraph-block';
 
   override setup(context: StoreExtensionContext) {
     super.setup(context);

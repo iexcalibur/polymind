@@ -98,7 +98,7 @@ export class MenuButton extends MenuFocusable {
 
   protected override render(): unknown {
     const classString = classMap({
-      'polymind-menu-button': true,
+      'affine-menu-button': true,
       focused: this.isFocused$.value,
       ...this.data.class,
     });
@@ -188,10 +188,10 @@ const renderButton = (data: MenuButtonData, menu: Menu) => {
       .menu="${menu}"
     ></mobile-menu-button>`;
   }
-  return html`<polymind-menu-button
+  return html`<affine-menu-button
     .data="${data}"
     .menu="${menu}"
-  ></polymind-menu-button>`;
+  ></affine-menu-button>`;
 };
 export const menuButtonItems = {
   action:

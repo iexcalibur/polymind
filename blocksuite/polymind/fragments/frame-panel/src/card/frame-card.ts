@@ -102,7 +102,7 @@ const styles = css`
   }
 `;
 
-export const AFFINE_FRAME_CARD = 'polymind-frame-card';
+export const AFFINE_FRAME_CARD = 'affine-frame-card';
 
 export class FrameCard extends WithDisposable(ShadowlessElement) {
   static override styles = styles;
@@ -195,10 +195,10 @@ export class FrameCard extends WithDisposable(ShadowlessElement) {
     >
       ${this.status === 'dragging'
         ? nothing
-        : html`<polymind-frame-card-title
+        : html`<affine-frame-card-title
             .cardIndex=${this.cardIndex}
             .frame=${this.frame}
-          ></polymind-frame-card-title>`}
+          ></affine-frame-card-title>`}
       <div
         class="frame-card-body"
         @click=${this._dispatchSelectEvent}

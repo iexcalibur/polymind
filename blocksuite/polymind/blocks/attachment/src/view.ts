@@ -21,7 +21,7 @@ import {
 const flavour = AttachmentBlockSchema.model.flavour;
 
 export class AttachmentViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-attachment-block';
+  override name = 'affine-attachment-block';
 
   override effect() {
     super.effect();

@@ -39,10 +39,10 @@ export class DataViewColumnPreview extends SignalWatcher(
           cssVarV2.layer.insideBorder.border
         )};box-shadow: var(--affine-shadow-2);"
       >
-        <polymind-database-header-column
+        <affine-database-header-column
           .tableViewLogic="${this.tableViewLogic}"
           .column="${this.column}"
-        ></polymind-database-header-column>
+        ></affine-database-header-column>
         ${repeat(rows, (id, index) => {
           const height = this.container.querySelector(
             `dv-table-view-cell-container[data-row-id="${id}"]`

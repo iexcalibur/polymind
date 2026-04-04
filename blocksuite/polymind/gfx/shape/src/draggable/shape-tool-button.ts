@@ -69,10 +69,10 @@ export class EdgelessShapeToolButton extends EdgelessToolbarToolMixin(
         class="edgeless-shape-button"
         .tooltip=${this.popper
           ? ''
-          : html`<polymind-tooltip-content-with-shortcut
+          : html`<affine-tooltip-content-with-shortcut
               data-tip="${'Shape'}"
               data-shortcut="${'S'}"
-            ></polymind-tooltip-content-with-shortcut>`}
+            ></affine-tooltip-content-with-shortcut>`}
         .tooltipOffset=${5}
         .active=${active}
       >

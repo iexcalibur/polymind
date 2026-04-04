@@ -235,12 +235,12 @@ test.describe('edgeless text block', () => {
       delay: 100,
     });
     await waitNextFrame(page);
-    let block = page.locator('polymind-edgeless-text[data-block-id="4"]');
+    let block = page.locator('affine-edgeless-text[data-block-id="4"]');
     expect(await block.isVisible()).toBe(true);
     await page.mouse.click(0, 0);
     expect(await block.isVisible()).toBe(false);
 
-    block = page.locator('polymind-edgeless-text[data-block-id="6"]');
+    block = page.locator('affine-edgeless-text[data-block-id="6"]');
     expect(await block.isVisible()).not.toBe(true);
     await page.mouse.dblclick(130, 140, {
       delay: 100,
@@ -340,7 +340,7 @@ test.describe('edgeless text block', () => {
     await assertEdgelessTextModelRect(page, '4', new Bound(-25, -25, 128, 56));
     selectedRect = await getEdgelessSelectedRect(page);
     let textRect = await page
-      .locator('polymind-edgeless-text[data-block-id="4"]')
+      .locator('affine-edgeless-text[data-block-id="4"]')
       .boundingBox();
     expect(selectedRect).not.toBeNull();
     expect(selectedRect.width).toBeCloseTo(textRect!.width);
@@ -366,7 +366,7 @@ test.describe('edgeless text block', () => {
     await assertEdgelessTextModelRect(page, '4', new Bound(-25, -25, 83, 80));
     selectedRect = await getEdgelessSelectedRect(page);
     textRect = await page
-      .locator('polymind-edgeless-text[data-block-id="4"]')
+      .locator('affine-edgeless-text[data-block-id="4"]')
       .boundingBox();
     expect(selectedRect).not.toBeNull();
     expect(selectedRect.width).toBeCloseTo(textRect!.width);
@@ -395,7 +395,7 @@ test.describe('edgeless text block', () => {
       `${testInfo.title}_add_linked_doc.json`
     );
 
-    await page.locator('polymind-reference').hover();
+    await page.locator('affine-reference').hover();
     await page.getByLabel('Switch view').click();
     await page.getByTestId('link-to-card').click();
     await autoFit(page);
@@ -463,8 +463,8 @@ test.describe('edgeless text block', () => {
     await waitNextFrame(page);
     await type(page, 'aaaa\nbbbb\ncccc');
 
-    const edgelessText = page.locator('polymind-edgeless-text');
-    const paragraph = page.locator('polymind-edgeless-text affine-paragraph');
+    const edgelessText = page.locator('affine-edgeless-text');
+    const paragraph = page.locator('affine-edgeless-text affine-paragraph');
 
     expect(await edgelessText.count()).toBe(1);
     expect(await paragraph.count()).toBe(3);
@@ -505,7 +505,7 @@ test.describe('edgeless text block', () => {
       1
     );
 
-    await page.locator('polymind-latex-node').click();
+    await page.locator('affine-latex-node').click();
     await waitNextFrame(page);
     await type(page, 'ccc');
     const menu = page.locator('latex-editor-menu');
@@ -524,7 +524,7 @@ test.describe('edgeless text block', () => {
       1
     );
 
-    await page.locator('polymind-latex-node').click();
+    await page.locator('affine-latex-node').click();
     await page.locator('.latex-editor-hint').click();
     await type(page, 'sss');
     await assertRichTextInlineDeltas(
@@ -659,7 +659,7 @@ test('undo/redo should work when changing text color', async ({ page }) => {
   await pressEscape(page, 3);
   await waitNextFrame(page);
 
-  const edgelessText = page.locator('polymind-edgeless-text');
+  const edgelessText = page.locator('affine-edgeless-text');
   await edgelessText.click();
 
   const getTextColor = async () => {

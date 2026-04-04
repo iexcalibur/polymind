@@ -156,7 +156,7 @@ export const listBlockHtmlAdapterMatcher: BlockHtmlAdapterMatcher = {
           type: 'element',
           tagName: 'li',
           properties: {
-            className: ['polymind-list-block-container'],
+            className: ['affine-list-block-container'],
           },
           children: liChildren,
         },

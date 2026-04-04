@@ -121,7 +121,7 @@ export class DatabaseTitle extends SignalWatcher(
   };
 
   get database() {
-    return this.closest<DatabaseBlockComponent>('polymind-database');
+    return this.closest<DatabaseBlockComponent>('affine-database');
   }
 
   override connectedCallback() {
@@ -139,7 +139,7 @@ export class DatabaseTitle extends SignalWatcher(
     const isEmpty = !this.text$.value;
 
     const classList = classMap({
-      'polymind-database-title': true,
+      'affine-database-title': true,
       ellipsis: !this.isFocus$.value,
       'comment-highlighted': this.database?.isCommentHighlighted ?? false,
     });
@@ -194,6 +194,6 @@ export class DatabaseTitle extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-database-title': DatabaseTitle;
+    'affine-database-title': DatabaseTitle;
   }
 }

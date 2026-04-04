@@ -23,23 +23,23 @@ const { affine } = createPolymindTemplate(manager.get('store'));
 describe('applyPatchToDoc', () => {
   it('should delete a block', async () => {
     const host = affine`
-    <polymind-page id="page">
-      <polymind-note id="note">
-        <polymind-paragraph id="paragraph-1">Hello</polymind-paragraph>
-        <polymind-paragraph id="paragraph-2">World</polymind-paragraph>
-      </polymind-note>
-    </polymind-page>
+    <affine-page id="page">
+      <affine-note id="note">
+        <affine-paragraph id="paragraph-1">Hello</affine-paragraph>
+        <affine-paragraph id="paragraph-2">World</affine-paragraph>
+      </affine-note>
+    </affine-page>
   `;
 
     const patch: PatchOp[] = [{ op: 'delete', id: 'paragraph-1' }];
     await applyPatchToDoc(host.store, patch);
 
     const expected = affine`
-      <polymind-page id="page">
-        <polymind-note id="note">
-          <polymind-paragraph id="paragraph-2">World</polymind-paragraph>
-        </polymind-note>
-      </polymind-page>
+      <affine-page id="page">
+        <affine-note id="note">
+          <affine-paragraph id="paragraph-2">World</affine-paragraph>
+        </affine-note>
+      </affine-page>
     `;
 
     expect(host.store).toEqualDoc(expected.store, {
@@ -50,12 +50,12 @@ describe('applyPatchToDoc', () => {
   // FIXME: markdown parse error in test mode
   it.skip('should replace a block', async () => {
     const host = affine`
-    <polymind-page id="page">
-      <polymind-note id="note">
-        <polymind-paragraph id="paragraph-1">Hello</polymind-paragraph>
-        <polymind-paragraph id="paragraph-2">World</polymind-paragraph>
-      </polymind-note>
-    </polymind-page>
+    <affine-page id="page">
+      <affine-note id="note">
+        <affine-paragraph id="paragraph-1">Hello</affine-paragraph>
+        <affine-paragraph id="paragraph-2">World</affine-paragraph>
+      </affine-note>
+    </affine-page>
   `;
 
     const patch: PatchOp[] = [
@@ -69,12 +69,12 @@ describe('applyPatchToDoc', () => {
     await applyPatchToDoc(host.store, patch);
 
     const expected = affine`
-      <polymind-page id="page">
-        <polymind-note id="note">
-          <polymind-paragraph id="paragraph-1">New content</polymind-paragraph>
-          <polymind-paragraph id="paragraph-2">World</polymind-paragraph>
-        </polymind-note>
-      </polymind-page>
+      <affine-page id="page">
+        <affine-note id="note">
+          <affine-paragraph id="paragraph-1">New content</affine-paragraph>
+          <affine-paragraph id="paragraph-2">World</affine-paragraph>
+        </affine-note>
+      </affine-page>
     `;
 
     expect(host.store).toEqualDoc(expected.store, {
@@ -85,12 +85,12 @@ describe('applyPatchToDoc', () => {
   // FIXME: markdown parse error in test mode
   it.skip('should insert a block at index', async () => {
     const host = affine`
-    <polymind-page id="page">
-      <polymind-note id="note">
-        <polymind-paragraph id="paragraph-1">Hello</polymind-paragraph>
-        <polymind-paragraph id="paragraph-2">World</polymind-paragraph>
-      </polymind-note>
-    </polymind-page>
+    <affine-page id="page">
+      <affine-note id="note">
+        <affine-paragraph id="paragraph-1">Hello</affine-paragraph>
+        <affine-paragraph id="paragraph-2">World</affine-paragraph>
+      </affine-note>
+    </affine-page>
   `;
 
     const patch: PatchOp[] = [
@@ -109,13 +109,13 @@ describe('applyPatchToDoc', () => {
     await applyPatchToDoc(host.store, patch);
 
     const expected = affine`
-      <polymind-page id="page">
-        <polymind-note id="note">
-          <polymind-paragraph id="paragraph-1">Hello</polymind-paragraph>
-          <polymind-paragraph id="paragraph-2">World</polymind-paragraph>
-          <polymind-paragraph id="paragraph-3">Inserted</polymind-paragraph>
-        </polymind-note>
-      </polymind-page>
+      <affine-page id="page">
+        <affine-note id="note">
+          <affine-paragraph id="paragraph-1">Hello</affine-paragraph>
+          <affine-paragraph id="paragraph-2">World</affine-paragraph>
+          <affine-paragraph id="paragraph-3">Inserted</affine-paragraph>
+        </affine-note>
+      </affine-page>
     `;
 
     expect(host.store).toEqualDoc(expected.store, {

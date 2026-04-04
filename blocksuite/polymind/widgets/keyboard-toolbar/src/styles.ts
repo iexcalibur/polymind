@@ -75,7 +75,7 @@ export const keyboardToolPanelStyles = css`
     padding: 16px 4px 8px 8px;
   }
 
-  ${scrollbarStyle('polymind-keyboard-tool-panel')}
+  ${scrollbarStyle('affine-keyboard-tool-panel')}
 
   .keyboard-tool-panel-group {
     display: flex;

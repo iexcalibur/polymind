@@ -10,7 +10,7 @@ import { ListKeymapExtension, ListTextKeymapExtension } from './list-keymap.js';
 import { ListMarkdownExtension } from './markdown.js';
 
 export class ListViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-list-block';
+  override name = 'affine-list-block';
 
   override effect(): void {
     super.effect();

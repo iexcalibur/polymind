@@ -15,25 +15,25 @@ import { PolymindLitIcon, UniAnyRender, UniLit } from './index.js';
 import { AnyRender } from './utils/uni-component/render-template.js';
 
 export function coreEffects() {
-  customElements.define('polymind-data-view-renderer', DataViewRootUI);
+  customElements.define('affine-data-view-renderer', DataViewRootUI);
   customElements.define('any-render', AnyRender);
   customElements.define(
     'data-view-properties-setting',
     DataViewPropertiesSettingView
   );
-  customElements.define('polymind-data-view-record-field', RecordField);
+  customElements.define('affine-data-view-record-field', RecordField);
   customElements.define('data-view-component-button', Button);
   customElements.define('component-overflow', Overflow);
   customElements.define('data-view-group-title-select-view', SelectGroupView);
   customElements.define('data-view-group-title-string-view', StringGroupView);
   customElements.define('data-view-group-title-number-view', NumberGroupView);
-  customElements.define('polymind-lit-icon', PolymindLitIcon);
+  customElements.define('affine-lit-icon', PolymindLitIcon);
   customElements.define('data-view-group-setting', GroupSetting);
-  customElements.define('polymind-multi-tag-select', MultiTagSelect);
+  customElements.define('affine-multi-tag-select', MultiTagSelect);
   customElements.define('data-view-group-title-boolean-view', BooleanGroupView);
-  customElements.define('polymind-multi-tag-view', MultiTagView);
+  customElements.define('affine-multi-tag-view', MultiTagView);
   customElements.define('uni-lit', UniLit);
   customElements.define('uni-any-render', UniAnyRender);
   customElements.define('variable-ref-view', VariableRefView);
-  customElements.define('polymind-data-view-record-detail', RecordDetail);
+  customElements.define('affine-data-view-record-detail', RecordDetail);
 }

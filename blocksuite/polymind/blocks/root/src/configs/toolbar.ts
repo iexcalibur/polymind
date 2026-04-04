@@ -230,9 +230,9 @@ const highlightActionGroup = {
         .run();
     };
     return html`
-      <polymind-highlight-dropdown-menu
+      <affine-highlight-dropdown-menu
         .updateHighlight=${updateHighlight}
-      ></polymind-highlight-dropdown-menu>
+      ></affine-highlight-dropdown-menu>
     `;
   },
 } as const satisfies ToolbarAction;

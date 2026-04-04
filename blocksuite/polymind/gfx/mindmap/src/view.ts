@@ -18,7 +18,7 @@ import { mindMapSeniorTool } from './toolbar/senior-tool';
 import { MindMapInteraction, MindMapView } from './view/view';
 
 export class MindmapViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-mindmap-gfx';
+  override name = 'affine-mindmap-gfx';
 
   override effect(): void {
     super.effect();

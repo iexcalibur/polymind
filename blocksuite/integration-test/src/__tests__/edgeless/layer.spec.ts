@@ -228,7 +228,7 @@ test('blocks should rerender when their z-index changed', async () => {
   const assertBlocksContent = () => {
     const blocks = Array.from(
       document.querySelectorAll(
-        'polymind-edgeless-root gfx-viewport > [data-block-id]'
+        'affine-edgeless-root gfx-viewport > [data-block-id]'
       )
     );
 
@@ -509,7 +509,7 @@ describe('group related functionality', () => {
     ).toBe(0);
 
     const topCanvas = edgeless.querySelector(
-      'polymind-surface canvas'
+      'affine-surface canvas'
     ) as HTMLCanvasElement;
 
     expect(

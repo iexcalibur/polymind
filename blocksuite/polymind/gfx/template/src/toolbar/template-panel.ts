@@ -420,13 +420,13 @@ export class EdgelessTemplatePanel extends WithDisposable(LitElement) {
           <div class="template-scrollcontent" data-scrollable>
             <div class="template-list">
               ${this._loading
-                ? html`<polymind-template-loading
+                ? html`<affine-template-loading
                     style=${styleMap({
                       position: 'absolute',
                       left: '50%',
                       top: '50%',
                     })}
-                  ></polymind-template-loading>`
+                  ></affine-template-loading>`
                 : repeat(
                     _templates,
                     template => template.name,
@@ -467,16 +467,16 @@ export class EdgelessTemplatePanel extends WithDisposable(LitElement) {
                         >
                           ${preview}
                           ${template === this._loadingTemplate
-                            ? html`<polymind-template-loading></polymind-template-loading>`
+                            ? html`<affine-template-loading></affine-template-loading>`
                             : nothing}
                           ${template.name
-                            ? html`<polymind-tooltip
+                            ? html`<affine-tooltip
                                 .offset=${12}
                                 .autoHide=${true}
                                 tip-position="top"
                               >
                                 ${template.name}
-                              </polymind-tooltip>`
+                              </affine-tooltip>`
                             : nothing}
                         </div>
                       `;

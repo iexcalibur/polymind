@@ -192,7 +192,7 @@ const DetailPageImpl = () => {
           data-mode={mode}
           ref={scrollViewportRef}
           className={clsx(
-            'polymind-page-viewport',
+            'affine-page-viewport',
             styles.affineDocViewport,
             styles.editorContainer
           )}

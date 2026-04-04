@@ -4,7 +4,7 @@ import { PolymindSlashMenuWidget } from './widget';
 
 export function effects() {
   customElements.define(AFFINE_SLASH_MENU_WIDGET, PolymindSlashMenuWidget);
-  customElements.define('polymind-slash-menu', SlashMenu);
+  customElements.define('affine-slash-menu', SlashMenu);
   customElements.define('inner-slash-menu', InnerSlashMenu);
 }
 

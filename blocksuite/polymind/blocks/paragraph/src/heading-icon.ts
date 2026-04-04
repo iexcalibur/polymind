@@ -82,11 +82,11 @@ export class ParagraphHeadingIcon extends SignalWatcher(
 }
 
 export function effects() {
-  customElements.define('polymind-paragraph-heading-icon', ParagraphHeadingIcon);
+  customElements.define('affine-paragraph-heading-icon', ParagraphHeadingIcon);
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-paragraph-heading-icon': ParagraphHeadingIcon;
+    'affine-paragraph-heading-icon': ParagraphHeadingIcon;
   }
 }

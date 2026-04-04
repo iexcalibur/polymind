@@ -69,6 +69,6 @@ export class AIChatBlockComponent extends BlockComponent<AIChatBlockModel> {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-ai-chat': AIChatBlockComponent;
+    'affine-ai-chat': AIChatBlockComponent;
   }
 }

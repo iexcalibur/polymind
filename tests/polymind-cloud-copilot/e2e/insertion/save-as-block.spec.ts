@@ -33,8 +33,8 @@ test.describe('AIInsertion/SaveAsBlock', () => {
     await utils.editor.isEdgelessMode(page);
 
     // Verify the ai block is created
-    await page.waitForSelector('polymind-edgeless-ai-chat');
-    const aiBlock = await page.locator('polymind-edgeless-ai-chat');
+    await page.waitForSelector('affine-edgeless-ai-chat');
+    const aiBlock = await page.locator('affine-edgeless-ai-chat');
     await expect(aiBlock).toBeVisible();
   });
 
@@ -63,8 +63,8 @@ test.describe('AIInsertion/SaveAsBlock', () => {
     await page.getByText('Successfully saved chat to a block');
 
     // Verify the ai block is created
-    await page.waitForSelector('polymind-edgeless-ai-chat');
-    const aiBlock = await page.locator('polymind-edgeless-ai-chat');
+    await page.waitForSelector('affine-edgeless-ai-chat');
+    const aiBlock = await page.locator('affine-edgeless-ai-chat');
     await expect(aiBlock).toBeVisible();
   });
 });

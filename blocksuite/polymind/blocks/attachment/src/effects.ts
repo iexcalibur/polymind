@@ -3,8 +3,8 @@ import { AttachmentEdgelessBlockComponent } from './attachment-edgeless-block';
 
 export function effects() {
   customElements.define(
-    'polymind-edgeless-attachment',
+    'affine-edgeless-attachment',
     AttachmentEdgelessBlockComponent
   );
-  customElements.define('polymind-attachment', AttachmentBlockComponent);
+  customElements.define('affine-attachment', AttachmentBlockComponent);
 }

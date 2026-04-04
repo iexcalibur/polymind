@@ -61,7 +61,7 @@ const optionsSchema = z.object({
 export type LinkedDocViewExtensionOptions = z.infer<typeof optionsSchema>;
 
 export class LinkedDocViewExtension extends ViewExtensionProvider<LinkedDocViewExtensionOptions> {
-  override name = 'polymind-linked-doc-widget';
+  override name = 'affine-linked-doc-widget';
 
   override schema = optionsSchema;
 

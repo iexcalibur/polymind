@@ -34,14 +34,14 @@ test('should update color of edgeless text when switching theme', async ({
   const container = locateEditorContainer(page);
   await container.dblclick();
 
-  await page.waitForSelector('polymind-edgeless-text');
+  await page.waitForSelector('affine-edgeless-text');
 
   await type(page, 'text color');
 
   await page.keyboard.press('Escape');
   await page.keyboard.press('Escape');
 
-  const text = page.locator('polymind-edgeless-text');
+  const text = page.locator('affine-edgeless-text');
 
   await text.click();
 

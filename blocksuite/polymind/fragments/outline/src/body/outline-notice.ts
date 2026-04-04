@@ -10,7 +10,7 @@ import { type TocContext, tocContext } from '../config';
 import { getNotesFromStore } from '../utils/query';
 import * as styles from './outline-notice.css';
 
-export const AFFINE_OUTLINE_NOTICE = 'polymind-outline-notice';
+export const AFFINE_OUTLINE_NOTICE = 'affine-outline-notice';
 
 export class OutlineNotice extends SignalWatcher(
   WithDisposable(ShadowlessElement)

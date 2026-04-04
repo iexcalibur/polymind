@@ -50,7 +50,7 @@ export class EditorUtils {
 
   public static async getNoteContent(page: Page) {
     const edgelessNode = await page.waitForSelector(
-      'polymind-edgeless-note .edgeless-note-page-content'
+      'affine-edgeless-note .edgeless-note-page-content'
     );
     return (await edgelessNode.innerText())
       .replace(/[\u200B-\u200D\uFEFF]/g, '')
@@ -149,7 +149,7 @@ export class EditorUtils {
   public static async createEdgelessText(page: Page, text: string) {
     await setEdgelessTool(page, 'text');
     await page.mouse.click(400, 400);
-    await page.locator('polymind-edgeless-text').waitFor({ state: 'visible' });
+    await page.locator('affine-edgeless-text').waitFor({ state: 'visible' });
     await page.waitForTimeout(100);
     const texts = text.split('\n');
     for (const [index, line] of texts.entries()) {
@@ -176,7 +176,7 @@ export class EditorUtils {
     await page.mouse.click(400, 400);
     const id = await page.evaluate(() => {
       const edgelessBlock = document.querySelector(
-        'polymind-edgeless-root'
+        'affine-edgeless-root'
       ) as EdgelessRootBlockComponent;
       if (!edgelessBlock) {
         throw new Error('edgeless block not found');
@@ -198,7 +198,7 @@ export class EditorUtils {
 
     const id = await page.evaluate(() => {
       const edgelessBlock = document.querySelector(
-        'polymind-edgeless-root'
+        'affine-edgeless-root'
       ) as EdgelessRootBlockComponent;
       if (!edgelessBlock) {
         throw new Error('edgeless block not found');
@@ -226,7 +226,7 @@ export class EditorUtils {
     return page.evaluate(
       ({ mindmapId, path }) => {
         const edgelessBlock = document.querySelector(
-          'polymind-edgeless-root'
+          'affine-edgeless-root'
         ) as EdgelessRootBlockComponent;
         if (!edgelessBlock) {
           throw new Error('edgeless block not found');
@@ -392,7 +392,7 @@ export class EditorUtils {
     await page.evaluate(
       ({ elements }) => {
         const edgelessBlock = document.querySelector(
-          'polymind-edgeless-root'
+          'affine-edgeless-root'
         ) as EdgelessRootBlockComponent;
         if (!edgelessBlock) {
           throw new Error('edgeless block not found');
@@ -535,8 +535,8 @@ export class EditorUtils {
     await page.keyboard.insertText(`\`\`\`${language}`);
     await page.keyboard.press('Enter');
     await page.keyboard.insertText(code);
-    await page.locator('polymind-code').blur();
-    await page.locator('polymind-code').hover();
+    await page.locator('affine-code').blur();
+    await page.locator('affine-code').hover();
     await page.getByTestId('ask-ai-button').click();
     return {
       explainCode: this.createAction(page, () =>
@@ -561,12 +561,12 @@ export class EditorUtils {
     await this.focusToEditor(page);
     await page.keyboard.press('/');
     await page.keyboard.insertText('image');
-    await page.locator('polymind-slash-menu').getByTestId('Image').click();
+    await page.locator('affine-slash-menu').getByTestId('Image').click();
 
     const fileChooser = await fileChooserPromise;
     await fileChooser.setFiles(image);
 
-    await page.locator('polymind-page-image').click();
+    await page.locator('affine-page-image').click();
     await page.getByTestId('ask-ai-button').click();
 
     return {
@@ -717,7 +717,7 @@ export class EditorUtils {
 
   public static async whatAreYourThoughts(page: Page, text: string) {
     const textarea = page.locator(
-      'polymind-ai-panel-widget .ai-panel-container textarea'
+      'affine-ai-panel-widget .ai-panel-container textarea'
     );
     await textarea.fill(text);
     return textarea;

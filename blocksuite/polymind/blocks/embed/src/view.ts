@@ -36,7 +36,7 @@ import {
 import { EmbedYoutubeBlockInteraction } from './embed-youtube-block/embed-edgeless-youtube-block';
 
 export class EmbedViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-embed-block';
+  override name = 'affine-embed-block';
 
   override effect(): void {
     super.effect();

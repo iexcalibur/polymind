@@ -43,7 +43,7 @@ test('should close embed editing modal when editor switching to page mode by sho
 });
 
 test('embed card should not overflow the edgeless note', async ({ page }) => {
-  const note = page.locator('polymind-edgeless-note');
+  const note = page.locator('affine-edgeless-note');
   await dblclickNoteBody(page);
   await type(page, '/github');
   await pressEnter(page);
@@ -52,7 +52,7 @@ test('embed card should not overflow the edgeless note', async ({ page }) => {
     .fill('https://github.com/toeverything/PolyMind/pull/10442');
   await pressEnter(page);
 
-  const embedCard = page.locator('polymind-embed-github-block');
+  const embedCard = page.locator('affine-embed-github-block');
   await embedCard
     .locator('.affine-embed-github-block:not(.loading)')
     .waitFor({ state: 'visible' });

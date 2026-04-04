@@ -165,11 +165,11 @@ export class ListBlockComponent extends CaptionedBlockComponent<ListBlockModel> 
     </div>`;
 
     return html`
-      <div class=${'polymind-list-block-container'} style="${textAlignStyle}">
+      <div class=${'affine-list-block-container'} style="${textAlignStyle}">
         <div
           class=${classMap({
-            'polymind-list-rich-text-wrapper': true,
-            'polymind-list--checked':
+            'affine-list-rich-text-wrapper': true,
+            'affine-list--checked':
               this.model.props.type === 'todo' && this.model.props.checked,
             [TOGGLE_BUTTON_PARENT_CLASS]: true,
           })}

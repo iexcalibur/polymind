@@ -24,7 +24,7 @@ import { effects } from './effects';
 import { fallbackKeymap } from './keyboard/keymap';
 
 export class RootViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-root-block';
+  override name = 'affine-root-block';
 
   override effect(): void {
     super.effect();

@@ -78,7 +78,7 @@ test('default to edgeless by editor header items', async ({ page }) => {
   await docItem.click();
 
   await waitForEditorLoad(page);
-  const edgeless = page.locator('polymind-edgeless-root');
+  const edgeless = page.locator('affine-edgeless-root');
   await expect(edgeless).toBeVisible();
 });
 

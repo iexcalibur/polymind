@@ -212,7 +212,7 @@ export async function assertRichImage(page: Page, count: number) {
 }
 
 export async function assertDivider(page: Page, count: number) {
-  await expect(page.locator('polymind-divider')).toHaveCount(count);
+  await expect(page.locator('affine-divider')).toHaveCount(count);
 }
 
 export async function assertRichDragButton(page: Page) {
@@ -596,7 +596,7 @@ export async function assertBlockProps(
 
 export async function assertBlockTypes(page: Page, blockTypes: string[]) {
   const actual = await page.evaluate(() => {
-    const editor = document.querySelector('polymind-editor-container');
+    const editor = document.querySelector('affine-editor-container');
     const elements = editor?.querySelectorAll('[data-block-id]') ?? [];
     return (
       Array.from(elements)
@@ -614,7 +614,7 @@ export function assertClipItems(_page: Page, _key: MimeType, _value: unknown) {
   // FIXME: use original clipboard API
   // const clipItems = await page.evaluate(() => {
   //   return document
-  //     .getElementsByTagName('polymind-editor-container')[0]
+  //     .getElementsByTagName('affine-editor-container')[0]
   //     .clipboard['_copy']['_getClipItems']();
   // });
   // const actual = clipItems.find(item => item.mimeType === key)?.data;
@@ -832,7 +832,7 @@ export async function assertEdgelessRemoteSelectedRect(
   const [x, y, w, h] = xywh;
   const editor = getEditorLocator(page);
   const remoteSelectedRect = editor
-    .locator('polymind-edgeless-remote-selection-widget')
+    .locator('affine-edgeless-remote-selection-widget')
     .locator('.remote-rect')
     .nth(index);
 
@@ -853,7 +853,7 @@ export async function assertEdgelessRemoteSelectedModelRect(
   const [x, y, w, h] = xywh;
   const editor = getEditorLocator(page);
   const remoteSelectedRect = editor
-    .locator('polymind-edgeless-remote-selection-widget')
+    .locator('affine-edgeless-remote-selection-widget')
     .locator('.remote-rect')
     .nth(index);
 
@@ -922,7 +922,7 @@ export async function assertEdgelessNonSelectedRect(page: Page) {
 export async function assertSelectionInNote(
   page: Page,
   noteId: string,
-  blockNote: string = 'polymind-note'
+  blockNote: string = 'affine-note'
 ) {
   const closestNoteId = await page.evaluate(blockNote => {
     const selection = window.getSelection();
@@ -1212,7 +1212,7 @@ export async function assertConnectorStrokeColor(
   color: string
 ) {
   const colorButton = page
-    .locator('polymind-toolbar-widget editor-toolbar')
+    .locator('affine-toolbar-widget editor-toolbar')
     .locator('edgeless-color-panel')
     .locator(`.color-unit[aria-label="${label}"]`)
     .locator('svg');

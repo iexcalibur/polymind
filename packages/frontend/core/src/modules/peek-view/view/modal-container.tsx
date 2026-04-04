@@ -27,7 +27,7 @@ const contentOptions: Dialog.DialogContentProps = {
     if (
       el.closest('[data-peek-view-wrapper]') ||
       // workaround for slash menu click outside issue
-      el.closest('polymind-slash-menu')
+      el.closest('affine-slash-menu')
     ) {
       e.preventDefault();
     }

@@ -10,17 +10,17 @@ import { PolymindCodeUnit } from './highlight/affine-code-unit';
 
 export function effects() {
   customElements.define('language-list-button', LanguageListButton);
-  customElements.define('polymind-code-toolbar', PolymindCodeToolbar);
+  customElements.define('affine-code-toolbar', PolymindCodeToolbar);
   customElements.define(AFFINE_CODE_TOOLBAR_WIDGET, PolymindCodeToolbarWidget);
-  customElements.define('polymind-code-unit', PolymindCodeUnit);
-  customElements.define('polymind-code', CodeBlockComponent);
+  customElements.define('affine-code-unit', PolymindCodeUnit);
+  customElements.define('affine-code', CodeBlockComponent);
   customElements.define('preview-button', PreviewButton);
 }
 
 declare global {
   interface HTMLElementTagNameMap {
     'language-list-button': LanguageListButton;
-    'polymind-code-toolbar': PolymindCodeToolbar;
+    'affine-code-toolbar': PolymindCodeToolbar;
     'preview-button': PreviewButton;
     [AFFINE_CODE_TOOLBAR_WIDGET]: PolymindCodeToolbarWidget;
   }

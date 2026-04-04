@@ -291,10 +291,10 @@ export const paragraphBlockHtmlAdapterMatcher: BlockHtmlAdapterMatcher = {
           ) {
             if (
               o.node.properties.className.includes(
-                'polymind-paragraph-block-container'
+                'affine-paragraph-block-container'
               ) ||
               o.node.properties.className.includes(
-                'polymind-block-children-container'
+                'affine-block-children-container'
               ) ||
               o.node.properties.className.includes('indented')
             ) {
@@ -316,7 +316,7 @@ export const paragraphBlockHtmlAdapterMatcher: BlockHtmlAdapterMatcher = {
             o.next.tagName === 'div' &&
             Array.isArray(o.next.properties?.className) &&
             (o.next.properties.className.includes(
-              'polymind-block-children-container'
+              'affine-block-children-container'
             ) ||
               o.next.properties.className.includes('indented'))
           ) {
@@ -343,7 +343,7 @@ export const paragraphBlockHtmlAdapterMatcher: BlockHtmlAdapterMatcher = {
                 type: 'element',
                 tagName: 'div',
                 properties: {
-                  className: ['polymind-paragraph-block-container'],
+                  className: ['affine-paragraph-block-container'],
                 },
                 children: [],
               },
@@ -364,7 +364,7 @@ export const paragraphBlockHtmlAdapterMatcher: BlockHtmlAdapterMatcher = {
                 type: 'element',
                 tagName: 'div',
                 properties: {
-                  className: ['polymind-block-children-container'],
+                  className: ['affine-block-children-container'],
                   style: 'padding-left: 26px;',
                 },
                 children: [],
@@ -385,7 +385,7 @@ export const paragraphBlockHtmlAdapterMatcher: BlockHtmlAdapterMatcher = {
                 type: 'element',
                 tagName: 'div',
                 properties: {
-                  className: ['polymind-paragraph-block-container'],
+                  className: ['affine-paragraph-block-container'],
                 },
                 children: [],
               },
@@ -406,7 +406,7 @@ export const paragraphBlockHtmlAdapterMatcher: BlockHtmlAdapterMatcher = {
                 type: 'element',
                 tagName: 'div',
                 properties: {
-                  className: ['polymind-block-children-container'],
+                  className: ['affine-block-children-container'],
                   style: 'padding-left: 26px;',
                 },
                 children: [],
@@ -422,7 +422,7 @@ export const paragraphBlockHtmlAdapterMatcher: BlockHtmlAdapterMatcher = {
                 type: 'element',
                 tagName: 'div',
                 properties: {
-                  className: ['polymind-paragraph-block-container'],
+                  className: ['affine-paragraph-block-container'],
                 },
                 children: [],
               },
@@ -455,7 +455,7 @@ export const paragraphBlockHtmlAdapterMatcher: BlockHtmlAdapterMatcher = {
                 type: 'element',
                 tagName: 'div',
                 properties: {
-                  className: ['polymind-block-children-container'],
+                  className: ['affine-block-children-container'],
                   style: 'padding-left: 26px;',
                 },
                 children: [],

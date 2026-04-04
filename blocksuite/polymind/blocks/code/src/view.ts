@@ -30,7 +30,7 @@ const codeToolbarWidget = WidgetViewExtension(
 );
 
 export class CodeBlockViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-code-block';
+  override name = 'affine-code-block';
 
   override effect() {
     super.effect();

@@ -23,9 +23,9 @@ test.describe('embed-synced-doc render', () => {
       { chain: true }
     );
 
-    expect(await page.locator('polymind-embed-synced-doc-block').count()).toBe(2);
-    expect(await page.locator('polymind-paragraph').count()).toBe(2);
-    expect(await page.locator('polymind-embed-synced-doc-card').count()).toBe(1);
+    expect(await page.locator('affine-embed-synced-doc-block').count()).toBe(2);
+    expect(await page.locator('affine-paragraph').count()).toBe(2);
+    expect(await page.locator('affine-embed-synced-doc-card').count()).toBe(1);
     expect(await page.locator('editor-host').count()).toBe(2);
   });
 
@@ -35,11 +35,11 @@ test.describe('embed-synced-doc render', () => {
       { title: 'Doc 2', content: 'Hello from Doc 2' },
     ]);
 
-    const locator = page.locator('polymind-embed-synced-doc-block');
+    const locator = page.locator('affine-embed-synced-doc-block');
     await expect(locator).toBeVisible();
     await locator.click();
 
-    const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
+    const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
     const openMenu = toolbar.getByRole('button', { name: 'Open doc' });
     await openMenu.click();
 

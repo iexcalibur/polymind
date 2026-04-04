@@ -119,7 +119,7 @@ export class FrameBlockComponent extends GfxBlockComponent<FrameBlockModel> {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-frame': FrameBlockComponent;
+    'affine-frame': FrameBlockComponent;
   }
 }
 

@@ -11,7 +11,7 @@ import { ShapeTool } from './shape-tool';
 import { shapeSeniorTool, shapeToolbarExtension } from './toolbar';
 
 export class ShapeViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-shape-gfx';
+  override name = 'affine-shape-gfx';
 
   override effect(): void {
     super.effect();

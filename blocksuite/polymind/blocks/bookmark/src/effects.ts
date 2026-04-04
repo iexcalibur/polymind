@@ -4,9 +4,9 @@ import { BookmarkCard } from './components/bookmark-card';
 
 export function effects() {
   customElements.define(
-    'polymind-edgeless-bookmark',
+    'affine-edgeless-bookmark',
     BookmarkEdgelessBlockComponent
   );
-  customElements.define('polymind-bookmark', BookmarkBlockComponent);
+  customElements.define('affine-bookmark', BookmarkBlockComponent);
   customElements.define('bookmark-card', BookmarkCard);
 }

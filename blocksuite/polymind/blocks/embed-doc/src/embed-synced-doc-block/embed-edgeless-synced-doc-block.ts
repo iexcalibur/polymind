@@ -30,7 +30,7 @@ export class EmbedEdgelessSyncedDocBlockComponent extends toEdgelessEmbedBlock(
   @query('.affine-embed-synced-doc-edgeless-header-wrapper')
   accessor headerWrapper: HTMLDivElement | null = null;
 
-  @query('polymind-preview-root')
+  @query('affine-preview-root')
   accessor contentElement: BlockComponent | null = null;
 
   protected override _renderSyncedView = () => {
@@ -109,7 +109,7 @@ export class EmbedEdgelessSyncedDocBlockComponent extends toEdgelessEmbedBlock(
       () => html`
         <div
           class=${classMap({
-            'polymind-embed-synced-doc-container': true,
+            'affine-embed-synced-doc-container': true,
             [editorMode]: true,
             [theme]: true,
             surface: true,

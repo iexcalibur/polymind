@@ -90,7 +90,7 @@ export class AIFinishTip extends WithDisposable(LitElement) {
                   }}
                 >
                   ${CopyIcon}
-                  <polymind-tooltip>Copy</polymind-tooltip>
+                  <affine-tooltip>Copy</affine-tooltip>
                 </div>`}
           </div>`
         : nothing}

@@ -4,4 +4,4 @@ import type { ToolbarMoreMenuConfig } from './types';
 
 export const ToolbarMoreMenuConfigExtension = ConfigExtensionFactory<
   Partial<ToolbarMoreMenuConfig>
->('polymind-toolbar-more-menu');
+>('affine-toolbar-more-menu');

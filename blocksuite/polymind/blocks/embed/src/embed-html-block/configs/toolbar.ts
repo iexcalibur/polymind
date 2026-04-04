@@ -96,12 +96,12 @@ const builtinToolbarConfig = {
 
         return html`${keyed(
           model,
-          html`<polymind-card-style-dropdown-menu
+          html`<affine-card-style-dropdown-menu
             @toggle=${onToggle}
             .actions=${actions}
             .context=${ctx}
             .style=${model.props.style$}
-          ></polymind-card-style-dropdown-menu>`
+          ></affine-card-style-dropdown-menu>`
         )}`;
       },
     } satisfies ToolbarActionGroup<ToolbarAction>,

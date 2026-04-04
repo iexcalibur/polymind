@@ -13,7 +13,7 @@ import {
 import { groupToolbarExtension } from './toolbar/config';
 
 export class GroupViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-group-gfx';
+  override name = 'affine-group-gfx';
 
   override effect(): void {
     super.effect();

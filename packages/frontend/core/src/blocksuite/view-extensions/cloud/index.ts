@@ -13,7 +13,7 @@ const optionsSchema = z.object({
 type CloudViewOptions = z.infer<typeof optionsSchema>;
 
 export class CloudViewExtension extends ViewExtensionProvider<CloudViewOptions> {
-  override name = 'polymind-view-cloud';
+  override name = 'affine-view-cloud';
 
   override schema = optionsSchema;
 

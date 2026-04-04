@@ -10,7 +10,7 @@ import { latexSlashMenuConfig } from './configs/slash-menu';
 import { effects } from './effects';
 
 export class LatexViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-latex-block';
+  override name = 'affine-latex-block';
 
   override effect() {
     super.effect();

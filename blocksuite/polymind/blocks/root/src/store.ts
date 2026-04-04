@@ -7,7 +7,7 @@ import { RootBlockSchemaExtension } from '@blocksuite/polymind-model';
 import { RootBlockAdapterExtensions } from './adapters/extension';
 
 export class RootStoreExtension extends StoreExtensionProvider {
-  override name = 'polymind-root-block';
+  override name = 'affine-root-block';
 
   override setup(context: StoreExtensionContext) {
     super.setup(context);

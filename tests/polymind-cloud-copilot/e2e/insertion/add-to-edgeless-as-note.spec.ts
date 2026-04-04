@@ -43,7 +43,7 @@ test.describe('AIInsertion/AddToEdgelessAsNote', () => {
     await utils.editor.switchToEdgelessMode(page);
 
     // Delete default note
-    await (await page.waitForSelector('polymind-edgeless-note')).click();
+    await (await page.waitForSelector('affine-edgeless-note')).click();
     await page.keyboard.press('Delete');
 
     await utils.chatPanel.openChatPanel(page);

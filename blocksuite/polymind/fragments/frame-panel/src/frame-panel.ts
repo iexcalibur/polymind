@@ -60,21 +60,21 @@ const styles = css`
   }
 `;
 
-export const AFFINE_FRAME_PANEL = 'polymind-frame-panel';
+export const AFFINE_FRAME_PANEL = 'affine-frame-panel';
 
 export class FramePanel extends WithDisposable(ShadowlessElement) {
   static override styles = styles;
 
   override render() {
     return html`<div class="frame-panel-container">
-      <polymind-frame-panel-header
+      <affine-frame-panel-header
         .editorHost=${this.host}
-      ></polymind-frame-panel-header>
-      <polymind-frame-panel-body
+      ></affine-frame-panel-header>
+      <affine-frame-panel-body
         class="frame-panel-body"
         .editorHost=${this.host}
         .fitPadding=${this.fitPadding}
-      ></polymind-frame-panel-body>
+      ></affine-frame-panel-body>
     </div>`;
   }
 

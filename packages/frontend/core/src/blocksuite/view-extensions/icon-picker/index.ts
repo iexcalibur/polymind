@@ -14,7 +14,7 @@ const optionsSchema = z.object({
 type PolymindIconPickerViewOptions = z.infer<typeof optionsSchema>;
 
 export class PolymindIconPickerExtension extends ViewExtensionProvider<PolymindIconPickerViewOptions> {
-  override name = 'polymind-icon-picker-extension';
+  override name = 'affine-icon-picker-extension';
 
   override schema = optionsSchema;
 

@@ -7,12 +7,12 @@ import { EdgelessNoteStylePanel } from './components/edgeless-note-style-panel';
 import { EdgelessPageBlockTitle } from './components/edgeless-page-block-title';
 import { NoteBlockComponent } from './note-block';
 import {
-  POLYMIND_EDGELESS_NOTE,
+  AFFINE_EDGELESS_NOTE,
   EdgelessNoteBlockComponent,
 } from './note-edgeless-block';
 export function effects() {
-  customElements.define('polymind-note', NoteBlockComponent);
-  customElements.define(POLYMIND_EDGELESS_NOTE, EdgelessNoteBlockComponent);
+  customElements.define('affine-note', NoteBlockComponent);
+  customElements.define(AFFINE_EDGELESS_NOTE, EdgelessNoteBlockComponent);
   customElements.define('edgeless-note-mask', EdgelessNoteMask);
   customElements.define('edgeless-note-background', EdgelessNoteBackground);
   customElements.define('edgeless-page-block-title', EdgelessPageBlockTitle);

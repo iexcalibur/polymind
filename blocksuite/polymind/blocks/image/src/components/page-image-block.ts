@@ -392,7 +392,7 @@ export class ImageBlockPageComponent extends SignalWatcher(
       ${when(
         Boolean(error && description),
         () =>
-          html`<polymind-resource-status
+          html`<affine-resource-status
             class="affine-image-status"
             .message=${description}
             .needUpload=${needUpload}
@@ -400,7 +400,7 @@ export class ImageBlockPageComponent extends SignalWatcher(
               needUpload
                 ? this.block.resourceController.upload()
                 : this.block.refreshData()}
-          ></polymind-resource-status>`
+          ></affine-resource-status>`
       )}
     `;
   }
@@ -417,6 +417,6 @@ export class ImageBlockPageComponent extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-page-image': ImageBlockPageComponent;
+    'affine-page-image': ImageBlockPageComponent;
   }
 }

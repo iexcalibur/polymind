@@ -1,1 +1,1 @@
-export const AFFINE_EDGELESS_COPILOT_WIDGET = 'polymind-edgeless-copilot-widget';
+export const AFFINE_EDGELESS_COPILOT_WIDGET = 'affine-edgeless-copilot-widget';

@@ -182,9 +182,9 @@ export class AIPanelError extends WithDisposable(LitElement) {
         const error = tip
           ? html`<span class="error-tip">
               An error occurred
-              <polymind-tooltip tip-position="bottom-start">
+              <affine-tooltip tip-position="bottom-start">
                 ${tip}
-              </polymind-tooltip>
+              </affine-tooltip>
             </span>`
           : 'An error occurred';
         return html`

@@ -49,7 +49,7 @@ export class AttachmentEdgelessBlockComponent extends toGfxBlockComponent(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-edgeless-attachment': AttachmentEdgelessBlockComponent;
+    'affine-edgeless-attachment': AttachmentEdgelessBlockComponent;
   }
 }
 

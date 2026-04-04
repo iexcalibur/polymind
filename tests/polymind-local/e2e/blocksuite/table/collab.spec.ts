@@ -23,7 +23,7 @@ test('should table collab work', async ({ page: pageA, context }) => {
    * | Cell3 | Cell4 |
    */
   await createTable(pageA);
-  const cellsInA = pageA.locator('polymind-table-cell');
+  const cellsInA = pageA.locator('affine-table-cell');
   const cellCountInA = await cellsInA.count();
   expect(cellCountInA).toBe(4);
 
@@ -34,9 +34,9 @@ test('should table collab work', async ({ page: pageA, context }) => {
   await waitForEditorLoad(pageB);
   await pageB.keyboard.press('Enter');
 
-  const tableInB = pageB.locator('polymind-table');
+  const tableInB = pageB.locator('affine-table');
   await expect(tableInB).toBeVisible();
-  const cellsInB = tableInB.locator('polymind-table-cell');
+  const cellsInB = tableInB.locator('affine-table-cell');
   expect(await cellsInB.count()).toBe(cellCountInA);
 
   expect(await getCellText(pageB, 0)).toBe('Cell1');

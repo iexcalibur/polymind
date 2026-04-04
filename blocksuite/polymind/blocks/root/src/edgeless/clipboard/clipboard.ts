@@ -86,7 +86,7 @@ interface CanvasExportOptions {
 }
 
 export class EdgelessClipboardController extends PageClipboard {
-  static override key = 'polymind-edgeless-clipboard';
+  static override key = 'affine-edgeless-clipboard';
 
   private readonly _initEdgelessClipboard = () => {
     this.std.event.add('copy', ctx => {

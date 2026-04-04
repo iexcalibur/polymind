@@ -35,7 +35,7 @@ export interface SelectionRect {
 }
 
 export const AFFINE_DOC_REMOTE_SELECTION_WIDGET =
-  'polymind-doc-remote-selection-widget';
+  'affine-doc-remote-selection-widget';
 
 export class PolymindDocRemoteSelectionWidget extends WidgetComponent {
   // avoid being unable to select text by mouse click or drag

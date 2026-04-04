@@ -70,10 +70,10 @@ export class SelectCell extends BaseCellRenderer<
   override render() {
     return html`
       <div class="${selectStyle}">
-        <polymind-multi-tag-view
+        <affine-multi-tag-view
           .value="${this._value$.value}"
           .options="${this.options$.value}"
-        ></polymind-multi-tag-view>
+        ></affine-multi-tag-view>
       </div>
     `;
   }

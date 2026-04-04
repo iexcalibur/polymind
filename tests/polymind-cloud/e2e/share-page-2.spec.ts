@@ -89,7 +89,7 @@ test('The reference links in the shared page should be accessible normally and c
     await expect(
       page2.locator('.doc-title-container:has-text("Test linked doc")')
     ).toBeVisible();
-    await expect(page2.locator('polymind-paragraph').first()).toContainText(
+    await expect(page2.locator('affine-paragraph').first()).toContainText(
       'Test linked content'
     );
 
@@ -105,7 +105,7 @@ test('The reference links in the shared page should be accessible normally and c
     await expect(
       page2.locator('.doc-title-container:has-text("Test linked doc")')
     ).toBeVisible();
-    await expect(page2.locator('polymind-paragraph').first()).toContainText(
+    await expect(page2.locator('affine-paragraph').first()).toContainText(
       'Test linked content'
     );
   }
@@ -144,7 +144,7 @@ test('Inline latex modal should be not shown in shared mode when clicking', asyn
   await page.keyboard.press('Space');
 
   // there should be a inline latex node
-  const latexLocator = page.locator('polymind-latex-node');
+  const latexLocator = page.locator('affine-latex-node');
   await expect(latexLocator).toBeVisible();
 
   // click the latex node
@@ -170,7 +170,7 @@ test('Inline latex modal should be not shown in shared mode when clicking', asyn
     await waitForEditorLoad(page2);
 
     // click the latex node
-    const latexLocator = page2.locator('polymind-latex-node');
+    const latexLocator = page2.locator('affine-latex-node');
     await latexLocator.click();
 
     // the latex editor should not be shown when the doc is readonly
@@ -246,7 +246,7 @@ test('should enable opening peek view with pdf viewer in readonly and sharing mo
   const switchViewButton = toolbar.getByLabel('Switch view');
   const embedViewButton = toolbar.getByLabel('Embed view');
 
-  const attachment = page.locator('polymind-attachment');
+  const attachment = page.locator('affine-attachment');
   await attachment.click();
 
   await switchViewButton.click();
@@ -270,7 +270,7 @@ test('should enable opening peek view with pdf viewer in readonly and sharing mo
     await page2.goto(url);
     await waitForEditorLoad(page2);
 
-    const attachment = page2.locator('polymind-attachment');
+    const attachment = page2.locator('affine-attachment');
 
     await expect(attachment.locator('lit-react-portal')).toBeVisible();
 

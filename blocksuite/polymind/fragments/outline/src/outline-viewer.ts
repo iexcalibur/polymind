@@ -23,7 +23,7 @@ import {
   scrollToBlockWithHighlight,
 } from './utils/scroll.js';
 
-export const AFFINE_OUTLINE_VIEWER = 'polymind-outline-viewer';
+export const AFFINE_OUTLINE_VIEWER = 'affine-outline-viewer';
 
 @requiredProperties({
   editor: PropTypes.object,
@@ -284,7 +284,7 @@ export class OutlineViewer extends SignalWatcher(
                   active: this._activeHeadingId$.value === block.id,
                 })}
               >
-                <polymind-outline-block-preview
+                <affine-outline-block-preview
                   class=${classMap({
                     active: this._activeHeadingId$.value === block.id,
                   })}
@@ -293,7 +293,7 @@ export class OutlineViewer extends SignalWatcher(
                     this._scrollToBlock(block.id).catch(console.error);
                   }}
                 >
-                </polymind-outline-block-preview>
+                </affine-outline-block-preview>
               </div>`;
             }
           )}

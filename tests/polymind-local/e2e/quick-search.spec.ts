@@ -44,7 +44,7 @@ const commandsIsVisible = async (page: Page, label: string) => {
 };
 
 async function assertTitle(page: Page, text: string) {
-  const edgeless = page.locator('polymind-edgeless-root');
+  const edgeless = page.locator('affine-edgeless-root');
   if (!edgeless) {
     const locator = getBlockSuiteEditorTitle(page);
     const actual = await locator.inputValue();
@@ -97,7 +97,7 @@ async function assertResultList(page: Page, texts: string[]) {
 }
 
 async function titleIsFocused(page: Page) {
-  const edgeless = page.locator('polymind-edgeless-root');
+  const edgeless = page.locator('affine-edgeless-root');
   if (!edgeless) {
     const title = getBlockSuiteEditorTitle(page);
     await expect(title).toBeVisible();
@@ -401,7 +401,7 @@ test('can use cmdk to search page content and scroll to it, then the block will 
   );
   expect(isVisitable).toBe(true);
   const selectionElement = page.locator(
-    'polymind-scroll-anchoring-widget div.highlight'
+    'affine-scroll-anchoring-widget div.highlight'
   );
   await expect(selectionElement).toBeVisible();
 });
@@ -475,7 +475,7 @@ test('can use @ to open quick search to search for doc and insert into canvas', 
 
   await clickNewPageButton(page);
   await clickEdgelessModeButton(page);
-  await page.locator('polymind-edgeless-root').press('@');
+  await page.locator('affine-edgeless-root').press('@');
 
   const quickSearch = page.locator('[data-testid=cmdk-quick-search]');
   await expect(quickSearch).toBeVisible();
@@ -491,7 +491,7 @@ test('can use @ to open quick search to search for doc and insert into canvas', 
   // press enter to insert the page to canvas
   await page.keyboard.press('Enter');
   await expect(
-    page.locator('polymind-embed-edgeless-synced-doc-block')
+    page.locator('affine-embed-edgeless-synced-doc-block')
   ).toBeVisible();
   await expect(
     page.getByTestId('edgeless-embed-synced-doc-title')
@@ -500,12 +500,12 @@ test('can use @ to open quick search to search for doc and insert into canvas', 
   // focus on the note block
   await page.waitForTimeout(500);
   await page
-    .locator('polymind-embed-edgeless-synced-doc-block')
+    .locator('affine-embed-edgeless-synced-doc-block')
     .click({ force: true });
   await page.waitForTimeout(500);
   // double clock to show peek view
   await page
-    .locator('polymind-embed-edgeless-synced-doc-block')
+    .locator('affine-embed-edgeless-synced-doc-block')
     .dblclick({ force: true });
   await expect(page.getByTestId('peek-view-modal')).toBeVisible();
 });
@@ -523,7 +523,7 @@ test('can paste a doc link to create link reference', async ({ page }) => {
   await writeTextToClipboard(page, url);
 
   await expect(
-    page.locator('polymind-reference:has-text("Getting Started")')
+    page.locator('affine-reference:has-text("Getting Started")')
   ).toBeVisible();
 
   // can ctrl-z to revert to normal link
@@ -557,7 +557,7 @@ test('can use slash menu to insert an external link', async ({ page }) => {
 
   await insertLinkBtn.click();
 
-  await expect(page.locator('polymind-bookmark')).toBeVisible();
+  await expect(page.locator('affine-bookmark')).toBeVisible();
   await expect(page.locator('.affine-bookmark-content-url')).toContainText(
     link
   );

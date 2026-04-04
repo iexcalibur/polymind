@@ -375,7 +375,7 @@ test('should support ctrl/cmd+shift+l convert to linked doc', async ({
   await waitNextFrame(page);
   await page.keyboard.press(`${SHORT_KEY}+${SHIFT_KEY}+l`);
 
-  const linkedDocCard = page.locator('polymind-embed-linked-doc-block');
+  const linkedDocCard = page.locator('affine-embed-linked-doc-block');
   await expect(linkedDocCard).toBeVisible();
 
   const title = page.locator('.affine-embed-linked-doc-content-title-text');

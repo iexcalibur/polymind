@@ -23,7 +23,7 @@ import { property, state } from 'lit/decorators.js';
 import { mountFrameTitleEditor } from './mount-frame-title-editor.js';
 import { frameTitleStyle, frameTitleStyleVars } from './styles.js';
 
-export const AFFINE_FRAME_TITLE = 'polymind-frame-title';
+export const AFFINE_FRAME_TITLE = 'affine-frame-title';
 
 @requiredProperties({
   model: PropTypes.instanceOf(FrameBlockModel),

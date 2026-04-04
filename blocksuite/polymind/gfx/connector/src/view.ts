@@ -16,7 +16,7 @@ import { connectorQuickTool } from './toolbar/quick-tool';
 import { ConnectorElementView, ConnectorInteraction } from './view/view';
 
 export class ConnectorViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-connector-gfx';
+  override name = 'affine-connector-gfx';
 
   override effect(): void {
     super.effect();

@@ -134,7 +134,7 @@ export class DetailSelection {
 
   focusFirstCell() {
     const firstField = this.viewEle.querySelector(
-      'polymind-data-view-record-field'
+      'affine-data-view-record-field'
     ) as RecordField | undefined;
     const firstId = firstField?.column.id;
     if (firstId) {

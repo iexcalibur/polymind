@@ -74,7 +74,7 @@ export class TableVerticalIndicator extends WithDisposable(ShadowlessElement) {
 }
 
 export const getTableGroupRect = (ele: HTMLElement) => {
-  const group = ele.closest('polymind-data-view-table-group');
+  const group = ele.closest('affine-data-view-table-group');
   if (!group) {
     return;
   }

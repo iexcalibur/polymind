@@ -222,6 +222,6 @@ export class DatabaseCellContainer extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-database-virtual-cell-container': DatabaseCellContainer;
+    'affine-database-virtual-cell-container': DatabaseCellContainer;
   }
 }

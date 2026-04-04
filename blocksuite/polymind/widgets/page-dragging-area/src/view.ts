@@ -7,7 +7,7 @@ import { effects } from './effects';
 import { pageDraggingAreaWidget } from './index';
 
 export class PageDraggingAreaViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-page-dragging-area-widget';
+  override name = 'affine-page-dragging-area-widget';
 
   override effect() {
     super.effect();

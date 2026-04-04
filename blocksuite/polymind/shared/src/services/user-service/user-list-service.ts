@@ -14,7 +14,7 @@ export interface UserListService {
 }
 
 export const UserListProvider = createIdentifier<UserListService>(
-  'polymind-user-list-service'
+  'affine-user-list-service'
 );
 
 export function UserListServiceExtension(

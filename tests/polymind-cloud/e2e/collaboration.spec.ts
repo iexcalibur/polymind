@@ -144,7 +144,7 @@ test('can sync svg between different browsers', async ({ page, browser }) => {
   // upload local svg
 
   const slashMenu = page.locator(`.slash-menu`);
-  const image = page.locator('polymind-image');
+  const image = page.locator('affine-image');
 
   await page.evaluate(async () => {
     // https://github.com/toeverything/blocksuite/blob/master/packages/blocks/src/_common/utils/filesys.ts#L20
@@ -169,7 +169,7 @@ test('can sync svg between different browsers', async ({ page, browser }) => {
 
   // the user should see the svg
   // get the image src under "affine-image img"
-  const src1 = await page.locator('polymind-image img').getAttribute('src');
+  const src1 = await page.locator('affine-image img').getAttribute('src');
   expect(src1).not.toBeNull();
 
   // fetch the actual src1 resource in the browser
@@ -190,7 +190,7 @@ test('can sync svg between different browsers', async ({ page, browser }) => {
 
     // second user should see the svg
     // get the image src under "affine-image img"
-    const src2 = await page2.locator('polymind-image img').getAttribute('src');
+    const src2 = await page2.locator('affine-image img').getAttribute('src');
     expect(src2).not.toBeNull();
 
     // fetch the actual src2 resource in the browser

@@ -14,7 +14,7 @@ import { property } from 'lit/decorators.js';
 import { outlineSettingsKey, type TocContext, tocContext } from './config.js';
 import * as styles from './outline-panel.css';
 
-export const AFFINE_OUTLINE_PANEL = 'polymind-outline-panel';
+export const AFFINE_OUTLINE_PANEL = 'affine-outline-panel';
 
 @requiredProperties({
   editor: PropTypes.object,
@@ -95,9 +95,9 @@ export class OutlinePanel extends SignalWatcher(
     if (!this.editor) return;
 
     return html`
-      <polymind-outline-panel-header></polymind-outline-panel-header>
-      <polymind-outline-panel-body> </polymind-outline-panel-body>
-      <polymind-outline-notice></polymind-outline-notice>
+      <affine-outline-panel-header></affine-outline-panel-header>
+      <affine-outline-panel-body> </affine-outline-panel-body>
+      <affine-outline-notice></affine-outline-notice>
     `;
   }
 

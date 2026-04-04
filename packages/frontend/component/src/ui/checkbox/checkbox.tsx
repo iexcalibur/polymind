@@ -93,7 +93,7 @@ export const Checkbox = ({
 
 export const playCheckAnimation = async (refElement: Element) => {
   const sparkingEl = document.createElement('div');
-  sparkingEl.classList.add('polymind-check-animation');
+  sparkingEl.classList.add('affine-check-animation');
   sparkingEl.style.cssText = `
     position: absolute;
     width: 1em;

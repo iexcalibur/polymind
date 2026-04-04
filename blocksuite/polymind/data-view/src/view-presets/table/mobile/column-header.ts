@@ -252,9 +252,9 @@ export class MobileTableColumnHeader extends SignalWatcher(
 
 function numberFormatConfig(column: Property): MenuConfig {
   return () =>
-    html` <polymind-database-number-format-bar
+    html` <affine-database-number-format-bar
       .column="${column}"
-    ></polymind-database-number-format-bar>`;
+    ></affine-database-number-format-bar>`;
 }
 
 declare global {

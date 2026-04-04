@@ -53,6 +53,6 @@ export class DatabaseDndPreviewBlockComponent extends BlockComponent<DatabaseBlo
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-dnd-preview-database': DatabaseDndPreviewBlockComponent;
+    'affine-dnd-preview-database': DatabaseDndPreviewBlockComponent;
   }
 }

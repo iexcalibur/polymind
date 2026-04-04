@@ -8,12 +8,12 @@ import { SelectCell } from './select/cell-renderer.js';
 import { TextCell } from './text/cell-renderer.js';
 
 export function propertyPresetsEffects() {
-  customElements.define('polymind-database-checkbox-cell', CheckboxCell);
-  customElements.define('polymind-database-date-cell', DateCell);
-  customElements.define('polymind-database-image-cell', ImageCell);
-  customElements.define('polymind-database-multi-select-cell', MultiSelectCell);
-  customElements.define('polymind-database-number-cell', NumberCell);
-  customElements.define('polymind-database-progress-cell', ProgressCell);
-  customElements.define('polymind-database-select-cell', SelectCell);
-  customElements.define('polymind-database-text-cell', TextCell);
+  customElements.define('affine-database-checkbox-cell', CheckboxCell);
+  customElements.define('affine-database-date-cell', DateCell);
+  customElements.define('affine-database-image-cell', ImageCell);
+  customElements.define('affine-database-multi-select-cell', MultiSelectCell);
+  customElements.define('affine-database-number-cell', NumberCell);
+  customElements.define('affine-database-progress-cell', ProgressCell);
+  customElements.define('affine-database-select-cell', SelectCell);
+  customElements.define('affine-database-text-cell', TextCell);
 }

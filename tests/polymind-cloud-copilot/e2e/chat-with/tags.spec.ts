@@ -45,7 +45,7 @@ test.describe('AIChatWith/tags', () => {
       const { content, message } =
         await utils.chatPanel.getLatestAssistantMessage(page);
       expect(content).toMatch(new RegExp(`Tag${randomStr}.*cat`));
-      await expect(message.locator('polymind-footnote-node')).toHaveCount(1);
+      await expect(message.locator('affine-footnote-node')).toHaveCount(1);
     }).toPass();
   });
 
@@ -87,7 +87,7 @@ test.describe('AIChatWith/tags', () => {
         await utils.chatPanel.getLatestAssistantMessage(page);
       expect(content).toMatch(new RegExp(`Tag${randomStr1}.*cat`));
       expect(content).toMatch(new RegExp(`Tag${randomStr2}.*dog`));
-      await expect(message.locator('polymind-footnote-node')).toHaveCount(2);
+      await expect(message.locator('affine-footnote-node')).toHaveCount(2);
     }).toPass();
   });
 });

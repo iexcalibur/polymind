@@ -349,12 +349,12 @@ export function createTextActions<
           }
         };
 
-        return html`<polymind-size-dropdown-menu
+        return html`<affine-size-dropdown-menu
           @select=${onPick}
           .label="${'Font size'}"
           .sizes=${FONT_SIZE_LIST}
           .size$=${fontSize$}
-        ></polymind-size-dropdown-menu>`;
+        ></affine-size-dropdown-menu>`;
       },
     },
     {

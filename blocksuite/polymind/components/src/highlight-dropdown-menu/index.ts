@@ -8,9 +8,9 @@ export * from './text-duotone-icon';
 
 export function effects() {
   customElements.define(
-    'polymind-highlight-dropdown-menu',
+    'affine-highlight-dropdown-menu',
     HighlightDropdownMenu
   );
-  customElements.define('polymind-highlight-duotone-icon', HighlightDuotoneIcon);
-  customElements.define('polymind-text-duotone-icon', TextDuotoneIcon);
+  customElements.define('affine-highlight-duotone-icon', HighlightDuotoneIcon);
+  customElements.define('affine-text-duotone-icon', TextDuotoneIcon);
 }

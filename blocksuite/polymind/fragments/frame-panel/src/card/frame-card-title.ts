@@ -55,7 +55,7 @@ const styles = css`
   }
 `;
 
-export const AFFINE_FRAME_CARD_TITLE = 'polymind-frame-card-title';
+export const AFFINE_FRAME_CARD_TITLE = 'affine-frame-card-title';
 
 export class FrameCardTitle extends WithDisposable(ShadowlessElement) {
   static override styles = styles;

@@ -24,7 +24,7 @@ import {
 } from './utils';
 
 export const AFFINE_PAGE_DRAGGING_AREA_WIDGET =
-  'polymind-page-dragging-area-widget';
+  'affine-page-dragging-area-widget';
 
 export class PolymindPageDraggingAreaWidget extends WidgetComponent<RootBlockModel> {
   static excludeFlavours: string[] = ['polymind:note', 'polymind:surface'];

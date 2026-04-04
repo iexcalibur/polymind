@@ -171,7 +171,7 @@ export class SectionEditTool extends WithDisposable(ShadowlessElement) {
                 }}
               >
                 ${CopyIcon()}
-                <polymind-tooltip>Copy</polymind-tooltip>
+                <affine-tooltip>Copy</affine-tooltip>
               </div>
               ${this.independentMode
                 ? nothing
@@ -203,7 +203,7 @@ export class SectionEditTool extends WithDisposable(ShadowlessElement) {
                     }}
                   >
                     ${InsertBleowIcon()}
-                    <polymind-tooltip>Insert below</polymind-tooltip>
+                    <affine-tooltip>Insert below</affine-tooltip>
                   </div>`}
               ${this.independentMode
                 ? nothing
@@ -215,7 +215,7 @@ export class SectionEditTool extends WithDisposable(ShadowlessElement) {
                     }}
                   >
                     ${LinkedPageIcon()}
-                    <polymind-tooltip>Create new doc</polymind-tooltip>
+                    <affine-tooltip>Create new doc</affine-tooltip>
                   </div>`}
             </div>
           </div>

@@ -102,7 +102,7 @@ export class EmbedIframeIdleCard extends WithDisposable(LitElement) {
   override render() {
     const { layout, width, height } = this.options;
     const cardClasses = classMap({
-      'polymind-embed-iframe-idle-card': true,
+      'affine-embed-iframe-idle-card': true,
       horizontal: layout === 'horizontal',
       vertical: layout === 'vertical',
     });

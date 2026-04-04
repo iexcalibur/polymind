@@ -632,7 +632,7 @@ export class StarterDebugMenu extends ShadowlessElement {
     const app = document.querySelector('#app');
     if (app) {
       const currentEditorCount = app.querySelectorAll(
-        'polymind-editor-container'
+        'affine-editor-container'
       ).length;
       if (currentEditorCount === 1) {
         // Add a second editor
@@ -646,7 +646,7 @@ export class StarterDebugMenu extends ShadowlessElement {
         (app as HTMLElement).style.display = 'flex';
       } else {
         // Remove the second editor
-        const secondEditor = app.querySelectorAll('polymind-editor-container')[1];
+        const secondEditor = app.querySelectorAll('affine-editor-container')[1];
         if (secondEditor) {
           secondEditor.remove();
         }

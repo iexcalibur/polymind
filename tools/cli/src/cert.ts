@@ -6,8 +6,8 @@ const CERT_DIR = ProjectRoot.join('.docker/dev/certs');
 const CA_DIR = CERT_DIR.join('ca');
 const TEMPLATES_DIR = ProjectRoot.join('.docker/dev/templates');
 const NGINX_CONF_DIR = ProjectRoot.join('.docker/dev/nginx/conf.d');
-const CA_PEM_PATH = CA_DIR.join('polymind-self-signed.pem');
-const CA_KEY_PATH = CA_DIR.join('polymind-self-signed.key');
+const CA_PEM_PATH = CA_DIR.join('affine-self-signed.pem');
+const CA_KEY_PATH = CA_DIR.join('affine-self-signed.key');
 
 const CA_ORG = 'PolyMind Dev CA Self Signed Org';
 const CA_NAME = 'PolyMind Dev CA Self Signed CN';

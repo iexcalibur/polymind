@@ -11,18 +11,18 @@ export function effects() {
 }
 
 function registerRootComponents() {
-  customElements.define('polymind-page-root', PageRootBlockComponent);
-  customElements.define('polymind-preview-root', PreviewRootBlockComponent);
-  customElements.define('polymind-edgeless-root', EdgelessRootBlockComponent);
+  customElements.define('affine-page-root', PageRootBlockComponent);
+  customElements.define('affine-preview-root', PreviewRootBlockComponent);
+  customElements.define('affine-edgeless-root', EdgelessRootBlockComponent);
   customElements.define(
-    'polymind-edgeless-root-preview',
+    'affine-edgeless-root-preview',
     EdgelessRootPreviewBlockComponent
   );
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-edgeless-root': EdgelessRootBlockComponent;
-    'polymind-page-root': PageRootBlockComponent;
+    'affine-edgeless-root': EdgelessRootBlockComponent;
+    'affine-page-root': PageRootBlockComponent;
   }
 }

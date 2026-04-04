@@ -53,7 +53,7 @@ test.describe('AIChatWith/Collections', () => {
       const { content, message } =
         await utils.chatPanel.getLatestAssistantMessage(page);
       expect(content).toMatch(new RegExp(`Collection${randomStr}.*dog`));
-      expect(await message.locator('polymind-footnote-node').count()).toBe(1);
+      expect(await message.locator('affine-footnote-node').count()).toBe(1);
     }).toPass();
   });
 
@@ -100,7 +100,7 @@ test.describe('AIChatWith/Collections', () => {
         await utils.chatPanel.getLatestAssistantMessage(page);
       expect(content).toMatch(new RegExp(`Collection${randomStr1}.*cat`));
       expect(content).toMatch(new RegExp(`Collection${randomStr2}.*dog`));
-      expect(await message.locator('polymind-footnote-node').count()).toBe(2);
+      expect(await message.locator('affine-footnote-node').count()).toBe(2);
     }).toPass();
   });
 });

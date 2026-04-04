@@ -29,11 +29,11 @@ export function getRootByElement(
 export function getPageRootByElement(
   element: Element
 ): BlockComponent<RootBlockModel> | null {
-  return element.closest('polymind-page-root');
+  return element.closest('affine-page-root');
 }
 
 export function getEdgelessRootByElement(
   element: Element
 ): BlockComponent<RootBlockModel> | null {
-  return element.closest('polymind-edgeless-root');
+  return element.closest('affine-edgeless-root');
 }

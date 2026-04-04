@@ -53,13 +53,13 @@ export class HighlightDropdownMenu extends LitElement {
         .contentPadding="${'8px'}"
         .button=${html`
           <editor-icon-button aria-label="highlight" .tooltip="${'Highlight'}">
-            <polymind-highlight-duotone-icon
+            <affine-highlight-duotone-icon
               style=${styleMap({
                 '--color':
                   // latestHighlightColor ?? 'var(--affine-text-primary-color)',
                   'var(--affine-text-primary-color)',
               })}
-            ></polymind-highlight-duotone-icon>
+            ></affine-highlight-duotone-icon>
             ${EditorChevronDown}
           </editor-icon-button>
         `}
@@ -76,11 +76,11 @@ export class HighlightDropdownMenu extends LitElement {
                 data-testid="foreground-${color}"
                 @click=${() => this._update({ color: value })}
               >
-                <polymind-text-duotone-icon
+                <affine-text-duotone-icon
                   style=${styleMap({
                     '--color': value ?? 'var(--affine-text-primary-color)',
                   })}
-                ></polymind-text-duotone-icon>
+                ></affine-text-duotone-icon>
                 <span class="label capitalize"
                   >${isDefault ? `${color} color` : color}</span
                 >
@@ -97,12 +97,12 @@ export class HighlightDropdownMenu extends LitElement {
                 data-testid="background-${color}"
                 @click=${() => this._update({ background: value })}
               >
-                <polymind-text-duotone-icon
+                <affine-text-duotone-icon
                   style=${styleMap({
                     '--color': 'var(--affine-text-primary-color)',
                     '--background': value ?? 'transparent',
                   })}
-                ></polymind-text-duotone-icon>
+                ></affine-text-duotone-icon>
 
                 <span class="label capitalize"
                   >${isDefault ? `${color} background` : color}</span
@@ -118,6 +118,6 @@ export class HighlightDropdownMenu extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-highlight-dropdown-menu': HighlightDropdownMenu;
+    'affine-highlight-dropdown-menu': HighlightDropdownMenu;
   }
 }

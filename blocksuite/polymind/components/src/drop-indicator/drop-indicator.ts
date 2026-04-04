@@ -46,6 +46,6 @@ export class DropIndicator extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-drop-indicator': DropIndicator;
+    'affine-drop-indicator': DropIndicator;
   }
 }

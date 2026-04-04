@@ -71,10 +71,10 @@ export class MultiSelectCell extends BaseCellRenderer<
         class="${multiSelectStyle}"
         @pointerdown="${this.isEditing$.value ? stopPropagation : undefined}"
       >
-        <polymind-multi-tag-view
+        <affine-multi-tag-view
           .value="${this._value$.value}"
           .options="${this.options$.value}"
-        ></polymind-multi-tag-view>
+        ></affine-multi-tag-view>
       </div>
     `;
   }

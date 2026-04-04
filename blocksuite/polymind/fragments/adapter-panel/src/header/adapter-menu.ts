@@ -11,7 +11,7 @@ import {
   ADAPTERS,
 } from '../config';
 
-export const AFFINE_ADAPTER_MENU = 'polymind-adapter-menu';
+export const AFFINE_ADAPTER_MENU = 'affine-adapter-menu';
 
 export class AdapterMenu extends SignalWatcher(LitElement) {
   static override styles = css`

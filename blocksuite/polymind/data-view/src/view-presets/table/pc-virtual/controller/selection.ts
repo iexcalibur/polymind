@@ -260,7 +260,7 @@ export class TableSelectionController implements ReactiveController {
       const focusCellContainer = this.getFocusCellContainer();
       cell = focusCellContainer ?? null;
     } else {
-      cell = target.closest('polymind-database-virtual-cell-container');
+      cell = target.closest('affine-database-virtual-cell-container');
     }
     return [cell, fillValues];
   }
@@ -464,7 +464,7 @@ export class TableSelectionController implements ReactiveController {
 
   getCellElement(cell: TableGridCell): DatabaseCellContainer | undefined {
     return (
-      cell.element.querySelector('polymind-database-virtual-cell-container') ??
+      cell.element.querySelector('affine-database-virtual-cell-container') ??
       undefined
     );
   }

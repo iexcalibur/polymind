@@ -13,7 +13,7 @@ test.describe('AIBasic/Guidance', () => {
   }) => {
     await utils.editor.focusToEditor(page);
     await page.keyboard.press('Space');
-    await expect(page.locator('polymind-ai-panel-widget')).toBeVisible();
+    await expect(page.locator('affine-ai-panel-widget')).toBeVisible();
   });
 
   test('should not show AI panel when space is pressed on non-empty paragraph', async ({
@@ -23,7 +23,7 @@ test.describe('AIBasic/Guidance', () => {
     await utils.editor.focusToEditor(page);
     await page.keyboard.insertText('HelloWorld');
     await page.keyboard.press('Space');
-    await expect(page.locator('polymind-ai-panel-widget')).not.toBeVisible();
+    await expect(page.locator('affine-ai-panel-widget')).not.toBeVisible();
   });
 
   test('should not show AI panel when space is pressed on non-paragraph block', async ({
@@ -33,7 +33,7 @@ test.describe('AIBasic/Guidance', () => {
     await utils.editor.focusToEditor(page);
     await page.keyboard.insertText('```js');
     await page.keyboard.press('Enter');
-    await expect(page.locator('polymind-ai-panel-widget')).not.toBeVisible();
+    await expect(page.locator('affine-ai-panel-widget')).not.toBeVisible();
   });
 
   test('should hide AI panel and insert space back to editor when space is pressed on empty input', async ({
@@ -42,10 +42,10 @@ test.describe('AIBasic/Guidance', () => {
   }) => {
     await utils.editor.focusToEditor(page);
     await page.keyboard.press('Space');
-    await expect(page.locator('polymind-ai-panel-widget')).toBeVisible();
+    await expect(page.locator('affine-ai-panel-widget')).toBeVisible();
 
     await page.keyboard.press('Space');
-    await expect(page.locator('polymind-ai-panel-widget')).not.toBeVisible();
+    await expect(page.locator('affine-ai-panel-widget')).not.toBeVisible();
     await expect(async () => {
       const content = await utils.editor.getEditorContent(page, false);
       expect(content).toBe(' ');
@@ -58,7 +58,7 @@ test.describe('AIBasic/Guidance', () => {
   }) => {
     await utils.editor.focusToEditor(page);
     await page.keyboard.press('Space');
-    await expect(page.locator('polymind-ai-panel-widget')).toBeVisible();
+    await expect(page.locator('affine-ai-panel-widget')).toBeVisible();
 
     await page.keyboard.insertText('Hello');
     await page.keyboard.press('Space');

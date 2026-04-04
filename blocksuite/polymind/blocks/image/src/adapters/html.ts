@@ -59,7 +59,7 @@ export const imageBlockHtmlAdapterMatcher: BlockHtmlAdapterMatcher = {
             type: 'element',
             tagName: 'figure',
             properties: {
-              className: ['polymind-image-block-container'],
+              className: ['affine-image-block-container'],
             },
             children: [],
           },

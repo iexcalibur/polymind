@@ -121,10 +121,10 @@ export class EdgelessNoteMenu extends EdgelessToolbarToolMixin(LitElement) {
 
             <edgeless-tool-icon-button
               .activeMode=${'background'}
-              .tooltip=${html`<polymind-tooltip-content-with-shortcut
+              .tooltip=${html`<affine-tooltip-content-with-shortcut
                 data-tip="${'Link'}"
                 data-shortcut="${'@'}"
-              ></polymind-tooltip-content-with-shortcut>`}
+              ></affine-tooltip-content-with-shortcut>`}
               @click=${() => {
                 this._onHandleLinkButtonClick();
               }}

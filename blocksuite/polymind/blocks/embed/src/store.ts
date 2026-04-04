@@ -22,7 +22,7 @@ import { EmbedLoomBlockAdapterExtensions } from './embed-loom-block/adapters/ext
 import { EmbedYoutubeBlockAdapterExtensions } from './embed-youtube-block/adapters/extension';
 
 export class EmbedStoreExtension extends StoreExtensionProvider {
-  override name = 'polymind-embed-block';
+  override name = 'affine-embed-block';
 
   override setup(context: StoreExtensionContext) {
     super.setup(context);

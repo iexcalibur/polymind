@@ -45,12 +45,12 @@ export const ReferenceInlineSpecExtension =
         return !!delta.attributes?.reference;
       },
       renderer: ({ delta, selected }) => {
-        return html`<polymind-reference
+        return html`<affine-reference
           .std=${std}
           .delta=${delta}
           .selected=${selected}
           .config=${configProvider}
-        ></polymind-reference>`;
+        ></affine-reference>`;
       },
       embed: true,
     };

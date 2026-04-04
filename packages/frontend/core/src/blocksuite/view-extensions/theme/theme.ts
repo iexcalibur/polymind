@@ -22,7 +22,7 @@ export function getThemeExtension(
     extends LifeCycleWatcher
     implements ThemeExtension
   {
-    static override readonly key = 'polymind-theme';
+    static override readonly key = 'affine-theme';
 
     private readonly themes: Map<string, Signal<ColorScheme>> = new Map();
 

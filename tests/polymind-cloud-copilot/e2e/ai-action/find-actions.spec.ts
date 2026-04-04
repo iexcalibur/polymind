@@ -19,7 +19,7 @@ Enter Travel Details
 Compare and Select Flights`
     );
     const { answer, responses } = await findActions();
-    const todos = await answer.locator('polymind-list').all();
+    const todos = await answer.locator('affine-list').all();
 
     const expectedTexts = [
       /Choose a Booking Platform/i,
@@ -53,7 +53,7 @@ Compare and Select Flights`
     );
 
     const { answer, responses } = await findActions();
-    const todos = await answer.locator('polymind-list').all();
+    const todos = await answer.locator('affine-list').all();
     const expectedTexts = [
       /Choose a Booking Platform/i,
       /Enter Travel Details/i,
@@ -85,7 +85,7 @@ Compare and Select Flights`
     );
 
     const { answer, responses } = await findActions();
-    const todos = await answer.locator('polymind-list').all();
+    const todos = await answer.locator('affine-list').all();
     const expectedTexts = [
       /Choose a Booking Platform/i,
       /Enter Travel Details/i,
@@ -125,7 +125,7 @@ Compare and Select Flights`
       prompt,
       actionName,
     } = await utils.chatPanel.getLatestAIActionMessage(page);
-    const todos = await panelAnswer.locator('polymind-list').all();
+    const todos = await panelAnswer.locator('affine-list').all();
 
     const expectedTexts = [
       /Choose a Booking Platform/i,

@@ -36,7 +36,7 @@ const optionsSchema = z.object({
 type AIViewOptions = z.infer<typeof optionsSchema>;
 
 export class AIViewExtension extends ViewExtensionProvider<AIViewOptions> {
-  override name = 'polymind-ai-view-extension';
+  override name = 'affine-ai-view-extension';
 
   override schema = optionsSchema;
 

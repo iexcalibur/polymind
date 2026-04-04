@@ -381,10 +381,10 @@ describe('kanban', () => {
     it('forwards hovered card to drop preview for precise insertion cursor', () => {
       const controller = createDragController();
       const hoveredCard = document.createElement(
-        'polymind-data-view-kanban-card'
+        'affine-data-view-kanban-card'
       ) as KanbanCard;
       const positionCard = document.createElement(
-        'polymind-data-view-kanban-card'
+        'affine-data-view-kanban-card'
       ) as KanbanCard;
       const position = {
         group: {} as KanbanGroup,

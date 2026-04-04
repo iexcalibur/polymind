@@ -80,7 +80,7 @@ declare global {
 }
 
 export const getTableGroupRect = (ele: HTMLElement) => {
-  const group = ele.closest('polymind-data-view-virtual-table-group');
+  const group = ele.closest('affine-data-view-virtual-table-group');
   if (!group) {
     return;
   }

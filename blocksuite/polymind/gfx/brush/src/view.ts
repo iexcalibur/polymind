@@ -20,7 +20,7 @@ import {
 import { penSeniorTool } from './toolbar/senior-tool';
 
 export class BrushViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-brush-gfx';
+  override name = 'affine-brush-gfx';
 
   override effect(): void {
     super.effect();

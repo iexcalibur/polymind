@@ -15,7 +15,7 @@ import { ExportManagerExtension } from './extensions/export-manager/export-manag
 import { DefaultTool } from './tool/default-tool';
 
 export class SurfaceViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-surface-block';
+  override name = 'affine-surface-block';
 
   override effect() {
     super.effect();

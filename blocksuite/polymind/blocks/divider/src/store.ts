@@ -7,7 +7,7 @@ import { DividerBlockSchemaExtension } from '@blocksuite/polymind-model';
 import { DividerBlockAdapterExtensions } from './adapters/extension';
 
 export class DividerStoreExtension extends StoreExtensionProvider {
-  override name = 'polymind-divider-block';
+  override name = 'affine-divider-block';
 
   override setup(context: StoreExtensionContext) {
     super.setup(context);

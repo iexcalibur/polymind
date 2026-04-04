@@ -31,7 +31,7 @@ test.describe('Replaces attachment', () => {
 
     await importAttachment(page, 'lorem-ipsum.pdf');
 
-    const attachment = page.locator('polymind-attachment').first();
+    const attachment = page.locator('affine-attachment').first();
     await attachment.click();
 
     const name = attachment.locator('.affine-attachment-content-title-text');
@@ -65,7 +65,7 @@ test.describe('Replaces attachment', () => {
       await clickView(page, [100, 250]);
     });
 
-    const attachment = page.locator('polymind-edgeless-attachment').first();
+    const attachment = page.locator('affine-edgeless-attachment').first();
     await attachment.click();
 
     const name = attachment.locator('.affine-attachment-content-title-text');
@@ -93,7 +93,7 @@ test.describe('Replaces attachment', () => {
 
     await importAttachment(page, 'lorem-ipsum.pdf');
 
-    const attachment = page.locator('polymind-attachment').first();
+    const attachment = page.locator('affine-attachment').first();
     await attachment.click();
 
     const toolbar = locateToolbar(page);

@@ -77,12 +77,12 @@ const backgroundColorAction = {
                 data-testid="background-${color}"
                 @click=${() => updateBackground(isDefault ? 'grey' : color)}
               >
-                <polymind-text-duotone-icon
+                <affine-text-duotone-icon
                   style=${styleMap({
                     '--color': 'var(--affine-text-primary-color)',
                     '--background': value ?? 'transparent',
                   })}
-                ></polymind-text-duotone-icon>
+                ></affine-text-duotone-icon>
                 <span class="label capitalize">${displayName}</span>
               </editor-menu-action>
             `;

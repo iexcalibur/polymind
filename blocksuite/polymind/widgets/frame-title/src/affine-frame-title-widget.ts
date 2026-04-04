@@ -3,14 +3,14 @@ import { WidgetComponent, WidgetViewExtension } from '@blocksuite/std';
 import { html } from 'lit';
 import { literal, unsafeStatic } from 'lit/static-html.js';
 
-export const AFFINE_FRAME_TITLE_WIDGET = 'polymind-frame-title-widget';
+export const AFFINE_FRAME_TITLE_WIDGET = 'affine-frame-title-widget';
 
 export class PolymindFrameTitleWidget extends WidgetComponent<FrameBlockModel> {
   override render() {
-    return html`<polymind-frame-title
+    return html`<affine-frame-title
       .model=${this.model}
       data-id=${this.model.id}
-    ></polymind-frame-title>`;
+    ></affine-frame-title>`;
   }
 }
 

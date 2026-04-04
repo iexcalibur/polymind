@@ -4,7 +4,7 @@ export * from './dropdown-menu';
 
 export function effects() {
   customElements.define(
-    'polymind-card-style-dropdown-menu',
+    'affine-card-style-dropdown-menu',
     CardStyleDropdownMenu
   );
 }

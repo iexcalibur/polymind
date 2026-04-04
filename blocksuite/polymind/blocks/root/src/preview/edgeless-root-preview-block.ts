@@ -257,6 +257,6 @@ export class EdgelessRootPreviewBlockComponent extends BlockComponent<RootBlockM
   @query('gfx-viewport')
   accessor gfxViewportElm!: GfxViewportElement;
 
-  @query('polymind-surface')
+  @query('affine-surface')
   accessor surface!: SurfaceBlockComponent;
 }

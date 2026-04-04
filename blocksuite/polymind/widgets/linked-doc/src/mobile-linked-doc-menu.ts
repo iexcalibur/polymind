@@ -21,7 +21,7 @@ import type {
 import { mobileLinkedDocMenuStyles } from './styles.js';
 import { resolveSignal } from './utils.js';
 
-export const AFFINE_MOBILE_LINKED_DOC_MENU = 'polymind-mobile-linked-doc-menu';
+export const AFFINE_MOBILE_LINKED_DOC_MENU = 'affine-mobile-linked-doc-menu';
 
 @requiredProperties({
   context: PropTypes.object,

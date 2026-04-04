@@ -27,10 +27,10 @@ export class EdgelessFrameToolButton extends QuickToolMixin(LitElement) {
         class="edgeless-frame-button"
         .tooltip=${this.popper
           ? ''
-          : html`<polymind-tooltip-content-with-shortcut
+          : html`<affine-tooltip-content-with-shortcut
               data-tip="${'Frame'}"
               data-shortcut="${'F'}"
-            ></polymind-tooltip-content-with-shortcut>`}
+            ></affine-tooltip-content-with-shortcut>`}
         .tooltipOffset=${17}
         .iconSize=${'24px'}
         .active=${type === 'frame'}

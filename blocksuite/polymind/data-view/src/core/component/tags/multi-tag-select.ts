@@ -475,7 +475,7 @@ export class MultiTagSelect extends SignalWatcher(
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-multi-tag-select': MultiTagSelect;
+    'affine-multi-tag-select': MultiTagSelect;
   }
 }
 

@@ -9,7 +9,7 @@ import { ImageEdgelessBlockInteraction } from './image-edgeless-block';
 import { ImageBlockSpec } from './image-spec';
 
 export class ImageViewExtension extends ViewExtensionProvider {
-  override name = 'polymind-image-block';
+  override name = 'affine-image-block';
 
   override effect() {
     super.effect();

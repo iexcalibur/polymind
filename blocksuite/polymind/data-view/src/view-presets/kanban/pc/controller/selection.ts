@@ -23,9 +23,9 @@ export class KanbanSelectionController implements ReactiveController {
     const selection = this.selection;
     const target = event.target as HTMLElement;
     const closestCardId = target.closest(
-      'polymind-data-view-kanban-card'
+      'affine-data-view-kanban-card'
     )?.cardId;
-    const closestGroupKey = target.closest('polymind-data-view-kanban-group')
+    const closestGroupKey = target.closest('affine-data-view-kanban-group')
       ?.group.key;
     if (!closestCardId) return;
     if (!closestGroupKey) return;
@@ -200,7 +200,7 @@ export class KanbanSelectionController implements ReactiveController {
     }
     if (selection.selectionType === 'card') {
       const card = getSelectedCards(this.host, selection)[0];
-      const cell = card?.querySelector('polymind-data-view-kanban-cell');
+      const cell = card?.querySelector('affine-data-view-kanban-cell');
       if (card && cell) {
         this.selection = {
           groupKey: card.groupKey,
@@ -248,7 +248,7 @@ export class KanbanSelectionController implements ReactiveController {
         `affine-data-view-kanban-group[data-key="${selection.cards[0].groupKey}"]`
       );
       const cardElements = Array.from(
-        group?.querySelectorAll('polymind-data-view-kanban-card') ?? []
+        group?.querySelectorAll('affine-data-view-kanban-card') ?? []
       );
 
       const index = cardElements.findIndex(
@@ -322,7 +322,7 @@ export class KanbanSelectionController implements ReactiveController {
       `affine-data-view-kanban-group[data-key="${selection.cards[0].groupKey}"]`
     );
     const kanbanCards = Array.from(
-      group?.querySelectorAll('polymind-data-view-kanban-card') ?? []
+      group?.querySelectorAll('affine-data-view-kanban-card') ?? []
     );
 
     if (nextPosition === 'up') {
@@ -358,7 +358,7 @@ export class KanbanSelectionController implements ReactiveController {
     }
 
     const groups = Array.from(
-      this.host?.querySelectorAll('polymind-data-view-kanban-group') ?? []
+      this.host?.querySelectorAll('affine-data-view-kanban-group') ?? []
     );
 
     if (nextPosition === 'right') {
@@ -404,7 +404,7 @@ export class KanbanSelectionController implements ReactiveController {
       `affine-data-view-kanban-group[data-key="${selection.groupKey}"]`
     );
     const cards = Array.from(
-      group?.querySelectorAll('polymind-data-view-kanban-card') ?? []
+      group?.querySelectorAll('affine-data-view-kanban-card') ?? []
     );
 
     if (nextPosition === 'up') {
@@ -456,7 +456,7 @@ export class KanbanSelectionController implements ReactiveController {
     }
 
     const groups = Array.from(
-      this.host?.querySelectorAll('polymind-data-view-kanban-group') ?? []
+      this.host?.querySelectorAll('affine-data-view-kanban-group') ?? []
     );
 
     if (nextPosition === 'right') {
@@ -644,7 +644,7 @@ function getNextGroupFocusElement(
   if (!element) return;
   const rect = element.getBoundingClientRect();
   const nextCards = Array.from(
-    nextGroup.querySelectorAll('polymind-data-view-kanban-card')
+    nextGroup.querySelectorAll('affine-data-view-kanban-card')
   );
   const cardPos = nextCards
     .map((card, index) => {
@@ -676,7 +676,7 @@ function getNextGroupFocusElement(
   }
 
   const cells = Array.from(
-    nextCard.querySelectorAll('polymind-data-view-kanban-cell')
+    nextCard.querySelectorAll('affine-data-view-kanban-cell')
   );
   const cellPos = cells
     .map((card, index) => {
@@ -718,7 +718,7 @@ function getNextCardFocusCell(
   const nextCard = cards[nextCardIndex];
   if (!nextCard) return;
   const nextCells = Array.from(
-    nextCard.querySelectorAll('polymind-data-view-kanban-cell')
+    nextCard.querySelectorAll('affine-data-view-kanban-cell')
   );
   const nextCellIndex = nextPosition === 'up' ? nextCells.length - 1 : 0;
   if (!nextCells[nextCellIndex]) return;
@@ -734,7 +734,7 @@ function getCardCellsBySelection(
 ) {
   const card = getSelectedCard(viewElement, selection);
   return Array.from(
-    card?.querySelectorAll('polymind-data-view-kanban-cell') ?? []
+    card?.querySelectorAll('affine-data-view-kanban-cell') ?? []
   );
 }
 

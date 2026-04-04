@@ -17,7 +17,7 @@ import type {
 } from './config.js';
 import { keyboardToolPanelStyles } from './styles.js';
 
-export const AFFINE_KEYBOARD_TOOL_PANEL = 'polymind-keyboard-tool-panel';
+export const AFFINE_KEYBOARD_TOOL_PANEL = 'affine-keyboard-tool-panel';
 
 @requiredProperties({
   context: PropTypes.object,

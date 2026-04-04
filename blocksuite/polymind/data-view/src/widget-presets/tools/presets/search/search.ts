@@ -138,7 +138,7 @@ export class DataViewHeaderToolsSearch extends WidgetBase<
 
   override render() {
     const searchToolClassMap = classMap({
-      'polymind-database-search-container': true,
+      'affine-database-search-container': true,
       'search-container-expand': this.showSearch,
       active: this.showSearch,
     });
@@ -156,7 +156,7 @@ export class DataViewHeaderToolsSearch extends WidgetBase<
         />
         <div class="close-icon" @mousedown="${this._clearSearch}">
           ${CloseIcon()}
-          <polymind-tooltip>
+          <affine-tooltip>
             <span
               style=${styleMap({
                 display: 'flex',
@@ -169,7 +169,7 @@ export class DataViewHeaderToolsSearch extends WidgetBase<
               >Esc</span
             >
             to clear all
-          </polymind-tooltip>
+          </affine-tooltip>
         </div>
       </label>
     `;

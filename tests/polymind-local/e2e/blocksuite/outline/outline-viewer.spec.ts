@@ -25,7 +25,7 @@ import {
 } from './utils';
 
 function getIndicators(container: Page | Locator) {
-  return container.locator('polymind-outline-viewer .outline-viewer-indicator');
+  return container.locator('affine-outline-viewer .outline-viewer-indicator');
 }
 
 test.beforeEach(async ({ page }) => {
@@ -122,7 +122,7 @@ test('should highlight indicator when scrolling', async ({ page }) => {
 test('should highlight indicator when click item in outline panel', async ({
   page,
 }) => {
-  const viewer = page.locator('polymind-outline-viewer');
+  const viewer = page.locator('affine-outline-viewer');
   const indicators = getIndicators(page);
   const headings = await createHeadings(page, 10);
 
@@ -170,7 +170,7 @@ test('should hide edgeless-only note headings', async ({ page }) => {
   await expect(indicators).toHaveCount(3);
   await indicators.first().hover({ force: true });
 
-  const viewer = page.locator('polymind-outline-viewer');
+  const viewer = page.locator('affine-outline-viewer');
   await expect(viewer).toBeVisible();
   const h1InPanel = viewer
     .getByTestId('outline-block-preview-h1')
@@ -189,7 +189,7 @@ test('outline viewer should update after change heading in edgeless mode', async
   await type(page, 'Heading 1');
 
   await clickEdgelessModeButton(page);
-  const note = page.locator('polymind-edgeless-note');
+  const note = page.locator('affine-edgeless-note');
   await note.dblclick();
   await type(page, '# New Heading');
   await clickPageModeButton(page);
@@ -204,9 +204,9 @@ test('outline viewer should be useable in doc peek preview', async ({
   await pressEnter(page);
   await createLinkedPage(page, 'Test Page');
 
-  await page.locator('polymind-reference').hover();
+  await page.locator('affine-reference').hover();
 
-  const toolbar = page.locator('polymind-toolbar-widget editor-toolbar');
+  const toolbar = page.locator('affine-toolbar-widget editor-toolbar');
   await expect(toolbar).toBeVisible();
 
   await toolbar.getByLabel(/^Open doc with$/).click();
@@ -230,7 +230,7 @@ test('outline viewer should be useable in doc peek preview', async ({
 
   await type(page, '## Heading 2');
 
-  const outlineViewer = peekView.locator('polymind-outline-viewer');
+  const outlineViewer = peekView.locator('affine-outline-viewer');
   const outlineViewerBound = await outlineViewer.boundingBox();
   expect(outlineViewerBound).not.toBeNull();
 
@@ -241,13 +241,13 @@ test('outline viewer should be useable in doc peek preview', async ({
   await expect(indicators.nth(2)).toBeVisible();
 
   await indicators.first().hover({ force: true });
-  const viewer = peekView.locator('polymind-outline-viewer');
+  const viewer = peekView.locator('affine-outline-viewer');
   await expect(viewer).toBeVisible();
 
   // position of outline viewer should be fixed
   {
     const headingButtons = peekView.locator(
-      'polymind-outline-viewer .outline-viewer-item:not(.outline-viewer-header)'
+      'affine-outline-viewer .outline-viewer-item:not(.outline-viewer-header)'
     );
     await expect(headingButtons).toHaveCount(3);
     await expect(headingButtons.nth(0)).toBeVisible();
@@ -274,6 +274,6 @@ test('outline viewer should be useable in doc peek preview', async ({
     await page.waitForTimeout(500);
     await expect(peekView).toBeHidden();
     await expect(viewer).toBeHidden();
-    await expect(page.locator('polymind-outline-panel')).toBeVisible();
+    await expect(page.locator('affine-outline-panel')).toBeVisible();
   }
 });

@@ -140,12 +140,12 @@ export const attachmentViewDropdownMenu = {
       });
     };
 
-    return html`<polymind-view-dropdown-menu
+    return html`<affine-view-dropdown-menu
       @toggle=${onToggle}
       .actions=${actions.value}
       .context=${ctx}
       .viewType$=${viewType$}
-    ></polymind-view-dropdown-menu>`;
+    ></affine-view-dropdown-menu>`;
   },
 } as const satisfies ToolbarActionGroup<ToolbarAction>;
 
@@ -362,12 +362,12 @@ const builtinSurfaceToolbarConfig = {
 
         return html`${keyed(
           model,
-          html`<polymind-card-style-dropdown-menu
+          html`<affine-card-style-dropdown-menu
             @toggle=${onToggle}
             .actions=${actions}
             .context=${ctx}
             .style$=${style$}
-          ></polymind-card-style-dropdown-menu>`
+          ></affine-card-style-dropdown-menu>`
         )}`;
       },
     } satisfies ToolbarActionGroup<ToolbarAction>,

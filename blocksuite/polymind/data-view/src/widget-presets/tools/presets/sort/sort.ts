@@ -73,7 +73,7 @@ export class DataViewHeaderToolsSort extends WidgetBase {
           this.toggleShowQuickSettingBar(true);
           requestAnimationFrame(() => {
             const ele = this.closest(
-              'polymind-data-view-renderer'
+              'affine-data-view-renderer'
             )?.querySelector('.data-view-sort-button');
             if (ele) {
               popSortRoot(popupTargetFromElement(ele as HTMLElement), {

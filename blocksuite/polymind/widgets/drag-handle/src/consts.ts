@@ -1,1 +1,1 @@
-export const AFFINE_DRAG_HANDLE_WIDGET = 'polymind-drag-handle-widget';
+export const AFFINE_DRAG_HANDLE_WIDGET = 'affine-drag-handle-widget';

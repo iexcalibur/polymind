@@ -344,7 +344,7 @@ export class EdgelessTextBlockComponent extends GfxBlockComponent<EdgelessTextBl
 
   tryFocusEnd() {
     const paragraphOrLists = Array.from(
-      this.querySelectorAll<BlockComponent>('polymind-paragraph, affine-list')
+      this.querySelectorAll<BlockComponent>('affine-paragraph, affine-list')
     );
     const last = paragraphOrLists.at(-1);
     if (last) {
@@ -373,7 +373,7 @@ export class EdgelessTextBlockComponent extends GfxBlockComponent<EdgelessTextBl
 
 declare global {
   interface HTMLElementTagNameMap {
-    'polymind-edgeless-text': EdgelessTextBlockComponent;
+    'affine-edgeless-text': EdgelessTextBlockComponent;
   }
 }
 

@@ -8,7 +8,7 @@ import { DatabaseBlockAdapterExtensions } from './adapters/extension';
 import { DatabaseSelectionExtension } from './selection';
 
 export class DatabaseStoreExtension extends StoreExtensionProvider {
-  override name = 'polymind-database-block';
+  override name = 'affine-database-block';
 
   override setup(context: StoreExtensionContext) {
     super.setup(context);
