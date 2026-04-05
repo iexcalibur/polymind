@@ -420,13 +420,13 @@ export class DocEditTool extends WithDisposable(ShadowlessElement) {
                   <div class="doc-edit-tool-result-card-header-operations">
                     <button @click=${() => this._toggleCollapse()}>
                       ${this.isCollapsed ? ExpandFullIcon() : ExpandCloseIcon()}
-                      <affine-tooltip>
+                      <polymind-tooltip>
                         ${this.isCollapsed ? 'Expand' : 'Collapse'}
-                      </affine-tooltip>
+                      </polymind-tooltip>
                     </button>
                     <button @click=${() => this._handleCopy(changedContent)}>
                       ${CopyIcon()}
-                      <affine-tooltip>Copy</affine-tooltip>
+                      <polymind-tooltip>Copy</polymind-tooltip>
                     </button>
                     <button
                       @click=${() => this._handleApply(op, updates)}

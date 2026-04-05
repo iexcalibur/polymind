@@ -720,13 +720,13 @@ function renderOpenDocMenu(
   return html`${keyed(
     target,
     html`
-      <affine-open-doc-dropdown-menu
+      <polymind-open-doc-dropdown-menu
         .actions=${actions}
         .context=${ctx}
         .openDocMode$=${openDocMode}
         .updateOpenDocMode=${updateOpenDocMode}
       >
-      </affine-open-doc-dropdown-menu>
+      </polymind-open-doc-dropdown-menu>
     `
   )}`;
 }

@@ -317,10 +317,11 @@ export class DocFrontend {
 
       if (docRecord && !isEmptyUpdate(docRecord.bin)) {
         this.applyUpdate(job.docId, docRecord.bin);
-
-        this.status.readyDocs.add(job.docId);
       }
 
+      // Mark doc as ready after load attempt, even if storage was empty.
+      // Empty docs (newly created) are still valid and should be rendered.
+      this.status.readyDocs.add(job.docId);
       this.status.connectedDocs.add(job.docId);
       this.statusUpdatedSubject$.next(job.docId);
     },

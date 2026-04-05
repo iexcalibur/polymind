@@ -326,7 +326,7 @@ export class PlaygroundChat extends SignalWatcher(
         </div>
         <div class="chat-panel-add" @click=${this.addChat}>
           ${NewPageIcon()}
-          <affine-tooltip>Add chat</affine-tooltip>
+          <polymind-tooltip>Add chat</polymind-tooltip>
         </div>
         <ai-history-clear
           .doc=${this.doc}

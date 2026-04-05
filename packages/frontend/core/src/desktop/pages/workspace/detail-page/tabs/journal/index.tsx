@@ -140,7 +140,7 @@ export const EditorJournalPanel = () => {
   }, [calendarCursorMonthKey]);
   const docRecords = useLiveData(useService(DocsService).list.docs$);
   const allJournalDates = useLiveData(journalService.allJournalDates$);
-  const eventDates: string[] = [];
+  const eventDates = new Set<string>();
   const workspaceCalendars: unknown[] = [];
   const workspaceCalendarId = workspaceCalendars[0]?.id;
 

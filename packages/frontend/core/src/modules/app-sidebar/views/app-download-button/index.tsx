@@ -18,10 +18,8 @@ export function AppDownloadButton({
     setShow(false);
   }, []);
 
-  // TODO(@JimmFly): unify this type of literal value.
   const handleClick = useCallback(() => {
-    const url = `https://polymind.pro/download?channel=stable`;
-    open(url, '_blank');
+    // no-op: download not available in self-hosted mode
   }, []);
 
   if (!show) {

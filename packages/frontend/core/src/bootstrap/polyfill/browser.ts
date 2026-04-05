@@ -1,10 +1,13 @@
 // Patch customElements.define to prevent duplicate registration errors from third-party libraries
-const originalDefine = customElements.define.bind(customElements);
-customElements.define = (name: string, constructor: CustomElementConstructor, options?: ElementDefinitionOptions) => {
-  if (!customElements.get(name)) {
-    originalDefine(name, constructor, options);
-  }
-};
+// Guard check: customElements is not available in Worker/SharedWorker contexts
+if (typeof customElements !== 'undefined') {
+  const originalDefine = customElements.define.bind(customElements);
+  customElements.define = (name: string, constructor: CustomElementConstructor, options?: ElementDefinitionOptions) => {
+    if (!customElements.get(name)) {
+      originalDefine(name, constructor, options);
+    }
+  };
+}
 
 import './array';
 import './set';

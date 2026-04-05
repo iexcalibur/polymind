@@ -11,7 +11,9 @@ import { property } from 'lit/decorators.js';
 import {
   type AIError,
   AIProvider,
+  GeneralNetworkError,
   PaymentRequiredError,
+  RequestTimeoutError,
   UnauthorizedError,
 } from '../provider';
 
@@ -155,9 +157,9 @@ export class AIErrorWrapper extends SignalWatcher(WithDisposable(LitElement)) {
         >
           ${this.actionText}
           ${this.actionTooltip
-            ? html`<affine-tooltip tip-position="top">
+            ? html`<polymind-tooltip tip-position="top">
                 ${this.actionTooltip}
-              </affine-tooltip>`
+              </polymind-tooltip>`
             : nothing}
         </span>
       </div>
@@ -209,20 +211,16 @@ type ErrorProps = {
   actionTooltip?: string;
 };
 
-const generalErrorText =
-  'An error occurred, If this issue persists please let us know.';
-
 const GeneralErrorRenderer = (props: ErrorProps = {}) => {
-  const onClick = () => {
-    window.open('mailto:support@toeverything.info', '_blank');
-  };
+  const onClick = props.actionText === 'AI Settings'
+    ? () => AIProvider.slots.requestUpgradePlan.next({ host: null })
+    : () => {};
 
   return html`<ai-error-wrapper
-    .text=${props.text ?? generalErrorText}
+    .text=${props.text ?? 'An unexpected error occurred.'}
     .errorMessage=${props.errorMessage ?? ''}
     .showDetailPanel=${!!props.errorMessage}
-    .actionText=${props.actionText ?? 'Contact us'}
-    .actionTooltip=${props.actionTooltip ?? 'support@toeverything.info'}
+    .actionText=${props.actionText ?? 'Dismiss'}
     .onClick=${onClick}
   ></ai-error-wrapper>`;
 };
@@ -232,9 +230,49 @@ export function AIChatErrorRenderer(error: AIError, host?: EditorHost | null) {
     return PaymentRequiredErrorRenderer(host);
   } else if (error instanceof UnauthorizedError) {
     return LoginRequiredErrorRenderer(host);
-  } else {
+  } else if (error instanceof RequestTimeoutError) {
     return GeneralErrorRenderer({
+      text: 'AI request timed out. Please check your network connection and try again.',
       errorMessage: error.message,
+      actionText: 'Dismiss',
+    });
+  } else if (error instanceof GeneralNetworkError) {
+    const msg = error.message?.toLowerCase() ?? '';
+    const isApiKeyIssue =
+      msg.includes('api key') ||
+      msg.includes('apikey') ||
+      msg.includes('unauthorized') ||
+      msg.includes('401') ||
+      msg.includes('403') ||
+      msg.includes('not configured');
+
+    if (isApiKeyIssue) {
+      return GeneralErrorRenderer({
+        text: 'AI API key is missing or invalid. Go to Settings \u2192 AI Settings to configure your API key.',
+        errorMessage: error.message,
+        actionText: 'AI Settings',
+      });
+    }
+
+    return GeneralErrorRenderer({
+      text: 'AI request failed: ' + (error.message || 'Network error'),
+      errorMessage: error.message,
+    });
+  } else {
+    // Unknown error — show the actual message
+    const msg = error.message?.toLowerCase() ?? '';
+    const isApiKeyIssue =
+      msg.includes('api key') ||
+      msg.includes('not configured') ||
+      msg.includes('401') ||
+      msg.includes('403');
+
+    return GeneralErrorRenderer({
+      text: isApiKeyIssue
+        ? 'AI API key is missing or invalid. Go to Settings \u2192 AI Settings to configure your API key.'
+        : 'AI error: ' + (error.message || 'Something went wrong.'),
+      errorMessage: error.message,
+      actionText: isApiKeyIssue ? 'AI Settings' : 'Dismiss',
     });
   }
 }
